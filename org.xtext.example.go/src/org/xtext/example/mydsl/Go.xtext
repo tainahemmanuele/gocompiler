@@ -1,0 +1,695 @@
+grammar org.xtext.example.mydsl.Go with org.eclipse.xtext.common.Terminals
+
+generate go "http://www.xtext.org/example/mydsl/Go"
+
+Model:
+	greetings+=Compilation_initial ;
+	
+
+
+Compilation_initial:{Compilation_initial}
+	 pack=PackageClause ';'  (importdecl+=ImportDecl ';' )* ( toplevel+=TopLevelDecl ';' )* 
+;
+
+
+TopLevelDecl:
+	Declaration | FunctionDecl | MethodDecl
+;
+
+MethodDecl:
+	'func' Receiver MethodName signature+=Signature (body+=FunctionBody )?
+;
+
+Receiver:
+	Parameters
+;
+
+FunctionName:
+	IDENTIFIER
+;
+
+FunctionDecl:
+	'func' FunctionName signature+=Signature ( body+=FunctionBody )?
+;
+
+PackageClause:
+	'package' pack=PackageName 
+;
+
+
+terminal NEWLINE:
+	('\u000A')
+	/* the Unicode code point U+000A */ 
+;
+
+terminal UNICODE_CHAR:
+	('\u000A')
+	/* an arbitrary Unicode code point except newline */
+;
+
+terminal UNICODE_LETTER:
+	('\u0041-\u005A')
+	//falta o resto 
+;
+
+terminal UNICODE_DIGIT:
+	('\u0041-\u005A')
+	/* a Unicode code point classified as "Number, decimal digit" */
+;
+
+
+
+KEYWORDS:
+	 'break'
+    | 'default'
+    | 'func'
+    | 'interface'
+    | 'select'
+    | 'case'
+    | 'defer'
+    | 'go'
+    | 'map'
+    | 'struct'
+    | 'chan'
+    | 'else'
+    | 'goto'
+    | 'package'
+    | 'switch'
+    | 'const'
+    | 'fallthrough'
+    | 'if'
+    | 'range'
+    | 'type'
+    | 'continue'
+    | 'for'
+    | 'import'
+    | 'return'
+    | 'var'
+
+    
+;
+
+
+terminal BINARY_OP:
+	"||" | "&&" | REL_OP | ADD_OP | MUL_OP 
+;
+
+terminal REL_OP:
+	"==" | "!=" | "<" | "<=" | ">" | ">="
+;
+
+terminal ADD_OP:
+	"+" | "-" | "|" | "^" 
+;
+
+terminal MUL_OP:
+	"*" | "/" | "%" | "<<" | ">>" | "&" | "&^" 
+;
+
+terminal UNARY_OP:
+	"+" | "-" | "!" | "^" | "*" | "&" | "<-"
+;
+
+terminal ASSING_OP:
+	( ADD_OP | MUL_OP )? '='
+;
+
+
+terminal fragment LETTER:
+	UNICODE_LETTER
+    | '_'
+    | EOF
+;
+
+terminal DECIMAL_DIGIT:
+	('0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9')+
+;
+
+terminal OCTAL_DIGIT:
+	('0'|'1'|'2'|'3'|'4'|'5'|'6'|'7')
+;
+
+terminal HEX_DIGIT :
+	('0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9') | ('A'|'B'|'C'|'D'|'E'|'F') | ('a'|'b'|'c'|'d'|'e'|'f')
+;
+
+terminal IDENTIFIER:
+	LETTER (LETTER | UNICODE_DIGIT)*
+;
+
+INT_LIT:
+	DECIMAL_LIT | OCTAL_LIT | HEX_LIT
+;
+
+terminal DECIMAL_LIT:
+	('1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9') (DECIMAL_DIGIT)
+;
+
+
+terminal OCTAL_LIT:
+	'0' (OCTAL_DIGIT)*
+;
+
+terminal HEX_LIT:
+	'0' ( 'x' | 'X' ) HEX_DIGIT (HEX_DIGIT)+
+;
+
+FLOAT_LIT:
+	DECIMALS '.' (DECIMALS)? (EXPOENT)? |
+	DECIMALS EXPOENT |
+	'.' DECIMALS (EXPOENT)?
+;
+
+terminal DECIMALS:
+	DECIMAL_DIGIT (DECIMAL_DIGIT)+
+;
+
+terminal EXPOENT:
+	('e' | 'E') ('+' | '-')? DECIMALS
+;
+
+IMAGINARY_LIT:
+	(DECIMALS | FLOAT_LIT) 'i'
+;
+
+RUNE_LIT:
+	"'" (UNICODE_VALUE | BYTE_VALUE) "'"
+;
+
+terminal UNICODE_VALUE:
+	UNICODE_CHAR | LITTLE_U_VALUE | BIG_U_VALUE | ESCAPED_CHAR
+;
+
+terminal BYTE_VALUE:
+	OCTAL_BYTE_VALUE | HEX_BYTE_VALUE
+;
+
+// REVISAR AS OCORRENCIAS DOS '\\'
+terminal OCTAL_BYTE_VALUE:
+	'\\' OCTAL_DIGIT OCTAL_DIGIT OCTAL_DIGIT
+;
+
+terminal HEX_BYTE_VALUE:
+	'\\' "x" HEX_DIGIT HEX_DIGIT
+;
+
+terminal LITTLE_U_VALUE:
+	'\\' "u" HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
+;
+
+terminal BIG_U_VALUE:
+	'\\' "U" HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
+;
+
+terminal ESCAPED_CHAR:
+	'\\' ("a" | "b" | "f" | "n" | "r" | "t" | "v" | '\\' | "'" | '"')
+;
+
+STRING_LIT:
+	RAW_STRING_LIT | INTERPRETED_STRING_LIT
+;
+
+terminal RAW_STRING_LIT:
+	"'" (UNICODE_CHAR | NEWLINE)* "'"
+;
+
+terminal INTERPRETED_STRING_LIT:
+	'"' (UNICODE_VALUE | BYTE_VALUE)* '"'
+;
+
+Type:
+	{Type} TypeName | TypeLit | "(" Type ")"
+;
+
+TypeName:
+	IDENTIFIER | QualifiedIdent
+;
+
+QualifiedIdent:
+	PackageName "." IDENTIFIER 
+;
+
+PackageName:
+	IDENTIFIER
+;
+
+TypeLit:
+	ArrayType | StructType | PointerType | FunctionType | InterfaceType | SliceType | MapType | ChannelType
+;
+
+ArrayType:
+	"[" ArrayLength "]" elemtype=ElementType
+;
+
+ArrayLength:
+	Expression
+;
+
+ElementType:
+	Type
+;
+
+SliceType:
+	'[' ']' elemtype=ElementType
+;
+
+StructType: {StructType}
+	'struct' '{' (fielddecl+=FieldDecl ';')* '}'
+;
+
+FieldDecl: {FieldDecl}
+	(indentifierL=IdentifierList type=Type | EmbeddedField) (Tag)?
+;
+
+IdentifierList:
+	IDENTIFIER ("," IDENTIFIER )* 
+;
+
+EmbeddedField:
+	('*')? TypeName
+;
+
+Tag:
+	STRING_LIT
+;
+
+PointerType:
+	'*' basetype=BaseType
+;
+
+BaseType:
+	Type
+;
+
+FunctionType:
+	'func' Signature
+;
+
+Signature:
+	'.' Parameters (result=Result)?
+;
+
+Result:
+	Parameters | Type
+;
+
+Parameters: 
+	{Parameters} '(' (parameterlist=ParameterList (',')?)? ')'
+;
+
+ParameterList:
+	ParameterDecl (',' parameterdecl+=ParameterDecl)*
+;
+
+ParameterDecl:
+	(indentifierL=IdentifierList)? ("...")? type=Type
+;
+
+InterfaceType:{InterfaceType}
+	'interface' '{' (methodspec+=MethodSpec ';')* '}'
+;
+
+MethodSpec:
+	MethodName Signature | {MethodSpec} InterfaceTypeName
+;
+
+MethodName:
+	IDENTIFIER
+;
+
+InterfaceTypeName:
+	TypeName
+;
+
+MapType:
+	'map' '[' keytype=KeyType ']' elemtype=ElementType
+;
+
+KeyType:
+	Type
+;
+
+ChannelType:
+	( 'chan' ('<-')? | '<-' 'chan' ) elemtype=ElementType
+;
+
+Block:
+	'{' StatementList '}'
+;
+
+StatementList:{StatementList}
+	(statment+=Statement ';')*
+;
+
+Statement:{Statement}
+	    declaration=Declaration | labest=LabeledStmt |simplest= SimpleStmt |
+    gotst=GoStmt | ReturnStmt | breakst=BreakStmt | continuest=ContinueStmt | gotost=GotoStmt |
+    falltst=FallthroughStmt | block1=Block | if=IfStmt | switch=SwitchStmt | selectst=SelectStmt | forst=ForStmt |
+    deferst=DeferStmt
+;
+
+
+
+Declaration:
+	ConstDecl | TypeDecl | VarDecl
+;
+
+
+LabeledStmt:
+	Label ':' statement=Statement
+;
+
+SimpleStmt:{SimpleStmt}
+	EmptyStmt | ExpressionStmt | SendStmt | IncDecStmt | Assignment | ShortVarDecl
+;
+
+
+
+GoStmt:
+	'goto' Label 
+;
+
+ReturnStmt:{ReturnStmt}
+	'return' ( expressionlist=ExpressionList )?
+;
+
+BreakStmt:
+	'break' (Label )? 
+;
+
+ContinueStmt:
+	'continue' (Label )?
+;
+
+
+GotoStmt:
+	'goto' Label 
+;
+
+IfStmt:
+	'if' ( simst=SimpleStmt ';' )? expression=Expression block=Block ('else' ( ifs=IfStmt | block2=Block ) )?
+;
+
+
+
+FallthroughStmt:
+	'fallthrough'
+;
+
+SwitchStmt:
+	ExprSwitchStmt | TypeSwitchStmt
+;
+
+
+SelectStmt:{SelectStmt}
+	"select" '{' (commclause+=CommClause )* '}'
+;
+
+
+
+ForStmt:
+	"for" ( condition+=Condition | for+=ForClause | range+=RangeClause )* block=Block
+;
+
+
+DeferStmt:
+	'defer' Expression
+;
+
+ConstDecl:{ConstDecl}
+	'const' ( constspec=ConstSpec | '(' ( constspec2+=ConstSpec ';' )* ')' )
+;
+
+ConstSpec:
+	IdentifierList ( (Type ) '=' expressionlist=ExpressionList )
+;
+
+
+
+TypeDecl:{TypeDecl}
+	'type' ( typespec=TypeSpec | '(' ( typespec2+=TypeSpec ';' )* ')' )
+;
+
+TypeSpec:
+	AliasDecl | TypeDef 
+;
+
+TypeDef:
+	IDENTIFIER Type
+;
+
+AliasDecl:
+	IDENTIFIER '=' Type
+;
+
+
+VarDecl:{VarDecl}
+	"var" ( varspec=VarSpec | '(' (varspec2+=VarSpec ';' )* ')' )
+;
+
+VarSpec:
+	 IdentifierList ( Type ( "=" expressionlist=ExpressionList )? | "=" ExpressionList ) 
+;
+
+EmptyStmt:
+	';'
+;
+
+ExpressionStmt:
+	Expression
+;
+
+SendStmt:
+	ch=Channel "<-" expression=Expression
+;
+
+Channel:
+	Expression
+;
+
+IncDecStmt:
+	Expression ( "++" | "--" ) 
+;
+
+Assignment:
+	expressionlist=ExpressionList ASSING_OP expressionlist2=ExpressionList
+;
+
+
+ShortVarDecl:
+	IdentifierList ':=' ExpressionList 
+;
+
+ExprSwitchStmt:{ExprSwitchStmt}
+	'switch' ( simplestmt=SimpleStmt ';')? (expression=Expression )? "{" (exprcase+=ExprCaseClause )* "}"
+;
+
+ExprCaseClause:
+	ExprSwitchCase ':' statementlist=StatementList
+;
+
+ExprSwitchCase:{ExprSwitchCase}
+	'case' expressionlist=ExpressionList | {ExprSwitchCase} 'default'
+;
+
+TypeSwitchStmt:
+	'switch' ( SimpleStmt ';' )? typesg=TypeSwitchGuard '{' ( typecc+=TypeCaseClause )* '}'
+;
+
+TypeSwitchGuard:
+	(IDENTIFIER ':=' )? PrimaryExpr '.' '(' 'type' ')'
+;
+
+TypeCaseClause:
+	TypeSwitchCase ':' statementlist=StatementList 
+;
+
+TypeSwitchCase:
+	{TypeSwitchCase}'case' typelist=TypeList | {TypeSwitchCase}'default'
+;
+
+TypeList:
+	type=Type ( ',' type2+=Type )*
+;
+
+CommClause:
+	CommCase ':'  statementlist2=StatementList
+;
+
+CommCase:
+	{CommCase} 'case' ( sendstmt=SendStmt | recvstmt=RecvStmt ) | {CommCase}'default'
+;
+
+RecvStmt:
+	( ExpressionList "=" | IdentifierList ":=" )? recvexpr=RecvExpr
+;
+
+RecvExpr:
+	Expression
+;
+
+Condition:
+	Expression
+;
+
+ForClause:
+	(InitStmt )? ';' ( condition=Condition )? ';' (poststmt= PostStmt ) ;
+
+RangeClause:
+	 (expressionlist=ExpressionList "=" | IdentifierList ":=" )? 'range' expression=Expression 
+;
+
+
+InitStmt:
+	SimpleStmt
+;
+
+PostStmt:
+	SimpleStmt
+;
+
+
+Label:
+	IDENTIFIER
+;
+
+ExpressionList:
+	Expression ( ';' expression2+=Expression )*
+;
+
+Expression:
+	UnaryExpr exp=Expression2 
+;
+
+Expression2: {Expression2}
+	(BINARY_OP expression=Expression expression2=Expression2)?
+;
+
+UnaryExpr:
+	PrimaryExpr | UNARY_OP UnaryExpr
+;
+
+PrimaryExpr:
+	Operand pr=PrimaryExpr2 |
+    Conversion pr=PrimaryExpr2 |
+    MethodExpr pr=PrimaryExpr2
+;
+
+PrimaryExpr2: {PrimaryExpr2}
+    (Selector pr=PrimaryExpr2 |
+    index=Index pr=PrimaryExpr2 |
+    slice=Slice pr=PrimaryExpr2 |
+    typeass=TypeAssertion pr=PrimaryExpr2 |
+    arguments=Arguments pr=PrimaryExpr2)?
+;
+
+
+Operand:{Operand}
+	literal=Literal | operandn=OperandName | '(' expression=Expression ')'
+;
+
+Conversion:
+	type=Type '(' expression=Expression ( ',' )? ')'
+;
+
+
+MethodExpr:
+	ReceiverType '.' MethodName 
+;
+
+Selector:
+	'.' IDENTIFIER 
+;
+
+Index:
+	'[' expression=Expression ']'
+;
+
+Slice:{Slice}
+	'[' (expression=Expression )? ':' ( expression2=Expression )? ']' |
+                 '[' ( expression3=Expression )? ':' expression4=Expression ':' expression5=Expression ']'
+;
+
+TypeAssertion:
+	'.' '(' Type ')' 
+;
+
+
+Arguments:{Arguments}
+	'(' ( ( expressionlist=ExpressionList | type=Type ( ',' expressionlist=ExpressionList )?)? ( '...')? ( ',' )? )? ')'
+;
+
+
+
+Literal: {Literal}
+	BasicLit | CompositeLit | FunctionLit
+;
+
+FunctionLit:
+	'func' Signature functionbody=FunctionBody
+;
+
+
+CompositeLit:
+	literalt=LiteralType literalv=LiteralValue 
+;
+
+
+
+LiteralType:{LiteralType}
+	structtype=StructType |arraytype= ArrayType | '[' '...' ']' elementype=ElementType |
+                slicetype=SliceType | maptype=MapType | typename=TypeName
+;
+
+LiteralValue:{LiteralValue}
+	'{' ( elementlist=ElementList (',' )? )? '}'
+;
+
+ElementList:
+	KeyedElement ("," keyedelement+=KeyedElement )*
+;
+
+KeyedElement:
+	( Key ':' )? element=Element 
+;
+
+
+Key:{Key}
+	FieldName | Expression | LiteralValue
+;
+
+FieldName:
+	IDENTIFIER
+;
+
+Element:
+	Expression | LiteralValue 
+;
+
+BasicLit:
+	INT_LIT | FLOAT_LIT | IMAGINARY_LIT | RUNE_LIT | STRING_LIT
+;
+
+ReceiverType:
+	type=Type 
+;
+
+FunctionBody:
+	Block
+;
+
+OperandName:
+	IDENTIFIER | QualifiedIdent
+;
+
+ImportDecl:{ImportDecl}
+	"import" ( ImportSpec | '(' (ImportSpec ';' )* ')' )
+;
+
+ImportSpec:
+	( "." | PackageName )? ImportPath
+;
+
+ImportPath:
+	STRING_LIT
+;
