@@ -6,29 +6,29 @@
         eType="#//Compilation_initial" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Compilation_initial">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pack" eType="#//PackageClause"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initial" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="importdecl" upperBound="-1"
         eType="#//ImportDecl" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="toplevel" upperBound="-1"
         eType="#//TopLevelDecl" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TopLevelDecl"/>
-  <eClassifiers xsi:type="ecore:EClass" name="MethodDecl" eSuperTypes="#//TopLevelDecl"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Receiver" eSuperTypes="#//MethodDecl">
+  <eClassifiers xsi:type="ecore:EClass" name="MethodDecl" eSuperTypes="#//TopLevelDecl">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="receiver" eType="#//Receiver"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="method" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="signature" upperBound="-1"
         eType="#//Signature" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="body" upperBound="-1" eType="#//FunctionBody"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Receiver"/>
   <eClassifiers xsi:type="ecore:EClass" name="FunctionDecl" eSuperTypes="#//TopLevelDecl">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="functionn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="signature" upperBound="-1"
         eType="#//Signature" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="body" upperBound="-1" eType="#//FunctionBody"
         containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PackageClause">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pack" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Type" eSuperTypes="#//ElementType #//BaseType #//Result #//KeyType #//ConstSpec #//TypeDef #//AliasDecl #//VarSpec #//TypeAssertion">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expressionlist" eType="#//ExpressionList"
@@ -124,10 +124,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Declaration" eSuperTypes="#//TopLevelDecl"/>
   <eClassifiers xsi:type="ecore:EClass" name="LabeledStmt">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="statement" eType="#//Statement"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SimpleStmt" eSuperTypes="#//TypeSwitchStmt #//InitStmt #//PostStmt"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleStmt" eSuperTypes="#//TypeSwitchStmt #//InitStmt #//PostStmt">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="empty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ReturnStmt" eSuperTypes="#//Statement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expressionlist" eType="#//ExpressionList"
         containment="true"/>
@@ -366,5 +369,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FunctionBody"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ImportDecl"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ImportDecl">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="imports" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="imports2" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
 </ecore:EPackage>
