@@ -1130,7 +1130,7 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Compilation_initial returns Compilation_initial
 	 *
 	 * Constraint:
-	 *     (initial=PackageClause importdecl+=ImportDecl* toplevel+=TopLevelDecl*)
+	 *     (initial=PackageClause importdecl+=ImportDecl* toplevel+=TopLevelDecl*)?
 	 */
 	protected void sequence_Compilation_initial(ISerializationContext context, Compilation_initial semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

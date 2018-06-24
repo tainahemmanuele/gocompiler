@@ -42,40 +42,44 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.Compilation_initial");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cCompilation_initialAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cInitialAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cInitialPackageClauseParserRuleCall_1_0 = (RuleCall)cInitialAssignment_1.eContents().get(0);
-		private final Assignment cImportdeclAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cImportdeclImportDeclParserRuleCall_2_0 = (RuleCall)cImportdeclAssignment_2.eContents().get(0);
-		private final Assignment cToplevelAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cToplevelTopLevelDeclParserRuleCall_3_0 = (RuleCall)cToplevelAssignment_3.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Assignment cInitialAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cInitialPackageClauseParserRuleCall_1_0_0 = (RuleCall)cInitialAssignment_1_0.eContents().get(0);
+		private final Assignment cImportdeclAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cImportdeclImportDeclParserRuleCall_1_1_0 = (RuleCall)cImportdeclAssignment_1_1.eContents().get(0);
+		private final Assignment cToplevelAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cToplevelTopLevelDeclParserRuleCall_1_2_0 = (RuleCall)cToplevelAssignment_1_2.eContents().get(0);
 		
 		//Compilation_initial:
-		//	{Compilation_initial} initial=PackageClause importdecl+=ImportDecl* toplevel+=TopLevelDecl*;
+		//	{Compilation_initial} (initial=PackageClause importdecl+=ImportDecl* toplevel+=TopLevelDecl*)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Compilation_initial} initial=PackageClause importdecl+=ImportDecl* toplevel+=TopLevelDecl*
+		//{Compilation_initial} (initial=PackageClause importdecl+=ImportDecl* toplevel+=TopLevelDecl*)?
 		public Group getGroup() { return cGroup; }
 		
 		//{Compilation_initial}
 		public Action getCompilation_initialAction_0() { return cCompilation_initialAction_0; }
 		
+		//(initial=PackageClause importdecl+=ImportDecl* toplevel+=TopLevelDecl*)?
+		public Group getGroup_1() { return cGroup_1; }
+		
 		//initial=PackageClause
-		public Assignment getInitialAssignment_1() { return cInitialAssignment_1; }
+		public Assignment getInitialAssignment_1_0() { return cInitialAssignment_1_0; }
 		
 		//PackageClause
-		public RuleCall getInitialPackageClauseParserRuleCall_1_0() { return cInitialPackageClauseParserRuleCall_1_0; }
+		public RuleCall getInitialPackageClauseParserRuleCall_1_0_0() { return cInitialPackageClauseParserRuleCall_1_0_0; }
 		
 		//importdecl+=ImportDecl*
-		public Assignment getImportdeclAssignment_2() { return cImportdeclAssignment_2; }
+		public Assignment getImportdeclAssignment_1_1() { return cImportdeclAssignment_1_1; }
 		
 		//ImportDecl
-		public RuleCall getImportdeclImportDeclParserRuleCall_2_0() { return cImportdeclImportDeclParserRuleCall_2_0; }
+		public RuleCall getImportdeclImportDeclParserRuleCall_1_1_0() { return cImportdeclImportDeclParserRuleCall_1_1_0; }
 		
 		//toplevel+=TopLevelDecl*
-		public Assignment getToplevelAssignment_3() { return cToplevelAssignment_3; }
+		public Assignment getToplevelAssignment_1_2() { return cToplevelAssignment_1_2; }
 		
 		//TopLevelDecl
-		public RuleCall getToplevelTopLevelDeclParserRuleCall_3_0() { return cToplevelTopLevelDeclParserRuleCall_3_0; }
+		public RuleCall getToplevelTopLevelDeclParserRuleCall_1_2_0() { return cToplevelTopLevelDeclParserRuleCall_1_2_0; }
 	}
 	public class TopLevelDeclElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.TopLevelDecl");
@@ -1355,16 +1359,16 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSemicolonKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
 		
 		//StatementList:
-		//	{StatementList} (statment+=Statement ';')*;
+		//	{StatementList} (statment+=Statement ';'?)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{StatementList} (statment+=Statement ';')*
+		//{StatementList} (statment+=Statement ';'?)*
 		public Group getGroup() { return cGroup; }
 		
 		//{StatementList}
 		public Action getStatementListAction_0() { return cStatementListAction_0; }
 		
-		//(statment+=Statement ';')*
+		//(statment+=Statement ';'?)*
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//statment+=Statement
@@ -1373,7 +1377,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		//Statement
 		public RuleCall getStatmentStatementParserRuleCall_1_0_0() { return cStatmentStatementParserRuleCall_1_0_0; }
 		
-		//';'
+		//';'?
 		public Keyword getSemicolonKeyword_1_1() { return cSemicolonKeyword_1_1; }
 	}
 	public class StatementElements extends AbstractParserRuleElementFinder {
@@ -4537,7 +4541,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Compilation_initial:
-	//	{Compilation_initial} initial=PackageClause importdecl+=ImportDecl* toplevel+=TopLevelDecl*;
+	//	{Compilation_initial} (initial=PackageClause importdecl+=ImportDecl* toplevel+=TopLevelDecl*)?;
 	public Compilation_initialElements getCompilation_initialAccess() {
 		return pCompilation_initial;
 	}
@@ -5214,7 +5218,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//StatementList:
-	//	{StatementList} (statment+=Statement ';')*;
+	//	{StatementList} (statment+=Statement ';'?)*;
 	public StatementListElements getStatementListAccess() {
 		return pStatementList;
 	}

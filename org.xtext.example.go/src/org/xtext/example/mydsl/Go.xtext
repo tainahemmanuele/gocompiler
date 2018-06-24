@@ -6,7 +6,7 @@ Model:
 	greetings+=Compilation_initial;
 
 Compilation_initial:
-	{Compilation_initial} initial=PackageClause (importdecl+=ImportDecl)* (toplevel+=TopLevelDecl)*;
+	{Compilation_initial} (initial=PackageClause (importdecl+=ImportDecl)* (toplevel+=TopLevelDecl)*)?;
 
 TopLevelDecl:
 	Declaration | FunctionDecl | MethodDecl;
@@ -522,7 +522,7 @@ Block:
 
 StatementList:
 	{StatementList}
-	(statment+=Statement ';')*;
+	(statment+=Statement (';')?)*;
 
 Statement:
 	{Statement}

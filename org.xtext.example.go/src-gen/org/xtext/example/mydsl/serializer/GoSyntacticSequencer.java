@@ -37,6 +37,7 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_RangeClause___IdentifierListParserRuleCall_0_1_0_ColonEqualsSignKeyword_0_1_1__q;
 	protected AbstractElementAlias match_RecvStmt___IdentifierListParserRuleCall_0_1_0_ColonEqualsSignKeyword_0_1_1__q;
 	protected AbstractElementAlias match_ShortVarDecl___IdentifierListParserRuleCall_0_ColonEqualsSignKeyword_1__q;
+	protected AbstractElementAlias match_StatementList_SemicolonKeyword_1_1_q;
 	protected AbstractElementAlias match_TypeSwitchGuard___IDENTIFIERParserRuleCall_0_0_ColonEqualsSignKeyword_0_1__q;
 	protected AbstractElementAlias match_Type_LeftParenthesisKeyword_2_0_a;
 	protected AbstractElementAlias match_UnaryExpr_UNARY_OPTerminalRuleCall_1_0_a;
@@ -59,6 +60,7 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_RangeClause___IdentifierListParserRuleCall_0_1_0_ColonEqualsSignKeyword_0_1_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getRangeClauseAccess().getIdentifierListParserRuleCall_0_1_0()), new TokenAlias(false, false, grammarAccess.getRangeClauseAccess().getColonEqualsSignKeyword_0_1_1()));
 		match_RecvStmt___IdentifierListParserRuleCall_0_1_0_ColonEqualsSignKeyword_0_1_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getRecvStmtAccess().getIdentifierListParserRuleCall_0_1_0()), new TokenAlias(false, false, grammarAccess.getRecvStmtAccess().getColonEqualsSignKeyword_0_1_1()));
 		match_ShortVarDecl___IdentifierListParserRuleCall_0_ColonEqualsSignKeyword_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getShortVarDeclAccess().getIdentifierListParserRuleCall_0()), new TokenAlias(false, false, grammarAccess.getShortVarDeclAccess().getColonEqualsSignKeyword_1()));
+		match_StatementList_SemicolonKeyword_1_1_q = new TokenAlias(false, true, grammarAccess.getStatementListAccess().getSemicolonKeyword_1_1());
 		match_TypeSwitchGuard___IDENTIFIERParserRuleCall_0_0_ColonEqualsSignKeyword_0_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getTypeSwitchGuardAccess().getIDENTIFIERParserRuleCall_0_0()), new TokenAlias(false, false, grammarAccess.getTypeSwitchGuardAccess().getColonEqualsSignKeyword_0_1()));
 		match_Type_LeftParenthesisKeyword_2_0_a = new TokenAlias(true, true, grammarAccess.getTypeAccess().getLeftParenthesisKeyword_2_0());
 		match_UnaryExpr_UNARY_OPTerminalRuleCall_1_0_a = new TokenAlias(true, true, grammarAccess.getUnaryExprAccess().getUNARY_OPTerminalRuleCall_1_0());
@@ -261,6 +263,8 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_RecvStmt___IdentifierListParserRuleCall_0_1_0_ColonEqualsSignKeyword_0_1_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_ShortVarDecl___IdentifierListParserRuleCall_0_ColonEqualsSignKeyword_1__q.equals(syntax))
 				emit_ShortVarDecl___IdentifierListParserRuleCall_0_ColonEqualsSignKeyword_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_StatementList_SemicolonKeyword_1_1_q.equals(syntax))
+				emit_StatementList_SemicolonKeyword_1_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_TypeSwitchGuard___IDENTIFIERParserRuleCall_0_0_ColonEqualsSignKeyword_0_1__q.equals(syntax))
 				emit_TypeSwitchGuard___IDENTIFIERParserRuleCall_0_0_ColonEqualsSignKeyword_0_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Type_LeftParenthesisKeyword_2_0_a.equals(syntax))
@@ -478,6 +482,19 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) UNARY_OP* type=Type
 	 */
 	protected void emit_ShortVarDecl___IdentifierListParserRuleCall_0_ColonEqualsSignKeyword_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ';'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     statment+=Statement (ambiguity) '}' (rule end)
+	 *     statment+=Statement (ambiguity) (rule end)
+	 *     statment+=Statement (ambiguity) statment+=Statement
+	 */
+	protected void emit_StatementList_SemicolonKeyword_1_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

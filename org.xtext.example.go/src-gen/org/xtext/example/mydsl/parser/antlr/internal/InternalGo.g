@@ -130,61 +130,63 @@ ruleCompilation_initial returns [EObject current=null]
 		)
 		(
 			(
-				{
-					newCompositeNode(grammarAccess.getCompilation_initialAccess().getInitialPackageClauseParserRuleCall_1_0());
-				}
-				lv_initial_1_0=rulePackageClause
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getCompilation_initialRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getCompilation_initialAccess().getInitialPackageClauseParserRuleCall_1_0_0());
 					}
-					set(
-						$current,
-						"initial",
-						lv_initial_1_0,
-						"org.xtext.example.mydsl.Go.PackageClause");
-					afterParserOrEnumRuleCall();
-				}
+					lv_initial_1_0=rulePackageClause
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getCompilation_initialRule());
+						}
+						set(
+							$current,
+							"initial",
+							lv_initial_1_0,
+							"org.xtext.example.mydsl.Go.PackageClause");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
-		)
-		(
 			(
-				{
-					newCompositeNode(grammarAccess.getCompilation_initialAccess().getImportdeclImportDeclParserRuleCall_2_0());
-				}
-				lv_importdecl_2_0=ruleImportDecl
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getCompilation_initialRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getCompilation_initialAccess().getImportdeclImportDeclParserRuleCall_1_1_0());
 					}
-					add(
-						$current,
-						"importdecl",
-						lv_importdecl_2_0,
-						"org.xtext.example.mydsl.Go.ImportDecl");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
-		(
+					lv_importdecl_2_0=ruleImportDecl
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getCompilation_initialRule());
+						}
+						add(
+							$current,
+							"importdecl",
+							lv_importdecl_2_0,
+							"org.xtext.example.mydsl.Go.ImportDecl");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)*
 			(
-				{
-					newCompositeNode(grammarAccess.getCompilation_initialAccess().getToplevelTopLevelDeclParserRuleCall_3_0());
-				}
-				lv_toplevel_3_0=ruleTopLevelDecl
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getCompilation_initialRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getCompilation_initialAccess().getToplevelTopLevelDeclParserRuleCall_1_2_0());
 					}
-					add(
-						$current,
-						"toplevel",
-						lv_toplevel_3_0,
-						"org.xtext.example.mydsl.Go.TopLevelDecl");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
+					lv_toplevel_3_0=ruleTopLevelDecl
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getCompilation_initialRule());
+						}
+						add(
+							$current,
+							"toplevel",
+							lv_toplevel_3_0,
+							"org.xtext.example.mydsl.Go.TopLevelDecl");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)*
+		)?
 	)
 ;
 
@@ -2365,10 +2367,12 @@ ruleStatementList returns [EObject current=null]
 					}
 				)
 			)
-			otherlv_2=';'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getStatementListAccess().getSemicolonKeyword_1_1());
-			}
+			(
+				otherlv_2=';'
+				{
+					newLeafNode(otherlv_2, grammarAccess.getStatementListAccess().getSemicolonKeyword_1_1());
+				}
+			)?
 		)*
 	)
 ;
