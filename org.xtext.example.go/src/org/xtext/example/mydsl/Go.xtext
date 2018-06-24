@@ -422,10 +422,10 @@ STRING_LIT:
 	RAW_STRING_LIT | INTERPRETED_STRING_LIT;
 
 terminal RAW_STRING_LIT:
-	"'" (UNICODE_CHAR | NEWLINE)* "'";
+	"'" (UNICODE_CHAR | NEWLINE)? "'";
 
 terminal INTERPRETED_STRING_LIT:
-	'"' (UNICODE_VALUE | BYTE_VALUE)* '"';
+	'"' (UNICODE_VALUE | BYTE_VALUE)? '"';
 
 Type:
 	{Type} TypeName | TypeLit | "(" Type ")";
@@ -786,7 +786,7 @@ ImportDecl:
 	'import' (imports+=ImportSpec | '(' (imports2+=ImportSpec)* ')');
 
 ImportSpec:
-	STRING ('.' | IDENTIFIER)? ImportPath STRING;
+	 ('.' | IDENTIFIER)? ImportPath ;
 
 ImportPath:
-	STRING_LIT;
+	STRING;

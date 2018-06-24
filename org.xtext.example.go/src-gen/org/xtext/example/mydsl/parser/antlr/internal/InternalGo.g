@@ -7534,47 +7534,33 @@ ruleImportSpec returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToke
 	leaveRule();
 }:
 	(
-		this_STRING_0=RULE_STRING
-		{
-			$current.merge(this_STRING_0);
-		}
-		{
-			newLeafNode(this_STRING_0, grammarAccess.getImportSpecAccess().getSTRINGTerminalRuleCall_0());
-		}
 		(
 			kw='.'
 			{
 				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getImportSpecAccess().getFullStopKeyword_1_0());
+				newLeafNode(kw, grammarAccess.getImportSpecAccess().getFullStopKeyword_0_0());
 			}
 			    |
 			{
-				newCompositeNode(grammarAccess.getImportSpecAccess().getIDENTIFIERParserRuleCall_1_1());
+				newCompositeNode(grammarAccess.getImportSpecAccess().getIDENTIFIERParserRuleCall_0_1());
 			}
-			this_IDENTIFIER_2=ruleIDENTIFIER
+			this_IDENTIFIER_1=ruleIDENTIFIER
 			{
-				$current.merge(this_IDENTIFIER_2);
+				$current.merge(this_IDENTIFIER_1);
 			}
 			{
 				afterParserOrEnumRuleCall();
 			}
 		)?
 		{
-			newCompositeNode(grammarAccess.getImportSpecAccess().getImportPathParserRuleCall_2());
+			newCompositeNode(grammarAccess.getImportSpecAccess().getImportPathParserRuleCall_1());
 		}
-		this_ImportPath_3=ruleImportPath
+		this_ImportPath_2=ruleImportPath
 		{
-			$current.merge(this_ImportPath_3);
+			$current.merge(this_ImportPath_2);
 		}
 		{
 			afterParserOrEnumRuleCall();
-		}
-		this_STRING_4=RULE_STRING
-		{
-			$current.merge(this_STRING_4);
-		}
-		{
-			newLeafNode(this_STRING_4, grammarAccess.getImportSpecAccess().getSTRINGTerminalRuleCall_3());
 		}
 	)
 ;
@@ -7594,15 +7580,12 @@ ruleImportPath returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToke
 @after {
 	leaveRule();
 }:
+	this_STRING_0=RULE_STRING
 	{
-		newCompositeNode(grammarAccess.getImportPathAccess().getSTRING_LITParserRuleCall());
-	}
-	this_STRING_LIT_0=ruleSTRING_LIT
-	{
-		$current.merge(this_STRING_LIT_0);
+		$current.merge(this_STRING_0);
 	}
 	{
-		afterParserOrEnumRuleCall();
+		newLeafNode(this_STRING_0, grammarAccess.getImportPathAccess().getSTRINGTerminalRuleCall());
 	}
 ;
 
@@ -7658,9 +7641,9 @@ fragment RULE_BIG_U_VALUE : '\\' 'U' RULE_HEX_DIGIT RULE_HEX_DIGIT RULE_HEX_DIGI
 
 fragment RULE_ESCAPED_CHAR : '\\' ('a'|'b'|'f'|'n'|'r'|'t'|'v'|'\\'|'\''|'"');
 
-RULE_RAW_STRING_LIT : '\'' (RULE_UNICODE_CHAR|RULE_NEWLINE)* '\'';
+RULE_RAW_STRING_LIT : '\'' (RULE_UNICODE_CHAR|RULE_NEWLINE)? '\'';
 
-RULE_INTERPRETED_STRING_LIT : '"' (RULE_UNICODE_VALUE|RULE_BYTE_VALUE)* '"';
+RULE_INTERPRETED_STRING_LIT : '"' (RULE_UNICODE_VALUE|RULE_BYTE_VALUE)? '"';
 
 fragment RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

@@ -4140,48 +4140,40 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	public class ImportSpecElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.ImportSpec");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cSTRINGTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Keyword cFullStopKeyword_1_0 = (Keyword)cAlternatives_1.eContents().get(0);
-		private final RuleCall cIDENTIFIERParserRuleCall_1_1 = (RuleCall)cAlternatives_1.eContents().get(1);
-		private final RuleCall cImportPathParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
-		private final RuleCall cSTRINGTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Keyword cFullStopKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
+		private final RuleCall cIDENTIFIERParserRuleCall_0_1 = (RuleCall)cAlternatives_0.eContents().get(1);
+		private final RuleCall cImportPathParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		
 		//ImportSpec:
-		//	STRING ('.' | IDENTIFIER)? ImportPath STRING;
+		//	('.' | IDENTIFIER)? ImportPath;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//STRING ('.' | IDENTIFIER)? ImportPath STRING
+		//('.' | IDENTIFIER)? ImportPath
 		public Group getGroup() { return cGroup; }
 		
-		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_0() { return cSTRINGTerminalRuleCall_0; }
-		
 		//('.' | IDENTIFIER)?
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
 		
 		//'.'
-		public Keyword getFullStopKeyword_1_0() { return cFullStopKeyword_1_0; }
+		public Keyword getFullStopKeyword_0_0() { return cFullStopKeyword_0_0; }
 		
 		//IDENTIFIER
-		public RuleCall getIDENTIFIERParserRuleCall_1_1() { return cIDENTIFIERParserRuleCall_1_1; }
+		public RuleCall getIDENTIFIERParserRuleCall_0_1() { return cIDENTIFIERParserRuleCall_0_1; }
 		
 		//ImportPath
-		public RuleCall getImportPathParserRuleCall_2() { return cImportPathParserRuleCall_2; }
-		
-		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_3() { return cSTRINGTerminalRuleCall_3; }
+		public RuleCall getImportPathParserRuleCall_1() { return cImportPathParserRuleCall_1; }
 	}
 	public class ImportPathElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.ImportPath");
-		private final RuleCall cSTRING_LITParserRuleCall = (RuleCall)rule.eContents().get(1);
+		private final RuleCall cSTRINGTerminalRuleCall = (RuleCall)rule.eContents().get(1);
 		
 		//ImportPath:
-		//	STRING_LIT;
+		//	STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//STRING_LIT
-		public RuleCall getSTRING_LITParserRuleCall() { return cSTRING_LITParserRuleCall; }
+		//STRING
+		public RuleCall getSTRINGTerminalRuleCall() { return cSTRINGTerminalRuleCall; }
 	}
 	
 	
@@ -4904,13 +4896,13 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal RAW_STRING_LIT:
-	//	"'" (UNICODE_CHAR | NEWLINE)* "'";
+	//	"'" (UNICODE_CHAR | NEWLINE)? "'";
 	public TerminalRule getRAW_STRING_LITRule() {
 		return tRAW_STRING_LIT;
 	}
 	
 	//terminal INTERPRETED_STRING_LIT:
-	//	'"' (UNICODE_VALUE | BYTE_VALUE)* '"';
+	//	'"' (UNICODE_VALUE | BYTE_VALUE)? '"';
 	public TerminalRule getINTERPRETED_STRING_LITRule() {
 		return tINTERPRETED_STRING_LIT;
 	}
@@ -6014,7 +6006,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ImportSpec:
-	//	STRING ('.' | IDENTIFIER)? ImportPath STRING;
+	//	('.' | IDENTIFIER)? ImportPath;
 	public ImportSpecElements getImportSpecAccess() {
 		return pImportSpec;
 	}
@@ -6024,7 +6016,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ImportPath:
-	//	STRING_LIT;
+	//	STRING;
 	public ImportPathElements getImportPathAccess() {
 		return pImportPath;
 	}
