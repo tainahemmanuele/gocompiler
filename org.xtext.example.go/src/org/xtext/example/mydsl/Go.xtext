@@ -17,6 +17,7 @@ MethodDecl:
 
 Receiver:
 	Parameters;
+	
 
 FunctionName:
 	IDENTIFIER;
@@ -428,13 +429,13 @@ terminal INTERPRETED_STRING_LIT:
 	'"' (UNICODE_VALUE | BYTE_VALUE)? '"';
 
 Type:
-	{Type} TypeName | TypeLit | "(" Type ")";
+	{Type} tp=TypeName | TypeLit | "(" Type ")";
 
 TypeName:
-	IDENTIFIER | QualifiedIdent;
+	IDENTIFIER | QualifiedIdent | STRING ;
 
 QualifiedIdent:
-	PackageName "." IDENTIFIER;
+	PackageName '.' IDENTIFIER;
 
 PackageName:
 	IDENTIFIER;
@@ -460,7 +461,7 @@ StructType:
 
 FieldDecl:
 	{FieldDecl}
-	(indentifierL=IdentifierList type=Type | EmbeddedField) (Tag)?;
+	(indentifierL=IdentifierList type=Type | embedded=EmbeddedField) (tag=Tag)?;
 
 IdentifierList:
 	IDENTIFIER ("," IDENTIFIER)*;
@@ -500,7 +501,7 @@ InterfaceType:
 	'interface' '{' (methodspec+=MethodSpec ';')* '}';
 
 MethodSpec:
-	MethodName Signature | {MethodSpec} InterfaceTypeName;
+	mn=MethodName signature=Signature | {MethodSpec} itn=InterfaceTypeName;
 
 MethodName:
 	IDENTIFIER;
@@ -581,7 +582,7 @@ ConstDecl:
 	'const' (constspec=ConstSpec | '(' (constspec2+=ConstSpec ';')* ')');
 
 ConstSpec:
-	IdentifierList ((Type) '=' expressionlist=ExpressionList);
+	id=IdentifierList tp=Type '=' expressionlist=ExpressionList;
 
 TypeDecl:
 	{TypeDecl}
@@ -591,17 +592,17 @@ TypeSpec:
 	AliasDecl | TypeDef;
 
 TypeDef:
-	IDENTIFIER Type;
+	id=IDENTIFIER tp=Type;
 
 AliasDecl:
-	IDENTIFIER '=' Type;
+	id=IDENTIFIER '=' tp=Type;
 
 VarDecl:
 	{VarDecl}
 	"var" (varspec=VarSpec | '(' (varspec2+=VarSpec ';')* ')');
 
 VarSpec:
-	IdentifierList (Type ("=" expressionlist=ExpressionList)? | "=" ExpressionList);
+	id=IdentifierList (tp2+=Type ("=" expressionlist=ExpressionList)? | '=' el=ExpressionList);
 
 EmptyStmt:
 	';';
@@ -619,10 +620,10 @@ IncDecStmt:
 	Expression ("++" | "--");
 
 Assignment:
-	expressionlist=ExpressionList ASSING_OP expressionlist2=ExpressionList;
+	expressionlist=ExpressionList asop=ASSING_OP expressionlist2=ExpressionList;
 
 ShortVarDecl:
-	IdentifierList ':=' ExpressionList;
+	idl=IdentifierList ':=' epl=ExpressionList;
 
 ExprSwitchStmt:
 	{ExprSwitchStmt}
@@ -639,7 +640,7 @@ TypeSwitchStmt:
 	'switch' (SimpleStmt ';')? typesg=TypeSwitchGuard '{' (typecc+=TypeCaseClause)* '}';
 
 TypeSwitchGuard:
-	(IDENTIFIER ':=')? PrimaryExpr '.' '(' 'type' ')';
+	(id=IDENTIFIER ':=')? per=PrimaryExpr '.' '(' 'type' ')';
 
 TypeCaseClause:
 	TypeSwitchCase ':' statementlist=StatementList;
@@ -657,7 +658,7 @@ CommCase:
 	{CommCase} 'case' (sendstmt=SendStmt | recvstmt=RecvStmt) | {CommCase} 'default';
 
 RecvStmt:
-	(ExpressionList "=" | IdentifierList ":=")? recvexpr=RecvExpr;
+	(ExpressionList "=" | idl=IdentifierList ":=")? recvexpr=RecvExpr;
 
 RecvExpr:
 	Expression;
@@ -669,7 +670,7 @@ ForClause:
 	(InitStmt)? ';' (condition=Condition)? ';' (poststmt=PostStmt);
 
 RangeClause:
-	(expressionlist=ExpressionList "=" | IdentifierList ":=")? 'range' expression=Expression;
+	(expressionlist=ExpressionList "=" | idl=IdentifierList ":=")? 'range' expression=Expression;
 
 InitStmt:
 	SimpleStmt;
@@ -683,15 +684,15 @@ Label:
 ExpressionList:
 	Expression (';' expression2+=Expression)*;
 
-Expression:
-	UnaryExpr exp=Expression2;
+Expression:{Expression}
+	up=UnaryExpr exp=Expression2;
 
 Expression2:
 	{Expression2}
-	(BINARY_OP expression=Expression expression2=Expression2)?;
+	(bop=BINARY_OP expression=Expression expression2=Expression2)?;
 
 UnaryExpr:
-	PrimaryExpr | UNARY_OP UnaryExpr;
+	PrimaryExpr | up=UNARY_OP ue=UnaryExpr;
 
 PrimaryExpr:
 	Operand pr=PrimaryExpr2 |
@@ -700,7 +701,7 @@ PrimaryExpr:
 
 PrimaryExpr2:
 	{PrimaryExpr2}
-	(Selector pr=PrimaryExpr2 |
+	(selector=Selector pr=PrimaryExpr2 |
 	index=Index pr=PrimaryExpr2 |
 	slice=Slice pr=PrimaryExpr2 |
 	typeass=TypeAssertion pr=PrimaryExpr2 |
@@ -714,7 +715,7 @@ Conversion:
 	type=Type '(' expression=Expression (',')? ')';
 
 MethodExpr:
-	ReceiverType '.' MethodName;
+	ReceiverType '.' methodn=MethodName;
 
 Selector:
 	'.' IDENTIFIER;
@@ -736,7 +737,7 @@ Arguments:
 
 Literal:
 	{Literal}
-	BasicLit | CompositeLit | FunctionLit;
+	basic=BasicLit | CompositeLit | FunctionLit;
 
 FunctionLit:
 	'func' Signature functionbody=FunctionBody;
@@ -761,7 +762,7 @@ KeyedElement:
 
 Key:
 	{Key}
-	FieldName | Expression | LiteralValue;
+	fieldn=FieldName | Expression | LiteralValue;
 
 FieldName:
 	IDENTIFIER;
@@ -770,7 +771,7 @@ Element:
 	Expression | LiteralValue;
 
 BasicLit:
-	INT_LIT | FLOAT_LIT | IMAGINARY_LIT | RUNE_LIT | STRING_LIT;
+	INT_LIT | FLOAT_LIT | IMAGINARY_LIT | RUNE_LIT | STRING;
 
 ReceiverType:
 	type=Type;
