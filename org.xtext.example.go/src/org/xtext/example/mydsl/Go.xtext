@@ -356,7 +356,7 @@ terminal LETTER:
 	| ID;
 
 terminal DECIMAL_DIGIT:
-	('0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9')+;
+	INT;
 
 terminal OCTAL_DIGIT:
 	('0' | '1' | '2' | '3' | '4' | '5' | '6' | '7');
@@ -368,16 +368,16 @@ terminal HEX_DIGIT:
 IDENTIFIER:
 	LETTER (LETTER | UNICODE_DIGIT)*;
 
-INT_LIT:
+terminal INT_LIT:
 	DECIMAL_LIT | OCTAL_LIT | HEX_LIT;
 
-terminal DECIMAL_LIT:
+terminal fragment DECIMAL_LIT:
 	('1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9') (DECIMAL_DIGIT);
 
-terminal OCTAL_LIT:
+terminal fragment OCTAL_LIT:
 	'0' (OCTAL_DIGIT)*;
 
-terminal HEX_LIT:
+terminal  fragment HEX_LIT:
 	'0' ('x' | 'X') HEX_DIGIT (HEX_DIGIT)+;
 
 FLOAT_LIT:
@@ -429,10 +429,10 @@ terminal INTERPRETED_STRING_LIT:
 	'"' (UNICODE_VALUE | BYTE_VALUE)? '"';
 
 Type:
-	{Type} tp=TypeName | TypeLit | "(" Type ")";
+	{Type} tp=TypeName | tp2=TypeLit | "(" tp3=Type ")";
 
 TypeName:
-	IDENTIFIER | QualifiedIdent | STRING ;
+	IDENTIFIER | QualifiedIdent  ;
 
 QualifiedIdent:
 	PackageName '.' IDENTIFIER;
@@ -464,7 +464,7 @@ FieldDecl:
 	(indentifierL=IdentifierList type=Type | embedded=EmbeddedField) (tag=Tag)?;
 
 IdentifierList:
-	IDENTIFIER ("," IDENTIFIER)*;
+	IDENTIFIER ((',')? IDENTIFIER)*;
 
 EmbeddedField:
 	('*')? TypeName;
@@ -482,19 +482,19 @@ FunctionType:
 	'func' Signature;
 
 Signature:
-	Parameters (result=Result)?;
+	parameters=Parameters (result=Result)?;
 
 Result:
-	Parameters | Type;
+	parameteres=Parameters | type=Type;
 
 Parameters:
-	{Parameters} '(' (parameterlist=ParameterList (',')?)? ')';
+{Parameters} '(' (parameterlist=ParameterList (',')? )? ')';
 
-ParameterList:
-	ParameterDecl (',' parameterdecl+=ParameterDecl)*;
+ParameterList:{ParameterList}
+	parameterDecl1=ParameterDecl (',' parameterdecl+=ParameterDecl)*;
 
 ParameterDecl:
-	(indentifierL=IdentifierList)? ("...")? type=Type;
+	(identifierL=IdentifierList)? ('...')? type=Type;
 
 InterfaceType:
 	{InterfaceType}
@@ -540,7 +540,7 @@ LabeledStmt:
 
 SimpleStmt:
 	{SimpleStmt}
-	empty=EmptyStmt | ExpressionStmt | SendStmt | IncDecStmt | Assignment | ShortVarDecl;
+	empty=EmptyStmt | es=ExpressionStmt | ss=SendStmt | inc=IncDecStmt | ass=Assignment | svd=ShortVarDecl;
 
 GoStmt:
 	'goto' Label;
@@ -637,7 +637,7 @@ ExprSwitchCase:
 	'case' expressionlist=ExpressionList | {ExprSwitchCase} 'default';
 
 TypeSwitchStmt:
-	'switch' (SimpleStmt ';')? typesg=TypeSwitchGuard '{' (typecc+=TypeCaseClause)* '}';
+	'switch' (simplestm=SimpleStmt ';')? typesg=TypeSwitchGuard '{' (typecc+=TypeCaseClause)* '}';
 
 TypeSwitchGuard:
 	(id=IDENTIFIER ':=')? per=PrimaryExpr '.' '(' 'type' ')';
@@ -649,7 +649,7 @@ TypeSwitchCase:
 	{TypeSwitchCase} 'case' typelist=TypeList | {TypeSwitchCase} 'default';
 
 TypeList:
-	type=Type (',' type2+=Type)*;
+	type=Type ((',')? type2+=Type)*;
 
 CommClause:
 	CommCase ':' statementlist2=StatementList;
@@ -673,10 +673,10 @@ RangeClause:
 	(expressionlist=ExpressionList "=" | idl=IdentifierList ":=")? 'range' expression=Expression;
 
 InitStmt:
-	SimpleStmt;
+	simple=SimpleStmt;
 
 PostStmt:
-	SimpleStmt;
+	simple=SimpleStmt;
 
 Label:
 	IDENTIFIER;
@@ -733,14 +733,14 @@ TypeAssertion:
 
 Arguments:
 	{Arguments}
-	'(' ((expressionlist=ExpressionList | type=Type (',' expressionlist=ExpressionList)?)? ('...')? (',')?)? ')';
+	'(' ((expressionlist=ExpressionList | type=Type ((',')? expressionlist=ExpressionList)?)? ('...')? (',')?)? ')';
 
 Literal:
 	{Literal}
 	basic=BasicLit | CompositeLit | FunctionLit;
 
 FunctionLit:
-	'func' Signature functionbody=FunctionBody;
+	'func' signature=Signature functionbody=FunctionBody;
 
 CompositeLit:
 	literalt=LiteralType literalv=LiteralValue;
@@ -755,7 +755,7 @@ LiteralValue:
 	'{' (elementlist=ElementList (',')?)? '}';
 
 ElementList:
-	KeyedElement ("," keyedelement+=KeyedElement)*;
+	KeyedElement ((',')? keyedelement+=KeyedElement)*;
 
 KeyedElement:
 	(Key ':')? element=Element;
@@ -771,7 +771,7 @@ Element:
 	Expression | LiteralValue;
 
 BasicLit:
-	INT_LIT | FLOAT_LIT | IMAGINARY_LIT | RUNE_LIT | STRING;
+	INT | FLOAT_LIT | IMAGINARY_LIT | RUNE_LIT | STRING;
 
 ReceiverType:
 	type=Type;
