@@ -159,29 +159,29 @@ public interface LiteralType extends EObject
   void setMaptype(MapType value);
 
   /**
-   * Returns the value of the '<em><b>Typename</b></em>' containment reference.
+   * Returns the value of the '<em><b>Typename</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Typename</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Typename</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Typename</em>' containment reference.
-   * @see #setTypename(TypeName)
+   * @return the value of the '<em>Typename</em>' attribute.
+   * @see #setTypename(String)
    * @see org.xtext.example.mydsl.go.GoPackage#getLiteralType_Typename()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  TypeName getTypename();
+  String getTypename();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.go.LiteralType#getTypename <em>Typename</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.LiteralType#getTypename <em>Typename</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Typename</em>' containment reference.
+   * @param value the new value of the '<em>Typename</em>' attribute.
    * @see #getTypename()
    * @generated
    */
-  void setTypename(TypeName value);
+  void setTypename(String value);
 
 } // LiteralType

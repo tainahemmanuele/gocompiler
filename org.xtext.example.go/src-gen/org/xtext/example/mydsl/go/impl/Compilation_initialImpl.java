@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.xtext.example.mydsl.go.Compilation_initial;
 import org.xtext.example.mydsl.go.GoPackage;
 import org.xtext.example.mydsl.go.ImportDecl;
-import org.xtext.example.mydsl.go.PackageClause;
 import org.xtext.example.mydsl.go.TopLevelDecl;
 
 /**
@@ -43,14 +42,24 @@ import org.xtext.example.mydsl.go.TopLevelDecl;
 public class Compilation_initialImpl extends MinimalEObjectImpl.Container implements Compilation_initial
 {
   /**
-   * The cached value of the '{@link #getInitial() <em>Initial</em>}' containment reference.
+   * The default value of the '{@link #getInitial() <em>Initial</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getInitial()
    * @generated
    * @ordered
    */
-  protected PackageClause initial;
+  protected static final String INITIAL_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getInitial() <em>Initial</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInitial()
+   * @generated
+   * @ordered
+   */
+  protected String initial = INITIAL_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getImportdecl() <em>Importdecl</em>}' containment reference list.
@@ -98,7 +107,7 @@ public class Compilation_initialImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public PackageClause getInitial()
+  public String getInitial()
   {
     return initial;
   }
@@ -108,37 +117,12 @@ public class Compilation_initialImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetInitial(PackageClause newInitial, NotificationChain msgs)
+  public void setInitial(String newInitial)
   {
-    PackageClause oldInitial = initial;
+    String oldInitial = initial;
     initial = newInitial;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.COMPILATION_INITIAL__INITIAL, oldInitial, newInitial);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setInitial(PackageClause newInitial)
-  {
-    if (newInitial != initial)
-    {
-      NotificationChain msgs = null;
-      if (initial != null)
-        msgs = ((InternalEObject)initial).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.COMPILATION_INITIAL__INITIAL, null, msgs);
-      if (newInitial != null)
-        msgs = ((InternalEObject)newInitial).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.COMPILATION_INITIAL__INITIAL, null, msgs);
-      msgs = basicSetInitial(newInitial, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.COMPILATION_INITIAL__INITIAL, newInitial, newInitial));
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.COMPILATION_INITIAL__INITIAL, oldInitial, initial));
   }
 
   /**
@@ -179,8 +163,6 @@ public class Compilation_initialImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case GoPackage.COMPILATION_INITIAL__INITIAL:
-        return basicSetInitial(null, msgs);
       case GoPackage.COMPILATION_INITIAL__IMPORTDECL:
         return ((InternalEList<?>)getImportdecl()).basicRemove(otherEnd, msgs);
       case GoPackage.COMPILATION_INITIAL__TOPLEVEL:
@@ -221,7 +203,7 @@ public class Compilation_initialImpl extends MinimalEObjectImpl.Container implem
     switch (featureID)
     {
       case GoPackage.COMPILATION_INITIAL__INITIAL:
-        setInitial((PackageClause)newValue);
+        setInitial((String)newValue);
         return;
       case GoPackage.COMPILATION_INITIAL__IMPORTDECL:
         getImportdecl().clear();
@@ -246,7 +228,7 @@ public class Compilation_initialImpl extends MinimalEObjectImpl.Container implem
     switch (featureID)
     {
       case GoPackage.COMPILATION_INITIAL__INITIAL:
-        setInitial((PackageClause)null);
+        setInitial(INITIAL_EDEFAULT);
         return;
       case GoPackage.COMPILATION_INITIAL__IMPORTDECL:
         getImportdecl().clear();
@@ -269,13 +251,30 @@ public class Compilation_initialImpl extends MinimalEObjectImpl.Container implem
     switch (featureID)
     {
       case GoPackage.COMPILATION_INITIAL__INITIAL:
-        return initial != null;
+        return INITIAL_EDEFAULT == null ? initial != null : !INITIAL_EDEFAULT.equals(initial);
       case GoPackage.COMPILATION_INITIAL__IMPORTDECL:
         return importdecl != null && !importdecl.isEmpty();
       case GoPackage.COMPILATION_INITIAL__TOPLEVEL:
         return toplevel != null && !toplevel.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (initial: ");
+    result.append(initial);
+    result.append(')');
+    return result.toString();
   }
 
 } //Compilation_initialImpl

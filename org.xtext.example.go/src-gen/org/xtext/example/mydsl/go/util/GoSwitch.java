@@ -117,13 +117,6 @@ public class GoSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GoPackage.PACKAGE_CLAUSE:
-      {
-        PackageClause packageClause = (PackageClause)theEObject;
-        T result = casePackageClause(packageClause);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case GoPackage.TYPE:
       {
         Type type = (Type)theEObject;
@@ -132,31 +125,6 @@ public class GoSwitch<T> extends Switch<T>
         if (result == null) result = caseBaseType(type);
         if (result == null) result = caseKeyType(type);
         if (result == null) result = caseTypeAssertion(type);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GoPackage.TYPE_NAME:
-      {
-        TypeName typeName = (TypeName)theEObject;
-        T result = caseTypeName(typeName);
-        if (result == null) result = caseEmbeddedField(typeName);
-        if (result == null) result = caseInterfaceTypeName(typeName);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GoPackage.QUALIFIED_IDENT:
-      {
-        QualifiedIdent qualifiedIdent = (QualifiedIdent)theEObject;
-        T result = caseQualifiedIdent(qualifiedIdent);
-        if (result == null) result = caseOperandName(qualifiedIdent);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GoPackage.PACKAGE_NAME:
-      {
-        PackageName packageName = (PackageName)theEObject;
-        T result = casePackageName(packageName);
-        if (result == null) result = casePackageClause(packageName);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -211,13 +179,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         FieldDecl fieldDecl = (FieldDecl)theEObject;
         T result = caseFieldDecl(fieldDecl);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GoPackage.EMBEDDED_FIELD:
-      {
-        EmbeddedField embeddedField = (EmbeddedField)theEObject;
-        T result = caseEmbeddedField(embeddedField);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -294,13 +255,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         MethodSpec methodSpec = (MethodSpec)theEObject;
         T result = caseMethodSpec(methodSpec);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GoPackage.INTERFACE_TYPE_NAME:
-      {
-        InterfaceTypeName interfaceTypeName = (InterfaceTypeName)theEObject;
-        T result = caseInterfaceTypeName(interfaceTypeName);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -963,22 +917,6 @@ public class GoSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Package Clause</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Package Clause</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePackageClause(PackageClause object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -990,54 +928,6 @@ public class GoSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseType(Type object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Type Name</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Type Name</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseTypeName(TypeName object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Qualified Ident</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Qualified Ident</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseQualifiedIdent(QualifiedIdent object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Package Name</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Package Name</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePackageName(PackageName object)
   {
     return null;
   }
@@ -1150,22 +1040,6 @@ public class GoSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseFieldDecl(FieldDecl object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Embedded Field</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Embedded Field</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseEmbeddedField(EmbeddedField object)
   {
     return null;
   }
@@ -1326,22 +1200,6 @@ public class GoSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMethodSpec(MethodSpec object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Interface Type Name</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Interface Type Name</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseInterfaceTypeName(InterfaceTypeName object)
   {
     return null;
   }

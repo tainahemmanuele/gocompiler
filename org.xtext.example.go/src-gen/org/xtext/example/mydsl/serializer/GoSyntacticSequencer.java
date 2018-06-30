@@ -22,43 +22,48 @@ import org.xtext.example.mydsl.services.GoGrammarAccess;
 public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected GoGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Arguments_CommaKeyword_2_0_1_1_0_q;
 	protected AbstractElementAlias match_Arguments_CommaKeyword_2_2_q;
 	protected AbstractElementAlias match_Arguments_FullStopFullStopFullStopKeyword_2_1_q;
 	protected AbstractElementAlias match_ChannelType___ChanKeyword_0_0_0_LessThanSignHyphenMinusKeyword_0_0_1_q___or___LessThanSignHyphenMinusKeyword_0_1_0_ChanKeyword_0_1_1__;
 	protected AbstractElementAlias match_Conversion_CommaKeyword_3_q;
 	protected AbstractElementAlias match_ElementList_CommaKeyword_1_0_q;
-	protected AbstractElementAlias match_EmbeddedField_AsteriskKeyword_0_q;
 	protected AbstractElementAlias match_IncDecStmt_HyphenMinusHyphenMinusKeyword_1_1_or_PlusSignPlusSignKeyword_1_0;
 	protected AbstractElementAlias match_LiteralValue_CommaKeyword_2_1_q;
-	protected AbstractElementAlias match_ParameterDecl_FullStopFullStopFullStopKeyword_1_q;
+	protected AbstractElementAlias match_ParameterDecl_FullStopFullStopFullStopKeyword_2_q;
 	protected AbstractElementAlias match_Parameters_CommaKeyword_2_1_q;
 	protected AbstractElementAlias match_StatementList_SemicolonKeyword_1_1_q;
-	protected AbstractElementAlias match_TypeList_CommaKeyword_1_0_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (GoGrammarAccess) access;
-		match_Arguments_CommaKeyword_2_0_1_1_0_q = new TokenAlias(false, true, grammarAccess.getArgumentsAccess().getCommaKeyword_2_0_1_1_0());
 		match_Arguments_CommaKeyword_2_2_q = new TokenAlias(false, true, grammarAccess.getArgumentsAccess().getCommaKeyword_2_2());
 		match_Arguments_FullStopFullStopFullStopKeyword_2_1_q = new TokenAlias(false, true, grammarAccess.getArgumentsAccess().getFullStopFullStopFullStopKeyword_2_1());
 		match_ChannelType___ChanKeyword_0_0_0_LessThanSignHyphenMinusKeyword_0_0_1_q___or___LessThanSignHyphenMinusKeyword_0_1_0_ChanKeyword_0_1_1__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getChannelTypeAccess().getChanKeyword_0_0_0()), new TokenAlias(false, true, grammarAccess.getChannelTypeAccess().getLessThanSignHyphenMinusKeyword_0_0_1())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getChannelTypeAccess().getLessThanSignHyphenMinusKeyword_0_1_0()), new TokenAlias(false, false, grammarAccess.getChannelTypeAccess().getChanKeyword_0_1_1())));
 		match_Conversion_CommaKeyword_3_q = new TokenAlias(false, true, grammarAccess.getConversionAccess().getCommaKeyword_3());
 		match_ElementList_CommaKeyword_1_0_q = new TokenAlias(false, true, grammarAccess.getElementListAccess().getCommaKeyword_1_0());
-		match_EmbeddedField_AsteriskKeyword_0_q = new TokenAlias(false, true, grammarAccess.getEmbeddedFieldAccess().getAsteriskKeyword_0());
 		match_IncDecStmt_HyphenMinusHyphenMinusKeyword_1_1_or_PlusSignPlusSignKeyword_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getIncDecStmtAccess().getHyphenMinusHyphenMinusKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getIncDecStmtAccess().getPlusSignPlusSignKeyword_1_0()));
 		match_LiteralValue_CommaKeyword_2_1_q = new TokenAlias(false, true, grammarAccess.getLiteralValueAccess().getCommaKeyword_2_1());
-		match_ParameterDecl_FullStopFullStopFullStopKeyword_1_q = new TokenAlias(false, true, grammarAccess.getParameterDeclAccess().getFullStopFullStopFullStopKeyword_1());
+		match_ParameterDecl_FullStopFullStopFullStopKeyword_2_q = new TokenAlias(false, true, grammarAccess.getParameterDeclAccess().getFullStopFullStopFullStopKeyword_2());
 		match_Parameters_CommaKeyword_2_1_q = new TokenAlias(false, true, grammarAccess.getParametersAccess().getCommaKeyword_2_1());
 		match_StatementList_SemicolonKeyword_1_1_q = new TokenAlias(false, true, grammarAccess.getStatementListAccess().getSemicolonKeyword_1_1());
-		match_TypeList_CommaKeyword_1_0_q = new TokenAlias(false, true, grammarAccess.getTypeListAccess().getCommaKeyword_1_0());
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (ruleCall.getRule() == grammarAccess.getQualifiedIdentRule())
+			return getQualifiedIdentToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
+	/**
+	 * QualifiedIdent:
+	 * 	PackageName '.' IDENTIFIER;
+	 */
+	protected String getQualifiedIdentToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "A-Z.";
+	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
@@ -66,9 +71,7 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Arguments_CommaKeyword_2_0_1_1_0_q.equals(syntax))
-				emit_Arguments_CommaKeyword_2_0_1_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Arguments_CommaKeyword_2_2_q.equals(syntax))
+			if (match_Arguments_CommaKeyword_2_2_q.equals(syntax))
 				emit_Arguments_CommaKeyword_2_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Arguments_FullStopFullStopFullStopKeyword_2_1_q.equals(syntax))
 				emit_Arguments_FullStopFullStopFullStopKeyword_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
@@ -78,20 +81,16 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Conversion_CommaKeyword_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_ElementList_CommaKeyword_1_0_q.equals(syntax))
 				emit_ElementList_CommaKeyword_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_EmbeddedField_AsteriskKeyword_0_q.equals(syntax))
-				emit_EmbeddedField_AsteriskKeyword_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_IncDecStmt_HyphenMinusHyphenMinusKeyword_1_1_or_PlusSignPlusSignKeyword_1_0.equals(syntax))
 				emit_IncDecStmt_HyphenMinusHyphenMinusKeyword_1_1_or_PlusSignPlusSignKeyword_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_LiteralValue_CommaKeyword_2_1_q.equals(syntax))
 				emit_LiteralValue_CommaKeyword_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_ParameterDecl_FullStopFullStopFullStopKeyword_1_q.equals(syntax))
-				emit_ParameterDecl_FullStopFullStopFullStopKeyword_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_ParameterDecl_FullStopFullStopFullStopKeyword_2_q.equals(syntax))
+				emit_ParameterDecl_FullStopFullStopFullStopKeyword_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Parameters_CommaKeyword_2_1_q.equals(syntax))
 				emit_Parameters_CommaKeyword_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_StatementList_SemicolonKeyword_1_1_q.equals(syntax))
 				emit_StatementList_SemicolonKeyword_1_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_TypeList_CommaKeyword_1_0_q.equals(syntax))
-				emit_TypeList_CommaKeyword_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -101,18 +100,6 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ','?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     type=Type (ambiguity) expressionlist=ExpressionList
-	 */
-	protected void emit_Arguments_CommaKeyword_2_0_1_1_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ','?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) '(' '...'? (ambiguity) ')' (rule start)
 	 *     expressionlist=ExpressionList '...'? (ambiguity) ')' (rule end)
 	 *     type=Type '...'? (ambiguity) ')' (rule end)
 	 */
@@ -125,7 +112,6 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '...'?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) '(' (ambiguity) ','? ')' (rule start)
 	 *     expressionlist=ExpressionList (ambiguity) ','? ')' (rule end)
 	 *     type=Type (ambiguity) ','? ')' (rule end)
 	 */
@@ -170,18 +156,6 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     '*'?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) id=IDENTIFIER
-	 *     (rule start) (ambiguity) ql=QualifiedIdent
-	 */
-	protected void emit_EmbeddedField_AsteriskKeyword_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
 	 *     '++' | '--'
 	 *
 	 * This ambiguous syntax occurs at:
@@ -211,7 +185,7 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) type=Type
 	 *     identifierL=IdentifierList (ambiguity) type=Type
 	 */
-	protected void emit_ParameterDecl_FullStopFullStopFullStopKeyword_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_ParameterDecl_FullStopFullStopFullStopKeyword_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -236,18 +210,6 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     statment+=Statement (ambiguity) statment+=Statement
 	 */
 	protected void emit_StatementList_SemicolonKeyword_1_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ','?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     type2+=Type (ambiguity) type2+=Type
-	 *     type=Type (ambiguity) type2+=Type
-	 */
-	protected void emit_TypeList_CommaKeyword_1_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

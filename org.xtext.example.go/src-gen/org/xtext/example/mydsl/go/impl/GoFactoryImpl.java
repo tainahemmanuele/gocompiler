@@ -71,11 +71,7 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
       case GoPackage.METHOD_DECL: return createMethodDecl();
       case GoPackage.RECEIVER: return createReceiver();
       case GoPackage.FUNCTION_DECL: return createFunctionDecl();
-      case GoPackage.PACKAGE_CLAUSE: return createPackageClause();
       case GoPackage.TYPE: return createType();
-      case GoPackage.TYPE_NAME: return createTypeName();
-      case GoPackage.QUALIFIED_IDENT: return createQualifiedIdent();
-      case GoPackage.PACKAGE_NAME: return createPackageName();
       case GoPackage.TYPE_LIT: return createTypeLit();
       case GoPackage.ARRAY_TYPE: return createArrayType();
       case GoPackage.ARRAY_LENGTH: return createArrayLength();
@@ -83,7 +79,6 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
       case GoPackage.SLICE_TYPE: return createSliceType();
       case GoPackage.STRUCT_TYPE: return createStructType();
       case GoPackage.FIELD_DECL: return createFieldDecl();
-      case GoPackage.EMBEDDED_FIELD: return createEmbeddedField();
       case GoPackage.POINTER_TYPE: return createPointerType();
       case GoPackage.BASE_TYPE: return createBaseType();
       case GoPackage.FUNCTION_TYPE: return createFunctionType();
@@ -94,7 +89,6 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
       case GoPackage.PARAMETER_DECL: return createParameterDecl();
       case GoPackage.INTERFACE_TYPE: return createInterfaceType();
       case GoPackage.METHOD_SPEC: return createMethodSpec();
-      case GoPackage.INTERFACE_TYPE_NAME: return createInterfaceTypeName();
       case GoPackage.MAP_TYPE: return createMapType();
       case GoPackage.KEY_TYPE: return createKeyType();
       case GoPackage.CHANNEL_TYPE: return createChannelType();
@@ -243,54 +237,10 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public PackageClause createPackageClause()
-  {
-    PackageClauseImpl packageClause = new PackageClauseImpl();
-    return packageClause;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Type createType()
   {
     TypeImpl type = new TypeImpl();
     return type;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public TypeName createTypeName()
-  {
-    TypeNameImpl typeName = new TypeNameImpl();
-    return typeName;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public QualifiedIdent createQualifiedIdent()
-  {
-    QualifiedIdentImpl qualifiedIdent = new QualifiedIdentImpl();
-    return qualifiedIdent;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public PackageName createPackageName()
-  {
-    PackageNameImpl packageName = new PackageNameImpl();
-    return packageName;
   }
 
   /**
@@ -368,17 +318,6 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
   {
     FieldDeclImpl fieldDecl = new FieldDeclImpl();
     return fieldDecl;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EmbeddedField createEmbeddedField()
-  {
-    EmbeddedFieldImpl embeddedField = new EmbeddedFieldImpl();
-    return embeddedField;
   }
 
   /**
@@ -489,17 +428,6 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
   {
     MethodSpecImpl methodSpec = new MethodSpecImpl();
     return methodSpec;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public InterfaceTypeName createInterfaceTypeName()
-  {
-    InterfaceTypeNameImpl interfaceTypeName = new InterfaceTypeNameImpl();
-    return interfaceTypeName;
   }
 
   /**

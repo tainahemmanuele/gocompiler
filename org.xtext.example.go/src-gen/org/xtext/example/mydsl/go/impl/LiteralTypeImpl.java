@@ -19,7 +19,6 @@ import org.xtext.example.mydsl.go.LiteralType;
 import org.xtext.example.mydsl.go.MapType;
 import org.xtext.example.mydsl.go.SliceType;
 import org.xtext.example.mydsl.go.StructType;
-import org.xtext.example.mydsl.go.TypeName;
 
 /**
  * <!-- begin-user-doc -->
@@ -92,14 +91,24 @@ public class LiteralTypeImpl extends MinimalEObjectImpl.Container implements Lit
   protected MapType maptype;
 
   /**
-   * The cached value of the '{@link #getTypename() <em>Typename</em>}' containment reference.
+   * The default value of the '{@link #getTypename() <em>Typename</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getTypename()
    * @generated
    * @ordered
    */
-  protected TypeName typename;
+  protected static final String TYPENAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getTypename() <em>Typename</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTypename()
+   * @generated
+   * @ordered
+   */
+  protected String typename = TYPENAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -367,7 +376,7 @@ public class LiteralTypeImpl extends MinimalEObjectImpl.Container implements Lit
    * <!-- end-user-doc -->
    * @generated
    */
-  public TypeName getTypename()
+  public String getTypename()
   {
     return typename;
   }
@@ -377,37 +386,12 @@ public class LiteralTypeImpl extends MinimalEObjectImpl.Container implements Lit
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetTypename(TypeName newTypename, NotificationChain msgs)
+  public void setTypename(String newTypename)
   {
-    TypeName oldTypename = typename;
+    String oldTypename = typename;
     typename = newTypename;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.LITERAL_TYPE__TYPENAME, oldTypename, newTypename);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setTypename(TypeName newTypename)
-  {
-    if (newTypename != typename)
-    {
-      NotificationChain msgs = null;
-      if (typename != null)
-        msgs = ((InternalEObject)typename).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.LITERAL_TYPE__TYPENAME, null, msgs);
-      if (newTypename != null)
-        msgs = ((InternalEObject)newTypename).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.LITERAL_TYPE__TYPENAME, null, msgs);
-      msgs = basicSetTypename(newTypename, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.LITERAL_TYPE__TYPENAME, newTypename, newTypename));
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.LITERAL_TYPE__TYPENAME, oldTypename, typename));
   }
 
   /**
@@ -430,8 +414,6 @@ public class LiteralTypeImpl extends MinimalEObjectImpl.Container implements Lit
         return basicSetSlicetype(null, msgs);
       case GoPackage.LITERAL_TYPE__MAPTYPE:
         return basicSetMaptype(null, msgs);
-      case GoPackage.LITERAL_TYPE__TYPENAME:
-        return basicSetTypename(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -488,7 +470,7 @@ public class LiteralTypeImpl extends MinimalEObjectImpl.Container implements Lit
         setMaptype((MapType)newValue);
         return;
       case GoPackage.LITERAL_TYPE__TYPENAME:
-        setTypename((TypeName)newValue);
+        setTypename((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -520,7 +502,7 @@ public class LiteralTypeImpl extends MinimalEObjectImpl.Container implements Lit
         setMaptype((MapType)null);
         return;
       case GoPackage.LITERAL_TYPE__TYPENAME:
-        setTypename((TypeName)null);
+        setTypename(TYPENAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -547,9 +529,26 @@ public class LiteralTypeImpl extends MinimalEObjectImpl.Container implements Lit
       case GoPackage.LITERAL_TYPE__MAPTYPE:
         return maptype != null;
       case GoPackage.LITERAL_TYPE__TYPENAME:
-        return typename != null;
+        return TYPENAME_EDEFAULT == null ? typename != null : !TYPENAME_EDEFAULT.equals(typename);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (typename: ");
+    result.append(typename);
+    result.append(')');
+    return result.toString();
   }
 
 } //LiteralTypeImpl

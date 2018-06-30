@@ -25,30 +25,30 @@ package org.xtext.example.mydsl.go;
 public interface Type extends ElementType, BaseType, KeyType, TypeAssertion
 {
   /**
-   * Returns the value of the '<em><b>Tp</b></em>' containment reference.
+   * Returns the value of the '<em><b>Tp</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Tp</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Tp</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Tp</em>' containment reference.
-   * @see #setTp(TypeName)
+   * @return the value of the '<em>Tp</em>' attribute.
+   * @see #setTp(String)
    * @see org.xtext.example.mydsl.go.GoPackage#getType_Tp()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  TypeName getTp();
+  String getTp();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.go.Type#getTp <em>Tp</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.Type#getTp <em>Tp</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Tp</em>' containment reference.
+   * @param value the new value of the '<em>Tp</em>' attribute.
    * @see #getTp()
    * @generated
    */
-  void setTp(TypeName value);
+  void setTp(String value);
 
   /**
    * Returns the value of the '<em><b>Tp2</b></em>' containment reference.

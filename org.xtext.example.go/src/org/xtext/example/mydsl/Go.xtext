@@ -432,13 +432,13 @@ Type:
 	{Type} tp=TypeName | tp2=TypeLit | "(" tp3=Type ")";
 
 TypeName:
-	id=IDENTIFIER | ql=QualifiedIdent  ;
+	IDENTIFIER |  QualifiedIdent  ;
 
 QualifiedIdent:
-	pn=PackageName '.' id=IDENTIFIER;
+	PackageName '.' IDENTIFIER;
 
 PackageName:
-	id=IDENTIFIER;
+	IDENTIFIER;
 
 TypeLit:
 	ArrayType | StructType | PointerType | FunctionType | InterfaceType | SliceType | MapType | ChannelType;
@@ -493,7 +493,7 @@ Parameters:
 ParameterList:{ParameterList}
 	parameterDecl1=ParameterDecl (',' parameterdecl+=ParameterDecl)*;
 
-ParameterDecl:
+ParameterDecl:{ParameterDecl}
 	(identifierL=IdentifierList)? ('...')? type=Type;
 
 InterfaceType:
@@ -578,11 +578,10 @@ DeferStmt:
 	'defer' Expression;
 
 ConstDecl:
-	{ConstDecl}
-	'const' (constspec=ConstSpec | '(' (constspec2+=ConstSpec ';')* ')');
+	{ConstDecl} 'const' (constspec=ConstSpec | '(' (constspec2+=ConstSpec ';')* ')');
 
-ConstSpec:{ConstSpec}
-	id=IdentifierList tp=Type '=' expressionlist=ExpressionList;
+ConstSpec:
+	id=IdentifierList ((tp=Type)? '=' expressionlist=ExpressionList)?;
 
 TypeDecl:
 	{TypeDecl}
@@ -648,8 +647,8 @@ TypeCaseClause:
 TypeSwitchCase:
 	{TypeSwitchCase} 'case' typelist=TypeList | {TypeSwitchCase} 'default';
 
-TypeList:
-	type=Type ((',')? type2+=Type)*;
+TypeList:{TypeList}
+	type=Type (',' type2+=Type)*;
 
 CommClause:
 	CommCase ':' statementlist2=StatementList;
@@ -682,7 +681,7 @@ Label:
 	IDENTIFIER;
 
 ExpressionList:
-	Expression (';' expression2+=Expression)*;
+	Expression (',' expression2+=Expression)*;
 
 Expression:{Expression}
 	up=UnaryExpr exp=Expression2;
@@ -733,7 +732,7 @@ TypeAssertion:
 
 Arguments:
 	{Arguments}
-	'(' ((expressionlist=ExpressionList | type=Type ((',')? expressionlist=ExpressionList)?)? ('...')? (',')?)? ')';
+	'(' ((expressionlist=ExpressionList | type=Type (',' expressionlist=ExpressionList)?) ('...')? (',')?)? ')';
 
 Literal:
 	{Literal}

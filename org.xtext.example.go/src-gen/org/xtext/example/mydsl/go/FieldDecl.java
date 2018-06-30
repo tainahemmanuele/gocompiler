@@ -79,30 +79,30 @@ public interface FieldDecl extends EObject
   void setType(Type value);
 
   /**
-   * Returns the value of the '<em><b>Embedded</b></em>' containment reference.
+   * Returns the value of the '<em><b>Embedded</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Embedded</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Embedded</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Embedded</em>' containment reference.
-   * @see #setEmbedded(EmbeddedField)
+   * @return the value of the '<em>Embedded</em>' attribute.
+   * @see #setEmbedded(String)
    * @see org.xtext.example.mydsl.go.GoPackage#getFieldDecl_Embedded()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  EmbeddedField getEmbedded();
+  String getEmbedded();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.go.FieldDecl#getEmbedded <em>Embedded</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.FieldDecl#getEmbedded <em>Embedded</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Embedded</em>' containment reference.
+   * @param value the new value of the '<em>Embedded</em>' attribute.
    * @see #getEmbedded()
    * @generated
    */
-  void setEmbedded(EmbeddedField value);
+  void setEmbedded(String value);
 
   /**
    * Returns the value of the '<em><b>Tag</b></em>' attribute.

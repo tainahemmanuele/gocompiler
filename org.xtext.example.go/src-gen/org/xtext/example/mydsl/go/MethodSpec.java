@@ -78,29 +78,29 @@ public interface MethodSpec extends EObject
   void setSignature(Signature value);
 
   /**
-   * Returns the value of the '<em><b>Itn</b></em>' containment reference.
+   * Returns the value of the '<em><b>Itn</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Itn</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Itn</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Itn</em>' containment reference.
-   * @see #setItn(InterfaceTypeName)
+   * @return the value of the '<em>Itn</em>' attribute.
+   * @see #setItn(String)
    * @see org.xtext.example.mydsl.go.GoPackage#getMethodSpec_Itn()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  InterfaceTypeName getItn();
+  String getItn();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.go.MethodSpec#getItn <em>Itn</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.MethodSpec#getItn <em>Itn</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Itn</em>' containment reference.
+   * @param value the new value of the '<em>Itn</em>' attribute.
    * @see #getItn()
    * @generated
    */
-  void setItn(InterfaceTypeName value);
+  void setItn(String value);
 
 } // MethodSpec

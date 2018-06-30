@@ -78,15 +78,6 @@ public interface GoFactory extends EFactory
   FunctionDecl createFunctionDecl();
 
   /**
-   * Returns a new object of class '<em>Package Clause</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Package Clause</em>'.
-   * @generated
-   */
-  PackageClause createPackageClause();
-
-  /**
    * Returns a new object of class '<em>Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -94,33 +85,6 @@ public interface GoFactory extends EFactory
    * @generated
    */
   Type createType();
-
-  /**
-   * Returns a new object of class '<em>Type Name</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Type Name</em>'.
-   * @generated
-   */
-  TypeName createTypeName();
-
-  /**
-   * Returns a new object of class '<em>Qualified Ident</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Qualified Ident</em>'.
-   * @generated
-   */
-  QualifiedIdent createQualifiedIdent();
-
-  /**
-   * Returns a new object of class '<em>Package Name</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Package Name</em>'.
-   * @generated
-   */
-  PackageName createPackageName();
 
   /**
    * Returns a new object of class '<em>Type Lit</em>'.
@@ -184,15 +148,6 @@ public interface GoFactory extends EFactory
    * @generated
    */
   FieldDecl createFieldDecl();
-
-  /**
-   * Returns a new object of class '<em>Embedded Field</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Embedded Field</em>'.
-   * @generated
-   */
-  EmbeddedField createEmbeddedField();
 
   /**
    * Returns a new object of class '<em>Pointer Type</em>'.
@@ -283,15 +238,6 @@ public interface GoFactory extends EFactory
    * @generated
    */
   MethodSpec createMethodSpec();
-
-  /**
-   * Returns a new object of class '<em>Interface Type Name</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Interface Type Name</em>'.
-   * @generated
-   */
-  InterfaceTypeName createInterfaceTypeName();
 
   /**
    * Returns a new object of class '<em>Map Type</em>'.

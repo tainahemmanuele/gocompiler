@@ -10,7 +10,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Model/greetings"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//Compilation_initial">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Compilation_initial/initial"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//Compilation_initial/initial"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Compilation_initial/importdecl"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Compilation_initial/toplevel"/>
     </genClasses>
@@ -27,21 +27,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//FunctionDecl/signature"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//FunctionDecl/body"/>
     </genClasses>
-    <genClasses ecoreClass="Go.ecore#//PackageClause"/>
     <genClasses ecoreClass="Go.ecore#//Type">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Type/tp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//Type/tp"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Type/tp2"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Type/tp3"/>
-    </genClasses>
-    <genClasses ecoreClass="Go.ecore#//TypeName">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//TypeName/id"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//TypeName/ql"/>
-    </genClasses>
-    <genClasses ecoreClass="Go.ecore#//QualifiedIdent">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//QualifiedIdent/pn"/>
-    </genClasses>
-    <genClasses ecoreClass="Go.ecore#//PackageName">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//PackageName/id"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//TypeLit"/>
     <genClasses ecoreClass="Go.ecore#//ArrayType"/>
@@ -58,10 +47,9 @@
     <genClasses ecoreClass="Go.ecore#//FieldDecl">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//FieldDecl/indentifierL"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//FieldDecl/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//FieldDecl/embedded"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//FieldDecl/embedded"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//FieldDecl/tag"/>
     </genClasses>
-    <genClasses ecoreClass="Go.ecore#//EmbeddedField"/>
     <genClasses ecoreClass="Go.ecore#//PointerType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//PointerType/basetype"/>
     </genClasses>
@@ -92,9 +80,8 @@
     <genClasses ecoreClass="Go.ecore#//MethodSpec">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//MethodSpec/mn"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//MethodSpec/signature"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//MethodSpec/itn"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//MethodSpec/itn"/>
     </genClasses>
-    <genClasses ecoreClass="Go.ecore#//InterfaceTypeName"/>
     <genClasses ecoreClass="Go.ecore#//MapType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//MapType/keytype"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//MapType/elemtype"/>
@@ -327,7 +314,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//LiteralType/elementype"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//LiteralType/slicetype"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//LiteralType/maptype"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//LiteralType/typename"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//LiteralType/typename"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//LiteralValue">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//LiteralValue/elementlist"/>
