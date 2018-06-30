@@ -2077,10 +2077,10 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExpressionlistExpressionListParserRuleCall_4_0 = (RuleCall)cExpressionlistAssignment_4.eContents().get(0);
 		
 		//ConstSpec:
-		//	{ConstSpec} id=IdentifierList tp=Type? '=' expressionlist=ExpressionList;
+		//	{ConstSpec} id=IdentifierList tp=Type '=' expressionlist=ExpressionList;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ConstSpec} id=IdentifierList tp=Type? '=' expressionlist=ExpressionList
+		//{ConstSpec} id=IdentifierList tp=Type '=' expressionlist=ExpressionList
 		public Group getGroup() { return cGroup; }
 		
 		//{ConstSpec}
@@ -2092,7 +2092,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		//IdentifierList
 		public RuleCall getIdIdentifierListParserRuleCall_1_0() { return cIdIdentifierListParserRuleCall_1_0; }
 		
-		//tp=Type?
+		//tp=Type
 		public Assignment getTpAssignment_2() { return cTpAssignment_2; }
 		
 		//Type
@@ -5586,7 +5586,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ConstSpec:
-	//	{ConstSpec} id=IdentifierList tp=Type? '=' expressionlist=ExpressionList;
+	//	{ConstSpec} id=IdentifierList tp=Type '=' expressionlist=ExpressionList;
 	public ConstSpecElements getConstSpecAccess() {
 		return pConstSpec;
 	}

@@ -614,10 +614,22 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ConstSpec returns ConstSpec
 	 *
 	 * Constraint:
-	 *     (id=IdentifierList tp=Type? expressionlist=ExpressionList)
+	 *     (id=IdentifierList tp=Type expressionlist=ExpressionList)
 	 */
 	protected void sequence_ConstSpec(ISerializationContext context, ConstSpec semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GoPackage.Literals.CONST_SPEC__ID) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GoPackage.Literals.CONST_SPEC__ID));
+			if (transientValues.isValueTransient(semanticObject, GoPackage.Literals.CONST_SPEC__TP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GoPackage.Literals.CONST_SPEC__TP));
+			if (transientValues.isValueTransient(semanticObject, GoPackage.Literals.CONST_SPEC__EXPRESSIONLIST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GoPackage.Literals.CONST_SPEC__EXPRESSIONLIST));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getConstSpecAccess().getIdIdentifierListParserRuleCall_1_0(), semanticObject.getId());
+		feeder.accept(grammarAccess.getConstSpecAccess().getTpTypeParserRuleCall_2_0(), semanticObject.getTp());
+		feeder.accept(grammarAccess.getConstSpecAccess().getExpressionlistExpressionListParserRuleCall_4_0(), semanticObject.getExpressionlist());
+		feeder.finish();
 	}
 	
 	

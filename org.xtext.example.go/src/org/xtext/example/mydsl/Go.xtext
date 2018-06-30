@@ -582,7 +582,7 @@ ConstDecl:
 	'const' (constspec=ConstSpec | '(' (constspec2+=ConstSpec ';')* ')');
 
 ConstSpec:{ConstSpec}
-	id=IdentifierList (tp=Type)? '=' expressionlist=ExpressionList;
+	id=IdentifierList tp=Type '=' expressionlist=ExpressionList;
 
 TypeDecl:
 	{TypeDecl}

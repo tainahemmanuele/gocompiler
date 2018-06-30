@@ -8742,7 +8742,7 @@ rule__ConstSpec__Group__2__Impl
 :
 (
 	{ before(grammarAccess.getConstSpecAccess().getTpAssignment_2()); }
-	(rule__ConstSpec__TpAssignment_2)?
+	(rule__ConstSpec__TpAssignment_2)
 	{ after(grammarAccess.getConstSpecAccess().getTpAssignment_2()); }
 )
 ;

@@ -3817,7 +3817,7 @@ ruleConstSpec returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)?
+		)
 		otherlv_3='='
 		{
 			newLeafNode(otherlv_3, grammarAccess.getConstSpecAccess().getEqualsSignKeyword_3());
