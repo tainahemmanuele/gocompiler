@@ -6,7 +6,8 @@
         eType="#//Compilation_initial" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Compilation_initial">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initial" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initial" eType="#//PackageClause"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="importdecl" upperBound="-1"
         eType="#//ImportDecl" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="toplevel" upperBound="-1"
@@ -30,11 +31,25 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="body" upperBound="-1" eType="#//FunctionBody"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PackageClause"/>
   <eClassifiers xsi:type="ecore:EClass" name="Type" eSuperTypes="#//ElementType #//BaseType #//KeyType #//TypeAssertion">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tp" eType="#//TypeName"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tp2" eType="#//TypeLit"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tp3" eType="#//Type" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeName" eSuperTypes="#//EmbeddedField #//InterfaceTypeName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ql" eType="#//QualifiedIdent"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="QualifiedIdent" eSuperTypes="#//OperandName">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pn" eType="#//PackageName"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PackageName" eSuperTypes="#//PackageClause">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeLit"/>
   <eClassifiers xsi:type="ecore:EClass" name="ArrayType" eSuperTypes="#//TypeLit"/>
@@ -54,9 +69,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="FieldDecl">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="indentifierL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="embedded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="embedded" eType="#//EmbeddedField"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tag" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EmbeddedField"/>
   <eClassifiers xsi:type="ecore:EClass" name="PointerType" eSuperTypes="#//TypeLit">
     <eStructuralFeatures xsi:type="ecore:EReference" name="basetype" eType="#//BaseType"
         containment="true"/>
@@ -96,8 +113,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="signature" eType="#//Signature"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="itn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itn" eType="#//InterfaceTypeName"
+        containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InterfaceTypeName"/>
   <eClassifiers xsi:type="ecore:EClass" name="MapType" eSuperTypes="#//TypeLit">
     <eStructuralFeatures xsi:type="ecore:EReference" name="keytype" eType="#//KeyType"
         containment="true"/>
@@ -367,7 +386,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Operand" eSuperTypes="#//PrimaryExpr">
     <eStructuralFeatures xsi:type="ecore:EReference" name="literal" eType="#//Literal"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operandn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operandn" eType="#//OperandName"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
         containment="true"/>
   </eClassifiers>
@@ -401,14 +421,18 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Literal">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="basic" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cl" eType="#//CompositeLit"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fl" eType="#//FunctionLit"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FunctionLit" eSuperTypes="#//Literal">
+  <eClassifiers xsi:type="ecore:EClass" name="FunctionLit">
     <eStructuralFeatures xsi:type="ecore:EReference" name="signature" eType="#//Signature"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="functionbody" eType="#//FunctionBody"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CompositeLit" eSuperTypes="#//Literal">
+  <eClassifiers xsi:type="ecore:EClass" name="CompositeLit">
     <eStructuralFeatures xsi:type="ecore:EReference" name="literalt" eType="#//LiteralType"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="literalv" eType="#//LiteralValue"
@@ -425,7 +449,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="maptype" eType="#//MapType"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typename" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typename" eType="#//TypeName"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LiteralValue" eSuperTypes="#//Key #//Element">
     <eStructuralFeatures xsi:type="ecore:EReference" name="elementlist" eType="#//ElementList"
@@ -447,6 +472,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FunctionBody"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OperandName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ImportDecl">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="imports" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+gmf_dashboard/domainModel=platform\:/resource/org.xtext.example.go/model/generated/My.ecore
+gmf_dashboard/graphicalDefinitionModel=platform\:/resource/org.xtext.example.go/model/generated/My.gmfgraph

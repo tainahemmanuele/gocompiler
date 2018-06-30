@@ -432,13 +432,13 @@ Type:
 	{Type} tp=TypeName | tp2=TypeLit | "(" tp3=Type ")";
 
 TypeName:
-	IDENTIFIER | QualifiedIdent  ;
+	id=IDENTIFIER | ql=QualifiedIdent  ;
 
 QualifiedIdent:
-	PackageName '.' IDENTIFIER;
+	pn=PackageName '.' id=IDENTIFIER;
 
 PackageName:
-	IDENTIFIER;
+	id=IDENTIFIER;
 
 TypeLit:
 	ArrayType | StructType | PointerType | FunctionType | InterfaceType | SliceType | MapType | ChannelType;
@@ -581,8 +581,8 @@ ConstDecl:
 	{ConstDecl}
 	'const' (constspec=ConstSpec | '(' (constspec2+=ConstSpec ';')* ')');
 
-ConstSpec:
-	id=IdentifierList tp=Type '=' expressionlist=ExpressionList;
+ConstSpec:{ConstSpec}
+	id=IdentifierList (tp=Type)? '=' expressionlist=ExpressionList;
 
 TypeDecl:
 	{TypeDecl}
@@ -737,7 +737,7 @@ Arguments:
 
 Literal:
 	{Literal}
-	basic=BasicLit | CompositeLit | FunctionLit;
+	basic=BasicLit | cl=CompositeLit | fl=FunctionLit;
 
 FunctionLit:
 	'func' signature=Signature functionbody=FunctionBody;
@@ -780,7 +780,7 @@ FunctionBody:
 	Block;
 
 OperandName:
-	IDENTIFIER | QualifiedIdent;
+	{OperandName} id=IDENTIFIER | QualifiedIdent;
 
 ImportDecl:
 	{ImportDecl}
