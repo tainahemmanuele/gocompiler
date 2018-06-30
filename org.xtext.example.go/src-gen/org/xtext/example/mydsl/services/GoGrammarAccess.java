@@ -4205,21 +4205,21 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	public class BasicLitElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.BasicLit");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cINTTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cINT_LITTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cFLOAT_LITParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cIMAGINARY_LITParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cRUNE_LITParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cSTRINGTerminalRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
 		//BasicLit:
-		//	INT | FLOAT_LIT | IMAGINARY_LIT | RUNE_LIT | STRING;
+		//	INT_LIT | FLOAT_LIT | IMAGINARY_LIT | RUNE_LIT | STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//INT | FLOAT_LIT | IMAGINARY_LIT | RUNE_LIT | STRING
+		//INT_LIT | FLOAT_LIT | IMAGINARY_LIT | RUNE_LIT | STRING
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//INT
-		public RuleCall getINTTerminalRuleCall_0() { return cINTTerminalRuleCall_0; }
+		//INT_LIT
+		public RuleCall getINT_LITTerminalRuleCall_0() { return cINT_LITTerminalRuleCall_0; }
 		
 		//FLOAT_LIT
 		public RuleCall getFLOAT_LITParserRuleCall_1() { return cFLOAT_LITParserRuleCall_1; }
@@ -4984,7 +4984,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal fragment DECIMAL_LIT:
-	//	('1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9') DECIMAL_DIGIT;
+	//	('1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9') DECIMAL_DIGIT*;
 	public TerminalRule getDECIMAL_LITRule() {
 		return tDECIMAL_LIT;
 	}
@@ -6156,7 +6156,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//BasicLit:
-	//	INT | FLOAT_LIT | IMAGINARY_LIT | RUNE_LIT | STRING;
+	//	INT_LIT | FLOAT_LIT | IMAGINARY_LIT | RUNE_LIT | STRING;
 	public BasicLitElements getBasicLitAccess() {
 		return pBasicLit;
 	}

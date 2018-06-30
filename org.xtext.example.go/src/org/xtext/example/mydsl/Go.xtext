@@ -372,7 +372,7 @@ terminal INT_LIT:
 	DECIMAL_LIT | OCTAL_LIT | HEX_LIT;
 
 terminal fragment DECIMAL_LIT:
-	('1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9') (DECIMAL_DIGIT);
+	('1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9') (DECIMAL_DIGIT)*;
 
 terminal fragment OCTAL_LIT:
 	'0' (OCTAL_DIGIT)*;
@@ -380,7 +380,7 @@ terminal fragment OCTAL_LIT:
 terminal  fragment HEX_LIT:
 	'0' ('x' | 'X') HEX_DIGIT (HEX_DIGIT)+;
 
-FLOAT_LIT:
+FLOAT_LIT: 
 	DECIMALS '.' (DECIMALS)? (EXPOENT)? |
 	DECIMALS EXPOENT |
 	'.' DECIMALS (EXPOENT)?;
@@ -771,7 +771,7 @@ Element:
 	Expression | LiteralValue;
 
 BasicLit:
-	INT | FLOAT_LIT | IMAGINARY_LIT | RUNE_LIT | STRING;
+	  INT_LIT | FLOAT_LIT | IMAGINARY_LIT | RUNE_LIT | STRING;
 
 ReceiverType:
 	type=Type;

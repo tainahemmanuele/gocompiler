@@ -4226,9 +4226,9 @@ rule__BasicLit__Alternatives
 	}
 :
 	(
-		{ before(grammarAccess.getBasicLitAccess().getINTTerminalRuleCall_0()); }
-		RULE_INT
-		{ after(grammarAccess.getBasicLitAccess().getINTTerminalRuleCall_0()); }
+		{ before(grammarAccess.getBasicLitAccess().getINT_LITTerminalRuleCall_0()); }
+		RULE_INT_LIT
+		{ after(grammarAccess.getBasicLitAccess().getINT_LITTerminalRuleCall_0()); }
 	)
 	|
 	(
@@ -17750,7 +17750,7 @@ fragment RULE_HEX_DIGIT : (('0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9')|('A'|'B'|'C
 
 RULE_INT_LIT : (RULE_DECIMAL_LIT|RULE_OCTAL_LIT|RULE_HEX_LIT);
 
-fragment RULE_DECIMAL_LIT : ('1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9') RULE_DECIMAL_DIGIT;
+fragment RULE_DECIMAL_LIT : ('1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9') RULE_DECIMAL_DIGIT*;
 
 fragment RULE_OCTAL_LIT : '0' RULE_OCTAL_DIGIT*;
 
@@ -17780,7 +17780,7 @@ RULE_INTERPRETED_STRING_LIT : '"' (RULE_UNICODE_VALUE|RULE_BYTE_VALUE)? '"';
 
 fragment RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
-RULE_INT : ('0'..'9')+;
+fragment RULE_INT : ('0'..'9')+;
 
 RULE_STRING : ('"' ('\\' .|~(('\\'|'"')))* '"'|'\'' ('\\' .|~(('\\'|'\'')))* '\'');
 

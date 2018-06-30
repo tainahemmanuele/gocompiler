@@ -23,10 +23,10 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalGoParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_LETTER", "RULE_UNICODE_DIGIT", "RULE_DECIMALS", "RULE_UNICODE_VALUE", "RULE_BYTE_VALUE", "RULE_RAW_STRING_LIT", "RULE_INTERPRETED_STRING_LIT", "RULE_INT", "RULE_EXPOENT", "RULE_ASSING_OP", "RULE_BINARY_OP", "RULE_UNARY_OP", "RULE_NEWLINE", "RULE_UNICODE_CHAR", "RULE_UNICODE_LETTER", "RULE_REL_OP", "RULE_ADD_OP", "RULE_MUL_OP", "RULE_ID", "RULE_DECIMAL_DIGIT", "RULE_OCTAL_DIGIT", "RULE_HEX_DIGIT", "RULE_DECIMAL_LIT", "RULE_OCTAL_LIT", "RULE_HEX_LIT", "RULE_INT_LIT", "RULE_LITTLE_U_VALUE", "RULE_BIG_U_VALUE", "RULE_ESCAPED_CHAR", "RULE_OCTAL_BYTE_VALUE", "RULE_HEX_BYTE_VALUE", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'fallthrough'", "';'", "'++'", "'--'", "'.'", "'func'", "'package'", "'i'", "'\\''", "'('", "')'", "'['", "']'", "'struct'", "'{'", "'}'", "','", "'*'", "'...'", "'interface'", "'map'", "'chan'", "'<-'", "':'", "'goto'", "'return'", "'break'", "'continue'", "'if'", "'else'", "'select'", "'for'", "'defer'", "'const'", "'='", "'type'", "'var'", "':='", "'switch'", "'case'", "'default'", "'range'", "'import'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_LETTER", "RULE_UNICODE_DIGIT", "RULE_DECIMALS", "RULE_UNICODE_VALUE", "RULE_BYTE_VALUE", "RULE_RAW_STRING_LIT", "RULE_INTERPRETED_STRING_LIT", "RULE_INT_LIT", "RULE_EXPOENT", "RULE_ASSING_OP", "RULE_BINARY_OP", "RULE_UNARY_OP", "RULE_NEWLINE", "RULE_UNICODE_CHAR", "RULE_UNICODE_LETTER", "RULE_REL_OP", "RULE_ADD_OP", "RULE_MUL_OP", "RULE_ID", "RULE_INT", "RULE_DECIMAL_DIGIT", "RULE_OCTAL_DIGIT", "RULE_HEX_DIGIT", "RULE_DECIMAL_LIT", "RULE_OCTAL_LIT", "RULE_HEX_LIT", "RULE_LITTLE_U_VALUE", "RULE_BIG_U_VALUE", "RULE_ESCAPED_CHAR", "RULE_OCTAL_BYTE_VALUE", "RULE_HEX_BYTE_VALUE", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'fallthrough'", "';'", "'++'", "'--'", "'.'", "'func'", "'package'", "'i'", "'\\''", "'('", "')'", "'['", "']'", "'struct'", "'{'", "'}'", "','", "'*'", "'...'", "'interface'", "'map'", "'chan'", "'<-'", "':'", "'goto'", "'return'", "'break'", "'continue'", "'if'", "'else'", "'select'", "'for'", "'defer'", "'const'", "'='", "'type'", "'var'", "':='", "'switch'", "'case'", "'default'", "'range'", "'import'"
     };
     public static final int T__50=50;
-    public static final int RULE_DECIMAL_DIGIT=24;
+    public static final int RULE_DECIMAL_DIGIT=25;
     public static final int T__59=59;
     public static final int T__55=55;
     public static final int T__56=56;
@@ -47,7 +47,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
     public static final int RULE_HEX_BYTE_VALUE=35;
     public static final int RULE_OCTAL_BYTE_VALUE=34;
     public static final int RULE_MUL_OP=22;
-    public static final int RULE_INT=12;
+    public static final int RULE_INT=24;
     public static final int T__66=66;
     public static final int RULE_ML_COMMENT=36;
     public static final int T__67=67;
@@ -71,14 +71,14 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
     public static final int RULE_UNICODE_LETTER=19;
     public static final int T__77=77;
     public static final int RULE_UNICODE_CHAR=18;
-    public static final int RULE_HEX_LIT=29;
+    public static final int RULE_HEX_LIT=30;
     public static final int T__78=78;
     public static final int T__79=79;
     public static final int T__73=73;
     public static final int EOF=-1;
     public static final int T__74=74;
     public static final int RULE_ADD_OP=21;
-    public static final int RULE_OCTAL_DIGIT=25;
+    public static final int RULE_OCTAL_DIGIT=26;
     public static final int T__75=75;
     public static final int T__76=76;
     public static final int T__80=80;
@@ -87,23 +87,23 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
     public static final int RULE_UNICODE_DIGIT=6;
     public static final int RULE_WS=38;
     public static final int RULE_ANY_OTHER=39;
-    public static final int RULE_OCTAL_LIT=28;
+    public static final int RULE_OCTAL_LIT=29;
     public static final int RULE_LETTER=5;
     public static final int T__48=48;
     public static final int T__49=49;
     public static final int RULE_RAW_STRING_LIT=10;
-    public static final int RULE_INT_LIT=30;
+    public static final int RULE_INT_LIT=12;
     public static final int T__44=44;
     public static final int RULE_UNARY_OP=16;
     public static final int T__45=45;
     public static final int RULE_REL_OP=20;
-    public static final int RULE_HEX_DIGIT=26;
+    public static final int RULE_HEX_DIGIT=27;
     public static final int T__46=46;
     public static final int T__47=47;
     public static final int T__40=40;
     public static final int T__41=41;
     public static final int T__42=42;
-    public static final int RULE_DECIMAL_LIT=27;
+    public static final int RULE_DECIMAL_LIT=28;
     public static final int T__43=43;
 
     // delegates
@@ -14093,7 +14093,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             int alt32=2;
             int LA32_0 = input.LA(1);
 
-            if ( ((LA32_0>=RULE_STRING && LA32_0<=RULE_LETTER)||LA32_0==RULE_DECIMALS||LA32_0==RULE_INT||(LA32_0>=44 && LA32_0<=45)||(LA32_0>=48 && LA32_0<=49)||LA32_0==51||LA32_0==53||LA32_0==57||(LA32_0>=59 && LA32_0<=62)) ) {
+            if ( ((LA32_0>=RULE_STRING && LA32_0<=RULE_LETTER)||LA32_0==RULE_DECIMALS||LA32_0==RULE_INT_LIT||(LA32_0>=44 && LA32_0<=45)||(LA32_0>=48 && LA32_0<=49)||LA32_0==51||LA32_0==53||LA32_0==57||(LA32_0>=59 && LA32_0<=62)) ) {
                 alt32=1;
             }
             else if ( (LA32_0==RULE_UNARY_OP) ) {
@@ -14839,7 +14839,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             switch ( input.LA(1) ) {
             case RULE_STRING:
             case RULE_DECIMALS:
-            case RULE_INT:
+            case RULE_INT_LIT:
             case 44:
             case 48:
                 {
@@ -14998,7 +14998,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                 case RULE_STRING:
                 case RULE_LETTER:
                 case RULE_DECIMALS:
-                case RULE_INT:
+                case RULE_INT_LIT:
                 case RULE_UNARY_OP:
                 case 44:
                 case 45:
@@ -15271,7 +15271,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                 break;
             case RULE_STRING:
             case RULE_DECIMALS:
-            case RULE_INT:
+            case RULE_INT_LIT:
             case RULE_UNARY_OP:
             case 44:
             case 45:
@@ -15405,7 +15405,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             int alt41=2;
             int LA41_0 = input.LA(1);
 
-            if ( ((LA41_0>=RULE_STRING && LA41_0<=RULE_LETTER)||LA41_0==RULE_DECIMALS||LA41_0==RULE_INT||LA41_0==RULE_UNARY_OP||(LA41_0>=44 && LA41_0<=45)||(LA41_0>=48 && LA41_0<=49)||LA41_0==51||LA41_0==53||LA41_0==57||(LA41_0>=59 && LA41_0<=62)) ) {
+            if ( ((LA41_0>=RULE_STRING && LA41_0<=RULE_LETTER)||LA41_0==RULE_DECIMALS||LA41_0==RULE_INT_LIT||LA41_0==RULE_UNARY_OP||(LA41_0>=44 && LA41_0<=45)||(LA41_0>=48 && LA41_0<=49)||LA41_0==51||LA41_0==53||LA41_0==57||(LA41_0>=59 && LA41_0<=62)) ) {
                 alt41=1;
             }
             else if ( (LA41_0==54) ) {
@@ -15483,28 +15483,28 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BasicLit__Alternatives"
-    // InternalGo.g:4223:1: rule__BasicLit__Alternatives : ( ( RULE_INT ) | ( ruleFLOAT_LIT ) | ( ruleIMAGINARY_LIT ) | ( ruleRUNE_LIT ) | ( RULE_STRING ) );
+    // InternalGo.g:4223:1: rule__BasicLit__Alternatives : ( ( RULE_INT_LIT ) | ( ruleFLOAT_LIT ) | ( ruleIMAGINARY_LIT ) | ( ruleRUNE_LIT ) | ( RULE_STRING ) );
     public final void rule__BasicLit__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGo.g:4227:1: ( ( RULE_INT ) | ( ruleFLOAT_LIT ) | ( ruleIMAGINARY_LIT ) | ( ruleRUNE_LIT ) | ( RULE_STRING ) )
+            // InternalGo.g:4227:1: ( ( RULE_INT_LIT ) | ( ruleFLOAT_LIT ) | ( ruleIMAGINARY_LIT ) | ( ruleRUNE_LIT ) | ( RULE_STRING ) )
             int alt42=5;
             alt42 = dfa42.predict(input);
             switch (alt42) {
                 case 1 :
-                    // InternalGo.g:4228:2: ( RULE_INT )
+                    // InternalGo.g:4228:2: ( RULE_INT_LIT )
                     {
-                    // InternalGo.g:4228:2: ( RULE_INT )
-                    // InternalGo.g:4229:3: RULE_INT
+                    // InternalGo.g:4228:2: ( RULE_INT_LIT )
+                    // InternalGo.g:4229:3: RULE_INT_LIT
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getBasicLitAccess().getINTTerminalRuleCall_0()); 
+                       before(grammarAccess.getBasicLitAccess().getINT_LITTerminalRuleCall_0()); 
                     }
-                    match(input,RULE_INT,FOLLOW_2); if (state.failed) return ;
+                    match(input,RULE_INT_LIT,FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getBasicLitAccess().getINTTerminalRuleCall_0()); 
+                       after(grammarAccess.getBasicLitAccess().getINT_LITTerminalRuleCall_0()); 
                     }
 
                     }
@@ -25506,7 +25506,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                 int alt68=2;
                 int LA68_0 = input.LA(1);
 
-                if ( ((LA68_0>=RULE_STRING && LA68_0<=RULE_LETTER)||LA68_0==RULE_DECIMALS||LA68_0==RULE_INT||LA68_0==RULE_UNARY_OP||(LA68_0>=40 && LA68_0<=41)||(LA68_0>=44 && LA68_0<=45)||(LA68_0>=48 && LA68_0<=49)||LA68_0==51||(LA68_0>=53 && LA68_0<=54)||LA68_0==57||(LA68_0>=59 && LA68_0<=62)||(LA68_0>=64 && LA68_0<=68)||(LA68_0>=70 && LA68_0<=73)||(LA68_0>=75 && LA68_0<=76)||LA68_0==78) ) {
+                if ( ((LA68_0>=RULE_STRING && LA68_0<=RULE_LETTER)||LA68_0==RULE_DECIMALS||LA68_0==RULE_INT_LIT||LA68_0==RULE_UNARY_OP||(LA68_0>=40 && LA68_0<=41)||(LA68_0>=44 && LA68_0<=45)||(LA68_0>=48 && LA68_0<=49)||LA68_0==51||(LA68_0>=53 && LA68_0<=54)||LA68_0==57||(LA68_0>=59 && LA68_0<=62)||(LA68_0>=64 && LA68_0<=68)||(LA68_0>=70 && LA68_0<=73)||(LA68_0>=75 && LA68_0<=76)||LA68_0==78) ) {
                     alt68=1;
                 }
 
@@ -28565,7 +28565,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                 int alt76=2;
                 int LA76_0 = input.LA(1);
 
-                if ( ((LA76_0>=RULE_STRING && LA76_0<=RULE_LETTER)||LA76_0==RULE_DECIMALS||LA76_0==RULE_INT||LA76_0==RULE_UNARY_OP||LA76_0==41||(LA76_0>=44 && LA76_0<=45)||(LA76_0>=48 && LA76_0<=49)||LA76_0==51||LA76_0==53||LA76_0==57||(LA76_0>=59 && LA76_0<=62)||LA76_0==81) ) {
+                if ( ((LA76_0>=RULE_STRING && LA76_0<=RULE_LETTER)||LA76_0==RULE_DECIMALS||LA76_0==RULE_INT_LIT||LA76_0==RULE_UNARY_OP||LA76_0==41||(LA76_0>=44 && LA76_0<=45)||(LA76_0>=48 && LA76_0<=49)||LA76_0==51||LA76_0==53||LA76_0==57||(LA76_0>=59 && LA76_0<=62)||LA76_0==81) ) {
                     alt76=1;
                 }
 
@@ -33632,7 +33632,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             int alt83=2;
             int LA83_0 = input.LA(1);
 
-            if ( ((LA83_0>=RULE_STRING && LA83_0<=RULE_LETTER)||LA83_0==RULE_DECIMALS||LA83_0==RULE_INT||LA83_0==RULE_UNARY_OP||(LA83_0>=44 && LA83_0<=45)||(LA83_0>=48 && LA83_0<=49)||LA83_0==51||LA83_0==53||LA83_0==57||(LA83_0>=59 && LA83_0<=62)) ) {
+            if ( ((LA83_0>=RULE_STRING && LA83_0<=RULE_LETTER)||LA83_0==RULE_DECIMALS||LA83_0==RULE_INT_LIT||LA83_0==RULE_UNARY_OP||(LA83_0>=44 && LA83_0<=45)||(LA83_0>=48 && LA83_0<=49)||LA83_0==51||LA83_0==53||LA83_0==57||(LA83_0>=59 && LA83_0<=62)) ) {
                 alt83=1;
             }
             switch (alt83) {
@@ -38470,7 +38470,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             int alt92=2;
             int LA92_0 = input.LA(1);
 
-            if ( ((LA92_0>=RULE_STRING && LA92_0<=RULE_LETTER)||LA92_0==RULE_DECIMALS||LA92_0==RULE_INT||LA92_0==RULE_UNARY_OP||(LA92_0>=44 && LA92_0<=45)||(LA92_0>=48 && LA92_0<=49)||LA92_0==51||LA92_0==53||LA92_0==57||(LA92_0>=59 && LA92_0<=62)) ) {
+            if ( ((LA92_0>=RULE_STRING && LA92_0<=RULE_LETTER)||LA92_0==RULE_DECIMALS||LA92_0==RULE_INT_LIT||LA92_0==RULE_UNARY_OP||(LA92_0>=44 && LA92_0<=45)||(LA92_0>=48 && LA92_0<=49)||LA92_0==51||LA92_0==53||LA92_0==57||(LA92_0>=59 && LA92_0<=62)) ) {
                 alt92=1;
             }
             switch (alt92) {
@@ -38733,7 +38733,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             int alt93=2;
             int LA93_0 = input.LA(1);
 
-            if ( ((LA93_0>=RULE_STRING && LA93_0<=RULE_LETTER)||LA93_0==RULE_DECIMALS||LA93_0==RULE_INT||LA93_0==RULE_UNARY_OP||(LA93_0>=44 && LA93_0<=45)||(LA93_0>=48 && LA93_0<=49)||LA93_0==51||LA93_0==53||LA93_0==57||(LA93_0>=59 && LA93_0<=62)) ) {
+            if ( ((LA93_0>=RULE_STRING && LA93_0<=RULE_LETTER)||LA93_0==RULE_DECIMALS||LA93_0==RULE_INT_LIT||LA93_0==RULE_UNARY_OP||(LA93_0>=44 && LA93_0<=45)||(LA93_0>=48 && LA93_0<=49)||LA93_0==51||LA93_0==53||LA93_0==57||(LA93_0>=59 && LA93_0<=62)) ) {
                 alt93=1;
             }
             switch (alt93) {
@@ -43700,7 +43700,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             int alt98=2;
             int LA98_0 = input.LA(1);
 
-            if ( ((LA98_0>=RULE_STRING && LA98_0<=RULE_LETTER)||LA98_0==RULE_DECIMALS||LA98_0==RULE_INT||LA98_0==RULE_UNARY_OP||(LA98_0>=44 && LA98_0<=45)||(LA98_0>=48 && LA98_0<=49)||LA98_0==51||LA98_0==53||LA98_0==57||(LA98_0>=59 && LA98_0<=62)) ) {
+            if ( ((LA98_0>=RULE_STRING && LA98_0<=RULE_LETTER)||LA98_0==RULE_DECIMALS||LA98_0==RULE_INT_LIT||LA98_0==RULE_UNARY_OP||(LA98_0>=44 && LA98_0<=45)||(LA98_0>=48 && LA98_0<=49)||LA98_0==51||LA98_0==53||LA98_0==57||(LA98_0>=59 && LA98_0<=62)) ) {
                 alt98=1;
             }
             switch (alt98) {
@@ -43879,7 +43879,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             int alt99=2;
             int LA99_0 = input.LA(1);
 
-            if ( ((LA99_0>=RULE_STRING && LA99_0<=RULE_LETTER)||LA99_0==RULE_DECIMALS||LA99_0==RULE_INT||LA99_0==RULE_UNARY_OP||(LA99_0>=44 && LA99_0<=45)||(LA99_0>=48 && LA99_0<=49)||LA99_0==51||LA99_0==53||LA99_0==57||(LA99_0>=59 && LA99_0<=62)) ) {
+            if ( ((LA99_0>=RULE_STRING && LA99_0<=RULE_LETTER)||LA99_0==RULE_DECIMALS||LA99_0==RULE_INT_LIT||LA99_0==RULE_UNARY_OP||(LA99_0>=44 && LA99_0<=45)||(LA99_0>=48 && LA99_0<=49)||LA99_0==51||LA99_0==53||LA99_0==57||(LA99_0>=59 && LA99_0<=62)) ) {
                 alt99=1;
             }
             switch (alt99) {
@@ -44132,7 +44132,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             int alt100=2;
             int LA100_0 = input.LA(1);
 
-            if ( ((LA100_0>=RULE_STRING && LA100_0<=RULE_LETTER)||LA100_0==RULE_DECIMALS||LA100_0==RULE_INT||LA100_0==RULE_UNARY_OP||(LA100_0>=44 && LA100_0<=45)||(LA100_0>=48 && LA100_0<=49)||LA100_0==51||LA100_0==53||LA100_0==57||(LA100_0>=59 && LA100_0<=62)) ) {
+            if ( ((LA100_0>=RULE_STRING && LA100_0<=RULE_LETTER)||LA100_0==RULE_DECIMALS||LA100_0==RULE_INT_LIT||LA100_0==RULE_UNARY_OP||(LA100_0>=44 && LA100_0<=45)||(LA100_0>=48 && LA100_0<=49)||LA100_0==51||LA100_0==53||LA100_0==57||(LA100_0>=59 && LA100_0<=62)) ) {
                 alt100=1;
             }
             switch (alt100) {
@@ -45115,7 +45115,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             int alt101=2;
             int LA101_0 = input.LA(1);
 
-            if ( ((LA101_0>=RULE_STRING && LA101_0<=RULE_LETTER)||LA101_0==RULE_DECIMALS||LA101_0==RULE_INT||LA101_0==RULE_UNARY_OP||(LA101_0>=44 && LA101_0<=45)||(LA101_0>=48 && LA101_0<=49)||LA101_0==51||LA101_0==53||(LA101_0>=56 && LA101_0<=62)) ) {
+            if ( ((LA101_0>=RULE_STRING && LA101_0<=RULE_LETTER)||LA101_0==RULE_DECIMALS||LA101_0==RULE_INT_LIT||LA101_0==RULE_UNARY_OP||(LA101_0>=44 && LA101_0<=45)||(LA101_0>=48 && LA101_0<=49)||LA101_0==51||LA101_0==53||(LA101_0>=56 && LA101_0<=62)) ) {
                 alt101=1;
             }
             else if ( (LA101_0==50) ) {
@@ -45296,7 +45296,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             int alt102=2;
             int LA102_0 = input.LA(1);
 
-            if ( ((LA102_0>=RULE_STRING && LA102_0<=RULE_LETTER)||LA102_0==RULE_DECIMALS||LA102_0==RULE_INT||LA102_0==RULE_UNARY_OP||(LA102_0>=44 && LA102_0<=45)||(LA102_0>=48 && LA102_0<=49)||LA102_0==51||LA102_0==53||LA102_0==57||(LA102_0>=59 && LA102_0<=62)) ) {
+            if ( ((LA102_0>=RULE_STRING && LA102_0<=RULE_LETTER)||LA102_0==RULE_DECIMALS||LA102_0==RULE_INT_LIT||LA102_0==RULE_UNARY_OP||(LA102_0>=44 && LA102_0<=45)||(LA102_0>=48 && LA102_0<=49)||LA102_0==51||LA102_0==53||LA102_0==57||(LA102_0>=59 && LA102_0<=62)) ) {
                 alt102=1;
             }
             switch (alt102) {
@@ -45670,11 +45670,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             if ( (LA105_0==56) ) {
                 int LA105_1 = input.LA(2);
 
-                if ( ((LA105_1>=RULE_STRING && LA105_1<=RULE_LETTER)||LA105_1==RULE_DECIMALS||LA105_1==RULE_INT||LA105_1==RULE_UNARY_OP||(LA105_1>=44 && LA105_1<=45)||(LA105_1>=48 && LA105_1<=49)||LA105_1==51||LA105_1==53||LA105_1==57||(LA105_1>=59 && LA105_1<=62)) ) {
+                if ( ((LA105_1>=RULE_STRING && LA105_1<=RULE_LETTER)||LA105_1==RULE_DECIMALS||LA105_1==RULE_INT_LIT||LA105_1==RULE_UNARY_OP||(LA105_1>=44 && LA105_1<=45)||(LA105_1>=48 && LA105_1<=49)||LA105_1==51||LA105_1==53||LA105_1==57||(LA105_1>=59 && LA105_1<=62)) ) {
                     alt105=1;
                 }
             }
-            else if ( ((LA105_0>=RULE_STRING && LA105_0<=RULE_LETTER)||LA105_0==RULE_DECIMALS||LA105_0==RULE_INT||LA105_0==RULE_UNARY_OP||(LA105_0>=44 && LA105_0<=45)||(LA105_0>=48 && LA105_0<=49)||LA105_0==51||LA105_0==53||LA105_0==57||(LA105_0>=59 && LA105_0<=62)) ) {
+            else if ( ((LA105_0>=RULE_STRING && LA105_0<=RULE_LETTER)||LA105_0==RULE_DECIMALS||LA105_0==RULE_INT_LIT||LA105_0==RULE_UNARY_OP||(LA105_0>=44 && LA105_0<=45)||(LA105_0>=48 && LA105_0<=49)||LA105_0==51||LA105_0==53||LA105_0==57||(LA105_0>=59 && LA105_0<=62)) ) {
                 alt105=1;
             }
             switch (alt105) {
@@ -47184,7 +47184,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             int alt107=2;
             int LA107_0 = input.LA(1);
 
-            if ( ((LA107_0>=RULE_STRING && LA107_0<=RULE_LETTER)||LA107_0==RULE_DECIMALS||LA107_0==RULE_INT||LA107_0==RULE_UNARY_OP||(LA107_0>=44 && LA107_0<=45)||(LA107_0>=48 && LA107_0<=49)||LA107_0==51||(LA107_0>=53 && LA107_0<=54)||LA107_0==57||(LA107_0>=59 && LA107_0<=62)) ) {
+            if ( ((LA107_0>=RULE_STRING && LA107_0<=RULE_LETTER)||LA107_0==RULE_DECIMALS||LA107_0==RULE_INT_LIT||LA107_0==RULE_UNARY_OP||(LA107_0>=44 && LA107_0<=45)||(LA107_0>=48 && LA107_0<=49)||LA107_0==51||(LA107_0>=53 && LA107_0<=54)||LA107_0==57||(LA107_0>=59 && LA107_0<=62)) ) {
                 alt107=1;
             }
             switch (alt107) {
@@ -47621,13 +47621,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                 if ( (LA109_0==56) ) {
                     int LA109_2 = input.LA(2);
 
-                    if ( ((LA109_2>=RULE_STRING && LA109_2<=RULE_LETTER)||LA109_2==RULE_DECIMALS||LA109_2==RULE_INT||LA109_2==RULE_UNARY_OP||(LA109_2>=44 && LA109_2<=45)||(LA109_2>=48 && LA109_2<=49)||LA109_2==51||(LA109_2>=53 && LA109_2<=54)||LA109_2==57||(LA109_2>=59 && LA109_2<=62)) ) {
+                    if ( ((LA109_2>=RULE_STRING && LA109_2<=RULE_LETTER)||LA109_2==RULE_DECIMALS||LA109_2==RULE_INT_LIT||LA109_2==RULE_UNARY_OP||(LA109_2>=44 && LA109_2<=45)||(LA109_2>=48 && LA109_2<=49)||LA109_2==51||(LA109_2>=53 && LA109_2<=54)||LA109_2==57||(LA109_2>=59 && LA109_2<=62)) ) {
                         alt109=1;
                     }
 
 
                 }
-                else if ( ((LA109_0>=RULE_STRING && LA109_0<=RULE_LETTER)||LA109_0==RULE_DECIMALS||LA109_0==RULE_INT||LA109_0==RULE_UNARY_OP||(LA109_0>=44 && LA109_0<=45)||(LA109_0>=48 && LA109_0<=49)||LA109_0==51||(LA109_0>=53 && LA109_0<=54)||LA109_0==57||(LA109_0>=59 && LA109_0<=62)) ) {
+                else if ( ((LA109_0>=RULE_STRING && LA109_0<=RULE_LETTER)||LA109_0==RULE_DECIMALS||LA109_0==RULE_INT_LIT||LA109_0==RULE_UNARY_OP||(LA109_0>=44 && LA109_0<=45)||(LA109_0>=48 && LA109_0<=49)||LA109_0==51||(LA109_0>=53 && LA109_0<=54)||LA109_0==57||(LA109_0>=59 && LA109_0<=62)) ) {
                     alt109=1;
                 }
 
@@ -61404,7 +61404,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             this.transition = dfa_89;
         }
         public String getDescription() {
-            return "4223:1: rule__BasicLit__Alternatives : ( ( RULE_INT ) | ( ruleFLOAT_LIT ) | ( ruleIMAGINARY_LIT ) | ( ruleRUNE_LIT ) | ( RULE_STRING ) );";
+            return "4223:1: rule__BasicLit__Alternatives : ( ( RULE_INT_LIT ) | ( ruleFLOAT_LIT ) | ( ruleIMAGINARY_LIT ) | ( ruleRUNE_LIT ) | ( RULE_STRING ) );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;

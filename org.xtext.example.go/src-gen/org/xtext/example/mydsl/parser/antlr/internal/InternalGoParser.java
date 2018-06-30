@@ -22,10 +22,10 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalGoParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_LETTER", "RULE_UNICODE_DIGIT", "RULE_DECIMALS", "RULE_EXPOENT", "RULE_UNICODE_VALUE", "RULE_BYTE_VALUE", "RULE_RAW_STRING_LIT", "RULE_INTERPRETED_STRING_LIT", "RULE_ASSING_OP", "RULE_BINARY_OP", "RULE_UNARY_OP", "RULE_INT", "RULE_STRING", "RULE_NEWLINE", "RULE_UNICODE_CHAR", "RULE_UNICODE_LETTER", "RULE_REL_OP", "RULE_ADD_OP", "RULE_MUL_OP", "RULE_ID", "RULE_DECIMAL_DIGIT", "RULE_OCTAL_DIGIT", "RULE_HEX_DIGIT", "RULE_DECIMAL_LIT", "RULE_OCTAL_LIT", "RULE_HEX_LIT", "RULE_INT_LIT", "RULE_LITTLE_U_VALUE", "RULE_BIG_U_VALUE", "RULE_ESCAPED_CHAR", "RULE_OCTAL_BYTE_VALUE", "RULE_HEX_BYTE_VALUE", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'func'", "'package'", "'.'", "'i'", "'\\''", "'('", "')'", "'['", "']'", "'struct'", "'{'", "';'", "'}'", "','", "'*'", "'...'", "'interface'", "'map'", "'chan'", "'<-'", "':'", "'goto'", "'return'", "'break'", "'continue'", "'if'", "'else'", "'fallthrough'", "'select'", "'for'", "'defer'", "'const'", "'='", "'type'", "'var'", "'++'", "'--'", "':='", "'switch'", "'case'", "'default'", "'range'", "'import'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_LETTER", "RULE_UNICODE_DIGIT", "RULE_DECIMALS", "RULE_EXPOENT", "RULE_UNICODE_VALUE", "RULE_BYTE_VALUE", "RULE_RAW_STRING_LIT", "RULE_INTERPRETED_STRING_LIT", "RULE_ASSING_OP", "RULE_BINARY_OP", "RULE_UNARY_OP", "RULE_INT_LIT", "RULE_STRING", "RULE_NEWLINE", "RULE_UNICODE_CHAR", "RULE_UNICODE_LETTER", "RULE_REL_OP", "RULE_ADD_OP", "RULE_MUL_OP", "RULE_ID", "RULE_INT", "RULE_DECIMAL_DIGIT", "RULE_OCTAL_DIGIT", "RULE_HEX_DIGIT", "RULE_DECIMAL_LIT", "RULE_OCTAL_LIT", "RULE_HEX_LIT", "RULE_LITTLE_U_VALUE", "RULE_BIG_U_VALUE", "RULE_ESCAPED_CHAR", "RULE_OCTAL_BYTE_VALUE", "RULE_HEX_BYTE_VALUE", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'func'", "'package'", "'.'", "'i'", "'\\''", "'('", "')'", "'['", "']'", "'struct'", "'{'", "';'", "'}'", "','", "'*'", "'...'", "'interface'", "'map'", "'chan'", "'<-'", "':'", "'goto'", "'return'", "'break'", "'continue'", "'if'", "'else'", "'fallthrough'", "'select'", "'for'", "'defer'", "'const'", "'='", "'type'", "'var'", "'++'", "'--'", "':='", "'switch'", "'case'", "'default'", "'range'", "'import'"
     };
     public static final int T__50=50;
-    public static final int RULE_DECIMAL_DIGIT=24;
+    public static final int RULE_DECIMAL_DIGIT=25;
     public static final int T__59=59;
     public static final int T__55=55;
     public static final int T__56=56;
@@ -46,7 +46,7 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
     public static final int RULE_HEX_BYTE_VALUE=35;
     public static final int RULE_OCTAL_BYTE_VALUE=34;
     public static final int RULE_MUL_OP=22;
-    public static final int RULE_INT=15;
+    public static final int RULE_INT=24;
     public static final int T__66=66;
     public static final int RULE_ML_COMMENT=36;
     public static final int T__67=67;
@@ -70,14 +70,14 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
     public static final int RULE_UNICODE_LETTER=19;
     public static final int T__77=77;
     public static final int RULE_UNICODE_CHAR=18;
-    public static final int RULE_HEX_LIT=29;
+    public static final int RULE_HEX_LIT=30;
     public static final int T__78=78;
     public static final int T__79=79;
     public static final int T__73=73;
     public static final int EOF=-1;
     public static final int T__74=74;
     public static final int RULE_ADD_OP=21;
-    public static final int RULE_OCTAL_DIGIT=25;
+    public static final int RULE_OCTAL_DIGIT=26;
     public static final int T__75=75;
     public static final int T__76=76;
     public static final int T__80=80;
@@ -86,23 +86,23 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
     public static final int RULE_UNICODE_DIGIT=5;
     public static final int RULE_WS=38;
     public static final int RULE_ANY_OTHER=39;
-    public static final int RULE_OCTAL_LIT=28;
+    public static final int RULE_OCTAL_LIT=29;
     public static final int RULE_LETTER=4;
     public static final int T__48=48;
     public static final int T__49=49;
     public static final int RULE_RAW_STRING_LIT=10;
-    public static final int RULE_INT_LIT=30;
+    public static final int RULE_INT_LIT=15;
     public static final int T__44=44;
     public static final int RULE_UNARY_OP=14;
     public static final int T__45=45;
     public static final int RULE_REL_OP=20;
-    public static final int RULE_HEX_DIGIT=26;
+    public static final int RULE_HEX_DIGIT=27;
     public static final int T__46=46;
     public static final int T__47=47;
     public static final int T__40=40;
     public static final int T__41=41;
     public static final int T__42=42;
-    public static final int RULE_DECIMAL_LIT=27;
+    public static final int RULE_DECIMAL_LIT=28;
     public static final int T__43=43;
 
     // delegates
@@ -17239,7 +17239,7 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
             int alt78=2;
             int LA78_0 = input.LA(1);
 
-            if ( (LA78_0==RULE_LETTER||LA78_0==RULE_DECIMALS||(LA78_0>=RULE_INT && LA78_0<=RULE_STRING)||LA78_0==40||LA78_0==42||(LA78_0>=44 && LA78_0<=45)||LA78_0==47||LA78_0==49||LA78_0==54||(LA78_0>=56 && LA78_0<=59)) ) {
+            if ( (LA78_0==RULE_LETTER||LA78_0==RULE_DECIMALS||(LA78_0>=RULE_INT_LIT && LA78_0<=RULE_STRING)||LA78_0==40||LA78_0==42||(LA78_0>=44 && LA78_0<=45)||LA78_0==47||LA78_0==49||LA78_0==54||(LA78_0>=56 && LA78_0<=59)) ) {
                 alt78=1;
             }
             else if ( (LA78_0==RULE_UNARY_OP) ) {
@@ -20017,7 +20017,7 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
             int alt93=3;
             switch ( input.LA(1) ) {
             case RULE_DECIMALS:
-            case RULE_INT:
+            case RULE_INT_LIT:
             case RULE_STRING:
             case 42:
             case 44:
@@ -20615,7 +20615,7 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
                 case RULE_LETTER:
                 case RULE_DECIMALS:
                 case RULE_UNARY_OP:
-                case RULE_INT:
+                case RULE_INT_LIT:
                 case RULE_STRING:
                 case 40:
                 case 42:
@@ -21619,7 +21619,7 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
                 break;
             case RULE_DECIMALS:
             case RULE_UNARY_OP:
-            case RULE_INT:
+            case RULE_INT_LIT:
             case RULE_STRING:
             case 40:
             case 42:
@@ -22083,11 +22083,11 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBasicLit"
-    // InternalGo.g:7716:1: ruleBasicLit returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_INT_0= RULE_INT | this_FLOAT_LIT_1= ruleFLOAT_LIT | this_IMAGINARY_LIT_2= ruleIMAGINARY_LIT | this_RUNE_LIT_3= ruleRUNE_LIT | this_STRING_4= RULE_STRING ) ;
+    // InternalGo.g:7716:1: ruleBasicLit returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_INT_LIT_0= RULE_INT_LIT | this_FLOAT_LIT_1= ruleFLOAT_LIT | this_IMAGINARY_LIT_2= ruleIMAGINARY_LIT | this_RUNE_LIT_3= ruleRUNE_LIT | this_STRING_4= RULE_STRING ) ;
     public final AntlrDatatypeRuleToken ruleBasicLit() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
-        Token this_INT_0=null;
+        Token this_INT_LIT_0=null;
         Token this_STRING_4=null;
         AntlrDatatypeRuleToken this_FLOAT_LIT_1 = null;
 
@@ -22100,25 +22100,25 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGo.g:7722:2: ( (this_INT_0= RULE_INT | this_FLOAT_LIT_1= ruleFLOAT_LIT | this_IMAGINARY_LIT_2= ruleIMAGINARY_LIT | this_RUNE_LIT_3= ruleRUNE_LIT | this_STRING_4= RULE_STRING ) )
-            // InternalGo.g:7723:2: (this_INT_0= RULE_INT | this_FLOAT_LIT_1= ruleFLOAT_LIT | this_IMAGINARY_LIT_2= ruleIMAGINARY_LIT | this_RUNE_LIT_3= ruleRUNE_LIT | this_STRING_4= RULE_STRING )
+            // InternalGo.g:7722:2: ( (this_INT_LIT_0= RULE_INT_LIT | this_FLOAT_LIT_1= ruleFLOAT_LIT | this_IMAGINARY_LIT_2= ruleIMAGINARY_LIT | this_RUNE_LIT_3= ruleRUNE_LIT | this_STRING_4= RULE_STRING ) )
+            // InternalGo.g:7723:2: (this_INT_LIT_0= RULE_INT_LIT | this_FLOAT_LIT_1= ruleFLOAT_LIT | this_IMAGINARY_LIT_2= ruleIMAGINARY_LIT | this_RUNE_LIT_3= ruleRUNE_LIT | this_STRING_4= RULE_STRING )
             {
-            // InternalGo.g:7723:2: (this_INT_0= RULE_INT | this_FLOAT_LIT_1= ruleFLOAT_LIT | this_IMAGINARY_LIT_2= ruleIMAGINARY_LIT | this_RUNE_LIT_3= ruleRUNE_LIT | this_STRING_4= RULE_STRING )
+            // InternalGo.g:7723:2: (this_INT_LIT_0= RULE_INT_LIT | this_FLOAT_LIT_1= ruleFLOAT_LIT | this_IMAGINARY_LIT_2= ruleIMAGINARY_LIT | this_RUNE_LIT_3= ruleRUNE_LIT | this_STRING_4= RULE_STRING )
             int alt102=5;
             alt102 = dfa102.predict(input);
             switch (alt102) {
                 case 1 :
-                    // InternalGo.g:7724:3: this_INT_0= RULE_INT
+                    // InternalGo.g:7724:3: this_INT_LIT_0= RULE_INT_LIT
                     {
-                    this_INT_0=(Token)match(input,RULE_INT,FOLLOW_2); if (state.failed) return current;
+                    this_INT_LIT_0=(Token)match(input,RULE_INT_LIT,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			current.merge(this_INT_0);
+                      			current.merge(this_INT_LIT_0);
                       		
                     }
                     if ( state.backtracking==0 ) {
 
-                      			newLeafNode(this_INT_0, grammarAccess.getBasicLitAccess().getINTTerminalRuleCall_0());
+                      			newLeafNode(this_INT_LIT_0, grammarAccess.getBasicLitAccess().getINT_LITTerminalRuleCall_0());
                       		
                     }
 
@@ -30743,7 +30743,7 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
             this.transition = dfa_156;
         }
         public String getDescription() {
-            return "7723:2: (this_INT_0= RULE_INT | this_FLOAT_LIT_1= ruleFLOAT_LIT | this_IMAGINARY_LIT_2= ruleIMAGINARY_LIT | this_RUNE_LIT_3= ruleRUNE_LIT | this_STRING_4= RULE_STRING )";
+            return "7723:2: (this_INT_LIT_0= RULE_INT_LIT | this_FLOAT_LIT_1= ruleFLOAT_LIT | this_IMAGINARY_LIT_2= ruleIMAGINARY_LIT | this_RUNE_LIT_3= ruleRUNE_LIT | this_STRING_4= RULE_STRING )";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
