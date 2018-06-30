@@ -2482,13 +2482,22 @@ public interface GoPackage extends EPackage
   int RECV_EXPR = 64;
 
   /**
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RECV_EXPR__EXP = 0;
+
+  /**
    * The number of structural features of the '<em>Recv Expr</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RECV_EXPR_FEATURE_COUNT = 0;
+  int RECV_EXPR_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.ConditionImpl <em>Condition</em>}' class.
@@ -2501,13 +2510,22 @@ public interface GoPackage extends EPackage
   int CONDITION = 65;
 
   /**
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION__EXP = 0;
+
+  /**
    * The number of structural features of the '<em>Condition</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONDITION_FEATURE_COUNT = 0;
+  int CONDITION_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.ForClauseImpl <em>For Clause</em>}' class.
@@ -2520,13 +2538,22 @@ public interface GoPackage extends EPackage
   int FOR_CLAUSE = 66;
 
   /**
+   * The feature id for the '<em><b>Init</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR_CLAUSE__INIT = 0;
+
+  /**
    * The feature id for the '<em><b>Condition</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FOR_CLAUSE__CONDITION = 0;
+  int FOR_CLAUSE__CONDITION = 1;
 
   /**
    * The feature id for the '<em><b>Poststmt</b></em>' containment reference.
@@ -2535,7 +2562,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FOR_CLAUSE__POSTSTMT = 1;
+  int FOR_CLAUSE__POSTSTMT = 2;
 
   /**
    * The number of structural features of the '<em>For Clause</em>' class.
@@ -2544,7 +2571,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FOR_CLAUSE_FEATURE_COUNT = 2;
+  int FOR_CLAUSE_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.RangeClauseImpl <em>Range Clause</em>}' class.
@@ -2603,31 +2630,13 @@ public interface GoPackage extends EPackage
   int INIT_STMT = 68;
 
   /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INIT_STMT__CONDITION = FOR_CLAUSE__CONDITION;
-
-  /**
-   * The feature id for the '<em><b>Poststmt</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INIT_STMT__POSTSTMT = FOR_CLAUSE__POSTSTMT;
-
-  /**
    * The feature id for the '<em><b>Simple</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INIT_STMT__SIMPLE = FOR_CLAUSE_FEATURE_COUNT + 0;
+  int INIT_STMT__SIMPLE = 0;
 
   /**
    * The number of structural features of the '<em>Init Stmt</em>' class.
@@ -2636,7 +2645,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INIT_STMT_FEATURE_COUNT = FOR_CLAUSE_FEATURE_COUNT + 1;
+  int INIT_STMT_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.PostStmtImpl <em>Post Stmt</em>}' class.
@@ -5729,6 +5738,17 @@ public interface GoPackage extends EPackage
   EClass getRecvExpr();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.RecvExpr#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see org.xtext.example.mydsl.go.RecvExpr#getExp()
+   * @see #getRecvExpr()
+   * @generated
+   */
+  EReference getRecvExpr_Exp();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.Condition <em>Condition</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5739,6 +5759,17 @@ public interface GoPackage extends EPackage
   EClass getCondition();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.Condition#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see org.xtext.example.mydsl.go.Condition#getExp()
+   * @see #getCondition()
+   * @generated
+   */
+  EReference getCondition_Exp();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.ForClause <em>For Clause</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5747,6 +5778,17 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getForClause();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ForClause#getInit <em>Init</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Init</em>'.
+   * @see org.xtext.example.mydsl.go.ForClause#getInit()
+   * @see #getForClause()
+   * @generated
+   */
+  EReference getForClause_Init();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ForClause#getCondition <em>Condition</em>}'.
@@ -8243,6 +8285,14 @@ public interface GoPackage extends EPackage
     EClass RECV_EXPR = eINSTANCE.getRecvExpr();
 
     /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RECV_EXPR__EXP = eINSTANCE.getRecvExpr_Exp();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.ConditionImpl <em>Condition</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8253,6 +8303,14 @@ public interface GoPackage extends EPackage
     EClass CONDITION = eINSTANCE.getCondition();
 
     /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONDITION__EXP = eINSTANCE.getCondition_Exp();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.ForClauseImpl <em>For Clause</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8261,6 +8319,14 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass FOR_CLAUSE = eINSTANCE.getForClause();
+
+    /**
+     * The meta object literal for the '<em><b>Init</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FOR_CLAUSE__INIT = eINSTANCE.getForClause_Init();
 
     /**
      * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.

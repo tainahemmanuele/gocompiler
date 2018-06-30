@@ -303,9 +303,17 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="recvexpr" eType="#//RecvExpr"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RecvExpr"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Condition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RecvExpr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Condition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ForClause">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="init" eType="#//InitStmt"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Condition"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="poststmt" eType="#//PostStmt"
@@ -318,7 +326,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InitStmt" eSuperTypes="#//ForClause">
+  <eClassifiers xsi:type="ecore:EClass" name="InitStmt">
     <eStructuralFeatures xsi:type="ecore:EReference" name="simple" eType="#//SimpleStmt"
         containment="true"/>
   </eClassifiers>
@@ -327,7 +335,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExpressionList" eSuperTypes="#//RecvStmt"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Expression" eSuperTypes="#//ArrayLength #//DeferStmt #//ExpressionStmt #//Channel #//IncDecStmt #//RecvExpr #//Condition #//ExpressionList #//Key #//Element">
+  <eClassifiers xsi:type="ecore:EClass" name="Expression" eSuperTypes="#//ArrayLength #//DeferStmt #//ExpressionStmt #//Channel #//IncDecStmt #//ExpressionList #//Key #//Element">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression2" upperBound="-1"
         eType="#//Expression" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="up" eType="#//UnaryExpr"

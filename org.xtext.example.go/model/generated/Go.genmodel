@@ -227,9 +227,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//RecvStmt/idl"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//RecvStmt/recvexpr"/>
     </genClasses>
-    <genClasses ecoreClass="Go.ecore#//RecvExpr"/>
-    <genClasses ecoreClass="Go.ecore#//Condition"/>
+    <genClasses ecoreClass="Go.ecore#//RecvExpr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//RecvExpr/exp"/>
+    </genClasses>
+    <genClasses ecoreClass="Go.ecore#//Condition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Condition/exp"/>
+    </genClasses>
     <genClasses ecoreClass="Go.ecore#//ForClause">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ForClause/init"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ForClause/condition"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ForClause/poststmt"/>
     </genClasses>

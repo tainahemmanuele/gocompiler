@@ -464,7 +464,7 @@ FieldDecl:
 	(indentifierL=IdentifierList type=Type | embedded=EmbeddedField) (tag=Tag)?;
 
 IdentifierList:
-	IDENTIFIER ((',')? IDENTIFIER)*;
+	IDENTIFIER (',' IDENTIFIER)*;
 
 EmbeddedField:
 	('*')? TypeName;
@@ -593,7 +593,7 @@ TypeSpec:
 TypeDef:
 	id=IDENTIFIER tp=Type;
 
-AliasDecl:
+AliasDecl: {AliasDecl}
 	id=IDENTIFIER '=' tp=Type;
 
 VarDecl:
@@ -601,6 +601,7 @@ VarDecl:
 	"var" (varspec=VarSpec | '(' (varspec2+=VarSpec ';')* ')');
 
 VarSpec:
+	{VarSpec}
 	id=IdentifierList (tp2+=Type ("=" expressionlist=ExpressionList)? | '=' el=ExpressionList);
 
 EmptyStmt:
@@ -660,13 +661,13 @@ RecvStmt:
 	(ExpressionList "=" | idl=IdentifierList ":=")? recvexpr=RecvExpr;
 
 RecvExpr:
-	Expression;
+	exp=Expression;
 
 Condition:
-	Expression;
+	exp=Expression;
 
 ForClause:
-	(InitStmt)? ';' (condition=Condition)? ';' (poststmt=PostStmt);
+	(init=InitStmt)? ';' (condition=Condition)? ';' (poststmt=PostStmt);
 
 RangeClause:
 	(expressionlist=ExpressionList "=" | idl=IdentifierList ":=")? 'range' expression=Expression;

@@ -3,6 +3,7 @@
  */
 package org.xtext.example.mydsl.go;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +21,7 @@ package org.xtext.example.mydsl.go;
  * @model
  * @generated
  */
-public interface InitStmt extends ForClause
+public interface InitStmt extends EObject
 {
   /**
    * Returns the value of the '<em><b>Simple</b></em>' containment reference.

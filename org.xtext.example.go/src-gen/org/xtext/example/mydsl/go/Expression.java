@@ -23,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Expression extends ArrayLength, DeferStmt, ExpressionStmt, Channel, IncDecStmt, RecvExpr, Condition, ExpressionList, Key, Element
+public interface Expression extends ArrayLength, DeferStmt, ExpressionStmt, Channel, IncDecStmt, ExpressionList, Key, Element
 {
   /**
    * Returns the value of the '<em><b>Expression2</b></em>' containment reference list.

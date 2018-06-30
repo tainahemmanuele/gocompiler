@@ -21,6 +21,7 @@ import org.xtext.example.mydsl.go.ChannelType;
 import org.xtext.example.mydsl.go.CommCase;
 import org.xtext.example.mydsl.go.Compilation_initial;
 import org.xtext.example.mydsl.go.CompositeLit;
+import org.xtext.example.mydsl.go.Condition;
 import org.xtext.example.mydsl.go.ConstDecl;
 import org.xtext.example.mydsl.go.ConstSpec;
 import org.xtext.example.mydsl.go.Conversion;
@@ -59,6 +60,7 @@ import org.xtext.example.mydsl.go.PostStmt;
 import org.xtext.example.mydsl.go.PrimaryExpr2;
 import org.xtext.example.mydsl.go.RangeClause;
 import org.xtext.example.mydsl.go.ReceiverType;
+import org.xtext.example.mydsl.go.RecvExpr;
 import org.xtext.example.mydsl.go.RecvStmt;
 import org.xtext.example.mydsl.go.Result;
 import org.xtext.example.mydsl.go.ReturnStmt;
@@ -126,6 +128,9 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case GoPackage.COMPOSITE_LIT:
 				sequence_CompositeLit(context, (CompositeLit) semanticObject); 
 				return; 
+			case GoPackage.CONDITION:
+				sequence_Condition(context, (Condition) semanticObject); 
+				return; 
 			case GoPackage.CONST_DECL:
 				sequence_ConstDecl(context, (ConstDecl) semanticObject); 
 				return; 
@@ -171,8 +176,6 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 						|| rule == grammarAccess.getExpressionStmtRule()
 						|| rule == grammarAccess.getChannelRule()
 						|| rule == grammarAccess.getIncDecStmtRule()
-						|| rule == grammarAccess.getRecvExprRule()
-						|| rule == grammarAccess.getConditionRule()
 						|| rule == grammarAccess.getExpressionRule()
 						|| rule == grammarAccess.getKeyRule()
 						|| rule == grammarAccess.getElementRule()) {
@@ -220,15 +223,8 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_Index(context, (Index) semanticObject); 
 				return; 
 			case GoPackage.INIT_STMT:
-				if (rule == grammarAccess.getForClauseRule()) {
-					sequence_ForClause_InitStmt(context, (InitStmt) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getInitStmtRule()) {
-					sequence_InitStmt(context, (InitStmt) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_InitStmt(context, (InitStmt) semanticObject); 
+				return; 
 			case GoPackage.INTERFACE_TYPE:
 				sequence_InterfaceType(context, (InterfaceType) semanticObject); 
 				return; 
@@ -343,6 +339,9 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					return; 
 				}
 				else break;
+			case GoPackage.RECV_EXPR:
+				sequence_RecvExpr(context, (RecvExpr) semanticObject); 
+				return; 
 			case GoPackage.RECV_STMT:
 				sequence_RecvStmt(context, (RecvStmt) semanticObject); 
 				return; 
@@ -440,8 +439,8 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GoPackage.Literals.TYPE_SPEC__TP));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAliasDeclAccess().getIdIDENTIFIERParserRuleCall_0_0(), semanticObject.getId());
-		feeder.accept(grammarAccess.getAliasDeclAccess().getTpTypeParserRuleCall_2_0(), semanticObject.getTp());
+		feeder.accept(grammarAccess.getAliasDeclAccess().getIdIDENTIFIERParserRuleCall_1_0(), semanticObject.getId());
+		feeder.accept(grammarAccess.getAliasDeclAccess().getTpTypeParserRuleCall_3_0(), semanticObject.getTp());
 		feeder.finish();
 	}
 	
@@ -579,6 +578,24 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getCompositeLitAccess().getLiteraltLiteralTypeParserRuleCall_0_0(), semanticObject.getLiteralt());
 		feeder.accept(grammarAccess.getCompositeLitAccess().getLiteralvLiteralValueParserRuleCall_1_0(), semanticObject.getLiteralv());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Condition returns Condition
+	 *
+	 * Constraint:
+	 *     exp=Expression
+	 */
+	protected void sequence_Condition(ISerializationContext context, Condition semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GoPackage.Literals.CONDITION__EXP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GoPackage.Literals.CONDITION__EXP));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getConditionAccess().getExpExpressionParserRuleCall_0(), semanticObject.getExp());
 		feeder.finish();
 	}
 	
@@ -759,8 +776,6 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ExpressionStmt returns Expression
 	 *     Channel returns Expression
 	 *     IncDecStmt returns Expression
-	 *     RecvExpr returns Expression
-	 *     Condition returns Expression
 	 *     Expression returns Expression
 	 *     Key returns Expression
 	 *     Element returns Expression
@@ -847,21 +862,9 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ForClause returns ForClause
 	 *
 	 * Constraint:
-	 *     (condition=Condition? poststmt=PostStmt)
+	 *     (init=InitStmt? condition=Condition? poststmt=PostStmt)
 	 */
 	protected void sequence_ForClause(ISerializationContext context, ForClause semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     ForClause returns InitStmt
-	 *
-	 * Constraint:
-	 *     (simple=SimpleStmt condition=Condition? poststmt=PostStmt)
-	 */
-	protected void sequence_ForClause_InitStmt(ISerializationContext context, InitStmt semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1386,6 +1389,24 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getReceiverTypeAccess().getTypeTypeParserRuleCall_0(), semanticObject.getType());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     RecvExpr returns RecvExpr
+	 *
+	 * Constraint:
+	 *     exp=Expression
+	 */
+	protected void sequence_RecvExpr(ISerializationContext context, RecvExpr semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GoPackage.Literals.RECV_EXPR__EXP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GoPackage.Literals.RECV_EXPR__EXP));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRecvExprAccess().getExpExpressionParserRuleCall_0(), semanticObject.getExp());
 		feeder.finish();
 	}
 	

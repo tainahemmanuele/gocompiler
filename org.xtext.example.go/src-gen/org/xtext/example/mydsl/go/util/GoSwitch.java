@@ -590,7 +590,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         InitStmt initStmt = (InitStmt)theEObject;
         T result = caseInitStmt(initStmt);
-        if (result == null) result = caseForClause(initStmt);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -618,8 +617,6 @@ public class GoSwitch<T> extends Switch<T>
         if (result == null) result = caseExpressionStmt(expression);
         if (result == null) result = caseChannel(expression);
         if (result == null) result = caseIncDecStmt(expression);
-        if (result == null) result = caseRecvExpr(expression);
-        if (result == null) result = caseCondition(expression);
         if (result == null) result = caseExpressionList(expression);
         if (result == null) result = caseKey(expression);
         if (result == null) result = caseElement(expression);

@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.example.mydsl.go.Channel;
-import org.xtext.example.mydsl.go.Condition;
 import org.xtext.example.mydsl.go.DeferStmt;
 import org.xtext.example.mydsl.go.Element;
 import org.xtext.example.mydsl.go.ElementList;
@@ -645,20 +644,6 @@ public class ExpressionImpl extends ArrayLengthImpl implements Expression
         default: return -1;
       }
     }
-    if (baseClass == RecvExpr.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == Condition.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
     if (baseClass == RecvStmt.class)
     {
       switch (derivedFeatureID)
@@ -739,20 +724,6 @@ public class ExpressionImpl extends ArrayLengthImpl implements Expression
       }
     }
     if (baseClass == IncDecStmt.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == RecvExpr.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == Condition.class)
     {
       switch (baseFeatureID)
       {

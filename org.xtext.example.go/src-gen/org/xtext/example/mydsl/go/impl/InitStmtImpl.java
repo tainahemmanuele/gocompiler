@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.go.GoPackage;
 import org.xtext.example.mydsl.go.InitStmt;
@@ -28,7 +29,7 @@ import org.xtext.example.mydsl.go.SimpleStmt;
  *
  * @generated
  */
-public class InitStmtImpl extends ForClauseImpl implements InitStmt
+public class InitStmtImpl extends MinimalEObjectImpl.Container implements InitStmt
 {
   /**
    * The cached value of the '{@link #getSimple() <em>Simple</em>}' containment reference.

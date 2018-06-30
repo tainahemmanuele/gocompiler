@@ -2637,9 +2637,29 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getRecvExpr_Exp()
+  {
+    return (EReference)recvExprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getCondition()
   {
     return conditionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCondition_Exp()
+  {
+    return (EReference)conditionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2657,7 +2677,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getForClause_Condition()
+  public EReference getForClause_Init()
   {
     return (EReference)forClauseEClass.getEStructuralFeatures().get(0);
   }
@@ -2667,9 +2687,19 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getForClause_Poststmt()
+  public EReference getForClause_Condition()
   {
     return (EReference)forClauseEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getForClause_Poststmt()
+  {
+    return (EReference)forClauseEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -3784,10 +3814,13 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     createEReference(recvStmtEClass, RECV_STMT__RECVEXPR);
 
     recvExprEClass = createEClass(RECV_EXPR);
+    createEReference(recvExprEClass, RECV_EXPR__EXP);
 
     conditionEClass = createEClass(CONDITION);
+    createEReference(conditionEClass, CONDITION__EXP);
 
     forClauseEClass = createEClass(FOR_CLAUSE);
+    createEReference(forClauseEClass, FOR_CLAUSE__INIT);
     createEReference(forClauseEClass, FOR_CLAUSE__CONDITION);
     createEReference(forClauseEClass, FOR_CLAUSE__POSTSTMT);
 
@@ -3965,15 +3998,12 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     typeSwitchStmtEClass.getESuperTypes().add(this.getSwitchStmt());
     typeSwitchCaseEClass.getESuperTypes().add(this.getTypeCaseClause());
     commCaseEClass.getESuperTypes().add(this.getCommClause());
-    initStmtEClass.getESuperTypes().add(this.getForClause());
     expressionListEClass.getESuperTypes().add(this.getRecvStmt());
     expressionEClass.getESuperTypes().add(this.getArrayLength());
     expressionEClass.getESuperTypes().add(this.getDeferStmt());
     expressionEClass.getESuperTypes().add(this.getExpressionStmt());
     expressionEClass.getESuperTypes().add(this.getChannel());
     expressionEClass.getESuperTypes().add(this.getIncDecStmt());
-    expressionEClass.getESuperTypes().add(this.getRecvExpr());
-    expressionEClass.getESuperTypes().add(this.getCondition());
     expressionEClass.getESuperTypes().add(this.getExpressionList());
     expressionEClass.getESuperTypes().add(this.getKey());
     expressionEClass.getESuperTypes().add(this.getElement());
@@ -4230,10 +4260,13 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     initEReference(getRecvStmt_Recvexpr(), this.getRecvExpr(), null, "recvexpr", null, 0, 1, RecvStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(recvExprEClass, RecvExpr.class, "RecvExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRecvExpr_Exp(), this.getExpression(), null, "exp", null, 0, 1, RecvExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCondition_Exp(), this.getExpression(), null, "exp", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(forClauseEClass, ForClause.class, "ForClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getForClause_Init(), this.getInitStmt(), null, "init", null, 0, 1, ForClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getForClause_Condition(), this.getCondition(), null, "condition", null, 0, 1, ForClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getForClause_Poststmt(), this.getPostStmt(), null, "poststmt", null, 0, 1, ForClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
