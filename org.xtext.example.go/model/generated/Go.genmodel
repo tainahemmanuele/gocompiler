@@ -171,7 +171,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//VarSpec/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//VarSpec/tp2"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//VarSpec/expressionlist"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//VarSpec/eprlist"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//ExpressionStmt">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ExpressionStmt/exp"/>

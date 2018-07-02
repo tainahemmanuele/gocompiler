@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.example.mydsl.go.VarSpec#getId <em>Id</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.VarSpec#getTp2 <em>Tp2</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.VarSpec#getExpressionlist <em>Expressionlist</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.go.VarSpec#getEprlist <em>Eprlist</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.go.GoPackage#getVarSpec()
@@ -103,31 +102,5 @@ public interface VarSpec extends EObject
    * @generated
    */
   void setExpressionlist(ExpressionList value);
-
-  /**
-   * Returns the value of the '<em><b>Eprlist</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Eprlist</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Eprlist</em>' containment reference.
-   * @see #setEprlist(ExpressionList)
-   * @see org.xtext.example.mydsl.go.GoPackage#getVarSpec_Eprlist()
-   * @model containment="true"
-   * @generated
-   */
-  ExpressionList getEprlist();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.go.VarSpec#getEprlist <em>Eprlist</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Eprlist</em>' containment reference.
-   * @see #getEprlist()
-   * @generated
-   */
-  void setEprlist(ExpressionList value);
 
 } // VarSpec

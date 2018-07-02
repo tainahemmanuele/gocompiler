@@ -932,7 +932,7 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     FunctionDecl returns FunctionDecl
 	 *
 	 * Constraint:
-	 *     (functionn=FunctionName signature+=Signature body+=FunctionBody?)
+	 *     (functionn=FunctionName signature=Signature body+=FunctionBody?)
 	 */
 	protected void sequence_FunctionDecl(ISerializationContext context, FunctionDecl semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1214,7 +1214,7 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     MethodDecl returns MethodDecl
 	 *
 	 * Constraint:
-	 *     (receiver=Receiver method=MethodName signature+=Signature body+=FunctionBody?)
+	 *     (receiver=Receiver method=MethodName signature=Signature body+=FunctionBody?)
 	 */
 	protected void sequence_MethodDecl(ISerializationContext context, MethodDecl semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1830,7 +1830,7 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     VarSpec returns VarSpec
 	 *
 	 * Constraint:
-	 *     (id=IdentifierList ((tp2=Type expressionlist=ExpressionList?) | eprlist=ExpressionList))
+	 *     (id=IdentifierList tp2=Type? expressionlist=ExpressionList?)
 	 */
 	protected void sequence_VarSpec(ISerializationContext context, VarSpec semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

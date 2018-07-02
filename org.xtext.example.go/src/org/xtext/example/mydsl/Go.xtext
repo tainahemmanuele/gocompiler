@@ -13,7 +13,7 @@ TopLevelDecl:
 
 MethodDecl:
 	{MethodDecl}
-	'func' receiver=Receiver method=MethodName signature+=Signature (body+=FunctionBody)?;
+	'func' receiver=Receiver method=MethodName signature=Signature (body+=FunctionBody)?;
 
 Receiver:
 	Parameters;
@@ -24,7 +24,7 @@ FunctionName:
 
 FunctionDecl:
 	{FunctionDecl}
-	'func' functionn=FunctionName signature+=Signature (body+=FunctionBody)?;
+	'func' functionn=FunctionName signature=Signature (body+=FunctionBody)?;
 
 PackageClause:
 	'package' PackageName;
@@ -392,7 +392,7 @@ terminal EXPOENT:
 	('e' | 'E') ('+' | '-')? DECIMALS;
 
 IMAGINARY_LIT:
-	(DECIMALS | FLOAT_LIT) 'i';
+	(DECIMALS | FLOAT_LIT) 'ï';
 
 RUNE_LIT:
 	"'" (UNICODE_VALUE | BYTE_VALUE) "'";
@@ -488,7 +488,7 @@ Result:
 	parameteres=Parameters | type=Type;
 
 Parameters:
-{Parameters} '(' (parameterlist=ParameterList (',')? )? ')';
+{Parameters} '(' (parameterlist=ParameterList)? ')';
 
 ParameterList:{ParameterList}
 	parameterDecl1=ParameterDecl (',' parameterdecl+=ParameterDecl)*;
@@ -600,7 +600,7 @@ VarDecl:
 	{VarDecl} 'var' (varspec=VarSpec | '(' (varspec2+=VarSpec ';' )* ')');
 
 VarSpec:
-	id=IdentifierList (tp2=Type ('=' expressionlist=ExpressionList)? | '=' eprlist=ExpressionList);
+	id=IdentifierList (tp2=Type)? ('=' expressionlist=ExpressionList)?;
 
 EmptyStmt:
 	';';

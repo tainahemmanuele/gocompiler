@@ -179,7 +179,7 @@ public interface GoPackage extends EPackage
   int METHOD_DECL__METHOD = TOP_LEVEL_DECL_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Signature</b></em>' containment reference list.
+   * The feature id for the '<em><b>Signature</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -244,7 +244,7 @@ public interface GoPackage extends EPackage
   int FUNCTION_DECL__FUNCTIONN = TOP_LEVEL_DECL_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Signature</b></em>' containment reference list.
+   * The feature id for the '<em><b>Signature</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1897,22 +1897,13 @@ public interface GoPackage extends EPackage
   int VAR_SPEC__EXPRESSIONLIST = 2;
 
   /**
-   * The feature id for the '<em><b>Eprlist</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VAR_SPEC__EPRLIST = 3;
-
-  /**
    * The number of structural features of the '<em>Var Spec</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VAR_SPEC_FEATURE_COUNT = 4;
+  int VAR_SPEC_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.ExpressionStmtImpl <em>Expression Stmt</em>}' class.
@@ -3969,10 +3960,10 @@ public interface GoPackage extends EPackage
   EAttribute getMethodDecl_Method();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.go.MethodDecl#getSignature <em>Signature</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.MethodDecl#getSignature <em>Signature</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Signature</em>'.
+   * @return the meta object for the containment reference '<em>Signature</em>'.
    * @see org.xtext.example.mydsl.go.MethodDecl#getSignature()
    * @see #getMethodDecl()
    * @generated
@@ -4022,10 +4013,10 @@ public interface GoPackage extends EPackage
   EAttribute getFunctionDecl_Functionn();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.go.FunctionDecl#getSignature <em>Signature</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.FunctionDecl#getSignature <em>Signature</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Signature</em>'.
+   * @return the meta object for the containment reference '<em>Signature</em>'.
    * @see org.xtext.example.mydsl.go.FunctionDecl#getSignature()
    * @see #getFunctionDecl()
    * @generated
@@ -5277,17 +5268,6 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EReference getVarSpec_Expressionlist();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.VarSpec#getEprlist <em>Eprlist</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Eprlist</em>'.
-   * @see org.xtext.example.mydsl.go.VarSpec#getEprlist()
-   * @see #getVarSpec()
-   * @generated
-   */
-  EReference getVarSpec_Eprlist();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.ExpressionStmt <em>Expression Stmt</em>}'.
@@ -6881,7 +6861,7 @@ public interface GoPackage extends EPackage
     EAttribute METHOD_DECL__METHOD = eINSTANCE.getMethodDecl_Method();
 
     /**
-     * The meta object literal for the '<em><b>Signature</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Signature</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -6925,7 +6905,7 @@ public interface GoPackage extends EPackage
     EAttribute FUNCTION_DECL__FUNCTIONN = eINSTANCE.getFunctionDecl_Functionn();
 
     /**
-     * The meta object literal for the '<em><b>Signature</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Signature</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -7949,14 +7929,6 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EReference VAR_SPEC__EXPRESSIONLIST = eINSTANCE.getVarSpec_Expressionlist();
-
-    /**
-     * The meta object literal for the '<em><b>Eprlist</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference VAR_SPEC__EPRLIST = eINSTANCE.getVarSpec_Eprlist();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.ExpressionStmtImpl <em>Expression Stmt</em>}' class.

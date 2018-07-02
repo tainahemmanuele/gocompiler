@@ -31,7 +31,6 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_IncDecStmt_HyphenMinusHyphenMinusKeyword_1_1_or_PlusSignPlusSignKeyword_1_0;
 	protected AbstractElementAlias match_LiteralValue_CommaKeyword_2_1_q;
 	protected AbstractElementAlias match_ParameterDecl_FullStopFullStopFullStopKeyword_2_q;
-	protected AbstractElementAlias match_Parameters_CommaKeyword_2_1_q;
 	protected AbstractElementAlias match_StatementList_SemicolonKeyword_1_1_q;
 	
 	@Inject
@@ -46,7 +45,6 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_IncDecStmt_HyphenMinusHyphenMinusKeyword_1_1_or_PlusSignPlusSignKeyword_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getIncDecStmtAccess().getHyphenMinusHyphenMinusKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getIncDecStmtAccess().getPlusSignPlusSignKeyword_1_0()));
 		match_LiteralValue_CommaKeyword_2_1_q = new TokenAlias(false, true, grammarAccess.getLiteralValueAccess().getCommaKeyword_2_1());
 		match_ParameterDecl_FullStopFullStopFullStopKeyword_2_q = new TokenAlias(false, true, grammarAccess.getParameterDeclAccess().getFullStopFullStopFullStopKeyword_2());
-		match_Parameters_CommaKeyword_2_1_q = new TokenAlias(false, true, grammarAccess.getParametersAccess().getCommaKeyword_2_1());
 		match_StatementList_SemicolonKeyword_1_1_q = new TokenAlias(false, true, grammarAccess.getStatementListAccess().getSemicolonKeyword_1_1());
 	}
 	
@@ -91,8 +89,6 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_LiteralValue_CommaKeyword_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_ParameterDecl_FullStopFullStopFullStopKeyword_2_q.equals(syntax))
 				emit_ParameterDecl_FullStopFullStopFullStopKeyword_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Parameters_CommaKeyword_2_1_q.equals(syntax))
-				emit_Parameters_CommaKeyword_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_StatementList_SemicolonKeyword_1_1_q.equals(syntax))
 				emit_StatementList_SemicolonKeyword_1_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
@@ -202,17 +198,6 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     identifierL=IdentifierList (ambiguity) type=Type
 	 */
 	protected void emit_ParameterDecl_FullStopFullStopFullStopKeyword_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ','?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     parameterlist=ParameterList (ambiguity) ')' (rule end)
-	 */
-	protected void emit_Parameters_CommaKeyword_2_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

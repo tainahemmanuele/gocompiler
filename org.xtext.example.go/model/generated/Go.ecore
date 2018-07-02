@@ -17,16 +17,16 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="receiver" eType="#//Receiver"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="method" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="signature" upperBound="-1"
-        eType="#//Signature" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="signature" eType="#//Signature"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="body" upperBound="-1" eType="#//FunctionBody"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Receiver"/>
   <eClassifiers xsi:type="ecore:EClass" name="FunctionDecl" eSuperTypes="#//TopLevelDecl">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="functionn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="signature" upperBound="-1"
-        eType="#//Signature" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="signature" eType="#//Signature"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="body" upperBound="-1" eType="#//FunctionBody"
         containment="true"/>
   </eClassifiers>
@@ -223,8 +223,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tp2" eType="#//Type" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expressionlist" eType="#//ExpressionList"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="eprlist" eType="#//ExpressionList"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExpressionStmt">

@@ -61,14 +61,14 @@ public class FunctionDeclImpl extends TopLevelDeclImpl implements FunctionDecl
   protected String functionn = FUNCTIONN_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getSignature() <em>Signature</em>}' containment reference list.
+   * The cached value of the '{@link #getSignature() <em>Signature</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getSignature()
    * @generated
    * @ordered
    */
-  protected EList<Signature> signature;
+  protected Signature signature;
 
   /**
    * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference list.
@@ -129,13 +129,47 @@ public class FunctionDeclImpl extends TopLevelDeclImpl implements FunctionDecl
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Signature> getSignature()
+  public Signature getSignature()
   {
-    if (signature == null)
-    {
-      signature = new EObjectContainmentEList<Signature>(Signature.class, this, GoPackage.FUNCTION_DECL__SIGNATURE);
-    }
     return signature;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSignature(Signature newSignature, NotificationChain msgs)
+  {
+    Signature oldSignature = signature;
+    signature = newSignature;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.FUNCTION_DECL__SIGNATURE, oldSignature, newSignature);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSignature(Signature newSignature)
+  {
+    if (newSignature != signature)
+    {
+      NotificationChain msgs = null;
+      if (signature != null)
+        msgs = ((InternalEObject)signature).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.FUNCTION_DECL__SIGNATURE, null, msgs);
+      if (newSignature != null)
+        msgs = ((InternalEObject)newSignature).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.FUNCTION_DECL__SIGNATURE, null, msgs);
+      msgs = basicSetSignature(newSignature, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.FUNCTION_DECL__SIGNATURE, newSignature, newSignature));
   }
 
   /**
@@ -163,7 +197,7 @@ public class FunctionDeclImpl extends TopLevelDeclImpl implements FunctionDecl
     switch (featureID)
     {
       case GoPackage.FUNCTION_DECL__SIGNATURE:
-        return ((InternalEList<?>)getSignature()).basicRemove(otherEnd, msgs);
+        return basicSetSignature(null, msgs);
       case GoPackage.FUNCTION_DECL__BODY:
         return ((InternalEList<?>)getBody()).basicRemove(otherEnd, msgs);
     }
@@ -205,8 +239,7 @@ public class FunctionDeclImpl extends TopLevelDeclImpl implements FunctionDecl
         setFunctionn((String)newValue);
         return;
       case GoPackage.FUNCTION_DECL__SIGNATURE:
-        getSignature().clear();
-        getSignature().addAll((Collection<? extends Signature>)newValue);
+        setSignature((Signature)newValue);
         return;
       case GoPackage.FUNCTION_DECL__BODY:
         getBody().clear();
@@ -230,7 +263,7 @@ public class FunctionDeclImpl extends TopLevelDeclImpl implements FunctionDecl
         setFunctionn(FUNCTIONN_EDEFAULT);
         return;
       case GoPackage.FUNCTION_DECL__SIGNATURE:
-        getSignature().clear();
+        setSignature((Signature)null);
         return;
       case GoPackage.FUNCTION_DECL__BODY:
         getBody().clear();
@@ -252,7 +285,7 @@ public class FunctionDeclImpl extends TopLevelDeclImpl implements FunctionDecl
       case GoPackage.FUNCTION_DECL__FUNCTIONN:
         return FUNCTIONN_EDEFAULT == null ? functionn != null : !FUNCTIONN_EDEFAULT.equals(functionn);
       case GoPackage.FUNCTION_DECL__SIGNATURE:
-        return signature != null && !signature.isEmpty();
+        return signature != null;
       case GoPackage.FUNCTION_DECL__BODY:
         return body != null && !body.isEmpty();
     }
