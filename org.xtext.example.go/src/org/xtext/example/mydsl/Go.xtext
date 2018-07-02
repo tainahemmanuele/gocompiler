@@ -337,7 +337,7 @@ terminal BINARY_OP:
 	"||" | "&&" | REL_OP | ADD_OP | MUL_OP;
 
 terminal REL_OP:
-	"==" | "!=" | "<" | "<=" | ">" | ">=";
+	"==" | "!=" | "<" | "<=" | ">" | ">="| ':=';
 
 terminal ADD_OP:
 	"+" | "-" | "|" | "^";
@@ -380,13 +380,13 @@ terminal fragment OCTAL_LIT:
 terminal  fragment HEX_LIT:
 	'0' ('x' | 'X') HEX_DIGIT (HEX_DIGIT)+;
 
-FLOAT_LIT: 
-	DECIMALS '.' (DECIMALS)? (EXPOENT)? |
+terminal FLOAT_LIT: 
+	DECIMAL_LIT '.' (DECIMAL_LIT)? (EXPOENT)? |
 	DECIMALS EXPOENT |
 	'.' DECIMALS (EXPOENT)?;
 
 terminal DECIMALS:
-	DECIMAL_DIGIT (DECIMAL_DIGIT)+;
+	(DECIMAL_DIGIT)+;
 
 terminal EXPOENT:
 	('e' | 'E') ('+' | '-')? DECIMALS;
@@ -463,7 +463,7 @@ FieldDecl:
 	{FieldDecl}
 	(indentifierL=IdentifierList type=Type | embedded=EmbeddedField) (tag=Tag)?;
 
-IdentifierList:
+IdentifierList: 
 	IDENTIFIER (',' IDENTIFIER)*;
 
 EmbeddedField:
@@ -571,14 +571,14 @@ SelectStmt:
 	{SelectStmt}
 	"select" '{' (commclause+=CommClause)* '}';
 
-ForStmt:
-	"for" (condition+=Condition | for+=ForClause | range+=RangeClause)* block=Block;
+ForStmt: {ForStmt}
+	'for' (condition+=Condition | for+=ForClause | range+=RangeClause)? block=Block;
 
 DeferStmt:
 	'defer' Expression;
 
 ConstDecl:
-	{ConstDecl} 'const' (constspec=ConstSpec | '(' (constspec2+=ConstSpec ';')* ')');
+	{ConstDecl} 'const' (constspec=ConstSpec | '(' (constspec2+=ConstSpec (';')?)* ')');
 
 ConstSpec:
 	id=IdentifierList ((tp=Type)? '=' expressionlist=ExpressionList)?;
@@ -597,27 +597,25 @@ AliasDecl: {AliasDecl}
 	id=IDENTIFIER '=' tp=Type;
 
 VarDecl:
-	{VarDecl}
-	"var" (varspec=VarSpec | '(' (varspec2+=VarSpec ';')* ')');
+	{VarDecl} 'var' (varspec=VarSpec | '(' (varspec2+=VarSpec ';' )* ')');
 
 VarSpec:
-	{VarSpec}
-	id=IdentifierList (tp2+=Type ("=" expressionlist=ExpressionList)? | '=' el=ExpressionList);
+	id=IdentifierList (tp2=Type ('=' expressionlist=ExpressionList)? | '=' eprlist=ExpressionList);
 
 EmptyStmt:
 	';';
 
 ExpressionStmt:
-	Expression;
+	exp=Expression;
 
 SendStmt:
 	ch=Channel "<-" expression=Expression;
 
 Channel:
-	Expression;
+	exp=Expression;
 
 IncDecStmt:
-	Expression ("++" | "--");
+	exp=Expression ("++" | "--");
 
 Assignment:
 	expressionlist=ExpressionList asop=ASSING_OP expressionlist2=ExpressionList;
@@ -681,8 +679,8 @@ PostStmt:
 Label:
 	IDENTIFIER;
 
-ExpressionList:
-	Expression (',' expression2+=Expression)*;
+ExpressionList: 
+	exp=Expression (',' expression2+=Expression)*;
 
 Expression:{Expression}
 	up=UnaryExpr exp=Expression2;
@@ -780,7 +778,7 @@ FunctionBody:
 	Block;
 
 OperandName:
-	{OperandName} id=IDENTIFIER | QualifiedIdent;
+	{OperandName} id=IDENTIFIER | {OperandName} QualifiedIdent;
 
 ImportDecl:
 	{ImportDecl}

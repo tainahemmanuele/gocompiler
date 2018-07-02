@@ -25,6 +25,7 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_Arguments_CommaKeyword_2_2_q;
 	protected AbstractElementAlias match_Arguments_FullStopFullStopFullStopKeyword_2_1_q;
 	protected AbstractElementAlias match_ChannelType___ChanKeyword_0_0_0_LessThanSignHyphenMinusKeyword_0_0_1_q___or___LessThanSignHyphenMinusKeyword_0_1_0_ChanKeyword_0_1_1__;
+	protected AbstractElementAlias match_ConstDecl_SemicolonKeyword_2_1_1_1_q;
 	protected AbstractElementAlias match_Conversion_CommaKeyword_3_q;
 	protected AbstractElementAlias match_ElementList_CommaKeyword_1_0_q;
 	protected AbstractElementAlias match_IncDecStmt_HyphenMinusHyphenMinusKeyword_1_1_or_PlusSignPlusSignKeyword_1_0;
@@ -39,6 +40,7 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_Arguments_CommaKeyword_2_2_q = new TokenAlias(false, true, grammarAccess.getArgumentsAccess().getCommaKeyword_2_2());
 		match_Arguments_FullStopFullStopFullStopKeyword_2_1_q = new TokenAlias(false, true, grammarAccess.getArgumentsAccess().getFullStopFullStopFullStopKeyword_2_1());
 		match_ChannelType___ChanKeyword_0_0_0_LessThanSignHyphenMinusKeyword_0_0_1_q___or___LessThanSignHyphenMinusKeyword_0_1_0_ChanKeyword_0_1_1__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getChannelTypeAccess().getChanKeyword_0_0_0()), new TokenAlias(false, true, grammarAccess.getChannelTypeAccess().getLessThanSignHyphenMinusKeyword_0_0_1())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getChannelTypeAccess().getLessThanSignHyphenMinusKeyword_0_1_0()), new TokenAlias(false, false, grammarAccess.getChannelTypeAccess().getChanKeyword_0_1_1())));
+		match_ConstDecl_SemicolonKeyword_2_1_1_1_q = new TokenAlias(false, true, grammarAccess.getConstDeclAccess().getSemicolonKeyword_2_1_1_1());
 		match_Conversion_CommaKeyword_3_q = new TokenAlias(false, true, grammarAccess.getConversionAccess().getCommaKeyword_3());
 		match_ElementList_CommaKeyword_1_0_q = new TokenAlias(false, true, grammarAccess.getElementListAccess().getCommaKeyword_1_0());
 		match_IncDecStmt_HyphenMinusHyphenMinusKeyword_1_1_or_PlusSignPlusSignKeyword_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getIncDecStmtAccess().getHyphenMinusHyphenMinusKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getIncDecStmtAccess().getPlusSignPlusSignKeyword_1_0()));
@@ -77,6 +79,8 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Arguments_FullStopFullStopFullStopKeyword_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_ChannelType___ChanKeyword_0_0_0_LessThanSignHyphenMinusKeyword_0_0_1_q___or___LessThanSignHyphenMinusKeyword_0_1_0_ChanKeyword_0_1_1__.equals(syntax))
 				emit_ChannelType___ChanKeyword_0_0_0_LessThanSignHyphenMinusKeyword_0_0_1_q___or___LessThanSignHyphenMinusKeyword_0_1_0_ChanKeyword_0_1_1__(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_ConstDecl_SemicolonKeyword_2_1_1_1_q.equals(syntax))
+				emit_ConstDecl_SemicolonKeyword_2_1_1_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Conversion_CommaKeyword_3_q.equals(syntax))
 				emit_Conversion_CommaKeyword_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_ElementList_CommaKeyword_1_0_q.equals(syntax))
@@ -132,6 +136,18 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
+	 *     ';'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     constspec2+=ConstSpec (ambiguity) ')' (rule end)
+	 *     constspec2+=ConstSpec (ambiguity) constspec2+=ConstSpec
+	 */
+	protected void emit_ConstDecl_SemicolonKeyword_2_1_1_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
 	 *     ','?
 	 *
 	 * This ambiguous syntax occurs at:
@@ -159,7 +175,7 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '++' | '--'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     exp=Expression2 (ambiguity) (rule end)
+	 *     exp=Expression (ambiguity) (rule end)
 	 */
 	protected void emit_IncDecStmt_HyphenMinusHyphenMinusKeyword_1_1_or_PlusSignPlusSignKeyword_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

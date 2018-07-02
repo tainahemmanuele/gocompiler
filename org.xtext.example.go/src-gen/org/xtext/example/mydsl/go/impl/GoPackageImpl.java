@@ -2187,7 +2187,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getVarSpec_El()
+  public EReference getVarSpec_Eprlist()
   {
     return (EReference)varSpecEClass.getEStructuralFeatures().get(3);
   }
@@ -2200,6 +2200,16 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
   public EClass getExpressionStmt()
   {
     return expressionStmtEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getExpressionStmt_Exp()
+  {
+    return (EReference)expressionStmtEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2247,9 +2257,29 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getChannel_Exp()
+  {
+    return (EReference)channelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getIncDecStmt()
   {
     return incDecStmtEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getIncDecStmt_Exp()
+  {
+    return (EReference)incDecStmtEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2797,6 +2827,26 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getExpressionList_Exp()
+  {
+    return (EReference)expressionListEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getExpressionList_Expression2()
+  {
+    return (EReference)expressionListEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getExpression()
   {
     return expressionEClass;
@@ -2807,7 +2857,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExpression_Expression2()
+  public EReference getExpression_Up()
   {
     return (EReference)expressionEClass.getEStructuralFeatures().get(0);
   }
@@ -2817,19 +2867,9 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExpression_Up()
-  {
-    return (EReference)expressionEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getExpression_Exp()
   {
-    return (EReference)expressionEClass.getEStructuralFeatures().get(2);
+    return (EReference)expressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -3751,17 +3791,20 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     createEAttribute(varSpecEClass, VAR_SPEC__ID);
     createEReference(varSpecEClass, VAR_SPEC__TP2);
     createEReference(varSpecEClass, VAR_SPEC__EXPRESSIONLIST);
-    createEReference(varSpecEClass, VAR_SPEC__EL);
+    createEReference(varSpecEClass, VAR_SPEC__EPRLIST);
 
     expressionStmtEClass = createEClass(EXPRESSION_STMT);
+    createEReference(expressionStmtEClass, EXPRESSION_STMT__EXP);
 
     sendStmtEClass = createEClass(SEND_STMT);
     createEReference(sendStmtEClass, SEND_STMT__CH);
     createEReference(sendStmtEClass, SEND_STMT__EXPRESSION);
 
     channelEClass = createEClass(CHANNEL);
+    createEReference(channelEClass, CHANNEL__EXP);
 
     incDecStmtEClass = createEClass(INC_DEC_STMT);
+    createEReference(incDecStmtEClass, INC_DEC_STMT__EXP);
 
     assignmentEClass = createEClass(ASSIGNMENT);
     createEReference(assignmentEClass, ASSIGNMENT__EXPRESSIONLIST);
@@ -3836,9 +3879,10 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     createEReference(postStmtEClass, POST_STMT__SIMPLE);
 
     expressionListEClass = createEClass(EXPRESSION_LIST);
+    createEReference(expressionListEClass, EXPRESSION_LIST__EXP);
+    createEReference(expressionListEClass, EXPRESSION_LIST__EXPRESSION2);
 
     expressionEClass = createEClass(EXPRESSION);
-    createEReference(expressionEClass, EXPRESSION__EXPRESSION2);
     createEReference(expressionEClass, EXPRESSION__UP);
     createEReference(expressionEClass, EXPRESSION__EXP);
 
@@ -4001,10 +4045,6 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     expressionListEClass.getESuperTypes().add(this.getRecvStmt());
     expressionEClass.getESuperTypes().add(this.getArrayLength());
     expressionEClass.getESuperTypes().add(this.getDeferStmt());
-    expressionEClass.getESuperTypes().add(this.getExpressionStmt());
-    expressionEClass.getESuperTypes().add(this.getChannel());
-    expressionEClass.getESuperTypes().add(this.getIncDecStmt());
-    expressionEClass.getESuperTypes().add(this.getExpressionList());
     expressionEClass.getESuperTypes().add(this.getKey());
     expressionEClass.getESuperTypes().add(this.getElement());
     primaryExprEClass.getESuperTypes().add(this.getUnaryExpr());
@@ -4195,19 +4235,22 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
 
     initEClass(varSpecEClass, VarSpec.class, "VarSpec", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getVarSpec_Id(), ecorePackage.getEString(), "id", null, 0, 1, VarSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getVarSpec_Tp2(), this.getType(), null, "tp2", null, 0, -1, VarSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVarSpec_Tp2(), this.getType(), null, "tp2", null, 0, 1, VarSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getVarSpec_Expressionlist(), this.getExpressionList(), null, "expressionlist", null, 0, 1, VarSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getVarSpec_El(), this.getExpressionList(), null, "el", null, 0, 1, VarSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVarSpec_Eprlist(), this.getExpressionList(), null, "eprlist", null, 0, 1, VarSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionStmtEClass, ExpressionStmt.class, "ExpressionStmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getExpressionStmt_Exp(), this.getExpression(), null, "exp", null, 0, 1, ExpressionStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(sendStmtEClass, SendStmt.class, "SendStmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSendStmt_Ch(), this.getChannel(), null, "ch", null, 0, 1, SendStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSendStmt_Expression(), this.getExpression(), null, "expression", null, 0, 1, SendStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(channelEClass, Channel.class, "Channel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getChannel_Exp(), this.getExpression(), null, "exp", null, 0, 1, Channel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(incDecStmtEClass, IncDecStmt.class, "IncDecStmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getIncDecStmt_Exp(), this.getExpression(), null, "exp", null, 0, 1, IncDecStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(assignmentEClass, Assignment.class, "Assignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAssignment_Expressionlist(), this.getExpressionList(), null, "expressionlist", null, 0, 1, Assignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4282,9 +4325,10 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     initEReference(getPostStmt_Simple(), this.getSimpleStmt(), null, "simple", null, 0, 1, PostStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionListEClass, ExpressionList.class, "ExpressionList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getExpressionList_Exp(), this.getExpression(), null, "exp", null, 0, 1, ExpressionList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpressionList_Expression2(), this.getExpression(), null, "expression2", null, 0, -1, ExpressionList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getExpression_Expression2(), this.getExpression(), null, "expression2", null, 0, -1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExpression_Up(), this.getUnaryExpr(), null, "up", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExpression_Exp(), this.getExpression2(), null, "exp", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

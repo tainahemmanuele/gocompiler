@@ -3,8 +3,6 @@
  */
 package org.xtext.example.mydsl.go;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -19,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.example.mydsl.go.VarSpec#getId <em>Id</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.VarSpec#getTp2 <em>Tp2</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.VarSpec#getExpressionlist <em>Expressionlist</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.go.VarSpec#getEl <em>El</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.VarSpec#getEprlist <em>Eprlist</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.go.GoPackage#getVarSpec()
@@ -55,20 +53,30 @@ public interface VarSpec extends EObject
   void setId(String value);
 
   /**
-   * Returns the value of the '<em><b>Tp2</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.example.mydsl.go.Type}.
+   * Returns the value of the '<em><b>Tp2</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Tp2</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Tp2</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Tp2</em>' containment reference list.
+   * @return the value of the '<em>Tp2</em>' containment reference.
+   * @see #setTp2(Type)
    * @see org.xtext.example.mydsl.go.GoPackage#getVarSpec_Tp2()
    * @model containment="true"
    * @generated
    */
-  EList<Type> getTp2();
+  Type getTp2();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.VarSpec#getTp2 <em>Tp2</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Tp2</em>' containment reference.
+   * @see #getTp2()
+   * @generated
+   */
+  void setTp2(Type value);
 
   /**
    * Returns the value of the '<em><b>Expressionlist</b></em>' containment reference.
@@ -97,29 +105,29 @@ public interface VarSpec extends EObject
   void setExpressionlist(ExpressionList value);
 
   /**
-   * Returns the value of the '<em><b>El</b></em>' containment reference.
+   * Returns the value of the '<em><b>Eprlist</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>El</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Eprlist</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>El</em>' containment reference.
-   * @see #setEl(ExpressionList)
-   * @see org.xtext.example.mydsl.go.GoPackage#getVarSpec_El()
+   * @return the value of the '<em>Eprlist</em>' containment reference.
+   * @see #setEprlist(ExpressionList)
+   * @see org.xtext.example.mydsl.go.GoPackage#getVarSpec_Eprlist()
    * @model containment="true"
    * @generated
    */
-  ExpressionList getEl();
+  ExpressionList getEprlist();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.go.VarSpec#getEl <em>El</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.VarSpec#getEprlist <em>Eprlist</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>El</em>' containment reference.
-   * @see #getEl()
+   * @param value the new value of the '<em>Eprlist</em>' containment reference.
+   * @see #getEprlist()
    * @generated
    */
-  void setEl(ExpressionList value);
+  void setEprlist(ExpressionList value);
 
 } // VarSpec

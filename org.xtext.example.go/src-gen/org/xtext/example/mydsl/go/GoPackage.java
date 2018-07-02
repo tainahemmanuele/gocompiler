@@ -1879,7 +1879,7 @@ public interface GoPackage extends EPackage
   int VAR_SPEC__ID = 0;
 
   /**
-   * The feature id for the '<em><b>Tp2</b></em>' containment reference list.
+   * The feature id for the '<em><b>Tp2</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1897,13 +1897,13 @@ public interface GoPackage extends EPackage
   int VAR_SPEC__EXPRESSIONLIST = 2;
 
   /**
-   * The feature id for the '<em><b>El</b></em>' containment reference.
+   * The feature id for the '<em><b>Eprlist</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VAR_SPEC__EL = 3;
+  int VAR_SPEC__EPRLIST = 3;
 
   /**
    * The number of structural features of the '<em>Var Spec</em>' class.
@@ -1925,13 +1925,22 @@ public interface GoPackage extends EPackage
   int EXPRESSION_STMT = 47;
 
   /**
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION_STMT__EXP = 0;
+
+  /**
    * The number of structural features of the '<em>Expression Stmt</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION_STMT_FEATURE_COUNT = 0;
+  int EXPRESSION_STMT_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.SendStmtImpl <em>Send Stmt</em>}' class.
@@ -1981,13 +1990,22 @@ public interface GoPackage extends EPackage
   int CHANNEL = 49;
 
   /**
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHANNEL__EXP = 0;
+
+  /**
    * The number of structural features of the '<em>Channel</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CHANNEL_FEATURE_COUNT = 0;
+  int CHANNEL_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.IncDecStmtImpl <em>Inc Dec Stmt</em>}' class.
@@ -2000,13 +2018,22 @@ public interface GoPackage extends EPackage
   int INC_DEC_STMT = 50;
 
   /**
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INC_DEC_STMT__EXP = 0;
+
+  /**
    * The number of structural features of the '<em>Inc Dec Stmt</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INC_DEC_STMT_FEATURE_COUNT = 0;
+  int INC_DEC_STMT_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.AssignmentImpl <em>Assignment</em>}' class.
@@ -2704,13 +2731,31 @@ public interface GoPackage extends EPackage
   int EXPRESSION_LIST__RECVEXPR = RECV_STMT__RECVEXPR;
 
   /**
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION_LIST__EXP = RECV_STMT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Expression2</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION_LIST__EXPRESSION2 = RECV_STMT_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>Expression List</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION_LIST_FEATURE_COUNT = RECV_STMT_FEATURE_COUNT + 0;
+  int EXPRESSION_LIST_FEATURE_COUNT = RECV_STMT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -2732,31 +2777,13 @@ public interface GoPackage extends EPackage
   int EXPRESSION__ELEMTYPE = ARRAY_LENGTH__ELEMTYPE;
 
   /**
-   * The feature id for the '<em><b>Idl</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__IDL = ARRAY_LENGTH_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Recvexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__RECVEXPR = ARRAY_LENGTH_FEATURE_COUNT + 1;
-
-  /**
    * The feature id for the '<em><b>Keyedelement</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION__KEYEDELEMENT = ARRAY_LENGTH_FEATURE_COUNT + 2;
+  int EXPRESSION__KEYEDELEMENT = ARRAY_LENGTH_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Element</b></em>' containment reference.
@@ -2765,7 +2792,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__ELEMENT = ARRAY_LENGTH_FEATURE_COUNT + 3;
+  int EXPRESSION__ELEMENT = ARRAY_LENGTH_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Fieldn</b></em>' attribute.
@@ -2774,16 +2801,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__FIELDN = ARRAY_LENGTH_FEATURE_COUNT + 4;
-
-  /**
-   * The feature id for the '<em><b>Expression2</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__EXPRESSION2 = ARRAY_LENGTH_FEATURE_COUNT + 5;
+  int EXPRESSION__FIELDN = ARRAY_LENGTH_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Up</b></em>' containment reference.
@@ -2792,7 +2810,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__UP = ARRAY_LENGTH_FEATURE_COUNT + 6;
+  int EXPRESSION__UP = ARRAY_LENGTH_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Exp</b></em>' containment reference.
@@ -2801,7 +2819,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__EXP = ARRAY_LENGTH_FEATURE_COUNT + 7;
+  int EXPRESSION__EXP = ARRAY_LENGTH_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -2810,7 +2828,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION_FEATURE_COUNT = ARRAY_LENGTH_FEATURE_COUNT + 8;
+  int EXPRESSION_FEATURE_COUNT = ARRAY_LENGTH_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.Expression2Impl <em>Expression2</em>}' class.
@@ -5239,10 +5257,10 @@ public interface GoPackage extends EPackage
   EAttribute getVarSpec_Id();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.go.VarSpec#getTp2 <em>Tp2</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.VarSpec#getTp2 <em>Tp2</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Tp2</em>'.
+   * @return the meta object for the containment reference '<em>Tp2</em>'.
    * @see org.xtext.example.mydsl.go.VarSpec#getTp2()
    * @see #getVarSpec()
    * @generated
@@ -5261,15 +5279,15 @@ public interface GoPackage extends EPackage
   EReference getVarSpec_Expressionlist();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.VarSpec#getEl <em>El</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.VarSpec#getEprlist <em>Eprlist</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>El</em>'.
-   * @see org.xtext.example.mydsl.go.VarSpec#getEl()
+   * @return the meta object for the containment reference '<em>Eprlist</em>'.
+   * @see org.xtext.example.mydsl.go.VarSpec#getEprlist()
    * @see #getVarSpec()
    * @generated
    */
-  EReference getVarSpec_El();
+  EReference getVarSpec_Eprlist();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.ExpressionStmt <em>Expression Stmt</em>}'.
@@ -5280,6 +5298,17 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getExpressionStmt();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ExpressionStmt#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see org.xtext.example.mydsl.go.ExpressionStmt#getExp()
+   * @see #getExpressionStmt()
+   * @generated
+   */
+  EReference getExpressionStmt_Exp();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.SendStmt <em>Send Stmt</em>}'.
@@ -5324,6 +5353,17 @@ public interface GoPackage extends EPackage
   EClass getChannel();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.Channel#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see org.xtext.example.mydsl.go.Channel#getExp()
+   * @see #getChannel()
+   * @generated
+   */
+  EReference getChannel_Exp();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.IncDecStmt <em>Inc Dec Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5332,6 +5372,17 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getIncDecStmt();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.IncDecStmt#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see org.xtext.example.mydsl.go.IncDecStmt#getExp()
+   * @see #getIncDecStmt()
+   * @generated
+   */
+  EReference getIncDecStmt_Exp();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.Assignment <em>Assignment</em>}'.
@@ -5908,6 +5959,28 @@ public interface GoPackage extends EPackage
   EClass getExpressionList();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ExpressionList#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see org.xtext.example.mydsl.go.ExpressionList#getExp()
+   * @see #getExpressionList()
+   * @generated
+   */
+  EReference getExpressionList_Exp();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.go.ExpressionList#getExpression2 <em>Expression2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Expression2</em>'.
+   * @see org.xtext.example.mydsl.go.ExpressionList#getExpression2()
+   * @see #getExpressionList()
+   * @generated
+   */
+  EReference getExpressionList_Expression2();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.Expression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5916,17 +5989,6 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getExpression();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.go.Expression#getExpression2 <em>Expression2</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expression2</em>'.
-   * @see org.xtext.example.mydsl.go.Expression#getExpression2()
-   * @see #getExpression()
-   * @generated
-   */
-  EReference getExpression_Expression2();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.Expression#getUp <em>Up</em>}'.
@@ -7873,7 +7935,7 @@ public interface GoPackage extends EPackage
     EAttribute VAR_SPEC__ID = eINSTANCE.getVarSpec_Id();
 
     /**
-     * The meta object literal for the '<em><b>Tp2</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Tp2</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -7889,12 +7951,12 @@ public interface GoPackage extends EPackage
     EReference VAR_SPEC__EXPRESSIONLIST = eINSTANCE.getVarSpec_Expressionlist();
 
     /**
-     * The meta object literal for the '<em><b>El</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Eprlist</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference VAR_SPEC__EL = eINSTANCE.getVarSpec_El();
+    EReference VAR_SPEC__EPRLIST = eINSTANCE.getVarSpec_Eprlist();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.ExpressionStmtImpl <em>Expression Stmt</em>}' class.
@@ -7905,6 +7967,14 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass EXPRESSION_STMT = eINSTANCE.getExpressionStmt();
+
+    /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPRESSION_STMT__EXP = eINSTANCE.getExpressionStmt_Exp();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.SendStmtImpl <em>Send Stmt</em>}' class.
@@ -7943,6 +8013,14 @@ public interface GoPackage extends EPackage
     EClass CHANNEL = eINSTANCE.getChannel();
 
     /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CHANNEL__EXP = eINSTANCE.getChannel_Exp();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.IncDecStmtImpl <em>Inc Dec Stmt</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7951,6 +8029,14 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass INC_DEC_STMT = eINSTANCE.getIncDecStmt();
+
+    /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INC_DEC_STMT__EXP = eINSTANCE.getIncDecStmt_Exp();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.AssignmentImpl <em>Assignment</em>}' class.
@@ -8425,6 +8511,22 @@ public interface GoPackage extends EPackage
     EClass EXPRESSION_LIST = eINSTANCE.getExpressionList();
 
     /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPRESSION_LIST__EXP = eINSTANCE.getExpressionList_Exp();
+
+    /**
+     * The meta object literal for the '<em><b>Expression2</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPRESSION_LIST__EXPRESSION2 = eINSTANCE.getExpressionList_Expression2();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.ExpressionImpl <em>Expression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8433,14 +8535,6 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass EXPRESSION = eINSTANCE.getExpression();
-
-    /**
-     * The meta object literal for the '<em><b>Expression2</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXPRESSION__EXPRESSION2 = eINSTANCE.getExpression_Expression2();
 
     /**
      * The meta object literal for the '<em><b>Up</b></em>' containment reference feature.

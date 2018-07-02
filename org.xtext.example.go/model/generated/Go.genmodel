@@ -171,15 +171,21 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//VarSpec/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//VarSpec/tp2"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//VarSpec/expressionlist"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//VarSpec/el"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//VarSpec/eprlist"/>
     </genClasses>
-    <genClasses ecoreClass="Go.ecore#//ExpressionStmt"/>
+    <genClasses ecoreClass="Go.ecore#//ExpressionStmt">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ExpressionStmt/exp"/>
+    </genClasses>
     <genClasses ecoreClass="Go.ecore#//SendStmt">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//SendStmt/ch"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//SendStmt/expression"/>
     </genClasses>
-    <genClasses ecoreClass="Go.ecore#//Channel"/>
-    <genClasses ecoreClass="Go.ecore#//IncDecStmt"/>
+    <genClasses ecoreClass="Go.ecore#//Channel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Channel/exp"/>
+    </genClasses>
+    <genClasses ecoreClass="Go.ecore#//IncDecStmt">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//IncDecStmt/exp"/>
+    </genClasses>
     <genClasses ecoreClass="Go.ecore#//Assignment">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Assignment/expressionlist"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//Assignment/asop"/>
@@ -249,9 +255,11 @@
     <genClasses ecoreClass="Go.ecore#//PostStmt">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//PostStmt/simple"/>
     </genClasses>
-    <genClasses ecoreClass="Go.ecore#//ExpressionList"/>
+    <genClasses ecoreClass="Go.ecore#//ExpressionList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ExpressionList/exp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ExpressionList/expression2"/>
+    </genClasses>
     <genClasses ecoreClass="Go.ecore#//Expression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Expression/expression2"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Expression/up"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Expression/exp"/>
     </genClasses>

@@ -3,7 +3,6 @@
  */
 package org.xtext.example.mydsl.go;
 
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,7 +13,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.go.Expression#getExpression2 <em>Expression2</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.Expression#getUp <em>Up</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.Expression#getExp <em>Exp</em>}</li>
  * </ul>
@@ -23,24 +21,8 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Expression extends ArrayLength, DeferStmt, ExpressionStmt, Channel, IncDecStmt, ExpressionList, Key, Element
+public interface Expression extends ArrayLength, DeferStmt, Key, Element
 {
-  /**
-   * Returns the value of the '<em><b>Expression2</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.example.mydsl.go.Expression}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Expression2</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Expression2</em>' containment reference list.
-   * @see org.xtext.example.mydsl.go.GoPackage#getExpression_Expression2()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Expression> getExpression2();
-
   /**
    * Returns the value of the '<em><b>Up</b></em>' containment reference.
    * <!-- begin-user-doc -->

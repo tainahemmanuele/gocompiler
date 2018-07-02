@@ -3,21 +3,14 @@
  */
 package org.xtext.example.mydsl.go.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.example.mydsl.go.ExpressionList;
 import org.xtext.example.mydsl.go.GoPackage;
@@ -35,7 +28,7 @@ import org.xtext.example.mydsl.go.VarSpec;
  *   <li>{@link org.xtext.example.mydsl.go.impl.VarSpecImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.VarSpecImpl#getTp2 <em>Tp2</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.VarSpecImpl#getExpressionlist <em>Expressionlist</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.go.impl.VarSpecImpl#getEl <em>El</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.VarSpecImpl#getEprlist <em>Eprlist</em>}</li>
  * </ul>
  *
  * @generated
@@ -63,14 +56,14 @@ public class VarSpecImpl extends MinimalEObjectImpl.Container implements VarSpec
   protected String id = ID_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getTp2() <em>Tp2</em>}' containment reference list.
+   * The cached value of the '{@link #getTp2() <em>Tp2</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getTp2()
    * @generated
    * @ordered
    */
-  protected EList<Type> tp2;
+  protected Type tp2;
 
   /**
    * The cached value of the '{@link #getExpressionlist() <em>Expressionlist</em>}' containment reference.
@@ -83,14 +76,14 @@ public class VarSpecImpl extends MinimalEObjectImpl.Container implements VarSpec
   protected ExpressionList expressionlist;
 
   /**
-   * The cached value of the '{@link #getEl() <em>El</em>}' containment reference.
+   * The cached value of the '{@link #getEprlist() <em>Eprlist</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getEl()
+   * @see #getEprlist()
    * @generated
    * @ordered
    */
-  protected ExpressionList el;
+  protected ExpressionList eprlist;
 
   /**
    * <!-- begin-user-doc -->
@@ -141,13 +134,47 @@ public class VarSpecImpl extends MinimalEObjectImpl.Container implements VarSpec
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Type> getTp2()
+  public Type getTp2()
   {
-    if (tp2 == null)
-    {
-      tp2 = new EObjectContainmentEList<Type>(Type.class, this, GoPackage.VAR_SPEC__TP2);
-    }
     return tp2;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetTp2(Type newTp2, NotificationChain msgs)
+  {
+    Type oldTp2 = tp2;
+    tp2 = newTp2;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.VAR_SPEC__TP2, oldTp2, newTp2);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTp2(Type newTp2)
+  {
+    if (newTp2 != tp2)
+    {
+      NotificationChain msgs = null;
+      if (tp2 != null)
+        msgs = ((InternalEObject)tp2).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.VAR_SPEC__TP2, null, msgs);
+      if (newTp2 != null)
+        msgs = ((InternalEObject)newTp2).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.VAR_SPEC__TP2, null, msgs);
+      msgs = basicSetTp2(newTp2, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.VAR_SPEC__TP2, newTp2, newTp2));
   }
 
   /**
@@ -203,9 +230,9 @@ public class VarSpecImpl extends MinimalEObjectImpl.Container implements VarSpec
    * <!-- end-user-doc -->
    * @generated
    */
-  public ExpressionList getEl()
+  public ExpressionList getEprlist()
   {
-    return el;
+    return eprlist;
   }
 
   /**
@@ -213,13 +240,13 @@ public class VarSpecImpl extends MinimalEObjectImpl.Container implements VarSpec
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetEl(ExpressionList newEl, NotificationChain msgs)
+  public NotificationChain basicSetEprlist(ExpressionList newEprlist, NotificationChain msgs)
   {
-    ExpressionList oldEl = el;
-    el = newEl;
+    ExpressionList oldEprlist = eprlist;
+    eprlist = newEprlist;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.VAR_SPEC__EL, oldEl, newEl);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.VAR_SPEC__EPRLIST, oldEprlist, newEprlist);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -230,20 +257,20 @@ public class VarSpecImpl extends MinimalEObjectImpl.Container implements VarSpec
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setEl(ExpressionList newEl)
+  public void setEprlist(ExpressionList newEprlist)
   {
-    if (newEl != el)
+    if (newEprlist != eprlist)
     {
       NotificationChain msgs = null;
-      if (el != null)
-        msgs = ((InternalEObject)el).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.VAR_SPEC__EL, null, msgs);
-      if (newEl != null)
-        msgs = ((InternalEObject)newEl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.VAR_SPEC__EL, null, msgs);
-      msgs = basicSetEl(newEl, msgs);
+      if (eprlist != null)
+        msgs = ((InternalEObject)eprlist).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.VAR_SPEC__EPRLIST, null, msgs);
+      if (newEprlist != null)
+        msgs = ((InternalEObject)newEprlist).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.VAR_SPEC__EPRLIST, null, msgs);
+      msgs = basicSetEprlist(newEprlist, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.VAR_SPEC__EL, newEl, newEl));
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.VAR_SPEC__EPRLIST, newEprlist, newEprlist));
   }
 
   /**
@@ -257,11 +284,11 @@ public class VarSpecImpl extends MinimalEObjectImpl.Container implements VarSpec
     switch (featureID)
     {
       case GoPackage.VAR_SPEC__TP2:
-        return ((InternalEList<?>)getTp2()).basicRemove(otherEnd, msgs);
+        return basicSetTp2(null, msgs);
       case GoPackage.VAR_SPEC__EXPRESSIONLIST:
         return basicSetExpressionlist(null, msgs);
-      case GoPackage.VAR_SPEC__EL:
-        return basicSetEl(null, msgs);
+      case GoPackage.VAR_SPEC__EPRLIST:
+        return basicSetEprlist(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -282,8 +309,8 @@ public class VarSpecImpl extends MinimalEObjectImpl.Container implements VarSpec
         return getTp2();
       case GoPackage.VAR_SPEC__EXPRESSIONLIST:
         return getExpressionlist();
-      case GoPackage.VAR_SPEC__EL:
-        return getEl();
+      case GoPackage.VAR_SPEC__EPRLIST:
+        return getEprlist();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -293,7 +320,6 @@ public class VarSpecImpl extends MinimalEObjectImpl.Container implements VarSpec
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -303,14 +329,13 @@ public class VarSpecImpl extends MinimalEObjectImpl.Container implements VarSpec
         setId((String)newValue);
         return;
       case GoPackage.VAR_SPEC__TP2:
-        getTp2().clear();
-        getTp2().addAll((Collection<? extends Type>)newValue);
+        setTp2((Type)newValue);
         return;
       case GoPackage.VAR_SPEC__EXPRESSIONLIST:
         setExpressionlist((ExpressionList)newValue);
         return;
-      case GoPackage.VAR_SPEC__EL:
-        setEl((ExpressionList)newValue);
+      case GoPackage.VAR_SPEC__EPRLIST:
+        setEprlist((ExpressionList)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -330,13 +355,13 @@ public class VarSpecImpl extends MinimalEObjectImpl.Container implements VarSpec
         setId(ID_EDEFAULT);
         return;
       case GoPackage.VAR_SPEC__TP2:
-        getTp2().clear();
+        setTp2((Type)null);
         return;
       case GoPackage.VAR_SPEC__EXPRESSIONLIST:
         setExpressionlist((ExpressionList)null);
         return;
-      case GoPackage.VAR_SPEC__EL:
-        setEl((ExpressionList)null);
+      case GoPackage.VAR_SPEC__EPRLIST:
+        setEprlist((ExpressionList)null);
         return;
     }
     super.eUnset(featureID);
@@ -355,11 +380,11 @@ public class VarSpecImpl extends MinimalEObjectImpl.Container implements VarSpec
       case GoPackage.VAR_SPEC__ID:
         return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
       case GoPackage.VAR_SPEC__TP2:
-        return tp2 != null && !tp2.isEmpty();
+        return tp2 != null;
       case GoPackage.VAR_SPEC__EXPRESSIONLIST:
         return expressionlist != null;
-      case GoPackage.VAR_SPEC__EL:
-        return el != null;
+      case GoPackage.VAR_SPEC__EPRLIST:
+        return eprlist != null;
     }
     return super.eIsSet(featureID);
   }

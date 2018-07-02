@@ -18,20 +18,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.xtext.example.mydsl.go.Channel;
 import org.xtext.example.mydsl.go.DeferStmt;
 import org.xtext.example.mydsl.go.Element;
 import org.xtext.example.mydsl.go.ElementList;
 import org.xtext.example.mydsl.go.Expression;
 import org.xtext.example.mydsl.go.Expression2;
-import org.xtext.example.mydsl.go.ExpressionList;
-import org.xtext.example.mydsl.go.ExpressionStmt;
 import org.xtext.example.mydsl.go.GoPackage;
-import org.xtext.example.mydsl.go.IncDecStmt;
 import org.xtext.example.mydsl.go.Key;
 import org.xtext.example.mydsl.go.KeyedElement;
-import org.xtext.example.mydsl.go.RecvExpr;
-import org.xtext.example.mydsl.go.RecvStmt;
 import org.xtext.example.mydsl.go.UnaryExpr;
 
 /**
@@ -42,12 +36,9 @@ import org.xtext.example.mydsl.go.UnaryExpr;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.go.impl.ExpressionImpl#getIdl <em>Idl</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.go.impl.ExpressionImpl#getRecvexpr <em>Recvexpr</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.ExpressionImpl#getKeyedelement <em>Keyedelement</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.ExpressionImpl#getElement <em>Element</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.ExpressionImpl#getFieldn <em>Fieldn</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.go.impl.ExpressionImpl#getExpression2 <em>Expression2</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.ExpressionImpl#getUp <em>Up</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.ExpressionImpl#getExp <em>Exp</em>}</li>
  * </ul>
@@ -56,36 +47,6 @@ import org.xtext.example.mydsl.go.UnaryExpr;
  */
 public class ExpressionImpl extends ArrayLengthImpl implements Expression
 {
-  /**
-   * The default value of the '{@link #getIdl() <em>Idl</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getIdl()
-   * @generated
-   * @ordered
-   */
-  protected static final String IDL_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getIdl() <em>Idl</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getIdl()
-   * @generated
-   * @ordered
-   */
-  protected String idl = IDL_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getRecvexpr() <em>Recvexpr</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRecvexpr()
-   * @generated
-   * @ordered
-   */
-  protected RecvExpr recvexpr;
-
   /**
    * The cached value of the '{@link #getKeyedelement() <em>Keyedelement</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -127,16 +88,6 @@ public class ExpressionImpl extends ArrayLengthImpl implements Expression
   protected String fieldn = FIELDN_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getExpression2() <em>Expression2</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getExpression2()
-   * @generated
-   * @ordered
-   */
-  protected EList<Expression> expression2;
-
-  /**
    * The cached value of the '{@link #getUp() <em>Up</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -175,77 +126,6 @@ public class ExpressionImpl extends ArrayLengthImpl implements Expression
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.EXPRESSION;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getIdl()
-  {
-    return idl;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setIdl(String newIdl)
-  {
-    String oldIdl = idl;
-    idl = newIdl;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.EXPRESSION__IDL, oldIdl, idl));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RecvExpr getRecvexpr()
-  {
-    return recvexpr;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetRecvexpr(RecvExpr newRecvexpr, NotificationChain msgs)
-  {
-    RecvExpr oldRecvexpr = recvexpr;
-    recvexpr = newRecvexpr;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.EXPRESSION__RECVEXPR, oldRecvexpr, newRecvexpr);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setRecvexpr(RecvExpr newRecvexpr)
-  {
-    if (newRecvexpr != recvexpr)
-    {
-      NotificationChain msgs = null;
-      if (recvexpr != null)
-        msgs = ((InternalEObject)recvexpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.EXPRESSION__RECVEXPR, null, msgs);
-      if (newRecvexpr != null)
-        msgs = ((InternalEObject)newRecvexpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.EXPRESSION__RECVEXPR, null, msgs);
-      msgs = basicSetRecvexpr(newRecvexpr, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.EXPRESSION__RECVEXPR, newRecvexpr, newRecvexpr));
   }
 
   /**
@@ -331,20 +211,6 @@ public class ExpressionImpl extends ArrayLengthImpl implements Expression
     fieldn = newFieldn;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.EXPRESSION__FIELDN, oldFieldn, fieldn));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Expression> getExpression2()
-  {
-    if (expression2 == null)
-    {
-      expression2 = new EObjectContainmentEList<Expression>(Expression.class, this, GoPackage.EXPRESSION__EXPRESSION2);
-    }
-    return expression2;
   }
 
   /**
@@ -453,14 +319,10 @@ public class ExpressionImpl extends ArrayLengthImpl implements Expression
   {
     switch (featureID)
     {
-      case GoPackage.EXPRESSION__RECVEXPR:
-        return basicSetRecvexpr(null, msgs);
       case GoPackage.EXPRESSION__KEYEDELEMENT:
         return ((InternalEList<?>)getKeyedelement()).basicRemove(otherEnd, msgs);
       case GoPackage.EXPRESSION__ELEMENT:
         return basicSetElement(null, msgs);
-      case GoPackage.EXPRESSION__EXPRESSION2:
-        return ((InternalEList<?>)getExpression2()).basicRemove(otherEnd, msgs);
       case GoPackage.EXPRESSION__UP:
         return basicSetUp(null, msgs);
       case GoPackage.EXPRESSION__EXP:
@@ -479,18 +341,12 @@ public class ExpressionImpl extends ArrayLengthImpl implements Expression
   {
     switch (featureID)
     {
-      case GoPackage.EXPRESSION__IDL:
-        return getIdl();
-      case GoPackage.EXPRESSION__RECVEXPR:
-        return getRecvexpr();
       case GoPackage.EXPRESSION__KEYEDELEMENT:
         return getKeyedelement();
       case GoPackage.EXPRESSION__ELEMENT:
         return getElement();
       case GoPackage.EXPRESSION__FIELDN:
         return getFieldn();
-      case GoPackage.EXPRESSION__EXPRESSION2:
-        return getExpression2();
       case GoPackage.EXPRESSION__UP:
         return getUp();
       case GoPackage.EXPRESSION__EXP:
@@ -510,12 +366,6 @@ public class ExpressionImpl extends ArrayLengthImpl implements Expression
   {
     switch (featureID)
     {
-      case GoPackage.EXPRESSION__IDL:
-        setIdl((String)newValue);
-        return;
-      case GoPackage.EXPRESSION__RECVEXPR:
-        setRecvexpr((RecvExpr)newValue);
-        return;
       case GoPackage.EXPRESSION__KEYEDELEMENT:
         getKeyedelement().clear();
         getKeyedelement().addAll((Collection<? extends KeyedElement>)newValue);
@@ -525,10 +375,6 @@ public class ExpressionImpl extends ArrayLengthImpl implements Expression
         return;
       case GoPackage.EXPRESSION__FIELDN:
         setFieldn((String)newValue);
-        return;
-      case GoPackage.EXPRESSION__EXPRESSION2:
-        getExpression2().clear();
-        getExpression2().addAll((Collection<? extends Expression>)newValue);
         return;
       case GoPackage.EXPRESSION__UP:
         setUp((UnaryExpr)newValue);
@@ -550,12 +396,6 @@ public class ExpressionImpl extends ArrayLengthImpl implements Expression
   {
     switch (featureID)
     {
-      case GoPackage.EXPRESSION__IDL:
-        setIdl(IDL_EDEFAULT);
-        return;
-      case GoPackage.EXPRESSION__RECVEXPR:
-        setRecvexpr((RecvExpr)null);
-        return;
       case GoPackage.EXPRESSION__KEYEDELEMENT:
         getKeyedelement().clear();
         return;
@@ -564,9 +404,6 @@ public class ExpressionImpl extends ArrayLengthImpl implements Expression
         return;
       case GoPackage.EXPRESSION__FIELDN:
         setFieldn(FIELDN_EDEFAULT);
-        return;
-      case GoPackage.EXPRESSION__EXPRESSION2:
-        getExpression2().clear();
         return;
       case GoPackage.EXPRESSION__UP:
         setUp((UnaryExpr)null);
@@ -588,18 +425,12 @@ public class ExpressionImpl extends ArrayLengthImpl implements Expression
   {
     switch (featureID)
     {
-      case GoPackage.EXPRESSION__IDL:
-        return IDL_EDEFAULT == null ? idl != null : !IDL_EDEFAULT.equals(idl);
-      case GoPackage.EXPRESSION__RECVEXPR:
-        return recvexpr != null;
       case GoPackage.EXPRESSION__KEYEDELEMENT:
         return keyedelement != null && !keyedelement.isEmpty();
       case GoPackage.EXPRESSION__ELEMENT:
         return element != null;
       case GoPackage.EXPRESSION__FIELDN:
         return FIELDN_EDEFAULT == null ? fieldn != null : !FIELDN_EDEFAULT.equals(fieldn);
-      case GoPackage.EXPRESSION__EXPRESSION2:
-        return expression2 != null && !expression2.isEmpty();
       case GoPackage.EXPRESSION__UP:
         return up != null;
       case GoPackage.EXPRESSION__EXP:
@@ -617,43 +448,6 @@ public class ExpressionImpl extends ArrayLengthImpl implements Expression
   public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
   {
     if (baseClass == DeferStmt.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == ExpressionStmt.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == Channel.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == IncDecStmt.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == RecvStmt.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case GoPackage.EXPRESSION__IDL: return GoPackage.RECV_STMT__IDL;
-        case GoPackage.EXPRESSION__RECVEXPR: return GoPackage.RECV_STMT__RECVEXPR;
-        default: return -1;
-      }
-    }
-    if (baseClass == ExpressionList.class)
     {
       switch (derivedFeatureID)
       {
@@ -709,43 +503,6 @@ public class ExpressionImpl extends ArrayLengthImpl implements Expression
         default: return -1;
       }
     }
-    if (baseClass == ExpressionStmt.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == Channel.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == IncDecStmt.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == RecvStmt.class)
-    {
-      switch (baseFeatureID)
-      {
-        case GoPackage.RECV_STMT__IDL: return GoPackage.EXPRESSION__IDL;
-        case GoPackage.RECV_STMT__RECVEXPR: return GoPackage.EXPRESSION__RECVEXPR;
-        default: return -1;
-      }
-    }
-    if (baseClass == ExpressionList.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
     if (baseClass == ElementList.class)
     {
       switch (baseFeatureID)
@@ -791,9 +548,7 @@ public class ExpressionImpl extends ArrayLengthImpl implements Expression
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (idl: ");
-    result.append(idl);
-    result.append(", fieldn: ");
+    result.append(" (fieldn: ");
     result.append(fieldn);
     result.append(')');
     return result.toString();

@@ -614,14 +614,9 @@ public class GoSwitch<T> extends Switch<T>
         T result = caseExpression(expression);
         if (result == null) result = caseArrayLength(expression);
         if (result == null) result = caseDeferStmt(expression);
-        if (result == null) result = caseExpressionStmt(expression);
-        if (result == null) result = caseChannel(expression);
-        if (result == null) result = caseIncDecStmt(expression);
-        if (result == null) result = caseExpressionList(expression);
         if (result == null) result = caseKey(expression);
         if (result == null) result = caseElement(expression);
         if (result == null) result = caseArrayType(expression);
-        if (result == null) result = caseRecvStmt(expression);
         if (result == null) result = caseKeyedElement(expression);
         if (result == null) result = caseTypeLit(expression);
         if (result == null) result = caseElementList(expression);

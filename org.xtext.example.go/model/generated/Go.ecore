@@ -221,22 +221,30 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VarSpec">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="tp2" upperBound="-1" eType="#//Type"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tp2" eType="#//Type" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expressionlist" eType="#//ExpressionList"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="el" eType="#//ExpressionList"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eprlist" eType="#//ExpressionList"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ExpressionStmt"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExpressionStmt">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SendStmt">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ch" eType="#//Channel"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Channel"/>
-  <eClassifiers xsi:type="ecore:EClass" name="IncDecStmt"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Channel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IncDecStmt">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Assignment">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expressionlist" eType="#//ExpressionList"
         containment="true"/>
@@ -334,10 +342,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="simple" eType="#//SimpleStmt"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ExpressionList" eSuperTypes="#//RecvStmt"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Expression" eSuperTypes="#//ArrayLength #//DeferStmt #//ExpressionStmt #//Channel #//IncDecStmt #//ExpressionList #//Key #//Element">
+  <eClassifiers xsi:type="ecore:EClass" name="ExpressionList" eSuperTypes="#//RecvStmt">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Expression"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression2" upperBound="-1"
         eType="#//Expression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression" eSuperTypes="#//ArrayLength #//DeferStmt #//Key #//Element">
     <eStructuralFeatures xsi:type="ecore:EReference" name="up" eType="#//UnaryExpr"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Expression2"
