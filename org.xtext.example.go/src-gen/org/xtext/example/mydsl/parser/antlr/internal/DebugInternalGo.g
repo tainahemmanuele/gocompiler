@@ -284,6 +284,7 @@ ruleParameterDecl:
 	?
 	'...'?
 	ruleType
+	?
 ;
 
 // Rule InterfaceType

@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.go.ExpressionList;
 import org.xtext.example.mydsl.go.GoPackage;
+import org.xtext.example.mydsl.go.IdentifierList;
 import org.xtext.example.mydsl.go.ShortVarDecl;
 
 /**
@@ -33,24 +34,14 @@ import org.xtext.example.mydsl.go.ShortVarDecl;
 public class ShortVarDeclImpl extends MinimalEObjectImpl.Container implements ShortVarDecl
 {
   /**
-   * The default value of the '{@link #getIdl() <em>Idl</em>}' attribute.
+   * The cached value of the '{@link #getIdl() <em>Idl</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getIdl()
    * @generated
    * @ordered
    */
-  protected static final String IDL_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getIdl() <em>Idl</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getIdl()
-   * @generated
-   * @ordered
-   */
-  protected String idl = IDL_EDEFAULT;
+  protected IdentifierList idl;
 
   /**
    * The cached value of the '{@link #getEpl() <em>Epl</em>}' containment reference.
@@ -88,7 +79,7 @@ public class ShortVarDeclImpl extends MinimalEObjectImpl.Container implements Sh
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getIdl()
+  public IdentifierList getIdl()
   {
     return idl;
   }
@@ -98,12 +89,37 @@ public class ShortVarDeclImpl extends MinimalEObjectImpl.Container implements Sh
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setIdl(String newIdl)
+  public NotificationChain basicSetIdl(IdentifierList newIdl, NotificationChain msgs)
   {
-    String oldIdl = idl;
+    IdentifierList oldIdl = idl;
     idl = newIdl;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.SHORT_VAR_DECL__IDL, oldIdl, idl));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.SHORT_VAR_DECL__IDL, oldIdl, newIdl);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIdl(IdentifierList newIdl)
+  {
+    if (newIdl != idl)
+    {
+      NotificationChain msgs = null;
+      if (idl != null)
+        msgs = ((InternalEObject)idl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.SHORT_VAR_DECL__IDL, null, msgs);
+      if (newIdl != null)
+        msgs = ((InternalEObject)newIdl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.SHORT_VAR_DECL__IDL, null, msgs);
+      msgs = basicSetIdl(newIdl, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.SHORT_VAR_DECL__IDL, newIdl, newIdl));
   }
 
   /**
@@ -164,6 +180,8 @@ public class ShortVarDeclImpl extends MinimalEObjectImpl.Container implements Sh
   {
     switch (featureID)
     {
+      case GoPackage.SHORT_VAR_DECL__IDL:
+        return basicSetIdl(null, msgs);
       case GoPackage.SHORT_VAR_DECL__EPL:
         return basicSetEpl(null, msgs);
     }
@@ -199,7 +217,7 @@ public class ShortVarDeclImpl extends MinimalEObjectImpl.Container implements Sh
     switch (featureID)
     {
       case GoPackage.SHORT_VAR_DECL__IDL:
-        setIdl((String)newValue);
+        setIdl((IdentifierList)newValue);
         return;
       case GoPackage.SHORT_VAR_DECL__EPL:
         setEpl((ExpressionList)newValue);
@@ -219,7 +237,7 @@ public class ShortVarDeclImpl extends MinimalEObjectImpl.Container implements Sh
     switch (featureID)
     {
       case GoPackage.SHORT_VAR_DECL__IDL:
-        setIdl(IDL_EDEFAULT);
+        setIdl((IdentifierList)null);
         return;
       case GoPackage.SHORT_VAR_DECL__EPL:
         setEpl((ExpressionList)null);
@@ -239,28 +257,11 @@ public class ShortVarDeclImpl extends MinimalEObjectImpl.Container implements Sh
     switch (featureID)
     {
       case GoPackage.SHORT_VAR_DECL__IDL:
-        return IDL_EDEFAULT == null ? idl != null : !IDL_EDEFAULT.equals(idl);
+        return idl != null;
       case GoPackage.SHORT_VAR_DECL__EPL:
         return epl != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (idl: ");
-    result.append(idl);
-    result.append(')');
-    return result.toString();
   }
 
 } //ShortVarDeclImpl

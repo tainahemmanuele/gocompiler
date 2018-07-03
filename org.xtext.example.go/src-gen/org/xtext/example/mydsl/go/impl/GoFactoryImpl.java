@@ -79,6 +79,7 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
       case GoPackage.SLICE_TYPE: return createSliceType();
       case GoPackage.STRUCT_TYPE: return createStructType();
       case GoPackage.FIELD_DECL: return createFieldDecl();
+      case GoPackage.IDENTIFIER_LIST: return createIdentifierList();
       case GoPackage.POINTER_TYPE: return createPointerType();
       case GoPackage.BASE_TYPE: return createBaseType();
       case GoPackage.FUNCTION_TYPE: return createFunctionType();
@@ -318,6 +319,17 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
   {
     FieldDeclImpl fieldDecl = new FieldDeclImpl();
     return fieldDecl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IdentifierList createIdentifierList()
+  {
+    IdentifierListImpl identifierList = new IdentifierListImpl();
+    return identifierList;
   }
 
   /**

@@ -45,11 +45,12 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//StructType/fielddecl"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//FieldDecl">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//FieldDecl/indentifierL"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//FieldDecl/indentifierL"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//FieldDecl/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//FieldDecl/embedded"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//FieldDecl/tag"/>
     </genClasses>
+    <genClasses ecoreClass="Go.ecore#//IdentifierList"/>
     <genClasses ecoreClass="Go.ecore#//PointerType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//PointerType/basetype"/>
     </genClasses>
@@ -71,7 +72,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ParameterList/parameterdecl"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//ParameterDecl">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//ParameterDecl/identifierL"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ParameterDecl/identifierL"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ParameterDecl/type"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//InterfaceType">
@@ -149,7 +150,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ConstDecl/constspec2"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//ConstSpec">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//ConstSpec/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ConstSpec/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ConstSpec/tp"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ConstSpec/expressionlist"/>
     </genClasses>
@@ -168,7 +169,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//VarDecl/varspec2"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//VarSpec">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//VarSpec/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//VarSpec/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//VarSpec/tp2"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//VarSpec/expressionlist"/>
     </genClasses>
@@ -191,7 +192,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Assignment/expressionlist2"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//ShortVarDecl">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//ShortVarDecl/idl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ShortVarDecl/idl"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ShortVarDecl/epl"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//ExprSwitchStmt">
@@ -229,7 +230,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//CommCase/recvstmt"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//RecvStmt">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//RecvStmt/idl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//RecvStmt/idl"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//RecvStmt/recvexpr"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//RecvExpr">
@@ -245,7 +246,7 @@
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//RangeClause">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//RangeClause/expressionlist"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//RangeClause/idl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//RangeClause/idl"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//RangeClause/expression"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//InitStmt">

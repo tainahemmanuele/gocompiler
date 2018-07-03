@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.xtext.example.mydsl.go.Expression;
 import org.xtext.example.mydsl.go.ExpressionList;
 import org.xtext.example.mydsl.go.GoPackage;
+import org.xtext.example.mydsl.go.IdentifierList;
 import org.xtext.example.mydsl.go.RangeClause;
 
 /**
@@ -45,24 +46,14 @@ public class RangeClauseImpl extends MinimalEObjectImpl.Container implements Ran
   protected ExpressionList expressionlist;
 
   /**
-   * The default value of the '{@link #getIdl() <em>Idl</em>}' attribute.
+   * The cached value of the '{@link #getIdl() <em>Idl</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getIdl()
    * @generated
    * @ordered
    */
-  protected static final String IDL_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getIdl() <em>Idl</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getIdl()
-   * @generated
-   * @ordered
-   */
-  protected String idl = IDL_EDEFAULT;
+  protected IdentifierList idl;
 
   /**
    * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
@@ -148,7 +139,7 @@ public class RangeClauseImpl extends MinimalEObjectImpl.Container implements Ran
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getIdl()
+  public IdentifierList getIdl()
   {
     return idl;
   }
@@ -158,12 +149,37 @@ public class RangeClauseImpl extends MinimalEObjectImpl.Container implements Ran
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setIdl(String newIdl)
+  public NotificationChain basicSetIdl(IdentifierList newIdl, NotificationChain msgs)
   {
-    String oldIdl = idl;
+    IdentifierList oldIdl = idl;
     idl = newIdl;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.RANGE_CLAUSE__IDL, oldIdl, idl));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.RANGE_CLAUSE__IDL, oldIdl, newIdl);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIdl(IdentifierList newIdl)
+  {
+    if (newIdl != idl)
+    {
+      NotificationChain msgs = null;
+      if (idl != null)
+        msgs = ((InternalEObject)idl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.RANGE_CLAUSE__IDL, null, msgs);
+      if (newIdl != null)
+        msgs = ((InternalEObject)newIdl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.RANGE_CLAUSE__IDL, null, msgs);
+      msgs = basicSetIdl(newIdl, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.RANGE_CLAUSE__IDL, newIdl, newIdl));
   }
 
   /**
@@ -226,6 +242,8 @@ public class RangeClauseImpl extends MinimalEObjectImpl.Container implements Ran
     {
       case GoPackage.RANGE_CLAUSE__EXPRESSIONLIST:
         return basicSetExpressionlist(null, msgs);
+      case GoPackage.RANGE_CLAUSE__IDL:
+        return basicSetIdl(null, msgs);
       case GoPackage.RANGE_CLAUSE__EXPRESSION:
         return basicSetExpression(null, msgs);
     }
@@ -266,7 +284,7 @@ public class RangeClauseImpl extends MinimalEObjectImpl.Container implements Ran
         setExpressionlist((ExpressionList)newValue);
         return;
       case GoPackage.RANGE_CLAUSE__IDL:
-        setIdl((String)newValue);
+        setIdl((IdentifierList)newValue);
         return;
       case GoPackage.RANGE_CLAUSE__EXPRESSION:
         setExpression((Expression)newValue);
@@ -289,7 +307,7 @@ public class RangeClauseImpl extends MinimalEObjectImpl.Container implements Ran
         setExpressionlist((ExpressionList)null);
         return;
       case GoPackage.RANGE_CLAUSE__IDL:
-        setIdl(IDL_EDEFAULT);
+        setIdl((IdentifierList)null);
         return;
       case GoPackage.RANGE_CLAUSE__EXPRESSION:
         setExpression((Expression)null);
@@ -311,28 +329,11 @@ public class RangeClauseImpl extends MinimalEObjectImpl.Container implements Ran
       case GoPackage.RANGE_CLAUSE__EXPRESSIONLIST:
         return expressionlist != null;
       case GoPackage.RANGE_CLAUSE__IDL:
-        return IDL_EDEFAULT == null ? idl != null : !IDL_EDEFAULT.equals(idl);
+        return idl != null;
       case GoPackage.RANGE_CLAUSE__EXPRESSION:
         return expression != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (idl: ");
-    result.append(idl);
-    result.append(')');
-    return result.toString();
   }
 
 } //RangeClauseImpl

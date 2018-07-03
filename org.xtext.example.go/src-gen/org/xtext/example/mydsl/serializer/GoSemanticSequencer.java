@@ -38,6 +38,7 @@ import org.xtext.example.mydsl.go.ForStmt;
 import org.xtext.example.mydsl.go.FunctionDecl;
 import org.xtext.example.mydsl.go.FunctionLit;
 import org.xtext.example.mydsl.go.GoPackage;
+import org.xtext.example.mydsl.go.IdentifierList;
 import org.xtext.example.mydsl.go.IfStmt;
 import org.xtext.example.mydsl.go.ImportDecl;
 import org.xtext.example.mydsl.go.IncDecStmt;
@@ -221,6 +222,9 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case GoPackage.FUNCTION_LIT:
 				sequence_FunctionLit(context, (FunctionLit) semanticObject); 
+				return; 
+			case GoPackage.IDENTIFIER_LIST:
+				sequence_IdentifierList(context, (IdentifierList) semanticObject); 
 				return; 
 			case GoPackage.IF_STMT:
 				sequence_IfStmt(context, (IfStmt) semanticObject); 
@@ -962,6 +966,18 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     IdentifierList returns IdentifierList
+	 *
+	 * Constraint:
+	 *     {IdentifierList}
+	 */
+	protected void sequence_IdentifierList(ISerializationContext context, IdentifierList semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     IfStmt returns IfStmt
 	 *
 	 * Constraint:
@@ -1333,7 +1349,7 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ParameterDecl returns ParameterDecl
 	 *
 	 * Constraint:
-	 *     (identifierL=IdentifierList? type=Type)
+	 *     (identifierL=IdentifierList? type=Type?)
 	 */
 	protected void sequence_ParameterDecl(ISerializationContext context, ParameterDecl semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

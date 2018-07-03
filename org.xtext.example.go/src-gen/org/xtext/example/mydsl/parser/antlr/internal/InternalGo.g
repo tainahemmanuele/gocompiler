@@ -1357,14 +1357,14 @@ ruleFieldDecl returns [EObject current=null]
 ;
 
 // Entry rule entryRuleIdentifierList
-entryRuleIdentifierList returns [String current=null]:
+entryRuleIdentifierList returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getIdentifierListRule()); }
 	iv_ruleIdentifierList=ruleIdentifierList
-	{ $current=$iv_ruleIdentifierList.current.getText(); }
+	{ $current=$iv_ruleIdentifierList.current; }
 	EOF;
 
 // Rule IdentifierList
-ruleIdentifierList returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+ruleIdentifierList returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -1372,29 +1372,38 @@ ruleIdentifierList returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRule
 	leaveRule();
 }:
 	(
+		(
+			{
+				/* */
+			}
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getIdentifierListAccess().getIdentifierListAction_0(),
+					$current);
+			}
+		)
 		{
-			newCompositeNode(grammarAccess.getIdentifierListAccess().getIDENTIFIERParserRuleCall_0());
+			/* */
 		}
-		this_IDENTIFIER_0=ruleIDENTIFIER
 		{
-			$current.merge(this_IDENTIFIER_0);
+			newCompositeNode(grammarAccess.getIdentifierListAccess().getIDENTIFIERParserRuleCall_1());
 		}
+		ruleIDENTIFIER
 		{
 			afterParserOrEnumRuleCall();
 		}
 		(
-			kw=','
+			otherlv_2=','
 			{
-				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getIdentifierListAccess().getCommaKeyword_1_0());
+				newLeafNode(otherlv_2, grammarAccess.getIdentifierListAccess().getCommaKeyword_2_0());
 			}
 			{
-				newCompositeNode(grammarAccess.getIdentifierListAccess().getIDENTIFIERParserRuleCall_1_1());
+				/* */
 			}
-			this_IDENTIFIER_2=ruleIDENTIFIER
 			{
-				$current.merge(this_IDENTIFIER_2);
+				newCompositeNode(grammarAccess.getIdentifierListAccess().getIDENTIFIERParserRuleCall_2_1());
 			}
+			ruleIDENTIFIER
 			{
 				afterParserOrEnumRuleCall();
 			}
@@ -1882,7 +1891,7 @@ ruleParameterDecl returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)
+		)?
 	)
 ;
 

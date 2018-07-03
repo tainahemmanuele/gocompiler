@@ -25,30 +25,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface ParameterDecl extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Identifier L</b></em>' attribute.
+   * Returns the value of the '<em><b>Identifier L</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Identifier L</em>' attribute isn't clear,
+   * If the meaning of the '<em>Identifier L</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Identifier L</em>' attribute.
-   * @see #setIdentifierL(String)
+   * @return the value of the '<em>Identifier L</em>' containment reference.
+   * @see #setIdentifierL(IdentifierList)
    * @see org.xtext.example.mydsl.go.GoPackage#getParameterDecl_IdentifierL()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getIdentifierL();
+  IdentifierList getIdentifierL();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.go.ParameterDecl#getIdentifierL <em>Identifier L</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.ParameterDecl#getIdentifierL <em>Identifier L</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Identifier L</em>' attribute.
+   * @param value the new value of the '<em>Identifier L</em>' containment reference.
    * @see #getIdentifierL()
    * @generated
    */
-  void setIdentifierL(String value);
+  void setIdentifierL(IdentifierList value);
 
   /**
    * Returns the value of the '<em><b>Type</b></em>' containment reference.

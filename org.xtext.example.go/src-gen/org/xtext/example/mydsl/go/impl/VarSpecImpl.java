@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.go.ExpressionList;
 import org.xtext.example.mydsl.go.GoPackage;
+import org.xtext.example.mydsl.go.IdentifierList;
 import org.xtext.example.mydsl.go.Type;
 import org.xtext.example.mydsl.go.VarSpec;
 
@@ -35,24 +36,14 @@ import org.xtext.example.mydsl.go.VarSpec;
 public class VarSpecImpl extends MinimalEObjectImpl.Container implements VarSpec
 {
   /**
-   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+   * The cached value of the '{@link #getId() <em>Id</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getId()
    * @generated
    * @ordered
    */
-  protected static final String ID_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getId()
-   * @generated
-   * @ordered
-   */
-  protected String id = ID_EDEFAULT;
+  protected IdentifierList id;
 
   /**
    * The cached value of the '{@link #getTp2() <em>Tp2</em>}' containment reference.
@@ -100,7 +91,7 @@ public class VarSpecImpl extends MinimalEObjectImpl.Container implements VarSpec
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getId()
+  public IdentifierList getId()
   {
     return id;
   }
@@ -110,12 +101,37 @@ public class VarSpecImpl extends MinimalEObjectImpl.Container implements VarSpec
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setId(String newId)
+  public NotificationChain basicSetId(IdentifierList newId, NotificationChain msgs)
   {
-    String oldId = id;
+    IdentifierList oldId = id;
     id = newId;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.VAR_SPEC__ID, oldId, id));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.VAR_SPEC__ID, oldId, newId);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setId(IdentifierList newId)
+  {
+    if (newId != id)
+    {
+      NotificationChain msgs = null;
+      if (id != null)
+        msgs = ((InternalEObject)id).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.VAR_SPEC__ID, null, msgs);
+      if (newId != null)
+        msgs = ((InternalEObject)newId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.VAR_SPEC__ID, null, msgs);
+      msgs = basicSetId(newId, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.VAR_SPEC__ID, newId, newId));
   }
 
   /**
@@ -224,6 +240,8 @@ public class VarSpecImpl extends MinimalEObjectImpl.Container implements VarSpec
   {
     switch (featureID)
     {
+      case GoPackage.VAR_SPEC__ID:
+        return basicSetId(null, msgs);
       case GoPackage.VAR_SPEC__TP2:
         return basicSetTp2(null, msgs);
       case GoPackage.VAR_SPEC__EXPRESSIONLIST:
@@ -263,7 +281,7 @@ public class VarSpecImpl extends MinimalEObjectImpl.Container implements VarSpec
     switch (featureID)
     {
       case GoPackage.VAR_SPEC__ID:
-        setId((String)newValue);
+        setId((IdentifierList)newValue);
         return;
       case GoPackage.VAR_SPEC__TP2:
         setTp2((Type)newValue);
@@ -286,7 +304,7 @@ public class VarSpecImpl extends MinimalEObjectImpl.Container implements VarSpec
     switch (featureID)
     {
       case GoPackage.VAR_SPEC__ID:
-        setId(ID_EDEFAULT);
+        setId((IdentifierList)null);
         return;
       case GoPackage.VAR_SPEC__TP2:
         setTp2((Type)null);
@@ -309,30 +327,13 @@ public class VarSpecImpl extends MinimalEObjectImpl.Container implements VarSpec
     switch (featureID)
     {
       case GoPackage.VAR_SPEC__ID:
-        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+        return id != null;
       case GoPackage.VAR_SPEC__TP2:
         return tp2 != null;
       case GoPackage.VAR_SPEC__EXPRESSIONLIST:
         return expressionlist != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (id: ");
-    result.append(id);
-    result.append(')');
-    return result.toString();
   }
 
 } //VarSpecImpl

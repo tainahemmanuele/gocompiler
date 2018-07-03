@@ -26,30 +26,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface ConstSpec extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Id</b></em>' attribute.
+   * Returns the value of the '<em><b>Id</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Id</em>' attribute isn't clear,
+   * If the meaning of the '<em>Id</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Id</em>' attribute.
-   * @see #setId(String)
+   * @return the value of the '<em>Id</em>' containment reference.
+   * @see #setId(IdentifierList)
    * @see org.xtext.example.mydsl.go.GoPackage#getConstSpec_Id()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getId();
+  IdentifierList getId();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.go.ConstSpec#getId <em>Id</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.ConstSpec#getId <em>Id</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Id</em>' attribute.
+   * @param value the new value of the '<em>Id</em>' containment reference.
    * @see #getId()
    * @generated
    */
-  void setId(String value);
+  void setId(IdentifierList value);
 
   /**
    * Returns the value of the '<em><b>Tp</b></em>' containment reference.

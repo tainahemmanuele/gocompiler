@@ -815,29 +815,33 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	public class IdentifierListElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.IdentifierList");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cIDENTIFIERParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cCommaKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final RuleCall cIDENTIFIERParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		private final Action cIdentifierListAction_0 = (Action)cGroup.eContents().get(0);
+		private final RuleCall cIDENTIFIERParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cCommaKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final RuleCall cIDENTIFIERParserRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
 		
 		//IdentifierList:
-		//	IDENTIFIER (',' IDENTIFIER)*;
+		//	{IdentifierList} IDENTIFIER (',' IDENTIFIER)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//IDENTIFIER (',' IDENTIFIER)*
+		//{IdentifierList} IDENTIFIER (',' IDENTIFIER)*
 		public Group getGroup() { return cGroup; }
 		
+		//{IdentifierList}
+		public Action getIdentifierListAction_0() { return cIdentifierListAction_0; }
+		
 		//IDENTIFIER
-		public RuleCall getIDENTIFIERParserRuleCall_0() { return cIDENTIFIERParserRuleCall_0; }
+		public RuleCall getIDENTIFIERParserRuleCall_1() { return cIDENTIFIERParserRuleCall_1; }
 		
 		//(',' IDENTIFIER)*
-		public Group getGroup_1() { return cGroup_1; }
+		public Group getGroup_2() { return cGroup_2; }
 		
 		//','
-		public Keyword getCommaKeyword_1_0() { return cCommaKeyword_1_0; }
+		public Keyword getCommaKeyword_2_0() { return cCommaKeyword_2_0; }
 		
 		//IDENTIFIER
-		public RuleCall getIDENTIFIERParserRuleCall_1_1() { return cIDENTIFIERParserRuleCall_1_1; }
+		public RuleCall getIDENTIFIERParserRuleCall_2_1() { return cIDENTIFIERParserRuleCall_2_1; }
 	}
 	public class EmbeddedFieldElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.EmbeddedField");
@@ -1057,10 +1061,10 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTypeTypeParserRuleCall_3_0 = (RuleCall)cTypeAssignment_3.eContents().get(0);
 		
 		//ParameterDecl:
-		//	{ParameterDecl} identifierL=IdentifierList? '...'? type=Type;
+		//	{ParameterDecl} identifierL=IdentifierList? '...'? type=Type?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ParameterDecl} identifierL=IdentifierList? '...'? type=Type
+		//{ParameterDecl} identifierL=IdentifierList? '...'? type=Type?
 		public Group getGroup() { return cGroup; }
 		
 		//{ParameterDecl}
@@ -1075,7 +1079,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		//'...'?
 		public Keyword getFullStopFullStopFullStopKeyword_2() { return cFullStopFullStopFullStopKeyword_2; }
 		
-		//type=Type
+		//type=Type?
 		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
 		
 		//Type
@@ -5155,7 +5159,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//IdentifierList:
-	//	IDENTIFIER (',' IDENTIFIER)*;
+	//	{IdentifierList} IDENTIFIER (',' IDENTIFIER)*;
 	public IdentifierListElements getIdentifierListAccess() {
 		return pIdentifierList;
 	}
@@ -5255,7 +5259,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ParameterDecl:
-	//	{ParameterDecl} identifierL=IdentifierList? '...'? type=Type;
+	//	{ParameterDecl} identifierL=IdentifierList? '...'? type=Type?;
 	public ParameterDeclElements getParameterDeclAccess() {
 		return pParameterDecl;
 	}

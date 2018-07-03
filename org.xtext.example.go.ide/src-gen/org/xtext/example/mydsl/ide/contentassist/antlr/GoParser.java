@@ -93,7 +93,7 @@ public class GoParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getFieldDeclAccess().getGroup(), "rule__FieldDecl__Group__0");
 			builder.put(grammarAccess.getFieldDeclAccess().getGroup_1_0(), "rule__FieldDecl__Group_1_0__0");
 			builder.put(grammarAccess.getIdentifierListAccess().getGroup(), "rule__IdentifierList__Group__0");
-			builder.put(grammarAccess.getIdentifierListAccess().getGroup_1(), "rule__IdentifierList__Group_1__0");
+			builder.put(grammarAccess.getIdentifierListAccess().getGroup_2(), "rule__IdentifierList__Group_2__0");
 			builder.put(grammarAccess.getEmbeddedFieldAccess().getGroup(), "rule__EmbeddedField__Group__0");
 			builder.put(grammarAccess.getPointerTypeAccess().getGroup(), "rule__PointerType__Group__0");
 			builder.put(grammarAccess.getFunctionTypeAccess().getGroup(), "rule__FunctionType__Group__0");

@@ -25,30 +25,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface RecvStmt extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Idl</b></em>' attribute.
+   * Returns the value of the '<em><b>Idl</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Idl</em>' attribute isn't clear,
+   * If the meaning of the '<em>Idl</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Idl</em>' attribute.
-   * @see #setIdl(String)
+   * @return the value of the '<em>Idl</em>' containment reference.
+   * @see #setIdl(IdentifierList)
    * @see org.xtext.example.mydsl.go.GoPackage#getRecvStmt_Idl()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getIdl();
+  IdentifierList getIdl();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.go.RecvStmt#getIdl <em>Idl</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.RecvStmt#getIdl <em>Idl</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Idl</em>' attribute.
+   * @param value the new value of the '<em>Idl</em>' containment reference.
    * @see #getIdl()
    * @generated
    */
-  void setIdl(String value);
+  void setIdl(IdentifierList value);
 
   /**
    * Returns the value of the '<em><b>Recvexpr</b></em>' containment reference.

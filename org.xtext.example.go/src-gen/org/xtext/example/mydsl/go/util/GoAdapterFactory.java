@@ -146,6 +146,11 @@ public class GoAdapterFactory extends AdapterFactoryImpl
         return createFieldDeclAdapter();
       }
       @Override
+      public Adapter caseIdentifierList(IdentifierList object)
+      {
+        return createIdentifierListAdapter();
+      }
+      @Override
       public Adapter casePointerType(PointerType object)
       {
         return createPointerTypeAdapter();
@@ -783,6 +788,21 @@ public class GoAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createFieldDeclAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.go.IdentifierList <em>Identifier List</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.go.IdentifierList
+   * @generated
+   */
+  public Adapter createIdentifierListAdapter()
   {
     return null;
   }

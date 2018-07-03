@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.go.GoPackage;
+import org.xtext.example.mydsl.go.IdentifierList;
 import org.xtext.example.mydsl.go.RecvExpr;
 import org.xtext.example.mydsl.go.RecvStmt;
 
@@ -33,24 +34,14 @@ import org.xtext.example.mydsl.go.RecvStmt;
 public class RecvStmtImpl extends MinimalEObjectImpl.Container implements RecvStmt
 {
   /**
-   * The default value of the '{@link #getIdl() <em>Idl</em>}' attribute.
+   * The cached value of the '{@link #getIdl() <em>Idl</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getIdl()
    * @generated
    * @ordered
    */
-  protected static final String IDL_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getIdl() <em>Idl</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getIdl()
-   * @generated
-   * @ordered
-   */
-  protected String idl = IDL_EDEFAULT;
+  protected IdentifierList idl;
 
   /**
    * The cached value of the '{@link #getRecvexpr() <em>Recvexpr</em>}' containment reference.
@@ -88,7 +79,7 @@ public class RecvStmtImpl extends MinimalEObjectImpl.Container implements RecvSt
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getIdl()
+  public IdentifierList getIdl()
   {
     return idl;
   }
@@ -98,12 +89,37 @@ public class RecvStmtImpl extends MinimalEObjectImpl.Container implements RecvSt
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setIdl(String newIdl)
+  public NotificationChain basicSetIdl(IdentifierList newIdl, NotificationChain msgs)
   {
-    String oldIdl = idl;
+    IdentifierList oldIdl = idl;
     idl = newIdl;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.RECV_STMT__IDL, oldIdl, idl));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.RECV_STMT__IDL, oldIdl, newIdl);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIdl(IdentifierList newIdl)
+  {
+    if (newIdl != idl)
+    {
+      NotificationChain msgs = null;
+      if (idl != null)
+        msgs = ((InternalEObject)idl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.RECV_STMT__IDL, null, msgs);
+      if (newIdl != null)
+        msgs = ((InternalEObject)newIdl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.RECV_STMT__IDL, null, msgs);
+      msgs = basicSetIdl(newIdl, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.RECV_STMT__IDL, newIdl, newIdl));
   }
 
   /**
@@ -164,6 +180,8 @@ public class RecvStmtImpl extends MinimalEObjectImpl.Container implements RecvSt
   {
     switch (featureID)
     {
+      case GoPackage.RECV_STMT__IDL:
+        return basicSetIdl(null, msgs);
       case GoPackage.RECV_STMT__RECVEXPR:
         return basicSetRecvexpr(null, msgs);
     }
@@ -199,7 +217,7 @@ public class RecvStmtImpl extends MinimalEObjectImpl.Container implements RecvSt
     switch (featureID)
     {
       case GoPackage.RECV_STMT__IDL:
-        setIdl((String)newValue);
+        setIdl((IdentifierList)newValue);
         return;
       case GoPackage.RECV_STMT__RECVEXPR:
         setRecvexpr((RecvExpr)newValue);
@@ -219,7 +237,7 @@ public class RecvStmtImpl extends MinimalEObjectImpl.Container implements RecvSt
     switch (featureID)
     {
       case GoPackage.RECV_STMT__IDL:
-        setIdl(IDL_EDEFAULT);
+        setIdl((IdentifierList)null);
         return;
       case GoPackage.RECV_STMT__RECVEXPR:
         setRecvexpr((RecvExpr)null);
@@ -239,28 +257,11 @@ public class RecvStmtImpl extends MinimalEObjectImpl.Container implements RecvSt
     switch (featureID)
     {
       case GoPackage.RECV_STMT__IDL:
-        return IDL_EDEFAULT == null ? idl != null : !IDL_EDEFAULT.equals(idl);
+        return idl != null;
       case GoPackage.RECV_STMT__RECVEXPR:
         return recvexpr != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (idl: ");
-    result.append(idl);
-    result.append(')');
-    return result.toString();
   }
 
 } //RecvStmtImpl

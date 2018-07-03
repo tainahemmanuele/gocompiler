@@ -463,7 +463,7 @@ FieldDecl:
 	{FieldDecl}
 	(indentifierL=IdentifierList type=Type | embedded=EmbeddedField) (tag=Tag)?;
 
-IdentifierList: 
+IdentifierList: {IdentifierList}
 	IDENTIFIER (',' IDENTIFIER)*;
 
 EmbeddedField:
@@ -494,7 +494,7 @@ ParameterList:{ParameterList}
 	parameterDecl1=ParameterDecl (',' parameterdecl+=ParameterDecl)*;
 
 ParameterDecl:{ParameterDecl}
-	(identifierL=IdentifierList)? ('...')? type=Type;
+	(identifierL=IdentifierList)? ('...')? (type=Type)?;
 
 InterfaceType:
 	{InterfaceType}
