@@ -58,7 +58,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="embedded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tag" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IdentifierList"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IdentifierList">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id2" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PointerType" eSuperTypes="#//TypeLit">
     <eStructuralFeatures xsi:type="ecore:EReference" name="basetype" eType="#//BaseType"
         containment="true"/>
@@ -373,7 +377,13 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PrimaryExpr" eSuperTypes="#//UnaryExpr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="op" eType="#//Operand"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pr" eType="#//PrimaryExpr2"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="con" eType="#//Conversion"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="me" eType="#//MethodExpr"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PrimaryExpr2">
@@ -389,7 +399,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" eType="#//Arguments"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Operand" eSuperTypes="#//PrimaryExpr">
+  <eClassifiers xsi:type="ecore:EClass" name="Operand">
     <eStructuralFeatures xsi:type="ecore:EReference" name="literal" eType="#//Literal"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operandn" eType="#//OperandName"
@@ -397,12 +407,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Conversion" eSuperTypes="#//PrimaryExpr">
+  <eClassifiers xsi:type="ecore:EClass" name="Conversion">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MethodExpr" eSuperTypes="#//PrimaryExpr"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MethodExpr"/>
   <eClassifiers xsi:type="ecore:EClass" name="Index">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
         containment="true"/>

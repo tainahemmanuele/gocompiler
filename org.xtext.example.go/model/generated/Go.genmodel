@@ -50,7 +50,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//FieldDecl/embedded"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//FieldDecl/tag"/>
     </genClasses>
-    <genClasses ecoreClass="Go.ecore#//IdentifierList"/>
+    <genClasses ecoreClass="Go.ecore#//IdentifierList">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//IdentifierList/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//IdentifierList/id2"/>
+    </genClasses>
     <genClasses ecoreClass="Go.ecore#//PointerType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//PointerType/basetype"/>
     </genClasses>
@@ -273,7 +276,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//UnaryExpr/ue"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//PrimaryExpr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//PrimaryExpr/op"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//PrimaryExpr/pr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//PrimaryExpr/con"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//PrimaryExpr/me"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//PrimaryExpr2">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//PrimaryExpr2/selector"/>

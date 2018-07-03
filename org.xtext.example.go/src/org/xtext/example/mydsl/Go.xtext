@@ -464,7 +464,7 @@ FieldDecl:
 	(indentifierL=IdentifierList type=Type | embedded=EmbeddedField) (tag=Tag)?;
 
 IdentifierList: {IdentifierList}
-	IDENTIFIER (',' IDENTIFIER)*;
+	id=IDENTIFIER (',' id2+=IDENTIFIER)*;
 
 EmbeddedField:
 	('*')? TypeName;
@@ -620,7 +620,7 @@ IncDecStmt:
 Assignment:
 	expressionlist=ExpressionList asop=ASSING_OP expressionlist2=ExpressionList;
 
-ShortVarDecl:
+ShortVarDecl: {ShortVarDecl}
 	idl=IdentifierList ':=' epl=ExpressionList;
 
 ExprSwitchStmt:
@@ -679,7 +679,7 @@ PostStmt:
 Label:
 	IDENTIFIER;
 
-ExpressionList: 
+ExpressionList: {ExpressionList}
 	exp=Expression (',' expression2+=Expression)*;
 
 Expression:{Expression}
@@ -692,10 +692,10 @@ Expression2:
 UnaryExpr:
 	PrimaryExpr | up=UNARY_OP ue=UnaryExpr;
 
-PrimaryExpr:
-	Operand pr=PrimaryExpr2 |
-	Conversion pr=PrimaryExpr2 |
-	MethodExpr pr=PrimaryExpr2;
+PrimaryExpr: {PrimaryExpr}
+	op=Operand pr=PrimaryExpr2 |
+	con=Conversion pr=PrimaryExpr2 |
+	me=MethodExpr pr=PrimaryExpr2;
 
 PrimaryExpr2:
 	{PrimaryExpr2}
@@ -709,7 +709,7 @@ Operand:
 	{Operand}
 	literal=Literal | operandn=OperandName | '(' expression=Expression ')';
 
-Conversion:
+Conversion: {Conversion}
 	type=Type '(' expression=Expression (',')? ')';
 
 MethodExpr:

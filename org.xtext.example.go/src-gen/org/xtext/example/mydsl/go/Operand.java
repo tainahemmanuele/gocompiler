@@ -3,6 +3,7 @@
  */
 package org.xtext.example.mydsl.go;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +23,7 @@ package org.xtext.example.mydsl.go;
  * @model
  * @generated
  */
-public interface Operand extends PrimaryExpr
+public interface Operand extends EObject
 {
   /**
    * Returns the value of the '<em><b>Literal</b></em>' containment reference.

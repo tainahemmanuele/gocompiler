@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.go.Conversion;
 import org.xtext.example.mydsl.go.Expression;
@@ -30,7 +31,7 @@ import org.xtext.example.mydsl.go.Type;
  *
  * @generated
  */
-public class ConversionImpl extends PrimaryExprImpl implements Conversion
+public class ConversionImpl extends MinimalEObjectImpl.Container implements Conversion
 {
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.

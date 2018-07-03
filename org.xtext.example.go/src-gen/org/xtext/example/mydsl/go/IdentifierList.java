@@ -3,6 +3,8 @@
  */
 package org.xtext.example.mydsl.go;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -10,6 +12,13 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Identifier List</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.mydsl.go.IdentifierList#getId <em>Id</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.IdentifierList#getId2 <em>Id2</em>}</li>
+ * </ul>
  *
  * @see org.xtext.example.mydsl.go.GoPackage#getIdentifierList()
  * @model
@@ -17,4 +26,46 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface IdentifierList extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Id</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Id</em>' attribute.
+   * @see #setId(String)
+   * @see org.xtext.example.mydsl.go.GoPackage#getIdentifierList_Id()
+   * @model
+   * @generated
+   */
+  String getId();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.IdentifierList#getId <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Id</em>' attribute.
+   * @see #getId()
+   * @generated
+   */
+  void setId(String value);
+
+  /**
+   * Returns the value of the '<em><b>Id2</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Id2</em>' attribute list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Id2</em>' attribute list.
+   * @see org.xtext.example.mydsl.go.GoPackage#getIdentifierList_Id2()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getId2();
+
 } // IdentifierList

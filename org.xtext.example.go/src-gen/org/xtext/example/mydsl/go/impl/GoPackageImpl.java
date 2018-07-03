@@ -1225,6 +1225,26 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getIdentifierList_Id()
+  {
+    return (EAttribute)identifierListEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getIdentifierList_Id2()
+  {
+    return (EAttribute)identifierListEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getPointerType()
   {
     return pointerTypeEClass;
@@ -2965,9 +2985,39 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPrimaryExpr_Pr()
+  public EReference getPrimaryExpr_Op()
   {
     return (EReference)primaryExprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPrimaryExpr_Pr()
+  {
+    return (EReference)primaryExprEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPrimaryExpr_Con()
+  {
+    return (EReference)primaryExprEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPrimaryExpr_Me()
+  {
+    return (EReference)primaryExprEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -3670,6 +3720,8 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     createEAttribute(fieldDeclEClass, FIELD_DECL__TAG);
 
     identifierListEClass = createEClass(IDENTIFIER_LIST);
+    createEAttribute(identifierListEClass, IDENTIFIER_LIST__ID);
+    createEAttribute(identifierListEClass, IDENTIFIER_LIST__ID2);
 
     pointerTypeEClass = createEClass(POINTER_TYPE);
     createEReference(pointerTypeEClass, POINTER_TYPE__BASETYPE);
@@ -3905,7 +3957,10 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     createEReference(unaryExprEClass, UNARY_EXPR__UE);
 
     primaryExprEClass = createEClass(PRIMARY_EXPR);
+    createEReference(primaryExprEClass, PRIMARY_EXPR__OP);
     createEReference(primaryExprEClass, PRIMARY_EXPR__PR);
+    createEReference(primaryExprEClass, PRIMARY_EXPR__CON);
+    createEReference(primaryExprEClass, PRIMARY_EXPR__ME);
 
     primaryExpr2EClass = createEClass(PRIMARY_EXPR2);
     createEAttribute(primaryExpr2EClass, PRIMARY_EXPR2__SELECTOR);
@@ -4057,9 +4112,6 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     expressionEClass.getESuperTypes().add(this.getKey());
     expressionEClass.getESuperTypes().add(this.getElement());
     primaryExprEClass.getESuperTypes().add(this.getUnaryExpr());
-    operandEClass.getESuperTypes().add(this.getPrimaryExpr());
-    conversionEClass.getESuperTypes().add(this.getPrimaryExpr());
-    methodExprEClass.getESuperTypes().add(this.getPrimaryExpr());
     literalValueEClass.getESuperTypes().add(this.getKey());
     literalValueEClass.getESuperTypes().add(this.getElement());
     keyedElementEClass.getESuperTypes().add(this.getElementList());
@@ -4117,6 +4169,8 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     initEAttribute(getFieldDecl_Tag(), ecorePackage.getEString(), "tag", null, 0, 1, FieldDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(identifierListEClass, IdentifierList.class, "IdentifierList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getIdentifierList_Id(), ecorePackage.getEString(), "id", null, 0, 1, IdentifierList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getIdentifierList_Id2(), ecorePackage.getEString(), "id2", null, 0, -1, IdentifierList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pointerTypeEClass, PointerType.class, "PointerType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPointerType_Basetype(), this.getBaseType(), null, "basetype", null, 0, 1, PointerType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4352,7 +4406,10 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     initEReference(getUnaryExpr_Ue(), this.getUnaryExpr(), null, "ue", null, 0, 1, UnaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(primaryExprEClass, PrimaryExpr.class, "PrimaryExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPrimaryExpr_Op(), this.getOperand(), null, "op", null, 0, 1, PrimaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPrimaryExpr_Pr(), this.getPrimaryExpr2(), null, "pr", null, 0, 1, PrimaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPrimaryExpr_Con(), this.getConversion(), null, "con", null, 0, 1, PrimaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPrimaryExpr_Me(), this.getMethodExpr(), null, "me", null, 0, 1, PrimaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(primaryExpr2EClass, PrimaryExpr2.class, "PrimaryExpr2", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPrimaryExpr2_Selector(), ecorePackage.getEString(), "selector", null, 0, 1, PrimaryExpr2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

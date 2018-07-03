@@ -62,6 +62,7 @@ import org.xtext.example.mydsl.go.ParameterList;
 import org.xtext.example.mydsl.go.Parameters;
 import org.xtext.example.mydsl.go.PointerType;
 import org.xtext.example.mydsl.go.PostStmt;
+import org.xtext.example.mydsl.go.PrimaryExpr;
 import org.xtext.example.mydsl.go.PrimaryExpr2;
 import org.xtext.example.mydsl.go.RangeClause;
 import org.xtext.example.mydsl.go.ReceiverType;
@@ -146,16 +147,8 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_ConstSpec(context, (ConstSpec) semanticObject); 
 				return; 
 			case GoPackage.CONVERSION:
-				if (rule == grammarAccess.getConversionRule()) {
-					sequence_Conversion(context, (Conversion) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getUnaryExprRule()
-						|| rule == grammarAccess.getPrimaryExprRule()) {
-					sequence_Conversion_PrimaryExpr(context, (Conversion) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_Conversion(context, (Conversion) semanticObject); 
+				return; 
 			case GoPackage.EXPR_SWITCH_CASE:
 				if (rule == grammarAccess.getExprCaseClauseRule()) {
 					sequence_ExprCaseClause_ExprSwitchCase(context, (ExprSwitchCase) semanticObject); 
@@ -306,16 +299,8 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_Model(context, (Model) semanticObject); 
 				return; 
 			case GoPackage.OPERAND:
-				if (rule == grammarAccess.getOperandRule()) {
-					sequence_Operand(context, (Operand) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getUnaryExprRule()
-						|| rule == grammarAccess.getPrimaryExprRule()) {
-					sequence_Operand_PrimaryExpr(context, (Operand) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_Operand(context, (Operand) semanticObject); 
+				return; 
 			case GoPackage.OPERAND_NAME:
 				sequence_OperandName(context, (OperandName) semanticObject); 
 				return; 
@@ -334,6 +319,9 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case GoPackage.POST_STMT:
 				sequence_PostStmt(context, (PostStmt) semanticObject); 
 				return; 
+			case GoPackage.PRIMARY_EXPR:
+				sequence_PrimaryExpr(context, (PrimaryExpr) semanticObject); 
+				return; 
 			case GoPackage.PRIMARY_EXPR2:
 				sequence_PrimaryExpr2(context, (PrimaryExpr2) semanticObject); 
 				return; 
@@ -341,12 +329,7 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_RangeClause(context, (RangeClause) semanticObject); 
 				return; 
 			case GoPackage.RECEIVER_TYPE:
-				if (rule == grammarAccess.getUnaryExprRule()
-						|| rule == grammarAccess.getPrimaryExprRule()) {
-					sequence_MethodExpr_PrimaryExpr_ReceiverType(context, (ReceiverType) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getMethodExprRule()) {
+				if (rule == grammarAccess.getMethodExprRule()) {
 					sequence_MethodExpr_ReceiverType(context, (ReceiverType) semanticObject); 
 					return; 
 				}
@@ -675,33 +658,8 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GoPackage.Literals.CONVERSION__EXPRESSION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getConversionAccess().getTypeTypeParserRuleCall_0_0(), semanticObject.getType());
-		feeder.accept(grammarAccess.getConversionAccess().getExpressionExpressionParserRuleCall_2_0(), semanticObject.getExpression());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     UnaryExpr returns Conversion
-	 *     PrimaryExpr returns Conversion
-	 *
-	 * Constraint:
-	 *     (type=Type expression=Expression pr=PrimaryExpr2)
-	 */
-	protected void sequence_Conversion_PrimaryExpr(ISerializationContext context, Conversion semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GoPackage.Literals.CONVERSION__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GoPackage.Literals.CONVERSION__TYPE));
-			if (transientValues.isValueTransient(semanticObject, GoPackage.Literals.CONVERSION__EXPRESSION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GoPackage.Literals.CONVERSION__EXPRESSION));
-			if (transientValues.isValueTransient(semanticObject, GoPackage.Literals.PRIMARY_EXPR__PR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GoPackage.Literals.PRIMARY_EXPR__PR));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getConversionAccess().getTypeTypeParserRuleCall_0_0(), semanticObject.getType());
-		feeder.accept(grammarAccess.getConversionAccess().getExpressionExpressionParserRuleCall_2_0(), semanticObject.getExpression());
-		feeder.accept(grammarAccess.getPrimaryExprAccess().getPrPrimaryExpr2ParserRuleCall_1_1_0(), semanticObject.getPr());
+		feeder.accept(grammarAccess.getConversionAccess().getTypeTypeParserRuleCall_1_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getConversionAccess().getExpressionExpressionParserRuleCall_3_0(), semanticObject.getExpression());
 		feeder.finish();
 	}
 	
@@ -969,7 +927,7 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     IdentifierList returns IdentifierList
 	 *
 	 * Constraint:
-	 *     {IdentifierList}
+	 *     (id=IDENTIFIER id2+=IDENTIFIER*)
 	 */
 	protected void sequence_IdentifierList(ISerializationContext context, IdentifierList semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1239,31 +1197,6 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     UnaryExpr returns ReceiverType
-	 *     PrimaryExpr returns ReceiverType
-	 *
-	 * Constraint:
-	 *     (type=Type methodn=MethodName pr=PrimaryExpr2)
-	 */
-	protected void sequence_MethodExpr_PrimaryExpr_ReceiverType(ISerializationContext context, ReceiverType semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GoPackage.Literals.RECEIVER_TYPE__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GoPackage.Literals.RECEIVER_TYPE__TYPE));
-			if (transientValues.isValueTransient(semanticObject, GoPackage.Literals.RECEIVER_TYPE__METHODN) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GoPackage.Literals.RECEIVER_TYPE__METHODN));
-			if (transientValues.isValueTransient(semanticObject, GoPackage.Literals.PRIMARY_EXPR__PR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GoPackage.Literals.PRIMARY_EXPR__PR));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getReceiverTypeAccess().getTypeTypeParserRuleCall_0(), semanticObject.getType());
-		feeder.accept(grammarAccess.getMethodExprAccess().getMethodnMethodNameParserRuleCall_2_0(), semanticObject.getMethodn());
-		feeder.accept(grammarAccess.getPrimaryExprAccess().getPrPrimaryExpr2ParserRuleCall_2_1_0(), semanticObject.getPr());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     MethodExpr returns ReceiverType
 	 *
 	 * Constraint:
@@ -1327,19 +1260,6 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (literal=Literal | operandn=OperandName | expression=Expression)
 	 */
 	protected void sequence_Operand(ISerializationContext context, Operand semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     UnaryExpr returns Operand
-	 *     PrimaryExpr returns Operand
-	 *
-	 * Constraint:
-	 *     ((literal=Literal | operandn=OperandName | expression=Expression) pr=PrimaryExpr2)
-	 */
-	protected void sequence_Operand_PrimaryExpr(ISerializationContext context, Operand semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1432,6 +1352,19 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     )?
 	 */
 	protected void sequence_PrimaryExpr2(ISerializationContext context, PrimaryExpr2 semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     UnaryExpr returns PrimaryExpr
+	 *     PrimaryExpr returns PrimaryExpr
+	 *
+	 * Constraint:
+	 *     ((op=Operand pr=PrimaryExpr2) | (con=Conversion pr=PrimaryExpr2) | (me=MethodExpr pr=PrimaryExpr2))
+	 */
+	protected void sequence_PrimaryExpr(ISerializationContext context, PrimaryExpr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1569,8 +1502,8 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GoPackage.Literals.SHORT_VAR_DECL__EPL));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getShortVarDeclAccess().getIdlIdentifierListParserRuleCall_0_0(), semanticObject.getIdl());
-		feeder.accept(grammarAccess.getShortVarDeclAccess().getEplExpressionListParserRuleCall_2_0(), semanticObject.getEpl());
+		feeder.accept(grammarAccess.getShortVarDeclAccess().getIdlIdentifierListParserRuleCall_1_0(), semanticObject.getIdl());
+		feeder.accept(grammarAccess.getShortVarDeclAccess().getEplExpressionListParserRuleCall_3_0(), semanticObject.getEpl());
 		feeder.finish();
 	}
 	

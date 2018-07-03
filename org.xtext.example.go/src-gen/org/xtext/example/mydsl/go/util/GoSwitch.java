@@ -663,8 +663,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         Operand operand = (Operand)theEObject;
         T result = caseOperand(operand);
-        if (result == null) result = casePrimaryExpr(operand);
-        if (result == null) result = caseUnaryExpr(operand);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -672,8 +670,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         Conversion conversion = (Conversion)theEObject;
         T result = caseConversion(conversion);
-        if (result == null) result = casePrimaryExpr(conversion);
-        if (result == null) result = caseUnaryExpr(conversion);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -681,8 +677,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         MethodExpr methodExpr = (MethodExpr)theEObject;
         T result = caseMethodExpr(methodExpr);
-        if (result == null) result = casePrimaryExpr(methodExpr);
-        if (result == null) result = caseUnaryExpr(methodExpr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -789,8 +783,6 @@ public class GoSwitch<T> extends Switch<T>
         ReceiverType receiverType = (ReceiverType)theEObject;
         T result = caseReceiverType(receiverType);
         if (result == null) result = caseMethodExpr(receiverType);
-        if (result == null) result = casePrimaryExpr(receiverType);
-        if (result == null) result = caseUnaryExpr(receiverType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

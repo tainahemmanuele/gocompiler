@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.go.Expression;
 import org.xtext.example.mydsl.go.GoPackage;
@@ -32,7 +33,7 @@ import org.xtext.example.mydsl.go.OperandName;
  *
  * @generated
  */
-public class OperandImpl extends PrimaryExprImpl implements Operand
+public class OperandImpl extends MinimalEObjectImpl.Container implements Operand
 {
   /**
    * The cached value of the '{@link #getLiteral() <em>Literal</em>}' containment reference.

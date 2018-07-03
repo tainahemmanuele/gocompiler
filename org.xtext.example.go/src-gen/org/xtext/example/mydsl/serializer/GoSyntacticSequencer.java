@@ -26,9 +26,8 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_Arguments_FullStopFullStopFullStopKeyword_2_1_q;
 	protected AbstractElementAlias match_ChannelType___ChanKeyword_0_0_0_LessThanSignHyphenMinusKeyword_0_0_1_q___or___LessThanSignHyphenMinusKeyword_0_1_0_ChanKeyword_0_1_1__;
 	protected AbstractElementAlias match_ConstDecl_SemicolonKeyword_2_1_1_1_q;
-	protected AbstractElementAlias match_Conversion_CommaKeyword_3_q;
+	protected AbstractElementAlias match_Conversion_CommaKeyword_4_q;
 	protected AbstractElementAlias match_ElementList_CommaKeyword_1_0_q;
-	protected AbstractElementAlias match_IdentifierList___CommaKeyword_2_0_IDENTIFIERParserRuleCall_2_1__a;
 	protected AbstractElementAlias match_IncDecStmt_HyphenMinusHyphenMinusKeyword_1_1_or_PlusSignPlusSignKeyword_1_0;
 	protected AbstractElementAlias match_LiteralValue_CommaKeyword_2_1_q;
 	protected AbstractElementAlias match_ParameterDecl_FullStopFullStopFullStopKeyword_2_q;
@@ -41,9 +40,8 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_Arguments_FullStopFullStopFullStopKeyword_2_1_q = new TokenAlias(false, true, grammarAccess.getArgumentsAccess().getFullStopFullStopFullStopKeyword_2_1());
 		match_ChannelType___ChanKeyword_0_0_0_LessThanSignHyphenMinusKeyword_0_0_1_q___or___LessThanSignHyphenMinusKeyword_0_1_0_ChanKeyword_0_1_1__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getChannelTypeAccess().getChanKeyword_0_0_0()), new TokenAlias(false, true, grammarAccess.getChannelTypeAccess().getLessThanSignHyphenMinusKeyword_0_0_1())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getChannelTypeAccess().getLessThanSignHyphenMinusKeyword_0_1_0()), new TokenAlias(false, false, grammarAccess.getChannelTypeAccess().getChanKeyword_0_1_1())));
 		match_ConstDecl_SemicolonKeyword_2_1_1_1_q = new TokenAlias(false, true, grammarAccess.getConstDeclAccess().getSemicolonKeyword_2_1_1_1());
-		match_Conversion_CommaKeyword_3_q = new TokenAlias(false, true, grammarAccess.getConversionAccess().getCommaKeyword_3());
+		match_Conversion_CommaKeyword_4_q = new TokenAlias(false, true, grammarAccess.getConversionAccess().getCommaKeyword_4());
 		match_ElementList_CommaKeyword_1_0_q = new TokenAlias(false, true, grammarAccess.getElementListAccess().getCommaKeyword_1_0());
-		match_IdentifierList___CommaKeyword_2_0_IDENTIFIERParserRuleCall_2_1__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getIdentifierListAccess().getCommaKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getIdentifierListAccess().getIDENTIFIERParserRuleCall_2_1()));
 		match_IncDecStmt_HyphenMinusHyphenMinusKeyword_1_1_or_PlusSignPlusSignKeyword_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getIncDecStmtAccess().getHyphenMinusHyphenMinusKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getIncDecStmtAccess().getPlusSignPlusSignKeyword_1_0()));
 		match_LiteralValue_CommaKeyword_2_1_q = new TokenAlias(false, true, grammarAccess.getLiteralValueAccess().getCommaKeyword_2_1());
 		match_ParameterDecl_FullStopFullStopFullStopKeyword_2_q = new TokenAlias(false, true, grammarAccess.getParameterDeclAccess().getFullStopFullStopFullStopKeyword_2());
@@ -52,21 +50,9 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getIDENTIFIERRule())
-			return getIDENTIFIERToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getQualifiedIdentRule())
+		if (ruleCall.getRule() == grammarAccess.getQualifiedIdentRule())
 			return getQualifiedIdentToken(semanticObject, ruleCall, node);
 		return "";
-	}
-	
-	/**
-	 * IDENTIFIER:
-	 * 	LETTER (LETTER | UNICODE_DIGIT)*;
-	 */
-	protected String getIDENTIFIERToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "A-Z";
 	}
 	
 	/**
@@ -93,12 +79,10 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_ChannelType___ChanKeyword_0_0_0_LessThanSignHyphenMinusKeyword_0_0_1_q___or___LessThanSignHyphenMinusKeyword_0_1_0_ChanKeyword_0_1_1__(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_ConstDecl_SemicolonKeyword_2_1_1_1_q.equals(syntax))
 				emit_ConstDecl_SemicolonKeyword_2_1_1_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Conversion_CommaKeyword_3_q.equals(syntax))
-				emit_Conversion_CommaKeyword_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Conversion_CommaKeyword_4_q.equals(syntax))
+				emit_Conversion_CommaKeyword_4_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_ElementList_CommaKeyword_1_0_q.equals(syntax))
 				emit_ElementList_CommaKeyword_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_IdentifierList___CommaKeyword_2_0_IDENTIFIERParserRuleCall_2_1__a.equals(syntax))
-				emit_IdentifierList___CommaKeyword_2_0_IDENTIFIERParserRuleCall_2_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_IncDecStmt_HyphenMinusHyphenMinusKeyword_1_1_or_PlusSignPlusSignKeyword_1_0.equals(syntax))
 				emit_IncDecStmt_HyphenMinusHyphenMinusKeyword_1_1_or_PlusSignPlusSignKeyword_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_LiteralValue_CommaKeyword_2_1_q.equals(syntax))
@@ -164,9 +148,8 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     expression=Expression (ambiguity) ')' (rule end)
-	 *     expression=Expression (ambiguity) ')' pr=PrimaryExpr2
 	 */
-	protected void emit_Conversion_CommaKeyword_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Conversion_CommaKeyword_4_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -179,17 +162,6 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     keyedelement+=KeyedElement (ambiguity) keyedelement+=KeyedElement
 	 */
 	protected void emit_ElementList_CommaKeyword_1_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     (',' IDENTIFIER)*
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) IDENTIFIER (ambiguity) (rule start)
-	 */
-	protected void emit_IdentifierList___CommaKeyword_2_0_IDENTIFIERParserRuleCall_2_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

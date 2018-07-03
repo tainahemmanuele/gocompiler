@@ -3,9 +3,18 @@
  */
 package org.xtext.example.mydsl.go.impl;
 
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 import org.xtext.example.mydsl.go.GoPackage;
 import org.xtext.example.mydsl.go.IdentifierList;
@@ -14,11 +23,48 @@ import org.xtext.example.mydsl.go.IdentifierList;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Identifier List</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.IdentifierListImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.IdentifierListImpl#getId2 <em>Id2</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class IdentifierListImpl extends MinimalEObjectImpl.Container implements IdentifierList
 {
+  /**
+   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getId()
+   * @generated
+   * @ordered
+   */
+  protected static final String ID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getId()
+   * @generated
+   * @ordered
+   */
+  protected String id = ID_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getId2() <em>Id2</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getId2()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> id2;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -38,6 +84,140 @@ public class IdentifierListImpl extends MinimalEObjectImpl.Container implements 
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.IDENTIFIER_LIST;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getId()
+  {
+    return id;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setId(String newId)
+  {
+    String oldId = id;
+    id = newId;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.IDENTIFIER_LIST__ID, oldId, id));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<String> getId2()
+  {
+    if (id2 == null)
+    {
+      id2 = new EDataTypeEList<String>(String.class, this, GoPackage.IDENTIFIER_LIST__ID2);
+    }
+    return id2;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case GoPackage.IDENTIFIER_LIST__ID:
+        return getId();
+      case GoPackage.IDENTIFIER_LIST__ID2:
+        return getId2();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case GoPackage.IDENTIFIER_LIST__ID:
+        setId((String)newValue);
+        return;
+      case GoPackage.IDENTIFIER_LIST__ID2:
+        getId2().clear();
+        getId2().addAll((Collection<? extends String>)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.IDENTIFIER_LIST__ID:
+        setId(ID_EDEFAULT);
+        return;
+      case GoPackage.IDENTIFIER_LIST__ID2:
+        getId2().clear();
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.IDENTIFIER_LIST__ID:
+        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+      case GoPackage.IDENTIFIER_LIST__ID2:
+        return id2 != null && !id2.isEmpty();
+    }
+    return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (id: ");
+    result.append(id);
+    result.append(", id2: ");
+    result.append(id2);
+    result.append(')');
+    return result.toString();
   }
 
 } //IdentifierListImpl
