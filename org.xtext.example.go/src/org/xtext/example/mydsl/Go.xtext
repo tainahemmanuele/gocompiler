@@ -340,7 +340,7 @@ terminal REL_OP:
 	"==" | "!=" | "<" | "<=" | ">" | ">="| ':=';
 
 terminal ADD_OP:
-	"+" | "-" | "|" | "^";
+	"+" | "-" | "|" | "^" | "++" |"--";
 
 terminal MUL_OP:
 	"*" | "/" | "%" | "<<" | ">>" | "&" | "&^";
@@ -349,7 +349,7 @@ terminal UNARY_OP:
 	"+" | "-" | "!" | "^" | "*" | "&" | "<-";
 
 terminal ASSING_OP:
-	(ADD_OP | MUL_OP)? '=';
+	 '=' |'+=' | '-=' | '*='| '^=';
 
 terminal LETTER:
 	UNICODE_LETTER
@@ -518,7 +518,7 @@ KeyType:
 ChannelType:
 	('chan' ('<-')? | '<-' 'chan') elemtype=ElementType;
 
-Block:
+Block: 
 	'{' StatementList '}';
 
 StatementList:
@@ -539,8 +539,7 @@ LabeledStmt:
 	label=Label ':' statement=Statement;
 
 SimpleStmt:
-	{SimpleStmt}
-	empty=EmptyStmt | es=ExpressionStmt | ss=SendStmt | inc=IncDecStmt | ass=Assignment | svd=ShortVarDecl;
+	 inc=IncDecStmt  | ass=Assignment | ss=SendStmt | svd=ShortVarDecl | es=ExpressionStmt | empty=EmptyStmt;
 
 GoStmt:
 	'goto' Label;
@@ -572,7 +571,7 @@ SelectStmt:
 	"select" '{' (commclause+=CommClause)* '}';
 
 ForStmt: {ForStmt}
-	'for' (condition+=Condition | for+=ForClause | range+=RangeClause)? block=Block;
+	'for' (condition=Condition | for=ForClause | range=RangeClause)? block=Block;
 
 DeferStmt:
 	'defer' Expression;
@@ -605,19 +604,19 @@ VarSpec:
 EmptyStmt:
 	';';
 
-ExpressionStmt:
+ExpressionStmt: {ExpressionStmt}
 	exp=Expression;
 
-SendStmt:
+SendStmt: {SendStmt}
 	ch=Channel "<-" expression=Expression;
 
 Channel:
 	exp=Expression;
 
-IncDecStmt:
-	exp=Expression ("++" | "--");
+IncDecStmt: {IncDecStmt}
+	exp=Expression '++' | exp2=Expression '--';
 
-Assignment:
+Assignment: {Assignment}
 	expressionlist=ExpressionList asop=ASSING_OP expressionlist2=ExpressionList;
 
 ShortVarDecl: {ShortVarDecl}
@@ -661,11 +660,11 @@ RecvStmt:
 RecvExpr:
 	exp=Expression;
 
-Condition:
+Condition: {Condition}
 	exp=Expression;
 
 ForClause:
-	(init=InitStmt)? ';' (condition=Condition)? ';' (poststmt=PostStmt);
+	 {ForClause} (init=InitStmt)? ';' (condition=Condition)? ';' (poststmt=PostStmt)?;
 
 RangeClause:
 	(expressionlist=ExpressionList "=" | idl=IdentifierList ":=")? 'range' expression=Expression;
@@ -673,7 +672,7 @@ RangeClause:
 InitStmt:
 	simple=SimpleStmt;
 
-PostStmt:
+PostStmt: {PostStmt}
 	simple=SimpleStmt;
 
 Label:
@@ -778,7 +777,7 @@ FunctionBody:
 	Block;
 
 OperandName:
-	{OperandName} id=IDENTIFIER | {OperandName} QualifiedIdent;
+	{OperandName} id=IDENTIFIER | {OperandName} qi=QualifiedIdent;
 
 ImportDecl:
 	{ImportDecl}

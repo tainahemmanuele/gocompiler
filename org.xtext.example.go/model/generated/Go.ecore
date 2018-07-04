@@ -152,17 +152,17 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SimpleStmt">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="empty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="es" eType="#//ExpressionStmt"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ss" eType="#//SendStmt"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inc" eType="#//IncDecStmt"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ass" eType="#//Assignment"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ss" eType="#//SendStmt"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="svd" eType="#//ShortVarDecl"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="es" eType="#//ExpressionStmt"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="empty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ReturnStmt" eSuperTypes="#//Statement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expressionlist" eType="#//ExpressionList"
@@ -186,12 +186,12 @@
         eType="#//CommClause" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ForStmt">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" upperBound="-1"
-        eType="#//Condition" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="for" upperBound="-1" eType="#//ForClause"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Condition"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="range" upperBound="-1"
-        eType="#//RangeClause" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="for" eType="#//ForClause"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="range" eType="#//RangeClause"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//Block"
         containment="true"/>
   </eClassifiers>
@@ -250,6 +250,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IncDecStmt">
     <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp2" eType="#//Expression"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Assignment">
@@ -489,6 +491,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="FunctionBody"/>
   <eClassifiers xsi:type="ecore:EClass" name="OperandName">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="qi" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ImportDecl">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="imports" unique="false"

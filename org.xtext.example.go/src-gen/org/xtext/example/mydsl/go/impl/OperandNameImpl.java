@@ -22,6 +22,7 @@ import org.xtext.example.mydsl.go.OperandName;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.go.impl.OperandNameImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.OperandNameImpl#getQi <em>Qi</em>}</li>
  * </ul>
  *
  * @generated
@@ -47,6 +48,26 @@ public class OperandNameImpl extends MinimalEObjectImpl.Container implements Ope
    * @ordered
    */
   protected String id = ID_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getQi() <em>Qi</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getQi()
+   * @generated
+   * @ordered
+   */
+  protected static final String QI_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getQi() <em>Qi</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getQi()
+   * @generated
+   * @ordered
+   */
+  protected String qi = QI_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -97,6 +118,29 @@ public class OperandNameImpl extends MinimalEObjectImpl.Container implements Ope
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getQi()
+  {
+    return qi;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setQi(String newQi)
+  {
+    String oldQi = qi;
+    qi = newQi;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.OPERAND_NAME__QI, oldQi, qi));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -104,6 +148,8 @@ public class OperandNameImpl extends MinimalEObjectImpl.Container implements Ope
     {
       case GoPackage.OPERAND_NAME__ID:
         return getId();
+      case GoPackage.OPERAND_NAME__QI:
+        return getQi();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -120,6 +166,9 @@ public class OperandNameImpl extends MinimalEObjectImpl.Container implements Ope
     {
       case GoPackage.OPERAND_NAME__ID:
         setId((String)newValue);
+        return;
+      case GoPackage.OPERAND_NAME__QI:
+        setQi((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -138,6 +187,9 @@ public class OperandNameImpl extends MinimalEObjectImpl.Container implements Ope
       case GoPackage.OPERAND_NAME__ID:
         setId(ID_EDEFAULT);
         return;
+      case GoPackage.OPERAND_NAME__QI:
+        setQi(QI_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -154,6 +206,8 @@ public class OperandNameImpl extends MinimalEObjectImpl.Container implements Ope
     {
       case GoPackage.OPERAND_NAME__ID:
         return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+      case GoPackage.OPERAND_NAME__QI:
+        return QI_EDEFAULT == null ? qi != null : !QI_EDEFAULT.equals(qi);
     }
     return super.eIsSet(featureID);
   }
@@ -171,6 +225,8 @@ public class OperandNameImpl extends MinimalEObjectImpl.Container implements Ope
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (id: ");
     result.append(id);
+    result.append(", qi: ");
+    result.append(qi);
     result.append(')');
     return result.toString();
   }

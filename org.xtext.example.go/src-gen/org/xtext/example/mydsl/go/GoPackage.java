@@ -1227,22 +1227,22 @@ public interface GoPackage extends EPackage
   int SIMPLE_STMT = 33;
 
   /**
-   * The feature id for the '<em><b>Empty</b></em>' attribute.
+   * The feature id for the '<em><b>Inc</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SIMPLE_STMT__EMPTY = 0;
+  int SIMPLE_STMT__INC = 0;
 
   /**
-   * The feature id for the '<em><b>Es</b></em>' containment reference.
+   * The feature id for the '<em><b>Ass</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SIMPLE_STMT__ES = 1;
+  int SIMPLE_STMT__ASS = 1;
 
   /**
    * The feature id for the '<em><b>Ss</b></em>' containment reference.
@@ -1254,31 +1254,31 @@ public interface GoPackage extends EPackage
   int SIMPLE_STMT__SS = 2;
 
   /**
-   * The feature id for the '<em><b>Inc</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_STMT__INC = 3;
-
-  /**
-   * The feature id for the '<em><b>Ass</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_STMT__ASS = 4;
-
-  /**
    * The feature id for the '<em><b>Svd</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SIMPLE_STMT__SVD = 5;
+  int SIMPLE_STMT__SVD = 3;
+
+  /**
+   * The feature id for the '<em><b>Es</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_STMT__ES = 4;
+
+  /**
+   * The feature id for the '<em><b>Empty</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_STMT__EMPTY = 5;
 
   /**
    * The number of structural features of the '<em>Simple Stmt</em>' class.
@@ -1565,7 +1565,7 @@ public interface GoPackage extends EPackage
   int FOR_STMT = 38;
 
   /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference list.
+   * The feature id for the '<em><b>Condition</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1574,7 +1574,7 @@ public interface GoPackage extends EPackage
   int FOR_STMT__CONDITION = 0;
 
   /**
-   * The feature id for the '<em><b>For</b></em>' containment reference list.
+   * The feature id for the '<em><b>For</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1583,7 +1583,7 @@ public interface GoPackage extends EPackage
   int FOR_STMT__FOR = 1;
 
   /**
-   * The feature id for the '<em><b>Range</b></em>' containment reference list.
+   * The feature id for the '<em><b>Range</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -2055,13 +2055,22 @@ public interface GoPackage extends EPackage
   int INC_DEC_STMT__EXP = 0;
 
   /**
+   * The feature id for the '<em><b>Exp2</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INC_DEC_STMT__EXP2 = 1;
+
+  /**
    * The number of structural features of the '<em>Inc Dec Stmt</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INC_DEC_STMT_FEATURE_COUNT = 1;
+  int INC_DEC_STMT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.AssignmentImpl <em>Assignment</em>}' class.
@@ -3763,13 +3772,22 @@ public interface GoPackage extends EPackage
   int OPERAND_NAME__ID = 0;
 
   /**
+   * The feature id for the '<em><b>Qi</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERAND_NAME__QI = 1;
+
+  /**
    * The number of structural features of the '<em>Operand Name</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPERAND_NAME_FEATURE_COUNT = 1;
+  int OPERAND_NAME_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.ImportDeclImpl <em>Import Decl</em>}' class.
@@ -4777,39 +4795,6 @@ public interface GoPackage extends EPackage
   EClass getSimpleStmt();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.SimpleStmt#getEmpty <em>Empty</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Empty</em>'.
-   * @see org.xtext.example.mydsl.go.SimpleStmt#getEmpty()
-   * @see #getSimpleStmt()
-   * @generated
-   */
-  EAttribute getSimpleStmt_Empty();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.SimpleStmt#getEs <em>Es</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Es</em>'.
-   * @see org.xtext.example.mydsl.go.SimpleStmt#getEs()
-   * @see #getSimpleStmt()
-   * @generated
-   */
-  EReference getSimpleStmt_Es();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.SimpleStmt#getSs <em>Ss</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Ss</em>'.
-   * @see org.xtext.example.mydsl.go.SimpleStmt#getSs()
-   * @see #getSimpleStmt()
-   * @generated
-   */
-  EReference getSimpleStmt_Ss();
-
-  /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.SimpleStmt#getInc <em>Inc</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4832,6 +4817,17 @@ public interface GoPackage extends EPackage
   EReference getSimpleStmt_Ass();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.SimpleStmt#getSs <em>Ss</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Ss</em>'.
+   * @see org.xtext.example.mydsl.go.SimpleStmt#getSs()
+   * @see #getSimpleStmt()
+   * @generated
+   */
+  EReference getSimpleStmt_Ss();
+
+  /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.SimpleStmt#getSvd <em>Svd</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4841,6 +4837,28 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EReference getSimpleStmt_Svd();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.SimpleStmt#getEs <em>Es</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Es</em>'.
+   * @see org.xtext.example.mydsl.go.SimpleStmt#getEs()
+   * @see #getSimpleStmt()
+   * @generated
+   */
+  EReference getSimpleStmt_Es();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.SimpleStmt#getEmpty <em>Empty</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Empty</em>'.
+   * @see org.xtext.example.mydsl.go.SimpleStmt#getEmpty()
+   * @see #getSimpleStmt()
+   * @generated
+   */
+  EAttribute getSimpleStmt_Empty();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.ReturnStmt <em>Return Stmt</em>}'.
@@ -4970,10 +4988,10 @@ public interface GoPackage extends EPackage
   EClass getForStmt();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.go.ForStmt#getCondition <em>Condition</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ForStmt#getCondition <em>Condition</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Condition</em>'.
+   * @return the meta object for the containment reference '<em>Condition</em>'.
    * @see org.xtext.example.mydsl.go.ForStmt#getCondition()
    * @see #getForStmt()
    * @generated
@@ -4981,10 +4999,10 @@ public interface GoPackage extends EPackage
   EReference getForStmt_Condition();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.go.ForStmt#getFor <em>For</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ForStmt#getFor <em>For</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>For</em>'.
+   * @return the meta object for the containment reference '<em>For</em>'.
    * @see org.xtext.example.mydsl.go.ForStmt#getFor()
    * @see #getForStmt()
    * @generated
@@ -4992,10 +5010,10 @@ public interface GoPackage extends EPackage
   EReference getForStmt_For();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.go.ForStmt#getRange <em>Range</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ForStmt#getRange <em>Range</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Range</em>'.
+   * @return the meta object for the containment reference '<em>Range</em>'.
    * @see org.xtext.example.mydsl.go.ForStmt#getRange()
    * @see #getForStmt()
    * @generated
@@ -5351,6 +5369,17 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EReference getIncDecStmt_Exp();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.IncDecStmt#getExp2 <em>Exp2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp2</em>'.
+   * @see org.xtext.example.mydsl.go.IncDecStmt#getExp2()
+   * @see #getIncDecStmt()
+   * @generated
+   */
+  EReference getIncDecStmt_Exp2();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.Assignment <em>Assignment</em>}'.
@@ -6739,6 +6768,17 @@ public interface GoPackage extends EPackage
   EAttribute getOperandName_Id();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.OperandName#getQi <em>Qi</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Qi</em>'.
+   * @see org.xtext.example.mydsl.go.OperandName#getQi()
+   * @see #getOperandName()
+   * @generated
+   */
+  EAttribute getOperandName_Qi();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.ImportDecl <em>Import Decl</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7590,30 +7630,6 @@ public interface GoPackage extends EPackage
     EClass SIMPLE_STMT = eINSTANCE.getSimpleStmt();
 
     /**
-     * The meta object literal for the '<em><b>Empty</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SIMPLE_STMT__EMPTY = eINSTANCE.getSimpleStmt_Empty();
-
-    /**
-     * The meta object literal for the '<em><b>Es</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SIMPLE_STMT__ES = eINSTANCE.getSimpleStmt_Es();
-
-    /**
-     * The meta object literal for the '<em><b>Ss</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SIMPLE_STMT__SS = eINSTANCE.getSimpleStmt_Ss();
-
-    /**
      * The meta object literal for the '<em><b>Inc</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7630,12 +7646,36 @@ public interface GoPackage extends EPackage
     EReference SIMPLE_STMT__ASS = eINSTANCE.getSimpleStmt_Ass();
 
     /**
+     * The meta object literal for the '<em><b>Ss</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SIMPLE_STMT__SS = eINSTANCE.getSimpleStmt_Ss();
+
+    /**
      * The meta object literal for the '<em><b>Svd</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference SIMPLE_STMT__SVD = eINSTANCE.getSimpleStmt_Svd();
+
+    /**
+     * The meta object literal for the '<em><b>Es</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SIMPLE_STMT__ES = eINSTANCE.getSimpleStmt_Es();
+
+    /**
+     * The meta object literal for the '<em><b>Empty</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SIMPLE_STMT__EMPTY = eINSTANCE.getSimpleStmt_Empty();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.ReturnStmtImpl <em>Return Stmt</em>}' class.
@@ -7744,7 +7784,7 @@ public interface GoPackage extends EPackage
     EClass FOR_STMT = eINSTANCE.getForStmt();
 
     /**
-     * The meta object literal for the '<em><b>Condition</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -7752,7 +7792,7 @@ public interface GoPackage extends EPackage
     EReference FOR_STMT__CONDITION = eINSTANCE.getForStmt_Condition();
 
     /**
-     * The meta object literal for the '<em><b>For</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>For</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -7760,7 +7800,7 @@ public interface GoPackage extends EPackage
     EReference FOR_STMT__FOR = eINSTANCE.getForStmt_For();
 
     /**
-     * The meta object literal for the '<em><b>Range</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Range</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -8056,6 +8096,14 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EReference INC_DEC_STMT__EXP = eINSTANCE.getIncDecStmt_Exp();
+
+    /**
+     * The meta object literal for the '<em><b>Exp2</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INC_DEC_STMT__EXP2 = eINSTANCE.getIncDecStmt_Exp2();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.AssignmentImpl <em>Assignment</em>}' class.
@@ -9184,6 +9232,14 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EAttribute OPERAND_NAME__ID = eINSTANCE.getOperandName_Id();
+
+    /**
+     * The meta object literal for the '<em><b>Qi</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPERAND_NAME__QI = eINSTANCE.getOperandName_Qi();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.ImportDeclImpl <em>Import Decl</em>}' class.

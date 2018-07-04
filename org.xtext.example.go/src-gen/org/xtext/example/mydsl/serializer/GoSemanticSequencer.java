@@ -498,9 +498,9 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GoPackage.Literals.ASSIGNMENT__EXPRESSIONLIST2));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAssignmentAccess().getExpressionlistExpressionListParserRuleCall_0_0(), semanticObject.getExpressionlist());
-		feeder.accept(grammarAccess.getAssignmentAccess().getAsopASSING_OPTerminalRuleCall_1_0(), semanticObject.getAsop());
-		feeder.accept(grammarAccess.getAssignmentAccess().getExpressionlist2ExpressionListParserRuleCall_2_0(), semanticObject.getExpressionlist2());
+		feeder.accept(grammarAccess.getAssignmentAccess().getExpressionlistExpressionListParserRuleCall_1_0(), semanticObject.getExpressionlist());
+		feeder.accept(grammarAccess.getAssignmentAccess().getAsopASSING_OPTerminalRuleCall_2_0(), semanticObject.getAsop());
+		feeder.accept(grammarAccess.getAssignmentAccess().getExpressionlist2ExpressionListParserRuleCall_3_0(), semanticObject.getExpressionlist2());
 		feeder.finish();
 	}
 	
@@ -612,7 +612,7 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GoPackage.Literals.CONDITION__EXP));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getConditionAccess().getExpExpressionParserRuleCall_0(), semanticObject.getExp());
+		feeder.accept(grammarAccess.getConditionAccess().getExpExpressionParserRuleCall_1_0(), semanticObject.getExp());
 		feeder.finish();
 	}
 	
@@ -798,7 +798,7 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GoPackage.Literals.EXPRESSION_STMT__EXP));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExpressionStmtAccess().getExpExpressionParserRuleCall_0(), semanticObject.getExp());
+		feeder.accept(grammarAccess.getExpressionStmtAccess().getExpExpressionParserRuleCall_1_0(), semanticObject.getExp());
 		feeder.finish();
 	}
 	
@@ -869,7 +869,7 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ForClause returns ForClause
 	 *
 	 * Constraint:
-	 *     (init=InitStmt? condition=Condition? poststmt=PostStmt)
+	 *     (init=InitStmt? condition=Condition? poststmt=PostStmt?)
 	 */
 	protected void sequence_ForClause(ISerializationContext context, ForClause semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -881,7 +881,7 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ForStmt returns ForStmt
 	 *
 	 * Constraint:
-	 *     ((condition+=Condition | for+=ForClause | range+=RangeClause)? block=Block)
+	 *     ((condition=Condition | for=ForClause | range=RangeClause)? block=Block)
 	 */
 	protected void sequence_ForStmt(ISerializationContext context, ForStmt semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -963,16 +963,10 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     IncDecStmt returns IncDecStmt
 	 *
 	 * Constraint:
-	 *     exp=Expression
+	 *     (exp=Expression | exp2=Expression)
 	 */
 	protected void sequence_IncDecStmt(ISerializationContext context, IncDecStmt semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GoPackage.Literals.INC_DEC_STMT__EXP) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GoPackage.Literals.INC_DEC_STMT__EXP));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getIncDecStmtAccess().getExpExpressionParserRuleCall_0_0(), semanticObject.getExp());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -1245,7 +1239,7 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     OperandName returns OperandName
 	 *
 	 * Constraint:
-	 *     id=IDENTIFIER?
+	 *     (id=IDENTIFIER | qi=QualifiedIdent)
 	 */
 	protected void sequence_OperandName(ISerializationContext context, OperandName semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1333,7 +1327,7 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GoPackage.Literals.POST_STMT__SIMPLE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPostStmtAccess().getSimpleSimpleStmtParserRuleCall_0(), semanticObject.getSimple());
+		feeder.accept(grammarAccess.getPostStmtAccess().getSimpleSimpleStmtParserRuleCall_1_0(), semanticObject.getSimple());
 		feeder.finish();
 	}
 	
@@ -1481,8 +1475,8 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GoPackage.Literals.SEND_STMT__EXPRESSION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSendStmtAccess().getChChannelParserRuleCall_0_0(), semanticObject.getCh());
-		feeder.accept(grammarAccess.getSendStmtAccess().getExpressionExpressionParserRuleCall_2_0(), semanticObject.getExpression());
+		feeder.accept(grammarAccess.getSendStmtAccess().getChChannelParserRuleCall_1_0(), semanticObject.getCh());
+		feeder.accept(grammarAccess.getSendStmtAccess().getExpressionExpressionParserRuleCall_3_0(), semanticObject.getExpression());
 		feeder.finish();
 	}
 	
@@ -1528,12 +1522,12 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (
-	 *         empty=EmptyStmt | 
-	 *         es=ExpressionStmt | 
-	 *         ss=SendStmt | 
 	 *         inc=IncDecStmt | 
 	 *         ass=Assignment | 
-	 *         svd=ShortVarDecl
+	 *         ss=SendStmt | 
+	 *         svd=ShortVarDecl | 
+	 *         es=ExpressionStmt | 
+	 *         empty=EmptyStmt
 	 *     )
 	 */
 	protected void sequence_SimpleStmt(ISerializationContext context, SimpleStmt semanticObject) {

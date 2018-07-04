@@ -120,12 +120,12 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//LabeledStmt/statement"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//SimpleStmt">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//SimpleStmt/empty"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//SimpleStmt/es"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//SimpleStmt/ss"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//SimpleStmt/inc"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//SimpleStmt/ass"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//SimpleStmt/ss"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//SimpleStmt/svd"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//SimpleStmt/es"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//SimpleStmt/empty"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//ReturnStmt">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ReturnStmt/expressionlist"/>
@@ -188,6 +188,7 @@
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//IncDecStmt">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//IncDecStmt/exp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//IncDecStmt/exp2"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//Assignment">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Assignment/expressionlist"/>
@@ -354,6 +355,7 @@
     <genClasses ecoreClass="Go.ecore#//FunctionBody"/>
     <genClasses ecoreClass="Go.ecore#//OperandName">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//OperandName/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//OperandName/qi"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//ImportDecl">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//ImportDecl/imports"/>

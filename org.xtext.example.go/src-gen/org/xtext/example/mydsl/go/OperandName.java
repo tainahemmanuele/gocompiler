@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.go.OperandName#getId <em>Id</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.OperandName#getQi <em>Qi</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.go.GoPackage#getOperandName()
@@ -48,5 +49,31 @@ public interface OperandName extends EObject
    * @generated
    */
   void setId(String value);
+
+  /**
+   * Returns the value of the '<em><b>Qi</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Qi</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Qi</em>' attribute.
+   * @see #setQi(String)
+   * @see org.xtext.example.mydsl.go.GoPackage#getOperandName_Qi()
+   * @model
+   * @generated
+   */
+  String getQi();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.OperandName#getQi <em>Qi</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Qi</em>' attribute.
+   * @see #getQi()
+   * @generated
+   */
+  void setQi(String value);
 
 } // OperandName

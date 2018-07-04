@@ -28,7 +28,6 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_ConstDecl_SemicolonKeyword_2_1_1_1_q;
 	protected AbstractElementAlias match_Conversion_CommaKeyword_4_q;
 	protected AbstractElementAlias match_ElementList_CommaKeyword_1_0_q;
-	protected AbstractElementAlias match_IncDecStmt_HyphenMinusHyphenMinusKeyword_1_1_or_PlusSignPlusSignKeyword_1_0;
 	protected AbstractElementAlias match_LiteralValue_CommaKeyword_2_1_q;
 	protected AbstractElementAlias match_ParameterDecl_FullStopFullStopFullStopKeyword_2_q;
 	protected AbstractElementAlias match_StatementList_SemicolonKeyword_1_1_q;
@@ -42,7 +41,6 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_ConstDecl_SemicolonKeyword_2_1_1_1_q = new TokenAlias(false, true, grammarAccess.getConstDeclAccess().getSemicolonKeyword_2_1_1_1());
 		match_Conversion_CommaKeyword_4_q = new TokenAlias(false, true, grammarAccess.getConversionAccess().getCommaKeyword_4());
 		match_ElementList_CommaKeyword_1_0_q = new TokenAlias(false, true, grammarAccess.getElementListAccess().getCommaKeyword_1_0());
-		match_IncDecStmt_HyphenMinusHyphenMinusKeyword_1_1_or_PlusSignPlusSignKeyword_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getIncDecStmtAccess().getHyphenMinusHyphenMinusKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getIncDecStmtAccess().getPlusSignPlusSignKeyword_1_0()));
 		match_LiteralValue_CommaKeyword_2_1_q = new TokenAlias(false, true, grammarAccess.getLiteralValueAccess().getCommaKeyword_2_1());
 		match_ParameterDecl_FullStopFullStopFullStopKeyword_2_q = new TokenAlias(false, true, grammarAccess.getParameterDeclAccess().getFullStopFullStopFullStopKeyword_2());
 		match_StatementList_SemicolonKeyword_1_1_q = new TokenAlias(false, true, grammarAccess.getStatementListAccess().getSemicolonKeyword_1_1());
@@ -50,20 +48,9 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getQualifiedIdentRule())
-			return getQualifiedIdentToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
-	/**
-	 * QualifiedIdent:
-	 * 	PackageName '.' IDENTIFIER;
-	 */
-	protected String getQualifiedIdentToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "A-Z.";
-	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
@@ -83,8 +70,6 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Conversion_CommaKeyword_4_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_ElementList_CommaKeyword_1_0_q.equals(syntax))
 				emit_ElementList_CommaKeyword_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_IncDecStmt_HyphenMinusHyphenMinusKeyword_1_1_or_PlusSignPlusSignKeyword_1_0.equals(syntax))
-				emit_IncDecStmt_HyphenMinusHyphenMinusKeyword_1_1_or_PlusSignPlusSignKeyword_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_LiteralValue_CommaKeyword_2_1_q.equals(syntax))
 				emit_LiteralValue_CommaKeyword_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_ParameterDecl_FullStopFullStopFullStopKeyword_2_q.equals(syntax))
@@ -162,17 +147,6 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     keyedelement+=KeyedElement (ambiguity) keyedelement+=KeyedElement
 	 */
 	protected void emit_ElementList_CommaKeyword_1_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     '++' | '--'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     exp=Expression (ambiguity) (rule end)
-	 */
-	protected void emit_IncDecStmt_HyphenMinusHyphenMinusKeyword_1_1_or_PlusSignPlusSignKeyword_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
