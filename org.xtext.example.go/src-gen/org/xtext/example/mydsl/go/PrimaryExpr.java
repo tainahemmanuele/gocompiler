@@ -13,15 +13,44 @@ package org.xtext.example.mydsl.go;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.mydsl.go.PrimaryExpr#getOp <em>Op</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.PrimaryExpr#getPr <em>Pr</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.PrimaryExpr#getCon <em>Con</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.PrimaryExpr#getMe <em>Me</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.go.GoPackage#getPrimaryExpr()
  * @model
  * @generated
  */
-public interface PrimaryExpr extends TypeSwitchGuard, UnaryExpr
+public interface PrimaryExpr extends UnaryExpr
 {
+  /**
+   * Returns the value of the '<em><b>Op</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Op</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Op</em>' containment reference.
+   * @see #setOp(Operand)
+   * @see org.xtext.example.mydsl.go.GoPackage#getPrimaryExpr_Op()
+   * @model containment="true"
+   * @generated
+   */
+  Operand getOp();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.PrimaryExpr#getOp <em>Op</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Op</em>' containment reference.
+   * @see #getOp()
+   * @generated
+   */
+  void setOp(Operand value);
+
   /**
    * Returns the value of the '<em><b>Pr</b></em>' containment reference.
    * <!-- begin-user-doc -->
@@ -47,5 +76,57 @@ public interface PrimaryExpr extends TypeSwitchGuard, UnaryExpr
    * @generated
    */
   void setPr(PrimaryExpr2 value);
+
+  /**
+   * Returns the value of the '<em><b>Con</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Con</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Con</em>' containment reference.
+   * @see #setCon(Conversion)
+   * @see org.xtext.example.mydsl.go.GoPackage#getPrimaryExpr_Con()
+   * @model containment="true"
+   * @generated
+   */
+  Conversion getCon();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.PrimaryExpr#getCon <em>Con</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Con</em>' containment reference.
+   * @see #getCon()
+   * @generated
+   */
+  void setCon(Conversion value);
+
+  /**
+   * Returns the value of the '<em><b>Me</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Me</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Me</em>' containment reference.
+   * @see #setMe(MethodExpr)
+   * @see org.xtext.example.mydsl.go.GoPackage#getPrimaryExpr_Me()
+   * @model containment="true"
+   * @generated
+   */
+  MethodExpr getMe();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.PrimaryExpr#getMe <em>Me</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Me</em>' containment reference.
+   * @see #getMe()
+   * @generated
+   */
+  void setMe(MethodExpr value);
 
 } // PrimaryExpr

@@ -123,14 +123,8 @@ public class GoSwitch<T> extends Switch<T>
         T result = caseType(type);
         if (result == null) result = caseElementType(type);
         if (result == null) result = caseBaseType(type);
-        if (result == null) result = caseResult(type);
         if (result == null) result = caseKeyType(type);
-        if (result == null) result = caseConstSpec(type);
-        if (result == null) result = caseTypeDef(type);
-        if (result == null) result = caseAliasDecl(type);
-        if (result == null) result = caseVarSpec(type);
         if (result == null) result = caseTypeAssertion(type);
-        if (result == null) result = caseTypeSpec(type);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -138,17 +132,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         TypeLit typeLit = (TypeLit)theEObject;
         T result = caseTypeLit(typeLit);
-        if (result == null) result = caseType(typeLit);
-        if (result == null) result = caseElementType(typeLit);
-        if (result == null) result = caseBaseType(typeLit);
-        if (result == null) result = caseResult(typeLit);
-        if (result == null) result = caseKeyType(typeLit);
-        if (result == null) result = caseConstSpec(typeLit);
-        if (result == null) result = caseTypeDef(typeLit);
-        if (result == null) result = caseAliasDecl(typeLit);
-        if (result == null) result = caseVarSpec(typeLit);
-        if (result == null) result = caseTypeAssertion(typeLit);
-        if (result == null) result = caseTypeSpec(typeLit);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -157,17 +140,6 @@ public class GoSwitch<T> extends Switch<T>
         ArrayType arrayType = (ArrayType)theEObject;
         T result = caseArrayType(arrayType);
         if (result == null) result = caseTypeLit(arrayType);
-        if (result == null) result = caseType(arrayType);
-        if (result == null) result = caseElementType(arrayType);
-        if (result == null) result = caseBaseType(arrayType);
-        if (result == null) result = caseResult(arrayType);
-        if (result == null) result = caseKeyType(arrayType);
-        if (result == null) result = caseConstSpec(arrayType);
-        if (result == null) result = caseTypeDef(arrayType);
-        if (result == null) result = caseAliasDecl(arrayType);
-        if (result == null) result = caseVarSpec(arrayType);
-        if (result == null) result = caseTypeAssertion(arrayType);
-        if (result == null) result = caseTypeSpec(arrayType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -177,17 +149,6 @@ public class GoSwitch<T> extends Switch<T>
         T result = caseArrayLength(arrayLength);
         if (result == null) result = caseArrayType(arrayLength);
         if (result == null) result = caseTypeLit(arrayLength);
-        if (result == null) result = caseType(arrayLength);
-        if (result == null) result = caseElementType(arrayLength);
-        if (result == null) result = caseBaseType(arrayLength);
-        if (result == null) result = caseResult(arrayLength);
-        if (result == null) result = caseKeyType(arrayLength);
-        if (result == null) result = caseConstSpec(arrayLength);
-        if (result == null) result = caseTypeDef(arrayLength);
-        if (result == null) result = caseAliasDecl(arrayLength);
-        if (result == null) result = caseVarSpec(arrayLength);
-        if (result == null) result = caseTypeAssertion(arrayLength);
-        if (result == null) result = caseTypeSpec(arrayLength);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -203,17 +164,6 @@ public class GoSwitch<T> extends Switch<T>
         SliceType sliceType = (SliceType)theEObject;
         T result = caseSliceType(sliceType);
         if (result == null) result = caseTypeLit(sliceType);
-        if (result == null) result = caseType(sliceType);
-        if (result == null) result = caseElementType(sliceType);
-        if (result == null) result = caseBaseType(sliceType);
-        if (result == null) result = caseResult(sliceType);
-        if (result == null) result = caseKeyType(sliceType);
-        if (result == null) result = caseConstSpec(sliceType);
-        if (result == null) result = caseTypeDef(sliceType);
-        if (result == null) result = caseAliasDecl(sliceType);
-        if (result == null) result = caseVarSpec(sliceType);
-        if (result == null) result = caseTypeAssertion(sliceType);
-        if (result == null) result = caseTypeSpec(sliceType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -222,17 +172,6 @@ public class GoSwitch<T> extends Switch<T>
         StructType structType = (StructType)theEObject;
         T result = caseStructType(structType);
         if (result == null) result = caseTypeLit(structType);
-        if (result == null) result = caseType(structType);
-        if (result == null) result = caseElementType(structType);
-        if (result == null) result = caseBaseType(structType);
-        if (result == null) result = caseResult(structType);
-        if (result == null) result = caseKeyType(structType);
-        if (result == null) result = caseConstSpec(structType);
-        if (result == null) result = caseTypeDef(structType);
-        if (result == null) result = caseAliasDecl(structType);
-        if (result == null) result = caseVarSpec(structType);
-        if (result == null) result = caseTypeAssertion(structType);
-        if (result == null) result = caseTypeSpec(structType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -243,22 +182,18 @@ public class GoSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GoPackage.IDENTIFIER_LIST:
+      {
+        IdentifierList identifierList = (IdentifierList)theEObject;
+        T result = caseIdentifierList(identifierList);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GoPackage.POINTER_TYPE:
       {
         PointerType pointerType = (PointerType)theEObject;
         T result = casePointerType(pointerType);
         if (result == null) result = caseTypeLit(pointerType);
-        if (result == null) result = caseType(pointerType);
-        if (result == null) result = caseElementType(pointerType);
-        if (result == null) result = caseBaseType(pointerType);
-        if (result == null) result = caseResult(pointerType);
-        if (result == null) result = caseKeyType(pointerType);
-        if (result == null) result = caseConstSpec(pointerType);
-        if (result == null) result = caseTypeDef(pointerType);
-        if (result == null) result = caseAliasDecl(pointerType);
-        if (result == null) result = caseVarSpec(pointerType);
-        if (result == null) result = caseTypeAssertion(pointerType);
-        if (result == null) result = caseTypeSpec(pointerType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -274,17 +209,6 @@ public class GoSwitch<T> extends Switch<T>
         FunctionType functionType = (FunctionType)theEObject;
         T result = caseFunctionType(functionType);
         if (result == null) result = caseTypeLit(functionType);
-        if (result == null) result = caseType(functionType);
-        if (result == null) result = caseElementType(functionType);
-        if (result == null) result = caseBaseType(functionType);
-        if (result == null) result = caseResult(functionType);
-        if (result == null) result = caseKeyType(functionType);
-        if (result == null) result = caseConstSpec(functionType);
-        if (result == null) result = caseTypeDef(functionType);
-        if (result == null) result = caseAliasDecl(functionType);
-        if (result == null) result = caseVarSpec(functionType);
-        if (result == null) result = caseTypeAssertion(functionType);
-        if (result == null) result = caseTypeSpec(functionType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -293,21 +217,7 @@ public class GoSwitch<T> extends Switch<T>
         Signature signature = (Signature)theEObject;
         T result = caseSignature(signature);
         if (result == null) result = caseFunctionType(signature);
-        if (result == null) result = caseMethodSpec(signature);
-        if (result == null) result = caseFunctionLit(signature);
         if (result == null) result = caseTypeLit(signature);
-        if (result == null) result = caseLiteral(signature);
-        if (result == null) result = caseType(signature);
-        if (result == null) result = caseElementType(signature);
-        if (result == null) result = caseBaseType(signature);
-        if (result == null) result = caseResult(signature);
-        if (result == null) result = caseKeyType(signature);
-        if (result == null) result = caseConstSpec(signature);
-        if (result == null) result = caseTypeDef(signature);
-        if (result == null) result = caseAliasDecl(signature);
-        if (result == null) result = caseVarSpec(signature);
-        if (result == null) result = caseTypeAssertion(signature);
-        if (result == null) result = caseTypeSpec(signature);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -323,23 +233,6 @@ public class GoSwitch<T> extends Switch<T>
         Parameters parameters = (Parameters)theEObject;
         T result = caseParameters(parameters);
         if (result == null) result = caseReceiver(parameters);
-        if (result == null) result = caseSignature(parameters);
-        if (result == null) result = caseFunctionType(parameters);
-        if (result == null) result = caseMethodSpec(parameters);
-        if (result == null) result = caseFunctionLit(parameters);
-        if (result == null) result = caseTypeLit(parameters);
-        if (result == null) result = caseLiteral(parameters);
-        if (result == null) result = caseType(parameters);
-        if (result == null) result = caseElementType(parameters);
-        if (result == null) result = caseBaseType(parameters);
-        if (result == null) result = caseResult(parameters);
-        if (result == null) result = caseKeyType(parameters);
-        if (result == null) result = caseConstSpec(parameters);
-        if (result == null) result = caseTypeDef(parameters);
-        if (result == null) result = caseAliasDecl(parameters);
-        if (result == null) result = caseVarSpec(parameters);
-        if (result == null) result = caseTypeAssertion(parameters);
-        if (result == null) result = caseTypeSpec(parameters);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -354,7 +247,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         ParameterDecl parameterDecl = (ParameterDecl)theEObject;
         T result = caseParameterDecl(parameterDecl);
-        if (result == null) result = caseParameterList(parameterDecl);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -363,17 +255,6 @@ public class GoSwitch<T> extends Switch<T>
         InterfaceType interfaceType = (InterfaceType)theEObject;
         T result = caseInterfaceType(interfaceType);
         if (result == null) result = caseTypeLit(interfaceType);
-        if (result == null) result = caseType(interfaceType);
-        if (result == null) result = caseElementType(interfaceType);
-        if (result == null) result = caseBaseType(interfaceType);
-        if (result == null) result = caseResult(interfaceType);
-        if (result == null) result = caseKeyType(interfaceType);
-        if (result == null) result = caseConstSpec(interfaceType);
-        if (result == null) result = caseTypeDef(interfaceType);
-        if (result == null) result = caseAliasDecl(interfaceType);
-        if (result == null) result = caseVarSpec(interfaceType);
-        if (result == null) result = caseTypeAssertion(interfaceType);
-        if (result == null) result = caseTypeSpec(interfaceType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -389,17 +270,6 @@ public class GoSwitch<T> extends Switch<T>
         MapType mapType = (MapType)theEObject;
         T result = caseMapType(mapType);
         if (result == null) result = caseTypeLit(mapType);
-        if (result == null) result = caseType(mapType);
-        if (result == null) result = caseElementType(mapType);
-        if (result == null) result = caseBaseType(mapType);
-        if (result == null) result = caseResult(mapType);
-        if (result == null) result = caseKeyType(mapType);
-        if (result == null) result = caseConstSpec(mapType);
-        if (result == null) result = caseTypeDef(mapType);
-        if (result == null) result = caseAliasDecl(mapType);
-        if (result == null) result = caseVarSpec(mapType);
-        if (result == null) result = caseTypeAssertion(mapType);
-        if (result == null) result = caseTypeSpec(mapType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -415,17 +285,6 @@ public class GoSwitch<T> extends Switch<T>
         ChannelType channelType = (ChannelType)theEObject;
         T result = caseChannelType(channelType);
         if (result == null) result = caseTypeLit(channelType);
-        if (result == null) result = caseType(channelType);
-        if (result == null) result = caseElementType(channelType);
-        if (result == null) result = caseBaseType(channelType);
-        if (result == null) result = caseResult(channelType);
-        if (result == null) result = caseKeyType(channelType);
-        if (result == null) result = caseConstSpec(channelType);
-        if (result == null) result = caseTypeDef(channelType);
-        if (result == null) result = caseAliasDecl(channelType);
-        if (result == null) result = caseVarSpec(channelType);
-        if (result == null) result = caseTypeAssertion(channelType);
-        if (result == null) result = caseTypeSpec(channelType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -472,11 +331,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         SimpleStmt simpleStmt = (SimpleStmt)theEObject;
         T result = caseSimpleStmt(simpleStmt);
-        if (result == null) result = caseTypeSwitchStmt(simpleStmt);
-        if (result == null) result = caseInitStmt(simpleStmt);
-        if (result == null) result = casePostStmt(simpleStmt);
-        if (result == null) result = caseSwitchStmt(simpleStmt);
-        if (result == null) result = caseForClause(simpleStmt);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -591,12 +445,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         ExpressionStmt expressionStmt = (ExpressionStmt)theEObject;
         T result = caseExpressionStmt(expressionStmt);
-        if (result == null) result = caseSimpleStmt(expressionStmt);
-        if (result == null) result = caseTypeSwitchStmt(expressionStmt);
-        if (result == null) result = caseInitStmt(expressionStmt);
-        if (result == null) result = casePostStmt(expressionStmt);
-        if (result == null) result = caseSwitchStmt(expressionStmt);
-        if (result == null) result = caseForClause(expressionStmt);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -604,12 +452,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         SendStmt sendStmt = (SendStmt)theEObject;
         T result = caseSendStmt(sendStmt);
-        if (result == null) result = caseSimpleStmt(sendStmt);
-        if (result == null) result = caseTypeSwitchStmt(sendStmt);
-        if (result == null) result = caseInitStmt(sendStmt);
-        if (result == null) result = casePostStmt(sendStmt);
-        if (result == null) result = caseSwitchStmt(sendStmt);
-        if (result == null) result = caseForClause(sendStmt);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -624,12 +466,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         IncDecStmt incDecStmt = (IncDecStmt)theEObject;
         T result = caseIncDecStmt(incDecStmt);
-        if (result == null) result = caseSimpleStmt(incDecStmt);
-        if (result == null) result = caseTypeSwitchStmt(incDecStmt);
-        if (result == null) result = caseInitStmt(incDecStmt);
-        if (result == null) result = casePostStmt(incDecStmt);
-        if (result == null) result = caseSwitchStmt(incDecStmt);
-        if (result == null) result = caseForClause(incDecStmt);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -637,12 +473,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         Assignment assignment = (Assignment)theEObject;
         T result = caseAssignment(assignment);
-        if (result == null) result = caseSimpleStmt(assignment);
-        if (result == null) result = caseTypeSwitchStmt(assignment);
-        if (result == null) result = caseInitStmt(assignment);
-        if (result == null) result = casePostStmt(assignment);
-        if (result == null) result = caseSwitchStmt(assignment);
-        if (result == null) result = caseForClause(assignment);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -650,12 +480,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         ShortVarDecl shortVarDecl = (ShortVarDecl)theEObject;
         T result = caseShortVarDecl(shortVarDecl);
-        if (result == null) result = caseSimpleStmt(shortVarDecl);
-        if (result == null) result = caseTypeSwitchStmt(shortVarDecl);
-        if (result == null) result = caseInitStmt(shortVarDecl);
-        if (result == null) result = casePostStmt(shortVarDecl);
-        if (result == null) result = caseSwitchStmt(shortVarDecl);
-        if (result == null) result = caseForClause(shortVarDecl);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -773,7 +597,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         InitStmt initStmt = (InitStmt)theEObject;
         T result = caseInitStmt(initStmt);
-        if (result == null) result = caseForClause(initStmt);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -788,15 +611,7 @@ public class GoSwitch<T> extends Switch<T>
       {
         ExpressionList expressionList = (ExpressionList)theEObject;
         T result = caseExpressionList(expressionList);
-        if (result == null) result = caseVarSpec(expressionList);
-        if (result == null) result = caseShortVarDecl(expressionList);
         if (result == null) result = caseRecvStmt(expressionList);
-        if (result == null) result = caseSimpleStmt(expressionList);
-        if (result == null) result = caseTypeSwitchStmt(expressionList);
-        if (result == null) result = caseInitStmt(expressionList);
-        if (result == null) result = casePostStmt(expressionList);
-        if (result == null) result = caseSwitchStmt(expressionList);
-        if (result == null) result = caseForClause(expressionList);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -806,37 +621,12 @@ public class GoSwitch<T> extends Switch<T>
         T result = caseExpression(expression);
         if (result == null) result = caseArrayLength(expression);
         if (result == null) result = caseDeferStmt(expression);
-        if (result == null) result = caseExpressionStmt(expression);
-        if (result == null) result = caseChannel(expression);
-        if (result == null) result = caseIncDecStmt(expression);
-        if (result == null) result = caseRecvExpr(expression);
-        if (result == null) result = caseCondition(expression);
-        if (result == null) result = caseExpressionList(expression);
         if (result == null) result = caseKey(expression);
         if (result == null) result = caseElement(expression);
         if (result == null) result = caseArrayType(expression);
-        if (result == null) result = caseShortVarDecl(expression);
-        if (result == null) result = caseRecvStmt(expression);
         if (result == null) result = caseKeyedElement(expression);
         if (result == null) result = caseTypeLit(expression);
-        if (result == null) result = caseSimpleStmt(expression);
-        if (result == null) result = caseTypeSwitchStmt(expression);
-        if (result == null) result = caseInitStmt(expression);
-        if (result == null) result = casePostStmt(expression);
         if (result == null) result = caseElementList(expression);
-        if (result == null) result = caseType(expression);
-        if (result == null) result = caseSwitchStmt(expression);
-        if (result == null) result = caseForClause(expression);
-        if (result == null) result = caseElementType(expression);
-        if (result == null) result = caseBaseType(expression);
-        if (result == null) result = caseResult(expression);
-        if (result == null) result = caseKeyType(expression);
-        if (result == null) result = caseConstSpec(expression);
-        if (result == null) result = caseTypeDef(expression);
-        if (result == null) result = caseAliasDecl(expression);
-        if (result == null) result = caseVarSpec(expression);
-        if (result == null) result = caseTypeAssertion(expression);
-        if (result == null) result = caseTypeSpec(expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -851,40 +641,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         UnaryExpr unaryExpr = (UnaryExpr)theEObject;
         T result = caseUnaryExpr(unaryExpr);
-        if (result == null) result = caseExpression(unaryExpr);
-        if (result == null) result = caseArrayLength(unaryExpr);
-        if (result == null) result = caseDeferStmt(unaryExpr);
-        if (result == null) result = caseExpressionStmt(unaryExpr);
-        if (result == null) result = caseChannel(unaryExpr);
-        if (result == null) result = caseIncDecStmt(unaryExpr);
-        if (result == null) result = caseRecvExpr(unaryExpr);
-        if (result == null) result = caseCondition(unaryExpr);
-        if (result == null) result = caseExpressionList(unaryExpr);
-        if (result == null) result = caseKey(unaryExpr);
-        if (result == null) result = caseElement(unaryExpr);
-        if (result == null) result = caseArrayType(unaryExpr);
-        if (result == null) result = caseShortVarDecl(unaryExpr);
-        if (result == null) result = caseRecvStmt(unaryExpr);
-        if (result == null) result = caseKeyedElement(unaryExpr);
-        if (result == null) result = caseTypeLit(unaryExpr);
-        if (result == null) result = caseSimpleStmt(unaryExpr);
-        if (result == null) result = caseTypeSwitchStmt(unaryExpr);
-        if (result == null) result = caseInitStmt(unaryExpr);
-        if (result == null) result = casePostStmt(unaryExpr);
-        if (result == null) result = caseElementList(unaryExpr);
-        if (result == null) result = caseType(unaryExpr);
-        if (result == null) result = caseSwitchStmt(unaryExpr);
-        if (result == null) result = caseForClause(unaryExpr);
-        if (result == null) result = caseElementType(unaryExpr);
-        if (result == null) result = caseBaseType(unaryExpr);
-        if (result == null) result = caseResult(unaryExpr);
-        if (result == null) result = caseKeyType(unaryExpr);
-        if (result == null) result = caseConstSpec(unaryExpr);
-        if (result == null) result = caseTypeDef(unaryExpr);
-        if (result == null) result = caseAliasDecl(unaryExpr);
-        if (result == null) result = caseVarSpec(unaryExpr);
-        if (result == null) result = caseTypeAssertion(unaryExpr);
-        if (result == null) result = caseTypeSpec(unaryExpr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -892,42 +648,7 @@ public class GoSwitch<T> extends Switch<T>
       {
         PrimaryExpr primaryExpr = (PrimaryExpr)theEObject;
         T result = casePrimaryExpr(primaryExpr);
-        if (result == null) result = caseTypeSwitchGuard(primaryExpr);
         if (result == null) result = caseUnaryExpr(primaryExpr);
-        if (result == null) result = caseExpression(primaryExpr);
-        if (result == null) result = caseArrayLength(primaryExpr);
-        if (result == null) result = caseDeferStmt(primaryExpr);
-        if (result == null) result = caseExpressionStmt(primaryExpr);
-        if (result == null) result = caseChannel(primaryExpr);
-        if (result == null) result = caseIncDecStmt(primaryExpr);
-        if (result == null) result = caseRecvExpr(primaryExpr);
-        if (result == null) result = caseCondition(primaryExpr);
-        if (result == null) result = caseExpressionList(primaryExpr);
-        if (result == null) result = caseKey(primaryExpr);
-        if (result == null) result = caseElement(primaryExpr);
-        if (result == null) result = caseArrayType(primaryExpr);
-        if (result == null) result = caseShortVarDecl(primaryExpr);
-        if (result == null) result = caseRecvStmt(primaryExpr);
-        if (result == null) result = caseKeyedElement(primaryExpr);
-        if (result == null) result = caseTypeLit(primaryExpr);
-        if (result == null) result = caseSimpleStmt(primaryExpr);
-        if (result == null) result = caseTypeSwitchStmt(primaryExpr);
-        if (result == null) result = caseInitStmt(primaryExpr);
-        if (result == null) result = casePostStmt(primaryExpr);
-        if (result == null) result = caseElementList(primaryExpr);
-        if (result == null) result = caseType(primaryExpr);
-        if (result == null) result = caseSwitchStmt(primaryExpr);
-        if (result == null) result = caseForClause(primaryExpr);
-        if (result == null) result = caseElementType(primaryExpr);
-        if (result == null) result = caseBaseType(primaryExpr);
-        if (result == null) result = caseResult(primaryExpr);
-        if (result == null) result = caseKeyType(primaryExpr);
-        if (result == null) result = caseConstSpec(primaryExpr);
-        if (result == null) result = caseTypeDef(primaryExpr);
-        if (result == null) result = caseAliasDecl(primaryExpr);
-        if (result == null) result = caseVarSpec(primaryExpr);
-        if (result == null) result = caseTypeAssertion(primaryExpr);
-        if (result == null) result = caseTypeSpec(primaryExpr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -942,43 +663,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         Operand operand = (Operand)theEObject;
         T result = caseOperand(operand);
-        if (result == null) result = casePrimaryExpr(operand);
-        if (result == null) result = caseTypeSwitchGuard(operand);
-        if (result == null) result = caseUnaryExpr(operand);
-        if (result == null) result = caseExpression(operand);
-        if (result == null) result = caseArrayLength(operand);
-        if (result == null) result = caseDeferStmt(operand);
-        if (result == null) result = caseExpressionStmt(operand);
-        if (result == null) result = caseChannel(operand);
-        if (result == null) result = caseIncDecStmt(operand);
-        if (result == null) result = caseRecvExpr(operand);
-        if (result == null) result = caseCondition(operand);
-        if (result == null) result = caseExpressionList(operand);
-        if (result == null) result = caseKey(operand);
-        if (result == null) result = caseElement(operand);
-        if (result == null) result = caseArrayType(operand);
-        if (result == null) result = caseShortVarDecl(operand);
-        if (result == null) result = caseRecvStmt(operand);
-        if (result == null) result = caseKeyedElement(operand);
-        if (result == null) result = caseTypeLit(operand);
-        if (result == null) result = caseSimpleStmt(operand);
-        if (result == null) result = caseTypeSwitchStmt(operand);
-        if (result == null) result = caseInitStmt(operand);
-        if (result == null) result = casePostStmt(operand);
-        if (result == null) result = caseElementList(operand);
-        if (result == null) result = caseType(operand);
-        if (result == null) result = caseSwitchStmt(operand);
-        if (result == null) result = caseForClause(operand);
-        if (result == null) result = caseElementType(operand);
-        if (result == null) result = caseBaseType(operand);
-        if (result == null) result = caseResult(operand);
-        if (result == null) result = caseKeyType(operand);
-        if (result == null) result = caseConstSpec(operand);
-        if (result == null) result = caseTypeDef(operand);
-        if (result == null) result = caseAliasDecl(operand);
-        if (result == null) result = caseVarSpec(operand);
-        if (result == null) result = caseTypeAssertion(operand);
-        if (result == null) result = caseTypeSpec(operand);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -986,43 +670,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         Conversion conversion = (Conversion)theEObject;
         T result = caseConversion(conversion);
-        if (result == null) result = casePrimaryExpr(conversion);
-        if (result == null) result = caseTypeSwitchGuard(conversion);
-        if (result == null) result = caseUnaryExpr(conversion);
-        if (result == null) result = caseExpression(conversion);
-        if (result == null) result = caseArrayLength(conversion);
-        if (result == null) result = caseDeferStmt(conversion);
-        if (result == null) result = caseExpressionStmt(conversion);
-        if (result == null) result = caseChannel(conversion);
-        if (result == null) result = caseIncDecStmt(conversion);
-        if (result == null) result = caseRecvExpr(conversion);
-        if (result == null) result = caseCondition(conversion);
-        if (result == null) result = caseExpressionList(conversion);
-        if (result == null) result = caseKey(conversion);
-        if (result == null) result = caseElement(conversion);
-        if (result == null) result = caseArrayType(conversion);
-        if (result == null) result = caseShortVarDecl(conversion);
-        if (result == null) result = caseRecvStmt(conversion);
-        if (result == null) result = caseKeyedElement(conversion);
-        if (result == null) result = caseTypeLit(conversion);
-        if (result == null) result = caseSimpleStmt(conversion);
-        if (result == null) result = caseTypeSwitchStmt(conversion);
-        if (result == null) result = caseInitStmt(conversion);
-        if (result == null) result = casePostStmt(conversion);
-        if (result == null) result = caseElementList(conversion);
-        if (result == null) result = caseType(conversion);
-        if (result == null) result = caseSwitchStmt(conversion);
-        if (result == null) result = caseForClause(conversion);
-        if (result == null) result = caseElementType(conversion);
-        if (result == null) result = caseBaseType(conversion);
-        if (result == null) result = caseResult(conversion);
-        if (result == null) result = caseKeyType(conversion);
-        if (result == null) result = caseConstSpec(conversion);
-        if (result == null) result = caseTypeDef(conversion);
-        if (result == null) result = caseAliasDecl(conversion);
-        if (result == null) result = caseVarSpec(conversion);
-        if (result == null) result = caseTypeAssertion(conversion);
-        if (result == null) result = caseTypeSpec(conversion);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1030,43 +677,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         MethodExpr methodExpr = (MethodExpr)theEObject;
         T result = caseMethodExpr(methodExpr);
-        if (result == null) result = casePrimaryExpr(methodExpr);
-        if (result == null) result = caseTypeSwitchGuard(methodExpr);
-        if (result == null) result = caseUnaryExpr(methodExpr);
-        if (result == null) result = caseExpression(methodExpr);
-        if (result == null) result = caseArrayLength(methodExpr);
-        if (result == null) result = caseDeferStmt(methodExpr);
-        if (result == null) result = caseExpressionStmt(methodExpr);
-        if (result == null) result = caseChannel(methodExpr);
-        if (result == null) result = caseIncDecStmt(methodExpr);
-        if (result == null) result = caseRecvExpr(methodExpr);
-        if (result == null) result = caseCondition(methodExpr);
-        if (result == null) result = caseExpressionList(methodExpr);
-        if (result == null) result = caseKey(methodExpr);
-        if (result == null) result = caseElement(methodExpr);
-        if (result == null) result = caseArrayType(methodExpr);
-        if (result == null) result = caseShortVarDecl(methodExpr);
-        if (result == null) result = caseRecvStmt(methodExpr);
-        if (result == null) result = caseKeyedElement(methodExpr);
-        if (result == null) result = caseTypeLit(methodExpr);
-        if (result == null) result = caseSimpleStmt(methodExpr);
-        if (result == null) result = caseTypeSwitchStmt(methodExpr);
-        if (result == null) result = caseInitStmt(methodExpr);
-        if (result == null) result = casePostStmt(methodExpr);
-        if (result == null) result = caseElementList(methodExpr);
-        if (result == null) result = caseType(methodExpr);
-        if (result == null) result = caseSwitchStmt(methodExpr);
-        if (result == null) result = caseForClause(methodExpr);
-        if (result == null) result = caseElementType(methodExpr);
-        if (result == null) result = caseBaseType(methodExpr);
-        if (result == null) result = caseResult(methodExpr);
-        if (result == null) result = caseKeyType(methodExpr);
-        if (result == null) result = caseConstSpec(methodExpr);
-        if (result == null) result = caseTypeDef(methodExpr);
-        if (result == null) result = caseAliasDecl(methodExpr);
-        if (result == null) result = caseVarSpec(methodExpr);
-        if (result == null) result = caseTypeAssertion(methodExpr);
-        if (result == null) result = caseTypeSpec(methodExpr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1109,7 +719,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         FunctionLit functionLit = (FunctionLit)theEObject;
         T result = caseFunctionLit(functionLit);
-        if (result == null) result = caseLiteral(functionLit);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1117,7 +726,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         CompositeLit compositeLit = (CompositeLit)theEObject;
         T result = caseCompositeLit(compositeLit);
-        if (result == null) result = caseLiteral(compositeLit);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1175,43 +783,6 @@ public class GoSwitch<T> extends Switch<T>
         ReceiverType receiverType = (ReceiverType)theEObject;
         T result = caseReceiverType(receiverType);
         if (result == null) result = caseMethodExpr(receiverType);
-        if (result == null) result = casePrimaryExpr(receiverType);
-        if (result == null) result = caseTypeSwitchGuard(receiverType);
-        if (result == null) result = caseUnaryExpr(receiverType);
-        if (result == null) result = caseExpression(receiverType);
-        if (result == null) result = caseArrayLength(receiverType);
-        if (result == null) result = caseDeferStmt(receiverType);
-        if (result == null) result = caseExpressionStmt(receiverType);
-        if (result == null) result = caseChannel(receiverType);
-        if (result == null) result = caseIncDecStmt(receiverType);
-        if (result == null) result = caseRecvExpr(receiverType);
-        if (result == null) result = caseCondition(receiverType);
-        if (result == null) result = caseExpressionList(receiverType);
-        if (result == null) result = caseKey(receiverType);
-        if (result == null) result = caseElement(receiverType);
-        if (result == null) result = caseArrayType(receiverType);
-        if (result == null) result = caseShortVarDecl(receiverType);
-        if (result == null) result = caseRecvStmt(receiverType);
-        if (result == null) result = caseKeyedElement(receiverType);
-        if (result == null) result = caseTypeLit(receiverType);
-        if (result == null) result = caseSimpleStmt(receiverType);
-        if (result == null) result = caseTypeSwitchStmt(receiverType);
-        if (result == null) result = caseInitStmt(receiverType);
-        if (result == null) result = casePostStmt(receiverType);
-        if (result == null) result = caseElementList(receiverType);
-        if (result == null) result = caseType(receiverType);
-        if (result == null) result = caseSwitchStmt(receiverType);
-        if (result == null) result = caseForClause(receiverType);
-        if (result == null) result = caseElementType(receiverType);
-        if (result == null) result = caseBaseType(receiverType);
-        if (result == null) result = caseResult(receiverType);
-        if (result == null) result = caseKeyType(receiverType);
-        if (result == null) result = caseConstSpec(receiverType);
-        if (result == null) result = caseTypeDef(receiverType);
-        if (result == null) result = caseAliasDecl(receiverType);
-        if (result == null) result = caseVarSpec(receiverType);
-        if (result == null) result = caseTypeAssertion(receiverType);
-        if (result == null) result = caseTypeSpec(receiverType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1219,6 +790,13 @@ public class GoSwitch<T> extends Switch<T>
       {
         FunctionBody functionBody = (FunctionBody)theEObject;
         T result = caseFunctionBody(functionBody);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GoPackage.OPERAND_NAME:
+      {
+        OperandName operandName = (OperandName)theEObject;
+        T result = caseOperandName(operandName);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1453,6 +1031,22 @@ public class GoSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseFieldDecl(FieldDecl object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Identifier List</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Identifier List</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIdentifierList(IdentifierList object)
   {
     return null;
   }
@@ -2733,6 +2327,22 @@ public class GoSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseFunctionBody(FunctionBody object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Operand Name</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Operand Name</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOperandName(OperandName object)
   {
     return null;
   }

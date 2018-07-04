@@ -79,6 +79,7 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
       case GoPackage.SLICE_TYPE: return createSliceType();
       case GoPackage.STRUCT_TYPE: return createStructType();
       case GoPackage.FIELD_DECL: return createFieldDecl();
+      case GoPackage.IDENTIFIER_LIST: return createIdentifierList();
       case GoPackage.POINTER_TYPE: return createPointerType();
       case GoPackage.BASE_TYPE: return createBaseType();
       case GoPackage.FUNCTION_TYPE: return createFunctionType();
@@ -159,6 +160,7 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
       case GoPackage.ELEMENT: return createElement();
       case GoPackage.RECEIVER_TYPE: return createReceiverType();
       case GoPackage.FUNCTION_BODY: return createFunctionBody();
+      case GoPackage.OPERAND_NAME: return createOperandName();
       case GoPackage.IMPORT_DECL: return createImportDecl();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -317,6 +319,17 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
   {
     FieldDeclImpl fieldDecl = new FieldDeclImpl();
     return fieldDecl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IdentifierList createIdentifierList()
+  {
+    IdentifierListImpl identifierList = new IdentifierListImpl();
+    return identifierList;
   }
 
   /**
@@ -1197,6 +1210,17 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
   {
     FunctionBodyImpl functionBody = new FunctionBodyImpl();
     return functionBody;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public OperandName createOperandName()
+  {
+    OperandNameImpl operandName = new OperandNameImpl();
+    return operandName;
   }
 
   /**

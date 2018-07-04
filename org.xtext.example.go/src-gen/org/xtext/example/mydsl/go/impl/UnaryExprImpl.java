@@ -10,8 +10,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xtext.example.mydsl.go.Expression2;
 import org.xtext.example.mydsl.go.GoPackage;
 import org.xtext.example.mydsl.go.UnaryExpr;
 
@@ -23,22 +23,43 @@ import org.xtext.example.mydsl.go.UnaryExpr;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.go.impl.UnaryExprImpl#getExp <em>Exp</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.UnaryExprImpl#getUp <em>Up</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.UnaryExprImpl#getUe <em>Ue</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class UnaryExprImpl extends ExpressionImpl implements UnaryExpr
+public class UnaryExprImpl extends MinimalEObjectImpl.Container implements UnaryExpr
 {
   /**
-   * The cached value of the '{@link #getExp() <em>Exp</em>}' containment reference.
+   * The default value of the '{@link #getUp() <em>Up</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExp()
+   * @see #getUp()
    * @generated
    * @ordered
    */
-  protected Expression2 exp;
+  protected static final String UP_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getUp() <em>Up</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUp()
+   * @generated
+   * @ordered
+   */
+  protected String up = UP_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getUe() <em>Ue</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUe()
+   * @generated
+   * @ordered
+   */
+  protected UnaryExpr ue;
 
   /**
    * <!-- begin-user-doc -->
@@ -66,9 +87,9 @@ public class UnaryExprImpl extends ExpressionImpl implements UnaryExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression2 getExp()
+  public String getUp()
   {
-    return exp;
+    return up;
   }
 
   /**
@@ -76,13 +97,36 @@ public class UnaryExprImpl extends ExpressionImpl implements UnaryExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExp(Expression2 newExp, NotificationChain msgs)
+  public void setUp(String newUp)
   {
-    Expression2 oldExp = exp;
-    exp = newExp;
+    String oldUp = up;
+    up = newUp;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.UNARY_EXPR__UP, oldUp, up));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UnaryExpr getUe()
+  {
+    return ue;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetUe(UnaryExpr newUe, NotificationChain msgs)
+  {
+    UnaryExpr oldUe = ue;
+    ue = newUe;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.UNARY_EXPR__EXP, oldExp, newExp);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.UNARY_EXPR__UE, oldUe, newUe);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -93,20 +137,20 @@ public class UnaryExprImpl extends ExpressionImpl implements UnaryExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExp(Expression2 newExp)
+  public void setUe(UnaryExpr newUe)
   {
-    if (newExp != exp)
+    if (newUe != ue)
     {
       NotificationChain msgs = null;
-      if (exp != null)
-        msgs = ((InternalEObject)exp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.UNARY_EXPR__EXP, null, msgs);
-      if (newExp != null)
-        msgs = ((InternalEObject)newExp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.UNARY_EXPR__EXP, null, msgs);
-      msgs = basicSetExp(newExp, msgs);
+      if (ue != null)
+        msgs = ((InternalEObject)ue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.UNARY_EXPR__UE, null, msgs);
+      if (newUe != null)
+        msgs = ((InternalEObject)newUe).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.UNARY_EXPR__UE, null, msgs);
+      msgs = basicSetUe(newUe, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.UNARY_EXPR__EXP, newExp, newExp));
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.UNARY_EXPR__UE, newUe, newUe));
   }
 
   /**
@@ -119,8 +163,8 @@ public class UnaryExprImpl extends ExpressionImpl implements UnaryExpr
   {
     switch (featureID)
     {
-      case GoPackage.UNARY_EXPR__EXP:
-        return basicSetExp(null, msgs);
+      case GoPackage.UNARY_EXPR__UE:
+        return basicSetUe(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -135,8 +179,10 @@ public class UnaryExprImpl extends ExpressionImpl implements UnaryExpr
   {
     switch (featureID)
     {
-      case GoPackage.UNARY_EXPR__EXP:
-        return getExp();
+      case GoPackage.UNARY_EXPR__UP:
+        return getUp();
+      case GoPackage.UNARY_EXPR__UE:
+        return getUe();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -151,8 +197,11 @@ public class UnaryExprImpl extends ExpressionImpl implements UnaryExpr
   {
     switch (featureID)
     {
-      case GoPackage.UNARY_EXPR__EXP:
-        setExp((Expression2)newValue);
+      case GoPackage.UNARY_EXPR__UP:
+        setUp((String)newValue);
+        return;
+      case GoPackage.UNARY_EXPR__UE:
+        setUe((UnaryExpr)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -168,8 +217,11 @@ public class UnaryExprImpl extends ExpressionImpl implements UnaryExpr
   {
     switch (featureID)
     {
-      case GoPackage.UNARY_EXPR__EXP:
-        setExp((Expression2)null);
+      case GoPackage.UNARY_EXPR__UP:
+        setUp(UP_EDEFAULT);
+        return;
+      case GoPackage.UNARY_EXPR__UE:
+        setUe((UnaryExpr)null);
         return;
     }
     super.eUnset(featureID);
@@ -185,10 +237,29 @@ public class UnaryExprImpl extends ExpressionImpl implements UnaryExpr
   {
     switch (featureID)
     {
-      case GoPackage.UNARY_EXPR__EXP:
-        return exp != null;
+      case GoPackage.UNARY_EXPR__UP:
+        return UP_EDEFAULT == null ? up != null : !UP_EDEFAULT.equals(up);
+      case GoPackage.UNARY_EXPR__UE:
+        return ue != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (up: ");
+    result.append(up);
+    result.append(')');
+    return result.toString();
   }
 
 } //UnaryExprImpl

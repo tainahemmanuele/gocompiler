@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.go.Assignment;
 import org.xtext.example.mydsl.go.ExpressionList;
@@ -24,12 +25,13 @@ import org.xtext.example.mydsl.go.GoPackage;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.go.impl.AssignmentImpl#getExpressionlist <em>Expressionlist</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.AssignmentImpl#getAsop <em>Asop</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.AssignmentImpl#getExpressionlist2 <em>Expressionlist2</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AssignmentImpl extends SimpleStmtImpl implements Assignment
+public class AssignmentImpl extends MinimalEObjectImpl.Container implements Assignment
 {
   /**
    * The cached value of the '{@link #getExpressionlist() <em>Expressionlist</em>}' containment reference.
@@ -40,6 +42,26 @@ public class AssignmentImpl extends SimpleStmtImpl implements Assignment
    * @ordered
    */
   protected ExpressionList expressionlist;
+
+  /**
+   * The default value of the '{@link #getAsop() <em>Asop</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAsop()
+   * @generated
+   * @ordered
+   */
+  protected static final String ASOP_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getAsop() <em>Asop</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAsop()
+   * @generated
+   * @ordered
+   */
+  protected String asop = ASOP_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getExpressionlist2() <em>Expressionlist2</em>}' containment reference.
@@ -125,6 +147,29 @@ public class AssignmentImpl extends SimpleStmtImpl implements Assignment
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getAsop()
+  {
+    return asop;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAsop(String newAsop)
+  {
+    String oldAsop = asop;
+    asop = newAsop;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.ASSIGNMENT__ASOP, oldAsop, asop));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ExpressionList getExpressionlist2()
   {
     return expressionlist2;
@@ -198,6 +243,8 @@ public class AssignmentImpl extends SimpleStmtImpl implements Assignment
     {
       case GoPackage.ASSIGNMENT__EXPRESSIONLIST:
         return getExpressionlist();
+      case GoPackage.ASSIGNMENT__ASOP:
+        return getAsop();
       case GoPackage.ASSIGNMENT__EXPRESSIONLIST2:
         return getExpressionlist2();
     }
@@ -216,6 +263,9 @@ public class AssignmentImpl extends SimpleStmtImpl implements Assignment
     {
       case GoPackage.ASSIGNMENT__EXPRESSIONLIST:
         setExpressionlist((ExpressionList)newValue);
+        return;
+      case GoPackage.ASSIGNMENT__ASOP:
+        setAsop((String)newValue);
         return;
       case GoPackage.ASSIGNMENT__EXPRESSIONLIST2:
         setExpressionlist2((ExpressionList)newValue);
@@ -237,6 +287,9 @@ public class AssignmentImpl extends SimpleStmtImpl implements Assignment
       case GoPackage.ASSIGNMENT__EXPRESSIONLIST:
         setExpressionlist((ExpressionList)null);
         return;
+      case GoPackage.ASSIGNMENT__ASOP:
+        setAsop(ASOP_EDEFAULT);
+        return;
       case GoPackage.ASSIGNMENT__EXPRESSIONLIST2:
         setExpressionlist2((ExpressionList)null);
         return;
@@ -256,10 +309,29 @@ public class AssignmentImpl extends SimpleStmtImpl implements Assignment
     {
       case GoPackage.ASSIGNMENT__EXPRESSIONLIST:
         return expressionlist != null;
+      case GoPackage.ASSIGNMENT__ASOP:
+        return ASOP_EDEFAULT == null ? asop != null : !ASOP_EDEFAULT.equals(asop);
       case GoPackage.ASSIGNMENT__EXPRESSIONLIST2:
         return expressionlist2 != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (asop: ");
+    result.append(asop);
+    result.append(')');
+    return result.toString();
   }
 
 } //AssignmentImpl

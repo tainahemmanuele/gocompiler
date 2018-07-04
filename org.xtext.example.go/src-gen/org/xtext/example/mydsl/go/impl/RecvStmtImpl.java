@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.go.GoPackage;
+import org.xtext.example.mydsl.go.IdentifierList;
 import org.xtext.example.mydsl.go.RecvExpr;
 import org.xtext.example.mydsl.go.RecvStmt;
 
@@ -24,6 +25,7 @@ import org.xtext.example.mydsl.go.RecvStmt;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.RecvStmtImpl#getIdl <em>Idl</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.RecvStmtImpl#getRecvexpr <em>Recvexpr</em>}</li>
  * </ul>
  *
@@ -31,6 +33,16 @@ import org.xtext.example.mydsl.go.RecvStmt;
  */
 public class RecvStmtImpl extends MinimalEObjectImpl.Container implements RecvStmt
 {
+  /**
+   * The cached value of the '{@link #getIdl() <em>Idl</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIdl()
+   * @generated
+   * @ordered
+   */
+  protected IdentifierList idl;
+
   /**
    * The cached value of the '{@link #getRecvexpr() <em>Recvexpr</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -60,6 +72,54 @@ public class RecvStmtImpl extends MinimalEObjectImpl.Container implements RecvSt
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.RECV_STMT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IdentifierList getIdl()
+  {
+    return idl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetIdl(IdentifierList newIdl, NotificationChain msgs)
+  {
+    IdentifierList oldIdl = idl;
+    idl = newIdl;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.RECV_STMT__IDL, oldIdl, newIdl);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIdl(IdentifierList newIdl)
+  {
+    if (newIdl != idl)
+    {
+      NotificationChain msgs = null;
+      if (idl != null)
+        msgs = ((InternalEObject)idl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.RECV_STMT__IDL, null, msgs);
+      if (newIdl != null)
+        msgs = ((InternalEObject)newIdl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.RECV_STMT__IDL, null, msgs);
+      msgs = basicSetIdl(newIdl, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.RECV_STMT__IDL, newIdl, newIdl));
   }
 
   /**
@@ -120,6 +180,8 @@ public class RecvStmtImpl extends MinimalEObjectImpl.Container implements RecvSt
   {
     switch (featureID)
     {
+      case GoPackage.RECV_STMT__IDL:
+        return basicSetIdl(null, msgs);
       case GoPackage.RECV_STMT__RECVEXPR:
         return basicSetRecvexpr(null, msgs);
     }
@@ -136,6 +198,8 @@ public class RecvStmtImpl extends MinimalEObjectImpl.Container implements RecvSt
   {
     switch (featureID)
     {
+      case GoPackage.RECV_STMT__IDL:
+        return getIdl();
       case GoPackage.RECV_STMT__RECVEXPR:
         return getRecvexpr();
     }
@@ -152,6 +216,9 @@ public class RecvStmtImpl extends MinimalEObjectImpl.Container implements RecvSt
   {
     switch (featureID)
     {
+      case GoPackage.RECV_STMT__IDL:
+        setIdl((IdentifierList)newValue);
+        return;
       case GoPackage.RECV_STMT__RECVEXPR:
         setRecvexpr((RecvExpr)newValue);
         return;
@@ -169,6 +236,9 @@ public class RecvStmtImpl extends MinimalEObjectImpl.Container implements RecvSt
   {
     switch (featureID)
     {
+      case GoPackage.RECV_STMT__IDL:
+        setIdl((IdentifierList)null);
+        return;
       case GoPackage.RECV_STMT__RECVEXPR:
         setRecvexpr((RecvExpr)null);
         return;
@@ -186,6 +256,8 @@ public class RecvStmtImpl extends MinimalEObjectImpl.Container implements RecvSt
   {
     switch (featureID)
     {
+      case GoPackage.RECV_STMT__IDL:
+        return idl != null;
       case GoPackage.RECV_STMT__RECVEXPR:
         return recvexpr != null;
     }

@@ -3,20 +3,56 @@
  */
 package org.xtext.example.mydsl.go.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.xtext.example.mydsl.go.ExpressionList;
 import org.xtext.example.mydsl.go.GoPackage;
+import org.xtext.example.mydsl.go.IdentifierList;
 import org.xtext.example.mydsl.go.ShortVarDecl;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Short Var Decl</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.ShortVarDeclImpl#getIdl <em>Idl</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.ShortVarDeclImpl#getEpl <em>Epl</em>}</li>
+ * </ul>
  *
  * @generated
  */
-public class ShortVarDeclImpl extends SimpleStmtImpl implements ShortVarDecl
+public class ShortVarDeclImpl extends MinimalEObjectImpl.Container implements ShortVarDecl
 {
+  /**
+   * The cached value of the '{@link #getIdl() <em>Idl</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIdl()
+   * @generated
+   * @ordered
+   */
+  protected IdentifierList idl;
+
+  /**
+   * The cached value of the '{@link #getEpl() <em>Epl</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEpl()
+   * @generated
+   * @ordered
+   */
+  protected ExpressionList epl;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +72,196 @@ public class ShortVarDeclImpl extends SimpleStmtImpl implements ShortVarDecl
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.SHORT_VAR_DECL;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IdentifierList getIdl()
+  {
+    return idl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetIdl(IdentifierList newIdl, NotificationChain msgs)
+  {
+    IdentifierList oldIdl = idl;
+    idl = newIdl;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.SHORT_VAR_DECL__IDL, oldIdl, newIdl);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIdl(IdentifierList newIdl)
+  {
+    if (newIdl != idl)
+    {
+      NotificationChain msgs = null;
+      if (idl != null)
+        msgs = ((InternalEObject)idl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.SHORT_VAR_DECL__IDL, null, msgs);
+      if (newIdl != null)
+        msgs = ((InternalEObject)newIdl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.SHORT_VAR_DECL__IDL, null, msgs);
+      msgs = basicSetIdl(newIdl, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.SHORT_VAR_DECL__IDL, newIdl, newIdl));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ExpressionList getEpl()
+  {
+    return epl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetEpl(ExpressionList newEpl, NotificationChain msgs)
+  {
+    ExpressionList oldEpl = epl;
+    epl = newEpl;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.SHORT_VAR_DECL__EPL, oldEpl, newEpl);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setEpl(ExpressionList newEpl)
+  {
+    if (newEpl != epl)
+    {
+      NotificationChain msgs = null;
+      if (epl != null)
+        msgs = ((InternalEObject)epl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.SHORT_VAR_DECL__EPL, null, msgs);
+      if (newEpl != null)
+        msgs = ((InternalEObject)newEpl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.SHORT_VAR_DECL__EPL, null, msgs);
+      msgs = basicSetEpl(newEpl, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.SHORT_VAR_DECL__EPL, newEpl, newEpl));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case GoPackage.SHORT_VAR_DECL__IDL:
+        return basicSetIdl(null, msgs);
+      case GoPackage.SHORT_VAR_DECL__EPL:
+        return basicSetEpl(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case GoPackage.SHORT_VAR_DECL__IDL:
+        return getIdl();
+      case GoPackage.SHORT_VAR_DECL__EPL:
+        return getEpl();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case GoPackage.SHORT_VAR_DECL__IDL:
+        setIdl((IdentifierList)newValue);
+        return;
+      case GoPackage.SHORT_VAR_DECL__EPL:
+        setEpl((ExpressionList)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.SHORT_VAR_DECL__IDL:
+        setIdl((IdentifierList)null);
+        return;
+      case GoPackage.SHORT_VAR_DECL__EPL:
+        setEpl((ExpressionList)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.SHORT_VAR_DECL__IDL:
+        return idl != null;
+      case GoPackage.SHORT_VAR_DECL__EPL:
+        return epl != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //ShortVarDeclImpl

@@ -3,7 +3,7 @@
  */
 package org.xtext.example.mydsl.go;
 
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,8 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.go.ParameterDecl#getParameterdecl <em>Parameterdecl</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.go.ParameterDecl#getIndentifierL <em>Indentifier L</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.ParameterDecl#getIdentifierL <em>Identifier L</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.ParameterDecl#getType <em>Type</em>}</li>
  * </ul>
  *
@@ -23,49 +22,33 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface ParameterDecl extends ParameterList
+public interface ParameterDecl extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Parameterdecl</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.example.mydsl.go.ParameterDecl}.
+   * Returns the value of the '<em><b>Identifier L</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Parameterdecl</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Identifier L</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Parameterdecl</em>' containment reference list.
-   * @see org.xtext.example.mydsl.go.GoPackage#getParameterDecl_Parameterdecl()
+   * @return the value of the '<em>Identifier L</em>' containment reference.
+   * @see #setIdentifierL(IdentifierList)
+   * @see org.xtext.example.mydsl.go.GoPackage#getParameterDecl_IdentifierL()
    * @model containment="true"
    * @generated
    */
-  EList<ParameterDecl> getParameterdecl();
+  IdentifierList getIdentifierL();
 
   /**
-   * Returns the value of the '<em><b>Indentifier L</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Indentifier L</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Indentifier L</em>' attribute.
-   * @see #setIndentifierL(String)
-   * @see org.xtext.example.mydsl.go.GoPackage#getParameterDecl_IndentifierL()
-   * @model
-   * @generated
-   */
-  String getIndentifierL();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.go.ParameterDecl#getIndentifierL <em>Indentifier L</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.ParameterDecl#getIdentifierL <em>Identifier L</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Indentifier L</em>' attribute.
-   * @see #getIndentifierL()
+   * @param value the new value of the '<em>Identifier L</em>' containment reference.
+   * @see #getIdentifierL()
    * @generated
    */
-  void setIndentifierL(String value);
+  void setIdentifierL(IdentifierList value);
 
   /**
    * Returns the value of the '<em><b>Type</b></em>' containment reference.

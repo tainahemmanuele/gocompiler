@@ -27,6 +27,7 @@ import org.xtext.example.mydsl.go.TypeAssertion;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.PrimaryExpr2Impl#getSelector <em>Selector</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.PrimaryExpr2Impl#getPr <em>Pr</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.PrimaryExpr2Impl#getIndex <em>Index</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.PrimaryExpr2Impl#getSlice <em>Slice</em>}</li>
@@ -38,6 +39,26 @@ import org.xtext.example.mydsl.go.TypeAssertion;
  */
 public class PrimaryExpr2Impl extends MinimalEObjectImpl.Container implements PrimaryExpr2
 {
+  /**
+   * The default value of the '{@link #getSelector() <em>Selector</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSelector()
+   * @generated
+   * @ordered
+   */
+  protected static final String SELECTOR_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getSelector() <em>Selector</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSelector()
+   * @generated
+   * @ordered
+   */
+  protected String selector = SELECTOR_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getPr() <em>Pr</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -107,6 +128,29 @@ public class PrimaryExpr2Impl extends MinimalEObjectImpl.Container implements Pr
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.PRIMARY_EXPR2;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getSelector()
+  {
+    return selector;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSelector(String newSelector)
+  {
+    String oldSelector = selector;
+    selector = newSelector;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.PRIMARY_EXPR2__SELECTOR, oldSelector, selector));
   }
 
   /**
@@ -383,6 +427,8 @@ public class PrimaryExpr2Impl extends MinimalEObjectImpl.Container implements Pr
   {
     switch (featureID)
     {
+      case GoPackage.PRIMARY_EXPR2__SELECTOR:
+        return getSelector();
       case GoPackage.PRIMARY_EXPR2__PR:
         return getPr();
       case GoPackage.PRIMARY_EXPR2__INDEX:
@@ -407,6 +453,9 @@ public class PrimaryExpr2Impl extends MinimalEObjectImpl.Container implements Pr
   {
     switch (featureID)
     {
+      case GoPackage.PRIMARY_EXPR2__SELECTOR:
+        setSelector((String)newValue);
+        return;
       case GoPackage.PRIMARY_EXPR2__PR:
         setPr((PrimaryExpr2)newValue);
         return;
@@ -436,6 +485,9 @@ public class PrimaryExpr2Impl extends MinimalEObjectImpl.Container implements Pr
   {
     switch (featureID)
     {
+      case GoPackage.PRIMARY_EXPR2__SELECTOR:
+        setSelector(SELECTOR_EDEFAULT);
+        return;
       case GoPackage.PRIMARY_EXPR2__PR:
         setPr((PrimaryExpr2)null);
         return;
@@ -465,6 +517,8 @@ public class PrimaryExpr2Impl extends MinimalEObjectImpl.Container implements Pr
   {
     switch (featureID)
     {
+      case GoPackage.PRIMARY_EXPR2__SELECTOR:
+        return SELECTOR_EDEFAULT == null ? selector != null : !SELECTOR_EDEFAULT.equals(selector);
       case GoPackage.PRIMARY_EXPR2__PR:
         return pr != null;
       case GoPackage.PRIMARY_EXPR2__INDEX:
@@ -477,6 +531,23 @@ public class PrimaryExpr2Impl extends MinimalEObjectImpl.Container implements Pr
         return arguments != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (selector: ");
+    result.append(selector);
+    result.append(')');
+    return result.toString();
   }
 
 } //PrimaryExpr2Impl

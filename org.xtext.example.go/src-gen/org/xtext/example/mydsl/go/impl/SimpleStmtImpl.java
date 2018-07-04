@@ -10,12 +10,14 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xtext.example.mydsl.go.Condition;
-import org.xtext.example.mydsl.go.ForClause;
+import org.xtext.example.mydsl.go.Assignment;
+import org.xtext.example.mydsl.go.ExpressionStmt;
 import org.xtext.example.mydsl.go.GoPackage;
-import org.xtext.example.mydsl.go.InitStmt;
-import org.xtext.example.mydsl.go.PostStmt;
+import org.xtext.example.mydsl.go.IncDecStmt;
+import org.xtext.example.mydsl.go.SendStmt;
+import org.xtext.example.mydsl.go.ShortVarDecl;
 import org.xtext.example.mydsl.go.SimpleStmt;
 
 /**
@@ -26,34 +28,67 @@ import org.xtext.example.mydsl.go.SimpleStmt;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.go.impl.SimpleStmtImpl#getCondition <em>Condition</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.go.impl.SimpleStmtImpl#getPoststmt <em>Poststmt</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.SimpleStmtImpl#getInc <em>Inc</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.SimpleStmtImpl#getAss <em>Ass</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.SimpleStmtImpl#getSs <em>Ss</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.SimpleStmtImpl#getSvd <em>Svd</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.SimpleStmtImpl#getEs <em>Es</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.SimpleStmtImpl#getEmpty <em>Empty</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SimpleStmtImpl extends TypeSwitchStmtImpl implements SimpleStmt
+public class SimpleStmtImpl extends MinimalEObjectImpl.Container implements SimpleStmt
 {
   /**
-   * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
+   * The cached value of the '{@link #getInc() <em>Inc</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCondition()
+   * @see #getInc()
    * @generated
    * @ordered
    */
-  protected Condition condition;
+  protected IncDecStmt inc;
 
   /**
-   * The cached value of the '{@link #getPoststmt() <em>Poststmt</em>}' containment reference.
+   * The cached value of the '{@link #getAss() <em>Ass</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPoststmt()
+   * @see #getAss()
    * @generated
    * @ordered
    */
-  protected PostStmt poststmt;
+  protected Assignment ass;
+
+  /**
+   * The cached value of the '{@link #getSs() <em>Ss</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSs()
+   * @generated
+   * @ordered
+   */
+  protected SendStmt ss;
+
+  /**
+   * The cached value of the '{@link #getSvd() <em>Svd</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSvd()
+   * @generated
+   * @ordered
+   */
+  protected ShortVarDecl svd;
+
+  /**
+   * The cached value of the '{@link #getEs() <em>Es</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEs()
+   * @generated
+   * @ordered
+   */
+  protected ExpressionStmt es;
 
   /**
    * The default value of the '{@link #getEmpty() <em>Empty</em>}' attribute.
@@ -101,9 +136,9 @@ public class SimpleStmtImpl extends TypeSwitchStmtImpl implements SimpleStmt
    * <!-- end-user-doc -->
    * @generated
    */
-  public Condition getCondition()
+  public IncDecStmt getInc()
   {
-    return condition;
+    return inc;
   }
 
   /**
@@ -111,13 +146,13 @@ public class SimpleStmtImpl extends TypeSwitchStmtImpl implements SimpleStmt
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetCondition(Condition newCondition, NotificationChain msgs)
+  public NotificationChain basicSetInc(IncDecStmt newInc, NotificationChain msgs)
   {
-    Condition oldCondition = condition;
-    condition = newCondition;
+    IncDecStmt oldInc = inc;
+    inc = newInc;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.SIMPLE_STMT__CONDITION, oldCondition, newCondition);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.SIMPLE_STMT__INC, oldInc, newInc);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -128,20 +163,20 @@ public class SimpleStmtImpl extends TypeSwitchStmtImpl implements SimpleStmt
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setCondition(Condition newCondition)
+  public void setInc(IncDecStmt newInc)
   {
-    if (newCondition != condition)
+    if (newInc != inc)
     {
       NotificationChain msgs = null;
-      if (condition != null)
-        msgs = ((InternalEObject)condition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIMPLE_STMT__CONDITION, null, msgs);
-      if (newCondition != null)
-        msgs = ((InternalEObject)newCondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIMPLE_STMT__CONDITION, null, msgs);
-      msgs = basicSetCondition(newCondition, msgs);
+      if (inc != null)
+        msgs = ((InternalEObject)inc).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIMPLE_STMT__INC, null, msgs);
+      if (newInc != null)
+        msgs = ((InternalEObject)newInc).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIMPLE_STMT__INC, null, msgs);
+      msgs = basicSetInc(newInc, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.SIMPLE_STMT__CONDITION, newCondition, newCondition));
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.SIMPLE_STMT__INC, newInc, newInc));
   }
 
   /**
@@ -149,9 +184,9 @@ public class SimpleStmtImpl extends TypeSwitchStmtImpl implements SimpleStmt
    * <!-- end-user-doc -->
    * @generated
    */
-  public PostStmt getPoststmt()
+  public Assignment getAss()
   {
-    return poststmt;
+    return ass;
   }
 
   /**
@@ -159,13 +194,13 @@ public class SimpleStmtImpl extends TypeSwitchStmtImpl implements SimpleStmt
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetPoststmt(PostStmt newPoststmt, NotificationChain msgs)
+  public NotificationChain basicSetAss(Assignment newAss, NotificationChain msgs)
   {
-    PostStmt oldPoststmt = poststmt;
-    poststmt = newPoststmt;
+    Assignment oldAss = ass;
+    ass = newAss;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.SIMPLE_STMT__POSTSTMT, oldPoststmt, newPoststmt);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.SIMPLE_STMT__ASS, oldAss, newAss);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -176,20 +211,164 @@ public class SimpleStmtImpl extends TypeSwitchStmtImpl implements SimpleStmt
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPoststmt(PostStmt newPoststmt)
+  public void setAss(Assignment newAss)
   {
-    if (newPoststmt != poststmt)
+    if (newAss != ass)
     {
       NotificationChain msgs = null;
-      if (poststmt != null)
-        msgs = ((InternalEObject)poststmt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIMPLE_STMT__POSTSTMT, null, msgs);
-      if (newPoststmt != null)
-        msgs = ((InternalEObject)newPoststmt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIMPLE_STMT__POSTSTMT, null, msgs);
-      msgs = basicSetPoststmt(newPoststmt, msgs);
+      if (ass != null)
+        msgs = ((InternalEObject)ass).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIMPLE_STMT__ASS, null, msgs);
+      if (newAss != null)
+        msgs = ((InternalEObject)newAss).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIMPLE_STMT__ASS, null, msgs);
+      msgs = basicSetAss(newAss, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.SIMPLE_STMT__POSTSTMT, newPoststmt, newPoststmt));
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.SIMPLE_STMT__ASS, newAss, newAss));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SendStmt getSs()
+  {
+    return ss;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSs(SendStmt newSs, NotificationChain msgs)
+  {
+    SendStmt oldSs = ss;
+    ss = newSs;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.SIMPLE_STMT__SS, oldSs, newSs);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSs(SendStmt newSs)
+  {
+    if (newSs != ss)
+    {
+      NotificationChain msgs = null;
+      if (ss != null)
+        msgs = ((InternalEObject)ss).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIMPLE_STMT__SS, null, msgs);
+      if (newSs != null)
+        msgs = ((InternalEObject)newSs).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIMPLE_STMT__SS, null, msgs);
+      msgs = basicSetSs(newSs, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.SIMPLE_STMT__SS, newSs, newSs));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ShortVarDecl getSvd()
+  {
+    return svd;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSvd(ShortVarDecl newSvd, NotificationChain msgs)
+  {
+    ShortVarDecl oldSvd = svd;
+    svd = newSvd;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.SIMPLE_STMT__SVD, oldSvd, newSvd);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSvd(ShortVarDecl newSvd)
+  {
+    if (newSvd != svd)
+    {
+      NotificationChain msgs = null;
+      if (svd != null)
+        msgs = ((InternalEObject)svd).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIMPLE_STMT__SVD, null, msgs);
+      if (newSvd != null)
+        msgs = ((InternalEObject)newSvd).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIMPLE_STMT__SVD, null, msgs);
+      msgs = basicSetSvd(newSvd, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.SIMPLE_STMT__SVD, newSvd, newSvd));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ExpressionStmt getEs()
+  {
+    return es;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetEs(ExpressionStmt newEs, NotificationChain msgs)
+  {
+    ExpressionStmt oldEs = es;
+    es = newEs;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.SIMPLE_STMT__ES, oldEs, newEs);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setEs(ExpressionStmt newEs)
+  {
+    if (newEs != es)
+    {
+      NotificationChain msgs = null;
+      if (es != null)
+        msgs = ((InternalEObject)es).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIMPLE_STMT__ES, null, msgs);
+      if (newEs != null)
+        msgs = ((InternalEObject)newEs).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIMPLE_STMT__ES, null, msgs);
+      msgs = basicSetEs(newEs, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.SIMPLE_STMT__ES, newEs, newEs));
   }
 
   /**
@@ -225,10 +404,16 @@ public class SimpleStmtImpl extends TypeSwitchStmtImpl implements SimpleStmt
   {
     switch (featureID)
     {
-      case GoPackage.SIMPLE_STMT__CONDITION:
-        return basicSetCondition(null, msgs);
-      case GoPackage.SIMPLE_STMT__POSTSTMT:
-        return basicSetPoststmt(null, msgs);
+      case GoPackage.SIMPLE_STMT__INC:
+        return basicSetInc(null, msgs);
+      case GoPackage.SIMPLE_STMT__ASS:
+        return basicSetAss(null, msgs);
+      case GoPackage.SIMPLE_STMT__SS:
+        return basicSetSs(null, msgs);
+      case GoPackage.SIMPLE_STMT__SVD:
+        return basicSetSvd(null, msgs);
+      case GoPackage.SIMPLE_STMT__ES:
+        return basicSetEs(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -243,10 +428,16 @@ public class SimpleStmtImpl extends TypeSwitchStmtImpl implements SimpleStmt
   {
     switch (featureID)
     {
-      case GoPackage.SIMPLE_STMT__CONDITION:
-        return getCondition();
-      case GoPackage.SIMPLE_STMT__POSTSTMT:
-        return getPoststmt();
+      case GoPackage.SIMPLE_STMT__INC:
+        return getInc();
+      case GoPackage.SIMPLE_STMT__ASS:
+        return getAss();
+      case GoPackage.SIMPLE_STMT__SS:
+        return getSs();
+      case GoPackage.SIMPLE_STMT__SVD:
+        return getSvd();
+      case GoPackage.SIMPLE_STMT__ES:
+        return getEs();
       case GoPackage.SIMPLE_STMT__EMPTY:
         return getEmpty();
     }
@@ -263,11 +454,20 @@ public class SimpleStmtImpl extends TypeSwitchStmtImpl implements SimpleStmt
   {
     switch (featureID)
     {
-      case GoPackage.SIMPLE_STMT__CONDITION:
-        setCondition((Condition)newValue);
+      case GoPackage.SIMPLE_STMT__INC:
+        setInc((IncDecStmt)newValue);
         return;
-      case GoPackage.SIMPLE_STMT__POSTSTMT:
-        setPoststmt((PostStmt)newValue);
+      case GoPackage.SIMPLE_STMT__ASS:
+        setAss((Assignment)newValue);
+        return;
+      case GoPackage.SIMPLE_STMT__SS:
+        setSs((SendStmt)newValue);
+        return;
+      case GoPackage.SIMPLE_STMT__SVD:
+        setSvd((ShortVarDecl)newValue);
+        return;
+      case GoPackage.SIMPLE_STMT__ES:
+        setEs((ExpressionStmt)newValue);
         return;
       case GoPackage.SIMPLE_STMT__EMPTY:
         setEmpty((String)newValue);
@@ -286,11 +486,20 @@ public class SimpleStmtImpl extends TypeSwitchStmtImpl implements SimpleStmt
   {
     switch (featureID)
     {
-      case GoPackage.SIMPLE_STMT__CONDITION:
-        setCondition((Condition)null);
+      case GoPackage.SIMPLE_STMT__INC:
+        setInc((IncDecStmt)null);
         return;
-      case GoPackage.SIMPLE_STMT__POSTSTMT:
-        setPoststmt((PostStmt)null);
+      case GoPackage.SIMPLE_STMT__ASS:
+        setAss((Assignment)null);
+        return;
+      case GoPackage.SIMPLE_STMT__SS:
+        setSs((SendStmt)null);
+        return;
+      case GoPackage.SIMPLE_STMT__SVD:
+        setSvd((ShortVarDecl)null);
+        return;
+      case GoPackage.SIMPLE_STMT__ES:
+        setEs((ExpressionStmt)null);
         return;
       case GoPackage.SIMPLE_STMT__EMPTY:
         setEmpty(EMPTY_EDEFAULT);
@@ -309,82 +518,20 @@ public class SimpleStmtImpl extends TypeSwitchStmtImpl implements SimpleStmt
   {
     switch (featureID)
     {
-      case GoPackage.SIMPLE_STMT__CONDITION:
-        return condition != null;
-      case GoPackage.SIMPLE_STMT__POSTSTMT:
-        return poststmt != null;
+      case GoPackage.SIMPLE_STMT__INC:
+        return inc != null;
+      case GoPackage.SIMPLE_STMT__ASS:
+        return ass != null;
+      case GoPackage.SIMPLE_STMT__SS:
+        return ss != null;
+      case GoPackage.SIMPLE_STMT__SVD:
+        return svd != null;
+      case GoPackage.SIMPLE_STMT__ES:
+        return es != null;
       case GoPackage.SIMPLE_STMT__EMPTY:
         return EMPTY_EDEFAULT == null ? empty != null : !EMPTY_EDEFAULT.equals(empty);
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == ForClause.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case GoPackage.SIMPLE_STMT__CONDITION: return GoPackage.FOR_CLAUSE__CONDITION;
-        case GoPackage.SIMPLE_STMT__POSTSTMT: return GoPackage.FOR_CLAUSE__POSTSTMT;
-        default: return -1;
-      }
-    }
-    if (baseClass == InitStmt.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == PostStmt.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == ForClause.class)
-    {
-      switch (baseFeatureID)
-      {
-        case GoPackage.FOR_CLAUSE__CONDITION: return GoPackage.SIMPLE_STMT__CONDITION;
-        case GoPackage.FOR_CLAUSE__POSTSTMT: return GoPackage.SIMPLE_STMT__POSTSTMT;
-        default: return -1;
-      }
-    }
-    if (baseClass == InitStmt.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == PostStmt.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
   }
 
   /**

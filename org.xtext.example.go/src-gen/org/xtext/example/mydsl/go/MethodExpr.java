@@ -3,6 +3,7 @@
  */
 package org.xtext.example.mydsl.go;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,6 +15,6 @@ package org.xtext.example.mydsl.go;
  * @model
  * @generated
  */
-public interface MethodExpr extends PrimaryExpr
+public interface MethodExpr extends EObject
 {
 } // MethodExpr

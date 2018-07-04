@@ -10,11 +10,13 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.go.Expression;
 import org.xtext.example.mydsl.go.GoPackage;
 import org.xtext.example.mydsl.go.Literal;
 import org.xtext.example.mydsl.go.Operand;
+import org.xtext.example.mydsl.go.OperandName;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +33,7 @@ import org.xtext.example.mydsl.go.Operand;
  *
  * @generated
  */
-public class OperandImpl extends PrimaryExprImpl implements Operand
+public class OperandImpl extends MinimalEObjectImpl.Container implements Operand
 {
   /**
    * The cached value of the '{@link #getLiteral() <em>Literal</em>}' containment reference.
@@ -44,24 +46,14 @@ public class OperandImpl extends PrimaryExprImpl implements Operand
   protected Literal literal;
 
   /**
-   * The default value of the '{@link #getOperandn() <em>Operandn</em>}' attribute.
+   * The cached value of the '{@link #getOperandn() <em>Operandn</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getOperandn()
    * @generated
    * @ordered
    */
-  protected static final String OPERANDN_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getOperandn() <em>Operandn</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getOperandn()
-   * @generated
-   * @ordered
-   */
-  protected String operandn = OPERANDN_EDEFAULT;
+  protected OperandName operandn;
 
   /**
    * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
@@ -147,7 +139,7 @@ public class OperandImpl extends PrimaryExprImpl implements Operand
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getOperandn()
+  public OperandName getOperandn()
   {
     return operandn;
   }
@@ -157,12 +149,37 @@ public class OperandImpl extends PrimaryExprImpl implements Operand
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setOperandn(String newOperandn)
+  public NotificationChain basicSetOperandn(OperandName newOperandn, NotificationChain msgs)
   {
-    String oldOperandn = operandn;
+    OperandName oldOperandn = operandn;
     operandn = newOperandn;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.OPERAND__OPERANDN, oldOperandn, operandn));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.OPERAND__OPERANDN, oldOperandn, newOperandn);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setOperandn(OperandName newOperandn)
+  {
+    if (newOperandn != operandn)
+    {
+      NotificationChain msgs = null;
+      if (operandn != null)
+        msgs = ((InternalEObject)operandn).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.OPERAND__OPERANDN, null, msgs);
+      if (newOperandn != null)
+        msgs = ((InternalEObject)newOperandn).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.OPERAND__OPERANDN, null, msgs);
+      msgs = basicSetOperandn(newOperandn, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.OPERAND__OPERANDN, newOperandn, newOperandn));
   }
 
   /**
@@ -225,6 +242,8 @@ public class OperandImpl extends PrimaryExprImpl implements Operand
     {
       case GoPackage.OPERAND__LITERAL:
         return basicSetLiteral(null, msgs);
+      case GoPackage.OPERAND__OPERANDN:
+        return basicSetOperandn(null, msgs);
       case GoPackage.OPERAND__EXPRESSION:
         return basicSetExpression(null, msgs);
     }
@@ -265,7 +284,7 @@ public class OperandImpl extends PrimaryExprImpl implements Operand
         setLiteral((Literal)newValue);
         return;
       case GoPackage.OPERAND__OPERANDN:
-        setOperandn((String)newValue);
+        setOperandn((OperandName)newValue);
         return;
       case GoPackage.OPERAND__EXPRESSION:
         setExpression((Expression)newValue);
@@ -288,7 +307,7 @@ public class OperandImpl extends PrimaryExprImpl implements Operand
         setLiteral((Literal)null);
         return;
       case GoPackage.OPERAND__OPERANDN:
-        setOperandn(OPERANDN_EDEFAULT);
+        setOperandn((OperandName)null);
         return;
       case GoPackage.OPERAND__EXPRESSION:
         setExpression((Expression)null);
@@ -310,28 +329,11 @@ public class OperandImpl extends PrimaryExprImpl implements Operand
       case GoPackage.OPERAND__LITERAL:
         return literal != null;
       case GoPackage.OPERAND__OPERANDN:
-        return OPERANDN_EDEFAULT == null ? operandn != null : !OPERANDN_EDEFAULT.equals(operandn);
+        return operandn != null;
       case GoPackage.OPERAND__EXPRESSION:
         return expression != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (operandn: ");
-    result.append(operandn);
-    result.append(')');
-    return result.toString();
   }
 
 } //OperandImpl

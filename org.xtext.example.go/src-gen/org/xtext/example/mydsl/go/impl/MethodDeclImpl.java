@@ -73,14 +73,14 @@ public class MethodDeclImpl extends TopLevelDeclImpl implements MethodDecl
   protected String method = METHOD_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getSignature() <em>Signature</em>}' containment reference list.
+   * The cached value of the '{@link #getSignature() <em>Signature</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getSignature()
    * @generated
    * @ordered
    */
-  protected EList<Signature> signature;
+  protected Signature signature;
 
   /**
    * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference list.
@@ -189,13 +189,47 @@ public class MethodDeclImpl extends TopLevelDeclImpl implements MethodDecl
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Signature> getSignature()
+  public Signature getSignature()
   {
-    if (signature == null)
-    {
-      signature = new EObjectContainmentEList<Signature>(Signature.class, this, GoPackage.METHOD_DECL__SIGNATURE);
-    }
     return signature;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSignature(Signature newSignature, NotificationChain msgs)
+  {
+    Signature oldSignature = signature;
+    signature = newSignature;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.METHOD_DECL__SIGNATURE, oldSignature, newSignature);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSignature(Signature newSignature)
+  {
+    if (newSignature != signature)
+    {
+      NotificationChain msgs = null;
+      if (signature != null)
+        msgs = ((InternalEObject)signature).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.METHOD_DECL__SIGNATURE, null, msgs);
+      if (newSignature != null)
+        msgs = ((InternalEObject)newSignature).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.METHOD_DECL__SIGNATURE, null, msgs);
+      msgs = basicSetSignature(newSignature, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.METHOD_DECL__SIGNATURE, newSignature, newSignature));
   }
 
   /**
@@ -225,7 +259,7 @@ public class MethodDeclImpl extends TopLevelDeclImpl implements MethodDecl
       case GoPackage.METHOD_DECL__RECEIVER:
         return basicSetReceiver(null, msgs);
       case GoPackage.METHOD_DECL__SIGNATURE:
-        return ((InternalEList<?>)getSignature()).basicRemove(otherEnd, msgs);
+        return basicSetSignature(null, msgs);
       case GoPackage.METHOD_DECL__BODY:
         return ((InternalEList<?>)getBody()).basicRemove(otherEnd, msgs);
     }
@@ -272,8 +306,7 @@ public class MethodDeclImpl extends TopLevelDeclImpl implements MethodDecl
         setMethod((String)newValue);
         return;
       case GoPackage.METHOD_DECL__SIGNATURE:
-        getSignature().clear();
-        getSignature().addAll((Collection<? extends Signature>)newValue);
+        setSignature((Signature)newValue);
         return;
       case GoPackage.METHOD_DECL__BODY:
         getBody().clear();
@@ -300,7 +333,7 @@ public class MethodDeclImpl extends TopLevelDeclImpl implements MethodDecl
         setMethod(METHOD_EDEFAULT);
         return;
       case GoPackage.METHOD_DECL__SIGNATURE:
-        getSignature().clear();
+        setSignature((Signature)null);
         return;
       case GoPackage.METHOD_DECL__BODY:
         getBody().clear();
@@ -324,7 +357,7 @@ public class MethodDeclImpl extends TopLevelDeclImpl implements MethodDecl
       case GoPackage.METHOD_DECL__METHOD:
         return METHOD_EDEFAULT == null ? method != null : !METHOD_EDEFAULT.equals(method);
       case GoPackage.METHOD_DECL__SIGNATURE:
-        return signature != null && !signature.isEmpty();
+        return signature != null;
       case GoPackage.METHOD_DECL__BODY:
         return body != null && !body.isEmpty();
     }

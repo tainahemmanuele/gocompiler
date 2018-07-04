@@ -11,28 +11,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.xtext.example.mydsl.go.AliasDecl;
-import org.xtext.example.mydsl.go.BaseType;
-import org.xtext.example.mydsl.go.ConstSpec;
-import org.xtext.example.mydsl.go.ElementType;
-import org.xtext.example.mydsl.go.ExpressionList;
-import org.xtext.example.mydsl.go.FunctionBody;
-import org.xtext.example.mydsl.go.FunctionLit;
-import org.xtext.example.mydsl.go.FunctionType;
 import org.xtext.example.mydsl.go.GoPackage;
-import org.xtext.example.mydsl.go.KeyType;
-import org.xtext.example.mydsl.go.Literal;
-import org.xtext.example.mydsl.go.MethodSpec;
 import org.xtext.example.mydsl.go.ParameterList;
 import org.xtext.example.mydsl.go.Parameters;
-import org.xtext.example.mydsl.go.Result;
-import org.xtext.example.mydsl.go.Signature;
-import org.xtext.example.mydsl.go.Type;
-import org.xtext.example.mydsl.go.TypeAssertion;
-import org.xtext.example.mydsl.go.TypeDef;
-import org.xtext.example.mydsl.go.TypeLit;
-import org.xtext.example.mydsl.go.TypeSpec;
-import org.xtext.example.mydsl.go.VarSpec;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,9 +23,6 @@ import org.xtext.example.mydsl.go.VarSpec;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.go.impl.ParametersImpl#getExpressionlist <em>Expressionlist</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.go.impl.ParametersImpl#getFunctionbody <em>Functionbody</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.go.impl.ParametersImpl#getResult <em>Result</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.ParametersImpl#getParameterlist <em>Parameterlist</em>}</li>
  * </ul>
  *
@@ -52,36 +30,6 @@ import org.xtext.example.mydsl.go.VarSpec;
  */
 public class ParametersImpl extends ReceiverImpl implements Parameters
 {
-  /**
-   * The cached value of the '{@link #getExpressionlist() <em>Expressionlist</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getExpressionlist()
-   * @generated
-   * @ordered
-   */
-  protected ExpressionList expressionlist;
-
-  /**
-   * The cached value of the '{@link #getFunctionbody() <em>Functionbody</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFunctionbody()
-   * @generated
-   * @ordered
-   */
-  protected FunctionBody functionbody;
-
-  /**
-   * The cached value of the '{@link #getResult() <em>Result</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getResult()
-   * @generated
-   * @ordered
-   */
-  protected Result result;
-
   /**
    * The cached value of the '{@link #getParameterlist() <em>Parameterlist</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -111,150 +59,6 @@ public class ParametersImpl extends ReceiverImpl implements Parameters
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.PARAMETERS;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ExpressionList getExpressionlist()
-  {
-    return expressionlist;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetExpressionlist(ExpressionList newExpressionlist, NotificationChain msgs)
-  {
-    ExpressionList oldExpressionlist = expressionlist;
-    expressionlist = newExpressionlist;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.PARAMETERS__EXPRESSIONLIST, oldExpressionlist, newExpressionlist);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setExpressionlist(ExpressionList newExpressionlist)
-  {
-    if (newExpressionlist != expressionlist)
-    {
-      NotificationChain msgs = null;
-      if (expressionlist != null)
-        msgs = ((InternalEObject)expressionlist).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.PARAMETERS__EXPRESSIONLIST, null, msgs);
-      if (newExpressionlist != null)
-        msgs = ((InternalEObject)newExpressionlist).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.PARAMETERS__EXPRESSIONLIST, null, msgs);
-      msgs = basicSetExpressionlist(newExpressionlist, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.PARAMETERS__EXPRESSIONLIST, newExpressionlist, newExpressionlist));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public FunctionBody getFunctionbody()
-  {
-    return functionbody;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetFunctionbody(FunctionBody newFunctionbody, NotificationChain msgs)
-  {
-    FunctionBody oldFunctionbody = functionbody;
-    functionbody = newFunctionbody;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.PARAMETERS__FUNCTIONBODY, oldFunctionbody, newFunctionbody);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setFunctionbody(FunctionBody newFunctionbody)
-  {
-    if (newFunctionbody != functionbody)
-    {
-      NotificationChain msgs = null;
-      if (functionbody != null)
-        msgs = ((InternalEObject)functionbody).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.PARAMETERS__FUNCTIONBODY, null, msgs);
-      if (newFunctionbody != null)
-        msgs = ((InternalEObject)newFunctionbody).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.PARAMETERS__FUNCTIONBODY, null, msgs);
-      msgs = basicSetFunctionbody(newFunctionbody, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.PARAMETERS__FUNCTIONBODY, newFunctionbody, newFunctionbody));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Result getResult()
-  {
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetResult(Result newResult, NotificationChain msgs)
-  {
-    Result oldResult = result;
-    result = newResult;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.PARAMETERS__RESULT, oldResult, newResult);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setResult(Result newResult)
-  {
-    if (newResult != result)
-    {
-      NotificationChain msgs = null;
-      if (result != null)
-        msgs = ((InternalEObject)result).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.PARAMETERS__RESULT, null, msgs);
-      if (newResult != null)
-        msgs = ((InternalEObject)newResult).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.PARAMETERS__RESULT, null, msgs);
-      msgs = basicSetResult(newResult, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.PARAMETERS__RESULT, newResult, newResult));
   }
 
   /**
@@ -315,12 +119,6 @@ public class ParametersImpl extends ReceiverImpl implements Parameters
   {
     switch (featureID)
     {
-      case GoPackage.PARAMETERS__EXPRESSIONLIST:
-        return basicSetExpressionlist(null, msgs);
-      case GoPackage.PARAMETERS__FUNCTIONBODY:
-        return basicSetFunctionbody(null, msgs);
-      case GoPackage.PARAMETERS__RESULT:
-        return basicSetResult(null, msgs);
       case GoPackage.PARAMETERS__PARAMETERLIST:
         return basicSetParameterlist(null, msgs);
     }
@@ -337,12 +135,6 @@ public class ParametersImpl extends ReceiverImpl implements Parameters
   {
     switch (featureID)
     {
-      case GoPackage.PARAMETERS__EXPRESSIONLIST:
-        return getExpressionlist();
-      case GoPackage.PARAMETERS__FUNCTIONBODY:
-        return getFunctionbody();
-      case GoPackage.PARAMETERS__RESULT:
-        return getResult();
       case GoPackage.PARAMETERS__PARAMETERLIST:
         return getParameterlist();
     }
@@ -359,15 +151,6 @@ public class ParametersImpl extends ReceiverImpl implements Parameters
   {
     switch (featureID)
     {
-      case GoPackage.PARAMETERS__EXPRESSIONLIST:
-        setExpressionlist((ExpressionList)newValue);
-        return;
-      case GoPackage.PARAMETERS__FUNCTIONBODY:
-        setFunctionbody((FunctionBody)newValue);
-        return;
-      case GoPackage.PARAMETERS__RESULT:
-        setResult((Result)newValue);
-        return;
       case GoPackage.PARAMETERS__PARAMETERLIST:
         setParameterlist((ParameterList)newValue);
         return;
@@ -385,15 +168,6 @@ public class ParametersImpl extends ReceiverImpl implements Parameters
   {
     switch (featureID)
     {
-      case GoPackage.PARAMETERS__EXPRESSIONLIST:
-        setExpressionlist((ExpressionList)null);
-        return;
-      case GoPackage.PARAMETERS__FUNCTIONBODY:
-        setFunctionbody((FunctionBody)null);
-        return;
-      case GoPackage.PARAMETERS__RESULT:
-        setResult((Result)null);
-        return;
       case GoPackage.PARAMETERS__PARAMETERLIST:
         setParameterlist((ParameterList)null);
         return;
@@ -411,280 +185,10 @@ public class ParametersImpl extends ReceiverImpl implements Parameters
   {
     switch (featureID)
     {
-      case GoPackage.PARAMETERS__EXPRESSIONLIST:
-        return expressionlist != null;
-      case GoPackage.PARAMETERS__FUNCTIONBODY:
-        return functionbody != null;
-      case GoPackage.PARAMETERS__RESULT:
-        return result != null;
       case GoPackage.PARAMETERS__PARAMETERLIST:
         return parameterlist != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == ElementType.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == BaseType.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == Result.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == KeyType.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == ConstSpec.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == TypeSpec.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == TypeDef.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == AliasDecl.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == VarSpec.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == TypeAssertion.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == Type.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case GoPackage.PARAMETERS__EXPRESSIONLIST: return GoPackage.TYPE__EXPRESSIONLIST;
-        default: return -1;
-      }
-    }
-    if (baseClass == TypeLit.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == FunctionType.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == MethodSpec.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == Literal.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == FunctionLit.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == Signature.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case GoPackage.PARAMETERS__FUNCTIONBODY: return GoPackage.SIGNATURE__FUNCTIONBODY;
-        default: return -1;
-      }
-    }
-    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == ElementType.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == BaseType.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == Result.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == KeyType.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == ConstSpec.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == TypeSpec.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == TypeDef.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == AliasDecl.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == VarSpec.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == TypeAssertion.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == Type.class)
-    {
-      switch (baseFeatureID)
-      {
-        case GoPackage.TYPE__EXPRESSIONLIST: return GoPackage.PARAMETERS__EXPRESSIONLIST;
-        default: return -1;
-      }
-    }
-    if (baseClass == TypeLit.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == FunctionType.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == MethodSpec.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == Literal.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == FunctionLit.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == Signature.class)
-    {
-      switch (baseFeatureID)
-      {
-        case GoPackage.SIGNATURE__FUNCTIONBODY: return GoPackage.PARAMETERS__FUNCTIONBODY;
-        default: return -1;
-      }
-    }
-    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
   }
 
 } //ParametersImpl

@@ -23,6 +23,7 @@ import org.xtext.example.mydsl.go.Type;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.ReceiverTypeImpl#getMethodn <em>Methodn</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.ReceiverTypeImpl#getType <em>Type</em>}</li>
  * </ul>
  *
@@ -30,6 +31,26 @@ import org.xtext.example.mydsl.go.Type;
  */
 public class ReceiverTypeImpl extends MethodExprImpl implements ReceiverType
 {
+  /**
+   * The default value of the '{@link #getMethodn() <em>Methodn</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMethodn()
+   * @generated
+   * @ordered
+   */
+  protected static final String METHODN_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getMethodn() <em>Methodn</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMethodn()
+   * @generated
+   * @ordered
+   */
+  protected String methodn = METHODN_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -59,6 +80,29 @@ public class ReceiverTypeImpl extends MethodExprImpl implements ReceiverType
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.RECEIVER_TYPE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getMethodn()
+  {
+    return methodn;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMethodn(String newMethodn)
+  {
+    String oldMethodn = methodn;
+    methodn = newMethodn;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.RECEIVER_TYPE__METHODN, oldMethodn, methodn));
   }
 
   /**
@@ -135,6 +179,8 @@ public class ReceiverTypeImpl extends MethodExprImpl implements ReceiverType
   {
     switch (featureID)
     {
+      case GoPackage.RECEIVER_TYPE__METHODN:
+        return getMethodn();
       case GoPackage.RECEIVER_TYPE__TYPE:
         return getType();
     }
@@ -151,6 +197,9 @@ public class ReceiverTypeImpl extends MethodExprImpl implements ReceiverType
   {
     switch (featureID)
     {
+      case GoPackage.RECEIVER_TYPE__METHODN:
+        setMethodn((String)newValue);
+        return;
       case GoPackage.RECEIVER_TYPE__TYPE:
         setType((Type)newValue);
         return;
@@ -168,6 +217,9 @@ public class ReceiverTypeImpl extends MethodExprImpl implements ReceiverType
   {
     switch (featureID)
     {
+      case GoPackage.RECEIVER_TYPE__METHODN:
+        setMethodn(METHODN_EDEFAULT);
+        return;
       case GoPackage.RECEIVER_TYPE__TYPE:
         setType((Type)null);
         return;
@@ -185,10 +237,29 @@ public class ReceiverTypeImpl extends MethodExprImpl implements ReceiverType
   {
     switch (featureID)
     {
+      case GoPackage.RECEIVER_TYPE__METHODN:
+        return METHODN_EDEFAULT == null ? methodn != null : !METHODN_EDEFAULT.equals(methodn);
       case GoPackage.RECEIVER_TYPE__TYPE:
         return type != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (methodn: ");
+    result.append(methodn);
+    result.append(')');
+    return result.toString();
   }
 
 } //ReceiverTypeImpl

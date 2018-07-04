@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.xtext.example.mydsl.go.Condition;
 import org.xtext.example.mydsl.go.ForClause;
 import org.xtext.example.mydsl.go.GoPackage;
+import org.xtext.example.mydsl.go.InitStmt;
 import org.xtext.example.mydsl.go.PostStmt;
 
 /**
@@ -25,6 +26,7 @@ import org.xtext.example.mydsl.go.PostStmt;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.ForClauseImpl#getInit <em>Init</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.ForClauseImpl#getCondition <em>Condition</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.ForClauseImpl#getPoststmt <em>Poststmt</em>}</li>
  * </ul>
@@ -33,6 +35,16 @@ import org.xtext.example.mydsl.go.PostStmt;
  */
 public class ForClauseImpl extends MinimalEObjectImpl.Container implements ForClause
 {
+  /**
+   * The cached value of the '{@link #getInit() <em>Init</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInit()
+   * @generated
+   * @ordered
+   */
+  protected InitStmt init;
+
   /**
    * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -72,6 +84,54 @@ public class ForClauseImpl extends MinimalEObjectImpl.Container implements ForCl
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.FOR_CLAUSE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public InitStmt getInit()
+  {
+    return init;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetInit(InitStmt newInit, NotificationChain msgs)
+  {
+    InitStmt oldInit = init;
+    init = newInit;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.FOR_CLAUSE__INIT, oldInit, newInit);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setInit(InitStmt newInit)
+  {
+    if (newInit != init)
+    {
+      NotificationChain msgs = null;
+      if (init != null)
+        msgs = ((InternalEObject)init).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.FOR_CLAUSE__INIT, null, msgs);
+      if (newInit != null)
+        msgs = ((InternalEObject)newInit).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.FOR_CLAUSE__INIT, null, msgs);
+      msgs = basicSetInit(newInit, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.FOR_CLAUSE__INIT, newInit, newInit));
   }
 
   /**
@@ -180,6 +240,8 @@ public class ForClauseImpl extends MinimalEObjectImpl.Container implements ForCl
   {
     switch (featureID)
     {
+      case GoPackage.FOR_CLAUSE__INIT:
+        return basicSetInit(null, msgs);
       case GoPackage.FOR_CLAUSE__CONDITION:
         return basicSetCondition(null, msgs);
       case GoPackage.FOR_CLAUSE__POSTSTMT:
@@ -198,6 +260,8 @@ public class ForClauseImpl extends MinimalEObjectImpl.Container implements ForCl
   {
     switch (featureID)
     {
+      case GoPackage.FOR_CLAUSE__INIT:
+        return getInit();
       case GoPackage.FOR_CLAUSE__CONDITION:
         return getCondition();
       case GoPackage.FOR_CLAUSE__POSTSTMT:
@@ -216,6 +280,9 @@ public class ForClauseImpl extends MinimalEObjectImpl.Container implements ForCl
   {
     switch (featureID)
     {
+      case GoPackage.FOR_CLAUSE__INIT:
+        setInit((InitStmt)newValue);
+        return;
       case GoPackage.FOR_CLAUSE__CONDITION:
         setCondition((Condition)newValue);
         return;
@@ -236,6 +303,9 @@ public class ForClauseImpl extends MinimalEObjectImpl.Container implements ForCl
   {
     switch (featureID)
     {
+      case GoPackage.FOR_CLAUSE__INIT:
+        setInit((InitStmt)null);
+        return;
       case GoPackage.FOR_CLAUSE__CONDITION:
         setCondition((Condition)null);
         return;
@@ -256,6 +326,8 @@ public class ForClauseImpl extends MinimalEObjectImpl.Container implements ForCl
   {
     switch (featureID)
     {
+      case GoPackage.FOR_CLAUSE__INIT:
+        return init != null;
       case GoPackage.FOR_CLAUSE__CONDITION:
         return condition != null;
       case GoPackage.FOR_CLAUSE__POSTSTMT:

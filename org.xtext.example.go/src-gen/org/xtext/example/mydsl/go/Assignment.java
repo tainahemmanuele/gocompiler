@@ -3,6 +3,7 @@
  */
 package org.xtext.example.mydsl.go;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,6 +15,7 @@ package org.xtext.example.mydsl.go;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.go.Assignment#getExpressionlist <em>Expressionlist</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.Assignment#getAsop <em>Asop</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.Assignment#getExpressionlist2 <em>Expressionlist2</em>}</li>
  * </ul>
  *
@@ -21,7 +23,7 @@ package org.xtext.example.mydsl.go;
  * @model
  * @generated
  */
-public interface Assignment extends SimpleStmt
+public interface Assignment extends EObject
 {
   /**
    * Returns the value of the '<em><b>Expressionlist</b></em>' containment reference.
@@ -48,6 +50,32 @@ public interface Assignment extends SimpleStmt
    * @generated
    */
   void setExpressionlist(ExpressionList value);
+
+  /**
+   * Returns the value of the '<em><b>Asop</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Asop</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Asop</em>' attribute.
+   * @see #setAsop(String)
+   * @see org.xtext.example.mydsl.go.GoPackage#getAssignment_Asop()
+   * @model
+   * @generated
+   */
+  String getAsop();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.Assignment#getAsop <em>Asop</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Asop</em>' attribute.
+   * @see #getAsop()
+   * @generated
+   */
+  void setAsop(String value);
 
   /**
    * Returns the value of the '<em><b>Expressionlist2</b></em>' containment reference.

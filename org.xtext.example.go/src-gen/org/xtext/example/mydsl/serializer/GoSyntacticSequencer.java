@@ -22,208 +22,35 @@ import org.xtext.example.mydsl.services.GoGrammarAccess;
 public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected GoGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_AliasDecl_TypeDef_IDENTIFIERParserRuleCall_0_or___IDENTIFIERParserRuleCall_0_EqualsSignKeyword_1__;
 	protected AbstractElementAlias match_Arguments_CommaKeyword_2_2_q;
 	protected AbstractElementAlias match_Arguments_FullStopFullStopFullStopKeyword_2_1_q;
-	protected AbstractElementAlias match_ArrayType_Type_VarSpec_EqualsSignKeyword_1_1_0_or___LeftParenthesisKeyword_2_0_a_LeftSquareBracketKeyword_0__;
 	protected AbstractElementAlias match_ChannelType___ChanKeyword_0_0_0_LessThanSignHyphenMinusKeyword_0_0_1_q___or___LessThanSignHyphenMinusKeyword_0_1_0_ChanKeyword_0_1_1__;
-	protected AbstractElementAlias match_Conversion_CommaKeyword_3_q;
-	protected AbstractElementAlias match_FieldDecl_TagParserRuleCall_2_q;
-	protected AbstractElementAlias match_FunctionType_Type___LeftParenthesisKeyword_2_0_a_FuncKeyword_0__q;
-	protected AbstractElementAlias match_IncDecStmt_HyphenMinusHyphenMinusKeyword_1_1_or_PlusSignPlusSignKeyword_1_0;
+	protected AbstractElementAlias match_ConstDecl_SemicolonKeyword_2_1_1_1_q;
+	protected AbstractElementAlias match_Conversion_CommaKeyword_4_q;
+	protected AbstractElementAlias match_ElementList_CommaKeyword_1_0_q;
 	protected AbstractElementAlias match_LiteralValue_CommaKeyword_2_1_q;
-	protected AbstractElementAlias match_ParameterDecl_FullStopFullStopFullStopKeyword_1_q;
-	protected AbstractElementAlias match_Parameters_CommaKeyword_2_1_q;
-	protected AbstractElementAlias match_RangeClause___IdentifierListParserRuleCall_0_1_0_ColonEqualsSignKeyword_0_1_1__q;
-	protected AbstractElementAlias match_RecvStmt___IdentifierListParserRuleCall_0_1_0_ColonEqualsSignKeyword_0_1_1__q;
-	protected AbstractElementAlias match_ShortVarDecl___IdentifierListParserRuleCall_0_ColonEqualsSignKeyword_1__q;
-	protected AbstractElementAlias match_TypeSwitchGuard___IDENTIFIERParserRuleCall_0_0_ColonEqualsSignKeyword_0_1__q;
-	protected AbstractElementAlias match_Type_LeftParenthesisKeyword_2_0_a;
-	protected AbstractElementAlias match_UnaryExpr_UNARY_OPTerminalRuleCall_1_0_a;
+	protected AbstractElementAlias match_ParameterDecl_FullStopFullStopFullStopKeyword_2_q;
+	protected AbstractElementAlias match_StatementList_SemicolonKeyword_1_1_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (GoGrammarAccess) access;
-		match_AliasDecl_TypeDef_IDENTIFIERParserRuleCall_0_or___IDENTIFIERParserRuleCall_0_EqualsSignKeyword_1__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getAliasDeclAccess().getIDENTIFIERParserRuleCall_0()), new TokenAlias(false, false, grammarAccess.getAliasDeclAccess().getEqualsSignKeyword_1())), new TokenAlias(false, false, grammarAccess.getTypeDefAccess().getIDENTIFIERParserRuleCall_0()));
 		match_Arguments_CommaKeyword_2_2_q = new TokenAlias(false, true, grammarAccess.getArgumentsAccess().getCommaKeyword_2_2());
 		match_Arguments_FullStopFullStopFullStopKeyword_2_1_q = new TokenAlias(false, true, grammarAccess.getArgumentsAccess().getFullStopFullStopFullStopKeyword_2_1());
-		match_ArrayType_Type_VarSpec_EqualsSignKeyword_1_1_0_or___LeftParenthesisKeyword_2_0_a_LeftSquareBracketKeyword_0__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(true, true, grammarAccess.getTypeAccess().getLeftParenthesisKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getArrayTypeAccess().getLeftSquareBracketKeyword_0())), new TokenAlias(false, false, grammarAccess.getVarSpecAccess().getEqualsSignKeyword_1_1_0()));
 		match_ChannelType___ChanKeyword_0_0_0_LessThanSignHyphenMinusKeyword_0_0_1_q___or___LessThanSignHyphenMinusKeyword_0_1_0_ChanKeyword_0_1_1__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getChannelTypeAccess().getChanKeyword_0_0_0()), new TokenAlias(false, true, grammarAccess.getChannelTypeAccess().getLessThanSignHyphenMinusKeyword_0_0_1())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getChannelTypeAccess().getLessThanSignHyphenMinusKeyword_0_1_0()), new TokenAlias(false, false, grammarAccess.getChannelTypeAccess().getChanKeyword_0_1_1())));
-		match_Conversion_CommaKeyword_3_q = new TokenAlias(false, true, grammarAccess.getConversionAccess().getCommaKeyword_3());
-		match_FieldDecl_TagParserRuleCall_2_q = new TokenAlias(false, true, grammarAccess.getFieldDeclAccess().getTagParserRuleCall_2());
-		match_FunctionType_Type___LeftParenthesisKeyword_2_0_a_FuncKeyword_0__q = new GroupAlias(false, true, new TokenAlias(true, true, grammarAccess.getTypeAccess().getLeftParenthesisKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getFunctionTypeAccess().getFuncKeyword_0()));
-		match_IncDecStmt_HyphenMinusHyphenMinusKeyword_1_1_or_PlusSignPlusSignKeyword_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getIncDecStmtAccess().getHyphenMinusHyphenMinusKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getIncDecStmtAccess().getPlusSignPlusSignKeyword_1_0()));
+		match_ConstDecl_SemicolonKeyword_2_1_1_1_q = new TokenAlias(false, true, grammarAccess.getConstDeclAccess().getSemicolonKeyword_2_1_1_1());
+		match_Conversion_CommaKeyword_4_q = new TokenAlias(false, true, grammarAccess.getConversionAccess().getCommaKeyword_4());
+		match_ElementList_CommaKeyword_1_0_q = new TokenAlias(false, true, grammarAccess.getElementListAccess().getCommaKeyword_1_0());
 		match_LiteralValue_CommaKeyword_2_1_q = new TokenAlias(false, true, grammarAccess.getLiteralValueAccess().getCommaKeyword_2_1());
-		match_ParameterDecl_FullStopFullStopFullStopKeyword_1_q = new TokenAlias(false, true, grammarAccess.getParameterDeclAccess().getFullStopFullStopFullStopKeyword_1());
-		match_Parameters_CommaKeyword_2_1_q = new TokenAlias(false, true, grammarAccess.getParametersAccess().getCommaKeyword_2_1());
-		match_RangeClause___IdentifierListParserRuleCall_0_1_0_ColonEqualsSignKeyword_0_1_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getRangeClauseAccess().getIdentifierListParserRuleCall_0_1_0()), new TokenAlias(false, false, grammarAccess.getRangeClauseAccess().getColonEqualsSignKeyword_0_1_1()));
-		match_RecvStmt___IdentifierListParserRuleCall_0_1_0_ColonEqualsSignKeyword_0_1_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getRecvStmtAccess().getIdentifierListParserRuleCall_0_1_0()), new TokenAlias(false, false, grammarAccess.getRecvStmtAccess().getColonEqualsSignKeyword_0_1_1()));
-		match_ShortVarDecl___IdentifierListParserRuleCall_0_ColonEqualsSignKeyword_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getShortVarDeclAccess().getIdentifierListParserRuleCall_0()), new TokenAlias(false, false, grammarAccess.getShortVarDeclAccess().getColonEqualsSignKeyword_1()));
-		match_TypeSwitchGuard___IDENTIFIERParserRuleCall_0_0_ColonEqualsSignKeyword_0_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getTypeSwitchGuardAccess().getIDENTIFIERParserRuleCall_0_0()), new TokenAlias(false, false, grammarAccess.getTypeSwitchGuardAccess().getColonEqualsSignKeyword_0_1()));
-		match_Type_LeftParenthesisKeyword_2_0_a = new TokenAlias(true, true, grammarAccess.getTypeAccess().getLeftParenthesisKeyword_2_0());
-		match_UnaryExpr_UNARY_OPTerminalRuleCall_1_0_a = new TokenAlias(true, true, grammarAccess.getUnaryExprAccess().getUNARY_OPTerminalRuleCall_1_0());
+		match_ParameterDecl_FullStopFullStopFullStopKeyword_2_q = new TokenAlias(false, true, grammarAccess.getParameterDeclAccess().getFullStopFullStopFullStopKeyword_2());
+		match_StatementList_SemicolonKeyword_1_1_q = new TokenAlias(false, true, grammarAccess.getStatementListAccess().getSemicolonKeyword_1_1());
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getASSING_OPRule())
-			return getASSING_OPToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getBINARY_OPRule())
-			return getBINARY_OPToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getBasicLitRule())
-			return getBasicLitToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getEmbeddedFieldRule())
-			return getEmbeddedFieldToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getFieldNameRule())
-			return getFieldNameToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getIDENTIFIERRule())
-			return getIDENTIFIERToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getIdentifierListRule())
-			return getIdentifierListToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getInterfaceTypeNameRule())
-			return getInterfaceTypeNameToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getMethodNameRule())
-			return getMethodNameToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getSelectorRule())
-			return getSelectorToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getTagRule())
-			return getTagToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getTypeNameRule())
-			return getTypeNameToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getUNARY_OPRule())
-			return getUNARY_OPToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
-	/**
-	 * terminal ASSING_OP:
-	 * 	(ADD_OP | MUL_OP)? '=';
-	 */
-	protected String getASSING_OPToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "=";
-	}
-	
-	/**
-	 * terminal BINARY_OP:
-	 * 	"||" | "&&" | REL_OP | ADD_OP | MUL_OP;
-	 */
-	protected String getBINARY_OPToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "||";
-	}
-	
-	/**
-	 * BasicLit:
-	 * 	INT_LIT | FLOAT_LIT | IMAGINARY_LIT | RUNE_LIT | STRING_LIT;
-	 */
-	protected String getBasicLitToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "10";
-	}
-	
-	/**
-	 * EmbeddedField:
-	 * 	('*')? TypeName;
-	 */
-	protected String getEmbeddedFieldToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "A-Z";
-	}
-	
-	/**
-	 * FieldName:
-	 * 	IDENTIFIER;
-	 */
-	protected String getFieldNameToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "A-Z";
-	}
-	
-	/**
-	 * IDENTIFIER:
-	 * 	LETTER (LETTER | UNICODE_DIGIT)*;
-	 */
-	protected String getIDENTIFIERToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "A-Z";
-	}
-	
-	/**
-	 * IdentifierList:
-	 * 	IDENTIFIER ("," IDENTIFIER)*;
-	 */
-	protected String getIdentifierListToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "A-Z";
-	}
-	
-	/**
-	 * InterfaceTypeName:
-	 * 	TypeName;
-	 */
-	protected String getInterfaceTypeNameToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "A-Z";
-	}
-	
-	/**
-	 * MethodName:
-	 * 	IDENTIFIER;
-	 */
-	protected String getMethodNameToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "A-Z";
-	}
-	
-	/**
-	 * Selector:
-	 * 	'.' IDENTIFIER;
-	 */
-	protected String getSelectorToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return ".A-Z";
-	}
-	
-	/**
-	 * Tag:
-	 * 	STRING_LIT;
-	 */
-	protected String getTagToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "\'\'";
-	}
-	
-	/**
-	 * TypeName:
-	 * 	IDENTIFIER | QualifiedIdent;
-	 */
-	protected String getTypeNameToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "A-Z";
-	}
-	
-	/**
-	 * terminal UNARY_OP:
-	 * 	"+" | "-" | "!" | "^" | "*" | "&" | "<-";
-	 */
-	protected String getUNARY_OPToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "+";
-	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
@@ -231,78 +58,33 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_AliasDecl_TypeDef_IDENTIFIERParserRuleCall_0_or___IDENTIFIERParserRuleCall_0_EqualsSignKeyword_1__.equals(syntax))
-				emit_AliasDecl_TypeDef_IDENTIFIERParserRuleCall_0_or___IDENTIFIERParserRuleCall_0_EqualsSignKeyword_1__(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Arguments_CommaKeyword_2_2_q.equals(syntax))
+			if (match_Arguments_CommaKeyword_2_2_q.equals(syntax))
 				emit_Arguments_CommaKeyword_2_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Arguments_FullStopFullStopFullStopKeyword_2_1_q.equals(syntax))
 				emit_Arguments_FullStopFullStopFullStopKeyword_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_ArrayType_Type_VarSpec_EqualsSignKeyword_1_1_0_or___LeftParenthesisKeyword_2_0_a_LeftSquareBracketKeyword_0__.equals(syntax))
-				emit_ArrayType_Type_VarSpec_EqualsSignKeyword_1_1_0_or___LeftParenthesisKeyword_2_0_a_LeftSquareBracketKeyword_0__(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_ChannelType___ChanKeyword_0_0_0_LessThanSignHyphenMinusKeyword_0_0_1_q___or___LessThanSignHyphenMinusKeyword_0_1_0_ChanKeyword_0_1_1__.equals(syntax))
 				emit_ChannelType___ChanKeyword_0_0_0_LessThanSignHyphenMinusKeyword_0_0_1_q___or___LessThanSignHyphenMinusKeyword_0_1_0_ChanKeyword_0_1_1__(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Conversion_CommaKeyword_3_q.equals(syntax))
-				emit_Conversion_CommaKeyword_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_FieldDecl_TagParserRuleCall_2_q.equals(syntax))
-				emit_FieldDecl_TagParserRuleCall_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_FunctionType_Type___LeftParenthesisKeyword_2_0_a_FuncKeyword_0__q.equals(syntax))
-				emit_FunctionType_Type___LeftParenthesisKeyword_2_0_a_FuncKeyword_0__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_IncDecStmt_HyphenMinusHyphenMinusKeyword_1_1_or_PlusSignPlusSignKeyword_1_0.equals(syntax))
-				emit_IncDecStmt_HyphenMinusHyphenMinusKeyword_1_1_or_PlusSignPlusSignKeyword_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_ConstDecl_SemicolonKeyword_2_1_1_1_q.equals(syntax))
+				emit_ConstDecl_SemicolonKeyword_2_1_1_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Conversion_CommaKeyword_4_q.equals(syntax))
+				emit_Conversion_CommaKeyword_4_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_ElementList_CommaKeyword_1_0_q.equals(syntax))
+				emit_ElementList_CommaKeyword_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_LiteralValue_CommaKeyword_2_1_q.equals(syntax))
 				emit_LiteralValue_CommaKeyword_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_ParameterDecl_FullStopFullStopFullStopKeyword_1_q.equals(syntax))
-				emit_ParameterDecl_FullStopFullStopFullStopKeyword_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Parameters_CommaKeyword_2_1_q.equals(syntax))
-				emit_Parameters_CommaKeyword_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_RangeClause___IdentifierListParserRuleCall_0_1_0_ColonEqualsSignKeyword_0_1_1__q.equals(syntax))
-				emit_RangeClause___IdentifierListParserRuleCall_0_1_0_ColonEqualsSignKeyword_0_1_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_RecvStmt___IdentifierListParserRuleCall_0_1_0_ColonEqualsSignKeyword_0_1_1__q.equals(syntax))
-				emit_RecvStmt___IdentifierListParserRuleCall_0_1_0_ColonEqualsSignKeyword_0_1_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_ShortVarDecl___IdentifierListParserRuleCall_0_ColonEqualsSignKeyword_1__q.equals(syntax))
-				emit_ShortVarDecl___IdentifierListParserRuleCall_0_ColonEqualsSignKeyword_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_TypeSwitchGuard___IDENTIFIERParserRuleCall_0_0_ColonEqualsSignKeyword_0_1__q.equals(syntax))
-				emit_TypeSwitchGuard___IDENTIFIERParserRuleCall_0_0_ColonEqualsSignKeyword_0_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Type_LeftParenthesisKeyword_2_0_a.equals(syntax))
-				emit_Type_LeftParenthesisKeyword_2_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_UnaryExpr_UNARY_OPTerminalRuleCall_1_0_a.equals(syntax))
-				emit_UnaryExpr_UNARY_OPTerminalRuleCall_1_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_ParameterDecl_FullStopFullStopFullStopKeyword_2_q.equals(syntax))
+				emit_ParameterDecl_FullStopFullStopFullStopKeyword_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_StatementList_SemicolonKeyword_1_1_q.equals(syntax))
+				emit_StatementList_SemicolonKeyword_1_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
 	/**
 	 * Ambiguous syntax:
-	 *     IDENTIFIER | (IDENTIFIER '=')
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) '('* '*' basetype=BaseType
-	 *     (rule start) (ambiguity) '('* '[' ']' elemtype=ElementType
-	 *     (rule start) (ambiguity) '('* '[' UNARY_OP* '(' expression=Expression
-	 *     (rule start) (ambiguity) '('* '[' UNARY_OP* literal=Literal
-	 *     (rule start) (ambiguity) '('* '[' UNARY_OP* operandn=OperandName
-	 *     (rule start) (ambiguity) '('* '[' UNARY_OP* type=Type
-	 *     (rule start) (ambiguity) '('* 'func' '(' ')' (rule start)
-	 *     (rule start) (ambiguity) '('* 'func' '(' ')' result=Result
-	 *     (rule start) (ambiguity) '('* 'func' '(' parameterlist=ParameterList
-	 *     (rule start) (ambiguity) '('* 'interface' '{' '}' (rule start)
-	 *     (rule start) (ambiguity) '('* 'interface' '{' methodspec+=MethodSpec
-	 *     (rule start) (ambiguity) '('* 'map' '[' keytype=KeyType
-	 *     (rule start) (ambiguity) '('* 'struct' '{' '}' (rule start)
-	 *     (rule start) (ambiguity) '('* 'struct' '{' fielddecl+=FieldDecl
-	 *     (rule start) (ambiguity) '('* (('chan' '<-'?) | ('<-' 'chan')) elemtype=ElementType
-	 *     (rule start) (ambiguity) '('* TypeName (rule start)
-	 */
-	protected void emit_AliasDecl_TypeDef_IDENTIFIERParserRuleCall_0_or___IDENTIFIERParserRuleCall_0_EqualsSignKeyword_1__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
 	 *     ','?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) '(' '...'? (ambiguity) ')' (rule start)
 	 *     expressionlist=ExpressionList '...'? (ambiguity) ')' (rule end)
 	 *     type=Type '...'? (ambiguity) ')' (rule end)
 	 */
@@ -315,7 +97,6 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '...'?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) '(' (ambiguity) ','? ')' (rule start)
 	 *     expressionlist=ExpressionList (ambiguity) ','? ')' (rule end)
 	 *     type=Type (ambiguity) ','? ')' (rule end)
 	 */
@@ -325,32 +106,24 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     ('('* '[') | '='
+	 *     ('chan' '<-'?) | ('<-' 'chan')
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) IdentifierList (ambiguity) UNARY_OP* '(' expression=Expression
-	 *     (rule start) IdentifierList (ambiguity) UNARY_OP* literal=Literal
-	 *     (rule start) IdentifierList (ambiguity) UNARY_OP* operandn=OperandName
-	 *     (rule start) IdentifierList (ambiguity) UNARY_OP* type=Type
+	 *     (rule start) (ambiguity) elemtype=ElementType
 	 */
-	protected void emit_ArrayType_Type_VarSpec_EqualsSignKeyword_1_1_0_or___LeftParenthesisKeyword_2_0_a_LeftSquareBracketKeyword_0__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_ChannelType___ChanKeyword_0_0_0_LessThanSignHyphenMinusKeyword_0_0_1_q___or___LessThanSignHyphenMinusKeyword_0_1_0_ChanKeyword_0_1_1__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Ambiguous syntax:
-	 *     ('chan' '<-'?) | ('<-' 'chan')
+	 *     ';'?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) '('* (ambiguity) elemtype=ElementType
-	 *     (rule start) '.' '(' '('* (ambiguity) elemtype=ElementType
-	 *     (rule start) (IDENTIFIER | (IDENTIFIER '=')) '('* (ambiguity) elemtype=ElementType
-	 *     (rule start) (ambiguity) elemtype=ElementType
-	 *     (rule start) IDENTIFIER '('* (ambiguity) elemtype=ElementType
-	 *     (rule start) IDENTIFIER '=' '('* (ambiguity) elemtype=ElementType
-	 *     (rule start) IdentifierList '('* (ambiguity) elemtype=ElementType
+	 *     constspec2+=ConstSpec (ambiguity) ')' (rule end)
+	 *     constspec2+=ConstSpec (ambiguity) constspec2+=ConstSpec
 	 */
-	protected void emit_ChannelType___ChanKeyword_0_0_0_LessThanSignHyphenMinusKeyword_0_0_1_q___or___LessThanSignHyphenMinusKeyword_0_1_0_ChanKeyword_0_1_1__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_ConstDecl_SemicolonKeyword_2_1_1_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -360,45 +133,20 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     expression=Expression (ambiguity) ')' (rule end)
-	 *     expression=Expression (ambiguity) ')' pr=PrimaryExpr2
 	 */
-	protected void emit_Conversion_CommaKeyword_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Conversion_CommaKeyword_4_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Ambiguous syntax:
-	 *     Tag?
+	 *     ','?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) EmbeddedField (ambiguity) (rule start)
-	 *     type=Type (ambiguity) (rule end)
+	 *     element=Element (ambiguity) keyedelement+=KeyedElement
+	 *     keyedelement+=KeyedElement (ambiguity) keyedelement+=KeyedElement
 	 */
-	protected void emit_FieldDecl_TagParserRuleCall_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ('('* 'func')?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) '(' ')' (rule start)
-	 *     (rule start) (ambiguity) '(' ')' result=Result
-	 *     (rule start) (ambiguity) '(' parameterlist=ParameterList
-	 */
-	protected void emit_FunctionType_Type___LeftParenthesisKeyword_2_0_a_FuncKeyword_0__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     '++' | '--'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     exp=Expression2 (ambiguity) (rule end)
-	 */
-	protected void emit_IncDecStmt_HyphenMinusHyphenMinusKeyword_1_1_or_PlusSignPlusSignKeyword_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_ElementList_CommaKeyword_1_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -419,251 +167,25 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '...'?
 	 *
 	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) (rule start)
 	 *     (rule start) (ambiguity) type=Type
-	 *     indentifierL=IdentifierList (ambiguity) type=Type
+	 *     identifierL=IdentifierList (ambiguity) (rule end)
+	 *     identifierL=IdentifierList (ambiguity) type=Type
 	 */
-	protected void emit_ParameterDecl_FullStopFullStopFullStopKeyword_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_ParameterDecl_FullStopFullStopFullStopKeyword_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Ambiguous syntax:
-	 *     ','?
+	 *     ';'?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     parameterlist=ParameterList (ambiguity) ')' ')' (rule end)
-	 *     parameterlist=ParameterList (ambiguity) ')' '=' expressionlist=ExpressionList
-	 *     parameterlist=ParameterList (ambiguity) ')' (rule end)
-	 *     parameterlist=ParameterList (ambiguity) ')' functionbody=FunctionBody
-	 *     parameterlist=ParameterList (ambiguity) ')' result=Result
+	 *     statment+=Statement (ambiguity) '}' (rule end)
+	 *     statment+=Statement (ambiguity) (rule end)
+	 *     statment+=Statement (ambiguity) statment+=Statement
 	 */
-	protected void emit_Parameters_CommaKeyword_2_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     (IdentifierList ':=')?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) 'range' expression=Expression
-	 */
-	protected void emit_RangeClause___IdentifierListParserRuleCall_0_1_0_ColonEqualsSignKeyword_0_1_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     (IdentifierList ':=')?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) recvexpr=RecvExpr
-	 */
-	protected void emit_RecvStmt___IdentifierListParserRuleCall_0_1_0_ColonEqualsSignKeyword_0_1_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     (IdentifierList ':=')?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) 'switch' (ambiguity) UNARY_OP* '(' expression=Expression
-	 *     (rule start) 'switch' (ambiguity) UNARY_OP* literal=Literal
-	 *     (rule start) 'switch' (ambiguity) UNARY_OP* operandn=OperandName
-	 *     (rule start) 'switch' (ambiguity) UNARY_OP* type=Type
-	 *     (rule start) (ambiguity) UNARY_OP* '(' expression=Expression
-	 *     (rule start) (ambiguity) UNARY_OP* literal=Literal
-	 *     (rule start) (ambiguity) UNARY_OP* operandn=OperandName
-	 *     (rule start) (ambiguity) UNARY_OP* type=Type
-	 */
-	protected void emit_ShortVarDecl___IdentifierListParserRuleCall_0_ColonEqualsSignKeyword_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     (IDENTIFIER ':=')?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) '(' expression=Expression
-	 *     (rule start) (ambiguity) literal=Literal
-	 *     (rule start) (ambiguity) operandn=OperandName
-	 *     (rule start) (ambiguity) type=Type
-	 */
-	protected void emit_TypeSwitchGuard___IDENTIFIERParserRuleCall_0_0_ColonEqualsSignKeyword_0_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     '('*
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) '.' '(' (ambiguity) '*' basetype=BaseType
-	 *     (rule start) '.' '(' (ambiguity) '[' ']' elemtype=ElementType
-	 *     (rule start) '.' '(' (ambiguity) '[' UNARY_OP* '(' expression=Expression
-	 *     (rule start) '.' '(' (ambiguity) '[' UNARY_OP* literal=Literal
-	 *     (rule start) '.' '(' (ambiguity) '[' UNARY_OP* operandn=OperandName
-	 *     (rule start) '.' '(' (ambiguity) '[' UNARY_OP* type=Type
-	 *     (rule start) '.' '(' (ambiguity) 'func' '(' ')' ')' (rule start)
-	 *     (rule start) '.' '(' (ambiguity) 'func' '(' ')' result=Result
-	 *     (rule start) '.' '(' (ambiguity) 'func' '(' parameterlist=ParameterList
-	 *     (rule start) '.' '(' (ambiguity) 'interface' '{' '}' ')' (rule start)
-	 *     (rule start) '.' '(' (ambiguity) 'interface' '{' methodspec+=MethodSpec
-	 *     (rule start) '.' '(' (ambiguity) 'map' '[' keytype=KeyType
-	 *     (rule start) '.' '(' (ambiguity) 'struct' '{' '}' ')' (rule start)
-	 *     (rule start) '.' '(' (ambiguity) 'struct' '{' fielddecl+=FieldDecl
-	 *     (rule start) '.' '(' (ambiguity) (('chan' '<-'?) | ('<-' 'chan')) elemtype=ElementType
-	 *     (rule start) '.' '(' (ambiguity) TypeName ')' (rule start)
-	 *     (rule start) (IDENTIFIER | (IDENTIFIER '=')) (ambiguity) '*' basetype=BaseType
-	 *     (rule start) (IDENTIFIER | (IDENTIFIER '=')) (ambiguity) '[' ']' elemtype=ElementType
-	 *     (rule start) (IDENTIFIER | (IDENTIFIER '=')) (ambiguity) '[' UNARY_OP* '(' expression=Expression
-	 *     (rule start) (IDENTIFIER | (IDENTIFIER '=')) (ambiguity) '[' UNARY_OP* literal=Literal
-	 *     (rule start) (IDENTIFIER | (IDENTIFIER '=')) (ambiguity) '[' UNARY_OP* operandn=OperandName
-	 *     (rule start) (IDENTIFIER | (IDENTIFIER '=')) (ambiguity) '[' UNARY_OP* type=Type
-	 *     (rule start) (IDENTIFIER | (IDENTIFIER '=')) (ambiguity) 'func' '(' ')' (rule start)
-	 *     (rule start) (IDENTIFIER | (IDENTIFIER '=')) (ambiguity) 'func' '(' ')' result=Result
-	 *     (rule start) (IDENTIFIER | (IDENTIFIER '=')) (ambiguity) 'func' '(' parameterlist=ParameterList
-	 *     (rule start) (IDENTIFIER | (IDENTIFIER '=')) (ambiguity) 'interface' '{' '}' (rule start)
-	 *     (rule start) (IDENTIFIER | (IDENTIFIER '=')) (ambiguity) 'interface' '{' methodspec+=MethodSpec
-	 *     (rule start) (IDENTIFIER | (IDENTIFIER '=')) (ambiguity) 'map' '[' keytype=KeyType
-	 *     (rule start) (IDENTIFIER | (IDENTIFIER '=')) (ambiguity) 'struct' '{' '}' (rule start)
-	 *     (rule start) (IDENTIFIER | (IDENTIFIER '=')) (ambiguity) 'struct' '{' fielddecl+=FieldDecl
-	 *     (rule start) (IDENTIFIER | (IDENTIFIER '=')) (ambiguity) (('chan' '<-'?) | ('<-' 'chan')) elemtype=ElementType
-	 *     (rule start) (IDENTIFIER | (IDENTIFIER '=')) (ambiguity) TypeName (rule start)
-	 *     (rule start) (ambiguity) '*' basetype=BaseType
-	 *     (rule start) (ambiguity) '[' ']' elemtype=ElementType
-	 *     (rule start) (ambiguity) '[' UNARY_OP* '(' expression=Expression
-	 *     (rule start) (ambiguity) '[' UNARY_OP* literal=Literal
-	 *     (rule start) (ambiguity) '[' UNARY_OP* operandn=OperandName
-	 *     (rule start) (ambiguity) '[' UNARY_OP* type=Type
-	 *     (rule start) (ambiguity) 'func' '(' ')' (rule start)
-	 *     (rule start) (ambiguity) 'func' '(' ')' result=Result
-	 *     (rule start) (ambiguity) 'func' '(' parameterlist=ParameterList
-	 *     (rule start) (ambiguity) 'interface' '{' '}' (rule start)
-	 *     (rule start) (ambiguity) 'interface' '{' methodspec+=MethodSpec
-	 *     (rule start) (ambiguity) 'map' '[' keytype=KeyType
-	 *     (rule start) (ambiguity) 'struct' '{' '}' (rule start)
-	 *     (rule start) (ambiguity) 'struct' '{' fielddecl+=FieldDecl
-	 *     (rule start) (ambiguity) (('chan' '<-'?) | ('<-' 'chan')) elemtype=ElementType
-	 *     (rule start) (ambiguity) TypeName (rule start)
-	 *     (rule start) IDENTIFIER '=' (ambiguity) '*' basetype=BaseType
-	 *     (rule start) IDENTIFIER '=' (ambiguity) '[' ']' elemtype=ElementType
-	 *     (rule start) IDENTIFIER '=' (ambiguity) '[' UNARY_OP* '(' expression=Expression
-	 *     (rule start) IDENTIFIER '=' (ambiguity) '[' UNARY_OP* literal=Literal
-	 *     (rule start) IDENTIFIER '=' (ambiguity) '[' UNARY_OP* operandn=OperandName
-	 *     (rule start) IDENTIFIER '=' (ambiguity) '[' UNARY_OP* type=Type
-	 *     (rule start) IDENTIFIER '=' (ambiguity) 'func' '(' ')' (rule start)
-	 *     (rule start) IDENTIFIER '=' (ambiguity) 'func' '(' ')' result=Result
-	 *     (rule start) IDENTIFIER '=' (ambiguity) 'func' '(' parameterlist=ParameterList
-	 *     (rule start) IDENTIFIER '=' (ambiguity) 'interface' '{' '}' (rule start)
-	 *     (rule start) IDENTIFIER '=' (ambiguity) 'interface' '{' methodspec+=MethodSpec
-	 *     (rule start) IDENTIFIER '=' (ambiguity) 'map' '[' keytype=KeyType
-	 *     (rule start) IDENTIFIER '=' (ambiguity) 'struct' '{' '}' (rule start)
-	 *     (rule start) IDENTIFIER '=' (ambiguity) 'struct' '{' fielddecl+=FieldDecl
-	 *     (rule start) IDENTIFIER '=' (ambiguity) (('chan' '<-'?) | ('<-' 'chan')) elemtype=ElementType
-	 *     (rule start) IDENTIFIER '=' (ambiguity) TypeName (rule start)
-	 *     (rule start) IDENTIFIER (ambiguity) '*' basetype=BaseType
-	 *     (rule start) IDENTIFIER (ambiguity) '[' ']' elemtype=ElementType
-	 *     (rule start) IDENTIFIER (ambiguity) '[' UNARY_OP* '(' expression=Expression
-	 *     (rule start) IDENTIFIER (ambiguity) '[' UNARY_OP* literal=Literal
-	 *     (rule start) IDENTIFIER (ambiguity) '[' UNARY_OP* operandn=OperandName
-	 *     (rule start) IDENTIFIER (ambiguity) '[' UNARY_OP* type=Type
-	 *     (rule start) IDENTIFIER (ambiguity) 'func' '(' ')' (rule start)
-	 *     (rule start) IDENTIFIER (ambiguity) 'func' '(' ')' result=Result
-	 *     (rule start) IDENTIFIER (ambiguity) 'func' '(' parameterlist=ParameterList
-	 *     (rule start) IDENTIFIER (ambiguity) 'interface' '{' '}' (rule start)
-	 *     (rule start) IDENTIFIER (ambiguity) 'interface' '{' methodspec+=MethodSpec
-	 *     (rule start) IDENTIFIER (ambiguity) 'map' '[' keytype=KeyType
-	 *     (rule start) IDENTIFIER (ambiguity) 'struct' '{' '}' (rule start)
-	 *     (rule start) IDENTIFIER (ambiguity) 'struct' '{' fielddecl+=FieldDecl
-	 *     (rule start) IDENTIFIER (ambiguity) (('chan' '<-'?) | ('<-' 'chan')) elemtype=ElementType
-	 *     (rule start) IDENTIFIER (ambiguity) TypeName (rule start)
-	 *     (rule start) IdentifierList (ambiguity) '*' basetype=BaseType
-	 *     (rule start) IdentifierList (ambiguity) '[' ']' elemtype=ElementType
-	 *     (rule start) IdentifierList (ambiguity) '[' UNARY_OP* '(' expression=Expression
-	 *     (rule start) IdentifierList (ambiguity) '[' UNARY_OP* literal=Literal
-	 *     (rule start) IdentifierList (ambiguity) '[' UNARY_OP* operandn=OperandName
-	 *     (rule start) IdentifierList (ambiguity) '[' UNARY_OP* type=Type
-	 *     (rule start) IdentifierList (ambiguity) 'func' '(' ')' '=' expressionlist=ExpressionList
-	 *     (rule start) IdentifierList (ambiguity) 'func' '(' ')' (rule start)
-	 *     (rule start) IdentifierList (ambiguity) 'func' '(' ')' result=Result
-	 *     (rule start) IdentifierList (ambiguity) 'func' '(' parameterlist=ParameterList
-	 *     (rule start) IdentifierList (ambiguity) 'interface' '{' '}' '=' expressionlist=ExpressionList
-	 *     (rule start) IdentifierList (ambiguity) 'interface' '{' '}' (rule start)
-	 *     (rule start) IdentifierList (ambiguity) 'interface' '{' methodspec+=MethodSpec
-	 *     (rule start) IdentifierList (ambiguity) 'map' '[' keytype=KeyType
-	 *     (rule start) IdentifierList (ambiguity) 'struct' '{' '}' '=' expressionlist=ExpressionList
-	 *     (rule start) IdentifierList (ambiguity) 'struct' '{' '}' (rule start)
-	 *     (rule start) IdentifierList (ambiguity) 'struct' '{' fielddecl+=FieldDecl
-	 *     (rule start) IdentifierList (ambiguity) (('chan' '<-'?) | ('<-' 'chan')) elemtype=ElementType
-	 *     (rule start) IdentifierList (ambiguity) TypeName '=' expressionlist=ExpressionList
-	 *     (rule start) IdentifierList (ambiguity) TypeName (rule start)
-	 */
-	protected void emit_Type_LeftParenthesisKeyword_2_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     UNARY_OP*
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) '('* '[' (ambiguity) '(' expression=Expression
-	 *     (rule start) '('* '[' (ambiguity) literal=Literal
-	 *     (rule start) '('* '[' (ambiguity) operandn=OperandName
-	 *     (rule start) '('* '[' (ambiguity) type=Type
-	 *     (rule start) '.' '(' '('* '[' (ambiguity) '(' expression=Expression
-	 *     (rule start) '.' '(' '('* '[' (ambiguity) literal=Literal
-	 *     (rule start) '.' '(' '('* '[' (ambiguity) operandn=OperandName
-	 *     (rule start) '.' '(' '('* '[' (ambiguity) type=Type
-	 *     (rule start) '[' (ambiguity) '(' expression=Expression
-	 *     (rule start) '[' (ambiguity) literal=Literal
-	 *     (rule start) '[' (ambiguity) operandn=OperandName
-	 *     (rule start) '[' (ambiguity) type=Type
-	 *     (rule start) 'defer' (ambiguity) '(' expression=Expression
-	 *     (rule start) 'defer' (ambiguity) literal=Literal
-	 *     (rule start) 'defer' (ambiguity) operandn=OperandName
-	 *     (rule start) 'defer' (ambiguity) type=Type
-	 *     (rule start) 'switch' (IdentifierList ':=')? (ambiguity) '(' expression=Expression
-	 *     (rule start) 'switch' (IdentifierList ':=')? (ambiguity) literal=Literal
-	 *     (rule start) 'switch' (IdentifierList ':=')? (ambiguity) operandn=OperandName
-	 *     (rule start) 'switch' (IdentifierList ':=')? (ambiguity) type=Type
-	 *     (rule start) (IDENTIFIER | (IDENTIFIER '=')) '('* '[' (ambiguity) '(' expression=Expression
-	 *     (rule start) (IDENTIFIER | (IDENTIFIER '=')) '('* '[' (ambiguity) literal=Literal
-	 *     (rule start) (IDENTIFIER | (IDENTIFIER '=')) '('* '[' (ambiguity) operandn=OperandName
-	 *     (rule start) (IDENTIFIER | (IDENTIFIER '=')) '('* '[' (ambiguity) type=Type
-	 *     (rule start) (IdentifierList ':=')? (ambiguity) '(' expression=Expression
-	 *     (rule start) (IdentifierList ':=')? (ambiguity) literal=Literal
-	 *     (rule start) (IdentifierList ':=')? (ambiguity) operandn=OperandName
-	 *     (rule start) (IdentifierList ':=')? (ambiguity) type=Type
-	 *     (rule start) (ambiguity) '(' expression=Expression
-	 *     (rule start) (ambiguity) literal=Literal
-	 *     (rule start) (ambiguity) operandn=OperandName
-	 *     (rule start) (ambiguity) type=Type
-	 *     (rule start) IDENTIFIER '('* '[' (ambiguity) '(' expression=Expression
-	 *     (rule start) IDENTIFIER '('* '[' (ambiguity) literal=Literal
-	 *     (rule start) IDENTIFIER '('* '[' (ambiguity) operandn=OperandName
-	 *     (rule start) IDENTIFIER '('* '[' (ambiguity) type=Type
-	 *     (rule start) IDENTIFIER '=' '('* '[' (ambiguity) '(' expression=Expression
-	 *     (rule start) IDENTIFIER '=' '('* '[' (ambiguity) literal=Literal
-	 *     (rule start) IDENTIFIER '=' '('* '[' (ambiguity) operandn=OperandName
-	 *     (rule start) IDENTIFIER '=' '('* '[' (ambiguity) type=Type
-	 *     (rule start) IdentifierList '('* '[' (ambiguity) '(' expression=Expression
-	 *     (rule start) IdentifierList '('* '[' (ambiguity) literal=Literal
-	 *     (rule start) IdentifierList '('* '[' (ambiguity) operandn=OperandName
-	 *     (rule start) IdentifierList '('* '[' (ambiguity) type=Type
-	 *     (rule start) IdentifierList ':=' (ambiguity) '(' expression=Expression
-	 *     (rule start) IdentifierList ':=' (ambiguity) literal=Literal
-	 *     (rule start) IdentifierList ':=' (ambiguity) operandn=OperandName
-	 *     (rule start) IdentifierList ':=' (ambiguity) type=Type
-	 *     (rule start) IdentifierList (('('* '[') | '=') (ambiguity) '(' expression=Expression
-	 *     (rule start) IdentifierList (('('* '[') | '=') (ambiguity) literal=Literal
-	 *     (rule start) IdentifierList (('('* '[') | '=') (ambiguity) operandn=OperandName
-	 *     (rule start) IdentifierList (('('* '[') | '=') (ambiguity) type=Type
-	 */
-	protected void emit_UnaryExpr_UNARY_OPTerminalRuleCall_1_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_StatementList_SemicolonKeyword_1_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

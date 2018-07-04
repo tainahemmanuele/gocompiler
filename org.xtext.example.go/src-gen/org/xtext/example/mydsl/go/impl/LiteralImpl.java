@@ -3,10 +3,17 @@
  */
 package org.xtext.example.mydsl.go.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.xtext.example.mydsl.go.CompositeLit;
+import org.xtext.example.mydsl.go.FunctionLit;
 import org.xtext.example.mydsl.go.GoPackage;
 import org.xtext.example.mydsl.go.Literal;
 
@@ -14,11 +21,59 @@ import org.xtext.example.mydsl.go.Literal;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Literal</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.LiteralImpl#getBasic <em>Basic</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.LiteralImpl#getCl <em>Cl</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.LiteralImpl#getFl <em>Fl</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class LiteralImpl extends MinimalEObjectImpl.Container implements Literal
 {
+  /**
+   * The default value of the '{@link #getBasic() <em>Basic</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBasic()
+   * @generated
+   * @ordered
+   */
+  protected static final String BASIC_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getBasic() <em>Basic</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBasic()
+   * @generated
+   * @ordered
+   */
+  protected String basic = BASIC_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getCl() <em>Cl</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCl()
+   * @generated
+   * @ordered
+   */
+  protected CompositeLit cl;
+
+  /**
+   * The cached value of the '{@link #getFl() <em>Fl</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFl()
+   * @generated
+   * @ordered
+   */
+  protected FunctionLit fl;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -38,6 +93,246 @@ public class LiteralImpl extends MinimalEObjectImpl.Container implements Literal
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.LITERAL;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getBasic()
+  {
+    return basic;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBasic(String newBasic)
+  {
+    String oldBasic = basic;
+    basic = newBasic;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.LITERAL__BASIC, oldBasic, basic));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CompositeLit getCl()
+  {
+    return cl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetCl(CompositeLit newCl, NotificationChain msgs)
+  {
+    CompositeLit oldCl = cl;
+    cl = newCl;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.LITERAL__CL, oldCl, newCl);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setCl(CompositeLit newCl)
+  {
+    if (newCl != cl)
+    {
+      NotificationChain msgs = null;
+      if (cl != null)
+        msgs = ((InternalEObject)cl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.LITERAL__CL, null, msgs);
+      if (newCl != null)
+        msgs = ((InternalEObject)newCl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.LITERAL__CL, null, msgs);
+      msgs = basicSetCl(newCl, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.LITERAL__CL, newCl, newCl));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FunctionLit getFl()
+  {
+    return fl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetFl(FunctionLit newFl, NotificationChain msgs)
+  {
+    FunctionLit oldFl = fl;
+    fl = newFl;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.LITERAL__FL, oldFl, newFl);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFl(FunctionLit newFl)
+  {
+    if (newFl != fl)
+    {
+      NotificationChain msgs = null;
+      if (fl != null)
+        msgs = ((InternalEObject)fl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.LITERAL__FL, null, msgs);
+      if (newFl != null)
+        msgs = ((InternalEObject)newFl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.LITERAL__FL, null, msgs);
+      msgs = basicSetFl(newFl, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.LITERAL__FL, newFl, newFl));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case GoPackage.LITERAL__CL:
+        return basicSetCl(null, msgs);
+      case GoPackage.LITERAL__FL:
+        return basicSetFl(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case GoPackage.LITERAL__BASIC:
+        return getBasic();
+      case GoPackage.LITERAL__CL:
+        return getCl();
+      case GoPackage.LITERAL__FL:
+        return getFl();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case GoPackage.LITERAL__BASIC:
+        setBasic((String)newValue);
+        return;
+      case GoPackage.LITERAL__CL:
+        setCl((CompositeLit)newValue);
+        return;
+      case GoPackage.LITERAL__FL:
+        setFl((FunctionLit)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.LITERAL__BASIC:
+        setBasic(BASIC_EDEFAULT);
+        return;
+      case GoPackage.LITERAL__CL:
+        setCl((CompositeLit)null);
+        return;
+      case GoPackage.LITERAL__FL:
+        setFl((FunctionLit)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.LITERAL__BASIC:
+        return BASIC_EDEFAULT == null ? basic != null : !BASIC_EDEFAULT.equals(basic);
+      case GoPackage.LITERAL__CL:
+        return cl != null;
+      case GoPackage.LITERAL__FL:
+        return fl != null;
+    }
+    return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (basic: ");
+    result.append(basic);
+    result.append(')');
+    return result.toString();
   }
 
 } //LiteralImpl

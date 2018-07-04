@@ -5,6 +5,8 @@ package org.xtext.example.mydsl.go.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.xtext.example.mydsl.go.GoPackage;
 import org.xtext.example.mydsl.go.MethodExpr;
 
@@ -15,7 +17,7 @@ import org.xtext.example.mydsl.go.MethodExpr;
  *
  * @generated
  */
-public class MethodExprImpl extends PrimaryExprImpl implements MethodExpr
+public class MethodExprImpl extends MinimalEObjectImpl.Container implements MethodExpr
 {
   /**
    * <!-- begin-user-doc -->

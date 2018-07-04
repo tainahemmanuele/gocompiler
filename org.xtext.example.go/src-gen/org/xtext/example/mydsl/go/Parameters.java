@@ -13,7 +13,6 @@ package org.xtext.example.mydsl.go;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.go.Parameters#getResult <em>Result</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.Parameters#getParameterlist <em>Parameterlist</em>}</li>
  * </ul>
  *
@@ -21,34 +20,8 @@ package org.xtext.example.mydsl.go;
  * @model
  * @generated
  */
-public interface Parameters extends Receiver, Signature, Result
+public interface Parameters extends Receiver
 {
-  /**
-   * Returns the value of the '<em><b>Result</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Result</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Result</em>' containment reference.
-   * @see #setResult(Result)
-   * @see org.xtext.example.mydsl.go.GoPackage#getParameters_Result()
-   * @model containment="true"
-   * @generated
-   */
-  Result getResult();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.go.Parameters#getResult <em>Result</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Result</em>' containment reference.
-   * @see #getResult()
-   * @generated
-   */
-  void setResult(Result value);
-
   /**
    * Returns the value of the '<em><b>Parameterlist</b></em>' containment reference.
    * <!-- begin-user-doc -->

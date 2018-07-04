@@ -3,8 +3,16 @@
  */
 package org.xtext.example.mydsl.go.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.xtext.example.mydsl.go.Expression;
 import org.xtext.example.mydsl.go.GoPackage;
 import org.xtext.example.mydsl.go.IncDecStmt;
 
@@ -12,11 +20,38 @@ import org.xtext.example.mydsl.go.IncDecStmt;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Inc Dec Stmt</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.IncDecStmtImpl#getExp <em>Exp</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.IncDecStmtImpl#getExp2 <em>Exp2</em>}</li>
+ * </ul>
  *
  * @generated
  */
-public class IncDecStmtImpl extends SimpleStmtImpl implements IncDecStmt
+public class IncDecStmtImpl extends MinimalEObjectImpl.Container implements IncDecStmt
 {
+  /**
+   * The cached value of the '{@link #getExp() <em>Exp</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExp()
+   * @generated
+   * @ordered
+   */
+  protected Expression exp;
+
+  /**
+   * The cached value of the '{@link #getExp2() <em>Exp2</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExp2()
+   * @generated
+   * @ordered
+   */
+  protected Expression exp2;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +71,196 @@ public class IncDecStmtImpl extends SimpleStmtImpl implements IncDecStmt
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.INC_DEC_STMT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Expression getExp()
+  {
+    return exp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExp(Expression newExp, NotificationChain msgs)
+  {
+    Expression oldExp = exp;
+    exp = newExp;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.INC_DEC_STMT__EXP, oldExp, newExp);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExp(Expression newExp)
+  {
+    if (newExp != exp)
+    {
+      NotificationChain msgs = null;
+      if (exp != null)
+        msgs = ((InternalEObject)exp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.INC_DEC_STMT__EXP, null, msgs);
+      if (newExp != null)
+        msgs = ((InternalEObject)newExp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.INC_DEC_STMT__EXP, null, msgs);
+      msgs = basicSetExp(newExp, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.INC_DEC_STMT__EXP, newExp, newExp));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Expression getExp2()
+  {
+    return exp2;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExp2(Expression newExp2, NotificationChain msgs)
+  {
+    Expression oldExp2 = exp2;
+    exp2 = newExp2;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.INC_DEC_STMT__EXP2, oldExp2, newExp2);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExp2(Expression newExp2)
+  {
+    if (newExp2 != exp2)
+    {
+      NotificationChain msgs = null;
+      if (exp2 != null)
+        msgs = ((InternalEObject)exp2).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.INC_DEC_STMT__EXP2, null, msgs);
+      if (newExp2 != null)
+        msgs = ((InternalEObject)newExp2).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.INC_DEC_STMT__EXP2, null, msgs);
+      msgs = basicSetExp2(newExp2, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.INC_DEC_STMT__EXP2, newExp2, newExp2));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case GoPackage.INC_DEC_STMT__EXP:
+        return basicSetExp(null, msgs);
+      case GoPackage.INC_DEC_STMT__EXP2:
+        return basicSetExp2(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case GoPackage.INC_DEC_STMT__EXP:
+        return getExp();
+      case GoPackage.INC_DEC_STMT__EXP2:
+        return getExp2();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case GoPackage.INC_DEC_STMT__EXP:
+        setExp((Expression)newValue);
+        return;
+      case GoPackage.INC_DEC_STMT__EXP2:
+        setExp2((Expression)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.INC_DEC_STMT__EXP:
+        setExp((Expression)null);
+        return;
+      case GoPackage.INC_DEC_STMT__EXP2:
+        setExp2((Expression)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.INC_DEC_STMT__EXP:
+        return exp != null;
+      case GoPackage.INC_DEC_STMT__EXP2:
+        return exp2 != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //IncDecStmtImpl

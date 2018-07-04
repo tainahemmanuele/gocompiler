@@ -150,6 +150,15 @@ public interface GoFactory extends EFactory
   FieldDecl createFieldDecl();
 
   /**
+   * Returns a new object of class '<em>Identifier List</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Identifier List</em>'.
+   * @generated
+   */
+  IdentifierList createIdentifierList();
+
+  /**
    * Returns a new object of class '<em>Pointer Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -868,6 +877,15 @@ public interface GoFactory extends EFactory
    * @generated
    */
   FunctionBody createFunctionBody();
+
+  /**
+   * Returns a new object of class '<em>Operand Name</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Operand Name</em>'.
+   * @generated
+   */
+  OperandName createOperandName();
 
   /**
    * Returns a new object of class '<em>Import Decl</em>'.

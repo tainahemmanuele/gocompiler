@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.mydsl.go.ForClause#getInit <em>Init</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.ForClause#getCondition <em>Condition</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.ForClause#getPoststmt <em>Poststmt</em>}</li>
  * </ul>
@@ -24,6 +25,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ForClause extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Init</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Init</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Init</em>' containment reference.
+   * @see #setInit(InitStmt)
+   * @see org.xtext.example.mydsl.go.GoPackage#getForClause_Init()
+   * @model containment="true"
+   * @generated
+   */
+  InitStmt getInit();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.ForClause#getInit <em>Init</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Init</em>' containment reference.
+   * @see #getInit()
+   * @generated
+   */
+  void setInit(InitStmt value);
+
   /**
    * Returns the value of the '<em><b>Condition</b></em>' containment reference.
    * <!-- begin-user-doc -->

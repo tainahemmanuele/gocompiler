@@ -3,22 +3,62 @@
  */
 package org.xtext.example.mydsl.go.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.xtext.example.mydsl.go.GoPackage;
+import org.xtext.example.mydsl.go.ParameterDecl;
 import org.xtext.example.mydsl.go.ParameterList;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Parameter List</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.ParameterListImpl#getParameterDecl1 <em>Parameter Decl1</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.ParameterListImpl#getParameterdecl <em>Parameterdecl</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class ParameterListImpl extends MinimalEObjectImpl.Container implements ParameterList
 {
+  /**
+   * The cached value of the '{@link #getParameterDecl1() <em>Parameter Decl1</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getParameterDecl1()
+   * @generated
+   * @ordered
+   */
+  protected ParameterDecl parameterDecl1;
+
+  /**
+   * The cached value of the '{@link #getParameterdecl() <em>Parameterdecl</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getParameterdecl()
+   * @generated
+   * @ordered
+   */
+  protected EList<ParameterDecl> parameterdecl;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -38,6 +78,164 @@ public class ParameterListImpl extends MinimalEObjectImpl.Container implements P
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.PARAMETER_LIST;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ParameterDecl getParameterDecl1()
+  {
+    return parameterDecl1;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetParameterDecl1(ParameterDecl newParameterDecl1, NotificationChain msgs)
+  {
+    ParameterDecl oldParameterDecl1 = parameterDecl1;
+    parameterDecl1 = newParameterDecl1;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.PARAMETER_LIST__PARAMETER_DECL1, oldParameterDecl1, newParameterDecl1);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setParameterDecl1(ParameterDecl newParameterDecl1)
+  {
+    if (newParameterDecl1 != parameterDecl1)
+    {
+      NotificationChain msgs = null;
+      if (parameterDecl1 != null)
+        msgs = ((InternalEObject)parameterDecl1).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.PARAMETER_LIST__PARAMETER_DECL1, null, msgs);
+      if (newParameterDecl1 != null)
+        msgs = ((InternalEObject)newParameterDecl1).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.PARAMETER_LIST__PARAMETER_DECL1, null, msgs);
+      msgs = basicSetParameterDecl1(newParameterDecl1, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.PARAMETER_LIST__PARAMETER_DECL1, newParameterDecl1, newParameterDecl1));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<ParameterDecl> getParameterdecl()
+  {
+    if (parameterdecl == null)
+    {
+      parameterdecl = new EObjectContainmentEList<ParameterDecl>(ParameterDecl.class, this, GoPackage.PARAMETER_LIST__PARAMETERDECL);
+    }
+    return parameterdecl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case GoPackage.PARAMETER_LIST__PARAMETER_DECL1:
+        return basicSetParameterDecl1(null, msgs);
+      case GoPackage.PARAMETER_LIST__PARAMETERDECL:
+        return ((InternalEList<?>)getParameterdecl()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case GoPackage.PARAMETER_LIST__PARAMETER_DECL1:
+        return getParameterDecl1();
+      case GoPackage.PARAMETER_LIST__PARAMETERDECL:
+        return getParameterdecl();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case GoPackage.PARAMETER_LIST__PARAMETER_DECL1:
+        setParameterDecl1((ParameterDecl)newValue);
+        return;
+      case GoPackage.PARAMETER_LIST__PARAMETERDECL:
+        getParameterdecl().clear();
+        getParameterdecl().addAll((Collection<? extends ParameterDecl>)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.PARAMETER_LIST__PARAMETER_DECL1:
+        setParameterDecl1((ParameterDecl)null);
+        return;
+      case GoPackage.PARAMETER_LIST__PARAMETERDECL:
+        getParameterdecl().clear();
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.PARAMETER_LIST__PARAMETER_DECL1:
+        return parameterDecl1 != null;
+      case GoPackage.PARAMETER_LIST__PARAMETERDECL:
+        return parameterdecl != null && !parameterdecl.isEmpty();
+    }
+    return super.eIsSet(featureID);
   }
 
 } //ParameterListImpl

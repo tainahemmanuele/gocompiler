@@ -24,6 +24,7 @@ import org.xtext.example.mydsl.go.GoPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.Expression2Impl#getBop <em>Bop</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.Expression2Impl#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.Expression2Impl#getExpression2 <em>Expression2</em>}</li>
  * </ul>
@@ -32,6 +33,26 @@ import org.xtext.example.mydsl.go.GoPackage;
  */
 public class Expression2Impl extends MinimalEObjectImpl.Container implements Expression2
 {
+  /**
+   * The default value of the '{@link #getBop() <em>Bop</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBop()
+   * @generated
+   * @ordered
+   */
+  protected static final String BOP_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getBop() <em>Bop</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBop()
+   * @generated
+   * @ordered
+   */
+  protected String bop = BOP_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -71,6 +92,29 @@ public class Expression2Impl extends MinimalEObjectImpl.Container implements Exp
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.EXPRESSION2;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getBop()
+  {
+    return bop;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBop(String newBop)
+  {
+    String oldBop = bop;
+    bop = newBop;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.EXPRESSION2__BOP, oldBop, bop));
   }
 
   /**
@@ -197,6 +241,8 @@ public class Expression2Impl extends MinimalEObjectImpl.Container implements Exp
   {
     switch (featureID)
     {
+      case GoPackage.EXPRESSION2__BOP:
+        return getBop();
       case GoPackage.EXPRESSION2__EXPRESSION:
         return getExpression();
       case GoPackage.EXPRESSION2__EXPRESSION2:
@@ -215,6 +261,9 @@ public class Expression2Impl extends MinimalEObjectImpl.Container implements Exp
   {
     switch (featureID)
     {
+      case GoPackage.EXPRESSION2__BOP:
+        setBop((String)newValue);
+        return;
       case GoPackage.EXPRESSION2__EXPRESSION:
         setExpression((Expression)newValue);
         return;
@@ -235,6 +284,9 @@ public class Expression2Impl extends MinimalEObjectImpl.Container implements Exp
   {
     switch (featureID)
     {
+      case GoPackage.EXPRESSION2__BOP:
+        setBop(BOP_EDEFAULT);
+        return;
       case GoPackage.EXPRESSION2__EXPRESSION:
         setExpression((Expression)null);
         return;
@@ -255,12 +307,31 @@ public class Expression2Impl extends MinimalEObjectImpl.Container implements Exp
   {
     switch (featureID)
     {
+      case GoPackage.EXPRESSION2__BOP:
+        return BOP_EDEFAULT == null ? bop != null : !BOP_EDEFAULT.equals(bop);
       case GoPackage.EXPRESSION2__EXPRESSION:
         return expression != null;
       case GoPackage.EXPRESSION2__EXPRESSION2:
         return expression2 != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (bop: ");
+    result.append(bop);
+    result.append(')');
+    return result.toString();
   }
 
 } //Expression2Impl

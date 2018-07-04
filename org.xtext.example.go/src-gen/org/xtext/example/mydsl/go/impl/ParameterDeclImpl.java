@@ -3,22 +3,17 @@
  */
 package org.xtext.example.mydsl.go.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.go.GoPackage;
+import org.xtext.example.mydsl.go.IdentifierList;
 import org.xtext.example.mydsl.go.ParameterDecl;
 import org.xtext.example.mydsl.go.Type;
 
@@ -30,44 +25,23 @@ import org.xtext.example.mydsl.go.Type;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.go.impl.ParameterDeclImpl#getParameterdecl <em>Parameterdecl</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.go.impl.ParameterDeclImpl#getIndentifierL <em>Indentifier L</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.ParameterDeclImpl#getIdentifierL <em>Identifier L</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.ParameterDeclImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ParameterDeclImpl extends ParameterListImpl implements ParameterDecl
+public class ParameterDeclImpl extends MinimalEObjectImpl.Container implements ParameterDecl
 {
   /**
-   * The cached value of the '{@link #getParameterdecl() <em>Parameterdecl</em>}' containment reference list.
+   * The cached value of the '{@link #getIdentifierL() <em>Identifier L</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getParameterdecl()
+   * @see #getIdentifierL()
    * @generated
    * @ordered
    */
-  protected EList<ParameterDecl> parameterdecl;
-
-  /**
-   * The default value of the '{@link #getIndentifierL() <em>Indentifier L</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getIndentifierL()
-   * @generated
-   * @ordered
-   */
-  protected static final String INDENTIFIER_L_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getIndentifierL() <em>Indentifier L</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getIndentifierL()
-   * @generated
-   * @ordered
-   */
-  protected String indentifierL = INDENTIFIER_L_EDEFAULT;
+  protected IdentifierList identifierL;
 
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -105,13 +79,9 @@ public class ParameterDeclImpl extends ParameterListImpl implements ParameterDec
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ParameterDecl> getParameterdecl()
+  public IdentifierList getIdentifierL()
   {
-    if (parameterdecl == null)
-    {
-      parameterdecl = new EObjectContainmentEList<ParameterDecl>(ParameterDecl.class, this, GoPackage.PARAMETER_DECL__PARAMETERDECL);
-    }
-    return parameterdecl;
+    return identifierL;
   }
 
   /**
@@ -119,22 +89,37 @@ public class ParameterDeclImpl extends ParameterListImpl implements ParameterDec
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getIndentifierL()
+  public NotificationChain basicSetIdentifierL(IdentifierList newIdentifierL, NotificationChain msgs)
   {
-    return indentifierL;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setIndentifierL(String newIndentifierL)
-  {
-    String oldIndentifierL = indentifierL;
-    indentifierL = newIndentifierL;
+    IdentifierList oldIdentifierL = identifierL;
+    identifierL = newIdentifierL;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.PARAMETER_DECL__INDENTIFIER_L, oldIndentifierL, indentifierL));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.PARAMETER_DECL__IDENTIFIER_L, oldIdentifierL, newIdentifierL);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIdentifierL(IdentifierList newIdentifierL)
+  {
+    if (newIdentifierL != identifierL)
+    {
+      NotificationChain msgs = null;
+      if (identifierL != null)
+        msgs = ((InternalEObject)identifierL).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.PARAMETER_DECL__IDENTIFIER_L, null, msgs);
+      if (newIdentifierL != null)
+        msgs = ((InternalEObject)newIdentifierL).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.PARAMETER_DECL__IDENTIFIER_L, null, msgs);
+      msgs = basicSetIdentifierL(newIdentifierL, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.PARAMETER_DECL__IDENTIFIER_L, newIdentifierL, newIdentifierL));
   }
 
   /**
@@ -195,8 +180,8 @@ public class ParameterDeclImpl extends ParameterListImpl implements ParameterDec
   {
     switch (featureID)
     {
-      case GoPackage.PARAMETER_DECL__PARAMETERDECL:
-        return ((InternalEList<?>)getParameterdecl()).basicRemove(otherEnd, msgs);
+      case GoPackage.PARAMETER_DECL__IDENTIFIER_L:
+        return basicSetIdentifierL(null, msgs);
       case GoPackage.PARAMETER_DECL__TYPE:
         return basicSetType(null, msgs);
     }
@@ -213,10 +198,8 @@ public class ParameterDeclImpl extends ParameterListImpl implements ParameterDec
   {
     switch (featureID)
     {
-      case GoPackage.PARAMETER_DECL__PARAMETERDECL:
-        return getParameterdecl();
-      case GoPackage.PARAMETER_DECL__INDENTIFIER_L:
-        return getIndentifierL();
+      case GoPackage.PARAMETER_DECL__IDENTIFIER_L:
+        return getIdentifierL();
       case GoPackage.PARAMETER_DECL__TYPE:
         return getType();
     }
@@ -228,18 +211,13 @@ public class ParameterDeclImpl extends ParameterListImpl implements ParameterDec
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case GoPackage.PARAMETER_DECL__PARAMETERDECL:
-        getParameterdecl().clear();
-        getParameterdecl().addAll((Collection<? extends ParameterDecl>)newValue);
-        return;
-      case GoPackage.PARAMETER_DECL__INDENTIFIER_L:
-        setIndentifierL((String)newValue);
+      case GoPackage.PARAMETER_DECL__IDENTIFIER_L:
+        setIdentifierL((IdentifierList)newValue);
         return;
       case GoPackage.PARAMETER_DECL__TYPE:
         setType((Type)newValue);
@@ -258,11 +236,8 @@ public class ParameterDeclImpl extends ParameterListImpl implements ParameterDec
   {
     switch (featureID)
     {
-      case GoPackage.PARAMETER_DECL__PARAMETERDECL:
-        getParameterdecl().clear();
-        return;
-      case GoPackage.PARAMETER_DECL__INDENTIFIER_L:
-        setIndentifierL(INDENTIFIER_L_EDEFAULT);
+      case GoPackage.PARAMETER_DECL__IDENTIFIER_L:
+        setIdentifierL((IdentifierList)null);
         return;
       case GoPackage.PARAMETER_DECL__TYPE:
         setType((Type)null);
@@ -281,31 +256,12 @@ public class ParameterDeclImpl extends ParameterListImpl implements ParameterDec
   {
     switch (featureID)
     {
-      case GoPackage.PARAMETER_DECL__PARAMETERDECL:
-        return parameterdecl != null && !parameterdecl.isEmpty();
-      case GoPackage.PARAMETER_DECL__INDENTIFIER_L:
-        return INDENTIFIER_L_EDEFAULT == null ? indentifierL != null : !INDENTIFIER_L_EDEFAULT.equals(indentifierL);
+      case GoPackage.PARAMETER_DECL__IDENTIFIER_L:
+        return identifierL != null;
       case GoPackage.PARAMETER_DECL__TYPE:
         return type != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (indentifierL: ");
-    result.append(indentifierL);
-    result.append(')');
-    return result.toString();
   }
 
 } //ParameterDeclImpl

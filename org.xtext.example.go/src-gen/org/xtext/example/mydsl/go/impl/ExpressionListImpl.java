@@ -18,20 +18,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.xtext.example.mydsl.go.Condition;
+import org.xtext.example.mydsl.go.Expression;
 import org.xtext.example.mydsl.go.ExpressionList;
-import org.xtext.example.mydsl.go.ForClause;
 import org.xtext.example.mydsl.go.GoPackage;
-import org.xtext.example.mydsl.go.InitStmt;
-import org.xtext.example.mydsl.go.PostStmt;
-import org.xtext.example.mydsl.go.RecvExpr;
-import org.xtext.example.mydsl.go.RecvStmt;
-import org.xtext.example.mydsl.go.ShortVarDecl;
-import org.xtext.example.mydsl.go.SimpleStmt;
-import org.xtext.example.mydsl.go.SwitchStmt;
-import org.xtext.example.mydsl.go.TypeCaseClause;
-import org.xtext.example.mydsl.go.TypeSwitchGuard;
-import org.xtext.example.mydsl.go.TypeSwitchStmt;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,87 +30,33 @@ import org.xtext.example.mydsl.go.TypeSwitchStmt;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.go.impl.ExpressionListImpl#getTypesg <em>Typesg</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.go.impl.ExpressionListImpl#getTypecc <em>Typecc</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.go.impl.ExpressionListImpl#getCondition <em>Condition</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.go.impl.ExpressionListImpl#getPoststmt <em>Poststmt</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.go.impl.ExpressionListImpl#getEmpty <em>Empty</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.go.impl.ExpressionListImpl#getRecvexpr <em>Recvexpr</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.ExpressionListImpl#getExp <em>Exp</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.ExpressionListImpl#getExpression2 <em>Expression2</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ExpressionListImpl extends VarSpecImpl implements ExpressionList
+public class ExpressionListImpl extends RecvStmtImpl implements ExpressionList
 {
   /**
-   * The cached value of the '{@link #getTypesg() <em>Typesg</em>}' containment reference.
+   * The cached value of the '{@link #getExp() <em>Exp</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTypesg()
+   * @see #getExp()
    * @generated
    * @ordered
    */
-  protected TypeSwitchGuard typesg;
+  protected Expression exp;
 
   /**
-   * The cached value of the '{@link #getTypecc() <em>Typecc</em>}' containment reference list.
+   * The cached value of the '{@link #getExpression2() <em>Expression2</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTypecc()
+   * @see #getExpression2()
    * @generated
    * @ordered
    */
-  protected EList<TypeCaseClause> typecc;
-
-  /**
-   * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCondition()
-   * @generated
-   * @ordered
-   */
-  protected Condition condition;
-
-  /**
-   * The cached value of the '{@link #getPoststmt() <em>Poststmt</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPoststmt()
-   * @generated
-   * @ordered
-   */
-  protected PostStmt poststmt;
-
-  /**
-   * The default value of the '{@link #getEmpty() <em>Empty</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getEmpty()
-   * @generated
-   * @ordered
-   */
-  protected static final String EMPTY_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getEmpty() <em>Empty</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getEmpty()
-   * @generated
-   * @ordered
-   */
-  protected String empty = EMPTY_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getRecvexpr() <em>Recvexpr</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRecvexpr()
-   * @generated
-   * @ordered
-   */
-  protected RecvExpr recvexpr;
+  protected EList<Expression> expression2;
 
   /**
    * <!-- begin-user-doc -->
@@ -149,9 +84,9 @@ public class ExpressionListImpl extends VarSpecImpl implements ExpressionList
    * <!-- end-user-doc -->
    * @generated
    */
-  public TypeSwitchGuard getTypesg()
+  public Expression getExp()
   {
-    return typesg;
+    return exp;
   }
 
   /**
@@ -159,13 +94,13 @@ public class ExpressionListImpl extends VarSpecImpl implements ExpressionList
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetTypesg(TypeSwitchGuard newTypesg, NotificationChain msgs)
+  public NotificationChain basicSetExp(Expression newExp, NotificationChain msgs)
   {
-    TypeSwitchGuard oldTypesg = typesg;
-    typesg = newTypesg;
+    Expression oldExp = exp;
+    exp = newExp;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.EXPRESSION_LIST__TYPESG, oldTypesg, newTypesg);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.EXPRESSION_LIST__EXP, oldExp, newExp);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -176,20 +111,20 @@ public class ExpressionListImpl extends VarSpecImpl implements ExpressionList
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTypesg(TypeSwitchGuard newTypesg)
+  public void setExp(Expression newExp)
   {
-    if (newTypesg != typesg)
+    if (newExp != exp)
     {
       NotificationChain msgs = null;
-      if (typesg != null)
-        msgs = ((InternalEObject)typesg).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.EXPRESSION_LIST__TYPESG, null, msgs);
-      if (newTypesg != null)
-        msgs = ((InternalEObject)newTypesg).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.EXPRESSION_LIST__TYPESG, null, msgs);
-      msgs = basicSetTypesg(newTypesg, msgs);
+      if (exp != null)
+        msgs = ((InternalEObject)exp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.EXPRESSION_LIST__EXP, null, msgs);
+      if (newExp != null)
+        msgs = ((InternalEObject)newExp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.EXPRESSION_LIST__EXP, null, msgs);
+      msgs = basicSetExp(newExp, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.EXPRESSION_LIST__TYPESG, newTypesg, newTypesg));
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.EXPRESSION_LIST__EXP, newExp, newExp));
   }
 
   /**
@@ -197,180 +132,13 @@ public class ExpressionListImpl extends VarSpecImpl implements ExpressionList
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<TypeCaseClause> getTypecc()
+  public EList<Expression> getExpression2()
   {
-    if (typecc == null)
+    if (expression2 == null)
     {
-      typecc = new EObjectContainmentEList<TypeCaseClause>(TypeCaseClause.class, this, GoPackage.EXPRESSION_LIST__TYPECC);
+      expression2 = new EObjectContainmentEList<Expression>(Expression.class, this, GoPackage.EXPRESSION_LIST__EXPRESSION2);
     }
-    return typecc;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Condition getCondition()
-  {
-    return condition;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetCondition(Condition newCondition, NotificationChain msgs)
-  {
-    Condition oldCondition = condition;
-    condition = newCondition;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.EXPRESSION_LIST__CONDITION, oldCondition, newCondition);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setCondition(Condition newCondition)
-  {
-    if (newCondition != condition)
-    {
-      NotificationChain msgs = null;
-      if (condition != null)
-        msgs = ((InternalEObject)condition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.EXPRESSION_LIST__CONDITION, null, msgs);
-      if (newCondition != null)
-        msgs = ((InternalEObject)newCondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.EXPRESSION_LIST__CONDITION, null, msgs);
-      msgs = basicSetCondition(newCondition, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.EXPRESSION_LIST__CONDITION, newCondition, newCondition));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public PostStmt getPoststmt()
-  {
-    return poststmt;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetPoststmt(PostStmt newPoststmt, NotificationChain msgs)
-  {
-    PostStmt oldPoststmt = poststmt;
-    poststmt = newPoststmt;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.EXPRESSION_LIST__POSTSTMT, oldPoststmt, newPoststmt);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setPoststmt(PostStmt newPoststmt)
-  {
-    if (newPoststmt != poststmt)
-    {
-      NotificationChain msgs = null;
-      if (poststmt != null)
-        msgs = ((InternalEObject)poststmt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.EXPRESSION_LIST__POSTSTMT, null, msgs);
-      if (newPoststmt != null)
-        msgs = ((InternalEObject)newPoststmt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.EXPRESSION_LIST__POSTSTMT, null, msgs);
-      msgs = basicSetPoststmt(newPoststmt, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.EXPRESSION_LIST__POSTSTMT, newPoststmt, newPoststmt));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getEmpty()
-  {
-    return empty;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setEmpty(String newEmpty)
-  {
-    String oldEmpty = empty;
-    empty = newEmpty;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.EXPRESSION_LIST__EMPTY, oldEmpty, empty));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RecvExpr getRecvexpr()
-  {
-    return recvexpr;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetRecvexpr(RecvExpr newRecvexpr, NotificationChain msgs)
-  {
-    RecvExpr oldRecvexpr = recvexpr;
-    recvexpr = newRecvexpr;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.EXPRESSION_LIST__RECVEXPR, oldRecvexpr, newRecvexpr);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setRecvexpr(RecvExpr newRecvexpr)
-  {
-    if (newRecvexpr != recvexpr)
-    {
-      NotificationChain msgs = null;
-      if (recvexpr != null)
-        msgs = ((InternalEObject)recvexpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.EXPRESSION_LIST__RECVEXPR, null, msgs);
-      if (newRecvexpr != null)
-        msgs = ((InternalEObject)newRecvexpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.EXPRESSION_LIST__RECVEXPR, null, msgs);
-      msgs = basicSetRecvexpr(newRecvexpr, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.EXPRESSION_LIST__RECVEXPR, newRecvexpr, newRecvexpr));
+    return expression2;
   }
 
   /**
@@ -383,16 +151,10 @@ public class ExpressionListImpl extends VarSpecImpl implements ExpressionList
   {
     switch (featureID)
     {
-      case GoPackage.EXPRESSION_LIST__TYPESG:
-        return basicSetTypesg(null, msgs);
-      case GoPackage.EXPRESSION_LIST__TYPECC:
-        return ((InternalEList<?>)getTypecc()).basicRemove(otherEnd, msgs);
-      case GoPackage.EXPRESSION_LIST__CONDITION:
-        return basicSetCondition(null, msgs);
-      case GoPackage.EXPRESSION_LIST__POSTSTMT:
-        return basicSetPoststmt(null, msgs);
-      case GoPackage.EXPRESSION_LIST__RECVEXPR:
-        return basicSetRecvexpr(null, msgs);
+      case GoPackage.EXPRESSION_LIST__EXP:
+        return basicSetExp(null, msgs);
+      case GoPackage.EXPRESSION_LIST__EXPRESSION2:
+        return ((InternalEList<?>)getExpression2()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -407,18 +169,10 @@ public class ExpressionListImpl extends VarSpecImpl implements ExpressionList
   {
     switch (featureID)
     {
-      case GoPackage.EXPRESSION_LIST__TYPESG:
-        return getTypesg();
-      case GoPackage.EXPRESSION_LIST__TYPECC:
-        return getTypecc();
-      case GoPackage.EXPRESSION_LIST__CONDITION:
-        return getCondition();
-      case GoPackage.EXPRESSION_LIST__POSTSTMT:
-        return getPoststmt();
-      case GoPackage.EXPRESSION_LIST__EMPTY:
-        return getEmpty();
-      case GoPackage.EXPRESSION_LIST__RECVEXPR:
-        return getRecvexpr();
+      case GoPackage.EXPRESSION_LIST__EXP:
+        return getExp();
+      case GoPackage.EXPRESSION_LIST__EXPRESSION2:
+        return getExpression2();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -434,24 +188,12 @@ public class ExpressionListImpl extends VarSpecImpl implements ExpressionList
   {
     switch (featureID)
     {
-      case GoPackage.EXPRESSION_LIST__TYPESG:
-        setTypesg((TypeSwitchGuard)newValue);
+      case GoPackage.EXPRESSION_LIST__EXP:
+        setExp((Expression)newValue);
         return;
-      case GoPackage.EXPRESSION_LIST__TYPECC:
-        getTypecc().clear();
-        getTypecc().addAll((Collection<? extends TypeCaseClause>)newValue);
-        return;
-      case GoPackage.EXPRESSION_LIST__CONDITION:
-        setCondition((Condition)newValue);
-        return;
-      case GoPackage.EXPRESSION_LIST__POSTSTMT:
-        setPoststmt((PostStmt)newValue);
-        return;
-      case GoPackage.EXPRESSION_LIST__EMPTY:
-        setEmpty((String)newValue);
-        return;
-      case GoPackage.EXPRESSION_LIST__RECVEXPR:
-        setRecvexpr((RecvExpr)newValue);
+      case GoPackage.EXPRESSION_LIST__EXPRESSION2:
+        getExpression2().clear();
+        getExpression2().addAll((Collection<? extends Expression>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -467,23 +209,11 @@ public class ExpressionListImpl extends VarSpecImpl implements ExpressionList
   {
     switch (featureID)
     {
-      case GoPackage.EXPRESSION_LIST__TYPESG:
-        setTypesg((TypeSwitchGuard)null);
+      case GoPackage.EXPRESSION_LIST__EXP:
+        setExp((Expression)null);
         return;
-      case GoPackage.EXPRESSION_LIST__TYPECC:
-        getTypecc().clear();
-        return;
-      case GoPackage.EXPRESSION_LIST__CONDITION:
-        setCondition((Condition)null);
-        return;
-      case GoPackage.EXPRESSION_LIST__POSTSTMT:
-        setPoststmt((PostStmt)null);
-        return;
-      case GoPackage.EXPRESSION_LIST__EMPTY:
-        setEmpty(EMPTY_EDEFAULT);
-        return;
-      case GoPackage.EXPRESSION_LIST__RECVEXPR:
-        setRecvexpr((RecvExpr)null);
+      case GoPackage.EXPRESSION_LIST__EXPRESSION2:
+        getExpression2().clear();
         return;
     }
     super.eUnset(featureID);
@@ -499,183 +229,12 @@ public class ExpressionListImpl extends VarSpecImpl implements ExpressionList
   {
     switch (featureID)
     {
-      case GoPackage.EXPRESSION_LIST__TYPESG:
-        return typesg != null;
-      case GoPackage.EXPRESSION_LIST__TYPECC:
-        return typecc != null && !typecc.isEmpty();
-      case GoPackage.EXPRESSION_LIST__CONDITION:
-        return condition != null;
-      case GoPackage.EXPRESSION_LIST__POSTSTMT:
-        return poststmt != null;
-      case GoPackage.EXPRESSION_LIST__EMPTY:
-        return EMPTY_EDEFAULT == null ? empty != null : !EMPTY_EDEFAULT.equals(empty);
-      case GoPackage.EXPRESSION_LIST__RECVEXPR:
-        return recvexpr != null;
+      case GoPackage.EXPRESSION_LIST__EXP:
+        return exp != null;
+      case GoPackage.EXPRESSION_LIST__EXPRESSION2:
+        return expression2 != null && !expression2.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == SwitchStmt.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == TypeSwitchStmt.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case GoPackage.EXPRESSION_LIST__TYPESG: return GoPackage.TYPE_SWITCH_STMT__TYPESG;
-        case GoPackage.EXPRESSION_LIST__TYPECC: return GoPackage.TYPE_SWITCH_STMT__TYPECC;
-        default: return -1;
-      }
-    }
-    if (baseClass == ForClause.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case GoPackage.EXPRESSION_LIST__CONDITION: return GoPackage.FOR_CLAUSE__CONDITION;
-        case GoPackage.EXPRESSION_LIST__POSTSTMT: return GoPackage.FOR_CLAUSE__POSTSTMT;
-        default: return -1;
-      }
-    }
-    if (baseClass == InitStmt.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == PostStmt.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == SimpleStmt.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case GoPackage.EXPRESSION_LIST__EMPTY: return GoPackage.SIMPLE_STMT__EMPTY;
-        default: return -1;
-      }
-    }
-    if (baseClass == ShortVarDecl.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == RecvStmt.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case GoPackage.EXPRESSION_LIST__RECVEXPR: return GoPackage.RECV_STMT__RECVEXPR;
-        default: return -1;
-      }
-    }
-    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == SwitchStmt.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == TypeSwitchStmt.class)
-    {
-      switch (baseFeatureID)
-      {
-        case GoPackage.TYPE_SWITCH_STMT__TYPESG: return GoPackage.EXPRESSION_LIST__TYPESG;
-        case GoPackage.TYPE_SWITCH_STMT__TYPECC: return GoPackage.EXPRESSION_LIST__TYPECC;
-        default: return -1;
-      }
-    }
-    if (baseClass == ForClause.class)
-    {
-      switch (baseFeatureID)
-      {
-        case GoPackage.FOR_CLAUSE__CONDITION: return GoPackage.EXPRESSION_LIST__CONDITION;
-        case GoPackage.FOR_CLAUSE__POSTSTMT: return GoPackage.EXPRESSION_LIST__POSTSTMT;
-        default: return -1;
-      }
-    }
-    if (baseClass == InitStmt.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == PostStmt.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == SimpleStmt.class)
-    {
-      switch (baseFeatureID)
-      {
-        case GoPackage.SIMPLE_STMT__EMPTY: return GoPackage.EXPRESSION_LIST__EMPTY;
-        default: return -1;
-      }
-    }
-    if (baseClass == ShortVarDecl.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == RecvStmt.class)
-    {
-      switch (baseFeatureID)
-      {
-        case GoPackage.RECV_STMT__RECVEXPR: return GoPackage.EXPRESSION_LIST__RECVEXPR;
-        default: return -1;
-      }
-    }
-    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (empty: ");
-    result.append(empty);
-    result.append(')');
-    return result.toString();
   }
 
 } //ExpressionListImpl

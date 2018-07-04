@@ -11,8 +11,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.xtext.example.mydsl.go.FunctionBody;
 import org.xtext.example.mydsl.go.GoPackage;
+import org.xtext.example.mydsl.go.Parameters;
+import org.xtext.example.mydsl.go.Result;
 import org.xtext.example.mydsl.go.Signature;
 
 /**
@@ -23,7 +24,8 @@ import org.xtext.example.mydsl.go.Signature;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.go.impl.SignatureImpl#getFunctionbody <em>Functionbody</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.SignatureImpl#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.SignatureImpl#getResult <em>Result</em>}</li>
  * </ul>
  *
  * @generated
@@ -31,14 +33,24 @@ import org.xtext.example.mydsl.go.Signature;
 public class SignatureImpl extends FunctionTypeImpl implements Signature
 {
   /**
-   * The cached value of the '{@link #getFunctionbody() <em>Functionbody</em>}' containment reference.
+   * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFunctionbody()
+   * @see #getParameters()
    * @generated
    * @ordered
    */
-  protected FunctionBody functionbody;
+  protected Parameters parameters;
+
+  /**
+   * The cached value of the '{@link #getResult() <em>Result</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getResult()
+   * @generated
+   * @ordered
+   */
+  protected Result result;
 
   /**
    * <!-- begin-user-doc -->
@@ -66,9 +78,9 @@ public class SignatureImpl extends FunctionTypeImpl implements Signature
    * <!-- end-user-doc -->
    * @generated
    */
-  public FunctionBody getFunctionbody()
+  public Parameters getParameters()
   {
-    return functionbody;
+    return parameters;
   }
 
   /**
@@ -76,13 +88,13 @@ public class SignatureImpl extends FunctionTypeImpl implements Signature
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetFunctionbody(FunctionBody newFunctionbody, NotificationChain msgs)
+  public NotificationChain basicSetParameters(Parameters newParameters, NotificationChain msgs)
   {
-    FunctionBody oldFunctionbody = functionbody;
-    functionbody = newFunctionbody;
+    Parameters oldParameters = parameters;
+    parameters = newParameters;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.SIGNATURE__FUNCTIONBODY, oldFunctionbody, newFunctionbody);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.SIGNATURE__PARAMETERS, oldParameters, newParameters);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -93,20 +105,68 @@ public class SignatureImpl extends FunctionTypeImpl implements Signature
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setFunctionbody(FunctionBody newFunctionbody)
+  public void setParameters(Parameters newParameters)
   {
-    if (newFunctionbody != functionbody)
+    if (newParameters != parameters)
     {
       NotificationChain msgs = null;
-      if (functionbody != null)
-        msgs = ((InternalEObject)functionbody).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIGNATURE__FUNCTIONBODY, null, msgs);
-      if (newFunctionbody != null)
-        msgs = ((InternalEObject)newFunctionbody).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIGNATURE__FUNCTIONBODY, null, msgs);
-      msgs = basicSetFunctionbody(newFunctionbody, msgs);
+      if (parameters != null)
+        msgs = ((InternalEObject)parameters).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIGNATURE__PARAMETERS, null, msgs);
+      if (newParameters != null)
+        msgs = ((InternalEObject)newParameters).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIGNATURE__PARAMETERS, null, msgs);
+      msgs = basicSetParameters(newParameters, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.SIGNATURE__FUNCTIONBODY, newFunctionbody, newFunctionbody));
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.SIGNATURE__PARAMETERS, newParameters, newParameters));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Result getResult()
+  {
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetResult(Result newResult, NotificationChain msgs)
+  {
+    Result oldResult = result;
+    result = newResult;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.SIGNATURE__RESULT, oldResult, newResult);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setResult(Result newResult)
+  {
+    if (newResult != result)
+    {
+      NotificationChain msgs = null;
+      if (result != null)
+        msgs = ((InternalEObject)result).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIGNATURE__RESULT, null, msgs);
+      if (newResult != null)
+        msgs = ((InternalEObject)newResult).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIGNATURE__RESULT, null, msgs);
+      msgs = basicSetResult(newResult, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.SIGNATURE__RESULT, newResult, newResult));
   }
 
   /**
@@ -119,8 +179,10 @@ public class SignatureImpl extends FunctionTypeImpl implements Signature
   {
     switch (featureID)
     {
-      case GoPackage.SIGNATURE__FUNCTIONBODY:
-        return basicSetFunctionbody(null, msgs);
+      case GoPackage.SIGNATURE__PARAMETERS:
+        return basicSetParameters(null, msgs);
+      case GoPackage.SIGNATURE__RESULT:
+        return basicSetResult(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -135,8 +197,10 @@ public class SignatureImpl extends FunctionTypeImpl implements Signature
   {
     switch (featureID)
     {
-      case GoPackage.SIGNATURE__FUNCTIONBODY:
-        return getFunctionbody();
+      case GoPackage.SIGNATURE__PARAMETERS:
+        return getParameters();
+      case GoPackage.SIGNATURE__RESULT:
+        return getResult();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -151,8 +215,11 @@ public class SignatureImpl extends FunctionTypeImpl implements Signature
   {
     switch (featureID)
     {
-      case GoPackage.SIGNATURE__FUNCTIONBODY:
-        setFunctionbody((FunctionBody)newValue);
+      case GoPackage.SIGNATURE__PARAMETERS:
+        setParameters((Parameters)newValue);
+        return;
+      case GoPackage.SIGNATURE__RESULT:
+        setResult((Result)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -168,8 +235,11 @@ public class SignatureImpl extends FunctionTypeImpl implements Signature
   {
     switch (featureID)
     {
-      case GoPackage.SIGNATURE__FUNCTIONBODY:
-        setFunctionbody((FunctionBody)null);
+      case GoPackage.SIGNATURE__PARAMETERS:
+        setParameters((Parameters)null);
+        return;
+      case GoPackage.SIGNATURE__RESULT:
+        setResult((Result)null);
         return;
     }
     super.eUnset(featureID);
@@ -185,8 +255,10 @@ public class SignatureImpl extends FunctionTypeImpl implements Signature
   {
     switch (featureID)
     {
-      case GoPackage.SIGNATURE__FUNCTIONBODY:
-        return functionbody != null;
+      case GoPackage.SIGNATURE__PARAMETERS:
+        return parameters != null;
+      case GoPackage.SIGNATURE__RESULT:
+        return result != null;
     }
     return super.eIsSet(featureID);
   }

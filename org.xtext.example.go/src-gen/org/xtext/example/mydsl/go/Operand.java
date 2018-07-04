@@ -3,6 +3,7 @@
  */
 package org.xtext.example.mydsl.go;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +23,7 @@ package org.xtext.example.mydsl.go;
  * @model
  * @generated
  */
-public interface Operand extends PrimaryExpr
+public interface Operand extends EObject
 {
   /**
    * Returns the value of the '<em><b>Literal</b></em>' containment reference.
@@ -51,30 +52,30 @@ public interface Operand extends PrimaryExpr
   void setLiteral(Literal value);
 
   /**
-   * Returns the value of the '<em><b>Operandn</b></em>' attribute.
+   * Returns the value of the '<em><b>Operandn</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Operandn</em>' attribute isn't clear,
+   * If the meaning of the '<em>Operandn</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Operandn</em>' attribute.
-   * @see #setOperandn(String)
+   * @return the value of the '<em>Operandn</em>' containment reference.
+   * @see #setOperandn(OperandName)
    * @see org.xtext.example.mydsl.go.GoPackage#getOperand_Operandn()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getOperandn();
+  OperandName getOperandn();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.go.Operand#getOperandn <em>Operandn</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.Operand#getOperandn <em>Operandn</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Operandn</em>' attribute.
+   * @param value the new value of the '<em>Operandn</em>' containment reference.
    * @see #getOperandn()
    * @generated
    */
-  void setOperandn(String value);
+  void setOperandn(OperandName value);
 
   /**
    * Returns the value of the '<em><b>Expression</b></em>' containment reference.

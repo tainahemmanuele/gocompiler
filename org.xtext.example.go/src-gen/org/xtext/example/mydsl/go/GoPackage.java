@@ -179,7 +179,7 @@ public interface GoPackage extends EPackage
   int METHOD_DECL__METHOD = TOP_LEVEL_DECL_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Signature</b></em>' containment reference list.
+   * The feature id for the '<em><b>Signature</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -244,7 +244,7 @@ public interface GoPackage extends EPackage
   int FUNCTION_DECL__FUNCTIONN = TOP_LEVEL_DECL_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Signature</b></em>' containment reference list.
+   * The feature id for the '<em><b>Signature</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -300,13 +300,31 @@ public interface GoPackage extends EPackage
   int TYPE = 6;
 
   /**
-   * The feature id for the '<em><b>Expressionlist</b></em>' containment reference.
+   * The feature id for the '<em><b>Tp</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE__EXPRESSIONLIST = ELEMENT_TYPE_FEATURE_COUNT + 0;
+  int TYPE__TP = ELEMENT_TYPE_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Tp2</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE__TP2 = ELEMENT_TYPE_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Tp3</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE__TP3 = ELEMENT_TYPE_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Type</em>' class.
@@ -315,7 +333,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_FEATURE_COUNT = ELEMENT_TYPE_FEATURE_COUNT + 1;
+  int TYPE_FEATURE_COUNT = ELEMENT_TYPE_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.TypeLitImpl <em>Type Lit</em>}' class.
@@ -328,22 +346,13 @@ public interface GoPackage extends EPackage
   int TYPE_LIT = 7;
 
   /**
-   * The feature id for the '<em><b>Expressionlist</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_LIT__EXPRESSIONLIST = TYPE__EXPRESSIONLIST;
-
-  /**
    * The number of structural features of the '<em>Type Lit</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_LIT_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
+  int TYPE_LIT_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.ArrayTypeImpl <em>Array Type</em>}' class.
@@ -354,15 +363,6 @@ public interface GoPackage extends EPackage
    * @generated
    */
   int ARRAY_TYPE = 8;
-
-  /**
-   * The feature id for the '<em><b>Expressionlist</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAY_TYPE__EXPRESSIONLIST = TYPE_LIT__EXPRESSIONLIST;
 
   /**
    * The number of structural features of the '<em>Array Type</em>' class.
@@ -382,15 +382,6 @@ public interface GoPackage extends EPackage
    * @generated
    */
   int ARRAY_LENGTH = 9;
-
-  /**
-   * The feature id for the '<em><b>Expressionlist</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAY_LENGTH__EXPRESSIONLIST = ARRAY_TYPE__EXPRESSIONLIST;
 
   /**
    * The feature id for the '<em><b>Elemtype</b></em>' containment reference.
@@ -421,15 +412,6 @@ public interface GoPackage extends EPackage
   int SLICE_TYPE = 11;
 
   /**
-   * The feature id for the '<em><b>Expressionlist</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SLICE_TYPE__EXPRESSIONLIST = TYPE_LIT__EXPRESSIONLIST;
-
-  /**
    * The feature id for the '<em><b>Elemtype</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -456,15 +438,6 @@ public interface GoPackage extends EPackage
    * @generated
    */
   int STRUCT_TYPE = 12;
-
-  /**
-   * The feature id for the '<em><b>Expressionlist</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STRUCT_TYPE__EXPRESSIONLIST = TYPE_LIT__EXPRESSIONLIST;
 
   /**
    * The feature id for the '<em><b>Fielddecl</b></em>' containment reference list.
@@ -495,7 +468,7 @@ public interface GoPackage extends EPackage
   int FIELD_DECL = 13;
 
   /**
-   * The feature id for the '<em><b>Indentifier L</b></em>' attribute.
+   * The feature id for the '<em><b>Indentifier L</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -513,13 +486,68 @@ public interface GoPackage extends EPackage
   int FIELD_DECL__TYPE = 1;
 
   /**
+   * The feature id for the '<em><b>Embedded</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD_DECL__EMBEDDED = 2;
+
+  /**
+   * The feature id for the '<em><b>Tag</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD_DECL__TAG = 3;
+
+  /**
    * The number of structural features of the '<em>Field Decl</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FIELD_DECL_FEATURE_COUNT = 2;
+  int FIELD_DECL_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.IdentifierListImpl <em>Identifier List</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.go.impl.IdentifierListImpl
+   * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getIdentifierList()
+   * @generated
+   */
+  int IDENTIFIER_LIST = 14;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IDENTIFIER_LIST__ID = 0;
+
+  /**
+   * The feature id for the '<em><b>Id2</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IDENTIFIER_LIST__ID2 = 1;
+
+  /**
+   * The number of structural features of the '<em>Identifier List</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IDENTIFIER_LIST_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.PointerTypeImpl <em>Pointer Type</em>}' class.
@@ -529,16 +557,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getPointerType()
    * @generated
    */
-  int POINTER_TYPE = 14;
-
-  /**
-   * The feature id for the '<em><b>Expressionlist</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POINTER_TYPE__EXPRESSIONLIST = TYPE_LIT__EXPRESSIONLIST;
+  int POINTER_TYPE = 15;
 
   /**
    * The feature id for the '<em><b>Basetype</b></em>' containment reference.
@@ -566,7 +585,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getBaseType()
    * @generated
    */
-  int BASE_TYPE = 15;
+  int BASE_TYPE = 16;
 
   /**
    * The number of structural features of the '<em>Base Type</em>' class.
@@ -585,16 +604,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getFunctionType()
    * @generated
    */
-  int FUNCTION_TYPE = 16;
-
-  /**
-   * The feature id for the '<em><b>Expressionlist</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION_TYPE__EXPRESSIONLIST = TYPE_LIT__EXPRESSIONLIST;
+  int FUNCTION_TYPE = 17;
 
   /**
    * The number of structural features of the '<em>Function Type</em>' class.
@@ -613,25 +623,25 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getSignature()
    * @generated
    */
-  int SIGNATURE = 17;
+  int SIGNATURE = 18;
 
   /**
-   * The feature id for the '<em><b>Expressionlist</b></em>' containment reference.
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SIGNATURE__EXPRESSIONLIST = FUNCTION_TYPE__EXPRESSIONLIST;
+  int SIGNATURE__PARAMETERS = FUNCTION_TYPE_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Functionbody</b></em>' containment reference.
+   * The feature id for the '<em><b>Result</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SIGNATURE__FUNCTIONBODY = FUNCTION_TYPE_FEATURE_COUNT + 0;
+  int SIGNATURE__RESULT = FUNCTION_TYPE_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Signature</em>' class.
@@ -640,7 +650,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SIGNATURE_FEATURE_COUNT = FUNCTION_TYPE_FEATURE_COUNT + 1;
+  int SIGNATURE_FEATURE_COUNT = FUNCTION_TYPE_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.ResultImpl <em>Result</em>}' class.
@@ -650,7 +660,25 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getResult()
    * @generated
    */
-  int RESULT = 18;
+  int RESULT = 19;
+
+  /**
+   * The feature id for the '<em><b>Parameteres</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESULT__PARAMETERES = 0;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESULT__TYPE = 1;
 
   /**
    * The number of structural features of the '<em>Result</em>' class.
@@ -659,7 +687,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RESULT_FEATURE_COUNT = 0;
+  int RESULT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.ParametersImpl <em>Parameters</em>}' class.
@@ -669,34 +697,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getParameters()
    * @generated
    */
-  int PARAMETERS = 19;
-
-  /**
-   * The feature id for the '<em><b>Expressionlist</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETERS__EXPRESSIONLIST = RECEIVER_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Functionbody</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETERS__FUNCTIONBODY = RECEIVER_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Result</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETERS__RESULT = RECEIVER_FEATURE_COUNT + 2;
+  int PARAMETERS = 20;
 
   /**
    * The feature id for the '<em><b>Parameterlist</b></em>' containment reference.
@@ -705,7 +706,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PARAMETERS__PARAMETERLIST = RECEIVER_FEATURE_COUNT + 3;
+  int PARAMETERS__PARAMETERLIST = RECEIVER_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Parameters</em>' class.
@@ -714,7 +715,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PARAMETERS_FEATURE_COUNT = RECEIVER_FEATURE_COUNT + 4;
+  int PARAMETERS_FEATURE_COUNT = RECEIVER_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.ParameterListImpl <em>Parameter List</em>}' class.
@@ -724,7 +725,25 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getParameterList()
    * @generated
    */
-  int PARAMETER_LIST = 20;
+  int PARAMETER_LIST = 21;
+
+  /**
+   * The feature id for the '<em><b>Parameter Decl1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER_LIST__PARAMETER_DECL1 = 0;
+
+  /**
+   * The feature id for the '<em><b>Parameterdecl</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER_LIST__PARAMETERDECL = 1;
 
   /**
    * The number of structural features of the '<em>Parameter List</em>' class.
@@ -733,7 +752,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PARAMETER_LIST_FEATURE_COUNT = 0;
+  int PARAMETER_LIST_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.ParameterDeclImpl <em>Parameter Decl</em>}' class.
@@ -743,25 +762,16 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getParameterDecl()
    * @generated
    */
-  int PARAMETER_DECL = 21;
+  int PARAMETER_DECL = 22;
 
   /**
-   * The feature id for the '<em><b>Parameterdecl</b></em>' containment reference list.
+   * The feature id for the '<em><b>Identifier L</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARAMETER_DECL__PARAMETERDECL = PARAMETER_LIST_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Indentifier L</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER_DECL__INDENTIFIER_L = PARAMETER_LIST_FEATURE_COUNT + 1;
+  int PARAMETER_DECL__IDENTIFIER_L = 0;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -770,7 +780,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PARAMETER_DECL__TYPE = PARAMETER_LIST_FEATURE_COUNT + 2;
+  int PARAMETER_DECL__TYPE = 1;
 
   /**
    * The number of structural features of the '<em>Parameter Decl</em>' class.
@@ -779,7 +789,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PARAMETER_DECL_FEATURE_COUNT = PARAMETER_LIST_FEATURE_COUNT + 3;
+  int PARAMETER_DECL_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.InterfaceTypeImpl <em>Interface Type</em>}' class.
@@ -789,16 +799,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getInterfaceType()
    * @generated
    */
-  int INTERFACE_TYPE = 22;
-
-  /**
-   * The feature id for the '<em><b>Expressionlist</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INTERFACE_TYPE__EXPRESSIONLIST = TYPE_LIT__EXPRESSIONLIST;
+  int INTERFACE_TYPE = 23;
 
   /**
    * The feature id for the '<em><b>Methodspec</b></em>' containment reference list.
@@ -826,7 +827,34 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getMethodSpec()
    * @generated
    */
-  int METHOD_SPEC = 23;
+  int METHOD_SPEC = 24;
+
+  /**
+   * The feature id for the '<em><b>Mn</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD_SPEC__MN = 0;
+
+  /**
+   * The feature id for the '<em><b>Signature</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD_SPEC__SIGNATURE = 1;
+
+  /**
+   * The feature id for the '<em><b>Itn</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD_SPEC__ITN = 2;
 
   /**
    * The number of structural features of the '<em>Method Spec</em>' class.
@@ -835,7 +863,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int METHOD_SPEC_FEATURE_COUNT = 0;
+  int METHOD_SPEC_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.MapTypeImpl <em>Map Type</em>}' class.
@@ -845,16 +873,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getMapType()
    * @generated
    */
-  int MAP_TYPE = 24;
-
-  /**
-   * The feature id for the '<em><b>Expressionlist</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MAP_TYPE__EXPRESSIONLIST = TYPE_LIT__EXPRESSIONLIST;
+  int MAP_TYPE = 25;
 
   /**
    * The feature id for the '<em><b>Keytype</b></em>' containment reference.
@@ -891,7 +910,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getKeyType()
    * @generated
    */
-  int KEY_TYPE = 25;
+  int KEY_TYPE = 26;
 
   /**
    * The number of structural features of the '<em>Key Type</em>' class.
@@ -910,16 +929,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getChannelType()
    * @generated
    */
-  int CHANNEL_TYPE = 26;
-
-  /**
-   * The feature id for the '<em><b>Expressionlist</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CHANNEL_TYPE__EXPRESSIONLIST = TYPE_LIT__EXPRESSIONLIST;
+  int CHANNEL_TYPE = 27;
 
   /**
    * The feature id for the '<em><b>Elemtype</b></em>' containment reference.
@@ -947,7 +957,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getFunctionBody()
    * @generated
    */
-  int FUNCTION_BODY = 93;
+  int FUNCTION_BODY = 94;
 
   /**
    * The number of structural features of the '<em>Function Body</em>' class.
@@ -966,7 +976,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getBlock()
    * @generated
    */
-  int BLOCK = 27;
+  int BLOCK = 28;
 
   /**
    * The number of structural features of the '<em>Block</em>' class.
@@ -985,7 +995,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getStatementList()
    * @generated
    */
-  int STATEMENT_LIST = 28;
+  int STATEMENT_LIST = 29;
 
   /**
    * The feature id for the '<em><b>Statment</b></em>' containment reference list.
@@ -1013,7 +1023,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getStatement()
    * @generated
    */
-  int STATEMENT = 29;
+  int STATEMENT = 30;
 
   /**
    * The feature id for the '<em><b>Declaration</b></em>' containment reference.
@@ -1158,7 +1168,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getDeclaration()
    * @generated
    */
-  int DECLARATION = 30;
+  int DECLARATION = 31;
 
   /**
    * The number of structural features of the '<em>Declaration</em>' class.
@@ -1177,7 +1187,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getLabeledStmt()
    * @generated
    */
-  int LABELED_STMT = 31;
+  int LABELED_STMT = 32;
 
   /**
    * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -1207,62 +1217,6 @@ public interface GoPackage extends EPackage
   int LABELED_STMT_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.SwitchStmtImpl <em>Switch Stmt</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.go.impl.SwitchStmtImpl
-   * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getSwitchStmt()
-   * @generated
-   */
-  int SWITCH_STMT = 35;
-
-  /**
-   * The number of structural features of the '<em>Switch Stmt</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SWITCH_STMT_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.TypeSwitchStmtImpl <em>Type Switch Stmt</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.go.impl.TypeSwitchStmtImpl
-   * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getTypeSwitchStmt()
-   * @generated
-   */
-  int TYPE_SWITCH_STMT = 56;
-
-  /**
-   * The feature id for the '<em><b>Typesg</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_SWITCH_STMT__TYPESG = SWITCH_STMT_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Typecc</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_SWITCH_STMT__TYPECC = SWITCH_STMT_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Type Switch Stmt</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_SWITCH_STMT_FEATURE_COUNT = SWITCH_STMT_FEATURE_COUNT + 2;
-
-  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.SimpleStmtImpl <em>Simple Stmt</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1270,43 +1224,52 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getSimpleStmt()
    * @generated
    */
-  int SIMPLE_STMT = 32;
+  int SIMPLE_STMT = 33;
 
   /**
-   * The feature id for the '<em><b>Typesg</b></em>' containment reference.
+   * The feature id for the '<em><b>Inc</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SIMPLE_STMT__TYPESG = TYPE_SWITCH_STMT__TYPESG;
+  int SIMPLE_STMT__INC = 0;
 
   /**
-   * The feature id for the '<em><b>Typecc</b></em>' containment reference list.
+   * The feature id for the '<em><b>Ass</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SIMPLE_STMT__TYPECC = TYPE_SWITCH_STMT__TYPECC;
+  int SIMPLE_STMT__ASS = 1;
 
   /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
+   * The feature id for the '<em><b>Ss</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SIMPLE_STMT__CONDITION = TYPE_SWITCH_STMT_FEATURE_COUNT + 0;
+  int SIMPLE_STMT__SS = 2;
 
   /**
-   * The feature id for the '<em><b>Poststmt</b></em>' containment reference.
+   * The feature id for the '<em><b>Svd</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SIMPLE_STMT__POSTSTMT = TYPE_SWITCH_STMT_FEATURE_COUNT + 1;
+  int SIMPLE_STMT__SVD = 3;
+
+  /**
+   * The feature id for the '<em><b>Es</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_STMT__ES = 4;
 
   /**
    * The feature id for the '<em><b>Empty</b></em>' attribute.
@@ -1315,7 +1278,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SIMPLE_STMT__EMPTY = TYPE_SWITCH_STMT_FEATURE_COUNT + 2;
+  int SIMPLE_STMT__EMPTY = 5;
 
   /**
    * The number of structural features of the '<em>Simple Stmt</em>' class.
@@ -1324,7 +1287,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SIMPLE_STMT_FEATURE_COUNT = TYPE_SWITCH_STMT_FEATURE_COUNT + 3;
+  int SIMPLE_STMT_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.ReturnStmtImpl <em>Return Stmt</em>}' class.
@@ -1334,7 +1297,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getReturnStmt()
    * @generated
    */
-  int RETURN_STMT = 33;
+  int RETURN_STMT = 34;
 
   /**
    * The feature id for the '<em><b>Declaration</b></em>' containment reference.
@@ -1488,7 +1451,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getIfStmt()
    * @generated
    */
-  int IF_STMT = 34;
+  int IF_STMT = 35;
 
   /**
    * The feature id for the '<em><b>Simst</b></em>' containment reference.
@@ -1545,6 +1508,25 @@ public interface GoPackage extends EPackage
   int IF_STMT_FEATURE_COUNT = 5;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.SwitchStmtImpl <em>Switch Stmt</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.go.impl.SwitchStmtImpl
+   * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getSwitchStmt()
+   * @generated
+   */
+  int SWITCH_STMT = 36;
+
+  /**
+   * The number of structural features of the '<em>Switch Stmt</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SWITCH_STMT_FEATURE_COUNT = 0;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.SelectStmtImpl <em>Select Stmt</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1552,7 +1534,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getSelectStmt()
    * @generated
    */
-  int SELECT_STMT = 36;
+  int SELECT_STMT = 37;
 
   /**
    * The feature id for the '<em><b>Commclause</b></em>' containment reference list.
@@ -1580,10 +1562,10 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getForStmt()
    * @generated
    */
-  int FOR_STMT = 37;
+  int FOR_STMT = 38;
 
   /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference list.
+   * The feature id for the '<em><b>Condition</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1592,7 +1574,7 @@ public interface GoPackage extends EPackage
   int FOR_STMT__CONDITION = 0;
 
   /**
-   * The feature id for the '<em><b>For</b></em>' containment reference list.
+   * The feature id for the '<em><b>For</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1601,7 +1583,7 @@ public interface GoPackage extends EPackage
   int FOR_STMT__FOR = 1;
 
   /**
-   * The feature id for the '<em><b>Range</b></em>' containment reference list.
+   * The feature id for the '<em><b>Range</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1635,7 +1617,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getDeferStmt()
    * @generated
    */
-  int DEFER_STMT = 38;
+  int DEFER_STMT = 39;
 
   /**
    * The number of structural features of the '<em>Defer Stmt</em>' class.
@@ -1654,7 +1636,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getConstDecl()
    * @generated
    */
-  int CONST_DECL = 39;
+  int CONST_DECL = 40;
 
   /**
    * The feature id for the '<em><b>Constspec</b></em>' containment reference.
@@ -1691,7 +1673,34 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getConstSpec()
    * @generated
    */
-  int CONST_SPEC = 40;
+  int CONST_SPEC = 41;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONST_SPEC__ID = 0;
+
+  /**
+   * The feature id for the '<em><b>Tp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONST_SPEC__TP = 1;
+
+  /**
+   * The feature id for the '<em><b>Expressionlist</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONST_SPEC__EXPRESSIONLIST = 2;
 
   /**
    * The number of structural features of the '<em>Const Spec</em>' class.
@@ -1700,7 +1709,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONST_SPEC_FEATURE_COUNT = 0;
+  int CONST_SPEC_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.TypeDeclImpl <em>Type Decl</em>}' class.
@@ -1710,7 +1719,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getTypeDecl()
    * @generated
    */
-  int TYPE_DECL = 41;
+  int TYPE_DECL = 42;
 
   /**
    * The feature id for the '<em><b>Typespec</b></em>' containment reference.
@@ -1747,7 +1756,25 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getTypeSpec()
    * @generated
    */
-  int TYPE_SPEC = 42;
+  int TYPE_SPEC = 43;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_SPEC__ID = 0;
+
+  /**
+   * The feature id for the '<em><b>Tp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_SPEC__TP = 1;
 
   /**
    * The number of structural features of the '<em>Type Spec</em>' class.
@@ -1756,7 +1783,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_SPEC_FEATURE_COUNT = 0;
+  int TYPE_SPEC_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.TypeDefImpl <em>Type Def</em>}' class.
@@ -1766,7 +1793,25 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getTypeDef()
    * @generated
    */
-  int TYPE_DEF = 43;
+  int TYPE_DEF = 44;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_DEF__ID = TYPE_SPEC__ID;
+
+  /**
+   * The feature id for the '<em><b>Tp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_DEF__TP = TYPE_SPEC__TP;
 
   /**
    * The number of structural features of the '<em>Type Def</em>' class.
@@ -1785,7 +1830,25 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getAliasDecl()
    * @generated
    */
-  int ALIAS_DECL = 44;
+  int ALIAS_DECL = 45;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ALIAS_DECL__ID = TYPE_SPEC__ID;
+
+  /**
+   * The feature id for the '<em><b>Tp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ALIAS_DECL__TP = TYPE_SPEC__TP;
 
   /**
    * The number of structural features of the '<em>Alias Decl</em>' class.
@@ -1804,7 +1867,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getVarDecl()
    * @generated
    */
-  int VAR_DECL = 45;
+  int VAR_DECL = 46;
 
   /**
    * The feature id for the '<em><b>Varspec</b></em>' containment reference.
@@ -1841,7 +1904,34 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getVarSpec()
    * @generated
    */
-  int VAR_SPEC = 46;
+  int VAR_SPEC = 47;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAR_SPEC__ID = 0;
+
+  /**
+   * The feature id for the '<em><b>Tp2</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAR_SPEC__TP2 = 1;
+
+  /**
+   * The feature id for the '<em><b>Expressionlist</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAR_SPEC__EXPRESSIONLIST = 2;
 
   /**
    * The number of structural features of the '<em>Var Spec</em>' class.
@@ -1850,7 +1940,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VAR_SPEC_FEATURE_COUNT = 0;
+  int VAR_SPEC_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.ExpressionStmtImpl <em>Expression Stmt</em>}' class.
@@ -1860,52 +1950,16 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getExpressionStmt()
    * @generated
    */
-  int EXPRESSION_STMT = 47;
+  int EXPRESSION_STMT = 48;
 
   /**
-   * The feature id for the '<em><b>Typesg</b></em>' containment reference.
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION_STMT__TYPESG = SIMPLE_STMT__TYPESG;
-
-  /**
-   * The feature id for the '<em><b>Typecc</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_STMT__TYPECC = SIMPLE_STMT__TYPECC;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_STMT__CONDITION = SIMPLE_STMT__CONDITION;
-
-  /**
-   * The feature id for the '<em><b>Poststmt</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_STMT__POSTSTMT = SIMPLE_STMT__POSTSTMT;
-
-  /**
-   * The feature id for the '<em><b>Empty</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_STMT__EMPTY = SIMPLE_STMT__EMPTY;
+  int EXPRESSION_STMT__EXP = 0;
 
   /**
    * The number of structural features of the '<em>Expression Stmt</em>' class.
@@ -1914,7 +1968,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION_STMT_FEATURE_COUNT = SIMPLE_STMT_FEATURE_COUNT + 0;
+  int EXPRESSION_STMT_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.SendStmtImpl <em>Send Stmt</em>}' class.
@@ -1924,52 +1978,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getSendStmt()
    * @generated
    */
-  int SEND_STMT = 48;
-
-  /**
-   * The feature id for the '<em><b>Typesg</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEND_STMT__TYPESG = SIMPLE_STMT__TYPESG;
-
-  /**
-   * The feature id for the '<em><b>Typecc</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEND_STMT__TYPECC = SIMPLE_STMT__TYPECC;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEND_STMT__CONDITION = SIMPLE_STMT__CONDITION;
-
-  /**
-   * The feature id for the '<em><b>Poststmt</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEND_STMT__POSTSTMT = SIMPLE_STMT__POSTSTMT;
-
-  /**
-   * The feature id for the '<em><b>Empty</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEND_STMT__EMPTY = SIMPLE_STMT__EMPTY;
+  int SEND_STMT = 49;
 
   /**
    * The feature id for the '<em><b>Ch</b></em>' containment reference.
@@ -1978,7 +1987,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SEND_STMT__CH = SIMPLE_STMT_FEATURE_COUNT + 0;
+  int SEND_STMT__CH = 0;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1987,7 +1996,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SEND_STMT__EXPRESSION = SIMPLE_STMT_FEATURE_COUNT + 1;
+  int SEND_STMT__EXPRESSION = 1;
 
   /**
    * The number of structural features of the '<em>Send Stmt</em>' class.
@@ -1996,7 +2005,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SEND_STMT_FEATURE_COUNT = SIMPLE_STMT_FEATURE_COUNT + 2;
+  int SEND_STMT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.ChannelImpl <em>Channel</em>}' class.
@@ -2006,7 +2015,16 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getChannel()
    * @generated
    */
-  int CHANNEL = 49;
+  int CHANNEL = 50;
+
+  /**
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHANNEL__EXP = 0;
 
   /**
    * The number of structural features of the '<em>Channel</em>' class.
@@ -2015,7 +2033,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CHANNEL_FEATURE_COUNT = 0;
+  int CHANNEL_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.IncDecStmtImpl <em>Inc Dec Stmt</em>}' class.
@@ -2025,52 +2043,25 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getIncDecStmt()
    * @generated
    */
-  int INC_DEC_STMT = 50;
+  int INC_DEC_STMT = 51;
 
   /**
-   * The feature id for the '<em><b>Typesg</b></em>' containment reference.
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INC_DEC_STMT__TYPESG = SIMPLE_STMT__TYPESG;
+  int INC_DEC_STMT__EXP = 0;
 
   /**
-   * The feature id for the '<em><b>Typecc</b></em>' containment reference list.
+   * The feature id for the '<em><b>Exp2</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INC_DEC_STMT__TYPECC = SIMPLE_STMT__TYPECC;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INC_DEC_STMT__CONDITION = SIMPLE_STMT__CONDITION;
-
-  /**
-   * The feature id for the '<em><b>Poststmt</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INC_DEC_STMT__POSTSTMT = SIMPLE_STMT__POSTSTMT;
-
-  /**
-   * The feature id for the '<em><b>Empty</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INC_DEC_STMT__EMPTY = SIMPLE_STMT__EMPTY;
+  int INC_DEC_STMT__EXP2 = 1;
 
   /**
    * The number of structural features of the '<em>Inc Dec Stmt</em>' class.
@@ -2079,7 +2070,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INC_DEC_STMT_FEATURE_COUNT = SIMPLE_STMT_FEATURE_COUNT + 0;
+  int INC_DEC_STMT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.AssignmentImpl <em>Assignment</em>}' class.
@@ -2089,52 +2080,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getAssignment()
    * @generated
    */
-  int ASSIGNMENT = 51;
-
-  /**
-   * The feature id for the '<em><b>Typesg</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGNMENT__TYPESG = SIMPLE_STMT__TYPESG;
-
-  /**
-   * The feature id for the '<em><b>Typecc</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGNMENT__TYPECC = SIMPLE_STMT__TYPECC;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGNMENT__CONDITION = SIMPLE_STMT__CONDITION;
-
-  /**
-   * The feature id for the '<em><b>Poststmt</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGNMENT__POSTSTMT = SIMPLE_STMT__POSTSTMT;
-
-  /**
-   * The feature id for the '<em><b>Empty</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGNMENT__EMPTY = SIMPLE_STMT__EMPTY;
+  int ASSIGNMENT = 52;
 
   /**
    * The feature id for the '<em><b>Expressionlist</b></em>' containment reference.
@@ -2143,7 +2089,16 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSIGNMENT__EXPRESSIONLIST = SIMPLE_STMT_FEATURE_COUNT + 0;
+  int ASSIGNMENT__EXPRESSIONLIST = 0;
+
+  /**
+   * The feature id for the '<em><b>Asop</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSIGNMENT__ASOP = 1;
 
   /**
    * The feature id for the '<em><b>Expressionlist2</b></em>' containment reference.
@@ -2152,7 +2107,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSIGNMENT__EXPRESSIONLIST2 = SIMPLE_STMT_FEATURE_COUNT + 1;
+  int ASSIGNMENT__EXPRESSIONLIST2 = 2;
 
   /**
    * The number of structural features of the '<em>Assignment</em>' class.
@@ -2161,7 +2116,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSIGNMENT_FEATURE_COUNT = SIMPLE_STMT_FEATURE_COUNT + 2;
+  int ASSIGNMENT_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.ShortVarDeclImpl <em>Short Var Decl</em>}' class.
@@ -2171,52 +2126,25 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getShortVarDecl()
    * @generated
    */
-  int SHORT_VAR_DECL = 52;
+  int SHORT_VAR_DECL = 53;
 
   /**
-   * The feature id for the '<em><b>Typesg</b></em>' containment reference.
+   * The feature id for the '<em><b>Idl</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SHORT_VAR_DECL__TYPESG = SIMPLE_STMT__TYPESG;
+  int SHORT_VAR_DECL__IDL = 0;
 
   /**
-   * The feature id for the '<em><b>Typecc</b></em>' containment reference list.
+   * The feature id for the '<em><b>Epl</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SHORT_VAR_DECL__TYPECC = SIMPLE_STMT__TYPECC;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SHORT_VAR_DECL__CONDITION = SIMPLE_STMT__CONDITION;
-
-  /**
-   * The feature id for the '<em><b>Poststmt</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SHORT_VAR_DECL__POSTSTMT = SIMPLE_STMT__POSTSTMT;
-
-  /**
-   * The feature id for the '<em><b>Empty</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SHORT_VAR_DECL__EMPTY = SIMPLE_STMT__EMPTY;
+  int SHORT_VAR_DECL__EPL = 1;
 
   /**
    * The number of structural features of the '<em>Short Var Decl</em>' class.
@@ -2225,7 +2153,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SHORT_VAR_DECL_FEATURE_COUNT = SIMPLE_STMT_FEATURE_COUNT + 0;
+  int SHORT_VAR_DECL_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.ExprSwitchStmtImpl <em>Expr Switch Stmt</em>}' class.
@@ -2235,7 +2163,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getExprSwitchStmt()
    * @generated
    */
-  int EXPR_SWITCH_STMT = 53;
+  int EXPR_SWITCH_STMT = 54;
 
   /**
    * The feature id for the '<em><b>Simplestmt</b></em>' containment reference.
@@ -2281,7 +2209,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getExprCaseClause()
    * @generated
    */
-  int EXPR_CASE_CLAUSE = 54;
+  int EXPR_CASE_CLAUSE = 55;
 
   /**
    * The number of structural features of the '<em>Expr Case Clause</em>' class.
@@ -2300,7 +2228,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getExprSwitchCase()
    * @generated
    */
-  int EXPR_SWITCH_CASE = 55;
+  int EXPR_SWITCH_CASE = 56;
 
   /**
    * The feature id for the '<em><b>Statementlist</b></em>' containment reference.
@@ -2330,6 +2258,52 @@ public interface GoPackage extends EPackage
   int EXPR_SWITCH_CASE_FEATURE_COUNT = EXPR_CASE_CLAUSE_FEATURE_COUNT + 2;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.TypeSwitchStmtImpl <em>Type Switch Stmt</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.go.impl.TypeSwitchStmtImpl
+   * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getTypeSwitchStmt()
+   * @generated
+   */
+  int TYPE_SWITCH_STMT = 57;
+
+  /**
+   * The feature id for the '<em><b>Simplestm</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_SWITCH_STMT__SIMPLESTM = SWITCH_STMT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Typesg</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_SWITCH_STMT__TYPESG = SWITCH_STMT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Typecc</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_SWITCH_STMT__TYPECC = SWITCH_STMT_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Type Switch Stmt</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_SWITCH_STMT_FEATURE_COUNT = SWITCH_STMT_FEATURE_COUNT + 3;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.TypeSwitchGuardImpl <em>Type Switch Guard</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2337,7 +2311,25 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getTypeSwitchGuard()
    * @generated
    */
-  int TYPE_SWITCH_GUARD = 57;
+  int TYPE_SWITCH_GUARD = 58;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_SWITCH_GUARD__ID = 0;
+
+  /**
+   * The feature id for the '<em><b>Per</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_SWITCH_GUARD__PER = 1;
 
   /**
    * The number of structural features of the '<em>Type Switch Guard</em>' class.
@@ -2346,7 +2338,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_SWITCH_GUARD_FEATURE_COUNT = 0;
+  int TYPE_SWITCH_GUARD_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.TypeCaseClauseImpl <em>Type Case Clause</em>}' class.
@@ -2356,7 +2348,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getTypeCaseClause()
    * @generated
    */
-  int TYPE_CASE_CLAUSE = 58;
+  int TYPE_CASE_CLAUSE = 59;
 
   /**
    * The number of structural features of the '<em>Type Case Clause</em>' class.
@@ -2375,7 +2367,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getTypeSwitchCase()
    * @generated
    */
-  int TYPE_SWITCH_CASE = 59;
+  int TYPE_SWITCH_CASE = 60;
 
   /**
    * The feature id for the '<em><b>Statementlist</b></em>' containment reference.
@@ -2412,7 +2404,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getTypeList()
    * @generated
    */
-  int TYPE_LIST = 60;
+  int TYPE_LIST = 61;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -2449,7 +2441,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getCommClause()
    * @generated
    */
-  int COMM_CLAUSE = 61;
+  int COMM_CLAUSE = 62;
 
   /**
    * The number of structural features of the '<em>Comm Clause</em>' class.
@@ -2468,7 +2460,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getCommCase()
    * @generated
    */
-  int COMM_CASE = 62;
+  int COMM_CASE = 63;
 
   /**
    * The feature id for the '<em><b>Statementlist2</b></em>' containment reference.
@@ -2514,7 +2506,16 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getRecvStmt()
    * @generated
    */
-  int RECV_STMT = 63;
+  int RECV_STMT = 64;
+
+  /**
+   * The feature id for the '<em><b>Idl</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RECV_STMT__IDL = 0;
 
   /**
    * The feature id for the '<em><b>Recvexpr</b></em>' containment reference.
@@ -2523,7 +2524,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RECV_STMT__RECVEXPR = 0;
+  int RECV_STMT__RECVEXPR = 1;
 
   /**
    * The number of structural features of the '<em>Recv Stmt</em>' class.
@@ -2532,7 +2533,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RECV_STMT_FEATURE_COUNT = 1;
+  int RECV_STMT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.RecvExprImpl <em>Recv Expr</em>}' class.
@@ -2542,7 +2543,16 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getRecvExpr()
    * @generated
    */
-  int RECV_EXPR = 64;
+  int RECV_EXPR = 65;
+
+  /**
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RECV_EXPR__EXP = 0;
 
   /**
    * The number of structural features of the '<em>Recv Expr</em>' class.
@@ -2551,7 +2561,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RECV_EXPR_FEATURE_COUNT = 0;
+  int RECV_EXPR_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.ConditionImpl <em>Condition</em>}' class.
@@ -2561,7 +2571,16 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getCondition()
    * @generated
    */
-  int CONDITION = 65;
+  int CONDITION = 66;
+
+  /**
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION__EXP = 0;
 
   /**
    * The number of structural features of the '<em>Condition</em>' class.
@@ -2570,7 +2589,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONDITION_FEATURE_COUNT = 0;
+  int CONDITION_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.ForClauseImpl <em>For Clause</em>}' class.
@@ -2580,7 +2599,16 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getForClause()
    * @generated
    */
-  int FOR_CLAUSE = 66;
+  int FOR_CLAUSE = 67;
+
+  /**
+   * The feature id for the '<em><b>Init</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR_CLAUSE__INIT = 0;
 
   /**
    * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -2589,7 +2617,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FOR_CLAUSE__CONDITION = 0;
+  int FOR_CLAUSE__CONDITION = 1;
 
   /**
    * The feature id for the '<em><b>Poststmt</b></em>' containment reference.
@@ -2598,7 +2626,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FOR_CLAUSE__POSTSTMT = 1;
+  int FOR_CLAUSE__POSTSTMT = 2;
 
   /**
    * The number of structural features of the '<em>For Clause</em>' class.
@@ -2607,7 +2635,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FOR_CLAUSE_FEATURE_COUNT = 2;
+  int FOR_CLAUSE_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.RangeClauseImpl <em>Range Clause</em>}' class.
@@ -2617,7 +2645,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getRangeClause()
    * @generated
    */
-  int RANGE_CLAUSE = 67;
+  int RANGE_CLAUSE = 68;
 
   /**
    * The feature id for the '<em><b>Expressionlist</b></em>' containment reference.
@@ -2629,13 +2657,22 @@ public interface GoPackage extends EPackage
   int RANGE_CLAUSE__EXPRESSIONLIST = 0;
 
   /**
+   * The feature id for the '<em><b>Idl</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RANGE_CLAUSE__IDL = 1;
+
+  /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RANGE_CLAUSE__EXPRESSION = 1;
+  int RANGE_CLAUSE__EXPRESSION = 2;
 
   /**
    * The number of structural features of the '<em>Range Clause</em>' class.
@@ -2644,7 +2681,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RANGE_CLAUSE_FEATURE_COUNT = 2;
+  int RANGE_CLAUSE_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.InitStmtImpl <em>Init Stmt</em>}' class.
@@ -2654,25 +2691,16 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getInitStmt()
    * @generated
    */
-  int INIT_STMT = 68;
+  int INIT_STMT = 69;
 
   /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
+   * The feature id for the '<em><b>Simple</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INIT_STMT__CONDITION = FOR_CLAUSE__CONDITION;
-
-  /**
-   * The feature id for the '<em><b>Poststmt</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INIT_STMT__POSTSTMT = FOR_CLAUSE__POSTSTMT;
+  int INIT_STMT__SIMPLE = 0;
 
   /**
    * The number of structural features of the '<em>Init Stmt</em>' class.
@@ -2681,7 +2709,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INIT_STMT_FEATURE_COUNT = FOR_CLAUSE_FEATURE_COUNT + 0;
+  int INIT_STMT_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.PostStmtImpl <em>Post Stmt</em>}' class.
@@ -2691,7 +2719,16 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getPostStmt()
    * @generated
    */
-  int POST_STMT = 69;
+  int POST_STMT = 70;
+
+  /**
+   * The feature id for the '<em><b>Simple</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POST_STMT__SIMPLE = 0;
 
   /**
    * The number of structural features of the '<em>Post Stmt</em>' class.
@@ -2700,7 +2737,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int POST_STMT_FEATURE_COUNT = 0;
+  int POST_STMT_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.ExpressionListImpl <em>Expression List</em>}' class.
@@ -2710,52 +2747,16 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getExpressionList()
    * @generated
    */
-  int EXPRESSION_LIST = 70;
+  int EXPRESSION_LIST = 71;
 
   /**
-   * The feature id for the '<em><b>Typesg</b></em>' containment reference.
+   * The feature id for the '<em><b>Idl</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION_LIST__TYPESG = VAR_SPEC_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Typecc</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_LIST__TYPECC = VAR_SPEC_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_LIST__CONDITION = VAR_SPEC_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Poststmt</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_LIST__POSTSTMT = VAR_SPEC_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Empty</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_LIST__EMPTY = VAR_SPEC_FEATURE_COUNT + 4;
+  int EXPRESSION_LIST__IDL = RECV_STMT__IDL;
 
   /**
    * The feature id for the '<em><b>Recvexpr</b></em>' containment reference.
@@ -2764,7 +2765,25 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION_LIST__RECVEXPR = VAR_SPEC_FEATURE_COUNT + 5;
+  int EXPRESSION_LIST__RECVEXPR = RECV_STMT__RECVEXPR;
+
+  /**
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION_LIST__EXP = RECV_STMT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Expression2</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION_LIST__EXPRESSION2 = RECV_STMT_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Expression List</em>' class.
@@ -2773,7 +2792,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION_LIST_FEATURE_COUNT = VAR_SPEC_FEATURE_COUNT + 6;
+  int EXPRESSION_LIST_FEATURE_COUNT = RECV_STMT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -2783,16 +2802,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 71;
-
-  /**
-   * The feature id for the '<em><b>Expressionlist</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__EXPRESSIONLIST = ARRAY_LENGTH__EXPRESSIONLIST;
+  int EXPRESSION = 72;
 
   /**
    * The feature id for the '<em><b>Elemtype</b></em>' containment reference.
@@ -2804,67 +2814,13 @@ public interface GoPackage extends EPackage
   int EXPRESSION__ELEMTYPE = ARRAY_LENGTH__ELEMTYPE;
 
   /**
-   * The feature id for the '<em><b>Typesg</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__TYPESG = ARRAY_LENGTH_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Typecc</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__TYPECC = ARRAY_LENGTH_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__CONDITION = ARRAY_LENGTH_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Poststmt</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__POSTSTMT = ARRAY_LENGTH_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Empty</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__EMPTY = ARRAY_LENGTH_FEATURE_COUNT + 4;
-
-  /**
-   * The feature id for the '<em><b>Recvexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__RECVEXPR = ARRAY_LENGTH_FEATURE_COUNT + 5;
-
-  /**
    * The feature id for the '<em><b>Keyedelement</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION__KEYEDELEMENT = ARRAY_LENGTH_FEATURE_COUNT + 6;
+  int EXPRESSION__KEYEDELEMENT = ARRAY_LENGTH_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Element</b></em>' containment reference.
@@ -2873,16 +2829,34 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__ELEMENT = ARRAY_LENGTH_FEATURE_COUNT + 7;
+  int EXPRESSION__ELEMENT = ARRAY_LENGTH_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Expression2</b></em>' containment reference list.
+   * The feature id for the '<em><b>Fieldn</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION__EXPRESSION2 = ARRAY_LENGTH_FEATURE_COUNT + 8;
+  int EXPRESSION__FIELDN = ARRAY_LENGTH_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Up</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__UP = ARRAY_LENGTH_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__EXP = ARRAY_LENGTH_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -2891,7 +2865,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION_FEATURE_COUNT = ARRAY_LENGTH_FEATURE_COUNT + 9;
+  int EXPRESSION_FEATURE_COUNT = ARRAY_LENGTH_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.Expression2Impl <em>Expression2</em>}' class.
@@ -2901,7 +2875,16 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getExpression2()
    * @generated
    */
-  int EXPRESSION2 = 72;
+  int EXPRESSION2 = 73;
+
+  /**
+   * The feature id for the '<em><b>Bop</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION2__BOP = 0;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -2910,7 +2893,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION2__EXPRESSION = 0;
+  int EXPRESSION2__EXPRESSION = 1;
 
   /**
    * The feature id for the '<em><b>Expression2</b></em>' containment reference.
@@ -2919,7 +2902,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION2__EXPRESSION2 = 1;
+  int EXPRESSION2__EXPRESSION2 = 2;
 
   /**
    * The number of structural features of the '<em>Expression2</em>' class.
@@ -2928,7 +2911,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION2_FEATURE_COUNT = 2;
+  int EXPRESSION2_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.UnaryExprImpl <em>Unary Expr</em>}' class.
@@ -2938,115 +2921,25 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getUnaryExpr()
    * @generated
    */
-  int UNARY_EXPR = 73;
+  int UNARY_EXPR = 74;
 
   /**
-   * The feature id for the '<em><b>Expressionlist</b></em>' containment reference.
+   * The feature id for the '<em><b>Up</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UNARY_EXPR__EXPRESSIONLIST = EXPRESSION__EXPRESSIONLIST;
+  int UNARY_EXPR__UP = 0;
 
   /**
-   * The feature id for the '<em><b>Elemtype</b></em>' containment reference.
+   * The feature id for the '<em><b>Ue</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UNARY_EXPR__ELEMTYPE = EXPRESSION__ELEMTYPE;
-
-  /**
-   * The feature id for the '<em><b>Typesg</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UNARY_EXPR__TYPESG = EXPRESSION__TYPESG;
-
-  /**
-   * The feature id for the '<em><b>Typecc</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UNARY_EXPR__TYPECC = EXPRESSION__TYPECC;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UNARY_EXPR__CONDITION = EXPRESSION__CONDITION;
-
-  /**
-   * The feature id for the '<em><b>Poststmt</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UNARY_EXPR__POSTSTMT = EXPRESSION__POSTSTMT;
-
-  /**
-   * The feature id for the '<em><b>Empty</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UNARY_EXPR__EMPTY = EXPRESSION__EMPTY;
-
-  /**
-   * The feature id for the '<em><b>Recvexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UNARY_EXPR__RECVEXPR = EXPRESSION__RECVEXPR;
-
-  /**
-   * The feature id for the '<em><b>Keyedelement</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UNARY_EXPR__KEYEDELEMENT = EXPRESSION__KEYEDELEMENT;
-
-  /**
-   * The feature id for the '<em><b>Element</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UNARY_EXPR__ELEMENT = EXPRESSION__ELEMENT;
-
-  /**
-   * The feature id for the '<em><b>Expression2</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UNARY_EXPR__EXPRESSION2 = EXPRESSION__EXPRESSION2;
-
-  /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UNARY_EXPR__EXP = EXPRESSION_FEATURE_COUNT + 0;
+  int UNARY_EXPR__UE = 1;
 
   /**
    * The number of structural features of the '<em>Unary Expr</em>' class.
@@ -3055,7 +2948,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int UNARY_EXPR_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+  int UNARY_EXPR_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.PrimaryExprImpl <em>Primary Expr</em>}' class.
@@ -3065,115 +2958,34 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getPrimaryExpr()
    * @generated
    */
-  int PRIMARY_EXPR = 74;
+  int PRIMARY_EXPR = 75;
 
   /**
-   * The feature id for the '<em><b>Expressionlist</b></em>' containment reference.
+   * The feature id for the '<em><b>Up</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPR__EXPRESSIONLIST = TYPE_SWITCH_GUARD_FEATURE_COUNT + 0;
+  int PRIMARY_EXPR__UP = UNARY_EXPR__UP;
 
   /**
-   * The feature id for the '<em><b>Elemtype</b></em>' containment reference.
+   * The feature id for the '<em><b>Ue</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPR__ELEMTYPE = TYPE_SWITCH_GUARD_FEATURE_COUNT + 1;
+  int PRIMARY_EXPR__UE = UNARY_EXPR__UE;
 
   /**
-   * The feature id for the '<em><b>Typesg</b></em>' containment reference.
+   * The feature id for the '<em><b>Op</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPR__TYPESG = TYPE_SWITCH_GUARD_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Typecc</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_EXPR__TYPECC = TYPE_SWITCH_GUARD_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_EXPR__CONDITION = TYPE_SWITCH_GUARD_FEATURE_COUNT + 4;
-
-  /**
-   * The feature id for the '<em><b>Poststmt</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_EXPR__POSTSTMT = TYPE_SWITCH_GUARD_FEATURE_COUNT + 5;
-
-  /**
-   * The feature id for the '<em><b>Empty</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_EXPR__EMPTY = TYPE_SWITCH_GUARD_FEATURE_COUNT + 6;
-
-  /**
-   * The feature id for the '<em><b>Recvexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_EXPR__RECVEXPR = TYPE_SWITCH_GUARD_FEATURE_COUNT + 7;
-
-  /**
-   * The feature id for the '<em><b>Keyedelement</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_EXPR__KEYEDELEMENT = TYPE_SWITCH_GUARD_FEATURE_COUNT + 8;
-
-  /**
-   * The feature id for the '<em><b>Element</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_EXPR__ELEMENT = TYPE_SWITCH_GUARD_FEATURE_COUNT + 9;
-
-  /**
-   * The feature id for the '<em><b>Expression2</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_EXPR__EXPRESSION2 = TYPE_SWITCH_GUARD_FEATURE_COUNT + 10;
-
-  /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_EXPR__EXP = TYPE_SWITCH_GUARD_FEATURE_COUNT + 11;
+  int PRIMARY_EXPR__OP = UNARY_EXPR_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Pr</b></em>' containment reference.
@@ -3182,7 +2994,25 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPR__PR = TYPE_SWITCH_GUARD_FEATURE_COUNT + 12;
+  int PRIMARY_EXPR__PR = UNARY_EXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Con</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_EXPR__CON = UNARY_EXPR_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Me</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_EXPR__ME = UNARY_EXPR_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Primary Expr</em>' class.
@@ -3191,7 +3021,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPR_FEATURE_COUNT = TYPE_SWITCH_GUARD_FEATURE_COUNT + 13;
+  int PRIMARY_EXPR_FEATURE_COUNT = UNARY_EXPR_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.PrimaryExpr2Impl <em>Primary Expr2</em>}' class.
@@ -3201,7 +3031,16 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getPrimaryExpr2()
    * @generated
    */
-  int PRIMARY_EXPR2 = 75;
+  int PRIMARY_EXPR2 = 76;
+
+  /**
+   * The feature id for the '<em><b>Selector</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_EXPR2__SELECTOR = 0;
 
   /**
    * The feature id for the '<em><b>Pr</b></em>' containment reference.
@@ -3210,7 +3049,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPR2__PR = 0;
+  int PRIMARY_EXPR2__PR = 1;
 
   /**
    * The feature id for the '<em><b>Index</b></em>' containment reference.
@@ -3219,7 +3058,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPR2__INDEX = 1;
+  int PRIMARY_EXPR2__INDEX = 2;
 
   /**
    * The feature id for the '<em><b>Slice</b></em>' containment reference.
@@ -3228,7 +3067,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPR2__SLICE = 2;
+  int PRIMARY_EXPR2__SLICE = 3;
 
   /**
    * The feature id for the '<em><b>Typeass</b></em>' containment reference.
@@ -3237,7 +3076,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPR2__TYPEASS = 3;
+  int PRIMARY_EXPR2__TYPEASS = 4;
 
   /**
    * The feature id for the '<em><b>Arguments</b></em>' containment reference.
@@ -3246,7 +3085,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPR2__ARGUMENTS = 4;
+  int PRIMARY_EXPR2__ARGUMENTS = 5;
 
   /**
    * The number of structural features of the '<em>Primary Expr2</em>' class.
@@ -3255,7 +3094,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPR2_FEATURE_COUNT = 5;
+  int PRIMARY_EXPR2_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.OperandImpl <em>Operand</em>}' class.
@@ -3265,124 +3104,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getOperand()
    * @generated
    */
-  int OPERAND = 76;
-
-  /**
-   * The feature id for the '<em><b>Expressionlist</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPERAND__EXPRESSIONLIST = PRIMARY_EXPR__EXPRESSIONLIST;
-
-  /**
-   * The feature id for the '<em><b>Elemtype</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPERAND__ELEMTYPE = PRIMARY_EXPR__ELEMTYPE;
-
-  /**
-   * The feature id for the '<em><b>Typesg</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPERAND__TYPESG = PRIMARY_EXPR__TYPESG;
-
-  /**
-   * The feature id for the '<em><b>Typecc</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPERAND__TYPECC = PRIMARY_EXPR__TYPECC;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPERAND__CONDITION = PRIMARY_EXPR__CONDITION;
-
-  /**
-   * The feature id for the '<em><b>Poststmt</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPERAND__POSTSTMT = PRIMARY_EXPR__POSTSTMT;
-
-  /**
-   * The feature id for the '<em><b>Empty</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPERAND__EMPTY = PRIMARY_EXPR__EMPTY;
-
-  /**
-   * The feature id for the '<em><b>Recvexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPERAND__RECVEXPR = PRIMARY_EXPR__RECVEXPR;
-
-  /**
-   * The feature id for the '<em><b>Keyedelement</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPERAND__KEYEDELEMENT = PRIMARY_EXPR__KEYEDELEMENT;
-
-  /**
-   * The feature id for the '<em><b>Element</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPERAND__ELEMENT = PRIMARY_EXPR__ELEMENT;
-
-  /**
-   * The feature id for the '<em><b>Expression2</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPERAND__EXPRESSION2 = PRIMARY_EXPR__EXPRESSION2;
-
-  /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPERAND__EXP = PRIMARY_EXPR__EXP;
-
-  /**
-   * The feature id for the '<em><b>Pr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPERAND__PR = PRIMARY_EXPR__PR;
+  int OPERAND = 77;
 
   /**
    * The feature id for the '<em><b>Literal</b></em>' containment reference.
@@ -3391,16 +3113,16 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OPERAND__LITERAL = PRIMARY_EXPR_FEATURE_COUNT + 0;
+  int OPERAND__LITERAL = 0;
 
   /**
-   * The feature id for the '<em><b>Operandn</b></em>' attribute.
+   * The feature id for the '<em><b>Operandn</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPERAND__OPERANDN = PRIMARY_EXPR_FEATURE_COUNT + 1;
+  int OPERAND__OPERANDN = 1;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -3409,7 +3131,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OPERAND__EXPRESSION = PRIMARY_EXPR_FEATURE_COUNT + 2;
+  int OPERAND__EXPRESSION = 2;
 
   /**
    * The number of structural features of the '<em>Operand</em>' class.
@@ -3418,7 +3140,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OPERAND_FEATURE_COUNT = PRIMARY_EXPR_FEATURE_COUNT + 3;
+  int OPERAND_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.ConversionImpl <em>Conversion</em>}' class.
@@ -3428,124 +3150,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getConversion()
    * @generated
    */
-  int CONVERSION = 77;
-
-  /**
-   * The feature id for the '<em><b>Expressionlist</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONVERSION__EXPRESSIONLIST = PRIMARY_EXPR__EXPRESSIONLIST;
-
-  /**
-   * The feature id for the '<em><b>Elemtype</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONVERSION__ELEMTYPE = PRIMARY_EXPR__ELEMTYPE;
-
-  /**
-   * The feature id for the '<em><b>Typesg</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONVERSION__TYPESG = PRIMARY_EXPR__TYPESG;
-
-  /**
-   * The feature id for the '<em><b>Typecc</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONVERSION__TYPECC = PRIMARY_EXPR__TYPECC;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONVERSION__CONDITION = PRIMARY_EXPR__CONDITION;
-
-  /**
-   * The feature id for the '<em><b>Poststmt</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONVERSION__POSTSTMT = PRIMARY_EXPR__POSTSTMT;
-
-  /**
-   * The feature id for the '<em><b>Empty</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONVERSION__EMPTY = PRIMARY_EXPR__EMPTY;
-
-  /**
-   * The feature id for the '<em><b>Recvexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONVERSION__RECVEXPR = PRIMARY_EXPR__RECVEXPR;
-
-  /**
-   * The feature id for the '<em><b>Keyedelement</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONVERSION__KEYEDELEMENT = PRIMARY_EXPR__KEYEDELEMENT;
-
-  /**
-   * The feature id for the '<em><b>Element</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONVERSION__ELEMENT = PRIMARY_EXPR__ELEMENT;
-
-  /**
-   * The feature id for the '<em><b>Expression2</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONVERSION__EXPRESSION2 = PRIMARY_EXPR__EXPRESSION2;
-
-  /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONVERSION__EXP = PRIMARY_EXPR__EXP;
-
-  /**
-   * The feature id for the '<em><b>Pr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONVERSION__PR = PRIMARY_EXPR__PR;
+  int CONVERSION = 78;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -3554,7 +3159,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONVERSION__TYPE = PRIMARY_EXPR_FEATURE_COUNT + 0;
+  int CONVERSION__TYPE = 0;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -3563,7 +3168,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONVERSION__EXPRESSION = PRIMARY_EXPR_FEATURE_COUNT + 1;
+  int CONVERSION__EXPRESSION = 1;
 
   /**
    * The number of structural features of the '<em>Conversion</em>' class.
@@ -3572,7 +3177,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONVERSION_FEATURE_COUNT = PRIMARY_EXPR_FEATURE_COUNT + 2;
+  int CONVERSION_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.MethodExprImpl <em>Method Expr</em>}' class.
@@ -3582,124 +3187,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getMethodExpr()
    * @generated
    */
-  int METHOD_EXPR = 78;
-
-  /**
-   * The feature id for the '<em><b>Expressionlist</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int METHOD_EXPR__EXPRESSIONLIST = PRIMARY_EXPR__EXPRESSIONLIST;
-
-  /**
-   * The feature id for the '<em><b>Elemtype</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int METHOD_EXPR__ELEMTYPE = PRIMARY_EXPR__ELEMTYPE;
-
-  /**
-   * The feature id for the '<em><b>Typesg</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int METHOD_EXPR__TYPESG = PRIMARY_EXPR__TYPESG;
-
-  /**
-   * The feature id for the '<em><b>Typecc</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int METHOD_EXPR__TYPECC = PRIMARY_EXPR__TYPECC;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int METHOD_EXPR__CONDITION = PRIMARY_EXPR__CONDITION;
-
-  /**
-   * The feature id for the '<em><b>Poststmt</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int METHOD_EXPR__POSTSTMT = PRIMARY_EXPR__POSTSTMT;
-
-  /**
-   * The feature id for the '<em><b>Empty</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int METHOD_EXPR__EMPTY = PRIMARY_EXPR__EMPTY;
-
-  /**
-   * The feature id for the '<em><b>Recvexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int METHOD_EXPR__RECVEXPR = PRIMARY_EXPR__RECVEXPR;
-
-  /**
-   * The feature id for the '<em><b>Keyedelement</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int METHOD_EXPR__KEYEDELEMENT = PRIMARY_EXPR__KEYEDELEMENT;
-
-  /**
-   * The feature id for the '<em><b>Element</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int METHOD_EXPR__ELEMENT = PRIMARY_EXPR__ELEMENT;
-
-  /**
-   * The feature id for the '<em><b>Expression2</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int METHOD_EXPR__EXPRESSION2 = PRIMARY_EXPR__EXPRESSION2;
-
-  /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int METHOD_EXPR__EXP = PRIMARY_EXPR__EXP;
-
-  /**
-   * The feature id for the '<em><b>Pr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int METHOD_EXPR__PR = PRIMARY_EXPR__PR;
+  int METHOD_EXPR = 79;
 
   /**
    * The number of structural features of the '<em>Method Expr</em>' class.
@@ -3708,7 +3196,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int METHOD_EXPR_FEATURE_COUNT = PRIMARY_EXPR_FEATURE_COUNT + 0;
+  int METHOD_EXPR_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.IndexImpl <em>Index</em>}' class.
@@ -3718,7 +3206,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getIndex()
    * @generated
    */
-  int INDEX = 79;
+  int INDEX = 80;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -3746,7 +3234,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getSlice()
    * @generated
    */
-  int SLICE = 80;
+  int SLICE = 81;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -3810,7 +3298,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getTypeAssertion()
    * @generated
    */
-  int TYPE_ASSERTION = 81;
+  int TYPE_ASSERTION = 82;
 
   /**
    * The number of structural features of the '<em>Type Assertion</em>' class.
@@ -3829,7 +3317,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getArguments()
    * @generated
    */
-  int ARGUMENTS = 82;
+  int ARGUMENTS = 83;
 
   /**
    * The feature id for the '<em><b>Expressionlist</b></em>' containment reference.
@@ -3866,7 +3354,34 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getLiteral()
    * @generated
    */
-  int LITERAL = 83;
+  int LITERAL = 84;
+
+  /**
+   * The feature id for the '<em><b>Basic</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LITERAL__BASIC = 0;
+
+  /**
+   * The feature id for the '<em><b>Cl</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LITERAL__CL = 1;
+
+  /**
+   * The feature id for the '<em><b>Fl</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LITERAL__FL = 2;
 
   /**
    * The number of structural features of the '<em>Literal</em>' class.
@@ -3875,7 +3390,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LITERAL_FEATURE_COUNT = 0;
+  int LITERAL_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.FunctionLitImpl <em>Function Lit</em>}' class.
@@ -3885,7 +3400,25 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getFunctionLit()
    * @generated
    */
-  int FUNCTION_LIT = 84;
+  int FUNCTION_LIT = 85;
+
+  /**
+   * The feature id for the '<em><b>Signature</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_LIT__SIGNATURE = 0;
+
+  /**
+   * The feature id for the '<em><b>Functionbody</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_LIT__FUNCTIONBODY = 1;
 
   /**
    * The number of structural features of the '<em>Function Lit</em>' class.
@@ -3894,7 +3427,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUNCTION_LIT_FEATURE_COUNT = LITERAL_FEATURE_COUNT + 0;
+  int FUNCTION_LIT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.CompositeLitImpl <em>Composite Lit</em>}' class.
@@ -3904,7 +3437,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getCompositeLit()
    * @generated
    */
-  int COMPOSITE_LIT = 85;
+  int COMPOSITE_LIT = 86;
 
   /**
    * The feature id for the '<em><b>Literalt</b></em>' containment reference.
@@ -3913,7 +3446,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPOSITE_LIT__LITERALT = LITERAL_FEATURE_COUNT + 0;
+  int COMPOSITE_LIT__LITERALT = 0;
 
   /**
    * The feature id for the '<em><b>Literalv</b></em>' containment reference.
@@ -3922,7 +3455,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPOSITE_LIT__LITERALV = LITERAL_FEATURE_COUNT + 1;
+  int COMPOSITE_LIT__LITERALV = 1;
 
   /**
    * The number of structural features of the '<em>Composite Lit</em>' class.
@@ -3931,7 +3464,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPOSITE_LIT_FEATURE_COUNT = LITERAL_FEATURE_COUNT + 2;
+  int COMPOSITE_LIT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.LiteralTypeImpl <em>Literal Type</em>}' class.
@@ -3941,7 +3474,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getLiteralType()
    * @generated
    */
-  int LITERAL_TYPE = 86;
+  int LITERAL_TYPE = 87;
 
   /**
    * The feature id for the '<em><b>Structtype</b></em>' containment reference.
@@ -4014,7 +3547,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getElementList()
    * @generated
    */
-  int ELEMENT_LIST = 88;
+  int ELEMENT_LIST = 89;
 
   /**
    * The number of structural features of the '<em>Element List</em>' class.
@@ -4033,7 +3566,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getKeyedElement()
    * @generated
    */
-  int KEYED_ELEMENT = 89;
+  int KEYED_ELEMENT = 90;
 
   /**
    * The feature id for the '<em><b>Keyedelement</b></em>' containment reference list.
@@ -4070,7 +3603,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getKey()
    * @generated
    */
-  int KEY = 90;
+  int KEY = 91;
 
   /**
    * The feature id for the '<em><b>Keyedelement</b></em>' containment reference list.
@@ -4091,13 +3624,22 @@ public interface GoPackage extends EPackage
   int KEY__ELEMENT = KEYED_ELEMENT__ELEMENT;
 
   /**
+   * The feature id for the '<em><b>Fieldn</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int KEY__FIELDN = KEYED_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>Key</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int KEY_FEATURE_COUNT = KEYED_ELEMENT_FEATURE_COUNT + 0;
+  int KEY_FEATURE_COUNT = KEYED_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.LiteralValueImpl <em>Literal Value</em>}' class.
@@ -4107,7 +3649,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getLiteralValue()
    * @generated
    */
-  int LITERAL_VALUE = 87;
+  int LITERAL_VALUE = 88;
 
   /**
    * The feature id for the '<em><b>Keyedelement</b></em>' containment reference list.
@@ -4126,6 +3668,15 @@ public interface GoPackage extends EPackage
    * @ordered
    */
   int LITERAL_VALUE__ELEMENT = KEY__ELEMENT;
+
+  /**
+   * The feature id for the '<em><b>Fieldn</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LITERAL_VALUE__FIELDN = KEY__FIELDN;
 
   /**
    * The feature id for the '<em><b>Elementlist</b></em>' containment reference.
@@ -4153,7 +3704,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getElement()
    * @generated
    */
-  int ELEMENT = 91;
+  int ELEMENT = 92;
 
   /**
    * The number of structural features of the '<em>Element</em>' class.
@@ -4172,124 +3723,16 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getReceiverType()
    * @generated
    */
-  int RECEIVER_TYPE = 92;
+  int RECEIVER_TYPE = 93;
 
   /**
-   * The feature id for the '<em><b>Expressionlist</b></em>' containment reference.
+   * The feature id for the '<em><b>Methodn</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RECEIVER_TYPE__EXPRESSIONLIST = METHOD_EXPR__EXPRESSIONLIST;
-
-  /**
-   * The feature id for the '<em><b>Elemtype</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RECEIVER_TYPE__ELEMTYPE = METHOD_EXPR__ELEMTYPE;
-
-  /**
-   * The feature id for the '<em><b>Typesg</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RECEIVER_TYPE__TYPESG = METHOD_EXPR__TYPESG;
-
-  /**
-   * The feature id for the '<em><b>Typecc</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RECEIVER_TYPE__TYPECC = METHOD_EXPR__TYPECC;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RECEIVER_TYPE__CONDITION = METHOD_EXPR__CONDITION;
-
-  /**
-   * The feature id for the '<em><b>Poststmt</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RECEIVER_TYPE__POSTSTMT = METHOD_EXPR__POSTSTMT;
-
-  /**
-   * The feature id for the '<em><b>Empty</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RECEIVER_TYPE__EMPTY = METHOD_EXPR__EMPTY;
-
-  /**
-   * The feature id for the '<em><b>Recvexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RECEIVER_TYPE__RECVEXPR = METHOD_EXPR__RECVEXPR;
-
-  /**
-   * The feature id for the '<em><b>Keyedelement</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RECEIVER_TYPE__KEYEDELEMENT = METHOD_EXPR__KEYEDELEMENT;
-
-  /**
-   * The feature id for the '<em><b>Element</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RECEIVER_TYPE__ELEMENT = METHOD_EXPR__ELEMENT;
-
-  /**
-   * The feature id for the '<em><b>Expression2</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RECEIVER_TYPE__EXPRESSION2 = METHOD_EXPR__EXPRESSION2;
-
-  /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RECEIVER_TYPE__EXP = METHOD_EXPR__EXP;
-
-  /**
-   * The feature id for the '<em><b>Pr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RECEIVER_TYPE__PR = METHOD_EXPR__PR;
+  int RECEIVER_TYPE__METHODN = METHOD_EXPR_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -4298,7 +3741,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RECEIVER_TYPE__TYPE = METHOD_EXPR_FEATURE_COUNT + 0;
+  int RECEIVER_TYPE__TYPE = METHOD_EXPR_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Receiver Type</em>' class.
@@ -4307,7 +3750,44 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RECEIVER_TYPE_FEATURE_COUNT = METHOD_EXPR_FEATURE_COUNT + 1;
+  int RECEIVER_TYPE_FEATURE_COUNT = METHOD_EXPR_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.OperandNameImpl <em>Operand Name</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.go.impl.OperandNameImpl
+   * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getOperandName()
+   * @generated
+   */
+  int OPERAND_NAME = 95;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERAND_NAME__ID = 0;
+
+  /**
+   * The feature id for the '<em><b>Qi</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERAND_NAME__QI = 1;
+
+  /**
+   * The number of structural features of the '<em>Operand Name</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERAND_NAME_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.ImportDeclImpl <em>Import Decl</em>}' class.
@@ -4317,7 +3797,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getImportDecl()
    * @generated
    */
-  int IMPORT_DECL = 94;
+  int IMPORT_DECL = 96;
 
   /**
    * The feature id for the '<em><b>Imports</b></em>' attribute list.
@@ -4454,10 +3934,10 @@ public interface GoPackage extends EPackage
   EAttribute getMethodDecl_Method();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.go.MethodDecl#getSignature <em>Signature</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.MethodDecl#getSignature <em>Signature</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Signature</em>'.
+   * @return the meta object for the containment reference '<em>Signature</em>'.
    * @see org.xtext.example.mydsl.go.MethodDecl#getSignature()
    * @see #getMethodDecl()
    * @generated
@@ -4507,10 +3987,10 @@ public interface GoPackage extends EPackage
   EAttribute getFunctionDecl_Functionn();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.go.FunctionDecl#getSignature <em>Signature</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.FunctionDecl#getSignature <em>Signature</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Signature</em>'.
+   * @return the meta object for the containment reference '<em>Signature</em>'.
    * @see org.xtext.example.mydsl.go.FunctionDecl#getSignature()
    * @see #getFunctionDecl()
    * @generated
@@ -4539,15 +4019,37 @@ public interface GoPackage extends EPackage
   EClass getType();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.Type#getExpressionlist <em>Expressionlist</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.Type#getTp <em>Tp</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expressionlist</em>'.
-   * @see org.xtext.example.mydsl.go.Type#getExpressionlist()
+   * @return the meta object for the attribute '<em>Tp</em>'.
+   * @see org.xtext.example.mydsl.go.Type#getTp()
    * @see #getType()
    * @generated
    */
-  EReference getType_Expressionlist();
+  EAttribute getType_Tp();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.Type#getTp2 <em>Tp2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Tp2</em>'.
+   * @see org.xtext.example.mydsl.go.Type#getTp2()
+   * @see #getType()
+   * @generated
+   */
+  EReference getType_Tp2();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.Type#getTp3 <em>Tp3</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Tp3</em>'.
+   * @see org.xtext.example.mydsl.go.Type#getTp3()
+   * @see #getType()
+   * @generated
+   */
+  EReference getType_Tp3();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.TypeLit <em>Type Lit</em>}'.
@@ -4653,15 +4155,15 @@ public interface GoPackage extends EPackage
   EClass getFieldDecl();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.FieldDecl#getIndentifierL <em>Indentifier L</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.FieldDecl#getIndentifierL <em>Indentifier L</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Indentifier L</em>'.
+   * @return the meta object for the containment reference '<em>Indentifier L</em>'.
    * @see org.xtext.example.mydsl.go.FieldDecl#getIndentifierL()
    * @see #getFieldDecl()
    * @generated
    */
-  EAttribute getFieldDecl_IndentifierL();
+  EReference getFieldDecl_IndentifierL();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.FieldDecl#getType <em>Type</em>}'.
@@ -4673,6 +4175,60 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EReference getFieldDecl_Type();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.FieldDecl#getEmbedded <em>Embedded</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Embedded</em>'.
+   * @see org.xtext.example.mydsl.go.FieldDecl#getEmbedded()
+   * @see #getFieldDecl()
+   * @generated
+   */
+  EAttribute getFieldDecl_Embedded();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.FieldDecl#getTag <em>Tag</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Tag</em>'.
+   * @see org.xtext.example.mydsl.go.FieldDecl#getTag()
+   * @see #getFieldDecl()
+   * @generated
+   */
+  EAttribute getFieldDecl_Tag();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.go.IdentifierList <em>Identifier List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Identifier List</em>'.
+   * @see org.xtext.example.mydsl.go.IdentifierList
+   * @generated
+   */
+  EClass getIdentifierList();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.IdentifierList#getId <em>Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Id</em>'.
+   * @see org.xtext.example.mydsl.go.IdentifierList#getId()
+   * @see #getIdentifierList()
+   * @generated
+   */
+  EAttribute getIdentifierList_Id();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.go.IdentifierList#getId2 <em>Id2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Id2</em>'.
+   * @see org.xtext.example.mydsl.go.IdentifierList#getId2()
+   * @see #getIdentifierList()
+   * @generated
+   */
+  EAttribute getIdentifierList_Id2();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.PointerType <em>Pointer Type</em>}'.
@@ -4726,15 +4282,26 @@ public interface GoPackage extends EPackage
   EClass getSignature();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.Signature#getFunctionbody <em>Functionbody</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.Signature#getParameters <em>Parameters</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Functionbody</em>'.
-   * @see org.xtext.example.mydsl.go.Signature#getFunctionbody()
+   * @return the meta object for the containment reference '<em>Parameters</em>'.
+   * @see org.xtext.example.mydsl.go.Signature#getParameters()
    * @see #getSignature()
    * @generated
    */
-  EReference getSignature_Functionbody();
+  EReference getSignature_Parameters();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.Signature#getResult <em>Result</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Result</em>'.
+   * @see org.xtext.example.mydsl.go.Signature#getResult()
+   * @see #getSignature()
+   * @generated
+   */
+  EReference getSignature_Result();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.Result <em>Result</em>}'.
@@ -4747,6 +4314,28 @@ public interface GoPackage extends EPackage
   EClass getResult();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.Result#getParameteres <em>Parameteres</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Parameteres</em>'.
+   * @see org.xtext.example.mydsl.go.Result#getParameteres()
+   * @see #getResult()
+   * @generated
+   */
+  EReference getResult_Parameteres();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.Result#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see org.xtext.example.mydsl.go.Result#getType()
+   * @see #getResult()
+   * @generated
+   */
+  EReference getResult_Type();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.Parameters <em>Parameters</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4755,17 +4344,6 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getParameters();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.Parameters#getResult <em>Result</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Result</em>'.
-   * @see org.xtext.example.mydsl.go.Parameters#getResult()
-   * @see #getParameters()
-   * @generated
-   */
-  EReference getParameters_Result();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.Parameters#getParameterlist <em>Parameterlist</em>}'.
@@ -4789,6 +4367,28 @@ public interface GoPackage extends EPackage
   EClass getParameterList();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ParameterList#getParameterDecl1 <em>Parameter Decl1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Parameter Decl1</em>'.
+   * @see org.xtext.example.mydsl.go.ParameterList#getParameterDecl1()
+   * @see #getParameterList()
+   * @generated
+   */
+  EReference getParameterList_ParameterDecl1();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.go.ParameterList#getParameterdecl <em>Parameterdecl</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Parameterdecl</em>'.
+   * @see org.xtext.example.mydsl.go.ParameterList#getParameterdecl()
+   * @see #getParameterList()
+   * @generated
+   */
+  EReference getParameterList_Parameterdecl();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.ParameterDecl <em>Parameter Decl</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4799,26 +4399,15 @@ public interface GoPackage extends EPackage
   EClass getParameterDecl();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.go.ParameterDecl#getParameterdecl <em>Parameterdecl</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ParameterDecl#getIdentifierL <em>Identifier L</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Parameterdecl</em>'.
-   * @see org.xtext.example.mydsl.go.ParameterDecl#getParameterdecl()
+   * @return the meta object for the containment reference '<em>Identifier L</em>'.
+   * @see org.xtext.example.mydsl.go.ParameterDecl#getIdentifierL()
    * @see #getParameterDecl()
    * @generated
    */
-  EReference getParameterDecl_Parameterdecl();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.ParameterDecl#getIndentifierL <em>Indentifier L</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Indentifier L</em>'.
-   * @see org.xtext.example.mydsl.go.ParameterDecl#getIndentifierL()
-   * @see #getParameterDecl()
-   * @generated
-   */
-  EAttribute getParameterDecl_IndentifierL();
+  EReference getParameterDecl_IdentifierL();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ParameterDecl#getType <em>Type</em>}'.
@@ -4861,6 +4450,39 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getMethodSpec();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.MethodSpec#getMn <em>Mn</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Mn</em>'.
+   * @see org.xtext.example.mydsl.go.MethodSpec#getMn()
+   * @see #getMethodSpec()
+   * @generated
+   */
+  EAttribute getMethodSpec_Mn();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.MethodSpec#getSignature <em>Signature</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Signature</em>'.
+   * @see org.xtext.example.mydsl.go.MethodSpec#getSignature()
+   * @see #getMethodSpec()
+   * @generated
+   */
+  EReference getMethodSpec_Signature();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.MethodSpec#getItn <em>Itn</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Itn</em>'.
+   * @see org.xtext.example.mydsl.go.MethodSpec#getItn()
+   * @see #getMethodSpec()
+   * @generated
+   */
+  EAttribute getMethodSpec_Itn();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.MapType <em>Map Type</em>}'.
@@ -5173,6 +4795,61 @@ public interface GoPackage extends EPackage
   EClass getSimpleStmt();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.SimpleStmt#getInc <em>Inc</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Inc</em>'.
+   * @see org.xtext.example.mydsl.go.SimpleStmt#getInc()
+   * @see #getSimpleStmt()
+   * @generated
+   */
+  EReference getSimpleStmt_Inc();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.SimpleStmt#getAss <em>Ass</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Ass</em>'.
+   * @see org.xtext.example.mydsl.go.SimpleStmt#getAss()
+   * @see #getSimpleStmt()
+   * @generated
+   */
+  EReference getSimpleStmt_Ass();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.SimpleStmt#getSs <em>Ss</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Ss</em>'.
+   * @see org.xtext.example.mydsl.go.SimpleStmt#getSs()
+   * @see #getSimpleStmt()
+   * @generated
+   */
+  EReference getSimpleStmt_Ss();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.SimpleStmt#getSvd <em>Svd</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Svd</em>'.
+   * @see org.xtext.example.mydsl.go.SimpleStmt#getSvd()
+   * @see #getSimpleStmt()
+   * @generated
+   */
+  EReference getSimpleStmt_Svd();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.SimpleStmt#getEs <em>Es</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Es</em>'.
+   * @see org.xtext.example.mydsl.go.SimpleStmt#getEs()
+   * @see #getSimpleStmt()
+   * @generated
+   */
+  EReference getSimpleStmt_Es();
+
+  /**
    * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.SimpleStmt#getEmpty <em>Empty</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5311,10 +4988,10 @@ public interface GoPackage extends EPackage
   EClass getForStmt();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.go.ForStmt#getCondition <em>Condition</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ForStmt#getCondition <em>Condition</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Condition</em>'.
+   * @return the meta object for the containment reference '<em>Condition</em>'.
    * @see org.xtext.example.mydsl.go.ForStmt#getCondition()
    * @see #getForStmt()
    * @generated
@@ -5322,10 +4999,10 @@ public interface GoPackage extends EPackage
   EReference getForStmt_Condition();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.go.ForStmt#getFor <em>For</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ForStmt#getFor <em>For</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>For</em>'.
+   * @return the meta object for the containment reference '<em>For</em>'.
    * @see org.xtext.example.mydsl.go.ForStmt#getFor()
    * @see #getForStmt()
    * @generated
@@ -5333,10 +5010,10 @@ public interface GoPackage extends EPackage
   EReference getForStmt_For();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.go.ForStmt#getRange <em>Range</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ForStmt#getRange <em>Range</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Range</em>'.
+   * @return the meta object for the containment reference '<em>Range</em>'.
    * @see org.xtext.example.mydsl.go.ForStmt#getRange()
    * @see #getForStmt()
    * @generated
@@ -5407,6 +5084,39 @@ public interface GoPackage extends EPackage
   EClass getConstSpec();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ConstSpec#getId <em>Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Id</em>'.
+   * @see org.xtext.example.mydsl.go.ConstSpec#getId()
+   * @see #getConstSpec()
+   * @generated
+   */
+  EReference getConstSpec_Id();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ConstSpec#getTp <em>Tp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Tp</em>'.
+   * @see org.xtext.example.mydsl.go.ConstSpec#getTp()
+   * @see #getConstSpec()
+   * @generated
+   */
+  EReference getConstSpec_Tp();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ConstSpec#getExpressionlist <em>Expressionlist</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expressionlist</em>'.
+   * @see org.xtext.example.mydsl.go.ConstSpec#getExpressionlist()
+   * @see #getConstSpec()
+   * @generated
+   */
+  EReference getConstSpec_Expressionlist();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.TypeDecl <em>Type Decl</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5447,6 +5157,28 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getTypeSpec();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.TypeSpec#getId <em>Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Id</em>'.
+   * @see org.xtext.example.mydsl.go.TypeSpec#getId()
+   * @see #getTypeSpec()
+   * @generated
+   */
+  EAttribute getTypeSpec_Id();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.TypeSpec#getTp <em>Tp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Tp</em>'.
+   * @see org.xtext.example.mydsl.go.TypeSpec#getTp()
+   * @see #getTypeSpec()
+   * @generated
+   */
+  EReference getTypeSpec_Tp();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.TypeDef <em>Type Def</em>}'.
@@ -5511,6 +5243,39 @@ public interface GoPackage extends EPackage
   EClass getVarSpec();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.VarSpec#getId <em>Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Id</em>'.
+   * @see org.xtext.example.mydsl.go.VarSpec#getId()
+   * @see #getVarSpec()
+   * @generated
+   */
+  EReference getVarSpec_Id();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.VarSpec#getTp2 <em>Tp2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Tp2</em>'.
+   * @see org.xtext.example.mydsl.go.VarSpec#getTp2()
+   * @see #getVarSpec()
+   * @generated
+   */
+  EReference getVarSpec_Tp2();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.VarSpec#getExpressionlist <em>Expressionlist</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expressionlist</em>'.
+   * @see org.xtext.example.mydsl.go.VarSpec#getExpressionlist()
+   * @see #getVarSpec()
+   * @generated
+   */
+  EReference getVarSpec_Expressionlist();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.ExpressionStmt <em>Expression Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5519,6 +5284,17 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getExpressionStmt();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ExpressionStmt#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see org.xtext.example.mydsl.go.ExpressionStmt#getExp()
+   * @see #getExpressionStmt()
+   * @generated
+   */
+  EReference getExpressionStmt_Exp();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.SendStmt <em>Send Stmt</em>}'.
@@ -5563,6 +5339,17 @@ public interface GoPackage extends EPackage
   EClass getChannel();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.Channel#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see org.xtext.example.mydsl.go.Channel#getExp()
+   * @see #getChannel()
+   * @generated
+   */
+  EReference getChannel_Exp();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.IncDecStmt <em>Inc Dec Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5571,6 +5358,28 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getIncDecStmt();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.IncDecStmt#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see org.xtext.example.mydsl.go.IncDecStmt#getExp()
+   * @see #getIncDecStmt()
+   * @generated
+   */
+  EReference getIncDecStmt_Exp();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.IncDecStmt#getExp2 <em>Exp2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp2</em>'.
+   * @see org.xtext.example.mydsl.go.IncDecStmt#getExp2()
+   * @see #getIncDecStmt()
+   * @generated
+   */
+  EReference getIncDecStmt_Exp2();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.Assignment <em>Assignment</em>}'.
@@ -5594,6 +5403,17 @@ public interface GoPackage extends EPackage
   EReference getAssignment_Expressionlist();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.Assignment#getAsop <em>Asop</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Asop</em>'.
+   * @see org.xtext.example.mydsl.go.Assignment#getAsop()
+   * @see #getAssignment()
+   * @generated
+   */
+  EAttribute getAssignment_Asop();
+
+  /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.Assignment#getExpressionlist2 <em>Expressionlist2</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5613,6 +5433,28 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getShortVarDecl();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ShortVarDecl#getIdl <em>Idl</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Idl</em>'.
+   * @see org.xtext.example.mydsl.go.ShortVarDecl#getIdl()
+   * @see #getShortVarDecl()
+   * @generated
+   */
+  EReference getShortVarDecl_Idl();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ShortVarDecl#getEpl <em>Epl</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Epl</em>'.
+   * @see org.xtext.example.mydsl.go.ShortVarDecl#getEpl()
+   * @see #getShortVarDecl()
+   * @generated
+   */
+  EReference getShortVarDecl_Epl();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.ExprSwitchStmt <em>Expr Switch Stmt</em>}'.
@@ -5710,6 +5552,17 @@ public interface GoPackage extends EPackage
   EClass getTypeSwitchStmt();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.TypeSwitchStmt#getSimplestm <em>Simplestm</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Simplestm</em>'.
+   * @see org.xtext.example.mydsl.go.TypeSwitchStmt#getSimplestm()
+   * @see #getTypeSwitchStmt()
+   * @generated
+   */
+  EReference getTypeSwitchStmt_Simplestm();
+
+  /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.TypeSwitchStmt#getTypesg <em>Typesg</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5740,6 +5593,28 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getTypeSwitchGuard();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.TypeSwitchGuard#getId <em>Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Id</em>'.
+   * @see org.xtext.example.mydsl.go.TypeSwitchGuard#getId()
+   * @see #getTypeSwitchGuard()
+   * @generated
+   */
+  EAttribute getTypeSwitchGuard_Id();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.TypeSwitchGuard#getPer <em>Per</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Per</em>'.
+   * @see org.xtext.example.mydsl.go.TypeSwitchGuard#getPer()
+   * @see #getTypeSwitchGuard()
+   * @generated
+   */
+  EReference getTypeSwitchGuard_Per();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.TypeCaseClause <em>Type Case Clause</em>}'.
@@ -5879,6 +5754,17 @@ public interface GoPackage extends EPackage
   EClass getRecvStmt();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.RecvStmt#getIdl <em>Idl</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Idl</em>'.
+   * @see org.xtext.example.mydsl.go.RecvStmt#getIdl()
+   * @see #getRecvStmt()
+   * @generated
+   */
+  EReference getRecvStmt_Idl();
+
+  /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.RecvStmt#getRecvexpr <em>Recvexpr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5900,6 +5786,17 @@ public interface GoPackage extends EPackage
   EClass getRecvExpr();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.RecvExpr#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see org.xtext.example.mydsl.go.RecvExpr#getExp()
+   * @see #getRecvExpr()
+   * @generated
+   */
+  EReference getRecvExpr_Exp();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.Condition <em>Condition</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5910,6 +5807,17 @@ public interface GoPackage extends EPackage
   EClass getCondition();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.Condition#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see org.xtext.example.mydsl.go.Condition#getExp()
+   * @see #getCondition()
+   * @generated
+   */
+  EReference getCondition_Exp();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.ForClause <em>For Clause</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5918,6 +5826,17 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getForClause();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ForClause#getInit <em>Init</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Init</em>'.
+   * @see org.xtext.example.mydsl.go.ForClause#getInit()
+   * @see #getForClause()
+   * @generated
+   */
+  EReference getForClause_Init();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ForClause#getCondition <em>Condition</em>}'.
@@ -5963,6 +5882,17 @@ public interface GoPackage extends EPackage
   EReference getRangeClause_Expressionlist();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.RangeClause#getIdl <em>Idl</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Idl</em>'.
+   * @see org.xtext.example.mydsl.go.RangeClause#getIdl()
+   * @see #getRangeClause()
+   * @generated
+   */
+  EReference getRangeClause_Idl();
+
+  /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.RangeClause#getExpression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5984,6 +5914,17 @@ public interface GoPackage extends EPackage
   EClass getInitStmt();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.InitStmt#getSimple <em>Simple</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Simple</em>'.
+   * @see org.xtext.example.mydsl.go.InitStmt#getSimple()
+   * @see #getInitStmt()
+   * @generated
+   */
+  EReference getInitStmt_Simple();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.PostStmt <em>Post Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5992,6 +5933,17 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getPostStmt();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.PostStmt#getSimple <em>Simple</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Simple</em>'.
+   * @see org.xtext.example.mydsl.go.PostStmt#getSimple()
+   * @see #getPostStmt()
+   * @generated
+   */
+  EReference getPostStmt_Simple();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.ExpressionList <em>Expression List</em>}'.
@@ -6004,6 +5956,28 @@ public interface GoPackage extends EPackage
   EClass getExpressionList();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ExpressionList#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see org.xtext.example.mydsl.go.ExpressionList#getExp()
+   * @see #getExpressionList()
+   * @generated
+   */
+  EReference getExpressionList_Exp();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.go.ExpressionList#getExpression2 <em>Expression2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Expression2</em>'.
+   * @see org.xtext.example.mydsl.go.ExpressionList#getExpression2()
+   * @see #getExpressionList()
+   * @generated
+   */
+  EReference getExpressionList_Expression2();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.Expression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6014,15 +5988,26 @@ public interface GoPackage extends EPackage
   EClass getExpression();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.go.Expression#getExpression2 <em>Expression2</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.Expression#getUp <em>Up</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expression2</em>'.
-   * @see org.xtext.example.mydsl.go.Expression#getExpression2()
+   * @return the meta object for the containment reference '<em>Up</em>'.
+   * @see org.xtext.example.mydsl.go.Expression#getUp()
    * @see #getExpression()
    * @generated
    */
-  EReference getExpression_Expression2();
+  EReference getExpression_Up();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.Expression#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see org.xtext.example.mydsl.go.Expression#getExp()
+   * @see #getExpression()
+   * @generated
+   */
+  EReference getExpression_Exp();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.Expression2 <em>Expression2</em>}'.
@@ -6033,6 +6018,17 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getExpression2();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.Expression2#getBop <em>Bop</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Bop</em>'.
+   * @see org.xtext.example.mydsl.go.Expression2#getBop()
+   * @see #getExpression2()
+   * @generated
+   */
+  EAttribute getExpression2_Bop();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.Expression2#getExpression <em>Expression</em>}'.
@@ -6067,15 +6063,26 @@ public interface GoPackage extends EPackage
   EClass getUnaryExpr();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.UnaryExpr#getExp <em>Exp</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.UnaryExpr#getUp <em>Up</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Exp</em>'.
-   * @see org.xtext.example.mydsl.go.UnaryExpr#getExp()
+   * @return the meta object for the attribute '<em>Up</em>'.
+   * @see org.xtext.example.mydsl.go.UnaryExpr#getUp()
    * @see #getUnaryExpr()
    * @generated
    */
-  EReference getUnaryExpr_Exp();
+  EAttribute getUnaryExpr_Up();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.UnaryExpr#getUe <em>Ue</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Ue</em>'.
+   * @see org.xtext.example.mydsl.go.UnaryExpr#getUe()
+   * @see #getUnaryExpr()
+   * @generated
+   */
+  EReference getUnaryExpr_Ue();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.PrimaryExpr <em>Primary Expr</em>}'.
@@ -6086,6 +6093,17 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getPrimaryExpr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.PrimaryExpr#getOp <em>Op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Op</em>'.
+   * @see org.xtext.example.mydsl.go.PrimaryExpr#getOp()
+   * @see #getPrimaryExpr()
+   * @generated
+   */
+  EReference getPrimaryExpr_Op();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.PrimaryExpr#getPr <em>Pr</em>}'.
@@ -6099,6 +6117,28 @@ public interface GoPackage extends EPackage
   EReference getPrimaryExpr_Pr();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.PrimaryExpr#getCon <em>Con</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Con</em>'.
+   * @see org.xtext.example.mydsl.go.PrimaryExpr#getCon()
+   * @see #getPrimaryExpr()
+   * @generated
+   */
+  EReference getPrimaryExpr_Con();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.PrimaryExpr#getMe <em>Me</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Me</em>'.
+   * @see org.xtext.example.mydsl.go.PrimaryExpr#getMe()
+   * @see #getPrimaryExpr()
+   * @generated
+   */
+  EReference getPrimaryExpr_Me();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.PrimaryExpr2 <em>Primary Expr2</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6107,6 +6147,17 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getPrimaryExpr2();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.PrimaryExpr2#getSelector <em>Selector</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Selector</em>'.
+   * @see org.xtext.example.mydsl.go.PrimaryExpr2#getSelector()
+   * @see #getPrimaryExpr2()
+   * @generated
+   */
+  EAttribute getPrimaryExpr2_Selector();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.PrimaryExpr2#getPr <em>Pr</em>}'.
@@ -6185,15 +6236,15 @@ public interface GoPackage extends EPackage
   EReference getOperand_Literal();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.Operand#getOperandn <em>Operandn</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.Operand#getOperandn <em>Operandn</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Operandn</em>'.
+   * @return the meta object for the containment reference '<em>Operandn</em>'.
    * @see org.xtext.example.mydsl.go.Operand#getOperandn()
    * @see #getOperand()
    * @generated
    */
-  EAttribute getOperand_Operandn();
+  EReference getOperand_Operandn();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.Operand#getExpression <em>Expression</em>}'.
@@ -6387,6 +6438,39 @@ public interface GoPackage extends EPackage
   EClass getLiteral();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.Literal#getBasic <em>Basic</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Basic</em>'.
+   * @see org.xtext.example.mydsl.go.Literal#getBasic()
+   * @see #getLiteral()
+   * @generated
+   */
+  EAttribute getLiteral_Basic();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.Literal#getCl <em>Cl</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Cl</em>'.
+   * @see org.xtext.example.mydsl.go.Literal#getCl()
+   * @see #getLiteral()
+   * @generated
+   */
+  EReference getLiteral_Cl();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.Literal#getFl <em>Fl</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Fl</em>'.
+   * @see org.xtext.example.mydsl.go.Literal#getFl()
+   * @see #getLiteral()
+   * @generated
+   */
+  EReference getLiteral_Fl();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.FunctionLit <em>Function Lit</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6395,6 +6479,28 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getFunctionLit();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.FunctionLit#getSignature <em>Signature</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Signature</em>'.
+   * @see org.xtext.example.mydsl.go.FunctionLit#getSignature()
+   * @see #getFunctionLit()
+   * @generated
+   */
+  EReference getFunctionLit_Signature();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.FunctionLit#getFunctionbody <em>Functionbody</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Functionbody</em>'.
+   * @see org.xtext.example.mydsl.go.FunctionLit#getFunctionbody()
+   * @see #getFunctionLit()
+   * @generated
+   */
+  EReference getFunctionLit_Functionbody();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.CompositeLit <em>Composite Lit</em>}'.
@@ -6578,6 +6684,17 @@ public interface GoPackage extends EPackage
   EClass getKey();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.Key#getFieldn <em>Fieldn</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Fieldn</em>'.
+   * @see org.xtext.example.mydsl.go.Key#getFieldn()
+   * @see #getKey()
+   * @generated
+   */
+  EAttribute getKey_Fieldn();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.Element <em>Element</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6596,6 +6713,17 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getReceiverType();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.ReceiverType#getMethodn <em>Methodn</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Methodn</em>'.
+   * @see org.xtext.example.mydsl.go.ReceiverType#getMethodn()
+   * @see #getReceiverType()
+   * @generated
+   */
+  EAttribute getReceiverType_Methodn();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ReceiverType#getType <em>Type</em>}'.
@@ -6617,6 +6745,38 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getFunctionBody();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.go.OperandName <em>Operand Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Operand Name</em>'.
+   * @see org.xtext.example.mydsl.go.OperandName
+   * @generated
+   */
+  EClass getOperandName();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.OperandName#getId <em>Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Id</em>'.
+   * @see org.xtext.example.mydsl.go.OperandName#getId()
+   * @see #getOperandName()
+   * @generated
+   */
+  EAttribute getOperandName_Id();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.OperandName#getQi <em>Qi</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Qi</em>'.
+   * @see org.xtext.example.mydsl.go.OperandName#getQi()
+   * @see #getOperandName()
+   * @generated
+   */
+  EAttribute getOperandName_Qi();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.ImportDecl <em>Import Decl</em>}'.
@@ -6762,7 +6922,7 @@ public interface GoPackage extends EPackage
     EAttribute METHOD_DECL__METHOD = eINSTANCE.getMethodDecl_Method();
 
     /**
-     * The meta object literal for the '<em><b>Signature</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Signature</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -6806,7 +6966,7 @@ public interface GoPackage extends EPackage
     EAttribute FUNCTION_DECL__FUNCTIONN = eINSTANCE.getFunctionDecl_Functionn();
 
     /**
-     * The meta object literal for the '<em><b>Signature</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Signature</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -6832,12 +6992,28 @@ public interface GoPackage extends EPackage
     EClass TYPE = eINSTANCE.getType();
 
     /**
-     * The meta object literal for the '<em><b>Expressionlist</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Tp</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TYPE__EXPRESSIONLIST = eINSTANCE.getType_Expressionlist();
+    EAttribute TYPE__TP = eINSTANCE.getType_Tp();
+
+    /**
+     * The meta object literal for the '<em><b>Tp2</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE__TP2 = eINSTANCE.getType_Tp2();
+
+    /**
+     * The meta object literal for the '<em><b>Tp3</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE__TP3 = eINSTANCE.getType_Tp3();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.TypeLitImpl <em>Type Lit</em>}' class.
@@ -6934,12 +7110,12 @@ public interface GoPackage extends EPackage
     EClass FIELD_DECL = eINSTANCE.getFieldDecl();
 
     /**
-     * The meta object literal for the '<em><b>Indentifier L</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Indentifier L</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FIELD_DECL__INDENTIFIER_L = eINSTANCE.getFieldDecl_IndentifierL();
+    EReference FIELD_DECL__INDENTIFIER_L = eINSTANCE.getFieldDecl_IndentifierL();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
@@ -6948,6 +7124,48 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EReference FIELD_DECL__TYPE = eINSTANCE.getFieldDecl_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Embedded</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FIELD_DECL__EMBEDDED = eINSTANCE.getFieldDecl_Embedded();
+
+    /**
+     * The meta object literal for the '<em><b>Tag</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FIELD_DECL__TAG = eINSTANCE.getFieldDecl_Tag();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.IdentifierListImpl <em>Identifier List</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.go.impl.IdentifierListImpl
+     * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getIdentifierList()
+     * @generated
+     */
+    EClass IDENTIFIER_LIST = eINSTANCE.getIdentifierList();
+
+    /**
+     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute IDENTIFIER_LIST__ID = eINSTANCE.getIdentifierList_Id();
+
+    /**
+     * The meta object literal for the '<em><b>Id2</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute IDENTIFIER_LIST__ID2 = eINSTANCE.getIdentifierList_Id2();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.PointerTypeImpl <em>Pointer Type</em>}' class.
@@ -6998,12 +7216,20 @@ public interface GoPackage extends EPackage
     EClass SIGNATURE = eINSTANCE.getSignature();
 
     /**
-     * The meta object literal for the '<em><b>Functionbody</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SIGNATURE__FUNCTIONBODY = eINSTANCE.getSignature_Functionbody();
+    EReference SIGNATURE__PARAMETERS = eINSTANCE.getSignature_Parameters();
+
+    /**
+     * The meta object literal for the '<em><b>Result</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SIGNATURE__RESULT = eINSTANCE.getSignature_Result();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.ResultImpl <em>Result</em>}' class.
@@ -7016,6 +7242,22 @@ public interface GoPackage extends EPackage
     EClass RESULT = eINSTANCE.getResult();
 
     /**
+     * The meta object literal for the '<em><b>Parameteres</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RESULT__PARAMETERES = eINSTANCE.getResult_Parameteres();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RESULT__TYPE = eINSTANCE.getResult_Type();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.ParametersImpl <em>Parameters</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7024,14 +7266,6 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass PARAMETERS = eINSTANCE.getParameters();
-
-    /**
-     * The meta object literal for the '<em><b>Result</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PARAMETERS__RESULT = eINSTANCE.getParameters_Result();
 
     /**
      * The meta object literal for the '<em><b>Parameterlist</b></em>' containment reference feature.
@@ -7052,6 +7286,22 @@ public interface GoPackage extends EPackage
     EClass PARAMETER_LIST = eINSTANCE.getParameterList();
 
     /**
+     * The meta object literal for the '<em><b>Parameter Decl1</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PARAMETER_LIST__PARAMETER_DECL1 = eINSTANCE.getParameterList_ParameterDecl1();
+
+    /**
+     * The meta object literal for the '<em><b>Parameterdecl</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PARAMETER_LIST__PARAMETERDECL = eINSTANCE.getParameterList_Parameterdecl();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.ParameterDeclImpl <em>Parameter Decl</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7062,20 +7312,12 @@ public interface GoPackage extends EPackage
     EClass PARAMETER_DECL = eINSTANCE.getParameterDecl();
 
     /**
-     * The meta object literal for the '<em><b>Parameterdecl</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Identifier L</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PARAMETER_DECL__PARAMETERDECL = eINSTANCE.getParameterDecl_Parameterdecl();
-
-    /**
-     * The meta object literal for the '<em><b>Indentifier L</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PARAMETER_DECL__INDENTIFIER_L = eINSTANCE.getParameterDecl_IndentifierL();
+    EReference PARAMETER_DECL__IDENTIFIER_L = eINSTANCE.getParameterDecl_IdentifierL();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
@@ -7112,6 +7354,30 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass METHOD_SPEC = eINSTANCE.getMethodSpec();
+
+    /**
+     * The meta object literal for the '<em><b>Mn</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute METHOD_SPEC__MN = eINSTANCE.getMethodSpec_Mn();
+
+    /**
+     * The meta object literal for the '<em><b>Signature</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference METHOD_SPEC__SIGNATURE = eINSTANCE.getMethodSpec_Signature();
+
+    /**
+     * The meta object literal for the '<em><b>Itn</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute METHOD_SPEC__ITN = eINSTANCE.getMethodSpec_Itn();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.MapTypeImpl <em>Map Type</em>}' class.
@@ -7364,6 +7630,46 @@ public interface GoPackage extends EPackage
     EClass SIMPLE_STMT = eINSTANCE.getSimpleStmt();
 
     /**
+     * The meta object literal for the '<em><b>Inc</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SIMPLE_STMT__INC = eINSTANCE.getSimpleStmt_Inc();
+
+    /**
+     * The meta object literal for the '<em><b>Ass</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SIMPLE_STMT__ASS = eINSTANCE.getSimpleStmt_Ass();
+
+    /**
+     * The meta object literal for the '<em><b>Ss</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SIMPLE_STMT__SS = eINSTANCE.getSimpleStmt_Ss();
+
+    /**
+     * The meta object literal for the '<em><b>Svd</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SIMPLE_STMT__SVD = eINSTANCE.getSimpleStmt_Svd();
+
+    /**
+     * The meta object literal for the '<em><b>Es</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SIMPLE_STMT__ES = eINSTANCE.getSimpleStmt_Es();
+
+    /**
      * The meta object literal for the '<em><b>Empty</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7478,7 +7784,7 @@ public interface GoPackage extends EPackage
     EClass FOR_STMT = eINSTANCE.getForStmt();
 
     /**
-     * The meta object literal for the '<em><b>Condition</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -7486,7 +7792,7 @@ public interface GoPackage extends EPackage
     EReference FOR_STMT__CONDITION = eINSTANCE.getForStmt_Condition();
 
     /**
-     * The meta object literal for the '<em><b>For</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>For</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -7494,7 +7800,7 @@ public interface GoPackage extends EPackage
     EReference FOR_STMT__FOR = eINSTANCE.getForStmt_For();
 
     /**
-     * The meta object literal for the '<em><b>Range</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Range</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -7556,6 +7862,30 @@ public interface GoPackage extends EPackage
     EClass CONST_SPEC = eINSTANCE.getConstSpec();
 
     /**
+     * The meta object literal for the '<em><b>Id</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONST_SPEC__ID = eINSTANCE.getConstSpec_Id();
+
+    /**
+     * The meta object literal for the '<em><b>Tp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONST_SPEC__TP = eINSTANCE.getConstSpec_Tp();
+
+    /**
+     * The meta object literal for the '<em><b>Expressionlist</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONST_SPEC__EXPRESSIONLIST = eINSTANCE.getConstSpec_Expressionlist();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.TypeDeclImpl <em>Type Decl</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7590,6 +7920,22 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass TYPE_SPEC = eINSTANCE.getTypeSpec();
+
+    /**
+     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPE_SPEC__ID = eINSTANCE.getTypeSpec_Id();
+
+    /**
+     * The meta object literal for the '<em><b>Tp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_SPEC__TP = eINSTANCE.getTypeSpec_Tp();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.TypeDefImpl <em>Type Def</em>}' class.
@@ -7648,6 +7994,30 @@ public interface GoPackage extends EPackage
     EClass VAR_SPEC = eINSTANCE.getVarSpec();
 
     /**
+     * The meta object literal for the '<em><b>Id</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VAR_SPEC__ID = eINSTANCE.getVarSpec_Id();
+
+    /**
+     * The meta object literal for the '<em><b>Tp2</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VAR_SPEC__TP2 = eINSTANCE.getVarSpec_Tp2();
+
+    /**
+     * The meta object literal for the '<em><b>Expressionlist</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VAR_SPEC__EXPRESSIONLIST = eINSTANCE.getVarSpec_Expressionlist();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.ExpressionStmtImpl <em>Expression Stmt</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7656,6 +8026,14 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass EXPRESSION_STMT = eINSTANCE.getExpressionStmt();
+
+    /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPRESSION_STMT__EXP = eINSTANCE.getExpressionStmt_Exp();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.SendStmtImpl <em>Send Stmt</em>}' class.
@@ -7694,6 +8072,14 @@ public interface GoPackage extends EPackage
     EClass CHANNEL = eINSTANCE.getChannel();
 
     /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CHANNEL__EXP = eINSTANCE.getChannel_Exp();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.IncDecStmtImpl <em>Inc Dec Stmt</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7702,6 +8088,22 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass INC_DEC_STMT = eINSTANCE.getIncDecStmt();
+
+    /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INC_DEC_STMT__EXP = eINSTANCE.getIncDecStmt_Exp();
+
+    /**
+     * The meta object literal for the '<em><b>Exp2</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INC_DEC_STMT__EXP2 = eINSTANCE.getIncDecStmt_Exp2();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.AssignmentImpl <em>Assignment</em>}' class.
@@ -7722,6 +8124,14 @@ public interface GoPackage extends EPackage
     EReference ASSIGNMENT__EXPRESSIONLIST = eINSTANCE.getAssignment_Expressionlist();
 
     /**
+     * The meta object literal for the '<em><b>Asop</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ASSIGNMENT__ASOP = eINSTANCE.getAssignment_Asop();
+
+    /**
      * The meta object literal for the '<em><b>Expressionlist2</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7738,6 +8148,22 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass SHORT_VAR_DECL = eINSTANCE.getShortVarDecl();
+
+    /**
+     * The meta object literal for the '<em><b>Idl</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SHORT_VAR_DECL__IDL = eINSTANCE.getShortVarDecl_Idl();
+
+    /**
+     * The meta object literal for the '<em><b>Epl</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SHORT_VAR_DECL__EPL = eINSTANCE.getShortVarDecl_Epl();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.ExprSwitchStmtImpl <em>Expr Switch Stmt</em>}' class.
@@ -7820,6 +8246,14 @@ public interface GoPackage extends EPackage
     EClass TYPE_SWITCH_STMT = eINSTANCE.getTypeSwitchStmt();
 
     /**
+     * The meta object literal for the '<em><b>Simplestm</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_SWITCH_STMT__SIMPLESTM = eINSTANCE.getTypeSwitchStmt_Simplestm();
+
+    /**
      * The meta object literal for the '<em><b>Typesg</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7844,6 +8278,22 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass TYPE_SWITCH_GUARD = eINSTANCE.getTypeSwitchGuard();
+
+    /**
+     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPE_SWITCH_GUARD__ID = eINSTANCE.getTypeSwitchGuard_Id();
+
+    /**
+     * The meta object literal for the '<em><b>Per</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_SWITCH_GUARD__PER = eINSTANCE.getTypeSwitchGuard_Per();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.TypeCaseClauseImpl <em>Type Case Clause</em>}' class.
@@ -7962,6 +8412,14 @@ public interface GoPackage extends EPackage
     EClass RECV_STMT = eINSTANCE.getRecvStmt();
 
     /**
+     * The meta object literal for the '<em><b>Idl</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RECV_STMT__IDL = eINSTANCE.getRecvStmt_Idl();
+
+    /**
      * The meta object literal for the '<em><b>Recvexpr</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7980,6 +8438,14 @@ public interface GoPackage extends EPackage
     EClass RECV_EXPR = eINSTANCE.getRecvExpr();
 
     /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RECV_EXPR__EXP = eINSTANCE.getRecvExpr_Exp();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.ConditionImpl <em>Condition</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7990,6 +8456,14 @@ public interface GoPackage extends EPackage
     EClass CONDITION = eINSTANCE.getCondition();
 
     /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONDITION__EXP = eINSTANCE.getCondition_Exp();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.ForClauseImpl <em>For Clause</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7998,6 +8472,14 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass FOR_CLAUSE = eINSTANCE.getForClause();
+
+    /**
+     * The meta object literal for the '<em><b>Init</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FOR_CLAUSE__INIT = eINSTANCE.getForClause_Init();
 
     /**
      * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
@@ -8034,6 +8516,14 @@ public interface GoPackage extends EPackage
     EReference RANGE_CLAUSE__EXPRESSIONLIST = eINSTANCE.getRangeClause_Expressionlist();
 
     /**
+     * The meta object literal for the '<em><b>Idl</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RANGE_CLAUSE__IDL = eINSTANCE.getRangeClause_Idl();
+
+    /**
      * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8052,6 +8542,14 @@ public interface GoPackage extends EPackage
     EClass INIT_STMT = eINSTANCE.getInitStmt();
 
     /**
+     * The meta object literal for the '<em><b>Simple</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INIT_STMT__SIMPLE = eINSTANCE.getInitStmt_Simple();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.PostStmtImpl <em>Post Stmt</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8060,6 +8558,14 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass POST_STMT = eINSTANCE.getPostStmt();
+
+    /**
+     * The meta object literal for the '<em><b>Simple</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference POST_STMT__SIMPLE = eINSTANCE.getPostStmt_Simple();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.ExpressionListImpl <em>Expression List</em>}' class.
@@ -8072,6 +8578,22 @@ public interface GoPackage extends EPackage
     EClass EXPRESSION_LIST = eINSTANCE.getExpressionList();
 
     /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPRESSION_LIST__EXP = eINSTANCE.getExpressionList_Exp();
+
+    /**
+     * The meta object literal for the '<em><b>Expression2</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPRESSION_LIST__EXPRESSION2 = eINSTANCE.getExpressionList_Expression2();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.ExpressionImpl <em>Expression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8082,12 +8604,20 @@ public interface GoPackage extends EPackage
     EClass EXPRESSION = eINSTANCE.getExpression();
 
     /**
-     * The meta object literal for the '<em><b>Expression2</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Up</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPRESSION__EXPRESSION2 = eINSTANCE.getExpression_Expression2();
+    EReference EXPRESSION__UP = eINSTANCE.getExpression_Up();
+
+    /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPRESSION__EXP = eINSTANCE.getExpression_Exp();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.Expression2Impl <em>Expression2</em>}' class.
@@ -8098,6 +8628,14 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass EXPRESSION2 = eINSTANCE.getExpression2();
+
+    /**
+     * The meta object literal for the '<em><b>Bop</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXPRESSION2__BOP = eINSTANCE.getExpression2_Bop();
 
     /**
      * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
@@ -8126,12 +8664,20 @@ public interface GoPackage extends EPackage
     EClass UNARY_EXPR = eINSTANCE.getUnaryExpr();
 
     /**
-     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Up</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference UNARY_EXPR__EXP = eINSTANCE.getUnaryExpr_Exp();
+    EAttribute UNARY_EXPR__UP = eINSTANCE.getUnaryExpr_Up();
+
+    /**
+     * The meta object literal for the '<em><b>Ue</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UNARY_EXPR__UE = eINSTANCE.getUnaryExpr_Ue();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.PrimaryExprImpl <em>Primary Expr</em>}' class.
@@ -8144,12 +8690,36 @@ public interface GoPackage extends EPackage
     EClass PRIMARY_EXPR = eINSTANCE.getPrimaryExpr();
 
     /**
+     * The meta object literal for the '<em><b>Op</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PRIMARY_EXPR__OP = eINSTANCE.getPrimaryExpr_Op();
+
+    /**
      * The meta object literal for the '<em><b>Pr</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference PRIMARY_EXPR__PR = eINSTANCE.getPrimaryExpr_Pr();
+
+    /**
+     * The meta object literal for the '<em><b>Con</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PRIMARY_EXPR__CON = eINSTANCE.getPrimaryExpr_Con();
+
+    /**
+     * The meta object literal for the '<em><b>Me</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PRIMARY_EXPR__ME = eINSTANCE.getPrimaryExpr_Me();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.PrimaryExpr2Impl <em>Primary Expr2</em>}' class.
@@ -8160,6 +8730,14 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass PRIMARY_EXPR2 = eINSTANCE.getPrimaryExpr2();
+
+    /**
+     * The meta object literal for the '<em><b>Selector</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PRIMARY_EXPR2__SELECTOR = eINSTANCE.getPrimaryExpr2_Selector();
 
     /**
      * The meta object literal for the '<em><b>Pr</b></em>' containment reference feature.
@@ -8220,12 +8798,12 @@ public interface GoPackage extends EPackage
     EReference OPERAND__LITERAL = eINSTANCE.getOperand_Literal();
 
     /**
-     * The meta object literal for the '<em><b>Operandn</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Operandn</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute OPERAND__OPERANDN = eINSTANCE.getOperand_Operandn();
+    EReference OPERAND__OPERANDN = eINSTANCE.getOperand_Operandn();
 
     /**
      * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
@@ -8386,6 +8964,30 @@ public interface GoPackage extends EPackage
     EClass LITERAL = eINSTANCE.getLiteral();
 
     /**
+     * The meta object literal for the '<em><b>Basic</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LITERAL__BASIC = eINSTANCE.getLiteral_Basic();
+
+    /**
+     * The meta object literal for the '<em><b>Cl</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LITERAL__CL = eINSTANCE.getLiteral_Cl();
+
+    /**
+     * The meta object literal for the '<em><b>Fl</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LITERAL__FL = eINSTANCE.getLiteral_Fl();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.FunctionLitImpl <em>Function Lit</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8394,6 +8996,22 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass FUNCTION_LIT = eINSTANCE.getFunctionLit();
+
+    /**
+     * The meta object literal for the '<em><b>Signature</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTION_LIT__SIGNATURE = eINSTANCE.getFunctionLit_Signature();
+
+    /**
+     * The meta object literal for the '<em><b>Functionbody</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTION_LIT__FUNCTIONBODY = eINSTANCE.getFunctionLit_Functionbody();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.CompositeLitImpl <em>Composite Lit</em>}' class.
@@ -8544,6 +9162,14 @@ public interface GoPackage extends EPackage
     EClass KEY = eINSTANCE.getKey();
 
     /**
+     * The meta object literal for the '<em><b>Fieldn</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute KEY__FIELDN = eINSTANCE.getKey_Fieldn();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.ElementImpl <em>Element</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8564,6 +9190,14 @@ public interface GoPackage extends EPackage
     EClass RECEIVER_TYPE = eINSTANCE.getReceiverType();
 
     /**
+     * The meta object literal for the '<em><b>Methodn</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RECEIVER_TYPE__METHODN = eINSTANCE.getReceiverType_Methodn();
+
+    /**
      * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8580,6 +9214,32 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass FUNCTION_BODY = eINSTANCE.getFunctionBody();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.OperandNameImpl <em>Operand Name</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.go.impl.OperandNameImpl
+     * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getOperandName()
+     * @generated
+     */
+    EClass OPERAND_NAME = eINSTANCE.getOperandName();
+
+    /**
+     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPERAND_NAME__ID = eINSTANCE.getOperandName_Id();
+
+    /**
+     * The meta object literal for the '<em><b>Qi</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPERAND_NAME__QI = eINSTANCE.getOperandName_Qi();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.ImportDeclImpl <em>Import Decl</em>}' class.

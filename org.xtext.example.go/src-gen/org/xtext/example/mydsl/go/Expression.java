@@ -3,7 +3,6 @@
  */
 package org.xtext.example.mydsl.go;
 
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,29 +13,66 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.go.Expression#getExpression2 <em>Expression2</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.Expression#getUp <em>Up</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.Expression#getExp <em>Exp</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.go.GoPackage#getExpression()
  * @model
  * @generated
  */
-public interface Expression extends ArrayLength, DeferStmt, ExpressionStmt, Channel, IncDecStmt, RecvExpr, Condition, ExpressionList, Key, Element
+public interface Expression extends ArrayLength, DeferStmt, Key, Element
 {
   /**
-   * Returns the value of the '<em><b>Expression2</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.example.mydsl.go.Expression}.
+   * Returns the value of the '<em><b>Up</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Expression2</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Up</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Expression2</em>' containment reference list.
-   * @see org.xtext.example.mydsl.go.GoPackage#getExpression_Expression2()
+   * @return the value of the '<em>Up</em>' containment reference.
+   * @see #setUp(UnaryExpr)
+   * @see org.xtext.example.mydsl.go.GoPackage#getExpression_Up()
    * @model containment="true"
    * @generated
    */
-  EList<Expression> getExpression2();
+  UnaryExpr getUp();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.Expression#getUp <em>Up</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Up</em>' containment reference.
+   * @see #getUp()
+   * @generated
+   */
+  void setUp(UnaryExpr value);
+
+  /**
+   * Returns the value of the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Exp</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Exp</em>' containment reference.
+   * @see #setExp(Expression2)
+   * @see org.xtext.example.mydsl.go.GoPackage#getExpression_Exp()
+   * @model containment="true"
+   * @generated
+   */
+  Expression2 getExp();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.Expression#getExp <em>Exp</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Exp</em>' containment reference.
+   * @see #getExp()
+   * @generated
+   */
+  void setExp(Expression2 value);
 
 } // Expression

@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.mydsl.go.PrimaryExpr2#getSelector <em>Selector</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.PrimaryExpr2#getPr <em>Pr</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.PrimaryExpr2#getIndex <em>Index</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.PrimaryExpr2#getSlice <em>Slice</em>}</li>
@@ -27,6 +28,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface PrimaryExpr2 extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Selector</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Selector</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Selector</em>' attribute.
+   * @see #setSelector(String)
+   * @see org.xtext.example.mydsl.go.GoPackage#getPrimaryExpr2_Selector()
+   * @model
+   * @generated
+   */
+  String getSelector();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.PrimaryExpr2#getSelector <em>Selector</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Selector</em>' attribute.
+   * @see #getSelector()
+   * @generated
+   */
+  void setSelector(String value);
+
   /**
    * Returns the value of the '<em><b>Pr</b></em>' containment reference.
    * <!-- begin-user-doc -->

@@ -3,8 +3,6 @@
  */
 package org.xtext.example.mydsl.go;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -29,52 +27,82 @@ import org.eclipse.emf.ecore.EObject;
 public interface ForStmt extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Condition</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.example.mydsl.go.Condition}.
+   * Returns the value of the '<em><b>Condition</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Condition</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Condition</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Condition</em>' containment reference list.
+   * @return the value of the '<em>Condition</em>' containment reference.
+   * @see #setCondition(Condition)
    * @see org.xtext.example.mydsl.go.GoPackage#getForStmt_Condition()
    * @model containment="true"
    * @generated
    */
-  EList<Condition> getCondition();
+  Condition getCondition();
 
   /**
-   * Returns the value of the '<em><b>For</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.example.mydsl.go.ForClause}.
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.ForStmt#getCondition <em>Condition</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Condition</em>' containment reference.
+   * @see #getCondition()
+   * @generated
+   */
+  void setCondition(Condition value);
+
+  /**
+   * Returns the value of the '<em><b>For</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>For</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>For</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>For</em>' containment reference list.
+   * @return the value of the '<em>For</em>' containment reference.
+   * @see #setFor(ForClause)
    * @see org.xtext.example.mydsl.go.GoPackage#getForStmt_For()
    * @model containment="true"
    * @generated
    */
-  EList<ForClause> getFor();
+  ForClause getFor();
 
   /**
-   * Returns the value of the '<em><b>Range</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.example.mydsl.go.RangeClause}.
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.ForStmt#getFor <em>For</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>For</em>' containment reference.
+   * @see #getFor()
+   * @generated
+   */
+  void setFor(ForClause value);
+
+  /**
+   * Returns the value of the '<em><b>Range</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Range</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Range</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Range</em>' containment reference list.
+   * @return the value of the '<em>Range</em>' containment reference.
+   * @see #setRange(RangeClause)
    * @see org.xtext.example.mydsl.go.GoPackage#getForStmt_Range()
    * @model containment="true"
    * @generated
    */
-  EList<RangeClause> getRange();
+  RangeClause getRange();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.ForStmt#getRange <em>Range</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Range</em>' containment reference.
+   * @see #getRange()
+   * @generated
+   */
+  void setRange(RangeClause value);
 
   /**
    * Returns the value of the '<em><b>Block</b></em>' containment reference.

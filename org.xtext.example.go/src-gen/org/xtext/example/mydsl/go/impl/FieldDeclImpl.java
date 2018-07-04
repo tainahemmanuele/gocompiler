@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.go.FieldDecl;
 import org.xtext.example.mydsl.go.GoPackage;
+import org.xtext.example.mydsl.go.IdentifierList;
 import org.xtext.example.mydsl.go.Type;
 
 /**
@@ -26,6 +27,8 @@ import org.xtext.example.mydsl.go.Type;
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.go.impl.FieldDeclImpl#getIndentifierL <em>Indentifier L</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.FieldDeclImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.FieldDeclImpl#getEmbedded <em>Embedded</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.FieldDeclImpl#getTag <em>Tag</em>}</li>
  * </ul>
  *
  * @generated
@@ -33,24 +36,14 @@ import org.xtext.example.mydsl.go.Type;
 public class FieldDeclImpl extends MinimalEObjectImpl.Container implements FieldDecl
 {
   /**
-   * The default value of the '{@link #getIndentifierL() <em>Indentifier L</em>}' attribute.
+   * The cached value of the '{@link #getIndentifierL() <em>Indentifier L</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getIndentifierL()
    * @generated
    * @ordered
    */
-  protected static final String INDENTIFIER_L_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getIndentifierL() <em>Indentifier L</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getIndentifierL()
-   * @generated
-   * @ordered
-   */
-  protected String indentifierL = INDENTIFIER_L_EDEFAULT;
+  protected IdentifierList indentifierL;
 
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -61,6 +54,46 @@ public class FieldDeclImpl extends MinimalEObjectImpl.Container implements Field
    * @ordered
    */
   protected Type type;
+
+  /**
+   * The default value of the '{@link #getEmbedded() <em>Embedded</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEmbedded()
+   * @generated
+   * @ordered
+   */
+  protected static final String EMBEDDED_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getEmbedded() <em>Embedded</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEmbedded()
+   * @generated
+   * @ordered
+   */
+  protected String embedded = EMBEDDED_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getTag() <em>Tag</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTag()
+   * @generated
+   * @ordered
+   */
+  protected static final String TAG_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getTag() <em>Tag</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTag()
+   * @generated
+   * @ordered
+   */
+  protected String tag = TAG_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -88,7 +121,7 @@ public class FieldDeclImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getIndentifierL()
+  public IdentifierList getIndentifierL()
   {
     return indentifierL;
   }
@@ -98,12 +131,37 @@ public class FieldDeclImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setIndentifierL(String newIndentifierL)
+  public NotificationChain basicSetIndentifierL(IdentifierList newIndentifierL, NotificationChain msgs)
   {
-    String oldIndentifierL = indentifierL;
+    IdentifierList oldIndentifierL = indentifierL;
     indentifierL = newIndentifierL;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.FIELD_DECL__INDENTIFIER_L, oldIndentifierL, indentifierL));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.FIELD_DECL__INDENTIFIER_L, oldIndentifierL, newIndentifierL);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIndentifierL(IdentifierList newIndentifierL)
+  {
+    if (newIndentifierL != indentifierL)
+    {
+      NotificationChain msgs = null;
+      if (indentifierL != null)
+        msgs = ((InternalEObject)indentifierL).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.FIELD_DECL__INDENTIFIER_L, null, msgs);
+      if (newIndentifierL != null)
+        msgs = ((InternalEObject)newIndentifierL).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.FIELD_DECL__INDENTIFIER_L, null, msgs);
+      msgs = basicSetIndentifierL(newIndentifierL, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.FIELD_DECL__INDENTIFIER_L, newIndentifierL, newIndentifierL));
   }
 
   /**
@@ -159,11 +217,59 @@ public class FieldDeclImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getEmbedded()
+  {
+    return embedded;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setEmbedded(String newEmbedded)
+  {
+    String oldEmbedded = embedded;
+    embedded = newEmbedded;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.FIELD_DECL__EMBEDDED, oldEmbedded, embedded));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getTag()
+  {
+    return tag;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTag(String newTag)
+  {
+    String oldTag = tag;
+    tag = newTag;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.FIELD_DECL__TAG, oldTag, tag));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
+      case GoPackage.FIELD_DECL__INDENTIFIER_L:
+        return basicSetIndentifierL(null, msgs);
       case GoPackage.FIELD_DECL__TYPE:
         return basicSetType(null, msgs);
     }
@@ -184,6 +290,10 @@ public class FieldDeclImpl extends MinimalEObjectImpl.Container implements Field
         return getIndentifierL();
       case GoPackage.FIELD_DECL__TYPE:
         return getType();
+      case GoPackage.FIELD_DECL__EMBEDDED:
+        return getEmbedded();
+      case GoPackage.FIELD_DECL__TAG:
+        return getTag();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -199,10 +309,16 @@ public class FieldDeclImpl extends MinimalEObjectImpl.Container implements Field
     switch (featureID)
     {
       case GoPackage.FIELD_DECL__INDENTIFIER_L:
-        setIndentifierL((String)newValue);
+        setIndentifierL((IdentifierList)newValue);
         return;
       case GoPackage.FIELD_DECL__TYPE:
         setType((Type)newValue);
+        return;
+      case GoPackage.FIELD_DECL__EMBEDDED:
+        setEmbedded((String)newValue);
+        return;
+      case GoPackage.FIELD_DECL__TAG:
+        setTag((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -219,10 +335,16 @@ public class FieldDeclImpl extends MinimalEObjectImpl.Container implements Field
     switch (featureID)
     {
       case GoPackage.FIELD_DECL__INDENTIFIER_L:
-        setIndentifierL(INDENTIFIER_L_EDEFAULT);
+        setIndentifierL((IdentifierList)null);
         return;
       case GoPackage.FIELD_DECL__TYPE:
         setType((Type)null);
+        return;
+      case GoPackage.FIELD_DECL__EMBEDDED:
+        setEmbedded(EMBEDDED_EDEFAULT);
+        return;
+      case GoPackage.FIELD_DECL__TAG:
+        setTag(TAG_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -239,9 +361,13 @@ public class FieldDeclImpl extends MinimalEObjectImpl.Container implements Field
     switch (featureID)
     {
       case GoPackage.FIELD_DECL__INDENTIFIER_L:
-        return INDENTIFIER_L_EDEFAULT == null ? indentifierL != null : !INDENTIFIER_L_EDEFAULT.equals(indentifierL);
+        return indentifierL != null;
       case GoPackage.FIELD_DECL__TYPE:
         return type != null;
+      case GoPackage.FIELD_DECL__EMBEDDED:
+        return EMBEDDED_EDEFAULT == null ? embedded != null : !EMBEDDED_EDEFAULT.equals(embedded);
+      case GoPackage.FIELD_DECL__TAG:
+        return TAG_EDEFAULT == null ? tag != null : !TAG_EDEFAULT.equals(tag);
     }
     return super.eIsSet(featureID);
   }
@@ -257,8 +383,10 @@ public class FieldDeclImpl extends MinimalEObjectImpl.Container implements Field
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (indentifierL: ");
-    result.append(indentifierL);
+    result.append(" (embedded: ");
+    result.append(embedded);
+    result.append(", tag: ");
+    result.append(tag);
     result.append(')');
     return result.toString();
   }

@@ -13,39 +13,93 @@ package org.xtext.example.mydsl.go;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.go.Type#getExpressionlist <em>Expressionlist</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.Type#getTp <em>Tp</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.Type#getTp2 <em>Tp2</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.Type#getTp3 <em>Tp3</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.go.GoPackage#getType()
  * @model
  * @generated
  */
-public interface Type extends ElementType, BaseType, Result, KeyType, ConstSpec, TypeDef, AliasDecl, VarSpec, TypeAssertion
+public interface Type extends ElementType, BaseType, KeyType, TypeAssertion
 {
   /**
-   * Returns the value of the '<em><b>Expressionlist</b></em>' containment reference.
+   * Returns the value of the '<em><b>Tp</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Expressionlist</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Tp</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Expressionlist</em>' containment reference.
-   * @see #setExpressionlist(ExpressionList)
-   * @see org.xtext.example.mydsl.go.GoPackage#getType_Expressionlist()
+   * @return the value of the '<em>Tp</em>' attribute.
+   * @see #setTp(String)
+   * @see org.xtext.example.mydsl.go.GoPackage#getType_Tp()
+   * @model
+   * @generated
+   */
+  String getTp();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.Type#getTp <em>Tp</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Tp</em>' attribute.
+   * @see #getTp()
+   * @generated
+   */
+  void setTp(String value);
+
+  /**
+   * Returns the value of the '<em><b>Tp2</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Tp2</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Tp2</em>' containment reference.
+   * @see #setTp2(TypeLit)
+   * @see org.xtext.example.mydsl.go.GoPackage#getType_Tp2()
    * @model containment="true"
    * @generated
    */
-  ExpressionList getExpressionlist();
+  TypeLit getTp2();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.go.Type#getExpressionlist <em>Expressionlist</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.Type#getTp2 <em>Tp2</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Expressionlist</em>' containment reference.
-   * @see #getExpressionlist()
+   * @param value the new value of the '<em>Tp2</em>' containment reference.
+   * @see #getTp2()
    * @generated
    */
-  void setExpressionlist(ExpressionList value);
+  void setTp2(TypeLit value);
+
+  /**
+   * Returns the value of the '<em><b>Tp3</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Tp3</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Tp3</em>' containment reference.
+   * @see #setTp3(Type)
+   * @see org.xtext.example.mydsl.go.GoPackage#getType_Tp3()
+   * @model containment="true"
+   * @generated
+   */
+  Type getTp3();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.Type#getTp3 <em>Tp3</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Tp3</em>' containment reference.
+   * @see #getTp3()
+   * @generated
+   */
+  void setTp3(Type value);
 
 } // Type

@@ -16,6 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.go.FieldDecl#getIndentifierL <em>Indentifier L</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.FieldDecl#getType <em>Type</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.FieldDecl#getEmbedded <em>Embedded</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.FieldDecl#getTag <em>Tag</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.go.GoPackage#getFieldDecl()
@@ -25,30 +27,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface FieldDecl extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Indentifier L</b></em>' attribute.
+   * Returns the value of the '<em><b>Indentifier L</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Indentifier L</em>' attribute isn't clear,
+   * If the meaning of the '<em>Indentifier L</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Indentifier L</em>' attribute.
-   * @see #setIndentifierL(String)
+   * @return the value of the '<em>Indentifier L</em>' containment reference.
+   * @see #setIndentifierL(IdentifierList)
    * @see org.xtext.example.mydsl.go.GoPackage#getFieldDecl_IndentifierL()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getIndentifierL();
+  IdentifierList getIndentifierL();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.go.FieldDecl#getIndentifierL <em>Indentifier L</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.FieldDecl#getIndentifierL <em>Indentifier L</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Indentifier L</em>' attribute.
+   * @param value the new value of the '<em>Indentifier L</em>' containment reference.
    * @see #getIndentifierL()
    * @generated
    */
-  void setIndentifierL(String value);
+  void setIndentifierL(IdentifierList value);
 
   /**
    * Returns the value of the '<em><b>Type</b></em>' containment reference.
@@ -75,5 +77,57 @@ public interface FieldDecl extends EObject
    * @generated
    */
   void setType(Type value);
+
+  /**
+   * Returns the value of the '<em><b>Embedded</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Embedded</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Embedded</em>' attribute.
+   * @see #setEmbedded(String)
+   * @see org.xtext.example.mydsl.go.GoPackage#getFieldDecl_Embedded()
+   * @model
+   * @generated
+   */
+  String getEmbedded();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.FieldDecl#getEmbedded <em>Embedded</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Embedded</em>' attribute.
+   * @see #getEmbedded()
+   * @generated
+   */
+  void setEmbedded(String value);
+
+  /**
+   * Returns the value of the '<em><b>Tag</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Tag</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Tag</em>' attribute.
+   * @see #setTag(String)
+   * @see org.xtext.example.mydsl.go.GoPackage#getFieldDecl_Tag()
+   * @model
+   * @generated
+   */
+  String getTag();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.FieldDecl#getTag <em>Tag</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Tag</em>' attribute.
+   * @see #getTag()
+   * @generated
+   */
+  void setTag(String value);
 
 } // FieldDecl

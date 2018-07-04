@@ -9,6 +9,12 @@ package org.xtext.example.mydsl.go;
  * A representation of the model object '<em><b>Key</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.mydsl.go.Key#getFieldn <em>Fieldn</em>}</li>
+ * </ul>
  *
  * @see org.xtext.example.mydsl.go.GoPackage#getKey()
  * @model
@@ -16,4 +22,30 @@ package org.xtext.example.mydsl.go;
  */
 public interface Key extends KeyedElement
 {
+  /**
+   * Returns the value of the '<em><b>Fieldn</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Fieldn</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Fieldn</em>' attribute.
+   * @see #setFieldn(String)
+   * @see org.xtext.example.mydsl.go.GoPackage#getKey_Fieldn()
+   * @model
+   * @generated
+   */
+  String getFieldn();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.Key#getFieldn <em>Fieldn</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Fieldn</em>' attribute.
+   * @see #getFieldn()
+   * @generated
+   */
+  void setFieldn(String value);
+
 } // Key

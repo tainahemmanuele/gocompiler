@@ -3,6 +3,7 @@
  */
 package org.xtext.example.mydsl.go;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,6 +14,11 @@ package org.xtext.example.mydsl.go;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.mydsl.go.SimpleStmt#getInc <em>Inc</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.SimpleStmt#getAss <em>Ass</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.SimpleStmt#getSs <em>Ss</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.SimpleStmt#getSvd <em>Svd</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.SimpleStmt#getEs <em>Es</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.SimpleStmt#getEmpty <em>Empty</em>}</li>
  * </ul>
  *
@@ -20,8 +26,138 @@ package org.xtext.example.mydsl.go;
  * @model
  * @generated
  */
-public interface SimpleStmt extends TypeSwitchStmt, InitStmt, PostStmt
+public interface SimpleStmt extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Inc</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Inc</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Inc</em>' containment reference.
+   * @see #setInc(IncDecStmt)
+   * @see org.xtext.example.mydsl.go.GoPackage#getSimpleStmt_Inc()
+   * @model containment="true"
+   * @generated
+   */
+  IncDecStmt getInc();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.SimpleStmt#getInc <em>Inc</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Inc</em>' containment reference.
+   * @see #getInc()
+   * @generated
+   */
+  void setInc(IncDecStmt value);
+
+  /**
+   * Returns the value of the '<em><b>Ass</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Ass</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Ass</em>' containment reference.
+   * @see #setAss(Assignment)
+   * @see org.xtext.example.mydsl.go.GoPackage#getSimpleStmt_Ass()
+   * @model containment="true"
+   * @generated
+   */
+  Assignment getAss();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.SimpleStmt#getAss <em>Ass</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Ass</em>' containment reference.
+   * @see #getAss()
+   * @generated
+   */
+  void setAss(Assignment value);
+
+  /**
+   * Returns the value of the '<em><b>Ss</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Ss</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Ss</em>' containment reference.
+   * @see #setSs(SendStmt)
+   * @see org.xtext.example.mydsl.go.GoPackage#getSimpleStmt_Ss()
+   * @model containment="true"
+   * @generated
+   */
+  SendStmt getSs();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.SimpleStmt#getSs <em>Ss</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Ss</em>' containment reference.
+   * @see #getSs()
+   * @generated
+   */
+  void setSs(SendStmt value);
+
+  /**
+   * Returns the value of the '<em><b>Svd</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Svd</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Svd</em>' containment reference.
+   * @see #setSvd(ShortVarDecl)
+   * @see org.xtext.example.mydsl.go.GoPackage#getSimpleStmt_Svd()
+   * @model containment="true"
+   * @generated
+   */
+  ShortVarDecl getSvd();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.SimpleStmt#getSvd <em>Svd</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Svd</em>' containment reference.
+   * @see #getSvd()
+   * @generated
+   */
+  void setSvd(ShortVarDecl value);
+
+  /**
+   * Returns the value of the '<em><b>Es</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Es</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Es</em>' containment reference.
+   * @see #setEs(ExpressionStmt)
+   * @see org.xtext.example.mydsl.go.GoPackage#getSimpleStmt_Es()
+   * @model containment="true"
+   * @generated
+   */
+  ExpressionStmt getEs();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.SimpleStmt#getEs <em>Es</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Es</em>' containment reference.
+   * @see #getEs()
+   * @generated
+   */
+  void setEs(ExpressionStmt value);
+
   /**
    * Returns the value of the '<em><b>Empty</b></em>' attribute.
    * <!-- begin-user-doc -->

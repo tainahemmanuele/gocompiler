@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.mydsl.go.Expression2#getBop <em>Bop</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.Expression2#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.Expression2#getExpression2 <em>Expression2</em>}</li>
  * </ul>
@@ -24,6 +25,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Expression2 extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Bop</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Bop</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Bop</em>' attribute.
+   * @see #setBop(String)
+   * @see org.xtext.example.mydsl.go.GoPackage#getExpression2_Bop()
+   * @model
+   * @generated
+   */
+  String getBop();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.Expression2#getBop <em>Bop</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Bop</em>' attribute.
+   * @see #getBop()
+   * @generated
+   */
+  void setBop(String value);
+
   /**
    * Returns the value of the '<em><b>Expression</b></em>' containment reference.
    * <!-- begin-user-doc -->

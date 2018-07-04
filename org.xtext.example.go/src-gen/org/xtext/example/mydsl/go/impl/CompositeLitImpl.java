@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.go.CompositeLit;
 import org.xtext.example.mydsl.go.GoPackage;
@@ -30,7 +31,7 @@ import org.xtext.example.mydsl.go.LiteralValue;
  *
  * @generated
  */
-public class CompositeLitImpl extends LiteralImpl implements CompositeLit
+public class CompositeLitImpl extends MinimalEObjectImpl.Container implements CompositeLit
 {
   /**
    * The cached value of the '{@link #getLiteralt() <em>Literalt</em>}' containment reference.
