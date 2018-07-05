@@ -3,11 +3,6 @@
  */
 package org.xtext.example.mydsl.validation
 
-import org.xtext.example.mydsl.go.impl.VarDeclImpl
-import org.eclipse.xtext.validation.Check
-import org.xtext.example.mydsl.go.Expression
-import org.xtext.example.mydsl.go.impl.LiteralImpl
-import org.xtext.example.mydsl.go.GoPackage
 
 /**
  * This class contains custom validation rules. 
@@ -16,7 +11,7 @@ import org.xtext.example.mydsl.go.GoPackage
  */
 class GoValidator extends AbstractGoValidator {
 	
-		public static val INVALID_NAME = 'invalidName'
+//	public static val INVALID_NAME = 'invalidName'
 //
 //	@Check
 //	def checkGreetingStartsWithCapital(Greeting greeting) {
@@ -26,13 +21,5 @@ class GoValidator extends AbstractGoValidator {
 //					INVALID_NAME)
 //		}
 //	}
-
-	/* @Check
-	def checkAlgo(Expression exp){
-		if(exp.up.primary.op.literal instanceof LiteralImpl){
-			error("Ta funcionando", GoPackage.Literals.EXPRESSION__EXP, INVALID_NAME);
-		}
-	}
-	*/
-
+	
 }

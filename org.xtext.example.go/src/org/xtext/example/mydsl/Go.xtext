@@ -9,24 +9,25 @@ Compilation_initial:
 	{Compilation_initial} (initial=PackageClause (importdecl+=ImportDecl)* (toplevel+=TopLevelDecl)*)?;
 
 TopLevelDecl:
-	declaration=Declaration | functiondecl=FunctionDecl | methoddecl=MethodDecl;
+	Declaration | FunctionDecl | MethodDecl;
 
 MethodDecl:
 	{MethodDecl}
 	'func' receiver=Receiver method=MethodName signature=Signature (body+=FunctionBody)?;
 
 Receiver:
-	parameters=Parameters;
+	Parameters;
+	
 
 FunctionName:
-	id=IDENTIFIER;
+	IDENTIFIER;
 
 FunctionDecl:
 	{FunctionDecl}
 	'func' functionn=FunctionName signature=Signature (body+=FunctionBody)?;
 
 PackageClause:
-	'package' package=PackageName;
+	'package' PackageName;
 
 terminal NEWLINE:
 	('\u000A')
@@ -336,10 +337,10 @@ terminal BINARY_OP:
 	"||" | "&&" | REL_OP | ADD_OP | MUL_OP;
 
 terminal REL_OP:
-	"==" | "!=" | "<" | "<=" | ">" | ">=" | ':=';
+	"==" | "!=" | "<" | "<=" | ">" | ">="| ':=';
 
 terminal ADD_OP:
-	"+" | "-" | "|" | "^" | "++" | "--";
+	"+" | "-" | "|" | "^" | "++" |"--";
 
 terminal MUL_OP:
 	"*" | "/" | "%" | "<<" | ">>" | "&" | "&^";
@@ -348,7 +349,7 @@ terminal UNARY_OP:
 	"+" | "-" | "!" | "^" | "*" | "&" | "<-";
 
 terminal ASSING_OP:
-	'=' | '+=' | '-=' | '*=' | '^=';
+	 '=' |'+=' | '-=' | '*='| '^=';
 
 terminal LETTER:
 	UNICODE_LETTER
@@ -376,10 +377,10 @@ terminal fragment DECIMAL_LIT:
 terminal fragment OCTAL_LIT:
 	'0' (OCTAL_DIGIT)*;
 
-terminal fragment HEX_LIT:
+terminal  fragment HEX_LIT:
 	'0' ('x' | 'X') HEX_DIGIT (HEX_DIGIT)+;
 
-terminal FLOAT_LIT:
+terminal FLOAT_LIT: 
 	DECIMAL_LIT '.' (DECIMAL_LIT)? (EXPOENT)? |
 	DECIMALS EXPOENT |
 	'.' DECIMALS (EXPOENT)?;
@@ -431,7 +432,7 @@ Type:
 	{Type} tp=TypeName | tp2=TypeLit | "(" tp3=Type ")";
 
 TypeName:
-	IDENTIFIER | QualifiedIdent;
+	IDENTIFIER |  QualifiedIdent  ;
 
 QualifiedIdent:
 	PackageName '.' IDENTIFIER;
@@ -440,17 +441,16 @@ PackageName:
 	IDENTIFIER;
 
 TypeLit:
-	array=ArrayType | struct=StructType | pointer=PointerType | function=FunctionType | intype=InterfaceType |
-	slice=SliceType | map=MapType | channel=ChannelType;
+	ArrayType | StructType | PointerType | FunctionType | InterfaceType | SliceType | MapType | ChannelType;
 
 ArrayType:
 	"[" ArrayLength "]" elemtype=ElementType;
 
 ArrayLength:
-	exp=Expression;
+	Expression;
 
 ElementType:
-	type=Type;
+	Type;
 
 SliceType:
 	'[' ']' elemtype=ElementType;
@@ -463,8 +463,7 @@ FieldDecl:
 	{FieldDecl}
 	(indentifierL=IdentifierList type=Type | embedded=EmbeddedField) (tag=Tag)?;
 
-IdentifierList:
-	{IdentifierList}
+IdentifierList: {IdentifierList}
 	id=IDENTIFIER (',' id2+=IDENTIFIER)*;
 
 EmbeddedField:
@@ -477,10 +476,10 @@ PointerType:
 	'*' basetype=BaseType;
 
 BaseType:
-	type=Type;
+	Type;
 
 FunctionType:
-	'func' signature=Signature;
+	'func' Signature;
 
 Signature:
 	parameters=Parameters (result=Result)?;
@@ -489,14 +488,12 @@ Result:
 	parameteres=Parameters | type=Type;
 
 Parameters:
-	{Parameters} '(' (parameterlist=ParameterList)? ')';
+{Parameters} '(' (parameterlist=ParameterList)? ')';
 
-ParameterList:
-	{ParameterList}
+ParameterList:{ParameterList}
 	parameterDecl1=ParameterDecl (',' parameterdecl+=ParameterDecl)*;
 
-ParameterDecl:
-	{ParameterDecl}
+ParameterDecl:{ParameterDecl}
 	(identifierL=IdentifierList)? ('...')? (type=Type)?;
 
 InterfaceType:
@@ -510,19 +507,19 @@ MethodName:
 	IDENTIFIER;
 
 InterfaceTypeName:
-	typen=TypeName;
+	TypeName;
 
 MapType:
 	'map' '[' keytype=KeyType ']' elemtype=ElementType;
 
 KeyType:
-	type=Type;
+	Type;
 
 ChannelType:
 	('chan' ('<-')? | '<-' 'chan') elemtype=ElementType;
 
-Block:
-	'{' statlist=StatementList '}';
+Block: 
+	'{' StatementList '}';
 
 StatementList:
 	{StatementList}
@@ -536,29 +533,29 @@ Statement:
 	deferst=DeferStmt;
 
 Declaration:
-	const=ConstDecl | tye=TypeDecl | var=VarDecl;
+	ConstDecl | TypeDecl | VarDecl;
 
 LabeledStmt:
 	label=Label ':' statement=Statement;
 
 SimpleStmt:
-	inc=IncDecStmt | ass=Assignment | ss=SendStmt | svd=ShortVarDecl | es=ExpressionStmt | empty=EmptyStmt;
+	 inc=IncDecStmt  | ass=Assignment | ss=SendStmt | svd=ShortVarDecl | es=ExpressionStmt | empty=EmptyStmt;
 
 GoStmt:
-	'goto' label=Label;
+	'goto' Label;
 
 ReturnStmt:
 	{ReturnStmt}
 	'return' (expressionlist=ExpressionList)?;
 
 BreakStmt:
-	{BreakStmt} 'break' (label=Label)?;
+	'break' (Label)?;
 
 ContinueStmt:
-	{ContinueStmt} 'continue' (label=Label)?;
+	'continue' (Label)?;
 
 GotoStmt:
-	'goto' label=Label;
+	'goto' Label;
 
 IfStmt:
 	'if' (simst=SimpleStmt ';')? expression=Expression block=Block ('else' (ifs=IfStmt | block2=Block))?;
@@ -567,18 +564,17 @@ FallthroughStmt:
 	'fallthrough';
 
 SwitchStmt:
-	expstmt=ExprSwitchStmt | typess=TypeSwitchStmt;
+	ExprSwitchStmt | TypeSwitchStmt;
 
 SelectStmt:
 	{SelectStmt}
 	"select" '{' (commclause+=CommClause)* '}';
 
-ForStmt:
-	{ForStmt}
+ForStmt: {ForStmt}
 	'for' (condition=Condition | for=ForClause | range=RangeClause)? block=Block;
 
 DeferStmt:
-	'defer' exp=Expression;
+	'defer' Expression;
 
 ConstDecl:
 	{ConstDecl} 'const' (constspec=ConstSpec | '(' (constspec2+=ConstSpec (';')?)* ')');
@@ -591,45 +587,39 @@ TypeDecl:
 	'type' (typespec=TypeSpec | '(' (typespec2+=TypeSpec ';')* ')');
 
 TypeSpec:
-	aliasdecl=AliasDecl | typed=TypeDef;
+	AliasDecl | TypeDef;
 
 TypeDef:
 	id=IDENTIFIER tp=Type;
 
-AliasDecl:
-	{AliasDecl}
+AliasDecl: {AliasDecl}
 	id=IDENTIFIER '=' tp=Type;
 
 VarDecl:
-	{VarDecl} 'var' (varspec=VarSpec | '(' (varspec2+=VarSpec ';')* ')');
+	{VarDecl} 'var' (varspec=VarSpec | '(' (varspec2+=VarSpec ';' )* ')');
 
 VarSpec:
 	id=IdentifierList (tp2=Type)? ('=' expressionlist=ExpressionList)?;
 
 EmptyStmt:
-	(';')?;
+	';';
 
-ExpressionStmt:
-	{ExpressionStmt}
+ExpressionStmt: {ExpressionStmt}
 	exp=Expression;
 
-SendStmt:
-	{SendStmt}
+SendStmt: {SendStmt}
 	ch=Channel "<-" expression=Expression;
 
 Channel:
 	exp=Expression;
 
-IncDecStmt:
-	{IncDecStmt}
+IncDecStmt: {IncDecStmt}
 	exp=Expression '++' | exp2=Expression '--';
 
-Assignment:
-	{Assignment}
+Assignment: {Assignment}
 	expressionlist=ExpressionList asop=ASSING_OP expressionlist2=ExpressionList;
 
-ShortVarDecl:
-	{ShortVarDecl}
+ShortVarDecl: {ShortVarDecl}
 	idl=IdentifierList ':=' epl=ExpressionList;
 
 ExprSwitchStmt:
@@ -655,8 +645,7 @@ TypeCaseClause:
 TypeSwitchCase:
 	{TypeSwitchCase} 'case' typelist=TypeList | {TypeSwitchCase} 'default';
 
-TypeList:
-	{TypeList}
+TypeList:{TypeList}
 	type=Type (',' type2+=Type)*;
 
 CommClause:
@@ -671,12 +660,11 @@ RecvStmt:
 RecvExpr:
 	exp=Expression;
 
-Condition:
-	{Condition}
+Condition: {Condition}
 	exp=Expression;
 
 ForClause:
-	{ForClause} (init=InitStmt)? ';' (condition=Condition)? ';' (poststmt=PostStmt)?;
+	 {ForClause} (init=InitStmt)? ';' (condition=Condition)? ';' (poststmt=PostStmt)?;
 
 RangeClause:
 	(expressionlist=ExpressionList "=" | idl=IdentifierList ":=")? 'range' expression=Expression;
@@ -684,19 +672,16 @@ RangeClause:
 InitStmt:
 	simple=SimpleStmt;
 
-PostStmt:
-	{PostStmt}
+PostStmt: {PostStmt}
 	simple=SimpleStmt;
 
 Label:
 	IDENTIFIER;
 
-ExpressionList:
-	{ExpressionList}
+ExpressionList: {ExpressionList}
 	exp=Expression (',' expression2+=Expression)*;
 
-Expression:
-	{Expression}
+Expression:{Expression}
 	up=UnaryExpr exp=Expression2;
 
 Expression2:
@@ -704,10 +689,9 @@ Expression2:
 	(bop=BINARY_OP expression=Expression expression2=Expression2)?;
 
 UnaryExpr:
-	primary=PrimaryExpr | up=UNARY_OP ue=UnaryExpr;
+	PrimaryExpr | up=UNARY_OP ue=UnaryExpr;
 
-PrimaryExpr:
-	{PrimaryExpr}
+PrimaryExpr: {PrimaryExpr}
 	op=Operand pr=PrimaryExpr2 |
 	con=Conversion pr=PrimaryExpr2 |
 	me=MethodExpr pr=PrimaryExpr2;
@@ -724,8 +708,7 @@ Operand:
 	{Operand}
 	literal=Literal | operandn=OperandName | '(' expression=Expression ')';
 
-Conversion:
-	{Conversion}
+Conversion: {Conversion}
 	type=Type '(' expression=Expression (',')? ')';
 
 MethodExpr:
@@ -776,22 +759,22 @@ KeyedElement:
 
 Key:
 	{Key}
-	fieldn=FieldName | exp=Expression | ltv=LiteralValue;
+	fieldn=FieldName | Expression | LiteralValue;
 
 FieldName:
-	id=IDENTIFIER;
+	IDENTIFIER;
 
 Element:
-	exp=Expression | ltv=LiteralValue;
+	Expression | LiteralValue;
 
 BasicLit:
-	INT_LIT | FLOAT_LIT | IMAGINARY_LIT | RUNE_LIT | STRING;
+	  INT_LIT | FLOAT_LIT | IMAGINARY_LIT | RUNE_LIT | STRING;
 
 ReceiverType:
 	type=Type;
 
 FunctionBody:
-	block=Block;
+	Block;
 
 OperandName:
 	{OperandName} id=IDENTIFIER | {OperandName} qi=QualifiedIdent;
@@ -801,7 +784,7 @@ ImportDecl:
 	'import' (imports+=ImportSpec | '(' (imports2+=ImportSpec)* ')');
 
 ImportSpec:
-	('.' | IDENTIFIER)? ImportPath;
+	 ('.' | IDENTIFIER)? ImportPath ;
 
 ImportPath:
 	STRING;

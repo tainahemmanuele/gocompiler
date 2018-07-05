@@ -3,7 +3,6 @@
  */
 package org.xtext.example.mydsl.go;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Parameters extends EObject
+public interface Parameters extends Receiver
 {
   /**
    * Returns the value of the '<em><b>Parameterlist</b></em>' containment reference.

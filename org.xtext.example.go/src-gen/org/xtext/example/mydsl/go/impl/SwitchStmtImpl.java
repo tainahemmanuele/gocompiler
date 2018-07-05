@@ -3,56 +3,22 @@
  */
 package org.xtext.example.mydsl.go.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xtext.example.mydsl.go.ExprSwitchStmt;
 import org.xtext.example.mydsl.go.GoPackage;
 import org.xtext.example.mydsl.go.SwitchStmt;
-import org.xtext.example.mydsl.go.TypeSwitchStmt;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Switch Stmt</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * </p>
- * <ul>
- *   <li>{@link org.xtext.example.mydsl.go.impl.SwitchStmtImpl#getExpstmt <em>Expstmt</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.go.impl.SwitchStmtImpl#getTypess <em>Typess</em>}</li>
- * </ul>
  *
  * @generated
  */
 public class SwitchStmtImpl extends MinimalEObjectImpl.Container implements SwitchStmt
 {
-  /**
-   * The cached value of the '{@link #getExpstmt() <em>Expstmt</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getExpstmt()
-   * @generated
-   * @ordered
-   */
-  protected ExprSwitchStmt expstmt;
-
-  /**
-   * The cached value of the '{@link #getTypess() <em>Typess</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTypess()
-   * @generated
-   * @ordered
-   */
-  protected TypeSwitchStmt typess;
-
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -72,196 +38,6 @@ public class SwitchStmtImpl extends MinimalEObjectImpl.Container implements Swit
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.SWITCH_STMT;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ExprSwitchStmt getExpstmt()
-  {
-    return expstmt;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetExpstmt(ExprSwitchStmt newExpstmt, NotificationChain msgs)
-  {
-    ExprSwitchStmt oldExpstmt = expstmt;
-    expstmt = newExpstmt;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.SWITCH_STMT__EXPSTMT, oldExpstmt, newExpstmt);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setExpstmt(ExprSwitchStmt newExpstmt)
-  {
-    if (newExpstmt != expstmt)
-    {
-      NotificationChain msgs = null;
-      if (expstmt != null)
-        msgs = ((InternalEObject)expstmt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.SWITCH_STMT__EXPSTMT, null, msgs);
-      if (newExpstmt != null)
-        msgs = ((InternalEObject)newExpstmt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.SWITCH_STMT__EXPSTMT, null, msgs);
-      msgs = basicSetExpstmt(newExpstmt, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.SWITCH_STMT__EXPSTMT, newExpstmt, newExpstmt));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public TypeSwitchStmt getTypess()
-  {
-    return typess;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetTypess(TypeSwitchStmt newTypess, NotificationChain msgs)
-  {
-    TypeSwitchStmt oldTypess = typess;
-    typess = newTypess;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.SWITCH_STMT__TYPESS, oldTypess, newTypess);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setTypess(TypeSwitchStmt newTypess)
-  {
-    if (newTypess != typess)
-    {
-      NotificationChain msgs = null;
-      if (typess != null)
-        msgs = ((InternalEObject)typess).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.SWITCH_STMT__TYPESS, null, msgs);
-      if (newTypess != null)
-        msgs = ((InternalEObject)newTypess).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.SWITCH_STMT__TYPESS, null, msgs);
-      msgs = basicSetTypess(newTypess, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.SWITCH_STMT__TYPESS, newTypess, newTypess));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case GoPackage.SWITCH_STMT__EXPSTMT:
-        return basicSetExpstmt(null, msgs);
-      case GoPackage.SWITCH_STMT__TYPESS:
-        return basicSetTypess(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
-    switch (featureID)
-    {
-      case GoPackage.SWITCH_STMT__EXPSTMT:
-        return getExpstmt();
-      case GoPackage.SWITCH_STMT__TYPESS:
-        return getTypess();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
-    switch (featureID)
-    {
-      case GoPackage.SWITCH_STMT__EXPSTMT:
-        setExpstmt((ExprSwitchStmt)newValue);
-        return;
-      case GoPackage.SWITCH_STMT__TYPESS:
-        setTypess((TypeSwitchStmt)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eUnset(int featureID)
-  {
-    switch (featureID)
-    {
-      case GoPackage.SWITCH_STMT__EXPSTMT:
-        setExpstmt((ExprSwitchStmt)null);
-        return;
-      case GoPackage.SWITCH_STMT__TYPESS:
-        setTypess((TypeSwitchStmt)null);
-        return;
-    }
-    super.eUnset(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
-    switch (featureID)
-    {
-      case GoPackage.SWITCH_STMT__EXPSTMT:
-        return expstmt != null;
-      case GoPackage.SWITCH_STMT__TYPESS:
-        return typess != null;
-    }
-    return super.eIsSet(featureID);
   }
 
 } //SwitchStmtImpl

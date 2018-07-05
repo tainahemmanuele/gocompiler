@@ -12,9 +12,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xtext.example.mydsl.go.AliasDecl;
 import org.xtext.example.mydsl.go.GoPackage;
-import org.xtext.example.mydsl.go.TypeDef;
+import org.xtext.example.mydsl.go.Type;
 import org.xtext.example.mydsl.go.TypeSpec;
 
 /**
@@ -25,8 +24,8 @@ import org.xtext.example.mydsl.go.TypeSpec;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.go.impl.TypeSpecImpl#getAliasdecl <em>Aliasdecl</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.go.impl.TypeSpecImpl#getTyped <em>Typed</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.TypeSpecImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.TypeSpecImpl#getTp <em>Tp</em>}</li>
  * </ul>
  *
  * @generated
@@ -34,24 +33,34 @@ import org.xtext.example.mydsl.go.TypeSpec;
 public class TypeSpecImpl extends MinimalEObjectImpl.Container implements TypeSpec
 {
   /**
-   * The cached value of the '{@link #getAliasdecl() <em>Aliasdecl</em>}' containment reference.
+   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAliasdecl()
+   * @see #getId()
    * @generated
    * @ordered
    */
-  protected AliasDecl aliasdecl;
+  protected static final String ID_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getTyped() <em>Typed</em>}' containment reference.
+   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTyped()
+   * @see #getId()
    * @generated
    * @ordered
    */
-  protected TypeDef typed;
+  protected String id = ID_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getTp() <em>Tp</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTp()
+   * @generated
+   * @ordered
+   */
+  protected Type tp;
 
   /**
    * <!-- begin-user-doc -->
@@ -79,9 +88,9 @@ public class TypeSpecImpl extends MinimalEObjectImpl.Container implements TypeSp
    * <!-- end-user-doc -->
    * @generated
    */
-  public AliasDecl getAliasdecl()
+  public String getId()
   {
-    return aliasdecl;
+    return id;
   }
 
   /**
@@ -89,13 +98,36 @@ public class TypeSpecImpl extends MinimalEObjectImpl.Container implements TypeSp
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetAliasdecl(AliasDecl newAliasdecl, NotificationChain msgs)
+  public void setId(String newId)
   {
-    AliasDecl oldAliasdecl = aliasdecl;
-    aliasdecl = newAliasdecl;
+    String oldId = id;
+    id = newId;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_SPEC__ID, oldId, id));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Type getTp()
+  {
+    return tp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetTp(Type newTp, NotificationChain msgs)
+  {
+    Type oldTp = tp;
+    tp = newTp;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_SPEC__ALIASDECL, oldAliasdecl, newAliasdecl);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_SPEC__TP, oldTp, newTp);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -106,68 +138,20 @@ public class TypeSpecImpl extends MinimalEObjectImpl.Container implements TypeSp
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setAliasdecl(AliasDecl newAliasdecl)
+  public void setTp(Type newTp)
   {
-    if (newAliasdecl != aliasdecl)
+    if (newTp != tp)
     {
       NotificationChain msgs = null;
-      if (aliasdecl != null)
-        msgs = ((InternalEObject)aliasdecl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_SPEC__ALIASDECL, null, msgs);
-      if (newAliasdecl != null)
-        msgs = ((InternalEObject)newAliasdecl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_SPEC__ALIASDECL, null, msgs);
-      msgs = basicSetAliasdecl(newAliasdecl, msgs);
+      if (tp != null)
+        msgs = ((InternalEObject)tp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_SPEC__TP, null, msgs);
+      if (newTp != null)
+        msgs = ((InternalEObject)newTp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_SPEC__TP, null, msgs);
+      msgs = basicSetTp(newTp, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_SPEC__ALIASDECL, newAliasdecl, newAliasdecl));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public TypeDef getTyped()
-  {
-    return typed;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetTyped(TypeDef newTyped, NotificationChain msgs)
-  {
-    TypeDef oldTyped = typed;
-    typed = newTyped;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_SPEC__TYPED, oldTyped, newTyped);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setTyped(TypeDef newTyped)
-  {
-    if (newTyped != typed)
-    {
-      NotificationChain msgs = null;
-      if (typed != null)
-        msgs = ((InternalEObject)typed).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_SPEC__TYPED, null, msgs);
-      if (newTyped != null)
-        msgs = ((InternalEObject)newTyped).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_SPEC__TYPED, null, msgs);
-      msgs = basicSetTyped(newTyped, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_SPEC__TYPED, newTyped, newTyped));
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_SPEC__TP, newTp, newTp));
   }
 
   /**
@@ -180,10 +164,8 @@ public class TypeSpecImpl extends MinimalEObjectImpl.Container implements TypeSp
   {
     switch (featureID)
     {
-      case GoPackage.TYPE_SPEC__ALIASDECL:
-        return basicSetAliasdecl(null, msgs);
-      case GoPackage.TYPE_SPEC__TYPED:
-        return basicSetTyped(null, msgs);
+      case GoPackage.TYPE_SPEC__TP:
+        return basicSetTp(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -198,10 +180,10 @@ public class TypeSpecImpl extends MinimalEObjectImpl.Container implements TypeSp
   {
     switch (featureID)
     {
-      case GoPackage.TYPE_SPEC__ALIASDECL:
-        return getAliasdecl();
-      case GoPackage.TYPE_SPEC__TYPED:
-        return getTyped();
+      case GoPackage.TYPE_SPEC__ID:
+        return getId();
+      case GoPackage.TYPE_SPEC__TP:
+        return getTp();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -216,11 +198,11 @@ public class TypeSpecImpl extends MinimalEObjectImpl.Container implements TypeSp
   {
     switch (featureID)
     {
-      case GoPackage.TYPE_SPEC__ALIASDECL:
-        setAliasdecl((AliasDecl)newValue);
+      case GoPackage.TYPE_SPEC__ID:
+        setId((String)newValue);
         return;
-      case GoPackage.TYPE_SPEC__TYPED:
-        setTyped((TypeDef)newValue);
+      case GoPackage.TYPE_SPEC__TP:
+        setTp((Type)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -236,11 +218,11 @@ public class TypeSpecImpl extends MinimalEObjectImpl.Container implements TypeSp
   {
     switch (featureID)
     {
-      case GoPackage.TYPE_SPEC__ALIASDECL:
-        setAliasdecl((AliasDecl)null);
+      case GoPackage.TYPE_SPEC__ID:
+        setId(ID_EDEFAULT);
         return;
-      case GoPackage.TYPE_SPEC__TYPED:
-        setTyped((TypeDef)null);
+      case GoPackage.TYPE_SPEC__TP:
+        setTp((Type)null);
         return;
     }
     super.eUnset(featureID);
@@ -256,12 +238,29 @@ public class TypeSpecImpl extends MinimalEObjectImpl.Container implements TypeSp
   {
     switch (featureID)
     {
-      case GoPackage.TYPE_SPEC__ALIASDECL:
-        return aliasdecl != null;
-      case GoPackage.TYPE_SPEC__TYPED:
-        return typed != null;
+      case GoPackage.TYPE_SPEC__ID:
+        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+      case GoPackage.TYPE_SPEC__TP:
+        return tp != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (id: ");
+    result.append(id);
+    result.append(')');
+    return result.toString();
   }
 
 } //TypeSpecImpl

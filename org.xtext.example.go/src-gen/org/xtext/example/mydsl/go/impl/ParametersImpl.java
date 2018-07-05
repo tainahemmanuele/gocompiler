@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.go.GoPackage;
 import org.xtext.example.mydsl.go.ParameterList;
@@ -29,7 +28,7 @@ import org.xtext.example.mydsl.go.Parameters;
  *
  * @generated
  */
-public class ParametersImpl extends MinimalEObjectImpl.Container implements Parameters
+public class ParametersImpl extends ReceiverImpl implements Parameters
 {
   /**
    * The cached value of the '{@link #getParameterlist() <em>Parameterlist</em>}' containment reference.

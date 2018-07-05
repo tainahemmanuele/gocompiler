@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.go.UnaryExpr#getPrimary <em>Primary</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.UnaryExpr#getUp <em>Up</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.UnaryExpr#getUe <em>Ue</em>}</li>
  * </ul>
@@ -25,32 +24,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface UnaryExpr extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Primary</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Primary</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Primary</em>' containment reference.
-   * @see #setPrimary(PrimaryExpr)
-   * @see org.xtext.example.mydsl.go.GoPackage#getUnaryExpr_Primary()
-   * @model containment="true"
-   * @generated
-   */
-  PrimaryExpr getPrimary();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.go.UnaryExpr#getPrimary <em>Primary</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Primary</em>' containment reference.
-   * @see #getPrimary()
-   * @generated
-   */
-  void setPrimary(PrimaryExpr value);
-
   /**
    * Returns the value of the '<em><b>Up</b></em>' attribute.
    * <!-- begin-user-doc -->

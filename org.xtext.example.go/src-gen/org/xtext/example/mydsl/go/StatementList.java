@@ -5,8 +5,6 @@ package org.xtext.example.mydsl.go;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Statement List</b></em>'.
@@ -23,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface StatementList extends EObject
+public interface StatementList extends Block
 {
   /**
    * Returns the value of the '<em><b>Statment</b></em>' containment reference list.

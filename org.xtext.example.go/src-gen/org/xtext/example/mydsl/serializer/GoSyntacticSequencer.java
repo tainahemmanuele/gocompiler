@@ -155,6 +155,7 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ','?
 	 *
 	 * This ambiguous syntax occurs at:
+	 *     elementlist=ElementList (ambiguity) '}' ':' element=Element
 	 *     elementlist=ElementList (ambiguity) '}' (rule end)
 	 */
 	protected void emit_LiteralValue_CommaKeyword_2_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
@@ -180,6 +181,7 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ';'?
 	 *
 	 * This ambiguous syntax occurs at:
+	 *     statment+=Statement (ambiguity) '}' (rule end)
 	 *     statment+=Statement (ambiguity) (rule end)
 	 *     statment+=Statement (ambiguity) statment+=Statement
 	 */

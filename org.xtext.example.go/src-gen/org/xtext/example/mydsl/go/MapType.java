@@ -3,7 +3,6 @@
  */
 package org.xtext.example.mydsl.go;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface MapType extends EObject
+public interface MapType extends TypeLit
 {
   /**
    * Returns the value of the '<em><b>Keytype</b></em>' containment reference.

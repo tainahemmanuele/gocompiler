@@ -3,65 +3,20 @@
  */
 package org.xtext.example.mydsl.go.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.go.AliasDecl;
 import org.xtext.example.mydsl.go.GoPackage;
-import org.xtext.example.mydsl.go.Type;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Alias Decl</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * </p>
- * <ul>
- *   <li>{@link org.xtext.example.mydsl.go.impl.AliasDeclImpl#getId <em>Id</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.go.impl.AliasDeclImpl#getTp <em>Tp</em>}</li>
- * </ul>
  *
  * @generated
  */
-public class AliasDeclImpl extends MinimalEObjectImpl.Container implements AliasDecl
+public class AliasDeclImpl extends TypeSpecImpl implements AliasDecl
 {
-  /**
-   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getId()
-   * @generated
-   * @ordered
-   */
-  protected static final String ID_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getId()
-   * @generated
-   * @ordered
-   */
-  protected String id = ID_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getTp() <em>Tp</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTp()
-   * @generated
-   * @ordered
-   */
-  protected Type tp;
-
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -81,186 +36,6 @@ public class AliasDeclImpl extends MinimalEObjectImpl.Container implements Alias
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.ALIAS_DECL;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getId()
-  {
-    return id;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setId(String newId)
-  {
-    String oldId = id;
-    id = newId;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.ALIAS_DECL__ID, oldId, id));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Type getTp()
-  {
-    return tp;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetTp(Type newTp, NotificationChain msgs)
-  {
-    Type oldTp = tp;
-    tp = newTp;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.ALIAS_DECL__TP, oldTp, newTp);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setTp(Type newTp)
-  {
-    if (newTp != tp)
-    {
-      NotificationChain msgs = null;
-      if (tp != null)
-        msgs = ((InternalEObject)tp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.ALIAS_DECL__TP, null, msgs);
-      if (newTp != null)
-        msgs = ((InternalEObject)newTp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.ALIAS_DECL__TP, null, msgs);
-      msgs = basicSetTp(newTp, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.ALIAS_DECL__TP, newTp, newTp));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case GoPackage.ALIAS_DECL__TP:
-        return basicSetTp(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
-    switch (featureID)
-    {
-      case GoPackage.ALIAS_DECL__ID:
-        return getId();
-      case GoPackage.ALIAS_DECL__TP:
-        return getTp();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
-    switch (featureID)
-    {
-      case GoPackage.ALIAS_DECL__ID:
-        setId((String)newValue);
-        return;
-      case GoPackage.ALIAS_DECL__TP:
-        setTp((Type)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eUnset(int featureID)
-  {
-    switch (featureID)
-    {
-      case GoPackage.ALIAS_DECL__ID:
-        setId(ID_EDEFAULT);
-        return;
-      case GoPackage.ALIAS_DECL__TP:
-        setTp((Type)null);
-        return;
-    }
-    super.eUnset(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
-    switch (featureID)
-    {
-      case GoPackage.ALIAS_DECL__ID:
-        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-      case GoPackage.ALIAS_DECL__TP:
-        return tp != null;
-    }
-    return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (id: ");
-    result.append(id);
-    result.append(')');
-    return result.toString();
   }
 
 } //AliasDeclImpl

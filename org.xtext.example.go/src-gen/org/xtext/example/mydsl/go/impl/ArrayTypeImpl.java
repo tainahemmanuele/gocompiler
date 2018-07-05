@@ -5,8 +5,6 @@ package org.xtext.example.mydsl.go.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.xtext.example.mydsl.go.ArrayType;
 import org.xtext.example.mydsl.go.GoPackage;
 
@@ -17,7 +15,7 @@ import org.xtext.example.mydsl.go.GoPackage;
  *
  * @generated
  */
-public class ArrayTypeImpl extends MinimalEObjectImpl.Container implements ArrayType
+public class ArrayTypeImpl extends TypeLitImpl implements ArrayType
 {
   /**
    * <!-- begin-user-doc -->

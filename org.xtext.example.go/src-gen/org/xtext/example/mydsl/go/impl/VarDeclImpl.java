@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -37,7 +36,7 @@ import org.xtext.example.mydsl.go.VarSpec;
  *
  * @generated
  */
-public class VarDeclImpl extends MinimalEObjectImpl.Container implements VarDecl
+public class VarDeclImpl extends DeclarationImpl implements VarDecl
 {
   /**
    * The cached value of the '{@link #getVarspec() <em>Varspec</em>}' containment reference.

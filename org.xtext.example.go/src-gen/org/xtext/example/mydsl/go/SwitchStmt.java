@@ -10,13 +10,6 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Switch Stmt</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link org.xtext.example.mydsl.go.SwitchStmt#getExpstmt <em>Expstmt</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.go.SwitchStmt#getTypess <em>Typess</em>}</li>
- * </ul>
  *
  * @see org.xtext.example.mydsl.go.GoPackage#getSwitchStmt()
  * @model
@@ -24,56 +17,4 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface SwitchStmt extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Expstmt</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Expstmt</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Expstmt</em>' containment reference.
-   * @see #setExpstmt(ExprSwitchStmt)
-   * @see org.xtext.example.mydsl.go.GoPackage#getSwitchStmt_Expstmt()
-   * @model containment="true"
-   * @generated
-   */
-  ExprSwitchStmt getExpstmt();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.go.SwitchStmt#getExpstmt <em>Expstmt</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Expstmt</em>' containment reference.
-   * @see #getExpstmt()
-   * @generated
-   */
-  void setExpstmt(ExprSwitchStmt value);
-
-  /**
-   * Returns the value of the '<em><b>Typess</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Typess</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Typess</em>' containment reference.
-   * @see #setTypess(TypeSwitchStmt)
-   * @see org.xtext.example.mydsl.go.GoPackage#getSwitchStmt_Typess()
-   * @model containment="true"
-   * @generated
-   */
-  TypeSwitchStmt getTypess();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.go.SwitchStmt#getTypess <em>Typess</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Typess</em>' containment reference.
-   * @see #getTypess()
-   * @generated
-   */
-  void setTypess(TypeSwitchStmt value);
-
 } // SwitchStmt

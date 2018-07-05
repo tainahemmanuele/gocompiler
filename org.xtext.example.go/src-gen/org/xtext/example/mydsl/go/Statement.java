@@ -115,108 +115,108 @@ public interface Statement extends EObject
   void setSimplest(SimpleStmt value);
 
   /**
-   * Returns the value of the '<em><b>Gotst</b></em>' containment reference.
+   * Returns the value of the '<em><b>Gotst</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Gotst</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Gotst</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Gotst</em>' containment reference.
-   * @see #setGotst(GoStmt)
+   * @return the value of the '<em>Gotst</em>' attribute.
+   * @see #setGotst(String)
    * @see org.xtext.example.mydsl.go.GoPackage#getStatement_Gotst()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  GoStmt getGotst();
+  String getGotst();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.go.Statement#getGotst <em>Gotst</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.Statement#getGotst <em>Gotst</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Gotst</em>' containment reference.
+   * @param value the new value of the '<em>Gotst</em>' attribute.
    * @see #getGotst()
    * @generated
    */
-  void setGotst(GoStmt value);
+  void setGotst(String value);
 
   /**
-   * Returns the value of the '<em><b>Breakst</b></em>' containment reference.
+   * Returns the value of the '<em><b>Breakst</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Breakst</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Breakst</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Breakst</em>' containment reference.
-   * @see #setBreakst(BreakStmt)
+   * @return the value of the '<em>Breakst</em>' attribute.
+   * @see #setBreakst(String)
    * @see org.xtext.example.mydsl.go.GoPackage#getStatement_Breakst()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  BreakStmt getBreakst();
+  String getBreakst();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.go.Statement#getBreakst <em>Breakst</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.Statement#getBreakst <em>Breakst</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Breakst</em>' containment reference.
+   * @param value the new value of the '<em>Breakst</em>' attribute.
    * @see #getBreakst()
    * @generated
    */
-  void setBreakst(BreakStmt value);
+  void setBreakst(String value);
 
   /**
-   * Returns the value of the '<em><b>Continuest</b></em>' containment reference.
+   * Returns the value of the '<em><b>Continuest</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Continuest</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Continuest</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Continuest</em>' containment reference.
-   * @see #setContinuest(ContinueStmt)
+   * @return the value of the '<em>Continuest</em>' attribute.
+   * @see #setContinuest(String)
    * @see org.xtext.example.mydsl.go.GoPackage#getStatement_Continuest()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  ContinueStmt getContinuest();
+  String getContinuest();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.go.Statement#getContinuest <em>Continuest</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.Statement#getContinuest <em>Continuest</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Continuest</em>' containment reference.
+   * @param value the new value of the '<em>Continuest</em>' attribute.
    * @see #getContinuest()
    * @generated
    */
-  void setContinuest(ContinueStmt value);
+  void setContinuest(String value);
 
   /**
-   * Returns the value of the '<em><b>Gotost</b></em>' containment reference.
+   * Returns the value of the '<em><b>Gotost</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Gotost</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Gotost</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Gotost</em>' containment reference.
-   * @see #setGotost(GotoStmt)
+   * @return the value of the '<em>Gotost</em>' attribute.
+   * @see #setGotost(String)
    * @see org.xtext.example.mydsl.go.GoPackage#getStatement_Gotost()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  GotoStmt getGotost();
+  String getGotost();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.go.Statement#getGotost <em>Gotost</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.Statement#getGotost <em>Gotost</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Gotost</em>' containment reference.
+   * @param value the new value of the '<em>Gotost</em>' attribute.
    * @see #getGotost()
    * @generated
    */
-  void setGotost(GotoStmt value);
+  void setGotost(String value);
 
   /**
    * Returns the value of the '<em><b>Falltst</b></em>' attribute.

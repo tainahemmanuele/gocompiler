@@ -5,8 +5,6 @@ package org.xtext.example.mydsl.go;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Expr Switch Stmt</b></em>'.
@@ -25,7 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ExprSwitchStmt extends EObject
+public interface ExprSwitchStmt extends SwitchStmt
 {
   /**
    * Returns the value of the '<em><b>Simplestmt</b></em>' containment reference.

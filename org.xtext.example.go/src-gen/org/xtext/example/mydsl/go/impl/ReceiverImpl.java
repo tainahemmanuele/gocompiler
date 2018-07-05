@@ -3,44 +3,22 @@
  */
 package org.xtext.example.mydsl.go.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.go.GoPackage;
-import org.xtext.example.mydsl.go.Parameters;
 import org.xtext.example.mydsl.go.Receiver;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Receiver</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * </p>
- * <ul>
- *   <li>{@link org.xtext.example.mydsl.go.impl.ReceiverImpl#getParameters <em>Parameters</em>}</li>
- * </ul>
  *
  * @generated
  */
 public class ReceiverImpl extends MinimalEObjectImpl.Container implements Receiver
 {
-  /**
-   * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getParameters()
-   * @generated
-   * @ordered
-   */
-  protected Parameters parameters;
-
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -60,136 +38,6 @@ public class ReceiverImpl extends MinimalEObjectImpl.Container implements Receiv
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.RECEIVER;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Parameters getParameters()
-  {
-    return parameters;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetParameters(Parameters newParameters, NotificationChain msgs)
-  {
-    Parameters oldParameters = parameters;
-    parameters = newParameters;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.RECEIVER__PARAMETERS, oldParameters, newParameters);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setParameters(Parameters newParameters)
-  {
-    if (newParameters != parameters)
-    {
-      NotificationChain msgs = null;
-      if (parameters != null)
-        msgs = ((InternalEObject)parameters).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.RECEIVER__PARAMETERS, null, msgs);
-      if (newParameters != null)
-        msgs = ((InternalEObject)newParameters).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.RECEIVER__PARAMETERS, null, msgs);
-      msgs = basicSetParameters(newParameters, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.RECEIVER__PARAMETERS, newParameters, newParameters));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case GoPackage.RECEIVER__PARAMETERS:
-        return basicSetParameters(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
-    switch (featureID)
-    {
-      case GoPackage.RECEIVER__PARAMETERS:
-        return getParameters();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
-    switch (featureID)
-    {
-      case GoPackage.RECEIVER__PARAMETERS:
-        setParameters((Parameters)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eUnset(int featureID)
-  {
-    switch (featureID)
-    {
-      case GoPackage.RECEIVER__PARAMETERS:
-        setParameters((Parameters)null);
-        return;
-    }
-    super.eUnset(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
-    switch (featureID)
-    {
-      case GoPackage.RECEIVER__PARAMETERS:
-        return parameters != null;
-    }
-    return super.eIsSet(featureID);
   }
 
 } //ReceiverImpl

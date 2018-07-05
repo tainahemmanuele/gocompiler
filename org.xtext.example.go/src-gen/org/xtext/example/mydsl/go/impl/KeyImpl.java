@@ -4,18 +4,13 @@
 package org.xtext.example.mydsl.go.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.xtext.example.mydsl.go.Expression;
-import org.xtext.example.mydsl.go.FieldName;
 import org.xtext.example.mydsl.go.GoPackage;
 import org.xtext.example.mydsl.go.Key;
-import org.xtext.example.mydsl.go.LiteralValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,8 +21,6 @@ import org.xtext.example.mydsl.go.LiteralValue;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.go.impl.KeyImpl#getFieldn <em>Fieldn</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.go.impl.KeyImpl#getExp <em>Exp</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.go.impl.KeyImpl#getLtv <em>Ltv</em>}</li>
  * </ul>
  *
  * @generated
@@ -35,34 +28,24 @@ import org.xtext.example.mydsl.go.LiteralValue;
 public class KeyImpl extends KeyedElementImpl implements Key
 {
   /**
-   * The cached value of the '{@link #getFieldn() <em>Fieldn</em>}' containment reference.
+   * The default value of the '{@link #getFieldn() <em>Fieldn</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getFieldn()
    * @generated
    * @ordered
    */
-  protected FieldName fieldn;
+  protected static final String FIELDN_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getExp() <em>Exp</em>}' containment reference.
+   * The cached value of the '{@link #getFieldn() <em>Fieldn</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExp()
+   * @see #getFieldn()
    * @generated
    * @ordered
    */
-  protected Expression exp;
-
-  /**
-   * The cached value of the '{@link #getLtv() <em>Ltv</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLtv()
-   * @generated
-   * @ordered
-   */
-  protected LiteralValue ltv;
+  protected String fieldn = FIELDN_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -90,7 +73,7 @@ public class KeyImpl extends KeyedElementImpl implements Key
    * <!-- end-user-doc -->
    * @generated
    */
-  public FieldName getFieldn()
+  public String getFieldn()
   {
     return fieldn;
   }
@@ -100,153 +83,12 @@ public class KeyImpl extends KeyedElementImpl implements Key
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetFieldn(FieldName newFieldn, NotificationChain msgs)
+  public void setFieldn(String newFieldn)
   {
-    FieldName oldFieldn = fieldn;
+    String oldFieldn = fieldn;
     fieldn = newFieldn;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.KEY__FIELDN, oldFieldn, newFieldn);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setFieldn(FieldName newFieldn)
-  {
-    if (newFieldn != fieldn)
-    {
-      NotificationChain msgs = null;
-      if (fieldn != null)
-        msgs = ((InternalEObject)fieldn).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.KEY__FIELDN, null, msgs);
-      if (newFieldn != null)
-        msgs = ((InternalEObject)newFieldn).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.KEY__FIELDN, null, msgs);
-      msgs = basicSetFieldn(newFieldn, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.KEY__FIELDN, newFieldn, newFieldn));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Expression getExp()
-  {
-    return exp;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetExp(Expression newExp, NotificationChain msgs)
-  {
-    Expression oldExp = exp;
-    exp = newExp;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.KEY__EXP, oldExp, newExp);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setExp(Expression newExp)
-  {
-    if (newExp != exp)
-    {
-      NotificationChain msgs = null;
-      if (exp != null)
-        msgs = ((InternalEObject)exp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.KEY__EXP, null, msgs);
-      if (newExp != null)
-        msgs = ((InternalEObject)newExp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.KEY__EXP, null, msgs);
-      msgs = basicSetExp(newExp, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.KEY__EXP, newExp, newExp));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public LiteralValue getLtv()
-  {
-    return ltv;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetLtv(LiteralValue newLtv, NotificationChain msgs)
-  {
-    LiteralValue oldLtv = ltv;
-    ltv = newLtv;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.KEY__LTV, oldLtv, newLtv);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setLtv(LiteralValue newLtv)
-  {
-    if (newLtv != ltv)
-    {
-      NotificationChain msgs = null;
-      if (ltv != null)
-        msgs = ((InternalEObject)ltv).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.KEY__LTV, null, msgs);
-      if (newLtv != null)
-        msgs = ((InternalEObject)newLtv).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.KEY__LTV, null, msgs);
-      msgs = basicSetLtv(newLtv, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.KEY__LTV, newLtv, newLtv));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case GoPackage.KEY__FIELDN:
-        return basicSetFieldn(null, msgs);
-      case GoPackage.KEY__EXP:
-        return basicSetExp(null, msgs);
-      case GoPackage.KEY__LTV:
-        return basicSetLtv(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.KEY__FIELDN, oldFieldn, fieldn));
   }
 
   /**
@@ -261,10 +103,6 @@ public class KeyImpl extends KeyedElementImpl implements Key
     {
       case GoPackage.KEY__FIELDN:
         return getFieldn();
-      case GoPackage.KEY__EXP:
-        return getExp();
-      case GoPackage.KEY__LTV:
-        return getLtv();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -280,13 +118,7 @@ public class KeyImpl extends KeyedElementImpl implements Key
     switch (featureID)
     {
       case GoPackage.KEY__FIELDN:
-        setFieldn((FieldName)newValue);
-        return;
-      case GoPackage.KEY__EXP:
-        setExp((Expression)newValue);
-        return;
-      case GoPackage.KEY__LTV:
-        setLtv((LiteralValue)newValue);
+        setFieldn((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -303,13 +135,7 @@ public class KeyImpl extends KeyedElementImpl implements Key
     switch (featureID)
     {
       case GoPackage.KEY__FIELDN:
-        setFieldn((FieldName)null);
-        return;
-      case GoPackage.KEY__EXP:
-        setExp((Expression)null);
-        return;
-      case GoPackage.KEY__LTV:
-        setLtv((LiteralValue)null);
+        setFieldn(FIELDN_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -326,13 +152,26 @@ public class KeyImpl extends KeyedElementImpl implements Key
     switch (featureID)
     {
       case GoPackage.KEY__FIELDN:
-        return fieldn != null;
-      case GoPackage.KEY__EXP:
-        return exp != null;
-      case GoPackage.KEY__LTV:
-        return ltv != null;
+        return FIELDN_EDEFAULT == null ? fieldn != null : !FIELDN_EDEFAULT.equals(fieldn);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (fieldn: ");
+    result.append(fieldn);
+    result.append(')');
+    return result.toString();
   }
 
 } //KeyImpl

@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.go.GoPackage;
-import org.xtext.example.mydsl.go.PrimaryExpr;
 import org.xtext.example.mydsl.go.UnaryExpr;
 
 /**
@@ -24,7 +23,6 @@ import org.xtext.example.mydsl.go.UnaryExpr;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.go.impl.UnaryExprImpl#getPrimary <em>Primary</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.UnaryExprImpl#getUp <em>Up</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.UnaryExprImpl#getUe <em>Ue</em>}</li>
  * </ul>
@@ -33,16 +31,6 @@ import org.xtext.example.mydsl.go.UnaryExpr;
  */
 public class UnaryExprImpl extends MinimalEObjectImpl.Container implements UnaryExpr
 {
-  /**
-   * The cached value of the '{@link #getPrimary() <em>Primary</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPrimary()
-   * @generated
-   * @ordered
-   */
-  protected PrimaryExpr primary;
-
   /**
    * The default value of the '{@link #getUp() <em>Up</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -92,54 +80,6 @@ public class UnaryExprImpl extends MinimalEObjectImpl.Container implements Unary
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.UNARY_EXPR;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public PrimaryExpr getPrimary()
-  {
-    return primary;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetPrimary(PrimaryExpr newPrimary, NotificationChain msgs)
-  {
-    PrimaryExpr oldPrimary = primary;
-    primary = newPrimary;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.UNARY_EXPR__PRIMARY, oldPrimary, newPrimary);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setPrimary(PrimaryExpr newPrimary)
-  {
-    if (newPrimary != primary)
-    {
-      NotificationChain msgs = null;
-      if (primary != null)
-        msgs = ((InternalEObject)primary).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.UNARY_EXPR__PRIMARY, null, msgs);
-      if (newPrimary != null)
-        msgs = ((InternalEObject)newPrimary).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.UNARY_EXPR__PRIMARY, null, msgs);
-      msgs = basicSetPrimary(newPrimary, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.UNARY_EXPR__PRIMARY, newPrimary, newPrimary));
   }
 
   /**
@@ -223,8 +163,6 @@ public class UnaryExprImpl extends MinimalEObjectImpl.Container implements Unary
   {
     switch (featureID)
     {
-      case GoPackage.UNARY_EXPR__PRIMARY:
-        return basicSetPrimary(null, msgs);
       case GoPackage.UNARY_EXPR__UE:
         return basicSetUe(null, msgs);
     }
@@ -241,8 +179,6 @@ public class UnaryExprImpl extends MinimalEObjectImpl.Container implements Unary
   {
     switch (featureID)
     {
-      case GoPackage.UNARY_EXPR__PRIMARY:
-        return getPrimary();
       case GoPackage.UNARY_EXPR__UP:
         return getUp();
       case GoPackage.UNARY_EXPR__UE:
@@ -261,9 +197,6 @@ public class UnaryExprImpl extends MinimalEObjectImpl.Container implements Unary
   {
     switch (featureID)
     {
-      case GoPackage.UNARY_EXPR__PRIMARY:
-        setPrimary((PrimaryExpr)newValue);
-        return;
       case GoPackage.UNARY_EXPR__UP:
         setUp((String)newValue);
         return;
@@ -284,9 +217,6 @@ public class UnaryExprImpl extends MinimalEObjectImpl.Container implements Unary
   {
     switch (featureID)
     {
-      case GoPackage.UNARY_EXPR__PRIMARY:
-        setPrimary((PrimaryExpr)null);
-        return;
       case GoPackage.UNARY_EXPR__UP:
         setUp(UP_EDEFAULT);
         return;
@@ -307,8 +237,6 @@ public class UnaryExprImpl extends MinimalEObjectImpl.Container implements Unary
   {
     switch (featureID)
     {
-      case GoPackage.UNARY_EXPR__PRIMARY:
-        return primary != null;
       case GoPackage.UNARY_EXPR__UP:
         return UP_EDEFAULT == null ? up != null : !UP_EDEFAULT.equals(up);
       case GoPackage.UNARY_EXPR__UE:

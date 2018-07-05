@@ -14,8 +14,6 @@ package org.xtext.example.mydsl.go;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.go.Key#getFieldn <em>Fieldn</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.go.Key#getExp <em>Exp</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.go.Key#getLtv <em>Ltv</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.go.GoPackage#getKey()
@@ -25,81 +23,29 @@ package org.xtext.example.mydsl.go;
 public interface Key extends KeyedElement
 {
   /**
-   * Returns the value of the '<em><b>Fieldn</b></em>' containment reference.
+   * Returns the value of the '<em><b>Fieldn</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Fieldn</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Fieldn</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Fieldn</em>' containment reference.
-   * @see #setFieldn(FieldName)
+   * @return the value of the '<em>Fieldn</em>' attribute.
+   * @see #setFieldn(String)
    * @see org.xtext.example.mydsl.go.GoPackage#getKey_Fieldn()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  FieldName getFieldn();
+  String getFieldn();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.go.Key#getFieldn <em>Fieldn</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.Key#getFieldn <em>Fieldn</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Fieldn</em>' containment reference.
+   * @param value the new value of the '<em>Fieldn</em>' attribute.
    * @see #getFieldn()
    * @generated
    */
-  void setFieldn(FieldName value);
-
-  /**
-   * Returns the value of the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Exp</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Exp</em>' containment reference.
-   * @see #setExp(Expression)
-   * @see org.xtext.example.mydsl.go.GoPackage#getKey_Exp()
-   * @model containment="true"
-   * @generated
-   */
-  Expression getExp();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.go.Key#getExp <em>Exp</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Exp</em>' containment reference.
-   * @see #getExp()
-   * @generated
-   */
-  void setExp(Expression value);
-
-  /**
-   * Returns the value of the '<em><b>Ltv</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Ltv</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Ltv</em>' containment reference.
-   * @see #setLtv(LiteralValue)
-   * @see org.xtext.example.mydsl.go.GoPackage#getKey_Ltv()
-   * @model containment="true"
-   * @generated
-   */
-  LiteralValue getLtv();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.go.Key#getLtv <em>Ltv</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Ltv</em>' containment reference.
-   * @see #getLtv()
-   * @generated
-   */
-  void setLtv(LiteralValue value);
+  void setFieldn(String value);
 
 } // Key

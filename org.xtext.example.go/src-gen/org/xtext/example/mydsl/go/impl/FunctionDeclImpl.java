@@ -14,14 +14,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.example.mydsl.go.FunctionBody;
 import org.xtext.example.mydsl.go.FunctionDecl;
-import org.xtext.example.mydsl.go.FunctionName;
 import org.xtext.example.mydsl.go.GoPackage;
 import org.xtext.example.mydsl.go.Signature;
 
@@ -40,17 +38,27 @@ import org.xtext.example.mydsl.go.Signature;
  *
  * @generated
  */
-public class FunctionDeclImpl extends MinimalEObjectImpl.Container implements FunctionDecl
+public class FunctionDeclImpl extends TopLevelDeclImpl implements FunctionDecl
 {
   /**
-   * The cached value of the '{@link #getFunctionn() <em>Functionn</em>}' containment reference.
+   * The default value of the '{@link #getFunctionn() <em>Functionn</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getFunctionn()
    * @generated
    * @ordered
    */
-  protected FunctionName functionn;
+  protected static final String FUNCTIONN_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getFunctionn() <em>Functionn</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFunctionn()
+   * @generated
+   * @ordered
+   */
+  protected String functionn = FUNCTIONN_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getSignature() <em>Signature</em>}' containment reference.
@@ -98,7 +106,7 @@ public class FunctionDeclImpl extends MinimalEObjectImpl.Container implements Fu
    * <!-- end-user-doc -->
    * @generated
    */
-  public FunctionName getFunctionn()
+  public String getFunctionn()
   {
     return functionn;
   }
@@ -108,37 +116,12 @@ public class FunctionDeclImpl extends MinimalEObjectImpl.Container implements Fu
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetFunctionn(FunctionName newFunctionn, NotificationChain msgs)
+  public void setFunctionn(String newFunctionn)
   {
-    FunctionName oldFunctionn = functionn;
+    String oldFunctionn = functionn;
     functionn = newFunctionn;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.FUNCTION_DECL__FUNCTIONN, oldFunctionn, newFunctionn);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setFunctionn(FunctionName newFunctionn)
-  {
-    if (newFunctionn != functionn)
-    {
-      NotificationChain msgs = null;
-      if (functionn != null)
-        msgs = ((InternalEObject)functionn).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.FUNCTION_DECL__FUNCTIONN, null, msgs);
-      if (newFunctionn != null)
-        msgs = ((InternalEObject)newFunctionn).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.FUNCTION_DECL__FUNCTIONN, null, msgs);
-      msgs = basicSetFunctionn(newFunctionn, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.FUNCTION_DECL__FUNCTIONN, newFunctionn, newFunctionn));
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.FUNCTION_DECL__FUNCTIONN, oldFunctionn, functionn));
   }
 
   /**
@@ -213,8 +196,6 @@ public class FunctionDeclImpl extends MinimalEObjectImpl.Container implements Fu
   {
     switch (featureID)
     {
-      case GoPackage.FUNCTION_DECL__FUNCTIONN:
-        return basicSetFunctionn(null, msgs);
       case GoPackage.FUNCTION_DECL__SIGNATURE:
         return basicSetSignature(null, msgs);
       case GoPackage.FUNCTION_DECL__BODY:
@@ -255,7 +236,7 @@ public class FunctionDeclImpl extends MinimalEObjectImpl.Container implements Fu
     switch (featureID)
     {
       case GoPackage.FUNCTION_DECL__FUNCTIONN:
-        setFunctionn((FunctionName)newValue);
+        setFunctionn((String)newValue);
         return;
       case GoPackage.FUNCTION_DECL__SIGNATURE:
         setSignature((Signature)newValue);
@@ -279,7 +260,7 @@ public class FunctionDeclImpl extends MinimalEObjectImpl.Container implements Fu
     switch (featureID)
     {
       case GoPackage.FUNCTION_DECL__FUNCTIONN:
-        setFunctionn((FunctionName)null);
+        setFunctionn(FUNCTIONN_EDEFAULT);
         return;
       case GoPackage.FUNCTION_DECL__SIGNATURE:
         setSignature((Signature)null);
@@ -302,13 +283,30 @@ public class FunctionDeclImpl extends MinimalEObjectImpl.Container implements Fu
     switch (featureID)
     {
       case GoPackage.FUNCTION_DECL__FUNCTIONN:
-        return functionn != null;
+        return FUNCTIONN_EDEFAULT == null ? functionn != null : !FUNCTIONN_EDEFAULT.equals(functionn);
       case GoPackage.FUNCTION_DECL__SIGNATURE:
         return signature != null;
       case GoPackage.FUNCTION_DECL__BODY:
         return body != null && !body.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (functionn: ");
+    result.append(functionn);
+    result.append(')');
+    return result.toString();
   }
 
 } //FunctionDeclImpl

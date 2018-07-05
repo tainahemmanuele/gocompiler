@@ -5,8 +5,6 @@ package org.xtext.example.mydsl.go;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Function Decl</b></em>'.
@@ -25,33 +23,33 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface FunctionDecl extends EObject
+public interface FunctionDecl extends TopLevelDecl
 {
   /**
-   * Returns the value of the '<em><b>Functionn</b></em>' containment reference.
+   * Returns the value of the '<em><b>Functionn</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Functionn</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Functionn</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Functionn</em>' containment reference.
-   * @see #setFunctionn(FunctionName)
+   * @return the value of the '<em>Functionn</em>' attribute.
+   * @see #setFunctionn(String)
    * @see org.xtext.example.mydsl.go.GoPackage#getFunctionDecl_Functionn()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  FunctionName getFunctionn();
+  String getFunctionn();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.go.FunctionDecl#getFunctionn <em>Functionn</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.FunctionDecl#getFunctionn <em>Functionn</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Functionn</em>' containment reference.
+   * @param value the new value of the '<em>Functionn</em>' attribute.
    * @see #getFunctionn()
    * @generated
    */
-  void setFunctionn(FunctionName value);
+  void setFunctionn(String value);
 
   /**
    * Returns the value of the '<em><b>Signature</b></em>' containment reference.
