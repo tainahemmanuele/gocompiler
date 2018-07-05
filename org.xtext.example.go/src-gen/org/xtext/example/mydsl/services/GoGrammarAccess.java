@@ -378,6 +378,69 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		//'var'
 		public Keyword getVarKeyword_24() { return cVarKeyword_24; }
 	}
+	public class ASSING_OPElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.ASSING_OP");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Keyword cPlusSignKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
+		private final Keyword cHyphenMinusKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
+		private final Keyword cVerticalLineKeyword_0_2 = (Keyword)cAlternatives_0.eContents().get(2);
+		private final Keyword cCircumflexAccentKeyword_0_3 = (Keyword)cAlternatives_0.eContents().get(3);
+		private final Keyword cAsteriskKeyword_0_4 = (Keyword)cAlternatives_0.eContents().get(4);
+		private final Keyword cSolidusKeyword_0_5 = (Keyword)cAlternatives_0.eContents().get(5);
+		private final Keyword cPercentSignKeyword_0_6 = (Keyword)cAlternatives_0.eContents().get(6);
+		private final Keyword cLessThanSignLessThanSignKeyword_0_7 = (Keyword)cAlternatives_0.eContents().get(7);
+		private final Keyword cGreaterThanSignGreaterThanSignKeyword_0_8 = (Keyword)cAlternatives_0.eContents().get(8);
+		private final Keyword cAmpersandKeyword_0_9 = (Keyword)cAlternatives_0.eContents().get(9);
+		private final Keyword cAmpersandCircumflexAccentKeyword_0_10 = (Keyword)cAlternatives_0.eContents().get(10);
+		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//ASSING_OP:
+		//	('+' | '-' | '|' | '^' | '*' | '/' | '%' | '<<' | '>>' | '&' | '&^')? '=';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//('+' | '-' | '|' | '^' | '*' | '/' | '%' | '<<' | '>>' | '&' | '&^')? '='
+		public Group getGroup() { return cGroup; }
+		
+		//('+' | '-' | '|' | '^' | '*' | '/' | '%' | '<<' | '>>' | '&' | '&^')?
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		
+		//'+'
+		public Keyword getPlusSignKeyword_0_0() { return cPlusSignKeyword_0_0; }
+		
+		//'-'
+		public Keyword getHyphenMinusKeyword_0_1() { return cHyphenMinusKeyword_0_1; }
+		
+		//'|'
+		public Keyword getVerticalLineKeyword_0_2() { return cVerticalLineKeyword_0_2; }
+		
+		//'^'
+		public Keyword getCircumflexAccentKeyword_0_3() { return cCircumflexAccentKeyword_0_3; }
+		
+		//'*'
+		public Keyword getAsteriskKeyword_0_4() { return cAsteriskKeyword_0_4; }
+		
+		//'/'
+		public Keyword getSolidusKeyword_0_5() { return cSolidusKeyword_0_5; }
+		
+		//'%'
+		public Keyword getPercentSignKeyword_0_6() { return cPercentSignKeyword_0_6; }
+		
+		//'<<'
+		public Keyword getLessThanSignLessThanSignKeyword_0_7() { return cLessThanSignLessThanSignKeyword_0_7; }
+		
+		//'>>'
+		public Keyword getGreaterThanSignGreaterThanSignKeyword_0_8() { return cGreaterThanSignGreaterThanSignKeyword_0_8; }
+		
+		//'&'
+		public Keyword getAmpersandKeyword_0_9() { return cAmpersandKeyword_0_9; }
+		
+		//'&^'
+		public Keyword getAmpersandCircumflexAccentKeyword_0_10() { return cAmpersandCircumflexAccentKeyword_0_10; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
+	}
 	public class IDENTIFIERElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.IDENTIFIER");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -2412,7 +2475,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExpressionlistAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cExpressionlistExpressionListParserRuleCall_1_0 = (RuleCall)cExpressionlistAssignment_1.eContents().get(0);
 		private final Assignment cAsopAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cAsopASSING_OPTerminalRuleCall_2_0 = (RuleCall)cAsopAssignment_2.eContents().get(0);
+		private final RuleCall cAsopASSING_OPParserRuleCall_2_0 = (RuleCall)cAsopAssignment_2.eContents().get(0);
 		private final Assignment cExpressionlist2Assignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cExpressionlist2ExpressionListParserRuleCall_3_0 = (RuleCall)cExpressionlist2Assignment_3.eContents().get(0);
 		
@@ -2436,7 +2499,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getAsopAssignment_2() { return cAsopAssignment_2; }
 		
 		//ASSING_OP
-		public RuleCall getAsopASSING_OPTerminalRuleCall_2_0() { return cAsopASSING_OPTerminalRuleCall_2_0; }
+		public RuleCall getAsopASSING_OPParserRuleCall_2_0() { return cAsopASSING_OPParserRuleCall_2_0; }
 		
 		//expressionlist2=ExpressionList
 		public Assignment getExpressionlist2Assignment_3() { return cExpressionlist2Assignment_3; }
@@ -4427,7 +4490,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tADD_OP;
 	private final TerminalRule tMUL_OP;
 	private final TerminalRule tUNARY_OP;
-	private final TerminalRule tASSING_OP;
+	private final ASSING_OPElements pASSING_OP;
 	private final TerminalRule tLETTER;
 	private final TerminalRule tDECIMAL_DIGIT;
 	private final TerminalRule tOCTAL_DIGIT;
@@ -4590,7 +4653,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		this.tADD_OP = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.ADD_OP");
 		this.tMUL_OP = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.MUL_OP");
 		this.tUNARY_OP = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.UNARY_OP");
-		this.tASSING_OP = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.ASSING_OP");
+		this.pASSING_OP = new ASSING_OPElements();
 		this.tLETTER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.LETTER");
 		this.tDECIMAL_DIGIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.DECIMAL_DIGIT");
 		this.tOCTAL_DIGIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.OCTAL_DIGIT");
@@ -4962,10 +5025,14 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		return tUNARY_OP;
 	}
 	
-	//terminal ASSING_OP:
-	//	'=' | '+=' | '-=' | '*=' | '^=';
-	public TerminalRule getASSING_OPRule() {
-		return tASSING_OP;
+	//ASSING_OP:
+	//	('+' | '-' | '|' | '^' | '*' | '/' | '%' | '<<' | '>>' | '&' | '&^')? '=';
+	public ASSING_OPElements getASSING_OPAccess() {
+		return pASSING_OP;
+	}
+	
+	public ParserRule getASSING_OPRule() {
+		return getASSING_OPAccess().getRule();
 	}
 	
 	//terminal LETTER:

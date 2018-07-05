@@ -33,6 +33,7 @@ public class GoParser extends AbstractContentAssistParser {
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, GoGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getTopLevelDeclAccess().getAlternatives(), "rule__TopLevelDecl__Alternatives");
 			builder.put(grammarAccess.getKEYWORDSAccess().getAlternatives(), "rule__KEYWORDS__Alternatives");
+			builder.put(grammarAccess.getASSING_OPAccess().getAlternatives_0(), "rule__ASSING_OP__Alternatives_0");
 			builder.put(grammarAccess.getIDENTIFIERAccess().getAlternatives_1(), "rule__IDENTIFIER__Alternatives_1");
 			builder.put(grammarAccess.getIMAGINARY_LITAccess().getAlternatives_0(), "rule__IMAGINARY_LIT__Alternatives_0");
 			builder.put(grammarAccess.getRUNE_LITAccess().getAlternatives_1(), "rule__RUNE_LIT__Alternatives_1");
@@ -80,6 +81,7 @@ public class GoParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMethodDeclAccess().getGroup(), "rule__MethodDecl__Group__0");
 			builder.put(grammarAccess.getFunctionDeclAccess().getGroup(), "rule__FunctionDecl__Group__0");
 			builder.put(grammarAccess.getPackageClauseAccess().getGroup(), "rule__PackageClause__Group__0");
+			builder.put(grammarAccess.getASSING_OPAccess().getGroup(), "rule__ASSING_OP__Group__0");
 			builder.put(grammarAccess.getIDENTIFIERAccess().getGroup(), "rule__IDENTIFIER__Group__0");
 			builder.put(grammarAccess.getIMAGINARY_LITAccess().getGroup(), "rule__IMAGINARY_LIT__Group__0");
 			builder.put(grammarAccess.getRUNE_LITAccess().getGroup(), "rule__RUNE_LIT__Group__0");

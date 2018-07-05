@@ -499,7 +499,7 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getAssignmentAccess().getExpressionlistExpressionListParserRuleCall_1_0(), semanticObject.getExpressionlist());
-		feeder.accept(grammarAccess.getAssignmentAccess().getAsopASSING_OPTerminalRuleCall_2_0(), semanticObject.getAsop());
+		feeder.accept(grammarAccess.getAssignmentAccess().getAsopASSING_OPParserRuleCall_2_0(), semanticObject.getAsop());
 		feeder.accept(grammarAccess.getAssignmentAccess().getExpressionlist2ExpressionListParserRuleCall_3_0(), semanticObject.getExpressionlist2());
 		feeder.finish();
 	}

@@ -532,6 +532,97 @@ rulePackageClause returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleT
 	)
 ;
 
+// Entry rule entryRuleASSING_OP
+entryRuleASSING_OP returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getASSING_OPRule()); }
+	iv_ruleASSING_OP=ruleASSING_OP
+	{ $current=$iv_ruleASSING_OP.current.getText(); }
+	EOF;
+
+// Rule ASSING_OP
+ruleASSING_OP returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			kw='+'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getASSING_OPAccess().getPlusSignKeyword_0_0());
+			}
+			    |
+			kw='-'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getASSING_OPAccess().getHyphenMinusKeyword_0_1());
+			}
+			    |
+			kw='|'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getASSING_OPAccess().getVerticalLineKeyword_0_2());
+			}
+			    |
+			kw='^'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getASSING_OPAccess().getCircumflexAccentKeyword_0_3());
+			}
+			    |
+			kw='*'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getASSING_OPAccess().getAsteriskKeyword_0_4());
+			}
+			    |
+			kw='/'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getASSING_OPAccess().getSolidusKeyword_0_5());
+			}
+			    |
+			kw='%'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getASSING_OPAccess().getPercentSignKeyword_0_6());
+			}
+			    |
+			kw='<<'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getASSING_OPAccess().getLessThanSignLessThanSignKeyword_0_7());
+			}
+			    |
+			kw='>>'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getASSING_OPAccess().getGreaterThanSignGreaterThanSignKeyword_0_8());
+			}
+			    |
+			kw='&'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getASSING_OPAccess().getAmpersandKeyword_0_9());
+			}
+			    |
+			kw='&^'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getASSING_OPAccess().getAmpersandCircumflexAccentKeyword_0_10());
+			}
+		)?
+		kw='='
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getASSING_OPAccess().getEqualsSignKeyword_1());
+		}
+	)
+;
+
 // Entry rule entryRuleIDENTIFIER
 entryRuleIDENTIFIER returns [String current=null]:
 	{ newCompositeNode(grammarAccess.getIDENTIFIERRule()); }
@@ -4459,19 +4550,20 @@ ruleAssignment returns [EObject current=null]
 		)
 		(
 			(
-				lv_asop_2_0=RULE_ASSING_OP
 				{
-					newLeafNode(lv_asop_2_0, grammarAccess.getAssignmentAccess().getAsopASSING_OPTerminalRuleCall_2_0());
+					newCompositeNode(grammarAccess.getAssignmentAccess().getAsopASSING_OPParserRuleCall_2_0());
 				}
+				lv_asop_2_0=ruleASSING_OP
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getAssignmentRule());
+						$current = createModelElementForParent(grammarAccess.getAssignmentRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
 						"asop",
 						lv_asop_2_0,
 						"org.xtext.example.mydsl.Go.ASSING_OP");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -8167,8 +8259,6 @@ fragment RULE_ADD_OP : ('+'|'-'|'|'|'^'|'++'|'--');
 fragment RULE_MUL_OP : ('*'|'/'|'%'|'<<'|'>>'|'&'|'&^');
 
 RULE_UNARY_OP : ('+'|'-'|'!'|'^'|'*'|'&'|'<-');
-
-RULE_ASSING_OP : ('='|'+='|'-='|'*='|'^=');
 
 RULE_LETTER : (RULE_UNICODE_LETTER|RULE_ID);
 

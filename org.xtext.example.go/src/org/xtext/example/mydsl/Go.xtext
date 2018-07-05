@@ -348,8 +348,8 @@ terminal MUL_OP:
 terminal UNARY_OP:
 	"+" | "-" | "!" | "^" | "*" | "&" | "<-";
 
-terminal ASSING_OP:
-	 '=' |'+=' | '-=' | '*='| '^=';
+ASSING_OP:
+	 ('+' | '-' | '|' | '^' | '*' | '/' | '%' | '<<' | '>>' | '&' | '&^')? '=';
 
 terminal LETTER:
 	UNICODE_LETTER
