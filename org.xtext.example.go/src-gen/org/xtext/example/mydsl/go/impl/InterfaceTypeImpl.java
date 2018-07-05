@@ -12,6 +12,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -32,7 +34,7 @@ import org.xtext.example.mydsl.go.MethodSpec;
  *
  * @generated
  */
-public class InterfaceTypeImpl extends TypeLitImpl implements InterfaceType
+public class InterfaceTypeImpl extends MinimalEObjectImpl.Container implements InterfaceType
 {
   /**
    * The cached value of the '{@link #getMethodspec() <em>Methodspec</em>}' containment reference list.

@@ -10,6 +10,13 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Element</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.mydsl.go.Element#getExp <em>Exp</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.Element#getLtv <em>Ltv</em>}</li>
+ * </ul>
  *
  * @see org.xtext.example.mydsl.go.GoPackage#getElement()
  * @model
@@ -17,4 +24,56 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Element extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Exp</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Exp</em>' containment reference.
+   * @see #setExp(Expression)
+   * @see org.xtext.example.mydsl.go.GoPackage#getElement_Exp()
+   * @model containment="true"
+   * @generated
+   */
+  Expression getExp();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.Element#getExp <em>Exp</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Exp</em>' containment reference.
+   * @see #getExp()
+   * @generated
+   */
+  void setExp(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Ltv</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Ltv</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Ltv</em>' containment reference.
+   * @see #setLtv(LiteralValue)
+   * @see org.xtext.example.mydsl.go.GoPackage#getElement_Ltv()
+   * @model containment="true"
+   * @generated
+   */
+  LiteralValue getLtv();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.Element#getLtv <em>Ltv</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Ltv</em>' containment reference.
+   * @see #getLtv()
+   * @generated
+   */
+  void setLtv(LiteralValue value);
+
 } // Element

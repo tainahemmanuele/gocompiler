@@ -3,6 +3,7 @@
  */
 package org.xtext.example.mydsl.go;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +22,7 @@ package org.xtext.example.mydsl.go;
  * @model
  * @generated
  */
-public interface Expression extends ArrayLength, DeferStmt, Key, Element
+public interface Expression extends EObject
 {
   /**
    * Returns the value of the '<em><b>Up</b></em>' containment reference.

@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.go.Conversion;
 import org.xtext.example.mydsl.go.GoPackage;
@@ -34,7 +35,7 @@ import org.xtext.example.mydsl.go.PrimaryExpr2;
  *
  * @generated
  */
-public class PrimaryExprImpl extends UnaryExprImpl implements PrimaryExpr
+public class PrimaryExprImpl extends MinimalEObjectImpl.Container implements PrimaryExpr
 {
   /**
    * The cached value of the '{@link #getOp() <em>Op</em>}' containment reference.

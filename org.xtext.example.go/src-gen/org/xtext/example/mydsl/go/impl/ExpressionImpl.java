@@ -3,29 +3,18 @@
  */
 package org.xtext.example.mydsl.go.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.xtext.example.mydsl.go.DeferStmt;
-import org.xtext.example.mydsl.go.Element;
-import org.xtext.example.mydsl.go.ElementList;
 import org.xtext.example.mydsl.go.Expression;
 import org.xtext.example.mydsl.go.Expression2;
 import org.xtext.example.mydsl.go.GoPackage;
-import org.xtext.example.mydsl.go.Key;
-import org.xtext.example.mydsl.go.KeyedElement;
 import org.xtext.example.mydsl.go.UnaryExpr;
 
 /**
@@ -36,57 +25,14 @@ import org.xtext.example.mydsl.go.UnaryExpr;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.go.impl.ExpressionImpl#getKeyedelement <em>Keyedelement</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.go.impl.ExpressionImpl#getElement <em>Element</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.go.impl.ExpressionImpl#getFieldn <em>Fieldn</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.ExpressionImpl#getUp <em>Up</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.ExpressionImpl#getExp <em>Exp</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ExpressionImpl extends ArrayLengthImpl implements Expression
+public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expression
 {
-  /**
-   * The cached value of the '{@link #getKeyedelement() <em>Keyedelement</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getKeyedelement()
-   * @generated
-   * @ordered
-   */
-  protected EList<KeyedElement> keyedelement;
-
-  /**
-   * The cached value of the '{@link #getElement() <em>Element</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getElement()
-   * @generated
-   * @ordered
-   */
-  protected Element element;
-
-  /**
-   * The default value of the '{@link #getFieldn() <em>Fieldn</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFieldn()
-   * @generated
-   * @ordered
-   */
-  protected static final String FIELDN_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getFieldn() <em>Fieldn</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFieldn()
-   * @generated
-   * @ordered
-   */
-  protected String fieldn = FIELDN_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getUp() <em>Up</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -126,91 +72,6 @@ public class ExpressionImpl extends ArrayLengthImpl implements Expression
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.EXPRESSION;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<KeyedElement> getKeyedelement()
-  {
-    if (keyedelement == null)
-    {
-      keyedelement = new EObjectContainmentEList<KeyedElement>(KeyedElement.class, this, GoPackage.EXPRESSION__KEYEDELEMENT);
-    }
-    return keyedelement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Element getElement()
-  {
-    return element;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetElement(Element newElement, NotificationChain msgs)
-  {
-    Element oldElement = element;
-    element = newElement;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.EXPRESSION__ELEMENT, oldElement, newElement);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setElement(Element newElement)
-  {
-    if (newElement != element)
-    {
-      NotificationChain msgs = null;
-      if (element != null)
-        msgs = ((InternalEObject)element).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.EXPRESSION__ELEMENT, null, msgs);
-      if (newElement != null)
-        msgs = ((InternalEObject)newElement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.EXPRESSION__ELEMENT, null, msgs);
-      msgs = basicSetElement(newElement, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.EXPRESSION__ELEMENT, newElement, newElement));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getFieldn()
-  {
-    return fieldn;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setFieldn(String newFieldn)
-  {
-    String oldFieldn = fieldn;
-    fieldn = newFieldn;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.EXPRESSION__FIELDN, oldFieldn, fieldn));
   }
 
   /**
@@ -319,10 +180,6 @@ public class ExpressionImpl extends ArrayLengthImpl implements Expression
   {
     switch (featureID)
     {
-      case GoPackage.EXPRESSION__KEYEDELEMENT:
-        return ((InternalEList<?>)getKeyedelement()).basicRemove(otherEnd, msgs);
-      case GoPackage.EXPRESSION__ELEMENT:
-        return basicSetElement(null, msgs);
       case GoPackage.EXPRESSION__UP:
         return basicSetUp(null, msgs);
       case GoPackage.EXPRESSION__EXP:
@@ -341,12 +198,6 @@ public class ExpressionImpl extends ArrayLengthImpl implements Expression
   {
     switch (featureID)
     {
-      case GoPackage.EXPRESSION__KEYEDELEMENT:
-        return getKeyedelement();
-      case GoPackage.EXPRESSION__ELEMENT:
-        return getElement();
-      case GoPackage.EXPRESSION__FIELDN:
-        return getFieldn();
       case GoPackage.EXPRESSION__UP:
         return getUp();
       case GoPackage.EXPRESSION__EXP:
@@ -360,22 +211,11 @@ public class ExpressionImpl extends ArrayLengthImpl implements Expression
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case GoPackage.EXPRESSION__KEYEDELEMENT:
-        getKeyedelement().clear();
-        getKeyedelement().addAll((Collection<? extends KeyedElement>)newValue);
-        return;
-      case GoPackage.EXPRESSION__ELEMENT:
-        setElement((Element)newValue);
-        return;
-      case GoPackage.EXPRESSION__FIELDN:
-        setFieldn((String)newValue);
-        return;
       case GoPackage.EXPRESSION__UP:
         setUp((UnaryExpr)newValue);
         return;
@@ -396,15 +236,6 @@ public class ExpressionImpl extends ArrayLengthImpl implements Expression
   {
     switch (featureID)
     {
-      case GoPackage.EXPRESSION__KEYEDELEMENT:
-        getKeyedelement().clear();
-        return;
-      case GoPackage.EXPRESSION__ELEMENT:
-        setElement((Element)null);
-        return;
-      case GoPackage.EXPRESSION__FIELDN:
-        setFieldn(FIELDN_EDEFAULT);
-        return;
       case GoPackage.EXPRESSION__UP:
         setUp((UnaryExpr)null);
         return;
@@ -425,133 +256,12 @@ public class ExpressionImpl extends ArrayLengthImpl implements Expression
   {
     switch (featureID)
     {
-      case GoPackage.EXPRESSION__KEYEDELEMENT:
-        return keyedelement != null && !keyedelement.isEmpty();
-      case GoPackage.EXPRESSION__ELEMENT:
-        return element != null;
-      case GoPackage.EXPRESSION__FIELDN:
-        return FIELDN_EDEFAULT == null ? fieldn != null : !FIELDN_EDEFAULT.equals(fieldn);
       case GoPackage.EXPRESSION__UP:
         return up != null;
       case GoPackage.EXPRESSION__EXP:
         return exp != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == DeferStmt.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == ElementList.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == KeyedElement.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case GoPackage.EXPRESSION__KEYEDELEMENT: return GoPackage.KEYED_ELEMENT__KEYEDELEMENT;
-        case GoPackage.EXPRESSION__ELEMENT: return GoPackage.KEYED_ELEMENT__ELEMENT;
-        default: return -1;
-      }
-    }
-    if (baseClass == Key.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case GoPackage.EXPRESSION__FIELDN: return GoPackage.KEY__FIELDN;
-        default: return -1;
-      }
-    }
-    if (baseClass == Element.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == DeferStmt.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == ElementList.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == KeyedElement.class)
-    {
-      switch (baseFeatureID)
-      {
-        case GoPackage.KEYED_ELEMENT__KEYEDELEMENT: return GoPackage.EXPRESSION__KEYEDELEMENT;
-        case GoPackage.KEYED_ELEMENT__ELEMENT: return GoPackage.EXPRESSION__ELEMENT;
-        default: return -1;
-      }
-    }
-    if (baseClass == Key.class)
-    {
-      switch (baseFeatureID)
-      {
-        case GoPackage.KEY__FIELDN: return GoPackage.EXPRESSION__FIELDN;
-        default: return -1;
-      }
-    }
-    if (baseClass == Element.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (fieldn: ");
-    result.append(fieldn);
-    result.append(')');
-    return result.toString();
   }
 
 } //ExpressionImpl

@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.go.ChannelType;
 import org.xtext.example.mydsl.go.ElementType;
@@ -28,7 +29,7 @@ import org.xtext.example.mydsl.go.GoPackage;
  *
  * @generated
  */
-public class ChannelTypeImpl extends TypeLitImpl implements ChannelType
+public class ChannelTypeImpl extends MinimalEObjectImpl.Container implements ChannelType
 {
   /**
    * The cached value of the '{@link #getElemtype() <em>Elemtype</em>}' containment reference.

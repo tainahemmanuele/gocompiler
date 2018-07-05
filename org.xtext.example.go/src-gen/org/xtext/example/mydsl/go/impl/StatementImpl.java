@@ -13,10 +13,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.go.Block;
+import org.xtext.example.mydsl.go.BreakStmt;
+import org.xtext.example.mydsl.go.ContinueStmt;
 import org.xtext.example.mydsl.go.Declaration;
 import org.xtext.example.mydsl.go.DeferStmt;
 import org.xtext.example.mydsl.go.ForStmt;
 import org.xtext.example.mydsl.go.GoPackage;
+import org.xtext.example.mydsl.go.GoStmt;
+import org.xtext.example.mydsl.go.GotoStmt;
 import org.xtext.example.mydsl.go.IfStmt;
 import org.xtext.example.mydsl.go.LabeledStmt;
 import org.xtext.example.mydsl.go.SelectStmt;
@@ -83,84 +87,44 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
   protected SimpleStmt simplest;
 
   /**
-   * The default value of the '{@link #getGotst() <em>Gotst</em>}' attribute.
+   * The cached value of the '{@link #getGotst() <em>Gotst</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getGotst()
    * @generated
    * @ordered
    */
-  protected static final String GOTST_EDEFAULT = null;
+  protected GoStmt gotst;
 
   /**
-   * The cached value of the '{@link #getGotst() <em>Gotst</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getGotst()
-   * @generated
-   * @ordered
-   */
-  protected String gotst = GOTST_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getBreakst() <em>Breakst</em>}' attribute.
+   * The cached value of the '{@link #getBreakst() <em>Breakst</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getBreakst()
    * @generated
    * @ordered
    */
-  protected static final String BREAKST_EDEFAULT = null;
+  protected BreakStmt breakst;
 
   /**
-   * The cached value of the '{@link #getBreakst() <em>Breakst</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getBreakst()
-   * @generated
-   * @ordered
-   */
-  protected String breakst = BREAKST_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getContinuest() <em>Continuest</em>}' attribute.
+   * The cached value of the '{@link #getContinuest() <em>Continuest</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getContinuest()
    * @generated
    * @ordered
    */
-  protected static final String CONTINUEST_EDEFAULT = null;
+  protected ContinueStmt continuest;
 
   /**
-   * The cached value of the '{@link #getContinuest() <em>Continuest</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getContinuest()
-   * @generated
-   * @ordered
-   */
-  protected String continuest = CONTINUEST_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getGotost() <em>Gotost</em>}' attribute.
+   * The cached value of the '{@link #getGotost() <em>Gotost</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getGotost()
    * @generated
    * @ordered
    */
-  protected static final String GOTOST_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getGotost() <em>Gotost</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getGotost()
-   * @generated
-   * @ordered
-   */
-  protected String gotost = GOTOST_EDEFAULT;
+  protected GotoStmt gotost;
 
   /**
    * The default value of the '{@link #getFalltst() <em>Falltst</em>}' attribute.
@@ -412,7 +376,7 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getGotst()
+  public GoStmt getGotst()
   {
     return gotst;
   }
@@ -422,12 +386,16 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setGotst(String newGotst)
+  public NotificationChain basicSetGotst(GoStmt newGotst, NotificationChain msgs)
   {
-    String oldGotst = gotst;
+    GoStmt oldGotst = gotst;
     gotst = newGotst;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__GOTST, oldGotst, gotst));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__GOTST, oldGotst, newGotst);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -435,7 +403,28 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getBreakst()
+  public void setGotst(GoStmt newGotst)
+  {
+    if (newGotst != gotst)
+    {
+      NotificationChain msgs = null;
+      if (gotst != null)
+        msgs = ((InternalEObject)gotst).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__GOTST, null, msgs);
+      if (newGotst != null)
+        msgs = ((InternalEObject)newGotst).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__GOTST, null, msgs);
+      msgs = basicSetGotst(newGotst, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__GOTST, newGotst, newGotst));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BreakStmt getBreakst()
   {
     return breakst;
   }
@@ -445,12 +434,16 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setBreakst(String newBreakst)
+  public NotificationChain basicSetBreakst(BreakStmt newBreakst, NotificationChain msgs)
   {
-    String oldBreakst = breakst;
+    BreakStmt oldBreakst = breakst;
     breakst = newBreakst;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__BREAKST, oldBreakst, breakst));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__BREAKST, oldBreakst, newBreakst);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -458,7 +451,28 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getContinuest()
+  public void setBreakst(BreakStmt newBreakst)
+  {
+    if (newBreakst != breakst)
+    {
+      NotificationChain msgs = null;
+      if (breakst != null)
+        msgs = ((InternalEObject)breakst).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__BREAKST, null, msgs);
+      if (newBreakst != null)
+        msgs = ((InternalEObject)newBreakst).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__BREAKST, null, msgs);
+      msgs = basicSetBreakst(newBreakst, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__BREAKST, newBreakst, newBreakst));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ContinueStmt getContinuest()
   {
     return continuest;
   }
@@ -468,12 +482,16 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setContinuest(String newContinuest)
+  public NotificationChain basicSetContinuest(ContinueStmt newContinuest, NotificationChain msgs)
   {
-    String oldContinuest = continuest;
+    ContinueStmt oldContinuest = continuest;
     continuest = newContinuest;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__CONTINUEST, oldContinuest, continuest));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__CONTINUEST, oldContinuest, newContinuest);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -481,7 +499,28 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getGotost()
+  public void setContinuest(ContinueStmt newContinuest)
+  {
+    if (newContinuest != continuest)
+    {
+      NotificationChain msgs = null;
+      if (continuest != null)
+        msgs = ((InternalEObject)continuest).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__CONTINUEST, null, msgs);
+      if (newContinuest != null)
+        msgs = ((InternalEObject)newContinuest).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__CONTINUEST, null, msgs);
+      msgs = basicSetContinuest(newContinuest, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__CONTINUEST, newContinuest, newContinuest));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public GotoStmt getGotost()
   {
     return gotost;
   }
@@ -491,12 +530,37 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setGotost(String newGotost)
+  public NotificationChain basicSetGotost(GotoStmt newGotost, NotificationChain msgs)
   {
-    String oldGotost = gotost;
+    GotoStmt oldGotost = gotost;
     gotost = newGotost;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__GOTOST, oldGotost, gotost));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__GOTOST, oldGotost, newGotost);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setGotost(GotoStmt newGotost)
+  {
+    if (newGotost != gotost)
+    {
+      NotificationChain msgs = null;
+      if (gotost != null)
+        msgs = ((InternalEObject)gotost).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__GOTOST, null, msgs);
+      if (newGotost != null)
+        msgs = ((InternalEObject)newGotost).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__GOTOST, null, msgs);
+      msgs = basicSetGotost(newGotost, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__GOTOST, newGotost, newGotost));
   }
 
   /**
@@ -826,6 +890,14 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
         return basicSetLabest(null, msgs);
       case GoPackage.STATEMENT__SIMPLEST:
         return basicSetSimplest(null, msgs);
+      case GoPackage.STATEMENT__GOTST:
+        return basicSetGotst(null, msgs);
+      case GoPackage.STATEMENT__BREAKST:
+        return basicSetBreakst(null, msgs);
+      case GoPackage.STATEMENT__CONTINUEST:
+        return basicSetContinuest(null, msgs);
+      case GoPackage.STATEMENT__GOTOST:
+        return basicSetGotost(null, msgs);
       case GoPackage.STATEMENT__BLOCK1:
         return basicSetBlock1(null, msgs);
       case GoPackage.STATEMENT__IF:
@@ -904,16 +976,16 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
         setSimplest((SimpleStmt)newValue);
         return;
       case GoPackage.STATEMENT__GOTST:
-        setGotst((String)newValue);
+        setGotst((GoStmt)newValue);
         return;
       case GoPackage.STATEMENT__BREAKST:
-        setBreakst((String)newValue);
+        setBreakst((BreakStmt)newValue);
         return;
       case GoPackage.STATEMENT__CONTINUEST:
-        setContinuest((String)newValue);
+        setContinuest((ContinueStmt)newValue);
         return;
       case GoPackage.STATEMENT__GOTOST:
-        setGotost((String)newValue);
+        setGotost((GotoStmt)newValue);
         return;
       case GoPackage.STATEMENT__FALLTST:
         setFalltst((String)newValue);
@@ -960,16 +1032,16 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
         setSimplest((SimpleStmt)null);
         return;
       case GoPackage.STATEMENT__GOTST:
-        setGotst(GOTST_EDEFAULT);
+        setGotst((GoStmt)null);
         return;
       case GoPackage.STATEMENT__BREAKST:
-        setBreakst(BREAKST_EDEFAULT);
+        setBreakst((BreakStmt)null);
         return;
       case GoPackage.STATEMENT__CONTINUEST:
-        setContinuest(CONTINUEST_EDEFAULT);
+        setContinuest((ContinueStmt)null);
         return;
       case GoPackage.STATEMENT__GOTOST:
-        setGotost(GOTOST_EDEFAULT);
+        setGotost((GotoStmt)null);
         return;
       case GoPackage.STATEMENT__FALLTST:
         setFalltst(FALLTST_EDEFAULT);
@@ -1013,13 +1085,13 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
       case GoPackage.STATEMENT__SIMPLEST:
         return simplest != null;
       case GoPackage.STATEMENT__GOTST:
-        return GOTST_EDEFAULT == null ? gotst != null : !GOTST_EDEFAULT.equals(gotst);
+        return gotst != null;
       case GoPackage.STATEMENT__BREAKST:
-        return BREAKST_EDEFAULT == null ? breakst != null : !BREAKST_EDEFAULT.equals(breakst);
+        return breakst != null;
       case GoPackage.STATEMENT__CONTINUEST:
-        return CONTINUEST_EDEFAULT == null ? continuest != null : !CONTINUEST_EDEFAULT.equals(continuest);
+        return continuest != null;
       case GoPackage.STATEMENT__GOTOST:
-        return GOTOST_EDEFAULT == null ? gotost != null : !GOTOST_EDEFAULT.equals(gotost);
+        return gotost != null;
       case GoPackage.STATEMENT__FALLTST:
         return FALLTST_EDEFAULT == null ? falltst != null : !FALLTST_EDEFAULT.equals(falltst);
       case GoPackage.STATEMENT__BLOCK1:
@@ -1049,15 +1121,7 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (gotst: ");
-    result.append(gotst);
-    result.append(", breakst: ");
-    result.append(breakst);
-    result.append(", continuest: ");
-    result.append(continuest);
-    result.append(", gotost: ");
-    result.append(gotost);
-    result.append(", falltst: ");
+    result.append(" (falltst: ");
     result.append(falltst);
     result.append(')');
     return result.toString();

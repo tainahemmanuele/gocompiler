@@ -28,30 +28,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface Compilation_initial extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Initial</b></em>' attribute.
+   * Returns the value of the '<em><b>Initial</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Initial</em>' attribute isn't clear,
+   * If the meaning of the '<em>Initial</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Initial</em>' attribute.
-   * @see #setInitial(String)
+   * @return the value of the '<em>Initial</em>' containment reference.
+   * @see #setInitial(PackageClause)
    * @see org.xtext.example.mydsl.go.GoPackage#getCompilation_initial_Initial()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getInitial();
+  PackageClause getInitial();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.go.Compilation_initial#getInitial <em>Initial</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.Compilation_initial#getInitial <em>Initial</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Initial</em>' attribute.
+   * @param value the new value of the '<em>Initial</em>' containment reference.
    * @see #getInitial()
    * @generated
    */
-  void setInitial(String value);
+  void setInitial(PackageClause value);
 
   /**
    * Returns the value of the '<em><b>Importdecl</b></em>' containment reference list.

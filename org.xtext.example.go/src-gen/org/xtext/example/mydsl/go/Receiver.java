@@ -10,6 +10,12 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Receiver</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.mydsl.go.Receiver#getParameters <em>Parameters</em>}</li>
+ * </ul>
  *
  * @see org.xtext.example.mydsl.go.GoPackage#getReceiver()
  * @model
@@ -17,4 +23,30 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Receiver extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Parameters</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Parameters</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Parameters</em>' containment reference.
+   * @see #setParameters(Parameters)
+   * @see org.xtext.example.mydsl.go.GoPackage#getReceiver_Parameters()
+   * @model containment="true"
+   * @generated
+   */
+  Parameters getParameters();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.Receiver#getParameters <em>Parameters</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Parameters</em>' containment reference.
+   * @see #getParameters()
+   * @generated
+   */
+  void setParameters(Parameters value);
+
 } // Receiver

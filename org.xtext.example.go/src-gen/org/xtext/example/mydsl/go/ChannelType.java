@@ -3,6 +3,7 @@
  */
 package org.xtext.example.mydsl.go;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +21,7 @@ package org.xtext.example.mydsl.go;
  * @model
  * @generated
  */
-public interface ChannelType extends TypeLit
+public interface ChannelType extends EObject
 {
   /**
    * Returns the value of the '<em><b>Elemtype</b></em>' containment reference.

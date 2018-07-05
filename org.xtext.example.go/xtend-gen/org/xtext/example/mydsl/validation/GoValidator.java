@@ -12,4 +12,5 @@ import org.xtext.example.mydsl.validation.AbstractGoValidator;
  */
 @SuppressWarnings("all")
 public class GoValidator extends AbstractGoValidator {
+  public final static String INVALID_NAME = "invalidName";
 }

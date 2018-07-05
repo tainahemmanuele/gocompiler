@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.go.GoPackage;
+import org.xtext.example.mydsl.go.InterfaceTypeName;
 import org.xtext.example.mydsl.go.MethodSpec;
 import org.xtext.example.mydsl.go.Signature;
 
@@ -64,24 +65,14 @@ public class MethodSpecImpl extends MinimalEObjectImpl.Container implements Meth
   protected Signature signature;
 
   /**
-   * The default value of the '{@link #getItn() <em>Itn</em>}' attribute.
+   * The cached value of the '{@link #getItn() <em>Itn</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getItn()
    * @generated
    * @ordered
    */
-  protected static final String ITN_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getItn() <em>Itn</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getItn()
-   * @generated
-   * @ordered
-   */
-  protected String itn = ITN_EDEFAULT;
+  protected InterfaceTypeName itn;
 
   /**
    * <!-- begin-user-doc -->
@@ -180,7 +171,7 @@ public class MethodSpecImpl extends MinimalEObjectImpl.Container implements Meth
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getItn()
+  public InterfaceTypeName getItn()
   {
     return itn;
   }
@@ -190,12 +181,37 @@ public class MethodSpecImpl extends MinimalEObjectImpl.Container implements Meth
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setItn(String newItn)
+  public NotificationChain basicSetItn(InterfaceTypeName newItn, NotificationChain msgs)
   {
-    String oldItn = itn;
+    InterfaceTypeName oldItn = itn;
     itn = newItn;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.METHOD_SPEC__ITN, oldItn, itn));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.METHOD_SPEC__ITN, oldItn, newItn);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setItn(InterfaceTypeName newItn)
+  {
+    if (newItn != itn)
+    {
+      NotificationChain msgs = null;
+      if (itn != null)
+        msgs = ((InternalEObject)itn).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.METHOD_SPEC__ITN, null, msgs);
+      if (newItn != null)
+        msgs = ((InternalEObject)newItn).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.METHOD_SPEC__ITN, null, msgs);
+      msgs = basicSetItn(newItn, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.METHOD_SPEC__ITN, newItn, newItn));
   }
 
   /**
@@ -210,6 +226,8 @@ public class MethodSpecImpl extends MinimalEObjectImpl.Container implements Meth
     {
       case GoPackage.METHOD_SPEC__SIGNATURE:
         return basicSetSignature(null, msgs);
+      case GoPackage.METHOD_SPEC__ITN:
+        return basicSetItn(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -251,7 +269,7 @@ public class MethodSpecImpl extends MinimalEObjectImpl.Container implements Meth
         setSignature((Signature)newValue);
         return;
       case GoPackage.METHOD_SPEC__ITN:
-        setItn((String)newValue);
+        setItn((InterfaceTypeName)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -274,7 +292,7 @@ public class MethodSpecImpl extends MinimalEObjectImpl.Container implements Meth
         setSignature((Signature)null);
         return;
       case GoPackage.METHOD_SPEC__ITN:
-        setItn(ITN_EDEFAULT);
+        setItn((InterfaceTypeName)null);
         return;
     }
     super.eUnset(featureID);
@@ -295,7 +313,7 @@ public class MethodSpecImpl extends MinimalEObjectImpl.Container implements Meth
       case GoPackage.METHOD_SPEC__SIGNATURE:
         return signature != null;
       case GoPackage.METHOD_SPEC__ITN:
-        return ITN_EDEFAULT == null ? itn != null : !ITN_EDEFAULT.equals(itn);
+        return itn != null;
     }
     return super.eIsSet(featureID);
   }
@@ -313,8 +331,6 @@ public class MethodSpecImpl extends MinimalEObjectImpl.Container implements Meth
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (mn: ");
     result.append(mn);
-    result.append(", itn: ");
-    result.append(itn);
     result.append(')');
     return result.toString();
   }

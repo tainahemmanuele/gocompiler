@@ -3,20 +3,44 @@
  */
 package org.xtext.example.mydsl.go.impl;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.go.Block;
 import org.xtext.example.mydsl.go.GoPackage;
+import org.xtext.example.mydsl.go.StatementList;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Block</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.BlockImpl#getStatlist <em>Statlist</em>}</li>
+ * </ul>
  *
  * @generated
  */
-public class BlockImpl extends FunctionBodyImpl implements Block
+public class BlockImpl extends MinimalEObjectImpl.Container implements Block
 {
+  /**
+   * The cached value of the '{@link #getStatlist() <em>Statlist</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getStatlist()
+   * @generated
+   * @ordered
+   */
+  protected StatementList statlist;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +60,136 @@ public class BlockImpl extends FunctionBodyImpl implements Block
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.BLOCK;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StatementList getStatlist()
+  {
+    return statlist;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetStatlist(StatementList newStatlist, NotificationChain msgs)
+  {
+    StatementList oldStatlist = statlist;
+    statlist = newStatlist;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.BLOCK__STATLIST, oldStatlist, newStatlist);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setStatlist(StatementList newStatlist)
+  {
+    if (newStatlist != statlist)
+    {
+      NotificationChain msgs = null;
+      if (statlist != null)
+        msgs = ((InternalEObject)statlist).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.BLOCK__STATLIST, null, msgs);
+      if (newStatlist != null)
+        msgs = ((InternalEObject)newStatlist).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.BLOCK__STATLIST, null, msgs);
+      msgs = basicSetStatlist(newStatlist, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.BLOCK__STATLIST, newStatlist, newStatlist));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case GoPackage.BLOCK__STATLIST:
+        return basicSetStatlist(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case GoPackage.BLOCK__STATLIST:
+        return getStatlist();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case GoPackage.BLOCK__STATLIST:
+        setStatlist((StatementList)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.BLOCK__STATLIST:
+        setStatlist((StatementList)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.BLOCK__STATLIST:
+        return statlist != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //BlockImpl

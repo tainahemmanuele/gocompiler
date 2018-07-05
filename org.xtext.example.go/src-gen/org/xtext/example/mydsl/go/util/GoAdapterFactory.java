@@ -101,9 +101,19 @@ public class GoAdapterFactory extends AdapterFactoryImpl
         return createReceiverAdapter();
       }
       @Override
+      public Adapter caseFunctionName(FunctionName object)
+      {
+        return createFunctionNameAdapter();
+      }
+      @Override
       public Adapter caseFunctionDecl(FunctionDecl object)
       {
         return createFunctionDeclAdapter();
+      }
+      @Override
+      public Adapter casePackageClause(PackageClause object)
+      {
+        return createPackageClauseAdapter();
       }
       @Override
       public Adapter caseType(Type object)
@@ -201,6 +211,11 @@ public class GoAdapterFactory extends AdapterFactoryImpl
         return createMethodSpecAdapter();
       }
       @Override
+      public Adapter caseInterfaceTypeName(InterfaceTypeName object)
+      {
+        return createInterfaceTypeNameAdapter();
+      }
+      @Override
       public Adapter caseMapType(MapType object)
       {
         return createMapTypeAdapter();
@@ -246,9 +261,29 @@ public class GoAdapterFactory extends AdapterFactoryImpl
         return createSimpleStmtAdapter();
       }
       @Override
+      public Adapter caseGoStmt(GoStmt object)
+      {
+        return createGoStmtAdapter();
+      }
+      @Override
       public Adapter caseReturnStmt(ReturnStmt object)
       {
         return createReturnStmtAdapter();
+      }
+      @Override
+      public Adapter caseBreakStmt(BreakStmt object)
+      {
+        return createBreakStmtAdapter();
+      }
+      @Override
+      public Adapter caseContinueStmt(ContinueStmt object)
+      {
+        return createContinueStmtAdapter();
+      }
+      @Override
+      public Adapter caseGotoStmt(GotoStmt object)
+      {
+        return createGotoStmtAdapter();
       }
       @Override
       public Adapter caseIfStmt(IfStmt object)
@@ -536,6 +571,11 @@ public class GoAdapterFactory extends AdapterFactoryImpl
         return createKeyAdapter();
       }
       @Override
+      public Adapter caseFieldName(FieldName object)
+      {
+        return createFieldNameAdapter();
+      }
+      @Override
       public Adapter caseElement(Element object)
       {
         return createElementAdapter();
@@ -658,6 +698,21 @@ public class GoAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.go.FunctionName <em>Function Name</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.go.FunctionName
+   * @generated
+   */
+  public Adapter createFunctionNameAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.go.FunctionDecl <em>Function Decl</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -668,6 +723,21 @@ public class GoAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createFunctionDeclAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.go.PackageClause <em>Package Clause</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.go.PackageClause
+   * @generated
+   */
+  public Adapter createPackageClauseAdapter()
   {
     return null;
   }
@@ -958,6 +1028,21 @@ public class GoAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.go.InterfaceTypeName <em>Interface Type Name</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.go.InterfaceTypeName
+   * @generated
+   */
+  public Adapter createInterfaceTypeNameAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.go.MapType <em>Map Type</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1093,6 +1178,21 @@ public class GoAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.go.GoStmt <em>Stmt</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.go.GoStmt
+   * @generated
+   */
+  public Adapter createGoStmtAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.go.ReturnStmt <em>Return Stmt</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1103,6 +1203,51 @@ public class GoAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createReturnStmtAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.go.BreakStmt <em>Break Stmt</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.go.BreakStmt
+   * @generated
+   */
+  public Adapter createBreakStmtAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.go.ContinueStmt <em>Continue Stmt</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.go.ContinueStmt
+   * @generated
+   */
+  public Adapter createContinueStmtAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.go.GotoStmt <em>Goto Stmt</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.go.GotoStmt
+   * @generated
+   */
+  public Adapter createGotoStmtAdapter()
   {
     return null;
   }
@@ -1958,6 +2103,21 @@ public class GoAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createKeyAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.go.FieldName <em>Field Name</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.go.FieldName
+   * @generated
+   */
+  public Adapter createFieldNameAdapter()
   {
     return null;
   }

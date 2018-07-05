@@ -98,7 +98,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         MethodDecl methodDecl = (MethodDecl)theEObject;
         T result = caseMethodDecl(methodDecl);
-        if (result == null) result = caseTopLevelDecl(methodDecl);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -109,11 +108,24 @@ public class GoSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GoPackage.FUNCTION_NAME:
+      {
+        FunctionName functionName = (FunctionName)theEObject;
+        T result = caseFunctionName(functionName);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GoPackage.FUNCTION_DECL:
       {
         FunctionDecl functionDecl = (FunctionDecl)theEObject;
         T result = caseFunctionDecl(functionDecl);
-        if (result == null) result = caseTopLevelDecl(functionDecl);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GoPackage.PACKAGE_CLAUSE:
+      {
+        PackageClause packageClause = (PackageClause)theEObject;
+        T result = casePackageClause(packageClause);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -121,9 +133,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         Type type = (Type)theEObject;
         T result = caseType(type);
-        if (result == null) result = caseElementType(type);
-        if (result == null) result = caseBaseType(type);
-        if (result == null) result = caseKeyType(type);
         if (result == null) result = caseTypeAssertion(type);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -139,7 +148,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         ArrayType arrayType = (ArrayType)theEObject;
         T result = caseArrayType(arrayType);
-        if (result == null) result = caseTypeLit(arrayType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -148,7 +156,6 @@ public class GoSwitch<T> extends Switch<T>
         ArrayLength arrayLength = (ArrayLength)theEObject;
         T result = caseArrayLength(arrayLength);
         if (result == null) result = caseArrayType(arrayLength);
-        if (result == null) result = caseTypeLit(arrayLength);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -163,7 +170,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         SliceType sliceType = (SliceType)theEObject;
         T result = caseSliceType(sliceType);
-        if (result == null) result = caseTypeLit(sliceType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -171,7 +177,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         StructType structType = (StructType)theEObject;
         T result = caseStructType(structType);
-        if (result == null) result = caseTypeLit(structType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -193,7 +198,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         PointerType pointerType = (PointerType)theEObject;
         T result = casePointerType(pointerType);
-        if (result == null) result = caseTypeLit(pointerType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -208,7 +212,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         FunctionType functionType = (FunctionType)theEObject;
         T result = caseFunctionType(functionType);
-        if (result == null) result = caseTypeLit(functionType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -216,8 +219,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         Signature signature = (Signature)theEObject;
         T result = caseSignature(signature);
-        if (result == null) result = caseFunctionType(signature);
-        if (result == null) result = caseTypeLit(signature);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -232,7 +233,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         Parameters parameters = (Parameters)theEObject;
         T result = caseParameters(parameters);
-        if (result == null) result = caseReceiver(parameters);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -254,7 +254,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         InterfaceType interfaceType = (InterfaceType)theEObject;
         T result = caseInterfaceType(interfaceType);
-        if (result == null) result = caseTypeLit(interfaceType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -265,11 +264,17 @@ public class GoSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GoPackage.INTERFACE_TYPE_NAME:
+      {
+        InterfaceTypeName interfaceTypeName = (InterfaceTypeName)theEObject;
+        T result = caseInterfaceTypeName(interfaceTypeName);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GoPackage.MAP_TYPE:
       {
         MapType mapType = (MapType)theEObject;
         T result = caseMapType(mapType);
-        if (result == null) result = caseTypeLit(mapType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -284,7 +289,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         ChannelType channelType = (ChannelType)theEObject;
         T result = caseChannelType(channelType);
-        if (result == null) result = caseTypeLit(channelType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -292,7 +296,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         Block block = (Block)theEObject;
         T result = caseBlock(block);
-        if (result == null) result = caseFunctionBody(block);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -300,8 +303,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         StatementList statementList = (StatementList)theEObject;
         T result = caseStatementList(statementList);
-        if (result == null) result = caseBlock(statementList);
-        if (result == null) result = caseFunctionBody(statementList);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -316,7 +317,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         Declaration declaration = (Declaration)theEObject;
         T result = caseDeclaration(declaration);
-        if (result == null) result = caseTopLevelDecl(declaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -334,11 +334,39 @@ public class GoSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GoPackage.GO_STMT:
+      {
+        GoStmt goStmt = (GoStmt)theEObject;
+        T result = caseGoStmt(goStmt);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GoPackage.RETURN_STMT:
       {
         ReturnStmt returnStmt = (ReturnStmt)theEObject;
         T result = caseReturnStmt(returnStmt);
         if (result == null) result = caseStatement(returnStmt);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GoPackage.BREAK_STMT:
+      {
+        BreakStmt breakStmt = (BreakStmt)theEObject;
+        T result = caseBreakStmt(breakStmt);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GoPackage.CONTINUE_STMT:
+      {
+        ContinueStmt continueStmt = (ContinueStmt)theEObject;
+        T result = caseContinueStmt(continueStmt);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GoPackage.GOTO_STMT:
+      {
+        GotoStmt gotoStmt = (GotoStmt)theEObject;
+        T result = caseGotoStmt(gotoStmt);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -381,8 +409,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         ConstDecl constDecl = (ConstDecl)theEObject;
         T result = caseConstDecl(constDecl);
-        if (result == null) result = caseDeclaration(constDecl);
-        if (result == null) result = caseTopLevelDecl(constDecl);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -397,8 +423,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         TypeDecl typeDecl = (TypeDecl)theEObject;
         T result = caseTypeDecl(typeDecl);
-        if (result == null) result = caseDeclaration(typeDecl);
-        if (result == null) result = caseTopLevelDecl(typeDecl);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -413,7 +437,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         TypeDef typeDef = (TypeDef)theEObject;
         T result = caseTypeDef(typeDef);
-        if (result == null) result = caseTypeSpec(typeDef);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -421,7 +444,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         AliasDecl aliasDecl = (AliasDecl)theEObject;
         T result = caseAliasDecl(aliasDecl);
-        if (result == null) result = caseTypeSpec(aliasDecl);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -429,8 +451,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         VarDecl varDecl = (VarDecl)theEObject;
         T result = caseVarDecl(varDecl);
-        if (result == null) result = caseDeclaration(varDecl);
-        if (result == null) result = caseTopLevelDecl(varDecl);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -487,7 +507,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         ExprSwitchStmt exprSwitchStmt = (ExprSwitchStmt)theEObject;
         T result = caseExprSwitchStmt(exprSwitchStmt);
-        if (result == null) result = caseSwitchStmt(exprSwitchStmt);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -510,7 +529,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         TypeSwitchStmt typeSwitchStmt = (TypeSwitchStmt)theEObject;
         T result = caseTypeSwitchStmt(typeSwitchStmt);
-        if (result == null) result = caseSwitchStmt(typeSwitchStmt);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -619,14 +637,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         Expression expression = (Expression)theEObject;
         T result = caseExpression(expression);
-        if (result == null) result = caseArrayLength(expression);
-        if (result == null) result = caseDeferStmt(expression);
-        if (result == null) result = caseKey(expression);
-        if (result == null) result = caseElement(expression);
-        if (result == null) result = caseArrayType(expression);
-        if (result == null) result = caseKeyedElement(expression);
-        if (result == null) result = caseTypeLit(expression);
-        if (result == null) result = caseElementList(expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -648,7 +658,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         PrimaryExpr primaryExpr = (PrimaryExpr)theEObject;
         T result = casePrimaryExpr(primaryExpr);
-        if (result == null) result = caseUnaryExpr(primaryExpr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -740,10 +749,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         LiteralValue literalValue = (LiteralValue)theEObject;
         T result = caseLiteralValue(literalValue);
-        if (result == null) result = caseKey(literalValue);
-        if (result == null) result = caseElement(literalValue);
-        if (result == null) result = caseKeyedElement(literalValue);
-        if (result == null) result = caseElementList(literalValue);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -768,6 +773,13 @@ public class GoSwitch<T> extends Switch<T>
         T result = caseKey(key);
         if (result == null) result = caseKeyedElement(key);
         if (result == null) result = caseElementList(key);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GoPackage.FIELD_NAME:
+      {
+        FieldName fieldName = (FieldName)theEObject;
+        T result = caseFieldName(fieldName);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -892,6 +904,22 @@ public class GoSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Function Name</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Function Name</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFunctionName(FunctionName object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Function Decl</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -903,6 +931,22 @@ public class GoSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseFunctionDecl(FunctionDecl object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Package Clause</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Package Clause</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePackageClause(PackageClause object)
   {
     return null;
   }
@@ -1212,6 +1256,22 @@ public class GoSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Interface Type Name</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Interface Type Name</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInterfaceTypeName(InterfaceTypeName object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Map Type</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1356,6 +1416,22 @@ public class GoSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Stmt</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Stmt</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseGoStmt(GoStmt object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Return Stmt</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1367,6 +1443,54 @@ public class GoSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseReturnStmt(ReturnStmt object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Break Stmt</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Break Stmt</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBreakStmt(BreakStmt object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Continue Stmt</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Continue Stmt</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseContinueStmt(ContinueStmt object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Goto Stmt</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Goto Stmt</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseGotoStmt(GotoStmt object)
   {
     return null;
   }
@@ -2279,6 +2403,22 @@ public class GoSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseKey(Key object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Field Name</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Field Name</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFieldName(FieldName object)
   {
     return null;
   }

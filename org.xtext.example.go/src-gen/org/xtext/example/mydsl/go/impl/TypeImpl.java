@@ -30,7 +30,7 @@ import org.xtext.example.mydsl.go.TypeLit;
  *
  * @generated
  */
-public class TypeImpl extends ElementTypeImpl implements Type
+public class TypeImpl extends TypeAssertionImpl implements Type
 {
   /**
    * The default value of the '{@link #getTp() <em>Tp</em>}' attribute.

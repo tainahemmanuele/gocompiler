@@ -3,20 +3,68 @@
  */
 package org.xtext.example.mydsl.go.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.xtext.example.mydsl.go.ConstDecl;
 import org.xtext.example.mydsl.go.Declaration;
 import org.xtext.example.mydsl.go.GoPackage;
+import org.xtext.example.mydsl.go.TypeDecl;
+import org.xtext.example.mydsl.go.VarDecl;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Declaration</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.DeclarationImpl#getConst <em>Const</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.DeclarationImpl#getTye <em>Tye</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.DeclarationImpl#getVar <em>Var</em>}</li>
+ * </ul>
  *
  * @generated
  */
-public class DeclarationImpl extends TopLevelDeclImpl implements Declaration
+public class DeclarationImpl extends MinimalEObjectImpl.Container implements Declaration
 {
+  /**
+   * The cached value of the '{@link #getConst() <em>Const</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getConst()
+   * @generated
+   * @ordered
+   */
+  protected ConstDecl const_;
+
+  /**
+   * The cached value of the '{@link #getTye() <em>Tye</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTye()
+   * @generated
+   * @ordered
+   */
+  protected TypeDecl tye;
+
+  /**
+   * The cached value of the '{@link #getVar() <em>Var</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVar()
+   * @generated
+   * @ordered
+   */
+  protected VarDecl var;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +84,256 @@ public class DeclarationImpl extends TopLevelDeclImpl implements Declaration
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.DECLARATION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ConstDecl getConst()
+  {
+    return const_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetConst(ConstDecl newConst, NotificationChain msgs)
+  {
+    ConstDecl oldConst = const_;
+    const_ = newConst;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.DECLARATION__CONST, oldConst, newConst);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setConst(ConstDecl newConst)
+  {
+    if (newConst != const_)
+    {
+      NotificationChain msgs = null;
+      if (const_ != null)
+        msgs = ((InternalEObject)const_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.DECLARATION__CONST, null, msgs);
+      if (newConst != null)
+        msgs = ((InternalEObject)newConst).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.DECLARATION__CONST, null, msgs);
+      msgs = basicSetConst(newConst, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.DECLARATION__CONST, newConst, newConst));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TypeDecl getTye()
+  {
+    return tye;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetTye(TypeDecl newTye, NotificationChain msgs)
+  {
+    TypeDecl oldTye = tye;
+    tye = newTye;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.DECLARATION__TYE, oldTye, newTye);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTye(TypeDecl newTye)
+  {
+    if (newTye != tye)
+    {
+      NotificationChain msgs = null;
+      if (tye != null)
+        msgs = ((InternalEObject)tye).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.DECLARATION__TYE, null, msgs);
+      if (newTye != null)
+        msgs = ((InternalEObject)newTye).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.DECLARATION__TYE, null, msgs);
+      msgs = basicSetTye(newTye, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.DECLARATION__TYE, newTye, newTye));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public VarDecl getVar()
+  {
+    return var;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetVar(VarDecl newVar, NotificationChain msgs)
+  {
+    VarDecl oldVar = var;
+    var = newVar;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.DECLARATION__VAR, oldVar, newVar);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setVar(VarDecl newVar)
+  {
+    if (newVar != var)
+    {
+      NotificationChain msgs = null;
+      if (var != null)
+        msgs = ((InternalEObject)var).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.DECLARATION__VAR, null, msgs);
+      if (newVar != null)
+        msgs = ((InternalEObject)newVar).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.DECLARATION__VAR, null, msgs);
+      msgs = basicSetVar(newVar, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.DECLARATION__VAR, newVar, newVar));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case GoPackage.DECLARATION__CONST:
+        return basicSetConst(null, msgs);
+      case GoPackage.DECLARATION__TYE:
+        return basicSetTye(null, msgs);
+      case GoPackage.DECLARATION__VAR:
+        return basicSetVar(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case GoPackage.DECLARATION__CONST:
+        return getConst();
+      case GoPackage.DECLARATION__TYE:
+        return getTye();
+      case GoPackage.DECLARATION__VAR:
+        return getVar();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case GoPackage.DECLARATION__CONST:
+        setConst((ConstDecl)newValue);
+        return;
+      case GoPackage.DECLARATION__TYE:
+        setTye((TypeDecl)newValue);
+        return;
+      case GoPackage.DECLARATION__VAR:
+        setVar((VarDecl)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.DECLARATION__CONST:
+        setConst((ConstDecl)null);
+        return;
+      case GoPackage.DECLARATION__TYE:
+        setTye((TypeDecl)null);
+        return;
+      case GoPackage.DECLARATION__VAR:
+        setVar((VarDecl)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.DECLARATION__CONST:
+        return const_ != null;
+      case GoPackage.DECLARATION__TYE:
+        return tye != null;
+      case GoPackage.DECLARATION__VAR:
+        return var != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //DeclarationImpl

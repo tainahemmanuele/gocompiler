@@ -70,7 +70,9 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
       case GoPackage.TOP_LEVEL_DECL: return createTopLevelDecl();
       case GoPackage.METHOD_DECL: return createMethodDecl();
       case GoPackage.RECEIVER: return createReceiver();
+      case GoPackage.FUNCTION_NAME: return createFunctionName();
       case GoPackage.FUNCTION_DECL: return createFunctionDecl();
+      case GoPackage.PACKAGE_CLAUSE: return createPackageClause();
       case GoPackage.TYPE: return createType();
       case GoPackage.TYPE_LIT: return createTypeLit();
       case GoPackage.ARRAY_TYPE: return createArrayType();
@@ -90,6 +92,7 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
       case GoPackage.PARAMETER_DECL: return createParameterDecl();
       case GoPackage.INTERFACE_TYPE: return createInterfaceType();
       case GoPackage.METHOD_SPEC: return createMethodSpec();
+      case GoPackage.INTERFACE_TYPE_NAME: return createInterfaceTypeName();
       case GoPackage.MAP_TYPE: return createMapType();
       case GoPackage.KEY_TYPE: return createKeyType();
       case GoPackage.CHANNEL_TYPE: return createChannelType();
@@ -99,7 +102,11 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
       case GoPackage.DECLARATION: return createDeclaration();
       case GoPackage.LABELED_STMT: return createLabeledStmt();
       case GoPackage.SIMPLE_STMT: return createSimpleStmt();
+      case GoPackage.GO_STMT: return createGoStmt();
       case GoPackage.RETURN_STMT: return createReturnStmt();
+      case GoPackage.BREAK_STMT: return createBreakStmt();
+      case GoPackage.CONTINUE_STMT: return createContinueStmt();
+      case GoPackage.GOTO_STMT: return createGotoStmt();
       case GoPackage.IF_STMT: return createIfStmt();
       case GoPackage.SWITCH_STMT: return createSwitchStmt();
       case GoPackage.SELECT_STMT: return createSelectStmt();
@@ -157,6 +164,7 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
       case GoPackage.ELEMENT_LIST: return createElementList();
       case GoPackage.KEYED_ELEMENT: return createKeyedElement();
       case GoPackage.KEY: return createKey();
+      case GoPackage.FIELD_NAME: return createFieldName();
       case GoPackage.ELEMENT: return createElement();
       case GoPackage.RECEIVER_TYPE: return createReceiverType();
       case GoPackage.FUNCTION_BODY: return createFunctionBody();
@@ -227,10 +235,32 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public FunctionName createFunctionName()
+  {
+    FunctionNameImpl functionName = new FunctionNameImpl();
+    return functionName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public FunctionDecl createFunctionDecl()
   {
     FunctionDeclImpl functionDecl = new FunctionDeclImpl();
     return functionDecl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PackageClause createPackageClause()
+  {
+    PackageClauseImpl packageClause = new PackageClauseImpl();
+    return packageClause;
   }
 
   /**
@@ -447,6 +477,17 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public InterfaceTypeName createInterfaceTypeName()
+  {
+    InterfaceTypeNameImpl interfaceTypeName = new InterfaceTypeNameImpl();
+    return interfaceTypeName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public MapType createMapType()
   {
     MapTypeImpl mapType = new MapTypeImpl();
@@ -546,10 +587,54 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public GoStmt createGoStmt()
+  {
+    GoStmtImpl goStmt = new GoStmtImpl();
+    return goStmt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ReturnStmt createReturnStmt()
   {
     ReturnStmtImpl returnStmt = new ReturnStmtImpl();
     return returnStmt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BreakStmt createBreakStmt()
+  {
+    BreakStmtImpl breakStmt = new BreakStmtImpl();
+    return breakStmt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ContinueStmt createContinueStmt()
+  {
+    ContinueStmtImpl continueStmt = new ContinueStmtImpl();
+    return continueStmt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public GotoStmt createGotoStmt()
+  {
+    GotoStmtImpl gotoStmt = new GotoStmtImpl();
+    return gotoStmt;
   }
 
   /**
@@ -1177,6 +1262,17 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
   {
     KeyImpl key = new KeyImpl();
     return key;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FieldName createFieldName()
+  {
+    FieldNameImpl fieldName = new FieldNameImpl();
+    return fieldName;
   }
 
   /**

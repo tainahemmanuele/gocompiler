@@ -5,6 +5,8 @@ package org.xtext.example.mydsl.go;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Struct Type</b></em>'.
@@ -21,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface StructType extends TypeLit
+public interface StructType extends EObject
 {
   /**
    * Returns the value of the '<em><b>Fielddecl</b></em>' containment reference list.

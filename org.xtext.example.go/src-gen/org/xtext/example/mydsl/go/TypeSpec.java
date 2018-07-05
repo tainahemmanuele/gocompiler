@@ -14,8 +14,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.go.TypeSpec#getId <em>Id</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.go.TypeSpec#getTp <em>Tp</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.TypeSpec#getAliasdecl <em>Aliasdecl</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.TypeSpec#getTyped <em>Typed</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.go.GoPackage#getTypeSpec()
@@ -25,55 +25,55 @@ import org.eclipse.emf.ecore.EObject;
 public interface TypeSpec extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Id</b></em>' attribute.
+   * Returns the value of the '<em><b>Aliasdecl</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Id</em>' attribute isn't clear,
+   * If the meaning of the '<em>Aliasdecl</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Id</em>' attribute.
-   * @see #setId(String)
-   * @see org.xtext.example.mydsl.go.GoPackage#getTypeSpec_Id()
-   * @model
-   * @generated
-   */
-  String getId();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.go.TypeSpec#getId <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Id</em>' attribute.
-   * @see #getId()
-   * @generated
-   */
-  void setId(String value);
-
-  /**
-   * Returns the value of the '<em><b>Tp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Tp</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Tp</em>' containment reference.
-   * @see #setTp(Type)
-   * @see org.xtext.example.mydsl.go.GoPackage#getTypeSpec_Tp()
+   * @return the value of the '<em>Aliasdecl</em>' containment reference.
+   * @see #setAliasdecl(AliasDecl)
+   * @see org.xtext.example.mydsl.go.GoPackage#getTypeSpec_Aliasdecl()
    * @model containment="true"
    * @generated
    */
-  Type getTp();
+  AliasDecl getAliasdecl();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.go.TypeSpec#getTp <em>Tp</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.TypeSpec#getAliasdecl <em>Aliasdecl</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Tp</em>' containment reference.
-   * @see #getTp()
+   * @param value the new value of the '<em>Aliasdecl</em>' containment reference.
+   * @see #getAliasdecl()
    * @generated
    */
-  void setTp(Type value);
+  void setAliasdecl(AliasDecl value);
+
+  /**
+   * Returns the value of the '<em><b>Typed</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Typed</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Typed</em>' containment reference.
+   * @see #setTyped(TypeDef)
+   * @see org.xtext.example.mydsl.go.GoPackage#getTypeSpec_Typed()
+   * @model containment="true"
+   * @generated
+   */
+  TypeDef getTyped();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.TypeSpec#getTyped <em>Typed</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Typed</em>' containment reference.
+   * @see #getTyped()
+   * @generated
+   */
+  void setTyped(TypeDef value);
 
 } // TypeSpec

@@ -69,6 +69,15 @@ public interface GoFactory extends EFactory
   Receiver createReceiver();
 
   /**
+   * Returns a new object of class '<em>Function Name</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Function Name</em>'.
+   * @generated
+   */
+  FunctionName createFunctionName();
+
+  /**
    * Returns a new object of class '<em>Function Decl</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -76,6 +85,15 @@ public interface GoFactory extends EFactory
    * @generated
    */
   FunctionDecl createFunctionDecl();
+
+  /**
+   * Returns a new object of class '<em>Package Clause</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Package Clause</em>'.
+   * @generated
+   */
+  PackageClause createPackageClause();
 
   /**
    * Returns a new object of class '<em>Type</em>'.
@@ -249,6 +267,15 @@ public interface GoFactory extends EFactory
   MethodSpec createMethodSpec();
 
   /**
+   * Returns a new object of class '<em>Interface Type Name</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Interface Type Name</em>'.
+   * @generated
+   */
+  InterfaceTypeName createInterfaceTypeName();
+
+  /**
    * Returns a new object of class '<em>Map Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -330,6 +357,15 @@ public interface GoFactory extends EFactory
   SimpleStmt createSimpleStmt();
 
   /**
+   * Returns a new object of class '<em>Stmt</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Stmt</em>'.
+   * @generated
+   */
+  GoStmt createGoStmt();
+
+  /**
    * Returns a new object of class '<em>Return Stmt</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -337,6 +373,33 @@ public interface GoFactory extends EFactory
    * @generated
    */
   ReturnStmt createReturnStmt();
+
+  /**
+   * Returns a new object of class '<em>Break Stmt</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Break Stmt</em>'.
+   * @generated
+   */
+  BreakStmt createBreakStmt();
+
+  /**
+   * Returns a new object of class '<em>Continue Stmt</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Continue Stmt</em>'.
+   * @generated
+   */
+  ContinueStmt createContinueStmt();
+
+  /**
+   * Returns a new object of class '<em>Goto Stmt</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Goto Stmt</em>'.
+   * @generated
+   */
+  GotoStmt createGotoStmt();
 
   /**
    * Returns a new object of class '<em>If Stmt</em>'.
@@ -850,6 +913,15 @@ public interface GoFactory extends EFactory
    * @generated
    */
   Key createKey();
+
+  /**
+   * Returns a new object of class '<em>Field Name</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Field Name</em>'.
+   * @generated
+   */
+  FieldName createFieldName();
 
   /**
    * Returns a new object of class '<em>Element</em>'.

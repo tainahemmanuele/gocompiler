@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.go.ElementList;
 import org.xtext.example.mydsl.go.GoPackage;
@@ -28,7 +29,7 @@ import org.xtext.example.mydsl.go.LiteralValue;
  *
  * @generated
  */
-public class LiteralValueImpl extends KeyImpl implements LiteralValue
+public class LiteralValueImpl extends MinimalEObjectImpl.Container implements LiteralValue
 {
   /**
    * The cached value of the '{@link #getElementlist() <em>Elementlist</em>}' containment reference.

@@ -12,6 +12,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -32,7 +34,7 @@ import org.xtext.example.mydsl.go.StatementList;
  *
  * @generated
  */
-public class StatementListImpl extends BlockImpl implements StatementList
+public class StatementListImpl extends MinimalEObjectImpl.Container implements StatementList
 {
   /**
    * The cached value of the '{@link #getStatment() <em>Statment</em>}' containment reference list.

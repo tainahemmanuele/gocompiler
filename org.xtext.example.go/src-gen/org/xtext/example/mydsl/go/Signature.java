@@ -3,6 +3,7 @@
  */
 package org.xtext.example.mydsl.go;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +22,7 @@ package org.xtext.example.mydsl.go;
  * @model
  * @generated
  */
-public interface Signature extends FunctionType
+public interface Signature extends EObject
 {
   /**
    * Returns the value of the '<em><b>Parameters</b></em>' containment reference.

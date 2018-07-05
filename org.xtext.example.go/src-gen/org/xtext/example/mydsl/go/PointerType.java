@@ -3,6 +3,7 @@
  */
 package org.xtext.example.mydsl.go;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +21,7 @@ package org.xtext.example.mydsl.go;
  * @model
  * @generated
  */
-public interface PointerType extends TypeLit
+public interface PointerType extends EObject
 {
   /**
    * Returns the value of the '<em><b>Basetype</b></em>' containment reference.

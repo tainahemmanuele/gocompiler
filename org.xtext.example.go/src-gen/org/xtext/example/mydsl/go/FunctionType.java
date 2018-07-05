@@ -3,17 +3,50 @@
  */
 package org.xtext.example.mydsl.go;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Function Type</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.mydsl.go.FunctionType#getSignature <em>Signature</em>}</li>
+ * </ul>
  *
  * @see org.xtext.example.mydsl.go.GoPackage#getFunctionType()
  * @model
  * @generated
  */
-public interface FunctionType extends TypeLit
+public interface FunctionType extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Signature</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Signature</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Signature</em>' containment reference.
+   * @see #setSignature(Signature)
+   * @see org.xtext.example.mydsl.go.GoPackage#getFunctionType_Signature()
+   * @model containment="true"
+   * @generated
+   */
+  Signature getSignature();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.FunctionType#getSignature <em>Signature</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Signature</em>' containment reference.
+   * @see #getSignature()
+   * @generated
+   */
+  void setSignature(Signature value);
+
 } // FunctionType

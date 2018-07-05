@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.go.ElementType;
 import org.xtext.example.mydsl.go.GoPackage;
@@ -28,7 +29,7 @@ import org.xtext.example.mydsl.go.SliceType;
  *
  * @generated
  */
-public class SliceTypeImpl extends TypeLitImpl implements SliceType
+public class SliceTypeImpl extends MinimalEObjectImpl.Container implements SliceType
 {
   /**
    * The cached value of the '{@link #getElemtype() <em>Elemtype</em>}' containment reference.

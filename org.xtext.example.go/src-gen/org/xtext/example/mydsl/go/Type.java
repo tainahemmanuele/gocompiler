@@ -22,7 +22,7 @@ package org.xtext.example.mydsl.go;
  * @model
  * @generated
  */
-public interface Type extends ElementType, BaseType, KeyType, TypeAssertion
+public interface Type extends TypeAssertion
 {
   /**
    * Returns the value of the '<em><b>Tp</b></em>' attribute.

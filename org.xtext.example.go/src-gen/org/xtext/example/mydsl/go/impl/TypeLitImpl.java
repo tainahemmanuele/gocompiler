@@ -3,22 +3,128 @@
  */
 package org.xtext.example.mydsl.go.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.xtext.example.mydsl.go.ArrayType;
+import org.xtext.example.mydsl.go.ChannelType;
+import org.xtext.example.mydsl.go.FunctionType;
 import org.xtext.example.mydsl.go.GoPackage;
+import org.xtext.example.mydsl.go.InterfaceType;
+import org.xtext.example.mydsl.go.MapType;
+import org.xtext.example.mydsl.go.PointerType;
+import org.xtext.example.mydsl.go.SliceType;
+import org.xtext.example.mydsl.go.StructType;
 import org.xtext.example.mydsl.go.TypeLit;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Type Lit</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.TypeLitImpl#getArray <em>Array</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.TypeLitImpl#getStruct <em>Struct</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.TypeLitImpl#getPointer <em>Pointer</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.TypeLitImpl#getFunction <em>Function</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.TypeLitImpl#getIntype <em>Intype</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.TypeLitImpl#getSlice <em>Slice</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.TypeLitImpl#getMap <em>Map</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.TypeLitImpl#getChannel <em>Channel</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class TypeLitImpl extends MinimalEObjectImpl.Container implements TypeLit
 {
+  /**
+   * The cached value of the '{@link #getArray() <em>Array</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getArray()
+   * @generated
+   * @ordered
+   */
+  protected ArrayType array;
+
+  /**
+   * The cached value of the '{@link #getStruct() <em>Struct</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getStruct()
+   * @generated
+   * @ordered
+   */
+  protected StructType struct;
+
+  /**
+   * The cached value of the '{@link #getPointer() <em>Pointer</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPointer()
+   * @generated
+   * @ordered
+   */
+  protected PointerType pointer;
+
+  /**
+   * The cached value of the '{@link #getFunction() <em>Function</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFunction()
+   * @generated
+   * @ordered
+   */
+  protected FunctionType function;
+
+  /**
+   * The cached value of the '{@link #getIntype() <em>Intype</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIntype()
+   * @generated
+   * @ordered
+   */
+  protected InterfaceType intype;
+
+  /**
+   * The cached value of the '{@link #getSlice() <em>Slice</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSlice()
+   * @generated
+   * @ordered
+   */
+  protected SliceType slice;
+
+  /**
+   * The cached value of the '{@link #getMap() <em>Map</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMap()
+   * @generated
+   * @ordered
+   */
+  protected MapType map;
+
+  /**
+   * The cached value of the '{@link #getChannel() <em>Channel</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getChannel()
+   * @generated
+   * @ordered
+   */
+  protected ChannelType channel;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -38,6 +144,556 @@ public class TypeLitImpl extends MinimalEObjectImpl.Container implements TypeLit
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.TYPE_LIT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ArrayType getArray()
+  {
+    return array;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetArray(ArrayType newArray, NotificationChain msgs)
+  {
+    ArrayType oldArray = array;
+    array = newArray;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_LIT__ARRAY, oldArray, newArray);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setArray(ArrayType newArray)
+  {
+    if (newArray != array)
+    {
+      NotificationChain msgs = null;
+      if (array != null)
+        msgs = ((InternalEObject)array).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_LIT__ARRAY, null, msgs);
+      if (newArray != null)
+        msgs = ((InternalEObject)newArray).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_LIT__ARRAY, null, msgs);
+      msgs = basicSetArray(newArray, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_LIT__ARRAY, newArray, newArray));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StructType getStruct()
+  {
+    return struct;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetStruct(StructType newStruct, NotificationChain msgs)
+  {
+    StructType oldStruct = struct;
+    struct = newStruct;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_LIT__STRUCT, oldStruct, newStruct);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setStruct(StructType newStruct)
+  {
+    if (newStruct != struct)
+    {
+      NotificationChain msgs = null;
+      if (struct != null)
+        msgs = ((InternalEObject)struct).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_LIT__STRUCT, null, msgs);
+      if (newStruct != null)
+        msgs = ((InternalEObject)newStruct).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_LIT__STRUCT, null, msgs);
+      msgs = basicSetStruct(newStruct, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_LIT__STRUCT, newStruct, newStruct));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PointerType getPointer()
+  {
+    return pointer;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetPointer(PointerType newPointer, NotificationChain msgs)
+  {
+    PointerType oldPointer = pointer;
+    pointer = newPointer;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_LIT__POINTER, oldPointer, newPointer);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPointer(PointerType newPointer)
+  {
+    if (newPointer != pointer)
+    {
+      NotificationChain msgs = null;
+      if (pointer != null)
+        msgs = ((InternalEObject)pointer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_LIT__POINTER, null, msgs);
+      if (newPointer != null)
+        msgs = ((InternalEObject)newPointer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_LIT__POINTER, null, msgs);
+      msgs = basicSetPointer(newPointer, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_LIT__POINTER, newPointer, newPointer));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FunctionType getFunction()
+  {
+    return function;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetFunction(FunctionType newFunction, NotificationChain msgs)
+  {
+    FunctionType oldFunction = function;
+    function = newFunction;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_LIT__FUNCTION, oldFunction, newFunction);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFunction(FunctionType newFunction)
+  {
+    if (newFunction != function)
+    {
+      NotificationChain msgs = null;
+      if (function != null)
+        msgs = ((InternalEObject)function).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_LIT__FUNCTION, null, msgs);
+      if (newFunction != null)
+        msgs = ((InternalEObject)newFunction).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_LIT__FUNCTION, null, msgs);
+      msgs = basicSetFunction(newFunction, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_LIT__FUNCTION, newFunction, newFunction));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public InterfaceType getIntype()
+  {
+    return intype;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetIntype(InterfaceType newIntype, NotificationChain msgs)
+  {
+    InterfaceType oldIntype = intype;
+    intype = newIntype;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_LIT__INTYPE, oldIntype, newIntype);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIntype(InterfaceType newIntype)
+  {
+    if (newIntype != intype)
+    {
+      NotificationChain msgs = null;
+      if (intype != null)
+        msgs = ((InternalEObject)intype).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_LIT__INTYPE, null, msgs);
+      if (newIntype != null)
+        msgs = ((InternalEObject)newIntype).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_LIT__INTYPE, null, msgs);
+      msgs = basicSetIntype(newIntype, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_LIT__INTYPE, newIntype, newIntype));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SliceType getSlice()
+  {
+    return slice;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSlice(SliceType newSlice, NotificationChain msgs)
+  {
+    SliceType oldSlice = slice;
+    slice = newSlice;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_LIT__SLICE, oldSlice, newSlice);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSlice(SliceType newSlice)
+  {
+    if (newSlice != slice)
+    {
+      NotificationChain msgs = null;
+      if (slice != null)
+        msgs = ((InternalEObject)slice).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_LIT__SLICE, null, msgs);
+      if (newSlice != null)
+        msgs = ((InternalEObject)newSlice).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_LIT__SLICE, null, msgs);
+      msgs = basicSetSlice(newSlice, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_LIT__SLICE, newSlice, newSlice));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MapType getMap()
+  {
+    return map;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetMap(MapType newMap, NotificationChain msgs)
+  {
+    MapType oldMap = map;
+    map = newMap;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_LIT__MAP, oldMap, newMap);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMap(MapType newMap)
+  {
+    if (newMap != map)
+    {
+      NotificationChain msgs = null;
+      if (map != null)
+        msgs = ((InternalEObject)map).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_LIT__MAP, null, msgs);
+      if (newMap != null)
+        msgs = ((InternalEObject)newMap).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_LIT__MAP, null, msgs);
+      msgs = basicSetMap(newMap, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_LIT__MAP, newMap, newMap));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ChannelType getChannel()
+  {
+    return channel;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetChannel(ChannelType newChannel, NotificationChain msgs)
+  {
+    ChannelType oldChannel = channel;
+    channel = newChannel;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_LIT__CHANNEL, oldChannel, newChannel);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setChannel(ChannelType newChannel)
+  {
+    if (newChannel != channel)
+    {
+      NotificationChain msgs = null;
+      if (channel != null)
+        msgs = ((InternalEObject)channel).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_LIT__CHANNEL, null, msgs);
+      if (newChannel != null)
+        msgs = ((InternalEObject)newChannel).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_LIT__CHANNEL, null, msgs);
+      msgs = basicSetChannel(newChannel, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_LIT__CHANNEL, newChannel, newChannel));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case GoPackage.TYPE_LIT__ARRAY:
+        return basicSetArray(null, msgs);
+      case GoPackage.TYPE_LIT__STRUCT:
+        return basicSetStruct(null, msgs);
+      case GoPackage.TYPE_LIT__POINTER:
+        return basicSetPointer(null, msgs);
+      case GoPackage.TYPE_LIT__FUNCTION:
+        return basicSetFunction(null, msgs);
+      case GoPackage.TYPE_LIT__INTYPE:
+        return basicSetIntype(null, msgs);
+      case GoPackage.TYPE_LIT__SLICE:
+        return basicSetSlice(null, msgs);
+      case GoPackage.TYPE_LIT__MAP:
+        return basicSetMap(null, msgs);
+      case GoPackage.TYPE_LIT__CHANNEL:
+        return basicSetChannel(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case GoPackage.TYPE_LIT__ARRAY:
+        return getArray();
+      case GoPackage.TYPE_LIT__STRUCT:
+        return getStruct();
+      case GoPackage.TYPE_LIT__POINTER:
+        return getPointer();
+      case GoPackage.TYPE_LIT__FUNCTION:
+        return getFunction();
+      case GoPackage.TYPE_LIT__INTYPE:
+        return getIntype();
+      case GoPackage.TYPE_LIT__SLICE:
+        return getSlice();
+      case GoPackage.TYPE_LIT__MAP:
+        return getMap();
+      case GoPackage.TYPE_LIT__CHANNEL:
+        return getChannel();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case GoPackage.TYPE_LIT__ARRAY:
+        setArray((ArrayType)newValue);
+        return;
+      case GoPackage.TYPE_LIT__STRUCT:
+        setStruct((StructType)newValue);
+        return;
+      case GoPackage.TYPE_LIT__POINTER:
+        setPointer((PointerType)newValue);
+        return;
+      case GoPackage.TYPE_LIT__FUNCTION:
+        setFunction((FunctionType)newValue);
+        return;
+      case GoPackage.TYPE_LIT__INTYPE:
+        setIntype((InterfaceType)newValue);
+        return;
+      case GoPackage.TYPE_LIT__SLICE:
+        setSlice((SliceType)newValue);
+        return;
+      case GoPackage.TYPE_LIT__MAP:
+        setMap((MapType)newValue);
+        return;
+      case GoPackage.TYPE_LIT__CHANNEL:
+        setChannel((ChannelType)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.TYPE_LIT__ARRAY:
+        setArray((ArrayType)null);
+        return;
+      case GoPackage.TYPE_LIT__STRUCT:
+        setStruct((StructType)null);
+        return;
+      case GoPackage.TYPE_LIT__POINTER:
+        setPointer((PointerType)null);
+        return;
+      case GoPackage.TYPE_LIT__FUNCTION:
+        setFunction((FunctionType)null);
+        return;
+      case GoPackage.TYPE_LIT__INTYPE:
+        setIntype((InterfaceType)null);
+        return;
+      case GoPackage.TYPE_LIT__SLICE:
+        setSlice((SliceType)null);
+        return;
+      case GoPackage.TYPE_LIT__MAP:
+        setMap((MapType)null);
+        return;
+      case GoPackage.TYPE_LIT__CHANNEL:
+        setChannel((ChannelType)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.TYPE_LIT__ARRAY:
+        return array != null;
+      case GoPackage.TYPE_LIT__STRUCT:
+        return struct != null;
+      case GoPackage.TYPE_LIT__POINTER:
+        return pointer != null;
+      case GoPackage.TYPE_LIT__FUNCTION:
+        return function != null;
+      case GoPackage.TYPE_LIT__INTYPE:
+        return intype != null;
+      case GoPackage.TYPE_LIT__SLICE:
+        return slice != null;
+      case GoPackage.TYPE_LIT__MAP:
+        return map != null;
+      case GoPackage.TYPE_LIT__CHANNEL:
+        return channel != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //TypeLitImpl

@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.go.BaseType;
 import org.xtext.example.mydsl.go.GoPackage;
@@ -28,7 +29,7 @@ import org.xtext.example.mydsl.go.PointerType;
  *
  * @generated
  */
-public class PointerTypeImpl extends TypeLitImpl implements PointerType
+public class PointerTypeImpl extends MinimalEObjectImpl.Container implements PointerType
 {
   /**
    * The cached value of the '{@link #getBasetype() <em>Basetype</em>}' containment reference.

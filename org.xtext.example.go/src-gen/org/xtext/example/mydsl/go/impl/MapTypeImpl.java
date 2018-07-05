@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.go.ElementType;
 import org.xtext.example.mydsl.go.GoPackage;
@@ -30,7 +31,7 @@ import org.xtext.example.mydsl.go.MapType;
  *
  * @generated
  */
-public class MapTypeImpl extends TypeLitImpl implements MapType
+public class MapTypeImpl extends MinimalEObjectImpl.Container implements MapType
 {
   /**
    * The cached value of the '{@link #getKeytype() <em>Keytype</em>}' containment reference.
