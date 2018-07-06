@@ -6,6 +6,7 @@ package org.xtext.example.mydsl.validation;
 import com.google.common.base.Objects;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.xbase.lib.InputOutput;
+import org.xtext.example.mydsl.go.BasicLit;
 import org.xtext.example.mydsl.go.ElementType;
 import org.xtext.example.mydsl.go.Expression;
 import org.xtext.example.mydsl.go.Expression2;
@@ -37,7 +38,6 @@ public class GoValidator extends AbstractGoValidator {
     Expression2 _exp = e.getExp();
     if ((_exp instanceof Expression2)) {
       if ((Objects.equal(e.getExp().getBop(), "||") || Objects.equal(e.getExp().getBop(), "&&"))) {
-        this.checkBooleanExp(e.getExp().getExpression());
       }
       String _bop = e.getExp().getBop();
       boolean _equals = Objects.equal(_bop, "+");
@@ -48,28 +48,13 @@ public class GoValidator extends AbstractGoValidator {
   }
   
   public void checkAritimeticOp(final Expression expression) {
-    String _intd = expression.getUp().getPr().getOp().getLiteral().getBasic().getIntd();
-    boolean _tripleNotEquals = (_intd != null);
-    if (_tripleNotEquals) {
-      String _intd_1 = expression.getUp().getPr().getOp().getLiteral().getBasic().getIntd();
-      String _plus = ("Test " + _intd_1);
-      this.info(_plus, null);
-    }
-  }
-  
-  public Object checkBooleanExp(final Expression expression) {
-    Object _xifexpression = null;
-    Expression2 _exp = expression.getExp();
-    boolean _tripleNotEquals = (_exp != null);
-    if (_tripleNotEquals) {
-      _xifexpression = this.checkBooleanExp(expression.getExp().getExpression());
-    } else {
-      if (((!Objects.equal(expression.getElemtype(), boolean.class)) && (expression.getElemtype() != null))) {
-        ElementType _elemtype = expression.getElemtype();
-        String _plus = ("Semantic Error: Invalid argument type" + _elemtype);
+    BasicLit bl = expression.getUp().getPr().getOp().getLiteral().getBasic();
+    if ((bl != null)) {
+      if ((((bl.getIntd() == null) && (bl.getFloatd() == null)) && (bl.getImagd() == null))) {
+        BasicLit _basic = expression.getUp().getPr().getOp().getLiteral().getBasic();
+        String _plus = ("Semantic Error: Invalid argument in arithmetic exp " + _basic);
         this.error(_plus, null);
       }
     }
-    return _xifexpression;
   }
 }

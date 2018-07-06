@@ -43,7 +43,7 @@ class GoValidator extends AbstractGoValidator {
 		if(e.exp instanceof Expression2) {
 			
 			if(e.exp.bop == "||" || e.exp.bop == "&&") {
-				checkBooleanExp(e.exp.expression)
+				//checkBooleanExp(e.exp.expression)
 			}
 			
 			if(e.exp.bop == "+") {
@@ -51,17 +51,20 @@ class GoValidator extends AbstractGoValidator {
 			}
 		}
 	}
-	
-	
-	
-	//TODO: Verificar a asserção de tipos na gramática
+
 	def checkAritimeticOp(Expression expression) {
-		if(expression.up.pr.op.literal.basic.intd !== null) {
-			info("Test " + expression.up.pr.op.literal.basic.intd, null)
+		
+		var bl = expression.up.pr.op.literal.basic
+		
+		if(bl !== null) {
+			if(bl.intd === null && bl.floatd  === null && bl.imagd === null) {
+				error("Semantic Error: Invalid argument in arithmetic exp " 
+					+ expression.up.pr.op.literal.basic, null)
+			}
 		}
 	}
 	
-	
+	/*
 	def checkBooleanExp(Expression expression) {
 		
 		if(expression.exp !== null) {
@@ -71,6 +74,6 @@ class GoValidator extends AbstractGoValidator {
 			error("Semantic Error: Invalid argument type" + expression.elemtype, null)
 		}
 		
-	}
+	} */
 	
 }
