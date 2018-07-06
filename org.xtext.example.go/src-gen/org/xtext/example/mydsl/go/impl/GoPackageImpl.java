@@ -16,6 +16,7 @@ import org.xtext.example.mydsl.go.ArrayLength;
 import org.xtext.example.mydsl.go.ArrayType;
 import org.xtext.example.mydsl.go.Assignment;
 import org.xtext.example.mydsl.go.BaseType;
+import org.xtext.example.mydsl.go.BasicLit;
 import org.xtext.example.mydsl.go.Block;
 import org.xtext.example.mydsl.go.Channel;
 import org.xtext.example.mydsl.go.ChannelType;
@@ -768,6 +769,13 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * @generated
    */
   private EClass elementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass basicLitEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -3325,9 +3333,9 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getLiteral_Basic()
+  public EReference getLiteral_Basic()
   {
-    return (EAttribute)literalEClass.getEStructuralFeatures().get(0);
+    return (EReference)literalEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3568,6 +3576,66 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
   public EClass getElement()
   {
     return elementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getBasicLit()
+  {
+    return basicLitEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBasicLit_Intd()
+  {
+    return (EAttribute)basicLitEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBasicLit_Floatd()
+  {
+    return (EAttribute)basicLitEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBasicLit_Imagd()
+  {
+    return (EAttribute)basicLitEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBasicLit_Runed()
+  {
+    return (EAttribute)basicLitEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBasicLit_Strd()
+  {
+    return (EAttribute)basicLitEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -4030,7 +4098,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     createEReference(argumentsEClass, ARGUMENTS__TYPE);
 
     literalEClass = createEClass(LITERAL);
-    createEAttribute(literalEClass, LITERAL__BASIC);
+    createEReference(literalEClass, LITERAL__BASIC);
     createEReference(literalEClass, LITERAL__CL);
     createEReference(literalEClass, LITERAL__FL);
 
@@ -4063,6 +4131,13 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     createEAttribute(keyEClass, KEY__FIELDN);
 
     elementEClass = createEClass(ELEMENT);
+
+    basicLitEClass = createEClass(BASIC_LIT);
+    createEAttribute(basicLitEClass, BASIC_LIT__INTD);
+    createEAttribute(basicLitEClass, BASIC_LIT__FLOATD);
+    createEAttribute(basicLitEClass, BASIC_LIT__IMAGD);
+    createEAttribute(basicLitEClass, BASIC_LIT__RUNED);
+    createEAttribute(basicLitEClass, BASIC_LIT__STRD);
 
     receiverTypeEClass = createEClass(RECEIVER_TYPE);
     createEAttribute(receiverTypeEClass, RECEIVER_TYPE__METHODN);
@@ -4481,7 +4556,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     initEReference(getArguments_Type(), this.getType(), null, "type", null, 0, 1, Arguments.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(literalEClass, Literal.class, "Literal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getLiteral_Basic(), ecorePackage.getEString(), "basic", null, 0, 1, Literal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLiteral_Basic(), this.getBasicLit(), null, "basic", null, 0, 1, Literal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLiteral_Cl(), this.getCompositeLit(), null, "cl", null, 0, 1, Literal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLiteral_Fl(), this.getFunctionLit(), null, "fl", null, 0, 1, Literal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -4514,6 +4589,13 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     initEAttribute(getKey_Fieldn(), ecorePackage.getEString(), "fieldn", null, 0, 1, Key.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(basicLitEClass, BasicLit.class, "BasicLit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBasicLit_Intd(), ecorePackage.getEString(), "intd", null, 0, 1, BasicLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBasicLit_Floatd(), ecorePackage.getEString(), "floatd", null, 0, 1, BasicLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBasicLit_Imagd(), ecorePackage.getEString(), "imagd", null, 0, 1, BasicLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBasicLit_Runed(), ecorePackage.getEString(), "runed", null, 0, 1, BasicLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBasicLit_Strd(), ecorePackage.getEString(), "strd", null, 0, 1, BasicLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(receiverTypeEClass, ReceiverType.class, "ReceiverType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getReceiverType_Methodn(), ecorePackage.getEString(), "methodn", null, 0, 1, ReceiverType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

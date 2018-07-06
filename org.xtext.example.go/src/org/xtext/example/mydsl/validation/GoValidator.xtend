@@ -56,6 +56,9 @@ class GoValidator extends AbstractGoValidator {
 	
 	//TODO: Verificar a asserção de tipos na gramática
 	def checkAritimeticOp(Expression expression) {
+		if(expression.up.pr.op.literal.basic.intd !== null) {
+			info("Test " + expression.up.pr.op.literal.basic.intd, null)
+		}
 	}
 	
 	

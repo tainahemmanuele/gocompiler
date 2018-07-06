@@ -158,6 +158,7 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
       case GoPackage.KEYED_ELEMENT: return createKeyedElement();
       case GoPackage.KEY: return createKey();
       case GoPackage.ELEMENT: return createElement();
+      case GoPackage.BASIC_LIT: return createBasicLit();
       case GoPackage.RECEIVER_TYPE: return createReceiverType();
       case GoPackage.FUNCTION_BODY: return createFunctionBody();
       case GoPackage.OPERAND_NAME: return createOperandName();
@@ -1188,6 +1189,17 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
   {
     ElementImpl element = new ElementImpl();
     return element;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BasicLit createBasicLit()
+  {
+    BasicLitImpl basicLit = new BasicLitImpl();
+    return basicLit;
   }
 
   /**

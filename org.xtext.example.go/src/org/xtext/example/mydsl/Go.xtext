@@ -768,14 +768,14 @@ Element:
 	Expression | LiteralValue;
 
 BasicLit:
-	  INT_LIT | FLOAT_LIT | IMAGINARY_LIT | RUNE_LIT | STRING;
+	  intd = INT_LIT | floatd = FLOAT_LIT | imagd = IMAGINARY_LIT | runed = RUNE_LIT | strd = STRING;
 
 ReceiverType:
 	type=Type;
 
 FunctionBody:
 	Block;
-
+	
 OperandName:
 	{OperandName} id=IDENTIFIER | {OperandName} qi=QualifiedIdent;
 

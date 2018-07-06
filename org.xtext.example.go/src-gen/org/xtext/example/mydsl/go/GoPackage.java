@@ -957,7 +957,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getFunctionBody()
    * @generated
    */
-  int FUNCTION_BODY = 94;
+  int FUNCTION_BODY = 95;
 
   /**
    * The number of structural features of the '<em>Function Body</em>' class.
@@ -3348,7 +3348,7 @@ public interface GoPackage extends EPackage
   int LITERAL = 84;
 
   /**
-   * The feature id for the '<em><b>Basic</b></em>' attribute.
+   * The feature id for the '<em><b>Basic</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -3707,6 +3707,70 @@ public interface GoPackage extends EPackage
   int ELEMENT_FEATURE_COUNT = 0;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.BasicLitImpl <em>Basic Lit</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.go.impl.BasicLitImpl
+   * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getBasicLit()
+   * @generated
+   */
+  int BASIC_LIT = 93;
+
+  /**
+   * The feature id for the '<em><b>Intd</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BASIC_LIT__INTD = 0;
+
+  /**
+   * The feature id for the '<em><b>Floatd</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BASIC_LIT__FLOATD = 1;
+
+  /**
+   * The feature id for the '<em><b>Imagd</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BASIC_LIT__IMAGD = 2;
+
+  /**
+   * The feature id for the '<em><b>Runed</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BASIC_LIT__RUNED = 3;
+
+  /**
+   * The feature id for the '<em><b>Strd</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BASIC_LIT__STRD = 4;
+
+  /**
+   * The number of structural features of the '<em>Basic Lit</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BASIC_LIT_FEATURE_COUNT = 5;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.ReceiverTypeImpl <em>Receiver Type</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3714,7 +3778,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getReceiverType()
    * @generated
    */
-  int RECEIVER_TYPE = 93;
+  int RECEIVER_TYPE = 94;
 
   /**
    * The feature id for the '<em><b>Methodn</b></em>' attribute.
@@ -3751,7 +3815,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getOperandName()
    * @generated
    */
-  int OPERAND_NAME = 95;
+  int OPERAND_NAME = 96;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3788,7 +3852,7 @@ public interface GoPackage extends EPackage
    * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getImportDecl()
    * @generated
    */
-  int IMPORT_DECL = 96;
+  int IMPORT_DECL = 97;
 
   /**
    * The feature id for the '<em><b>Imports</b></em>' attribute list.
@@ -6440,15 +6504,15 @@ public interface GoPackage extends EPackage
   EClass getLiteral();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.Literal#getBasic <em>Basic</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.Literal#getBasic <em>Basic</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Basic</em>'.
+   * @return the meta object for the containment reference '<em>Basic</em>'.
    * @see org.xtext.example.mydsl.go.Literal#getBasic()
    * @see #getLiteral()
    * @generated
    */
-  EAttribute getLiteral_Basic();
+  EReference getLiteral_Basic();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.Literal#getCl <em>Cl</em>}'.
@@ -6705,6 +6769,71 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getElement();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.go.BasicLit <em>Basic Lit</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Basic Lit</em>'.
+   * @see org.xtext.example.mydsl.go.BasicLit
+   * @generated
+   */
+  EClass getBasicLit();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.BasicLit#getIntd <em>Intd</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Intd</em>'.
+   * @see org.xtext.example.mydsl.go.BasicLit#getIntd()
+   * @see #getBasicLit()
+   * @generated
+   */
+  EAttribute getBasicLit_Intd();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.BasicLit#getFloatd <em>Floatd</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Floatd</em>'.
+   * @see org.xtext.example.mydsl.go.BasicLit#getFloatd()
+   * @see #getBasicLit()
+   * @generated
+   */
+  EAttribute getBasicLit_Floatd();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.BasicLit#getImagd <em>Imagd</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Imagd</em>'.
+   * @see org.xtext.example.mydsl.go.BasicLit#getImagd()
+   * @see #getBasicLit()
+   * @generated
+   */
+  EAttribute getBasicLit_Imagd();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.BasicLit#getRuned <em>Runed</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Runed</em>'.
+   * @see org.xtext.example.mydsl.go.BasicLit#getRuned()
+   * @see #getBasicLit()
+   * @generated
+   */
+  EAttribute getBasicLit_Runed();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.BasicLit#getStrd <em>Strd</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Strd</em>'.
+   * @see org.xtext.example.mydsl.go.BasicLit#getStrd()
+   * @see #getBasicLit()
+   * @generated
+   */
+  EAttribute getBasicLit_Strd();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.ReceiverType <em>Receiver Type</em>}'.
@@ -8974,12 +9103,12 @@ public interface GoPackage extends EPackage
     EClass LITERAL = eINSTANCE.getLiteral();
 
     /**
-     * The meta object literal for the '<em><b>Basic</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Basic</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute LITERAL__BASIC = eINSTANCE.getLiteral_Basic();
+    EReference LITERAL__BASIC = eINSTANCE.getLiteral_Basic();
 
     /**
      * The meta object literal for the '<em><b>Cl</b></em>' containment reference feature.
@@ -9188,6 +9317,56 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass ELEMENT = eINSTANCE.getElement();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.BasicLitImpl <em>Basic Lit</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.go.impl.BasicLitImpl
+     * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getBasicLit()
+     * @generated
+     */
+    EClass BASIC_LIT = eINSTANCE.getBasicLit();
+
+    /**
+     * The meta object literal for the '<em><b>Intd</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BASIC_LIT__INTD = eINSTANCE.getBasicLit_Intd();
+
+    /**
+     * The meta object literal for the '<em><b>Floatd</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BASIC_LIT__FLOATD = eINSTANCE.getBasicLit_Floatd();
+
+    /**
+     * The meta object literal for the '<em><b>Imagd</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BASIC_LIT__IMAGD = eINSTANCE.getBasicLit_Imagd();
+
+    /**
+     * The meta object literal for the '<em><b>Runed</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BASIC_LIT__RUNED = eINSTANCE.getBasicLit_Runed();
+
+    /**
+     * The meta object literal for the '<em><b>Strd</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BASIC_LIT__STRD = eINSTANCE.getBasicLit_Strd();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.ReceiverTypeImpl <em>Receiver Type</em>}' class.

@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.xtext.example.mydsl.go.BasicLit;
 import org.xtext.example.mydsl.go.CompositeLit;
 import org.xtext.example.mydsl.go.FunctionLit;
 import org.xtext.example.mydsl.go.GoPackage;
@@ -35,24 +36,14 @@ import org.xtext.example.mydsl.go.Literal;
 public class LiteralImpl extends MinimalEObjectImpl.Container implements Literal
 {
   /**
-   * The default value of the '{@link #getBasic() <em>Basic</em>}' attribute.
+   * The cached value of the '{@link #getBasic() <em>Basic</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getBasic()
    * @generated
    * @ordered
    */
-  protected static final String BASIC_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getBasic() <em>Basic</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getBasic()
-   * @generated
-   * @ordered
-   */
-  protected String basic = BASIC_EDEFAULT;
+  protected BasicLit basic;
 
   /**
    * The cached value of the '{@link #getCl() <em>Cl</em>}' containment reference.
@@ -100,7 +91,7 @@ public class LiteralImpl extends MinimalEObjectImpl.Container implements Literal
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getBasic()
+  public BasicLit getBasic()
   {
     return basic;
   }
@@ -110,12 +101,37 @@ public class LiteralImpl extends MinimalEObjectImpl.Container implements Literal
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setBasic(String newBasic)
+  public NotificationChain basicSetBasic(BasicLit newBasic, NotificationChain msgs)
   {
-    String oldBasic = basic;
+    BasicLit oldBasic = basic;
     basic = newBasic;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.LITERAL__BASIC, oldBasic, basic));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.LITERAL__BASIC, oldBasic, newBasic);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBasic(BasicLit newBasic)
+  {
+    if (newBasic != basic)
+    {
+      NotificationChain msgs = null;
+      if (basic != null)
+        msgs = ((InternalEObject)basic).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.LITERAL__BASIC, null, msgs);
+      if (newBasic != null)
+        msgs = ((InternalEObject)newBasic).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.LITERAL__BASIC, null, msgs);
+      msgs = basicSetBasic(newBasic, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.LITERAL__BASIC, newBasic, newBasic));
   }
 
   /**
@@ -224,6 +240,8 @@ public class LiteralImpl extends MinimalEObjectImpl.Container implements Literal
   {
     switch (featureID)
     {
+      case GoPackage.LITERAL__BASIC:
+        return basicSetBasic(null, msgs);
       case GoPackage.LITERAL__CL:
         return basicSetCl(null, msgs);
       case GoPackage.LITERAL__FL:
@@ -263,7 +281,7 @@ public class LiteralImpl extends MinimalEObjectImpl.Container implements Literal
     switch (featureID)
     {
       case GoPackage.LITERAL__BASIC:
-        setBasic((String)newValue);
+        setBasic((BasicLit)newValue);
         return;
       case GoPackage.LITERAL__CL:
         setCl((CompositeLit)newValue);
@@ -286,7 +304,7 @@ public class LiteralImpl extends MinimalEObjectImpl.Container implements Literal
     switch (featureID)
     {
       case GoPackage.LITERAL__BASIC:
-        setBasic(BASIC_EDEFAULT);
+        setBasic((BasicLit)null);
         return;
       case GoPackage.LITERAL__CL:
         setCl((CompositeLit)null);
@@ -309,30 +327,13 @@ public class LiteralImpl extends MinimalEObjectImpl.Container implements Literal
     switch (featureID)
     {
       case GoPackage.LITERAL__BASIC:
-        return BASIC_EDEFAULT == null ? basic != null : !BASIC_EDEFAULT.equals(basic);
+        return basic != null;
       case GoPackage.LITERAL__CL:
         return cl != null;
       case GoPackage.LITERAL__FL:
         return fl != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (basic: ");
-    result.append(basic);
-    result.append(')');
-    return result.toString();
   }
 
 } //LiteralImpl

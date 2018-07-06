@@ -406,6 +406,11 @@ public class GoParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getElementListAccess().getKeyedelementAssignment_1_1(), "rule__ElementList__KeyedelementAssignment_1_1");
 			builder.put(grammarAccess.getKeyedElementAccess().getElementAssignment_1(), "rule__KeyedElement__ElementAssignment_1");
 			builder.put(grammarAccess.getKeyAccess().getFieldnAssignment_0_1(), "rule__Key__FieldnAssignment_0_1");
+			builder.put(grammarAccess.getBasicLitAccess().getIntdAssignment_0(), "rule__BasicLit__IntdAssignment_0");
+			builder.put(grammarAccess.getBasicLitAccess().getFloatdAssignment_1(), "rule__BasicLit__FloatdAssignment_1");
+			builder.put(grammarAccess.getBasicLitAccess().getImagdAssignment_2(), "rule__BasicLit__ImagdAssignment_2");
+			builder.put(grammarAccess.getBasicLitAccess().getRunedAssignment_3(), "rule__BasicLit__RunedAssignment_3");
+			builder.put(grammarAccess.getBasicLitAccess().getStrdAssignment_4(), "rule__BasicLit__StrdAssignment_4");
 			builder.put(grammarAccess.getReceiverTypeAccess().getTypeAssignment(), "rule__ReceiverType__TypeAssignment");
 			builder.put(grammarAccess.getOperandNameAccess().getIdAssignment_0_1(), "rule__OperandName__IdAssignment_0_1");
 			builder.put(grammarAccess.getOperandNameAccess().getQiAssignment_1_1(), "rule__OperandName__QiAssignment_1_1");

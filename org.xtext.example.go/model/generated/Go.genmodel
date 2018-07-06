@@ -317,7 +317,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Arguments/type"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//Literal">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//Literal/basic"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Literal/basic"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Literal/cl"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Literal/fl"/>
     </genClasses>
@@ -349,6 +349,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//Key/fieldn"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//Element"/>
+    <genClasses ecoreClass="Go.ecore#//BasicLit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//BasicLit/intd"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//BasicLit/floatd"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//BasicLit/imagd"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//BasicLit/runed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//BasicLit/strd"/>
+    </genClasses>
     <genClasses ecoreClass="Go.ecore#//ReceiverType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//ReceiverType/methodn"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ReceiverType/type"/>

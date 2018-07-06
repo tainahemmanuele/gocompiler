@@ -4224,33 +4224,53 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	public class BasicLitElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.BasicLit");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cINT_LITTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cFLOAT_LITTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cIMAGINARY_LITParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cRUNE_LITParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cSTRINGTerminalRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final Assignment cIntdAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cIntdINT_LITTerminalRuleCall_0_0 = (RuleCall)cIntdAssignment_0.eContents().get(0);
+		private final Assignment cFloatdAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cFloatdFLOAT_LITTerminalRuleCall_1_0 = (RuleCall)cFloatdAssignment_1.eContents().get(0);
+		private final Assignment cImagdAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
+		private final RuleCall cImagdIMAGINARY_LITParserRuleCall_2_0 = (RuleCall)cImagdAssignment_2.eContents().get(0);
+		private final Assignment cRunedAssignment_3 = (Assignment)cAlternatives.eContents().get(3);
+		private final RuleCall cRunedRUNE_LITParserRuleCall_3_0 = (RuleCall)cRunedAssignment_3.eContents().get(0);
+		private final Assignment cStrdAssignment_4 = (Assignment)cAlternatives.eContents().get(4);
+		private final RuleCall cStrdSTRINGTerminalRuleCall_4_0 = (RuleCall)cStrdAssignment_4.eContents().get(0);
 		
 		//BasicLit:
-		//	INT_LIT | FLOAT_LIT | IMAGINARY_LIT | RUNE_LIT | STRING;
+		//	intd=INT_LIT | floatd=FLOAT_LIT | imagd=IMAGINARY_LIT | runed=RUNE_LIT | strd=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//INT_LIT | FLOAT_LIT | IMAGINARY_LIT | RUNE_LIT | STRING
+		//intd=INT_LIT | floatd=FLOAT_LIT | imagd=IMAGINARY_LIT | runed=RUNE_LIT | strd=STRING
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
+		//intd=INT_LIT
+		public Assignment getIntdAssignment_0() { return cIntdAssignment_0; }
+		
 		//INT_LIT
-		public RuleCall getINT_LITTerminalRuleCall_0() { return cINT_LITTerminalRuleCall_0; }
+		public RuleCall getIntdINT_LITTerminalRuleCall_0_0() { return cIntdINT_LITTerminalRuleCall_0_0; }
+		
+		//floatd=FLOAT_LIT
+		public Assignment getFloatdAssignment_1() { return cFloatdAssignment_1; }
 		
 		//FLOAT_LIT
-		public RuleCall getFLOAT_LITTerminalRuleCall_1() { return cFLOAT_LITTerminalRuleCall_1; }
+		public RuleCall getFloatdFLOAT_LITTerminalRuleCall_1_0() { return cFloatdFLOAT_LITTerminalRuleCall_1_0; }
+		
+		//imagd=IMAGINARY_LIT
+		public Assignment getImagdAssignment_2() { return cImagdAssignment_2; }
 		
 		//IMAGINARY_LIT
-		public RuleCall getIMAGINARY_LITParserRuleCall_2() { return cIMAGINARY_LITParserRuleCall_2; }
+		public RuleCall getImagdIMAGINARY_LITParserRuleCall_2_0() { return cImagdIMAGINARY_LITParserRuleCall_2_0; }
+		
+		//runed=RUNE_LIT
+		public Assignment getRunedAssignment_3() { return cRunedAssignment_3; }
 		
 		//RUNE_LIT
-		public RuleCall getRUNE_LITParserRuleCall_3() { return cRUNE_LITParserRuleCall_3; }
+		public RuleCall getRunedRUNE_LITParserRuleCall_3_0() { return cRunedRUNE_LITParserRuleCall_3_0; }
+		
+		//strd=STRING
+		public Assignment getStrdAssignment_4() { return cStrdAssignment_4; }
 		
 		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_4() { return cSTRINGTerminalRuleCall_4; }
+		public RuleCall getStrdSTRINGTerminalRuleCall_4_0() { return cStrdSTRINGTerminalRuleCall_4_0; }
 	}
 	public class ReceiverTypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.ReceiverType");
@@ -6182,7 +6202,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//BasicLit:
-	//	INT_LIT | FLOAT_LIT | IMAGINARY_LIT | RUNE_LIT | STRING;
+	//	intd=INT_LIT | floatd=FLOAT_LIT | imagd=IMAGINARY_LIT | runed=RUNE_LIT | strd=STRING;
 	public BasicLitElements getBasicLitAccess() {
 		return pBasicLit;
 	}

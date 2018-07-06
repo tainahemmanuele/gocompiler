@@ -541,6 +541,11 @@ public class GoAdapterFactory extends AdapterFactoryImpl
         return createElementAdapter();
       }
       @Override
+      public Adapter caseBasicLit(BasicLit object)
+      {
+        return createBasicLitAdapter();
+      }
+      @Override
       public Adapter caseReceiverType(ReceiverType object)
       {
         return createReceiverTypeAdapter();
@@ -1973,6 +1978,21 @@ public class GoAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.go.BasicLit <em>Basic Lit</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.go.BasicLit
+   * @generated
+   */
+  public Adapter createBasicLitAdapter()
   {
     return null;
   }

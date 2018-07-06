@@ -33,30 +33,28 @@ public class GoValidator extends AbstractGoValidator {
   }
   
   @Check
-  public Object checkExpression(final Expression e) {
-    Object _xifexpression = null;
+  public void checkExpression(final Expression e) {
     Expression2 _exp = e.getExp();
     if ((_exp instanceof Expression2)) {
-      Object _xblockexpression = null;
-      {
-        if ((Objects.equal(e.getExp().getBop(), "||") || Objects.equal(e.getExp().getBop(), "&&"))) {
-          this.checkBooleanExp(e.getExp().getExpression());
-        }
-        Object _xifexpression_1 = null;
-        String _bop = e.getExp().getBop();
-        boolean _equals = Objects.equal(_bop, "+");
-        if (_equals) {
-          _xifexpression_1 = this.checkAritimeticOp(e.getExp().getExpression());
-        }
-        _xblockexpression = _xifexpression_1;
+      if ((Objects.equal(e.getExp().getBop(), "||") || Objects.equal(e.getExp().getBop(), "&&"))) {
+        this.checkBooleanExp(e.getExp().getExpression());
       }
-      _xifexpression = _xblockexpression;
+      String _bop = e.getExp().getBop();
+      boolean _equals = Objects.equal(_bop, "+");
+      if (_equals) {
+        this.checkAritimeticOp(e.getExp().getExpression());
+      }
     }
-    return _xifexpression;
   }
   
-  public Object checkAritimeticOp(final Expression expression) {
-    return null;
+  public void checkAritimeticOp(final Expression expression) {
+    String _intd = expression.getUp().getPr().getOp().getLiteral().getBasic().getIntd();
+    boolean _tripleNotEquals = (_intd != null);
+    if (_tripleNotEquals) {
+      String _intd_1 = expression.getUp().getPr().getOp().getLiteral().getBasic().getIntd();
+      String _plus = ("Test " + _intd_1);
+      this.info(_plus, null);
+    }
   }
   
   public Object checkBooleanExp(final Expression expression) {

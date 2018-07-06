@@ -17,6 +17,7 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransi
 import org.xtext.example.mydsl.go.AliasDecl;
 import org.xtext.example.mydsl.go.Arguments;
 import org.xtext.example.mydsl.go.Assignment;
+import org.xtext.example.mydsl.go.BasicLit;
 import org.xtext.example.mydsl.go.Channel;
 import org.xtext.example.mydsl.go.ChannelType;
 import org.xtext.example.mydsl.go.CommCase;
@@ -114,6 +115,9 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case GoPackage.ASSIGNMENT:
 				sequence_Assignment(context, (Assignment) semanticObject); 
+				return; 
+			case GoPackage.BASIC_LIT:
+				sequence_BasicLit(context, (BasicLit) semanticObject); 
 				return; 
 			case GoPackage.CHANNEL:
 				sequence_Channel(context, (Channel) semanticObject); 
@@ -502,6 +506,18 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		feeder.accept(grammarAccess.getAssignmentAccess().getAsopASSING_OPTerminalRuleCall_2_0(), semanticObject.getAsop());
 		feeder.accept(grammarAccess.getAssignmentAccess().getExpressionlist2ExpressionListParserRuleCall_3_0(), semanticObject.getExpressionlist2());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     BasicLit returns BasicLit
+	 *
+	 * Constraint:
+	 *     (intd=INT_LIT | floatd=FLOAT_LIT | imagd=IMAGINARY_LIT | runed=RUNE_LIT | strd=STRING)
+	 */
+	protected void sequence_BasicLit(ISerializationContext context, BasicLit semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
