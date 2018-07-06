@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.mydsl.go.UnaryExpr#getPr <em>Pr</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.UnaryExpr#getUp <em>Up</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.UnaryExpr#getUe <em>Ue</em>}</li>
  * </ul>
@@ -24,6 +25,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface UnaryExpr extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Pr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Pr</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Pr</em>' containment reference.
+   * @see #setPr(PrimaryExpr)
+   * @see org.xtext.example.mydsl.go.GoPackage#getUnaryExpr_Pr()
+   * @model containment="true"
+   * @generated
+   */
+  PrimaryExpr getPr();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.UnaryExpr#getPr <em>Pr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Pr</em>' containment reference.
+   * @see #getPr()
+   * @generated
+   */
+  void setPr(PrimaryExpr value);
+
   /**
    * Returns the value of the '<em><b>Up</b></em>' attribute.
    * <!-- begin-user-doc -->

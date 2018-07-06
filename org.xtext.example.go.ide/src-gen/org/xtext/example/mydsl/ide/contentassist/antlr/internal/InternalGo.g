@@ -3877,9 +3877,9 @@ rule__UnaryExpr__Alternatives
 	}
 :
 	(
-		{ before(grammarAccess.getUnaryExprAccess().getPrimaryExprParserRuleCall_0()); }
-		rulePrimaryExpr
-		{ after(grammarAccess.getUnaryExprAccess().getPrimaryExprParserRuleCall_0()); }
+		{ before(grammarAccess.getUnaryExprAccess().getPrAssignment_0()); }
+		(rule__UnaryExpr__PrAssignment_0)
+		{ after(grammarAccess.getUnaryExprAccess().getPrAssignment_0()); }
 	)
 	|
 	(
@@ -17125,6 +17125,21 @@ rule__Expression2__Expression2Assignment_1_2
 		{ before(grammarAccess.getExpression2Access().getExpression2Expression2ParserRuleCall_1_2_0()); }
 		ruleExpression2
 		{ after(grammarAccess.getExpression2Access().getExpression2Expression2ParserRuleCall_1_2_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__UnaryExpr__PrAssignment_0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getUnaryExprAccess().getPrPrimaryExprParserRuleCall_0_0()); }
+		rulePrimaryExpr
+		{ after(grammarAccess.getUnaryExprAccess().getPrPrimaryExprParserRuleCall_0_0()); }
 	)
 ;
 finally {

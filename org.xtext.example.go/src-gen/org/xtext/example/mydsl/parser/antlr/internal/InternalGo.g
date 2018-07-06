@@ -6022,17 +6022,25 @@ ruleUnaryExpr returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		{
-			/* */
-		}
-		{
-			newCompositeNode(grammarAccess.getUnaryExprAccess().getPrimaryExprParserRuleCall_0());
-		}
-		this_PrimaryExpr_0=rulePrimaryExpr
-		{
-			$current = $this_PrimaryExpr_0.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getUnaryExprAccess().getPrPrimaryExprParserRuleCall_0_0());
+				}
+				lv_pr_0_0=rulePrimaryExpr
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getUnaryExprRule());
+					}
+					set(
+						$current,
+						"pr",
+						lv_pr_0_0,
+						"org.xtext.example.mydsl.Go.PrimaryExpr");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 		    |
 		(
 			(

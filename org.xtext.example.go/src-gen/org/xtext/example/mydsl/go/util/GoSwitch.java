@@ -648,7 +648,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         PrimaryExpr primaryExpr = (PrimaryExpr)theEObject;
         T result = casePrimaryExpr(primaryExpr);
-        if (result == null) result = caseUnaryExpr(primaryExpr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

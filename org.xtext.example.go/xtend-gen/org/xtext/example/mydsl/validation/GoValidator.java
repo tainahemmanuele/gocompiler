@@ -3,6 +3,13 @@
  */
 package org.xtext.example.mydsl.validation;
 
+import com.google.common.base.Objects;
+import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.InputOutput;
+import org.xtext.example.mydsl.go.ElementType;
+import org.xtext.example.mydsl.go.Expression;
+import org.xtext.example.mydsl.go.Expression2;
+import org.xtext.example.mydsl.go.ForStmt;
 import org.xtext.example.mydsl.validation.AbstractGoValidator;
 
 /**
@@ -12,4 +19,59 @@ import org.xtext.example.mydsl.validation.AbstractGoValidator;
  */
 @SuppressWarnings("all")
 public class GoValidator extends AbstractGoValidator {
+  public static void main(final String[] args) {
+    InputOutput.<String>println("Hello World");
+  }
+  
+  @Check
+  public void checkFor(final ForStmt fors) {
+    ElementType _elemtype = fors.getCondition().getExp().getElemtype();
+    boolean _notEquals = (!Objects.equal(_elemtype, boolean.class));
+    if (_notEquals) {
+      this.error("Semantic Error: for condition must be boolean", null);
+    }
+  }
+  
+  @Check
+  public Object checkExpression(final Expression e) {
+    Object _xifexpression = null;
+    Expression2 _exp = e.getExp();
+    if ((_exp instanceof Expression2)) {
+      Object _xblockexpression = null;
+      {
+        if ((Objects.equal(e.getExp().getBop(), "||") || Objects.equal(e.getExp().getBop(), "&&"))) {
+          this.checkBooleanExp(e.getExp().getExpression());
+        }
+        Object _xifexpression_1 = null;
+        String _bop = e.getExp().getBop();
+        boolean _equals = Objects.equal(_bop, "+");
+        if (_equals) {
+          _xifexpression_1 = this.checkAritimeticOp(e.getExp().getExpression());
+        }
+        _xblockexpression = _xifexpression_1;
+      }
+      _xifexpression = _xblockexpression;
+    }
+    return _xifexpression;
+  }
+  
+  public Object checkAritimeticOp(final Expression expression) {
+    return null;
+  }
+  
+  public Object checkBooleanExp(final Expression expression) {
+    Object _xifexpression = null;
+    Expression2 _exp = expression.getExp();
+    boolean _tripleNotEquals = (_exp != null);
+    if (_tripleNotEquals) {
+      _xifexpression = this.checkBooleanExp(expression.getExp().getExpression());
+    } else {
+      if (((!Objects.equal(expression.getElemtype(), boolean.class)) && (expression.getElemtype() != null))) {
+        ElementType _elemtype = expression.getElemtype();
+        String _plus = ("Semantic Error: Invalid argument type" + _elemtype);
+        this.error(_plus, null);
+      }
+    }
+    return _xifexpression;
+  }
 }

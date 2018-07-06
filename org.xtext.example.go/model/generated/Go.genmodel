@@ -273,6 +273,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Expression2/expression2"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//UnaryExpr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//UnaryExpr/pr"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//UnaryExpr/up"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//UnaryExpr/ue"/>
     </genClasses>

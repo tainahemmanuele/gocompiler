@@ -2965,9 +2965,19 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getUnaryExpr_Pr()
+  {
+    return (EReference)unaryExprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getUnaryExpr_Up()
   {
-    return (EAttribute)unaryExprEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)unaryExprEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2977,7 +2987,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    */
   public EReference getUnaryExpr_Ue()
   {
-    return (EReference)unaryExprEClass.getEStructuralFeatures().get(1);
+    return (EReference)unaryExprEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -3974,6 +3984,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     createEReference(expression2EClass, EXPRESSION2__EXPRESSION2);
 
     unaryExprEClass = createEClass(UNARY_EXPR);
+    createEReference(unaryExprEClass, UNARY_EXPR__PR);
     createEAttribute(unaryExprEClass, UNARY_EXPR__UP);
     createEReference(unaryExprEClass, UNARY_EXPR__UE);
 
@@ -4133,7 +4144,6 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     expressionEClass.getESuperTypes().add(this.getDeferStmt());
     expressionEClass.getESuperTypes().add(this.getKey());
     expressionEClass.getESuperTypes().add(this.getElement());
-    primaryExprEClass.getESuperTypes().add(this.getUnaryExpr());
     literalValueEClass.getESuperTypes().add(this.getKey());
     literalValueEClass.getESuperTypes().add(this.getElement());
     keyedElementEClass.getESuperTypes().add(this.getElementList());
@@ -4425,6 +4435,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     initEReference(getExpression2_Expression2(), this.getExpression2(), null, "expression2", null, 0, 1, Expression2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(unaryExprEClass, UnaryExpr.class, "UnaryExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getUnaryExpr_Pr(), this.getPrimaryExpr(), null, "pr", null, 0, 1, UnaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getUnaryExpr_Up(), ecorePackage.getEString(), "up", null, 0, 1, UnaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUnaryExpr_Ue(), this.getUnaryExpr(), null, "ue", null, 0, 1, UnaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

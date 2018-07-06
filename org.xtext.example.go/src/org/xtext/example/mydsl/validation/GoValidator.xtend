@@ -3,6 +3,11 @@
  */
 package org.xtext.example.mydsl.validation
 
+import org.xtext.example.mydsl.go.IdentifierList
+import org.eclipse.xtext.validation.Check
+import org.xtext.example.mydsl.go.*
+import org.xtext.example.mydsl.go.Expression2
+import org.xtext.example.mydsl.go.Expression
 
 /**
  * This class contains custom validation rules. 
@@ -21,5 +26,48 @@ class GoValidator extends AbstractGoValidator {
 //					INVALID_NAME)
 //		}
 //	}
+
+	def static void main(String[] args) {
+	 println("Hello World")
+	}
+
+	@Check
+	def checkFor(ForStmt fors) {
+		if(fors.condition.exp.elemtype != boolean) {
+			error("Semantic Error: for condition must be boolean", null)
+		}
+	}
+	
+	@Check
+	def checkExpression(Expression e) {
+		if(e.exp instanceof Expression2) {
+			
+			if(e.exp.bop == "||" || e.exp.bop == "&&") {
+				checkBooleanExp(e.exp.expression)
+			}
+			
+			if(e.exp.bop == "+") {
+				checkAritimeticOp(e.exp.expression)
+			}
+		}
+	}
+	
+	
+	
+	//TODO: Verificar a asserção de tipos na gramática
+	def checkAritimeticOp(Expression expression) {
+	}
+	
+	
+	def checkBooleanExp(Expression expression) {
+		
+		if(expression.exp !== null) {
+			checkBooleanExp(expression.exp.expression)
+			
+		} else if(expression.elemtype != boolean && expression.elemtype !== null) {
+			error("Semantic Error: Invalid argument type" + expression.elemtype, null)
+		}
+		
+	}
 	
 }

@@ -3267,7 +3267,8 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	public class UnaryExprElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.UnaryExpr");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cPrimaryExprParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final Assignment cPrAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cPrPrimaryExprParserRuleCall_0_0 = (RuleCall)cPrAssignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Assignment cUpAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
 		private final RuleCall cUpUNARY_OPTerminalRuleCall_1_0_0 = (RuleCall)cUpAssignment_1_0.eContents().get(0);
@@ -3275,14 +3276,17 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cUeUnaryExprParserRuleCall_1_1_0 = (RuleCall)cUeAssignment_1_1.eContents().get(0);
 		
 		//UnaryExpr:
-		//	PrimaryExpr | up=UNARY_OP ue=UnaryExpr;
+		//	pr=PrimaryExpr | up=UNARY_OP ue=UnaryExpr;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//PrimaryExpr | up=UNARY_OP ue=UnaryExpr
+		//pr=PrimaryExpr | up=UNARY_OP ue=UnaryExpr
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
+		//pr=PrimaryExpr
+		public Assignment getPrAssignment_0() { return cPrAssignment_0; }
+		
 		//PrimaryExpr
-		public RuleCall getPrimaryExprParserRuleCall_0() { return cPrimaryExprParserRuleCall_0; }
+		public RuleCall getPrPrimaryExprParserRuleCall_0_0() { return cPrPrimaryExprParserRuleCall_0_0; }
 		
 		//up=UNARY_OP ue=UnaryExpr
 		public Group getGroup_1() { return cGroup_1; }
@@ -5962,7 +5966,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//UnaryExpr:
-	//	PrimaryExpr | up=UNARY_OP ue=UnaryExpr;
+	//	pr=PrimaryExpr | up=UNARY_OP ue=UnaryExpr;
 	public UnaryExprElements getUnaryExprAccess() {
 		return pUnaryExpr;
 	}
