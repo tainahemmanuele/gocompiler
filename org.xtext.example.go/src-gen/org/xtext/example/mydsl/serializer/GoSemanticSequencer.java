@@ -438,7 +438,7 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GoPackage.Literals.TYPE_SPEC__TP));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAliasDeclAccess().getIdIDENTIFIERParserRuleCall_1_0(), semanticObject.getId());
+		feeder.accept(grammarAccess.getAliasDeclAccess().getIdIDENTIFIERTerminalRuleCall_1_0(), semanticObject.getId());
 		feeder.accept(grammarAccess.getAliasDeclAccess().getTpTypeParserRuleCall_3_0(), semanticObject.getTp());
 		feeder.finish();
 	}
@@ -1662,7 +1662,7 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GoPackage.Literals.TYPE_SPEC__TP));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTypeDefAccess().getIdIDENTIFIERParserRuleCall_0_0(), semanticObject.getId());
+		feeder.accept(grammarAccess.getTypeDefAccess().getIdIDENTIFIERTerminalRuleCall_0_0(), semanticObject.getId());
 		feeder.accept(grammarAccess.getTypeDefAccess().getTpTypeParserRuleCall_1_0(), semanticObject.getTp());
 		feeder.finish();
 	}

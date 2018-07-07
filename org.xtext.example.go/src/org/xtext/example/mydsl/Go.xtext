@@ -302,10 +302,6 @@ terminal UNICODE_LETTER:
 	//Completo
 ;
 
-terminal UNICODE_DIGIT:
-	('\u0041-\u005A')
-	/* a Unicode code point classified as "Number, decimal digit" */;
-
 KEYWORDS:
 	'break'
 	| 'default'
@@ -337,10 +333,10 @@ terminal BINARY_OP:
 	"||" | "&&" | REL_OP | ADD_OP | MUL_OP;
 
 terminal REL_OP:
-	"==" | "!=" | "<" | "<=" | ">" | ">="| ':=';
+	"==" | "!=" | "<" | "<=" | ">" | ">=";
 
 terminal ADD_OP:
-	"+" | "-" | "|" | "^" | "++" |"--";
+	"+" | "-" | "|" | "^";
 
 terminal MUL_OP:
 	"*" | "/" | "%" | "<<" | ">>" | "&" | "&^";
@@ -349,11 +345,7 @@ terminal UNARY_OP:
 	"+" | "-" | "!" | "^" | "*" | "&" | "<-";
 
 terminal ASSING_OP:
-	 '=' |'+=' | '-=' | '*='| '^=';
-
-terminal LETTER:
-	UNICODE_LETTER
-	| ID;
+	 '=' |'+=' | '-=' | '*='| '^=' | ':=';
 
 terminal DECIMAL_DIGIT:
 	INT;
@@ -365,8 +357,8 @@ terminal HEX_DIGIT:
 	('0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9') | ('A' | 'B' | 'C' | 'D' | 'E' | 'F') | ('a' | 'b' | 'c'
 	| 'd' | 'e' | 'f');
 
-IDENTIFIER:
-	LETTER (LETTER | UNICODE_DIGIT)*;
+terminal IDENTIFIER:
+	ID;
 
 terminal INT_LIT:
 	DECIMAL_LIT | OCTAL_LIT | HEX_LIT;
@@ -596,7 +588,7 @@ AliasDecl: {AliasDecl}
 	id=IDENTIFIER '=' tp=Type;
 
 VarDecl:
-	{VarDecl} 'var' (varspec=VarSpec | '(' (varspec2+=VarSpec ';' )* ')');
+	{VarDecl} 'var' (varspec=VarSpec | '(' (varspec2+=VarSpec (';')? )* ')');
 
 VarSpec:
 	id=IdentifierList (tp2=Type)? ('=' expressionlist=ExpressionList)?;
