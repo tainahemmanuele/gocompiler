@@ -4,14 +4,20 @@
 package org.xtext.example.mydsl.validation;
 
 import com.google.common.base.Objects;
+import java.util.LinkedHashMap;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.CollectionLiterals;
+import org.eclipse.xtext.xbase.lib.ExclusiveRange;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.xtext.example.mydsl.go.BasicLit;
 import org.xtext.example.mydsl.go.ElementType;
 import org.xtext.example.mydsl.go.Expression;
 import org.xtext.example.mydsl.go.Expression2;
 import org.xtext.example.mydsl.go.ForStmt;
+import org.xtext.example.mydsl.go.VarSpec;
 import org.xtext.example.mydsl.validation.AbstractGoValidator;
+import org.xtext.example.mydsl.validation.util.Typer;
 
 /**
  * This class contains custom validation rules.
@@ -20,6 +26,8 @@ import org.xtext.example.mydsl.validation.AbstractGoValidator;
  */
 @SuppressWarnings("all")
 public class GoValidator extends AbstractGoValidator {
+  private final LinkedHashMap<Object, Object> ids = CollectionLiterals.<Object, Object>newLinkedHashMap();
+  
   public static void main(final String[] args) {
     InputOutput.<String>println("Hello World");
   }
@@ -54,6 +62,58 @@ public class GoValidator extends AbstractGoValidator {
         BasicLit _basic = expression.getUp().getPr().getOp().getLiteral().getBasic();
         String _plus = ("Semantic Error: Invalid argument in arithmetic exp " + _basic);
         this.error(_plus, null);
+      }
+    }
+  }
+  
+  /**
+   * def checkBooleanExp(Expression expression) {
+   * 
+   * if(expression.exp !== null) {
+   * checkBooleanExp(expression.exp.expression)
+   * 
+   * } else if(expression.elemtype != boolean && expression.elemtype !== null) {
+   * error("Semantic Error: Invalid argument type" + expression.elemtype, null)
+   * }
+   * 
+   * }
+   */
+  @Check
+  public void checkVarSpec(final VarSpec varspec) {
+    String type = varspec.getTp2().getTp().toString().toLowerCase();
+    InputOutput.<String>println(("Tipo passado: " + type));
+    InputOutput.<String>print("Não nulo: ");
+    InputOutput.<Boolean>println(Boolean.valueOf((type != null)));
+    if ((type != null)) {
+      InputOutput.<String>println("Entrou no if");
+      String typeExp = Typer.typeExp(varspec.getExpressionlist().getExp());
+      InputOutput.<String>println(("Tipo Exp: " + typeExp));
+      InputOutput.<Boolean>println(Boolean.valueOf((typeExp != type)));
+      InputOutput.<Boolean>println(Boolean.valueOf(Typer.typeLargerThan(type, typeExp)));
+      if (((!Objects.equal(typeExp, type)) || Typer.typeLargerThan(type, typeExp))) {
+        String _id = varspec.getId().getId();
+        String _plus = ("Semantic Error: Variable " + _id);
+        String _plus_1 = (_plus + " and Expression type mismatching");
+        this.error(_plus_1, null);
+      }
+      EList<Expression> explist = varspec.getExpressionlist().getExpression2();
+      EList<String> varlist = varspec.getId().getId2();
+      int _size = explist.size();
+      ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _size, true);
+      for (final Integer i : _doubleDotLessThan) {
+        {
+          typeExp = Typer.typeExp(explist.get((i).intValue()));
+          if (((!Objects.equal(typeExp, type)) || Typer.typeLargerThan(type, typeExp))) {
+            String _get = varlist.get((i).intValue());
+            String _plus_2 = ("Semantic Error: Variable " + _get);
+            String _plus_3 = (_plus_2 + " and Expression type mismatching");
+            this.error(_plus_3, null);
+          }
+        }
+      }
+      this.ids.put(varspec.getId().getId(), type);
+      for (final String id : varlist) {
+        this.ids.put(id, type);
       }
     }
   }

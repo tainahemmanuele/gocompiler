@@ -8,6 +8,7 @@ import org.eclipse.xtext.validation.Check
 import org.xtext.example.mydsl.go.*
 import org.xtext.example.mydsl.go.Expression2
 import org.xtext.example.mydsl.go.Expression
+import org.xtext.example.mydsl.validation.util.Typer
 
 /**
  * This class contains custom validation rules. 
@@ -16,6 +17,7 @@ import org.xtext.example.mydsl.go.Expression
  */
 class GoValidator extends AbstractGoValidator {
 	
+	val ids = newLinkedHashMap()
 //	public static val INVALID_NAME = 'invalidName'
 //
 //	@Check
@@ -75,5 +77,36 @@ class GoValidator extends AbstractGoValidator {
 		}
 		
 	} */
+
+	@Check
+	def checkVarSpec(VarSpec varspec) {
+		var type = varspec.tp2.tp.toString.toLowerCase
+		println("Tipo passado: " + type)
+		print("Não nulo: ")
+		println(type !== null)
+		if (type !== null) {
+			println("Entrou no if")
+			var typeExp = Typer.typeExp(varspec.expressionlist.exp)
+			println("Tipo Exp: " + typeExp)
+			println(typeExp !== type)
+			println(Typer.typeLargerThan(type, typeExp))
+			if (typeExp != type || Typer.typeLargerThan(type, typeExp)) {
+				error("Semantic Error: Variable " + varspec.id.id + " and Expression type mismatching", null)
+			}
+			var explist = varspec.expressionlist.expression2
+			var varlist = varspec.id.id2
+			for (i : 0 ..< explist.size) {
+				typeExp = Typer.typeExp(explist.get(i))
+				if (typeExp != type  || Typer.typeLargerThan(type, typeExp)) {
+					error("Semantic Error: Variable " + varlist.get(i) + " and Expression type mismatching", null)
+				}
+			}
+			ids.put(varspec.id.id, type)
+			for (id : varlist) {
+				ids.put(id, type)
+			}
+			
+		}
+	}
 	
 }
