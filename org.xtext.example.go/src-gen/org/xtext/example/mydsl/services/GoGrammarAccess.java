@@ -380,30 +380,14 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class IDENTIFIERElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.IDENTIFIER");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cLETTERTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final RuleCall cLETTERTerminalRuleCall_1_0 = (RuleCall)cAlternatives_1.eContents().get(0);
-		private final RuleCall cUNICODE_DIGITTerminalRuleCall_1_1 = (RuleCall)cAlternatives_1.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall = (RuleCall)rule.eContents().get(1);
 		
 		//IDENTIFIER:
-		//	LETTER (LETTER | UNICODE_DIGIT)*;
+		//	ID;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//LETTER (LETTER | UNICODE_DIGIT)*
-		public Group getGroup() { return cGroup; }
-		
-		//LETTER
-		public RuleCall getLETTERTerminalRuleCall_0() { return cLETTERTerminalRuleCall_0; }
-		
-		//(LETTER | UNICODE_DIGIT)*
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
-		
-		//LETTER
-		public RuleCall getLETTERTerminalRuleCall_1_0() { return cLETTERTerminalRuleCall_1_0; }
-		
-		//UNICODE_DIGIT
-		public RuleCall getUNICODE_DIGITTerminalRuleCall_1_1() { return cUNICODE_DIGITTerminalRuleCall_1_1; }
+		//ID
+		public RuleCall getIDTerminalRuleCall() { return cIDTerminalRuleCall; }
 	}
 	public class IMAGINARY_LITElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.IMAGINARY_LIT");
@@ -2189,10 +2173,10 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_2_1_2 = (Keyword)cGroup_2_1.eContents().get(2);
 		
 		//VarDecl:
-		//	{VarDecl} 'var' (varspec=VarSpec | '(' (varspec2+=VarSpec ';')* ')');
+		//	{VarDecl} 'var' (varspec=VarSpec | '(' (varspec2+=VarSpec ';'?)* ')');
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{VarDecl} 'var' (varspec=VarSpec | '(' (varspec2+=VarSpec ';')* ')')
+		//{VarDecl} 'var' (varspec=VarSpec | '(' (varspec2+=VarSpec ';'?)* ')')
 		public Group getGroup() { return cGroup; }
 		
 		//{VarDecl}
@@ -2201,7 +2185,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		//'var'
 		public Keyword getVarKeyword_1() { return cVarKeyword_1; }
 		
-		//varspec=VarSpec | '(' (varspec2+=VarSpec ';')* ')'
+		//varspec=VarSpec | '(' (varspec2+=VarSpec ';'?)* ')'
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
 		
 		//varspec=VarSpec
@@ -2210,13 +2194,13 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		//VarSpec
 		public RuleCall getVarspecVarSpecParserRuleCall_2_0_0() { return cVarspecVarSpecParserRuleCall_2_0_0; }
 		
-		//'(' (varspec2+=VarSpec ';')* ')'
+		//'(' (varspec2+=VarSpec ';'?)* ')'
 		public Group getGroup_2_1() { return cGroup_2_1; }
 		
 		//'('
 		public Keyword getLeftParenthesisKeyword_2_1_0() { return cLeftParenthesisKeyword_2_1_0; }
 		
-		//(varspec2+=VarSpec ';')*
+		//(varspec2+=VarSpec ';'?)*
 		public Group getGroup_2_1_1() { return cGroup_2_1_1; }
 		
 		//varspec2+=VarSpec
@@ -2225,7 +2209,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		//VarSpec
 		public RuleCall getVarspec2VarSpecParserRuleCall_2_1_1_0_0() { return cVarspec2VarSpecParserRuleCall_2_1_1_0_0; }
 		
-		//';'
+		//';'?
 		public Keyword getSemicolonKeyword_2_1_1_1() { return cSemicolonKeyword_2_1_1_1; }
 		
 		//')'
@@ -4420,7 +4404,6 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tNEWLINE;
 	private final TerminalRule tUNICODE_CHAR;
 	private final TerminalRule tUNICODE_LETTER;
-	private final TerminalRule tUNICODE_DIGIT;
 	private final KEYWORDSElements pKEYWORDS;
 	private final TerminalRule tBINARY_OP;
 	private final TerminalRule tREL_OP;
@@ -4428,7 +4411,6 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tMUL_OP;
 	private final TerminalRule tUNARY_OP;
 	private final TerminalRule tASSING_OP;
-	private final TerminalRule tLETTER;
 	private final TerminalRule tDECIMAL_DIGIT;
 	private final TerminalRule tOCTAL_DIGIT;
 	private final TerminalRule tHEX_DIGIT;
@@ -4583,7 +4565,6 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		this.tNEWLINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.NEWLINE");
 		this.tUNICODE_CHAR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.UNICODE_CHAR");
 		this.tUNICODE_LETTER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.UNICODE_LETTER");
-		this.tUNICODE_DIGIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.UNICODE_DIGIT");
 		this.pKEYWORDS = new KEYWORDSElements();
 		this.tBINARY_OP = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.BINARY_OP");
 		this.tREL_OP = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.REL_OP");
@@ -4591,7 +4572,6 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		this.tMUL_OP = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.MUL_OP");
 		this.tUNARY_OP = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.UNARY_OP");
 		this.tASSING_OP = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.ASSING_OP");
-		this.tLETTER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.LETTER");
 		this.tDECIMAL_DIGIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.DECIMAL_DIGIT");
 		this.tOCTAL_DIGIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.OCTAL_DIGIT");
 		this.tHEX_DIGIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.HEX_DIGIT");
@@ -4892,12 +4872,6 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		return tUNICODE_LETTER;
 	}
 	
-	//terminal UNICODE_DIGIT:
-	//	'\\u0041-\\u005A';
-	public TerminalRule getUNICODE_DIGITRule() {
-		return tUNICODE_DIGIT;
-	}
-	
 	//KEYWORDS:
 	//	'break'
 	//	| 'default'
@@ -4939,13 +4913,13 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal REL_OP:
-	//	"==" | "!=" | "<" | "<=" | ">" | ">=" | ':=';
+	//	"==" | "!=" | "<" | "<=" | ">" | ">=";
 	public TerminalRule getREL_OPRule() {
 		return tREL_OP;
 	}
 	
 	//terminal ADD_OP:
-	//	"+" | "-" | "|" | "^" | "++" | "--";
+	//	"+" | "-" | "|" | "^";
 	public TerminalRule getADD_OPRule() {
 		return tADD_OP;
 	}
@@ -4963,16 +4937,9 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal ASSING_OP:
-	//	'=' | '+=' | '-=' | '*=' | '^=';
+	//	'=' | '+=' | '-=' | '*=' | '^=' | ':=';
 	public TerminalRule getASSING_OPRule() {
 		return tASSING_OP;
-	}
-	
-	//terminal LETTER:
-	//	UNICODE_LETTER
-	//	| ID;
-	public TerminalRule getLETTERRule() {
-		return tLETTER;
 	}
 	
 	//terminal DECIMAL_DIGIT:
@@ -4995,7 +4962,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//IDENTIFIER:
-	//	LETTER (LETTER | UNICODE_DIGIT)*;
+	//	ID;
 	public IDENTIFIERElements getIDENTIFIERAccess() {
 		return pIDENTIFIER;
 	}
@@ -5660,7 +5627,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//VarDecl:
-	//	{VarDecl} 'var' (varspec=VarSpec | '(' (varspec2+=VarSpec ';')* ')');
+	//	{VarDecl} 'var' (varspec=VarSpec | '(' (varspec2+=VarSpec ';'?)* ')');
 	public VarDeclElements getVarDeclAccess() {
 		return pVarDecl;
 	}
