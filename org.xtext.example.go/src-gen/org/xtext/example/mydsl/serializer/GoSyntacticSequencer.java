@@ -31,6 +31,7 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_LiteralValue_CommaKeyword_2_1_q;
 	protected AbstractElementAlias match_ParameterDecl_FullStopFullStopFullStopKeyword_2_q;
 	protected AbstractElementAlias match_StatementList_SemicolonKeyword_1_1_q;
+	protected AbstractElementAlias match_VarDecl_SemicolonKeyword_2_1_1_1_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
@@ -44,6 +45,7 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_LiteralValue_CommaKeyword_2_1_q = new TokenAlias(false, true, grammarAccess.getLiteralValueAccess().getCommaKeyword_2_1());
 		match_ParameterDecl_FullStopFullStopFullStopKeyword_2_q = new TokenAlias(false, true, grammarAccess.getParameterDeclAccess().getFullStopFullStopFullStopKeyword_2());
 		match_StatementList_SemicolonKeyword_1_1_q = new TokenAlias(false, true, grammarAccess.getStatementListAccess().getSemicolonKeyword_1_1());
+		match_VarDecl_SemicolonKeyword_2_1_1_1_q = new TokenAlias(false, true, grammarAccess.getVarDeclAccess().getSemicolonKeyword_2_1_1_1());
 	}
 	
 	@Override
@@ -76,6 +78,8 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_ParameterDecl_FullStopFullStopFullStopKeyword_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_StatementList_SemicolonKeyword_1_1_q.equals(syntax))
 				emit_StatementList_SemicolonKeyword_1_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_VarDecl_SemicolonKeyword_2_1_1_1_q.equals(syntax))
+				emit_VarDecl_SemicolonKeyword_2_1_1_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -186,6 +190,18 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     statment+=Statement (ambiguity) statment+=Statement
 	 */
 	protected void emit_StatementList_SemicolonKeyword_1_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ';'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     varspec2+=VarSpec (ambiguity) ')' (rule end)
+	 *     varspec2+=VarSpec (ambiguity) varspec2+=VarSpec
+	 */
+	protected void emit_VarDecl_SemicolonKeyword_2_1_1_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

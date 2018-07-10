@@ -2162,10 +2162,10 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_2_1_2 = (Keyword)cGroup_2_1.eContents().get(2);
 		
 		//VarDecl:
-		//	{VarDecl} 'var' (varspec=VarSpec | '(' (varspec2+=VarSpec ';')* ')');
+		//	{VarDecl} 'var' (varspec=VarSpec | '(' (varspec2+=VarSpec ';'?)* ')');
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{VarDecl} 'var' (varspec=VarSpec | '(' (varspec2+=VarSpec ';')* ')')
+		//{VarDecl} 'var' (varspec=VarSpec | '(' (varspec2+=VarSpec ';'?)* ')')
 		public Group getGroup() { return cGroup; }
 		
 		//{VarDecl}
@@ -2174,7 +2174,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		//'var'
 		public Keyword getVarKeyword_1() { return cVarKeyword_1; }
 		
-		//varspec=VarSpec | '(' (varspec2+=VarSpec ';')* ')'
+		//varspec=VarSpec | '(' (varspec2+=VarSpec ';'?)* ')'
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
 		
 		//varspec=VarSpec
@@ -2183,13 +2183,13 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		//VarSpec
 		public RuleCall getVarspecVarSpecParserRuleCall_2_0_0() { return cVarspecVarSpecParserRuleCall_2_0_0; }
 		
-		//'(' (varspec2+=VarSpec ';')* ')'
+		//'(' (varspec2+=VarSpec ';'?)* ')'
 		public Group getGroup_2_1() { return cGroup_2_1; }
 		
 		//'('
 		public Keyword getLeftParenthesisKeyword_2_1_0() { return cLeftParenthesisKeyword_2_1_0; }
 		
-		//(varspec2+=VarSpec ';')*
+		//(varspec2+=VarSpec ';'?)*
 		public Group getGroup_2_1_1() { return cGroup_2_1_1; }
 		
 		//varspec2+=VarSpec
@@ -2198,7 +2198,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		//VarSpec
 		public RuleCall getVarspec2VarSpecParserRuleCall_2_1_1_0_0() { return cVarspec2VarSpecParserRuleCall_2_1_1_0_0; }
 		
-		//';'
+		//';'?
 		public Keyword getSemicolonKeyword_2_1_1_1() { return cSemicolonKeyword_2_1_1_1; }
 		
 		//')'
@@ -4417,7 +4417,6 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tNEWLINE;
 	private final TerminalRule tUNICODE_CHAR;
 	private final TerminalRule tUNICODE_LETTER;
-	private final TerminalRule tUNICODE_DIGIT;
 	private final KEYWORDSElements pKEYWORDS;
 	private final TerminalRule tBINARY_OP;
 	private final TerminalRule tREL_OP;
@@ -4579,7 +4578,6 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		this.tNEWLINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.NEWLINE");
 		this.tUNICODE_CHAR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.UNICODE_CHAR");
 		this.tUNICODE_LETTER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.UNICODE_LETTER");
-		this.tUNICODE_DIGIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.UNICODE_DIGIT");
 		this.pKEYWORDS = new KEYWORDSElements();
 		this.tBINARY_OP = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.BINARY_OP");
 		this.tREL_OP = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.REL_OP");
@@ -4887,12 +4885,6 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		return tUNICODE_LETTER;
 	}
 	
-	//terminal UNICODE_DIGIT:
-	//	'\\u0041-\\u005A';
-	public TerminalRule getUNICODE_DIGITRule() {
-		return tUNICODE_DIGIT;
-	}
-	
 	//KEYWORDS:
 	//	'break'
 	//	| 'default'
@@ -4934,13 +4926,13 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal REL_OP:
-	//	"==" | "!=" | "<" | "<=" | ">" | ">=" | ':=';
+	//	"==" | "!=" | "<" | "<=" | ">" | ">=";
 	public TerminalRule getREL_OPRule() {
 		return tREL_OP;
 	}
 	
 	//terminal ADD_OP:
-	//	"+" | "-" | "|" | "^" | "++" | "--";
+	//	"+" | "-" | "|" | "^";
 	public TerminalRule getADD_OPRule() {
 		return tADD_OP;
 	}
@@ -4958,7 +4950,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal ASSING_OP:
-	//	'=' | '+=' | '-=' | '*=' | '^=';
+	//	'=' | '+=' | '-=' | '*=' | '^=' | ':=';
 	public TerminalRule getASSING_OPRule() {
 		return tASSING_OP;
 	}
@@ -5644,7 +5636,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//VarDecl:
-	//	{VarDecl} 'var' (varspec=VarSpec | '(' (varspec2+=VarSpec ';')* ')');
+	//	{VarDecl} 'var' (varspec=VarSpec | '(' (varspec2+=VarSpec ';'?)* ')');
 	public VarDeclElements getVarDeclAccess() {
 		return pVarDecl;
 	}
