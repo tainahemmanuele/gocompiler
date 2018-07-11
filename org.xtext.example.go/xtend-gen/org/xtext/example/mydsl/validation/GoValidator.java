@@ -43,49 +43,28 @@ public class GoValidator extends AbstractGoValidator {
   
   @Check
   public void checkExpression(final Expression e) {
-    Expression2 _exp = e.getExp();
-    if ((_exp instanceof Expression2)) {
-      if ((Objects.equal(e.getExp().getBop(), "||") || Objects.equal(e.getExp().getBop(), "&&"))) {
+    if (((e.getExp() != null) && (e.getExp() instanceof Expression2))) {
+      String binaryOperator = e.getExp().getBop();
+      if ((Objects.equal(binaryOperator, "||") || Objects.equal(e.getExp().getBop(), "&&"))) {
       }
-      String _bop = e.getExp().getBop();
-      boolean _equals = Objects.equal(_bop, "+");
-      if (_equals) {
-        this.checkAritimeticOp(e.getExp().getExpression());
-      }
-    }
-  }
-  
-  public void checkAritimeticOp(final Expression expression) {
-    BasicLit bl = expression.getUp().getPr().getOp().getLiteral().getBasic();
-    if ((bl != null)) {
-      if ((((bl.getIntd() == null) && (bl.getFloatd() == null)) && (bl.getImagd() == null))) {
-        BasicLit _basic = expression.getUp().getPr().getOp().getLiteral().getBasic();
-        String _plus = ("Semantic Error: Invalid argument in arithmetic exp " + _basic);
-        this.error(_plus, null);
+      boolean _isArithimeticOp = this.isArithimeticOp(binaryOperator);
+      if (_isArithimeticOp) {
+        BasicLit basicLiteral1 = e.getUp().getPr().getOp().getLiteral().getBasic();
+        BasicLit basicLiteral2 = e.getExp().getExpression().getUp().getPr().getOp().getLiteral().getBasic();
+        this.checkAritimeticLit(basicLiteral1);
+        this.checkAritimeticLit(basicLiteral2);
       }
     }
   }
   
-  /**
-   * def checkBooleanExp(Expression expression) {
-   * 
-   * if(expression.exp !== null) {
-   * checkBooleanExp(expression.exp.expression)
-   * 
-   * } else if(expression.elemtype != boolean && expression.elemtype !== null) {
-   * error("Semantic Error: Invalid argument type" + expression.elemtype, null)
-   * }
-   * 
-   * }
-   */
   @Check
   public void checkVarSpec(final VarSpec varspec) {
     String type = varspec.getTp2().getTp().toString().toLowerCase();
-    InputOutput.<String>println(("Tipo passado: " + type));
+    this.info(("Tipo passado: " + type), null);
     InputOutput.<String>print("Não nulo: ");
     InputOutput.<Boolean>println(Boolean.valueOf((type != null)));
     if ((type != null)) {
-      InputOutput.<String>println("Entrou no if");
+      this.info("Entrou no if", null);
       String typeExp = Typer.typeExp(varspec.getExpressionlist().getExp());
       InputOutput.<String>println(("Tipo Exp: " + typeExp));
       InputOutput.<Boolean>println(Boolean.valueOf((typeExp != type)));
@@ -116,5 +95,29 @@ public class GoValidator extends AbstractGoValidator {
         this.ids.put(id, type);
       }
     }
+  }
+  
+  public void checkAritimeticLit(final BasicLit basicLit) {
+    if ((basicLit != null)) {
+      if ((((basicLit.getIntd() == null) && (basicLit.getFloatd() == null)) && (basicLit.getImagd() == null))) {
+        this.error("Semantic Error: Invalid argument in arithmetic exp ", null);
+      }
+    }
+  }
+  
+  /**
+   * def checkBooleanExp(Expression expression) {
+   * 
+   * if(expression.exp !== null) {
+   * checkBooleanExp(expression.exp.expression)
+   * 
+   * } else if(expression.elemtype != boolean && expression.elemtype !== null) {
+   * error("Semantic Error: Invalid argument type" + expression.elemtype, null)
+   * }
+   * 
+   * }
+   */
+  protected boolean isArithimeticOp(final String binaryOperator) {
+    return ((((Objects.equal(binaryOperator, "+") || Objects.equal(binaryOperator, "-")) || Objects.equal(binaryOperator, "*")) || Objects.equal(binaryOperator, "/")) || Objects.equal(binaryOperator, "%"));
   }
 }

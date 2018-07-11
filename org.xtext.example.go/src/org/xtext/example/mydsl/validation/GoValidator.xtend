@@ -3,11 +3,11 @@
  */
 package org.xtext.example.mydsl.validation
 
-import org.xtext.example.mydsl.go.IdentifierList
 import org.eclipse.xtext.validation.Check
 import org.xtext.example.mydsl.go.*
-import org.xtext.example.mydsl.go.Expression2
 import org.xtext.example.mydsl.go.Expression
+import org.xtext.example.mydsl.go.Expression2
+import org.xtext.example.mydsl.go.IdentifierList
 import org.xtext.example.mydsl.validation.util.Typer
 
 /**
@@ -42,50 +42,32 @@ class GoValidator extends AbstractGoValidator {
 	
 	@Check
 	def checkExpression(Expression e) {
-		if(e.exp instanceof Expression2) {
+		
+		if(e.exp !== null && e.exp instanceof Expression2) {
 			
-			if(e.exp.bop == "||" || e.exp.bop == "&&") {
+			var binaryOperator = e.exp.bop;
+			
+			if(binaryOperator == "||" || e.exp.bop == "&&") {
 				//checkBooleanExp(e.exp.expression)
 			}
 			
-			if(e.exp.bop == "+") {
-				checkAritimeticOp(e.exp.expression)
-			}
-		}
-	}
-
-	def checkAritimeticOp(Expression expression) {
-		
-		var bl = expression.up.pr.op.literal.basic
-		
-		if(bl !== null) {
-			if(bl.intd === null && bl.floatd  === null && bl.imagd === null) {
-				error("Semantic Error: Invalid argument in arithmetic exp " 
-					+ expression.up.pr.op.literal.basic, null)
+			if(isArithimeticOp(binaryOperator)) {
+				var basicLiteral1 = e.up.pr.op.literal.basic
+				var basicLiteral2 = e.exp.expression.up.pr.op.literal.basic		
+				checkAritimeticLit(basicLiteral1)
+				checkAritimeticLit(basicLiteral2)
 			}
 		}
 	}
 	
-	/*
-	def checkBooleanExp(Expression expression) {
-		
-		if(expression.exp !== null) {
-			checkBooleanExp(expression.exp.expression)
-			
-		} else if(expression.elemtype != boolean && expression.elemtype !== null) {
-			error("Semantic Error: Invalid argument type" + expression.elemtype, null)
-		}
-		
-	} */
-
 	@Check
 	def checkVarSpec(VarSpec varspec) {
 		var type = varspec.tp2.tp.toString.toLowerCase
-		println("Tipo passado: " + type)
+		info("Tipo passado: " + type, null)
 		print("Não nulo: ")
 		println(type !== null)
 		if (type !== null) {
-			println("Entrou no if")
+			info ("Entrou no if", null)
 			var typeExp = Typer.typeExp(varspec.expressionlist.exp)
 			println("Tipo Exp: " + typeExp)
 			println(typeExp !== type)
@@ -108,5 +90,33 @@ class GoValidator extends AbstractGoValidator {
 			
 		}
 	}
+	
+	def checkAritimeticLit(BasicLit basicLit) {
+		if(basicLit !== null) {
+			if(basicLit.intd === null && basicLit.floatd  === null && basicLit.imagd === null) {
+				error("Semantic Error: Invalid argument in arithmetic exp " , null)
+			}
+		}
+	}
+	
+	/*
+	def checkBooleanExp(Expression expression) {
+		
+		if(expression.exp !== null) {
+			checkBooleanExp(expression.exp.expression)
+			
+		} else if(expression.elemtype != boolean && expression.elemtype !== null) {
+			error("Semantic Error: Invalid argument type" + expression.elemtype, null)
+		}
+		
+	} */
+
+
+	protected def boolean isArithimeticOp(String binaryOperator) {
+		return (binaryOperator == "+" || binaryOperator == "-" || binaryOperator == "*"
+			|| binaryOperator == "/" || binaryOperator == "%")
+	}
+	
+	
 	
 }
