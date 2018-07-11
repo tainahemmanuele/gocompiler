@@ -54,8 +54,7 @@ class GoValidator extends AbstractGoValidator {
 			if(isArithimeticOp(binaryOperator)) {
 				var basicLiteral1 = e.up.pr.op.literal.basic
 				var basicLiteral2 = e.exp.expression.up.pr.op.literal.basic		
-				checkAritimeticLit(basicLiteral1)
-				checkAritimeticLit(basicLiteral2)
+				checkAritimeticLits(basicLiteral1, basicLiteral2, binaryOperator)
 			}
 		}
 	}
@@ -91,10 +90,28 @@ class GoValidator extends AbstractGoValidator {
 		}
 	}
 	
-	def checkAritimeticLit(BasicLit basicLit) {
-		if(basicLit !== null) {
-			if(basicLit.intd === null && basicLit.floatd  === null && basicLit.imagd === null) {
-				error("Semantic Error: Invalid argument in arithmetic exp " , null)
+	/*
+	 * Checa se dois literais são compativeis em uma operação aritimética 
+	 */
+	def checkAritimeticLits(BasicLit basicLit1, BasicLit basicLit2, String binaryOp) {
+		if(basicLit1 !== null && basicLit2 !== null) {
+			if(basicLit1.strd !== null || basicLit2.strd !== null) {
+				if(basicLit1.strd !== null && binaryOp == "+") {
+					if(basicLit2.strd === null) {
+						error("Semantic Error: Invalid arithmetic operation", null)
+					}
+				}
+				else if(basicLit2.strd !== null && binaryOp == "+") {
+					if(basicLit1.strd === null) {
+						error("Semantic Error: Invalid arithmetic operation", null)
+					}
+				}else {
+					error("Semantic Error: Invalid arithmetic operation, operator "
+							+ binaryOp + " not defined on string.", null
+						)
+				}
+			}else if(basicLit1.intd === null && basicLit1.floatd  === null && basicLit1.imagd === null) {
+				error("Semantic Error: Invalid arithmetic operation" , null)
 			}
 		}
 	}

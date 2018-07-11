@@ -51,8 +51,7 @@ public class GoValidator extends AbstractGoValidator {
       if (_isArithimeticOp) {
         BasicLit basicLiteral1 = e.getUp().getPr().getOp().getLiteral().getBasic();
         BasicLit basicLiteral2 = e.getExp().getExpression().getUp().getPr().getOp().getLiteral().getBasic();
-        this.checkAritimeticLit(basicLiteral1);
-        this.checkAritimeticLit(basicLiteral2);
+        this.checkAritimeticLits(basicLiteral1, basicLiteral2, binaryOperator);
       }
     }
   }
@@ -97,10 +96,34 @@ public class GoValidator extends AbstractGoValidator {
     }
   }
   
-  public void checkAritimeticLit(final BasicLit basicLit) {
-    if ((basicLit != null)) {
-      if ((((basicLit.getIntd() == null) && (basicLit.getFloatd() == null)) && (basicLit.getImagd() == null))) {
-        this.error("Semantic Error: Invalid argument in arithmetic exp ", null);
+  /**
+   * Checa se dois literais são compativeis em uma operação aritimética
+   */
+  public void checkAritimeticLits(final BasicLit basicLit1, final BasicLit basicLit2, final String binaryOp) {
+    if (((basicLit1 != null) && (basicLit2 != null))) {
+      if (((basicLit1.getStrd() != null) || (basicLit2.getStrd() != null))) {
+        if (((basicLit1.getStrd() != null) && Objects.equal(binaryOp, "+"))) {
+          String _strd = basicLit2.getStrd();
+          boolean _tripleEquals = (_strd == null);
+          if (_tripleEquals) {
+            this.error("Semantic Error: Invalid arithmetic operation", null);
+          }
+        } else {
+          if (((basicLit2.getStrd() != null) && Objects.equal(binaryOp, "+"))) {
+            String _strd_1 = basicLit1.getStrd();
+            boolean _tripleEquals_1 = (_strd_1 == null);
+            if (_tripleEquals_1) {
+              this.error("Semantic Error: Invalid arithmetic operation", null);
+            }
+          } else {
+            this.error(
+              (("Semantic Error: Invalid arithmetic operation, operator " + binaryOp) + " not defined on string."), null);
+          }
+        }
+      } else {
+        if ((((basicLit1.getIntd() == null) && (basicLit1.getFloatd() == null)) && (basicLit1.getImagd() == null))) {
+          this.error("Semantic Error: Invalid arithmetic operation", null);
+        }
       }
     }
   }
