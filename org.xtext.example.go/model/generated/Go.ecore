@@ -41,6 +41,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="ArrayLength" eSuperTypes="#//ArrayType">
     <eStructuralFeatures xsi:type="ecore:EReference" name="elemtype" eType="#//ElementType"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Expression"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ElementType"/>
   <eClassifiers xsi:type="ecore:EClass" name="SliceType" eSuperTypes="#//TypeLit">
@@ -360,7 +362,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression2" upperBound="-1"
         eType="#//Expression" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Expression" eSuperTypes="#//ArrayLength #//DeferStmt #//Key #//Element">
+  <eClassifiers xsi:type="ecore:EClass" name="Expression" eSuperTypes="#//DeferStmt #//Key #//Element">
     <eStructuralFeatures xsi:type="ecore:EReference" name="up" eType="#//UnaryExpr"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Expression2"

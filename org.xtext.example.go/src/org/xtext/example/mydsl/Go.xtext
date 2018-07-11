@@ -349,7 +349,11 @@ terminal UNARY_OP:
 	"+" | "-" | "!" | "^" | MUL | "&" | "<-";
 
 terminal ASSING_OP:
-	  '=' |'+=' | '-=' | '*='| '^=' | ':=';
+	EQUALS |'+=' | '-=' | '*='| '^=' | ':=';
+
+terminal fragment EQUALS:
+	  '=' 
+;
 
 terminal DECIMAL_DIGIT:
 	INT;
@@ -443,7 +447,7 @@ ArrayType:
 	"[" ArrayLength "]" elemtype=ElementType;
 
 ArrayLength:
-	Expression;
+	exp=Expression;
 
 ElementType:
 	Type;
@@ -453,7 +457,7 @@ SliceType:
 
 StructType:
 	{StructType}
-	'struct' '{' (fielddecl+=FieldDecl ';')* '}';
+	'struct' '{' (fielddecl+=FieldDecl (';')?)* '}';
 
 FieldDecl:
 	{FieldDecl}
