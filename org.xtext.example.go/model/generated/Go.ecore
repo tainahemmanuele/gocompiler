@@ -374,11 +374,13 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UnaryExpr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pr" eType="#//PrimaryExpr"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="up" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ue" eType="#//UnaryExpr"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PrimaryExpr" eSuperTypes="#//UnaryExpr">
+  <eClassifiers xsi:type="ecore:EClass" name="PrimaryExpr">
     <eStructuralFeatures xsi:type="ecore:EReference" name="op" eType="#//Operand"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pr" eType="#//PrimaryExpr2"
