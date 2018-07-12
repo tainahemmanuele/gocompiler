@@ -3724,6 +3724,27 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__Assignment__AsopAlternatives_2_0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getAssignmentAccess().getAsopASSING_OPTerminalRuleCall_2_0_0()); }
+		RULE_ASSING_OP
+		{ after(grammarAccess.getAssignmentAccess().getAsopASSING_OPTerminalRuleCall_2_0_0()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getAssignmentAccess().getAsopEqualsSignKeyword_2_0_1()); }
+		'='
+		{ after(grammarAccess.getAssignmentAccess().getAsopEqualsSignKeyword_2_0_1()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__ExprSwitchCase__Alternatives
 	@init {
 		int stackSize = keepStackSize();
@@ -16531,9 +16552,9 @@ rule__Assignment__AsopAssignment_2
 	}
 :
 	(
-		{ before(grammarAccess.getAssignmentAccess().getAsopASSING_OPTerminalRuleCall_2_0()); }
-		RULE_ASSING_OP
-		{ after(grammarAccess.getAssignmentAccess().getAsopASSING_OPTerminalRuleCall_2_0()); }
+		{ before(grammarAccess.getAssignmentAccess().getAsopAlternatives_2_0()); }
+		(rule__Assignment__AsopAlternatives_2_0)
+		{ after(grammarAccess.getAssignmentAccess().getAsopAlternatives_2_0()); }
 	)
 ;
 finally {
@@ -17983,9 +18004,7 @@ fragment RULE_MUL : '*';
 
 RULE_UNARY_OP : ('+'|'-'|'!'|'^'|RULE_MUL|'&'|'<-');
 
-RULE_ASSING_OP : (RULE_EQUALS|'+='|'-='|'*='|'^='|':=');
-
-fragment RULE_EQUALS : '=';
+RULE_ASSING_OP : ('='|'+='|'-='|'*='|'^='|':=');
 
 fragment RULE_DECIMAL_DIGIT : RULE_INT;
 

@@ -2400,15 +2400,17 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExpressionlistAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cExpressionlistExpressionListParserRuleCall_1_0 = (RuleCall)cExpressionlistAssignment_1.eContents().get(0);
 		private final Assignment cAsopAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cAsopASSING_OPTerminalRuleCall_2_0 = (RuleCall)cAsopAssignment_2.eContents().get(0);
+		private final Alternatives cAsopAlternatives_2_0 = (Alternatives)cAsopAssignment_2.eContents().get(0);
+		private final RuleCall cAsopASSING_OPTerminalRuleCall_2_0_0 = (RuleCall)cAsopAlternatives_2_0.eContents().get(0);
+		private final Keyword cAsopEqualsSignKeyword_2_0_1 = (Keyword)cAsopAlternatives_2_0.eContents().get(1);
 		private final Assignment cExpressionlist2Assignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cExpressionlist2ExpressionListParserRuleCall_3_0 = (RuleCall)cExpressionlist2Assignment_3.eContents().get(0);
 		
 		//Assignment:
-		//	{Assignment} expressionlist=ExpressionList asop=ASSING_OP expressionlist2=ExpressionList;
+		//	{Assignment} expressionlist=ExpressionList asop=(ASSING_OP | '=') expressionlist2=ExpressionList;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Assignment} expressionlist=ExpressionList asop=ASSING_OP expressionlist2=ExpressionList
+		//{Assignment} expressionlist=ExpressionList asop=(ASSING_OP | '=') expressionlist2=ExpressionList
 		public Group getGroup() { return cGroup; }
 		
 		//{Assignment}
@@ -2420,11 +2422,17 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		//ExpressionList
 		public RuleCall getExpressionlistExpressionListParserRuleCall_1_0() { return cExpressionlistExpressionListParserRuleCall_1_0; }
 		
-		//asop=ASSING_OP
+		//asop=(ASSING_OP | '=')
 		public Assignment getAsopAssignment_2() { return cAsopAssignment_2; }
 		
+		//(ASSING_OP | '=')
+		public Alternatives getAsopAlternatives_2_0() { return cAsopAlternatives_2_0; }
+		
 		//ASSING_OP
-		public RuleCall getAsopASSING_OPTerminalRuleCall_2_0() { return cAsopASSING_OPTerminalRuleCall_2_0; }
+		public RuleCall getAsopASSING_OPTerminalRuleCall_2_0_0() { return cAsopASSING_OPTerminalRuleCall_2_0_0; }
+		
+		//'='
+		public Keyword getAsopEqualsSignKeyword_2_0_1() { return cAsopEqualsSignKeyword_2_0_1; }
 		
 		//expressionlist2=ExpressionList
 		public Assignment getExpressionlist2Assignment_3() { return cExpressionlist2Assignment_3; }
@@ -4428,7 +4436,6 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tMUL;
 	private final TerminalRule tUNARY_OP;
 	private final TerminalRule tASSING_OP;
-	private final TerminalRule tEQUALS;
 	private final TerminalRule tDECIMAL_DIGIT;
 	private final TerminalRule tOCTAL_DIGIT;
 	private final TerminalRule tHEX_DIGIT;
@@ -4591,7 +4598,6 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		this.tMUL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.MUL");
 		this.tUNARY_OP = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.UNARY_OP");
 		this.tASSING_OP = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.ASSING_OP");
-		this.tEQUALS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.EQUALS");
 		this.tDECIMAL_DIGIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.DECIMAL_DIGIT");
 		this.tOCTAL_DIGIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.OCTAL_DIGIT");
 		this.tHEX_DIGIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.HEX_DIGIT");
@@ -4963,15 +4969,9 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal ASSING_OP:
-	//	EQUALS | '+=' | '-=' | '*=' | '^=' | ':=';
+	//	'=' | '+=' | '-=' | '*=' | '^=' | ':=';
 	public TerminalRule getASSING_OPRule() {
 		return tASSING_OP;
-	}
-	
-	//terminal fragment EQUALS:
-	//	"=";
-	public TerminalRule getEQUALSRule() {
-		return tEQUALS;
 	}
 	
 	//terminal DECIMAL_DIGIT:
@@ -5729,7 +5729,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Assignment:
-	//	{Assignment} expressionlist=ExpressionList asop=ASSING_OP expressionlist2=ExpressionList;
+	//	{Assignment} expressionlist=ExpressionList asop=(ASSING_OP | '=') expressionlist2=ExpressionList;
 	public AssignmentElements getAssignmentAccess() {
 		return pAssignment;
 	}

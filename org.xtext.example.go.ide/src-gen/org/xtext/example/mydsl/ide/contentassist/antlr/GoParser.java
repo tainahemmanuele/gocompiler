@@ -54,6 +54,7 @@ public class GoParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getTypeSpecAccess().getAlternatives(), "rule__TypeSpec__Alternatives");
 			builder.put(grammarAccess.getVarDeclAccess().getAlternatives_2(), "rule__VarDecl__Alternatives_2");
 			builder.put(grammarAccess.getIncDecStmtAccess().getAlternatives(), "rule__IncDecStmt__Alternatives");
+			builder.put(grammarAccess.getAssignmentAccess().getAsopAlternatives_2_0(), "rule__Assignment__AsopAlternatives_2_0");
 			builder.put(grammarAccess.getExprSwitchCaseAccess().getAlternatives(), "rule__ExprSwitchCase__Alternatives");
 			builder.put(grammarAccess.getTypeSwitchCaseAccess().getAlternatives(), "rule__TypeSwitchCase__Alternatives");
 			builder.put(grammarAccess.getCommCaseAccess().getAlternatives(), "rule__CommCase__Alternatives");

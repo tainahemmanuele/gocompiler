@@ -4452,20 +4452,33 @@ ruleAssignment returns [EObject current=null]
 		)
 		(
 			(
-				lv_asop_2_0=RULE_ASSING_OP
-				{
-					newLeafNode(lv_asop_2_0, grammarAccess.getAssignmentAccess().getAsopASSING_OPTerminalRuleCall_2_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getAssignmentRule());
+				(
+					lv_asop_2_1=RULE_ASSING_OP
+					{
+						newLeafNode(lv_asop_2_1, grammarAccess.getAssignmentAccess().getAsopASSING_OPTerminalRuleCall_2_0_0());
 					}
-					setWithLastConsumed(
-						$current,
-						"asop",
-						lv_asop_2_0,
-						"org.xtext.example.mydsl.Go.ASSING_OP");
-				}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getAssignmentRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"asop",
+							lv_asop_2_1,
+							"org.xtext.example.mydsl.Go.ASSING_OP");
+					}
+					    |
+					lv_asop_2_2='='
+					{
+						newLeafNode(lv_asop_2_2, grammarAccess.getAssignmentAccess().getAsopEqualsSignKeyword_2_0_1());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getAssignmentRule());
+						}
+						setWithLastConsumed($current, "asop", lv_asop_2_2, null);
+					}
+				)
 			)
 		)
 		(
@@ -8181,9 +8194,7 @@ fragment RULE_MUL : '*';
 
 RULE_UNARY_OP : ('+'|'-'|'!'|'^'|RULE_MUL|'&'|'<-');
 
-RULE_ASSING_OP : (RULE_EQUALS|'+='|'-='|'*='|'^='|':=');
-
-fragment RULE_EQUALS : '=';
+RULE_ASSING_OP : ('='|'+='|'-='|'*='|'^='|':=');
 
 fragment RULE_DECIMAL_DIGIT : RULE_INT;
 

@@ -507,22 +507,10 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Assignment returns Assignment
 	 *
 	 * Constraint:
-	 *     (expressionlist=ExpressionList asop=ASSING_OP expressionlist2=ExpressionList)
+	 *     (expressionlist=ExpressionList (asop=ASSING_OP | asop='=') expressionlist2=ExpressionList)
 	 */
 	protected void sequence_Assignment(ISerializationContext context, Assignment semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GoPackage.Literals.ASSIGNMENT__EXPRESSIONLIST) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GoPackage.Literals.ASSIGNMENT__EXPRESSIONLIST));
-			if (transientValues.isValueTransient(semanticObject, GoPackage.Literals.ASSIGNMENT__ASOP) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GoPackage.Literals.ASSIGNMENT__ASOP));
-			if (transientValues.isValueTransient(semanticObject, GoPackage.Literals.ASSIGNMENT__EXPRESSIONLIST2) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GoPackage.Literals.ASSIGNMENT__EXPRESSIONLIST2));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAssignmentAccess().getExpressionlistExpressionListParserRuleCall_1_0(), semanticObject.getExpressionlist());
-		feeder.accept(grammarAccess.getAssignmentAccess().getAsopASSING_OPTerminalRuleCall_2_0(), semanticObject.getAsop());
-		feeder.accept(grammarAccess.getAssignmentAccess().getExpressionlist2ExpressionListParserRuleCall_3_0(), semanticObject.getExpressionlist2());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

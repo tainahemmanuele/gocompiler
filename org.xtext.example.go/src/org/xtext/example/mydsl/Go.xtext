@@ -613,7 +613,7 @@ IncDecStmt: {IncDecStmt}
 	exp=Expression '++' | exp2=Expression '--';
 
 Assignment: {Assignment}
-	expressionlist=ExpressionList asop=ASSING_OP expressionlist2=ExpressionList;
+	expressionlist=ExpressionList asop=(ASSING_OP|'=') expressionlist2=ExpressionList;
 
 ShortVarDecl: {ShortVarDecl}
 	idl=IdentifierList ':=' epl=ExpressionList;
