@@ -4969,7 +4969,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal fragment EQUALS:
-	//	'=';
+	//	"=";
 	public TerminalRule getEQUALSRule() {
 		return tEQUALS;
 	}

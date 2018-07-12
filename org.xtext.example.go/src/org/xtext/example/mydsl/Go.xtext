@@ -349,11 +349,7 @@ terminal UNARY_OP:
 	"+" | "-" | "!" | "^" | MUL | "&" | "<-";
 
 terminal ASSING_OP:
-	EQUALS |'+=' | '-=' | '*='| '^=' | ':=';
-
-terminal fragment EQUALS:
-	  '=' 
-;
+	  '=' |'+=' | '-=' | '*='| '^=' | ':=';
 
 terminal DECIMAL_DIGIT:
 	INT;
