@@ -136,8 +136,6 @@ ruleTypeLit:
 		    |
 		ruleStructType
 		    |
-		rulePointerType
-		    |
 		ruleFunctionType
 		    |
 		ruleInterfaceType
@@ -147,6 +145,8 @@ ruleTypeLit:
 		ruleMapType
 		    |
 		ruleChannelType
+		    |
+		rulePointerType
 	)
 ;
 
@@ -181,7 +181,7 @@ ruleStructType:
 	'{'
 	(
 		ruleFieldDecl
-		';'
+		';'?
 	)*
 	'}'
 ;
@@ -636,7 +636,10 @@ ruleIncDecStmt:
 // Rule Assignment
 ruleAssignment:
 	ruleExpressionList
-	RULE_ASSING_OP
+	(
+		RULE_ASSING_OP
+		    |'='
+	)
 	ruleExpressionList
 ;
 
@@ -1141,15 +1144,17 @@ RULE_UNICODE_LETTER : ('A-Z'|'a-z'|'\u00AA'|'\u00B5'|'\u00BA'|'\u00C0-\u00D6'|'\
 
 RULE_LITERAL_TYPE : ('int'|'float'|'boolean'|'string');
 
-RULE_BINARY_OP : ('||'|'&&'|RULE_REL_OP|RULE_ADD_OP|RULE_MUL_OP);
+RULE_BINARY_OP : ('||'|'&&'|RULE_REL_OP|RULE_MUL_OP|RULE_ADD_OP);
 
 fragment RULE_REL_OP : ('=='|'!='|'<'|'<='|'>'|'>=');
 
 fragment RULE_ADD_OP : ('+'|'-'|'|'|'^');
 
-fragment RULE_MUL_OP : ('*'|'/'|'%'|'<<'|'>>'|'&'|'&^');
+fragment RULE_MUL_OP : (RULE_MUL|'/'|'%'|'<<'|'>>'|'&'|'&^');
 
-RULE_UNARY_OP : ('+'|'-'|'!'|'^'|'*'|'&'|'<-');
+fragment RULE_MUL : '*';
+
+RULE_UNARY_OP : ('+'|'-'|'!'|'^'|RULE_MUL|'&'|'<-');
 
 RULE_ASSING_OP : ('='|'+='|'-='|'*='|'^='|':=');
 

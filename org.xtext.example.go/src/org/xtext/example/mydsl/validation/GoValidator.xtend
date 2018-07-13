@@ -36,9 +36,9 @@ class GoValidator extends AbstractGoValidator {
 
 	@Check
 	def checkFor(ForStmt fors) {
-		if(fors.condition.exp.elemtype != boolean) {
-			error("Semantic Error: for condition must be boolean", null)
-		}
+		//if(fors.condition.exp.elemtype != boolean) {
+			//error("Semantic Error: for condition must be boolean", null)
+		//}
 	}
 	
 	@Check

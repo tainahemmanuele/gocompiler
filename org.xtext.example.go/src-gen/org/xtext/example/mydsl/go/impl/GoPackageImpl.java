@@ -1123,6 +1123,16 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getArrayLength_Exp()
+  {
+    return (EReference)arrayLengthEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getElementType()
   {
     return elementTypeEClass;
@@ -3832,6 +3842,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
 
     arrayLengthEClass = createEClass(ARRAY_LENGTH);
     createEReference(arrayLengthEClass, ARRAY_LENGTH__ELEMTYPE);
+    createEReference(arrayLengthEClass, ARRAY_LENGTH__EXP);
 
     elementTypeEClass = createEClass(ELEMENT_TYPE);
 
@@ -4245,7 +4256,6 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     typeSwitchCaseEClass.getESuperTypes().add(this.getTypeCaseClause());
     commCaseEClass.getESuperTypes().add(this.getCommClause());
     expressionListEClass.getESuperTypes().add(this.getRecvStmt());
-    expressionEClass.getESuperTypes().add(this.getArrayLength());
     expressionEClass.getESuperTypes().add(this.getDeferStmt());
     expressionEClass.getESuperTypes().add(this.getKey());
     expressionEClass.getESuperTypes().add(this.getElement());
@@ -4290,6 +4300,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
 
     initEClass(arrayLengthEClass, ArrayLength.class, "ArrayLength", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getArrayLength_Elemtype(), this.getElementType(), null, "elemtype", null, 0, 1, ArrayLength.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArrayLength_Exp(), this.getExpression(), null, "exp", null, 0, 1, ArrayLength.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(elementTypeEClass, ElementType.class, "ElementType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

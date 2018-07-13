@@ -10,7 +10,6 @@ import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.xtext.example.mydsl.go.BasicLit;
 import org.xtext.example.mydsl.go.ConstDecl;
-import org.xtext.example.mydsl.go.ElementType;
 import org.xtext.example.mydsl.go.Expression;
 import org.xtext.example.mydsl.go.Expression2;
 import org.xtext.example.mydsl.go.ForStmt;
@@ -30,12 +29,8 @@ public class GoValidator extends AbstractGoValidator {
   }
   
   @Check
-  public void checkFor(final ForStmt fors) {
-    ElementType _elemtype = fors.getCondition().getExp().getElemtype();
-    boolean _notEquals = (!Objects.equal(_elemtype, boolean.class));
-    if (_notEquals) {
-      this.error("Semantic Error: for condition must be boolean", null);
-    }
+  public Object checkFor(final ForStmt fors) {
+    return null;
   }
   
   @Check

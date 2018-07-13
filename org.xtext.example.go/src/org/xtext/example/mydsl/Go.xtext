@@ -335,7 +335,7 @@ terminal LITERAL_TYPE:
 ;
 
 terminal BINARY_OP:
-	"||" | "&&" | REL_OP | ADD_OP | MUL_OP;
+	   "||" | "&&" | REL_OP | MUL_OP| ADD_OP ;
 
 terminal REL_OP:
 	"==" | "!=" | "<" | "<=" | ">" | ">=";
@@ -343,11 +343,15 @@ terminal REL_OP:
 terminal ADD_OP:
 	"+" | "-" | "|" | "^";
 	
-terminal MUL_OP:
-	"*" | "/" | "%" | "<<" | ">>" | "&" | "&^";
+terminal  MUL_OP:
+	 MUL | "/" | "%" | "<<" | ">>" | "&" | "&^";
+
+terminal fragment MUL:
+	'*'
+;
 
 terminal UNARY_OP:
-	"+" | "-" | "!" | "^" | "*" | "&" | "<-";
+	"+" | "-" | "!" | "^" | MUL | "&" | "<-";
 
 terminal ASSING_OP:
 	  '=' |'+=' | '-=' | '*='| '^=' | ':=';
@@ -439,13 +443,13 @@ PackageName:
 	IDENTIFIER;
 
 TypeLit:
-	ArrayType | StructType | PointerType | FunctionType | InterfaceType | SliceType | MapType | ChannelType;
+	ArrayType | StructType | FunctionType | InterfaceType | SliceType | MapType | ChannelType | PointerType ;
 
 ArrayType:
 	"[" ArrayLength "]" elemtype=ElementType;
 
 ArrayLength:
-	Expression;
+	exp=Expression;
 
 ElementType:
 	Type;
@@ -455,7 +459,7 @@ SliceType:
 
 StructType:
 	{StructType}
-	'struct' '{' (fielddecl+=FieldDecl ';')* '}';
+	'struct' '{' (fielddecl+=FieldDecl (';')?)* '}';
 
 FieldDecl:
 	{FieldDecl}
@@ -615,7 +619,7 @@ IncDecStmt: {IncDecStmt}
 	exp=Expression '++' | exp2=Expression '--';
 
 Assignment: {Assignment}
-	expressionlist=ExpressionList asop=ASSING_OP expressionlist2=ExpressionList;
+	expressionlist=ExpressionList asop=(ASSING_OP|'=') expressionlist2=ExpressionList;
 
 ShortVarDecl: {ShortVarDecl}
 	idl=IdentifierList ':=' epl=ExpressionList;
@@ -686,7 +690,8 @@ Expression2:
 	{Expression2}
 	(bop=BINARY_OP expression=Expression expression2=Expression2)?;
 
-UnaryExpr:
+
+UnaryExpr: {UnaryExpr}
 	pr=PrimaryExpr | up=UNARY_OP ue=UnaryExpr;
 
 PrimaryExpr: {PrimaryExpr}

@@ -613,13 +613,10 @@ public class GoSwitch<T> extends Switch<T>
       {
         Expression expression = (Expression)theEObject;
         T result = caseExpression(expression);
-        if (result == null) result = caseArrayLength(expression);
         if (result == null) result = caseDeferStmt(expression);
         if (result == null) result = caseKey(expression);
         if (result == null) result = caseElement(expression);
-        if (result == null) result = caseArrayType(expression);
         if (result == null) result = caseKeyedElement(expression);
-        if (result == null) result = caseTypeLit(expression);
         if (result == null) result = caseElementList(expression);
         if (result == null) result = defaultCase(theEObject);
         return result;

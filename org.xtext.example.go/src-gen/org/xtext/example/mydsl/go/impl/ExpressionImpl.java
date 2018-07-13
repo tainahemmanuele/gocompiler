@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.xtext.example.mydsl.go.DeferStmt;
 import org.xtext.example.mydsl.go.Element;
 import org.xtext.example.mydsl.go.ElementList;
 import org.xtext.example.mydsl.go.Expression;
@@ -45,7 +44,7 @@ import org.xtext.example.mydsl.go.UnaryExpr;
  *
  * @generated
  */
-public class ExpressionImpl extends ArrayLengthImpl implements Expression
+public class ExpressionImpl extends DeferStmtImpl implements Expression
 {
   /**
    * The cached value of the '{@link #getKeyedelement() <em>Keyedelement</em>}' containment reference list.
@@ -447,13 +446,6 @@ public class ExpressionImpl extends ArrayLengthImpl implements Expression
   @Override
   public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
   {
-    if (baseClass == DeferStmt.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
     if (baseClass == ElementList.class)
     {
       switch (derivedFeatureID)
@@ -496,13 +488,6 @@ public class ExpressionImpl extends ArrayLengthImpl implements Expression
   @Override
   public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
   {
-    if (baseClass == DeferStmt.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
     if (baseClass == ElementList.class)
     {
       switch (baseFeatureID)

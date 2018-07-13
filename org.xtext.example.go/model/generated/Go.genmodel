@@ -36,6 +36,7 @@
     <genClasses ecoreClass="Go.ecore#//ArrayType"/>
     <genClasses ecoreClass="Go.ecore#//ArrayLength">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ArrayLength/elemtype"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ArrayLength/exp"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//ElementType"/>
     <genClasses ecoreClass="Go.ecore#//SliceType">

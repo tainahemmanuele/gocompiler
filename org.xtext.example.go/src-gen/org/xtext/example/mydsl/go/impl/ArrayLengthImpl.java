@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.example.mydsl.go.ArrayLength;
 import org.xtext.example.mydsl.go.ElementType;
+import org.xtext.example.mydsl.go.Expression;
 import org.xtext.example.mydsl.go.GoPackage;
 
 /**
@@ -24,6 +25,7 @@ import org.xtext.example.mydsl.go.GoPackage;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.go.impl.ArrayLengthImpl#getElemtype <em>Elemtype</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.ArrayLengthImpl#getExp <em>Exp</em>}</li>
  * </ul>
  *
  * @generated
@@ -39,6 +41,16 @@ public class ArrayLengthImpl extends ArrayTypeImpl implements ArrayLength
    * @ordered
    */
   protected ElementType elemtype;
+
+  /**
+   * The cached value of the '{@link #getExp() <em>Exp</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExp()
+   * @generated
+   * @ordered
+   */
+  protected Expression exp;
 
   /**
    * <!-- begin-user-doc -->
@@ -114,6 +126,54 @@ public class ArrayLengthImpl extends ArrayTypeImpl implements ArrayLength
    * <!-- end-user-doc -->
    * @generated
    */
+  public Expression getExp()
+  {
+    return exp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExp(Expression newExp, NotificationChain msgs)
+  {
+    Expression oldExp = exp;
+    exp = newExp;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.ARRAY_LENGTH__EXP, oldExp, newExp);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExp(Expression newExp)
+  {
+    if (newExp != exp)
+    {
+      NotificationChain msgs = null;
+      if (exp != null)
+        msgs = ((InternalEObject)exp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.ARRAY_LENGTH__EXP, null, msgs);
+      if (newExp != null)
+        msgs = ((InternalEObject)newExp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.ARRAY_LENGTH__EXP, null, msgs);
+      msgs = basicSetExp(newExp, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.ARRAY_LENGTH__EXP, newExp, newExp));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -121,6 +181,8 @@ public class ArrayLengthImpl extends ArrayTypeImpl implements ArrayLength
     {
       case GoPackage.ARRAY_LENGTH__ELEMTYPE:
         return basicSetElemtype(null, msgs);
+      case GoPackage.ARRAY_LENGTH__EXP:
+        return basicSetExp(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -137,6 +199,8 @@ public class ArrayLengthImpl extends ArrayTypeImpl implements ArrayLength
     {
       case GoPackage.ARRAY_LENGTH__ELEMTYPE:
         return getElemtype();
+      case GoPackage.ARRAY_LENGTH__EXP:
+        return getExp();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -153,6 +217,9 @@ public class ArrayLengthImpl extends ArrayTypeImpl implements ArrayLength
     {
       case GoPackage.ARRAY_LENGTH__ELEMTYPE:
         setElemtype((ElementType)newValue);
+        return;
+      case GoPackage.ARRAY_LENGTH__EXP:
+        setExp((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -171,6 +238,9 @@ public class ArrayLengthImpl extends ArrayTypeImpl implements ArrayLength
       case GoPackage.ARRAY_LENGTH__ELEMTYPE:
         setElemtype((ElementType)null);
         return;
+      case GoPackage.ARRAY_LENGTH__EXP:
+        setExp((Expression)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -187,6 +257,8 @@ public class ArrayLengthImpl extends ArrayTypeImpl implements ArrayLength
     {
       case GoPackage.ARRAY_LENGTH__ELEMTYPE:
         return elemtype != null;
+      case GoPackage.ARRAY_LENGTH__EXP:
+        return exp != null;
     }
     return super.eIsSet(featureID);
   }

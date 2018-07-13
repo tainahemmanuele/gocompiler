@@ -393,13 +393,22 @@ public interface GoPackage extends EPackage
   int ARRAY_LENGTH__ELEMTYPE = ARRAY_TYPE_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_LENGTH__EXP = ARRAY_TYPE_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>Array Length</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ARRAY_LENGTH_FEATURE_COUNT = ARRAY_TYPE_FEATURE_COUNT + 1;
+  int ARRAY_LENGTH_FEATURE_COUNT = ARRAY_TYPE_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.SliceTypeImpl <em>Slice Type</em>}' class.
@@ -2832,22 +2841,13 @@ public interface GoPackage extends EPackage
   int EXPRESSION = 72;
 
   /**
-   * The feature id for the '<em><b>Elemtype</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__ELEMTYPE = ARRAY_LENGTH__ELEMTYPE;
-
-  /**
    * The feature id for the '<em><b>Keyedelement</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION__KEYEDELEMENT = ARRAY_LENGTH_FEATURE_COUNT + 0;
+  int EXPRESSION__KEYEDELEMENT = DEFER_STMT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Element</b></em>' containment reference.
@@ -2856,7 +2856,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__ELEMENT = ARRAY_LENGTH_FEATURE_COUNT + 1;
+  int EXPRESSION__ELEMENT = DEFER_STMT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Fieldn</b></em>' attribute.
@@ -2865,7 +2865,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__FIELDN = ARRAY_LENGTH_FEATURE_COUNT + 2;
+  int EXPRESSION__FIELDN = DEFER_STMT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Up</b></em>' containment reference.
@@ -2874,7 +2874,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__UP = ARRAY_LENGTH_FEATURE_COUNT + 3;
+  int EXPRESSION__UP = DEFER_STMT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Exp</b></em>' containment reference.
@@ -2883,7 +2883,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__EXP = ARRAY_LENGTH_FEATURE_COUNT + 4;
+  int EXPRESSION__EXP = DEFER_STMT_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -2892,7 +2892,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION_FEATURE_COUNT = ARRAY_LENGTH_FEATURE_COUNT + 5;
+  int EXPRESSION_FEATURE_COUNT = DEFER_STMT_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.Expression2Impl <em>Expression2</em>}' class.
@@ -4173,6 +4173,17 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EReference getArrayLength_Elemtype();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ArrayLength#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see org.xtext.example.mydsl.go.ArrayLength#getExp()
+   * @see #getArrayLength()
+   * @generated
+   */
+  EReference getArrayLength_Exp();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.ElementType <em>Element Type</em>}'.
@@ -7243,6 +7254,14 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EReference ARRAY_LENGTH__ELEMTYPE = eINSTANCE.getArrayLength_Elemtype();
+
+    /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_LENGTH__EXP = eINSTANCE.getArrayLength_Exp();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.ElementTypeImpl <em>Element Type</em>}' class.
