@@ -26,6 +26,7 @@ import org.xtext.example.mydsl.go.GoPackage;
  *   <li>{@link org.xtext.example.mydsl.go.impl.BasicLitImpl#getImagd <em>Imagd</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.BasicLitImpl#getRuned <em>Runed</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.BasicLitImpl#getStrd <em>Strd</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.BasicLitImpl#getBool <em>Bool</em>}</li>
  * </ul>
  *
  * @generated
@@ -131,6 +132,26 @@ public class BasicLitImpl extends MinimalEObjectImpl.Container implements BasicL
    * @ordered
    */
   protected String strd = STRD_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getBool() <em>Bool</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBool()
+   * @generated
+   * @ordered
+   */
+  protected static final String BOOL_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getBool() <em>Bool</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBool()
+   * @generated
+   * @ordered
+   */
+  protected String bool = BOOL_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -273,6 +294,29 @@ public class BasicLitImpl extends MinimalEObjectImpl.Container implements BasicL
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getBool()
+  {
+    return bool;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBool(String newBool)
+  {
+    String oldBool = bool;
+    bool = newBool;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.BASIC_LIT__BOOL, oldBool, bool));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -288,6 +332,8 @@ public class BasicLitImpl extends MinimalEObjectImpl.Container implements BasicL
         return getRuned();
       case GoPackage.BASIC_LIT__STRD:
         return getStrd();
+      case GoPackage.BASIC_LIT__BOOL:
+        return getBool();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -316,6 +362,9 @@ public class BasicLitImpl extends MinimalEObjectImpl.Container implements BasicL
         return;
       case GoPackage.BASIC_LIT__STRD:
         setStrd((String)newValue);
+        return;
+      case GoPackage.BASIC_LIT__BOOL:
+        setBool((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -346,6 +395,9 @@ public class BasicLitImpl extends MinimalEObjectImpl.Container implements BasicL
       case GoPackage.BASIC_LIT__STRD:
         setStrd(STRD_EDEFAULT);
         return;
+      case GoPackage.BASIC_LIT__BOOL:
+        setBool(BOOL_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -370,6 +422,8 @@ public class BasicLitImpl extends MinimalEObjectImpl.Container implements BasicL
         return RUNED_EDEFAULT == null ? runed != null : !RUNED_EDEFAULT.equals(runed);
       case GoPackage.BASIC_LIT__STRD:
         return STRD_EDEFAULT == null ? strd != null : !STRD_EDEFAULT.equals(strd);
+      case GoPackage.BASIC_LIT__BOOL:
+        return BOOL_EDEFAULT == null ? bool != null : !BOOL_EDEFAULT.equals(bool);
     }
     return super.eIsSet(featureID);
   }
@@ -395,6 +449,8 @@ public class BasicLitImpl extends MinimalEObjectImpl.Container implements BasicL
     result.append(runed);
     result.append(", strd: ");
     result.append(strd);
+    result.append(", bool: ");
+    result.append(bool);
     result.append(')');
     return result.toString();
   }

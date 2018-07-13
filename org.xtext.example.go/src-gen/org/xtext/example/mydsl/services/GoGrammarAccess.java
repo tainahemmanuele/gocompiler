@@ -1980,41 +1980,45 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	public class ConstSpecElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.ConstSpec");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cTpAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cTpTypeParserRuleCall_0_0 = (RuleCall)cTpAssignment_0.eContents().get(0);
-		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cIdIdentifierListParserRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cExpressionlistAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cExpressionlistExpressionListParserRuleCall_3_0 = (RuleCall)cExpressionlistAssignment_3.eContents().get(0);
+		private final Assignment cIdAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cIdIdentifierListParserRuleCall_0_0 = (RuleCall)cIdAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Assignment cTpAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cTpTypeParserRuleCall_1_0_0 = (RuleCall)cTpAssignment_1_0.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Assignment cExpressionlistAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cExpressionlistExpressionListParserRuleCall_1_2_0 = (RuleCall)cExpressionlistAssignment_1_2.eContents().get(0);
 		
 		//ConstSpec:
-		//	(tp=Type? id=IdentifierList '=' expressionlist=ExpressionList)?;
+		//	id=IdentifierList (tp=Type? '=' expressionlist=ExpressionList)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(tp=Type? id=IdentifierList '=' expressionlist=ExpressionList)?
+		//id=IdentifierList (tp=Type? '=' expressionlist=ExpressionList)?
 		public Group getGroup() { return cGroup; }
 		
-		//tp=Type?
-		public Assignment getTpAssignment_0() { return cTpAssignment_0; }
-		
-		//Type
-		public RuleCall getTpTypeParserRuleCall_0_0() { return cTpTypeParserRuleCall_0_0; }
-		
 		//id=IdentifierList
-		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
+		public Assignment getIdAssignment_0() { return cIdAssignment_0; }
 		
 		//IdentifierList
-		public RuleCall getIdIdentifierListParserRuleCall_1_0() { return cIdIdentifierListParserRuleCall_1_0; }
+		public RuleCall getIdIdentifierListParserRuleCall_0_0() { return cIdIdentifierListParserRuleCall_0_0; }
+		
+		//(tp=Type? '=' expressionlist=ExpressionList)?
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//tp=Type?
+		public Assignment getTpAssignment_1_0() { return cTpAssignment_1_0; }
+		
+		//Type
+		public RuleCall getTpTypeParserRuleCall_1_0_0() { return cTpTypeParserRuleCall_1_0_0; }
 		
 		//'='
-		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
+		public Keyword getEqualsSignKeyword_1_1() { return cEqualsSignKeyword_1_1; }
 		
 		//expressionlist=ExpressionList
-		public Assignment getExpressionlistAssignment_3() { return cExpressionlistAssignment_3; }
+		public Assignment getExpressionlistAssignment_1_2() { return cExpressionlistAssignment_1_2; }
 		
 		//ExpressionList
-		public RuleCall getExpressionlistExpressionListParserRuleCall_3_0() { return cExpressionlistExpressionListParserRuleCall_3_0; }
+		public RuleCall getExpressionlistExpressionListParserRuleCall_1_2_0() { return cExpressionlistExpressionListParserRuleCall_1_2_0; }
 	}
 	public class TypeDeclElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.TypeDecl");
@@ -4235,12 +4239,15 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRunedRUNE_LITParserRuleCall_3_0 = (RuleCall)cRunedAssignment_3.eContents().get(0);
 		private final Assignment cStrdAssignment_4 = (Assignment)cAlternatives.eContents().get(4);
 		private final RuleCall cStrdSTRINGTerminalRuleCall_4_0 = (RuleCall)cStrdAssignment_4.eContents().get(0);
+		private final Assignment cBoolAssignment_5 = (Assignment)cAlternatives.eContents().get(5);
+		private final RuleCall cBoolBOOLEAN_LITTerminalRuleCall_5_0 = (RuleCall)cBoolAssignment_5.eContents().get(0);
 		
 		//BasicLit:
-		//	intd=INT_LIT | floatd=FLOAT_LIT | imagd=IMAGINARY_LIT | runed=RUNE_LIT | strd=STRING;
+		//	intd=INT_LIT | floatd=FLOAT_LIT | imagd=IMAGINARY_LIT
+		//	| runed=RUNE_LIT | strd=STRING | bool=BOOLEAN_LIT;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//intd=INT_LIT | floatd=FLOAT_LIT | imagd=IMAGINARY_LIT | runed=RUNE_LIT | strd=STRING
+		//intd=INT_LIT | floatd=FLOAT_LIT | imagd=IMAGINARY_LIT | runed=RUNE_LIT | strd=STRING | bool=BOOLEAN_LIT
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//intd=INT_LIT
@@ -4272,6 +4279,12 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//STRING
 		public RuleCall getStrdSTRINGTerminalRuleCall_4_0() { return cStrdSTRINGTerminalRuleCall_4_0; }
+		
+		//bool=BOOLEAN_LIT
+		public Assignment getBoolAssignment_5() { return cBoolAssignment_5; }
+		
+		//BOOLEAN_LIT
+		public RuleCall getBoolBOOLEAN_LITTerminalRuleCall_5_0() { return cBoolBOOLEAN_LITTerminalRuleCall_5_0; }
 	}
 	public class ReceiverTypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.ReceiverType");
@@ -4457,6 +4470,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tDECIMAL_DIGIT;
 	private final TerminalRule tOCTAL_DIGIT;
 	private final TerminalRule tHEX_DIGIT;
+	private final TerminalRule tBOOLEAN_LIT;
 	private final TerminalRule tIDENTIFIER;
 	private final TerminalRule tFLOAT_LIT;
 	private final TerminalRule tINT_LIT;
@@ -4620,6 +4634,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		this.tDECIMAL_DIGIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.DECIMAL_DIGIT");
 		this.tOCTAL_DIGIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.OCTAL_DIGIT");
 		this.tHEX_DIGIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.HEX_DIGIT");
+		this.tBOOLEAN_LIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.BOOLEAN_LIT");
 		this.tIDENTIFIER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.IDENTIFIER");
 		this.tFLOAT_LIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.FLOAT_LIT");
 		this.tINT_LIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.INT_LIT");
@@ -5016,6 +5031,12 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	//	| 'd' | 'e' | 'f');
 	public TerminalRule getHEX_DIGITRule() {
 		return tHEX_DIGIT;
+	}
+	
+	//terminal BOOLEAN_LIT:
+	//	'true' | 'false';
+	public TerminalRule getBOOLEAN_LITRule() {
+		return tBOOLEAN_LIT;
 	}
 	
 	//terminal IDENTIFIER:
@@ -5629,7 +5650,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ConstSpec:
-	//	(tp=Type? id=IdentifierList '=' expressionlist=ExpressionList)?;
+	//	id=IdentifierList (tp=Type? '=' expressionlist=ExpressionList)?;
 	public ConstSpecElements getConstSpecAccess() {
 		return pConstSpec;
 	}
@@ -6198,7 +6219,8 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//BasicLit:
-	//	intd=INT_LIT | floatd=FLOAT_LIT | imagd=IMAGINARY_LIT | runed=RUNE_LIT | strd=STRING;
+	//	intd=INT_LIT | floatd=FLOAT_LIT | imagd=IMAGINARY_LIT
+	//	| runed=RUNE_LIT | strd=STRING | bool=BOOLEAN_LIT;
 	public BasicLitElements getBasicLitAccess() {
 		return pBasicLit;
 	}

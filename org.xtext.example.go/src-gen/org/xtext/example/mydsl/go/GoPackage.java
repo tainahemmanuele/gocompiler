@@ -1712,22 +1712,22 @@ public interface GoPackage extends EPackage
   int CONST_SPEC = 41;
 
   /**
-   * The feature id for the '<em><b>Tp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONST_SPEC__TP = 0;
-
-  /**
    * The feature id for the '<em><b>Id</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONST_SPEC__ID = 1;
+  int CONST_SPEC__ID = 0;
+
+  /**
+   * The feature id for the '<em><b>Tp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONST_SPEC__TP = 1;
 
   /**
    * The feature id for the '<em><b>Expressionlist</b></em>' containment reference.
@@ -3789,13 +3789,22 @@ public interface GoPackage extends EPackage
   int BASIC_LIT__STRD = 4;
 
   /**
+   * The feature id for the '<em><b>Bool</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BASIC_LIT__BOOL = 5;
+
+  /**
    * The number of structural features of the '<em>Basic Lit</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BASIC_LIT_FEATURE_COUNT = 5;
+  int BASIC_LIT_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.ReceiverTypeImpl <em>Receiver Type</em>}' class.
@@ -5210,17 +5219,6 @@ public interface GoPackage extends EPackage
   EClass getConstSpec();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ConstSpec#getTp <em>Tp</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Tp</em>'.
-   * @see org.xtext.example.mydsl.go.ConstSpec#getTp()
-   * @see #getConstSpec()
-   * @generated
-   */
-  EReference getConstSpec_Tp();
-
-  /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ConstSpec#getId <em>Id</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5230,6 +5228,17 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EReference getConstSpec_Id();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ConstSpec#getTp <em>Tp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Tp</em>'.
+   * @see org.xtext.example.mydsl.go.ConstSpec#getTp()
+   * @see #getConstSpec()
+   * @generated
+   */
+  EReference getConstSpec_Tp();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ConstSpec#getExpressionlist <em>Expressionlist</em>}'.
@@ -6907,6 +6916,17 @@ public interface GoPackage extends EPackage
   EAttribute getBasicLit_Strd();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.BasicLit#getBool <em>Bool</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Bool</em>'.
+   * @see org.xtext.example.mydsl.go.BasicLit#getBool()
+   * @see #getBasicLit()
+   * @generated
+   */
+  EAttribute getBasicLit_Bool();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.ReceiverType <em>Receiver Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8096,20 +8116,20 @@ public interface GoPackage extends EPackage
     EClass CONST_SPEC = eINSTANCE.getConstSpec();
 
     /**
-     * The meta object literal for the '<em><b>Tp</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CONST_SPEC__TP = eINSTANCE.getConstSpec_Tp();
-
-    /**
      * The meta object literal for the '<em><b>Id</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference CONST_SPEC__ID = eINSTANCE.getConstSpec_Id();
+
+    /**
+     * The meta object literal for the '<em><b>Tp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONST_SPEC__TP = eINSTANCE.getConstSpec_Tp();
 
     /**
      * The meta object literal for the '<em><b>Expressionlist</b></em>' containment reference feature.
@@ -9470,6 +9490,14 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EAttribute BASIC_LIT__STRD = eINSTANCE.getBasicLit_Strd();
+
+    /**
+     * The meta object literal for the '<em><b>Bool</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BASIC_LIT__BOOL = eINSTANCE.getBasicLit_Bool();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.ReceiverTypeImpl <em>Receiver Type</em>}' class.

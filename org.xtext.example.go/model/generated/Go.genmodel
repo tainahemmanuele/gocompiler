@@ -158,8 +158,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ConstDecl/constspec2"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//ConstSpec">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ConstSpec/tp"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ConstSpec/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ConstSpec/tp"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ConstSpec/expressionlist"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//TypeDecl">
@@ -360,6 +360,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//BasicLit/imagd"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//BasicLit/runed"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//BasicLit/strd"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//BasicLit/bool"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//ReceiverType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//ReceiverType/methodn"/>

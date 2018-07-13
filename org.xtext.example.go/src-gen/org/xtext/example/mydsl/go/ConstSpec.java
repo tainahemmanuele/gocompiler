@@ -14,8 +14,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.go.ConstSpec#getTp <em>Tp</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.ConstSpec#getId <em>Id</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.ConstSpec#getTp <em>Tp</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.ConstSpec#getExpressionlist <em>Expressionlist</em>}</li>
  * </ul>
  *
@@ -25,32 +25,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ConstSpec extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Tp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Tp</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Tp</em>' containment reference.
-   * @see #setTp(Type)
-   * @see org.xtext.example.mydsl.go.GoPackage#getConstSpec_Tp()
-   * @model containment="true"
-   * @generated
-   */
-  Type getTp();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.go.ConstSpec#getTp <em>Tp</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Tp</em>' containment reference.
-   * @see #getTp()
-   * @generated
-   */
-  void setTp(Type value);
-
   /**
    * Returns the value of the '<em><b>Id</b></em>' containment reference.
    * <!-- begin-user-doc -->
@@ -76,6 +50,32 @@ public interface ConstSpec extends EObject
    * @generated
    */
   void setId(IdentifierList value);
+
+  /**
+   * Returns the value of the '<em><b>Tp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Tp</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Tp</em>' containment reference.
+   * @see #setTp(Type)
+   * @see org.xtext.example.mydsl.go.GoPackage#getConstSpec_Tp()
+   * @model containment="true"
+   * @generated
+   */
+  Type getTp();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.ConstSpec#getTp <em>Tp</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Tp</em>' containment reference.
+   * @see #getTp()
+   * @generated
+   */
+  void setTp(Type value);
 
   /**
    * Returns the value of the '<em><b>Expressionlist</b></em>' containment reference.

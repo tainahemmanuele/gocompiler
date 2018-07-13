@@ -527,7 +527,14 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     BasicLit returns BasicLit
 	 *
 	 * Constraint:
-	 *     (intd=INT_LIT | floatd=FLOAT_LIT | imagd=IMAGINARY_LIT | runed=RUNE_LIT | strd=STRING)
+	 *     (
+	 *         intd=INT_LIT | 
+	 *         floatd=FLOAT_LIT | 
+	 *         imagd=IMAGINARY_LIT | 
+	 *         runed=RUNE_LIT | 
+	 *         strd=STRING | 
+	 *         bool=BOOLEAN_LIT
+	 *     )
 	 */
 	protected void sequence_BasicLit(ISerializationContext context, BasicLit semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -663,7 +670,7 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ConstSpec returns ConstSpec
 	 *
 	 * Constraint:
-	 *     (tp=Type? id=IdentifierList expressionlist=ExpressionList)
+	 *     (id=IdentifierList (tp=Type? expressionlist=ExpressionList)?)
 	 */
 	protected void sequence_ConstSpec(ISerializationContext context, ConstSpec semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

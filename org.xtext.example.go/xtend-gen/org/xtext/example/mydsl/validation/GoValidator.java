@@ -13,6 +13,7 @@ import org.xtext.example.mydsl.go.ConstDecl;
 import org.xtext.example.mydsl.go.Expression;
 import org.xtext.example.mydsl.go.Expression2;
 import org.xtext.example.mydsl.go.ForStmt;
+import org.xtext.example.mydsl.go.VarDecl;
 import org.xtext.example.mydsl.validation.AbstractGoValidator;
 
 /**
@@ -54,7 +55,23 @@ public class GoValidator extends AbstractGoValidator {
     String constType = cd.getConstspec().getTp().getTp();
     BasicLit constExp = cd.getConstspec().getExpressionlist().getExp().getUp().getPr().getOp().getLiteral().getBasic();
     if (((constType != null) && (constExp != null))) {
-      this.checkAndMakeConstDecl(constId, constType, constExp);
+      boolean error = this.checkAndMakeDecl(constId, constType, constExp);
+      if (((constId != constId.toUpperCase()) && (!error))) {
+        this.warning("Constants usually be declared with Upper Case", null);
+      }
+    }
+  }
+  
+  @Check
+  public void checkVarDecl(final VarDecl vd) {
+    String varId = vd.getVarspec().getId().getId();
+    String varType = vd.getVarspec().getTp2().getTp();
+    BasicLit varExp = vd.getVarspec().getExpressionlist().getExp().getUp().getPr().getOp().getLiteral().getBasic();
+    if (((varType != null) && (varExp != null))) {
+      boolean error = this.checkAndMakeDecl(varId, varType, varExp);
+      if (((varId.charAt(0) != varId.toLowerCase().charAt(0)) && (!error))) {
+        this.warning("Variables usually starts with Lower Case", null);
+      }
     }
   }
   
@@ -91,9 +108,9 @@ public class GoValidator extends AbstractGoValidator {
   }
   
   /**
-   * Checa se a declaração de uma constante é valida
+   * Checa se uma declaração é valida
    */
-  public void checkAndMakeConstDecl(final String id, final String constType, final BasicLit literal) {
+  public boolean checkAndMakeDecl(final String id, final String constType, final BasicLit literal) {
     boolean error = false;
     boolean _equals = Objects.equal(constType, "float");
     if (_equals) {
@@ -101,18 +118,18 @@ public class GoValidator extends AbstractGoValidator {
       boolean _tripleNotEquals = (_intd != null);
       if (_tripleNotEquals) {
         String _intd_1 = literal.getIntd();
-        Double _double = new Double(_intd_1);
-        this.ids.put(id, _double);
+        Integer _integer = new Integer(_intd_1);
+        this.ids.put(id, _integer);
       } else {
         String _floatd = literal.getFloatd();
         boolean _tripleNotEquals_1 = (_floatd != null);
         if (_tripleNotEquals_1) {
           String _floatd_1 = literal.getFloatd();
-          Double _double_1 = new Double(_floatd_1);
-          this.ids.put(id, _double_1);
+          Double _double = new Double(_floatd_1);
+          this.ids.put(id, _double);
         } else {
           error = true;
-          this.error("Semantic Error: Invalid const declaration, operator \r\n\t\t\t\t\t\tnot assigned to float.", null);
+          this.error("Semantic Error: Invalid declaration, operator \r\n\t\t\t\t\t\tnot assigned to float.", null);
         }
       }
     } else {
@@ -122,39 +139,43 @@ public class GoValidator extends AbstractGoValidator {
         boolean _tripleNotEquals_2 = (_intd_2 != null);
         if (_tripleNotEquals_2) {
           String _intd_3 = literal.getIntd();
-          Integer _integer = new Integer(_intd_3);
-          this.ids.put(id, _integer);
+          Integer _integer_1 = new Integer(_intd_3);
+          this.ids.put(id, _integer_1);
         } else {
-          String _floatd_2 = literal.getFloatd();
-          boolean _tripleNotEquals_3 = (_floatd_2 != null);
-          if (_tripleNotEquals_3) {
-            String _intd_4 = literal.getIntd();
-            Integer _integer_1 = new Integer(_intd_4);
-            this.ids.put(id, _integer_1);
-          } else {
-            error = true;
-            this.error("Semantic Error: Invalid const declaration, operator \r\n\t\t\t\t\t\tnot assigned to int.", null);
-          }
+          error = true;
+          this.error("Semantic Error: Invalid declaration, operator \r\n\t\t\t\t\t\tnot assigned to int.", null);
         }
       } else {
         boolean _equals_2 = Objects.equal(constType, "string");
         if (_equals_2) {
           String _strd = literal.getStrd();
-          boolean _tripleNotEquals_4 = (_strd != null);
-          if (_tripleNotEquals_4) {
+          boolean _tripleNotEquals_3 = (_strd != null);
+          if (_tripleNotEquals_3) {
             String _strd_1 = literal.getStrd();
             String _string = new String(_strd_1);
             this.ids.put(id, _string);
           } else {
             error = true;
-            this.error("Semantic Error: Invalid const declaration, operator \r\n\t\t\t\t\t\tnot assigned to string.", null);
+            this.error("Semantic Error: Invalid declaration, operator \r\n\t\t\t\t\t\tnot assigned to string.", null);
+          }
+        } else {
+          boolean _equals_3 = Objects.equal(constType, "boolean");
+          if (_equals_3) {
+            String _bool = literal.getBool();
+            boolean _tripleNotEquals_4 = (_bool != null);
+            if (_tripleNotEquals_4) {
+              String _bool_1 = literal.getBool();
+              Boolean _boolean = new Boolean(_bool_1);
+              this.ids.put(id, _boolean);
+            } else {
+              error = true;
+              this.error("Semantic Error: Invalid declaration, operator \r\n\t\t\t\t\t\tnot assigned to boolean.", null);
+            }
           }
         }
       }
     }
-    if (((id != id.toUpperCase()) && (!error))) {
-      this.warning("Constants usually be declared with Upper Case", null);
-    }
+    return error;
   }
   
   protected boolean isArithimeticOp(final String binaryOperator) {

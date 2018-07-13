@@ -3633,28 +3633,9 @@ ruleConstSpec returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getConstSpecAccess().getTpTypeParserRuleCall_0_0());
+					newCompositeNode(grammarAccess.getConstSpecAccess().getIdIdentifierListParserRuleCall_0_0());
 				}
-				lv_tp_0_0=ruleType
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getConstSpecRule());
-					}
-					set(
-						$current,
-						"tp",
-						lv_tp_0_0,
-						"org.xtext.example.mydsl.Go.Type");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)?
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getConstSpecAccess().getIdIdentifierListParserRuleCall_1_0());
-				}
-				lv_id_1_0=ruleIdentifierList
+				lv_id_0_0=ruleIdentifierList
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getConstSpecRule());
@@ -3662,36 +3643,57 @@ ruleConstSpec returns [EObject current=null]
 					set(
 						$current,
 						"id",
-						lv_id_1_0,
+						lv_id_0_0,
 						"org.xtext.example.mydsl.Go.IdentifierList");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_2='='
-		{
-			newLeafNode(otherlv_2, grammarAccess.getConstSpecAccess().getEqualsSignKeyword_2());
-		}
 		(
 			(
-				{
-					newCompositeNode(grammarAccess.getConstSpecAccess().getExpressionlistExpressionListParserRuleCall_3_0());
-				}
-				lv_expressionlist_3_0=ruleExpressionList
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getConstSpecRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getConstSpecAccess().getTpTypeParserRuleCall_1_0_0());
 					}
-					set(
-						$current,
-						"expressionlist",
-						lv_expressionlist_3_0,
-						"org.xtext.example.mydsl.Go.ExpressionList");
-					afterParserOrEnumRuleCall();
-				}
+					lv_tp_1_0=ruleType
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getConstSpecRule());
+						}
+						set(
+							$current,
+							"tp",
+							lv_tp_1_0,
+							"org.xtext.example.mydsl.Go.Type");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)?
+			otherlv_2='='
+			{
+				newLeafNode(otherlv_2, grammarAccess.getConstSpecAccess().getEqualsSignKeyword_1_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getConstSpecAccess().getExpressionlistExpressionListParserRuleCall_1_2_0());
+					}
+					lv_expressionlist_3_0=ruleExpressionList
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getConstSpecRule());
+						}
+						set(
+							$current,
+							"expressionlist",
+							lv_expressionlist_3_0,
+							"org.xtext.example.mydsl.Go.ExpressionList");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
-		)
-	)?
+		)?
+	)
 ;
 
 // Entry rule entryRuleTypeDecl
@@ -7891,6 +7893,25 @@ ruleBasicLit returns [EObject current=null]
 				}
 			)
 		)
+		    |
+		(
+			(
+				lv_bool_5_0=RULE_BOOLEAN_LIT
+				{
+					newLeafNode(lv_bool_5_0, grammarAccess.getBasicLitAccess().getBoolBOOLEAN_LITTerminalRuleCall_5_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getBasicLitRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"bool",
+						lv_bool_5_0,
+						"org.xtext.example.mydsl.Go.BOOLEAN_LIT");
+				}
+			)
+		)
 	)
 ;
 
@@ -8218,6 +8239,8 @@ fragment RULE_DECIMAL_DIGIT : RULE_INT;
 fragment RULE_OCTAL_DIGIT : ('0'|'1'|'2'|'3'|'4'|'5'|'6'|'7');
 
 fragment RULE_HEX_DIGIT : (('0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9')|('A'|'B'|'C'|'D'|'E'|'F')|('a'|'b'|'c'|'d'|'e'|'f'));
+
+RULE_BOOLEAN_LIT : ('true'|'false');
 
 RULE_IDENTIFIER : RULE_ID;
 

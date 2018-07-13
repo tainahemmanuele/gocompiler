@@ -19,16 +19,7 @@ import org.xtext.example.mydsl.go.BasicLit
 class GoValidator extends AbstractGoValidator {
 	
 	val ids = newLinkedHashMap()
-//	public static val INVALID_NAME = 'invalidName'
-//
-//	@Check
-//	def checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.name.charAt(0))) {
-//			warning('Name should start with a capital', 
-//					GoPackage.Literals.GREETING__NAME,
-//					INVALID_NAME)
-//		}
-//	}
+
 
 	def static void main(String[] args) {
 	 println("Hello World")
@@ -36,9 +27,7 @@ class GoValidator extends AbstractGoValidator {
 
 	@Check
 	def checkFor(ForStmt fors) {
-		//if(fors.condition.exp.elemtype != boolean) {
-			//error("Semantic Error: for condition must be boolean", null)
-		//}
+		//TODO: Check for statements
 	}
 	
 	@Check
@@ -67,42 +56,31 @@ class GoValidator extends AbstractGoValidator {
 		var constType = cd.constspec.tp.tp;
 		var constExp  = cd.constspec.expressionlist.exp.up.pr.op.literal.basic;
 				
+				
 		if(constType !== null && constExp !== null) {
-			checkAndMakeConstDecl(constId, constType, constExp);
+			var error = checkAndMakeDecl(constId, constType, constExp);
+			if(constId !== constId.toUpperCase() && !error) {
+				warning ("Constants usually be declared with Upper Case", null)
+			}
 		}
 		
 	}
 	
-	/* @Check
-	def checkVarSpec(VarSpec varspec) {
-		var type = varspec.tp2.tp.toString.toLowerCase
-		info("Tipo passado: " + type, null)
-		print("Não nulo: ")
-		println(type !== null)
-		if (type !== null) {
-			info ("Entrou no if", null)
-			var typeExp = Typer.typeExp(varspec.expressionlist.exp)
-			println("Tipo Exp: " + typeExp)
-			println(typeExp !== type)
-			println(Typer.typeLargerThan(type, typeExp))
-			if (typeExp != type || Typer.typeLargerThan(type, typeExp)) {
-				error("Semantic Error: Variable " + varspec.id.id + " and Expression type mismatching", null)
+	@Check
+	def checkVarDecl(VarDecl vd) {
+		
+		var varId   = vd.varspec.id.id;
+		var varType = vd.varspec.tp2.tp;
+		var varExp  = vd.varspec.expressionlist.exp.up.pr.op.literal.basic;
+		
+		if (varType !== null && varExp !== null) {
+			var error = checkAndMakeDecl(varId, varType, varExp);
+			if(varId.charAt(0) !== varId.toLowerCase().charAt(0) && !error) {
+				warning ("Variables usually starts with Lower Case", null)
 			}
-			var explist = varspec.expressionlist.expression2
-			var varlist = varspec.id.id2
-			for (i : 0 ..< explist.size) {
-				typeExp = Typer.typeExp(explist.get(i))
-				if (typeExp != type  || Typer.typeLargerThan(type, typeExp)) {
-					error("Semantic Error: Variable " + varlist.get(i) + " and Expression type mismatching", null)
-				}
-			}
-			ids.put(varspec.id.id, type)
-			for (id : varlist) {
-				ids.put(id, type)
-			}
-			
-		}
-	}*/
+		} 
+	}
+	
 	
 	/*
 	 * Checa se dois literais são compativeis em uma operação aritimética 
@@ -131,22 +109,22 @@ class GoValidator extends AbstractGoValidator {
 	}
 	
 	/*
-	 * Checa se a declaração de uma constante é valida
+	 * Checa se uma declaração é valida
 	 */
-	def checkAndMakeConstDecl(String id, String constType, BasicLit literal) {
+	def checkAndMakeDecl(String id, String constType, BasicLit literal) {
 		
 		var error = false;
 				
 		if(constType == "float") {
 			if(literal.intd !== null) {
-				ids.put(id, new Double(literal.intd));
+				ids.put(id, new Integer(literal.intd));
 			}
 			else if(literal.floatd !== null) {
 				ids.put(id, new Double(literal.floatd));
 			}
 			else {
 				error = true;
-				error("Semantic Error: Invalid const declaration, operator 
+				error("Semantic Error: Invalid declaration, operator 
 						not assigned to float.", null);
 			}
 		} 
@@ -154,11 +132,9 @@ class GoValidator extends AbstractGoValidator {
 			if(literal.intd !== null) {
 				ids.put(id, new Integer(literal.intd));
 			}
-			else if(literal.floatd !== null) {
-				ids.put(id, new Integer(literal.intd));
-			} else {
+			else {
 				error = true;
-				error("Semantic Error: Invalid const declaration, operator 
+				error("Semantic Error: Invalid declaration, operator 
 						not assigned to int.", null);
 			}
 		}
@@ -168,13 +144,22 @@ class GoValidator extends AbstractGoValidator {
 			}
 			else {
 				error = true;
-				error("Semantic Error: Invalid const declaration, operator 
+				error("Semantic Error: Invalid declaration, operator 
 						not assigned to string.", null);
 			}
 		}
-		if(id !== id.toUpperCase() && !error) {
-			warning ("Constants usually be declared with Upper Case", null)
+		else if(constType == "boolean") {
+			if(literal.bool !== null) {
+				ids.put(id, new Boolean(literal.bool));
+			}
+			else {
+				error = true;
+				error("Semantic Error: Invalid declaration, operator 
+						not assigned to boolean.", null);
+			}
 		}
+		
+		return error;
 	}
 
 

@@ -212,9 +212,9 @@
         eType="#//ConstSpec" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConstSpec">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="tp" eType="#//Type" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="id" eType="#//IdentifierList"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tp" eType="#//Type" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expressionlist" eType="#//ExpressionList"
         containment="true"/>
   </eClassifiers>
@@ -502,6 +502,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="imagd" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="runed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="strd" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bool" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ReceiverType" eSuperTypes="#//MethodExpr">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="methodn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

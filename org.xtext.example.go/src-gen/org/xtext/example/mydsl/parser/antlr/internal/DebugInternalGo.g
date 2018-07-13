@@ -528,10 +528,10 @@ ruleConstDecl:
 
 // Rule ConstSpec
 ruleConstSpec:
+	ruleIdentifierList
 	(
 		ruleType
 		?
-		ruleIdentifierList
 		'='
 		ruleExpressionList
 	)?
@@ -1086,6 +1086,8 @@ ruleBasicLit:
 		ruleRUNE_LIT
 		    |
 		RULE_STRING
+		    |
+		RULE_BOOLEAN_LIT
 	)
 ;
 
@@ -1163,6 +1165,8 @@ fragment RULE_DECIMAL_DIGIT : RULE_INT;
 fragment RULE_OCTAL_DIGIT : ('0'|'1'|'2'|'3'|'4'|'5'|'6'|'7');
 
 fragment RULE_HEX_DIGIT : (('0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9')|('A'|'B'|'C'|'D'|'E'|'F')|('a'|'b'|'c'|'d'|'e'|'f'));
+
+RULE_BOOLEAN_LIT : ('true'|'false');
 
 RULE_IDENTIFIER : RULE_ID;
 

@@ -2093,7 +2093,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getConstSpec_Tp()
+  public EReference getConstSpec_Id()
   {
     return (EReference)constSpecEClass.getEStructuralFeatures().get(0);
   }
@@ -2103,7 +2103,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getConstSpec_Id()
+  public EReference getConstSpec_Tp()
   {
     return (EReference)constSpecEClass.getEStructuralFeatures().get(1);
   }
@@ -3683,6 +3683,16 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getBasicLit_Bool()
+  {
+    return (EAttribute)basicLitEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getReceiverType()
   {
     return receiverTypeEClass;
@@ -3971,8 +3981,8 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     createEReference(constDeclEClass, CONST_DECL__CONSTSPEC2);
 
     constSpecEClass = createEClass(CONST_SPEC);
-    createEReference(constSpecEClass, CONST_SPEC__TP);
     createEReference(constSpecEClass, CONST_SPEC__ID);
+    createEReference(constSpecEClass, CONST_SPEC__TP);
     createEReference(constSpecEClass, CONST_SPEC__EXPRESSIONLIST);
 
     typeDeclEClass = createEClass(TYPE_DECL);
@@ -4182,6 +4192,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     createEAttribute(basicLitEClass, BASIC_LIT__IMAGD);
     createEAttribute(basicLitEClass, BASIC_LIT__RUNED);
     createEAttribute(basicLitEClass, BASIC_LIT__STRD);
+    createEAttribute(basicLitEClass, BASIC_LIT__BOOL);
 
     receiverTypeEClass = createEClass(RECEIVER_TYPE);
     createEAttribute(receiverTypeEClass, RECEIVER_TYPE__METHODN);
@@ -4429,8 +4440,8 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     initEReference(getConstDecl_Constspec2(), this.getConstSpec(), null, "constspec2", null, 0, -1, ConstDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(constSpecEClass, ConstSpec.class, "ConstSpec", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getConstSpec_Tp(), this.getType(), null, "tp", null, 0, 1, ConstSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConstSpec_Id(), this.getIdentifierList(), null, "id", null, 0, 1, ConstSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConstSpec_Tp(), this.getType(), null, "tp", null, 0, 1, ConstSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConstSpec_Expressionlist(), this.getExpressionList(), null, "expressionlist", null, 0, 1, ConstSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeDeclEClass, TypeDecl.class, "TypeDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4640,6 +4651,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     initEAttribute(getBasicLit_Imagd(), ecorePackage.getEString(), "imagd", null, 0, 1, BasicLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getBasicLit_Runed(), ecorePackage.getEString(), "runed", null, 0, 1, BasicLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getBasicLit_Strd(), ecorePackage.getEString(), "strd", null, 0, 1, BasicLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBasicLit_Bool(), ecorePackage.getEString(), "bool", null, 0, 1, BasicLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(receiverTypeEClass, ReceiverType.class, "ReceiverType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getReceiverType_Methodn(), ecorePackage.getEString(), "methodn", null, 0, 1, ReceiverType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

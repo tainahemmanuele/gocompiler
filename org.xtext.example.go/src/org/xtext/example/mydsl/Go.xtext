@@ -366,6 +366,9 @@ terminal HEX_DIGIT:
 	('0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9') | ('A' | 'B' | 'C' | 'D' | 'E' | 'F') | ('a' | 'b' | 'c'
 	| 'd' | 'e' | 'f');
 
+terminal BOOLEAN_LIT:
+	'true' | 'false'
+;
 
 terminal IDENTIFIER:
 	ID;
@@ -582,7 +585,7 @@ ConstDecl:
 	{ConstDecl} 'const' (constspec=ConstSpec | '(' (constspec2+=ConstSpec (';')?)* ')');
 
 ConstSpec:
-	((tp=Type)? id=IdentifierList  '=' expressionlist=ExpressionList)?;
+	id=IdentifierList ((tp=Type)?'=' expressionlist=ExpressionList)?;
 
 TypeDecl:
 	{TypeDecl}
@@ -771,7 +774,8 @@ Element:
 	Expression | LiteralValue;
 
 BasicLit:
-	  intd = INT_LIT | floatd = FLOAT_LIT | imagd = IMAGINARY_LIT | runed = RUNE_LIT | strd = STRING;
+	  intd = INT_LIT | floatd = FLOAT_LIT | imagd = IMAGINARY_LIT 
+	  | runed = RUNE_LIT | strd = STRING | bool = BOOLEAN_LIT;
 
 ReceiverType:
 	type=Type;

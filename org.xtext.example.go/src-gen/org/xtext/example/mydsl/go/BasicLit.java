@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.example.mydsl.go.BasicLit#getImagd <em>Imagd</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.BasicLit#getRuned <em>Runed</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.BasicLit#getStrd <em>Strd</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.BasicLit#getBool <em>Bool</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.go.GoPackage#getBasicLit()
@@ -156,5 +157,31 @@ public interface BasicLit extends EObject
    * @generated
    */
   void setStrd(String value);
+
+  /**
+   * Returns the value of the '<em><b>Bool</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Bool</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Bool</em>' attribute.
+   * @see #setBool(String)
+   * @see org.xtext.example.mydsl.go.GoPackage#getBasicLit_Bool()
+   * @model
+   * @generated
+   */
+  String getBool();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.BasicLit#getBool <em>Bool</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Bool</em>' attribute.
+   * @see #getBool()
+   * @generated
+   */
+  void setBool(String value);
 
 } // BasicLit

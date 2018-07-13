@@ -26,8 +26,8 @@ import org.xtext.example.mydsl.go.Type;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.go.impl.ConstSpecImpl#getTp <em>Tp</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.ConstSpecImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.ConstSpecImpl#getTp <em>Tp</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.ConstSpecImpl#getExpressionlist <em>Expressionlist</em>}</li>
  * </ul>
  *
@@ -35,16 +35,6 @@ import org.xtext.example.mydsl.go.Type;
  */
 public class ConstSpecImpl extends MinimalEObjectImpl.Container implements ConstSpec
 {
-  /**
-   * The cached value of the '{@link #getTp() <em>Tp</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTp()
-   * @generated
-   * @ordered
-   */
-  protected Type tp;
-
   /**
    * The cached value of the '{@link #getId() <em>Id</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -54,6 +44,16 @@ public class ConstSpecImpl extends MinimalEObjectImpl.Container implements Const
    * @ordered
    */
   protected IdentifierList id;
+
+  /**
+   * The cached value of the '{@link #getTp() <em>Tp</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTp()
+   * @generated
+   * @ordered
+   */
+  protected Type tp;
 
   /**
    * The cached value of the '{@link #getExpressionlist() <em>Expressionlist</em>}' containment reference.
@@ -84,54 +84,6 @@ public class ConstSpecImpl extends MinimalEObjectImpl.Container implements Const
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.CONST_SPEC;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Type getTp()
-  {
-    return tp;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetTp(Type newTp, NotificationChain msgs)
-  {
-    Type oldTp = tp;
-    tp = newTp;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.CONST_SPEC__TP, oldTp, newTp);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setTp(Type newTp)
-  {
-    if (newTp != tp)
-    {
-      NotificationChain msgs = null;
-      if (tp != null)
-        msgs = ((InternalEObject)tp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.CONST_SPEC__TP, null, msgs);
-      if (newTp != null)
-        msgs = ((InternalEObject)newTp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.CONST_SPEC__TP, null, msgs);
-      msgs = basicSetTp(newTp, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.CONST_SPEC__TP, newTp, newTp));
   }
 
   /**
@@ -180,6 +132,54 @@ public class ConstSpecImpl extends MinimalEObjectImpl.Container implements Const
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.CONST_SPEC__ID, newId, newId));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Type getTp()
+  {
+    return tp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetTp(Type newTp, NotificationChain msgs)
+  {
+    Type oldTp = tp;
+    tp = newTp;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.CONST_SPEC__TP, oldTp, newTp);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTp(Type newTp)
+  {
+    if (newTp != tp)
+    {
+      NotificationChain msgs = null;
+      if (tp != null)
+        msgs = ((InternalEObject)tp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.CONST_SPEC__TP, null, msgs);
+      if (newTp != null)
+        msgs = ((InternalEObject)newTp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.CONST_SPEC__TP, null, msgs);
+      msgs = basicSetTp(newTp, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.CONST_SPEC__TP, newTp, newTp));
   }
 
   /**
@@ -240,10 +240,10 @@ public class ConstSpecImpl extends MinimalEObjectImpl.Container implements Const
   {
     switch (featureID)
     {
-      case GoPackage.CONST_SPEC__TP:
-        return basicSetTp(null, msgs);
       case GoPackage.CONST_SPEC__ID:
         return basicSetId(null, msgs);
+      case GoPackage.CONST_SPEC__TP:
+        return basicSetTp(null, msgs);
       case GoPackage.CONST_SPEC__EXPRESSIONLIST:
         return basicSetExpressionlist(null, msgs);
     }
@@ -260,10 +260,10 @@ public class ConstSpecImpl extends MinimalEObjectImpl.Container implements Const
   {
     switch (featureID)
     {
-      case GoPackage.CONST_SPEC__TP:
-        return getTp();
       case GoPackage.CONST_SPEC__ID:
         return getId();
+      case GoPackage.CONST_SPEC__TP:
+        return getTp();
       case GoPackage.CONST_SPEC__EXPRESSIONLIST:
         return getExpressionlist();
     }
@@ -280,11 +280,11 @@ public class ConstSpecImpl extends MinimalEObjectImpl.Container implements Const
   {
     switch (featureID)
     {
-      case GoPackage.CONST_SPEC__TP:
-        setTp((Type)newValue);
-        return;
       case GoPackage.CONST_SPEC__ID:
         setId((IdentifierList)newValue);
+        return;
+      case GoPackage.CONST_SPEC__TP:
+        setTp((Type)newValue);
         return;
       case GoPackage.CONST_SPEC__EXPRESSIONLIST:
         setExpressionlist((ExpressionList)newValue);
@@ -303,11 +303,11 @@ public class ConstSpecImpl extends MinimalEObjectImpl.Container implements Const
   {
     switch (featureID)
     {
-      case GoPackage.CONST_SPEC__TP:
-        setTp((Type)null);
-        return;
       case GoPackage.CONST_SPEC__ID:
         setId((IdentifierList)null);
+        return;
+      case GoPackage.CONST_SPEC__TP:
+        setTp((Type)null);
         return;
       case GoPackage.CONST_SPEC__EXPRESSIONLIST:
         setExpressionlist((ExpressionList)null);
@@ -326,10 +326,10 @@ public class ConstSpecImpl extends MinimalEObjectImpl.Container implements Const
   {
     switch (featureID)
     {
-      case GoPackage.CONST_SPEC__TP:
-        return tp != null;
       case GoPackage.CONST_SPEC__ID:
         return id != null;
+      case GoPackage.CONST_SPEC__TP:
+        return tp != null;
       case GoPackage.CONST_SPEC__EXPRESSIONLIST:
         return expressionlist != null;
     }
