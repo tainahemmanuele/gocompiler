@@ -5,6 +5,8 @@ package org.xtext.example.mydsl.go;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Var Decl</b></em>'.
@@ -22,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface VarDecl extends Declaration
+public interface VarDecl extends EObject
 {
   /**
    * Returns the value of the '<em><b>Varspec</b></em>' containment reference.

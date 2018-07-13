@@ -9,6 +9,7 @@ import org.xtext.example.mydsl.go.Expression
 import org.xtext.example.mydsl.go.Expression2
 import org.xtext.example.mydsl.go.IdentifierList
 import org.xtext.example.mydsl.validation.util.Typer
+import org.xtext.example.mydsl.go.BasicLit
 
 /**
  * This class contains custom validation rules. 
@@ -60,6 +61,19 @@ class GoValidator extends AbstractGoValidator {
 	}
 	
 	@Check
+	def checkConstDecl(ConstDecl cd) {
+		
+		var constId   = cd.constspec.id.id;
+		var constType = cd.constspec.tp.tp;
+		var constExp  = cd.constspec.expressionlist.exp.up.pr.op.literal.basic;
+				
+		if(constType !== null && constExp !== null) {
+			checkAndMakeConstDecl(constId, constType, constExp);
+		}
+		
+	}
+	
+	/* @Check
 	def checkVarSpec(VarSpec varspec) {
 		var type = varspec.tp2.tp.toString.toLowerCase
 		info("Tipo passado: " + type, null)
@@ -88,7 +102,7 @@ class GoValidator extends AbstractGoValidator {
 			}
 			
 		}
-	}
+	}*/
 	
 	/*
 	 * Checa se dois literais são compativeis em uma operação aritimética 
@@ -117,16 +131,51 @@ class GoValidator extends AbstractGoValidator {
 	}
 	
 	/*
-	def checkBooleanExp(Expression expression) {
+	 * Checa se a declaração de uma constante é valida
+	 */
+	def checkAndMakeConstDecl(String id, String constType, BasicLit literal) {
 		
-		if(expression.exp !== null) {
-			checkBooleanExp(expression.exp.expression)
-			
-		} else if(expression.elemtype != boolean && expression.elemtype !== null) {
-			error("Semantic Error: Invalid argument type" + expression.elemtype, null)
+		var error = false;
+				
+		if(constType == "float") {
+			if(literal.intd !== null) {
+				ids.put(id, new Double(literal.intd));
+			}
+			else if(literal.floatd !== null) {
+				ids.put(id, new Double(literal.floatd));
+			}
+			else {
+				error = true;
+				error("Semantic Error: Invalid const declaration, operator 
+						not assigned to float.", null);
+			}
+		} 
+		else if(constType == "int") {
+			if(literal.intd !== null) {
+				ids.put(id, new Integer(literal.intd));
+			}
+			else if(literal.floatd !== null) {
+				ids.put(id, new Integer(literal.intd));
+			} else {
+				error = true;
+				error("Semantic Error: Invalid const declaration, operator 
+						not assigned to int.", null);
+			}
 		}
-		
-	} */
+		else if(constType == "string") {
+			if(literal.strd !== null) {
+				ids.put(id, new String(literal.strd));
+			}
+			else {
+				error = true;
+				error("Semantic Error: Invalid const declaration, operator 
+						not assigned to string.", null);
+			}
+		}
+		if(id !== id.toUpperCase() && !error) {
+			warning ("Constants usually be declared with Upper Case", null)
+		}
+	}
 
 
 	protected def boolean isArithimeticOp(String binaryOperator) {

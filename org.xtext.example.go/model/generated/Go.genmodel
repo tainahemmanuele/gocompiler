@@ -114,7 +114,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Statement/forst"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Statement/deferst"/>
     </genClasses>
-    <genClasses ecoreClass="Go.ecore#//Declaration"/>
+    <genClasses ecoreClass="Go.ecore#//Declaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Declaration/cd"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Declaration/td"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Declaration/vd"/>
+    </genClasses>
     <genClasses ecoreClass="Go.ecore#//LabeledStmt">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//LabeledStmt/label"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//LabeledStmt/statement"/>
@@ -153,8 +157,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ConstDecl/constspec2"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//ConstSpec">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ConstSpec/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ConstSpec/tp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ConstSpec/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ConstSpec/expressionlist"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//TypeDecl">

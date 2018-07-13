@@ -329,6 +329,11 @@ KEYWORDS:
 	| 'return'
 	| 'var';
 
+
+terminal LITERAL_TYPE:
+	'int' | 'float' | 'boolean' | 'string'
+;
+
 terminal BINARY_OP:
 	"||" | "&&" | REL_OP | ADD_OP | MUL_OP;
 
@@ -422,7 +427,7 @@ terminal INTERPRETED_STRING_LIT:
 	'"' (UNICODE_VALUE | BYTE_VALUE)? '"';
 
 Type:
-	{Type} tp=TypeName | tp2=TypeLit | "(" tp3=Type ")";
+	{Type} tp=LITERAL_TYPE | tp2=TypeLit | "(" tp3=Type ")";
 
 TypeName:
 	IDENTIFIER |  QualifiedIdent  ;
@@ -526,7 +531,7 @@ Statement:
 	deferst=DeferStmt;
 
 Declaration:
-	ConstDecl | TypeDecl | VarDecl;
+	cd=ConstDecl | td=TypeDecl | vd=VarDecl;
 
 LabeledStmt:
 	label=Label ':' statement=Statement;
@@ -573,7 +578,7 @@ ConstDecl:
 	{ConstDecl} 'const' (constspec=ConstSpec | '(' (constspec2+=ConstSpec (';')?)* ')');
 
 ConstSpec:
-	id=IdentifierList ((tp=Type)? '=' expressionlist=ExpressionList)?;
+	((tp=Type)? id=IdentifierList  '=' expressionlist=ExpressionList)?;
 
 TypeDecl:
 	{TypeDecl}

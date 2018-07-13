@@ -145,7 +145,14 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="deferst" eType="#//DeferStmt"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Declaration" eSuperTypes="#//TopLevelDecl"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Declaration" eSuperTypes="#//TopLevelDecl">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cd" eType="#//ConstDecl"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="td" eType="#//TypeDecl"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vd" eType="#//VarDecl"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LabeledStmt">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="statement" eType="#//Statement"
@@ -196,20 +203,20 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DeferStmt"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ConstDecl" eSuperTypes="#//Declaration">
+  <eClassifiers xsi:type="ecore:EClass" name="ConstDecl">
     <eStructuralFeatures xsi:type="ecore:EReference" name="constspec" eType="#//ConstSpec"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="constspec2" upperBound="-1"
         eType="#//ConstSpec" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConstSpec">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tp" eType="#//Type" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="id" eType="#//IdentifierList"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="tp" eType="#//Type" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expressionlist" eType="#//ExpressionList"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TypeDecl" eSuperTypes="#//Declaration">
+  <eClassifiers xsi:type="ecore:EClass" name="TypeDecl">
     <eStructuralFeatures xsi:type="ecore:EReference" name="typespec" eType="#//TypeSpec"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="typespec2" upperBound="-1"
@@ -221,7 +228,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeDef" eSuperTypes="#//TypeSpec"/>
   <eClassifiers xsi:type="ecore:EClass" name="AliasDecl" eSuperTypes="#//TypeSpec"/>
-  <eClassifiers xsi:type="ecore:EClass" name="VarDecl" eSuperTypes="#//Declaration">
+  <eClassifiers xsi:type="ecore:EClass" name="VarDecl">
     <eStructuralFeatures xsi:type="ecore:EReference" name="varspec" eType="#//VarSpec"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="varspec2" upperBound="-1"

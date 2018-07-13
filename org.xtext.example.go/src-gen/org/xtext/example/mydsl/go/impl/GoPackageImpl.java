@@ -1743,6 +1743,36 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getDeclaration_Cd()
+  {
+    return (EReference)declarationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDeclaration_Td()
+  {
+    return (EReference)declarationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDeclaration_Vd()
+  {
+    return (EReference)declarationEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getLabeledStmt()
   {
     return labeledStmtEClass;
@@ -2053,7 +2083,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getConstSpec_Id()
+  public EReference getConstSpec_Tp()
   {
     return (EReference)constSpecEClass.getEStructuralFeatures().get(0);
   }
@@ -2063,7 +2093,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getConstSpec_Tp()
+  public EReference getConstSpec_Id()
   {
     return (EReference)constSpecEClass.getEStructuralFeatures().get(1);
   }
@@ -3886,6 +3916,9 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     createEReference(statementEClass, STATEMENT__DEFERST);
 
     declarationEClass = createEClass(DECLARATION);
+    createEReference(declarationEClass, DECLARATION__CD);
+    createEReference(declarationEClass, DECLARATION__TD);
+    createEReference(declarationEClass, DECLARATION__VD);
 
     labeledStmtEClass = createEClass(LABELED_STMT);
     createEAttribute(labeledStmtEClass, LABELED_STMT__LABEL);
@@ -3927,8 +3960,8 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     createEReference(constDeclEClass, CONST_DECL__CONSTSPEC2);
 
     constSpecEClass = createEClass(CONST_SPEC);
-    createEReference(constSpecEClass, CONST_SPEC__ID);
     createEReference(constSpecEClass, CONST_SPEC__TP);
+    createEReference(constSpecEClass, CONST_SPEC__ID);
     createEReference(constSpecEClass, CONST_SPEC__EXPRESSIONLIST);
 
     typeDeclEClass = createEClass(TYPE_DECL);
@@ -4204,11 +4237,8 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     statementListEClass.getESuperTypes().add(this.getBlock());
     declarationEClass.getESuperTypes().add(this.getTopLevelDecl());
     returnStmtEClass.getESuperTypes().add(this.getStatement());
-    constDeclEClass.getESuperTypes().add(this.getDeclaration());
-    typeDeclEClass.getESuperTypes().add(this.getDeclaration());
     typeDefEClass.getESuperTypes().add(this.getTypeSpec());
     aliasDeclEClass.getESuperTypes().add(this.getTypeSpec());
-    varDeclEClass.getESuperTypes().add(this.getDeclaration());
     exprSwitchStmtEClass.getESuperTypes().add(this.getSwitchStmt());
     exprSwitchCaseEClass.getESuperTypes().add(this.getExprCaseClause());
     typeSwitchStmtEClass.getESuperTypes().add(this.getSwitchStmt());
@@ -4344,6 +4374,9 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     initEReference(getStatement_Deferst(), this.getDeferStmt(), null, "deferst", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(declarationEClass, Declaration.class, "Declaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDeclaration_Cd(), this.getConstDecl(), null, "cd", null, 0, 1, Declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDeclaration_Td(), this.getTypeDecl(), null, "td", null, 0, 1, Declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDeclaration_Vd(), this.getVarDecl(), null, "vd", null, 0, 1, Declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(labeledStmtEClass, LabeledStmt.class, "LabeledStmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getLabeledStmt_Label(), ecorePackage.getEString(), "label", null, 0, 1, LabeledStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4385,8 +4418,8 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     initEReference(getConstDecl_Constspec2(), this.getConstSpec(), null, "constspec2", null, 0, -1, ConstDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(constSpecEClass, ConstSpec.class, "ConstSpec", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getConstSpec_Id(), this.getIdentifierList(), null, "id", null, 0, 1, ConstSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConstSpec_Tp(), this.getType(), null, "tp", null, 0, 1, ConstSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConstSpec_Id(), this.getIdentifierList(), null, "id", null, 0, 1, ConstSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConstSpec_Expressionlist(), this.getExpressionList(), null, "expressionlist", null, 0, 1, ConstSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeDeclEClass, TypeDecl.class, "TypeDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

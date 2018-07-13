@@ -381,8 +381,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         ConstDecl constDecl = (ConstDecl)theEObject;
         T result = caseConstDecl(constDecl);
-        if (result == null) result = caseDeclaration(constDecl);
-        if (result == null) result = caseTopLevelDecl(constDecl);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -397,8 +395,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         TypeDecl typeDecl = (TypeDecl)theEObject;
         T result = caseTypeDecl(typeDecl);
-        if (result == null) result = caseDeclaration(typeDecl);
-        if (result == null) result = caseTopLevelDecl(typeDecl);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -429,8 +425,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         VarDecl varDecl = (VarDecl)theEObject;
         T result = caseVarDecl(varDecl);
-        if (result == null) result = caseDeclaration(varDecl);
-        if (result == null) result = caseTopLevelDecl(varDecl);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
