@@ -5,13 +5,18 @@ package org.xtext.example.mydsl.validation;
 
 import com.google.common.base.Objects;
 import java.util.LinkedHashMap;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.xtext.example.mydsl.go.BasicLit;
 import org.xtext.example.mydsl.go.ConstDecl;
 import org.xtext.example.mydsl.go.Expression;
 import org.xtext.example.mydsl.go.Expression2;
+import org.xtext.example.mydsl.go.ForClause;
 import org.xtext.example.mydsl.go.ForStmt;
+import org.xtext.example.mydsl.go.IdentifierList;
+import org.xtext.example.mydsl.go.ImportDecl;
+import org.xtext.example.mydsl.go.ImportSpec;
 import org.xtext.example.mydsl.go.OperandName;
 import org.xtext.example.mydsl.go.VarDecl;
 import org.xtext.example.mydsl.validation.AbstractGoValidator;
@@ -72,6 +77,24 @@ public class GoValidator extends AbstractGoValidator {
         this.warning("Variables usually starts with Lower Case", null);
       }
     }
+  }
+  
+  @Check
+  public void imporDecl(final ImportDecl id) {
+    EList<ImportSpec> imports = id.getImports();
+    for (final ImportSpec import_ : imports) {
+      this.nullDeclaration(import_.getIp().replaceAll("\"", ""));
+    }
+  }
+  
+  @Check
+  public Object forDecl(final ForClause fd) {
+    Object _xblockexpression = null;
+    {
+      IdentifierList forID = fd.getInit().getSimple().getSvd().getIdl();
+      _xblockexpression = this.nullDeclaration(forID.getId());
+    }
+    return _xblockexpression;
   }
   
   @Check
@@ -170,7 +193,7 @@ public class GoValidator extends AbstractGoValidator {
             this.error("Semantic Error: Invalid declaration, operator \r\n\t\t\t\t\t\tnot assigned to string.", null);
           }
         } else {
-          boolean _equals_3 = Objects.equal(constType, "boolean");
+          boolean _equals_3 = Objects.equal(constType, "bool");
           if (_equals_3) {
             String _bool = literal.getBool();
             boolean _tripleNotEquals_4 = (_bool != null);

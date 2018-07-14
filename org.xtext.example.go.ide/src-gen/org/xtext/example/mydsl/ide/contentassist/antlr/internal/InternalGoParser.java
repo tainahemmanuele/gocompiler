@@ -12897,11 +12897,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             if ( (LA20_0==RULE_IDENTIFIER) ) {
                 int LA20_1 = input.LA(2);
 
-                if ( (LA20_1==RULE_LITERAL_TYPE||LA20_1==RULE_MUL||LA20_1==47||LA20_1==51||LA20_1==53||LA20_1==55||(LA20_1>=60 && LA20_1<=63)) ) {
-                    alt20=2;
-                }
-                else if ( (LA20_1==45) ) {
+                if ( (LA20_1==45) ) {
                     alt20=1;
+                }
+                else if ( (LA20_1==RULE_LITERAL_TYPE||LA20_1==RULE_MUL||LA20_1==47||LA20_1==51||LA20_1==53||LA20_1==55||(LA20_1>=60 && LA20_1<=63)) ) {
+                    alt20=2;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return ;}
@@ -14721,11 +14721,6 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             case 53:
                 {
                 switch ( input.LA(2) ) {
-                case 54:
-                    {
-                    alt37=4;
-                    }
-                    break;
                 case RULE_IDENTIFIER:
                 case RULE_STRING:
                 case RULE_DECIMALS:
@@ -14751,6 +14746,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                 case 59:
                     {
                     alt37=3;
+                    }
+                    break;
+                case 54:
+                    {
+                    alt37=4;
                     }
                     break;
                 default:
@@ -15491,10 +15491,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                 else if ( (LA41_1==46) ) {
                     int LA41_3 = input.LA(3);
 
-                    if ( (LA41_3==51) ) {
-                        alt41=1;
-                    }
-                    else if ( (LA41_3==RULE_IDENTIFIER) ) {
+                    if ( (LA41_3==RULE_IDENTIFIER) ) {
                         int LA41_4 = input.LA(4);
 
                         if ( (synpred83_InternalGo()) ) {
@@ -15510,6 +15507,9 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
 
                             throw nvae;
                         }
+                    }
+                    else if ( (LA41_3==51) ) {
+                        alt41=1;
                     }
                     else {
                         if (state.backtracking>0) {state.failed=true; return ;}
@@ -49589,28 +49589,34 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ImportSpec__Group__1__Impl"
-    // InternalGo.g:15044:1: rule__ImportSpec__Group__1__Impl : ( ruleImportPath ) ;
+    // InternalGo.g:15044:1: rule__ImportSpec__Group__1__Impl : ( ( rule__ImportSpec__IpAssignment_1 ) ) ;
     public final void rule__ImportSpec__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGo.g:15048:1: ( ( ruleImportPath ) )
-            // InternalGo.g:15049:1: ( ruleImportPath )
+            // InternalGo.g:15048:1: ( ( ( rule__ImportSpec__IpAssignment_1 ) ) )
+            // InternalGo.g:15049:1: ( ( rule__ImportSpec__IpAssignment_1 ) )
             {
-            // InternalGo.g:15049:1: ( ruleImportPath )
-            // InternalGo.g:15050:2: ruleImportPath
+            // InternalGo.g:15049:1: ( ( rule__ImportSpec__IpAssignment_1 ) )
+            // InternalGo.g:15050:2: ( rule__ImportSpec__IpAssignment_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getImportSpecAccess().getImportPathParserRuleCall_1()); 
+               before(grammarAccess.getImportSpecAccess().getIpAssignment_1()); 
             }
+            // InternalGo.g:15051:2: ( rule__ImportSpec__IpAssignment_1 )
+            // InternalGo.g:15051:3: rule__ImportSpec__IpAssignment_1
+            {
             pushFollow(FOLLOW_2);
-            ruleImportPath();
+            rule__ImportSpec__IpAssignment_1();
 
             state._fsp--;
             if (state.failed) return ;
+
+            }
+
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getImportSpecAccess().getImportPathParserRuleCall_1()); 
+               after(grammarAccess.getImportSpecAccess().getIpAssignment_1()); 
             }
 
             }
@@ -58720,6 +58726,51 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
         return ;
     }
     // $ANTLR end "rule__ImportDecl__Imports2Assignment_2_1_1"
+
+
+    // $ANTLR start "rule__ImportSpec__IpAssignment_1"
+    // InternalGo.g:18105:1: rule__ImportSpec__IpAssignment_1 : ( ruleImportPath ) ;
+    public final void rule__ImportSpec__IpAssignment_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalGo.g:18109:1: ( ( ruleImportPath ) )
+            // InternalGo.g:18110:2: ( ruleImportPath )
+            {
+            // InternalGo.g:18110:2: ( ruleImportPath )
+            // InternalGo.g:18111:3: ruleImportPath
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getImportSpecAccess().getIpImportPathParserRuleCall_1_0()); 
+            }
+            pushFollow(FOLLOW_2);
+            ruleImportPath();
+
+            state._fsp--;
+            if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getImportSpecAccess().getIpImportPathParserRuleCall_1_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ImportSpec__IpAssignment_1"
 
     // $ANTLR start synpred17_InternalGo
     public final void synpred17_InternalGo_fragment() throws RecognitionException {   

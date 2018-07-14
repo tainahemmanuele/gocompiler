@@ -11,7 +11,9 @@ import org.xtext.example.mydsl.go.Expression2
 import org.xtext.example.mydsl.go.ForStmt
 import org.xtext.example.mydsl.go.OperandName
 import org.xtext.example.mydsl.go.VarDecl
-import org.xtext.example.mydsl.validation.util.*
+import org.xtext.example.mydsl.validation.util.NullObj
+import org.xtext.example.mydsl.go.ImportDecl
+import org.xtext.example.mydsl.go.ForClause
 
 /**
  * This class contains custom validation rules. 
@@ -80,6 +82,22 @@ class GoValidator extends AbstractGoValidator {
 				warning ("Variables usually starts with Lower Case", null);
 			}
 		}
+	}
+	
+	@Check
+	def imporDecl(ImportDecl id) {
+		var imports = id.imports
+		for(import:imports) {
+			nullDeclaration(import.ip.replaceAll("\"", ""))
+		}
+	}
+	
+	@Check
+	def forDecl(ForClause fd) {
+		
+		var forID = fd.init.simple.svd.idl
+		nullDeclaration(forID.id)
+		
 	}
 	
 	@Check
@@ -158,7 +176,7 @@ class GoValidator extends AbstractGoValidator {
 						not assigned to string.", null);
 			}
 		}
-		else if(constType == "boolean") {
+		else if(constType == "bool") {
 			if(literal.bool !== null) {
 				ids.put(id, new Boolean(literal.bool));
 			}

@@ -421,6 +421,7 @@ public class GoParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getOperandNameAccess().getQiAssignment_1_1(), "rule__OperandName__QiAssignment_1_1");
 			builder.put(grammarAccess.getImportDeclAccess().getImportsAssignment_2_0(), "rule__ImportDecl__ImportsAssignment_2_0");
 			builder.put(grammarAccess.getImportDeclAccess().getImports2Assignment_2_1_1(), "rule__ImportDecl__Imports2Assignment_2_1_1");
+			builder.put(grammarAccess.getImportSpecAccess().getIpAssignment_1(), "rule__ImportSpec__IpAssignment_1");
 		}
 	}
 	

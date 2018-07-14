@@ -28,6 +28,7 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_ConstDecl_SemicolonKeyword_2_1_1_1_q;
 	protected AbstractElementAlias match_Conversion_CommaKeyword_4_q;
 	protected AbstractElementAlias match_ElementList_CommaKeyword_1_0_q;
+	protected AbstractElementAlias match_ImportSpec___FullStopKeyword_0_0_or_IDENTIFIERTerminalRuleCall_0_1__q;
 	protected AbstractElementAlias match_LiteralValue_CommaKeyword_2_1_q;
 	protected AbstractElementAlias match_ParameterDecl_FullStopFullStopFullStopKeyword_2_q;
 	protected AbstractElementAlias match_StatementList_SemicolonKeyword_1_1_q;
@@ -43,6 +44,7 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_ConstDecl_SemicolonKeyword_2_1_1_1_q = new TokenAlias(false, true, grammarAccess.getConstDeclAccess().getSemicolonKeyword_2_1_1_1());
 		match_Conversion_CommaKeyword_4_q = new TokenAlias(false, true, grammarAccess.getConversionAccess().getCommaKeyword_4());
 		match_ElementList_CommaKeyword_1_0_q = new TokenAlias(false, true, grammarAccess.getElementListAccess().getCommaKeyword_1_0());
+		match_ImportSpec___FullStopKeyword_0_0_or_IDENTIFIERTerminalRuleCall_0_1__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getImportSpecAccess().getFullStopKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getImportSpecAccess().getIDENTIFIERTerminalRuleCall_0_1()));
 		match_LiteralValue_CommaKeyword_2_1_q = new TokenAlias(false, true, grammarAccess.getLiteralValueAccess().getCommaKeyword_2_1());
 		match_ParameterDecl_FullStopFullStopFullStopKeyword_2_q = new TokenAlias(false, true, grammarAccess.getParameterDeclAccess().getFullStopFullStopFullStopKeyword_2());
 		match_StatementList_SemicolonKeyword_1_1_q = new TokenAlias(false, true, grammarAccess.getStatementListAccess().getSemicolonKeyword_1_1());
@@ -52,9 +54,20 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (ruleCall.getRule() == grammarAccess.getIDENTIFIERRule())
+			return getIDENTIFIERToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
+	/**
+	 * terminal IDENTIFIER:
+	 * 	ID;
+	 */
+	protected String getIDENTIFIERToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "";
+	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
@@ -74,6 +87,8 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Conversion_CommaKeyword_4_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_ElementList_CommaKeyword_1_0_q.equals(syntax))
 				emit_ElementList_CommaKeyword_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_ImportSpec___FullStopKeyword_0_0_or_IDENTIFIERTerminalRuleCall_0_1__q.equals(syntax))
+				emit_ImportSpec___FullStopKeyword_0_0_or_IDENTIFIERTerminalRuleCall_0_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_LiteralValue_CommaKeyword_2_1_q.equals(syntax))
 				emit_LiteralValue_CommaKeyword_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_ParameterDecl_FullStopFullStopFullStopKeyword_2_q.equals(syntax))
@@ -155,6 +170,17 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     keyedelement+=KeyedElement (ambiguity) keyedelement+=KeyedElement
 	 */
 	protected void emit_ElementList_CommaKeyword_1_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ('.' | IDENTIFIER)?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) ip=ImportPath
+	 */
+	protected void emit_ImportSpec___FullStopKeyword_0_0_or_IDENTIFIERTerminalRuleCall_0_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

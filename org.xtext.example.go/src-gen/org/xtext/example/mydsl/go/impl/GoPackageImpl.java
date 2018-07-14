@@ -52,6 +52,7 @@ import org.xtext.example.mydsl.go.GoPackage;
 import org.xtext.example.mydsl.go.IdentifierList;
 import org.xtext.example.mydsl.go.IfStmt;
 import org.xtext.example.mydsl.go.ImportDecl;
+import org.xtext.example.mydsl.go.ImportSpec;
 import org.xtext.example.mydsl.go.IncDecStmt;
 import org.xtext.example.mydsl.go.Index;
 import org.xtext.example.mydsl.go.InitStmt;
@@ -804,6 +805,13 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * @generated
    */
   private EClass importDeclEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass importSpecEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -3773,9 +3781,9 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getImportDecl_Imports()
+  public EReference getImportDecl_Imports()
   {
-    return (EAttribute)importDeclEClass.getEStructuralFeatures().get(0);
+    return (EReference)importDeclEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3783,9 +3791,29 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getImportDecl_Imports2()
+  public EReference getImportDecl_Imports2()
   {
-    return (EAttribute)importDeclEClass.getEStructuralFeatures().get(1);
+    return (EReference)importDeclEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getImportSpec()
+  {
+    return importSpecEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getImportSpec_Ip()
+  {
+    return (EAttribute)importSpecEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -4205,8 +4233,11 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     createEAttribute(operandNameEClass, OPERAND_NAME__QI);
 
     importDeclEClass = createEClass(IMPORT_DECL);
-    createEAttribute(importDeclEClass, IMPORT_DECL__IMPORTS);
-    createEAttribute(importDeclEClass, IMPORT_DECL__IMPORTS2);
+    createEReference(importDeclEClass, IMPORT_DECL__IMPORTS);
+    createEReference(importDeclEClass, IMPORT_DECL__IMPORTS2);
+
+    importSpecEClass = createEClass(IMPORT_SPEC);
+    createEAttribute(importSpecEClass, IMPORT_SPEC__IP);
   }
 
   /**
@@ -4664,8 +4695,11 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     initEAttribute(getOperandName_Qi(), ecorePackage.getEString(), "qi", null, 0, 1, OperandName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(importDeclEClass, ImportDecl.class, "ImportDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getImportDecl_Imports(), ecorePackage.getEString(), "imports", null, 0, -1, ImportDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getImportDecl_Imports2(), ecorePackage.getEString(), "imports2", null, 0, -1, ImportDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getImportDecl_Imports(), this.getImportSpec(), null, "imports", null, 0, -1, ImportDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getImportDecl_Imports2(), this.getImportSpec(), null, "imports2", null, 0, -1, ImportDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(importSpecEClass, ImportSpec.class, "ImportSpec", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getImportSpec_Ip(), ecorePackage.getEString(), "ip", null, 0, 1, ImportSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

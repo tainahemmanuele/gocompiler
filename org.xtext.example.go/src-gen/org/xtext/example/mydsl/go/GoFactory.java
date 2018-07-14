@@ -906,6 +906,15 @@ public interface GoFactory extends EFactory
   ImportDecl createImportDecl();
 
   /**
+   * Returns a new object of class '<em>Import Spec</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Import Spec</em>'.
+   * @generated
+   */
+  ImportSpec createImportSpec();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

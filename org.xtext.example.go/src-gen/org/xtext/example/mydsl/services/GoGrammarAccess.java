@@ -269,6 +269,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cImportKeyword_22 = (Keyword)cAlternatives.eContents().get(22);
 		private final Keyword cReturnKeyword_23 = (Keyword)cAlternatives.eContents().get(23);
 		private final Keyword cVarKeyword_24 = (Keyword)cAlternatives.eContents().get(24);
+		private final RuleCall cLITERAL_TYPETerminalRuleCall_25 = (RuleCall)cAlternatives.eContents().get(25);
 		
 		//KEYWORDS:
 		//	'break'
@@ -295,12 +296,13 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		//	| 'for'
 		//	| 'import'
 		//	| 'return'
-		//	| 'var';
+		//	| 'var'
+		//	| LITERAL_TYPE;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'break' | 'default' | 'func' | 'interface' | 'select' | 'case' | 'defer' | 'go' | 'map' | 'struct' | 'chan' | 'else' |
 		//'goto' | 'package' | 'switch' | 'const' | 'fallthrough' | 'if' | 'range' | 'type' | 'continue' | 'for' | 'import' |
-		//'return' | 'var'
+		//'return' | 'var' | LITERAL_TYPE
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//'break'
@@ -377,6 +379,9 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'var'
 		public Keyword getVarKeyword_24() { return cVarKeyword_24; }
+		
+		//LITERAL_TYPE
+		public RuleCall getLITERAL_TYPETerminalRuleCall_25() { return cLITERAL_TYPETerminalRuleCall_25; }
 	}
 	public class IMAGINARY_LITElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.IMAGINARY_LIT");
@@ -4413,13 +4418,14 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
 		private final Keyword cFullStopKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
 		private final RuleCall cIDENTIFIERTerminalRuleCall_0_1 = (RuleCall)cAlternatives_0.eContents().get(1);
-		private final RuleCall cImportPathParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cIpAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cIpImportPathParserRuleCall_1_0 = (RuleCall)cIpAssignment_1.eContents().get(0);
 		
 		//ImportSpec:
-		//	('.' | IDENTIFIER)? ImportPath;
+		//	('.' | IDENTIFIER)? ip=ImportPath;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//('.' | IDENTIFIER)? ImportPath
+		//('.' | IDENTIFIER)? ip=ImportPath
 		public Group getGroup() { return cGroup; }
 		
 		//('.' | IDENTIFIER)?
@@ -4431,8 +4437,11 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		//IDENTIFIER
 		public RuleCall getIDENTIFIERTerminalRuleCall_0_1() { return cIDENTIFIERTerminalRuleCall_0_1; }
 		
+		//ip=ImportPath
+		public Assignment getIpAssignment_1() { return cIpAssignment_1; }
+		
 		//ImportPath
-		public RuleCall getImportPathParserRuleCall_1() { return cImportPathParserRuleCall_1; }
+		public RuleCall getIpImportPathParserRuleCall_1_0() { return cIpImportPathParserRuleCall_1_0; }
 	}
 	public class ImportPathElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.ImportPath");
@@ -4957,7 +4966,8 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	//	| 'for'
 	//	| 'import'
 	//	| 'return'
-	//	| 'var';
+	//	| 'var'
+	//	| LITERAL_TYPE;
 	public KEYWORDSElements getKEYWORDSAccess() {
 		return pKEYWORDS;
 	}
@@ -4967,7 +4977,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal LITERAL_TYPE:
-	//	'int' | 'float' | 'boolean' | 'string';
+	//	'int' | 'float' | 'bool' | 'string';
 	public TerminalRule getLITERAL_TYPERule() {
 		return tLITERAL_TYPE;
 	}
@@ -6271,7 +6281,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ImportSpec:
-	//	('.' | IDENTIFIER)? ImportPath;
+	//	('.' | IDENTIFIER)? ip=ImportPath;
 	public ImportSpecElements getImportSpecAccess() {
 		return pImportSpec;
 	}

@@ -3891,7 +3891,7 @@ public interface GoPackage extends EPackage
   int IMPORT_DECL = 97;
 
   /**
-   * The feature id for the '<em><b>Imports</b></em>' attribute list.
+   * The feature id for the '<em><b>Imports</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -3900,7 +3900,7 @@ public interface GoPackage extends EPackage
   int IMPORT_DECL__IMPORTS = 0;
 
   /**
-   * The feature id for the '<em><b>Imports2</b></em>' attribute list.
+   * The feature id for the '<em><b>Imports2</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -3916,6 +3916,34 @@ public interface GoPackage extends EPackage
    * @ordered
    */
   int IMPORT_DECL_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.ImportSpecImpl <em>Import Spec</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.go.impl.ImportSpecImpl
+   * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getImportSpec()
+   * @generated
+   */
+  int IMPORT_SPEC = 98;
+
+  /**
+   * The feature id for the '<em><b>Ip</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORT_SPEC__IP = 0;
+
+  /**
+   * The number of structural features of the '<em>Import Spec</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORT_SPEC_FEATURE_COUNT = 1;
 
 
   /**
@@ -7011,26 +7039,47 @@ public interface GoPackage extends EPackage
   EClass getImportDecl();
 
   /**
-   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.go.ImportDecl#getImports <em>Imports</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.go.ImportDecl#getImports <em>Imports</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Imports</em>'.
+   * @return the meta object for the containment reference list '<em>Imports</em>'.
    * @see org.xtext.example.mydsl.go.ImportDecl#getImports()
    * @see #getImportDecl()
    * @generated
    */
-  EAttribute getImportDecl_Imports();
+  EReference getImportDecl_Imports();
 
   /**
-   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.go.ImportDecl#getImports2 <em>Imports2</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.go.ImportDecl#getImports2 <em>Imports2</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Imports2</em>'.
+   * @return the meta object for the containment reference list '<em>Imports2</em>'.
    * @see org.xtext.example.mydsl.go.ImportDecl#getImports2()
    * @see #getImportDecl()
    * @generated
    */
-  EAttribute getImportDecl_Imports2();
+  EReference getImportDecl_Imports2();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.go.ImportSpec <em>Import Spec</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Import Spec</em>'.
+   * @see org.xtext.example.mydsl.go.ImportSpec
+   * @generated
+   */
+  EClass getImportSpec();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.ImportSpec#getIp <em>Ip</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Ip</em>'.
+   * @see org.xtext.example.mydsl.go.ImportSpec#getIp()
+   * @see #getImportSpec()
+   * @generated
+   */
+  EAttribute getImportSpec_Ip();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -9572,20 +9621,38 @@ public interface GoPackage extends EPackage
     EClass IMPORT_DECL = eINSTANCE.getImportDecl();
 
     /**
-     * The meta object literal for the '<em><b>Imports</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Imports</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute IMPORT_DECL__IMPORTS = eINSTANCE.getImportDecl_Imports();
+    EReference IMPORT_DECL__IMPORTS = eINSTANCE.getImportDecl_Imports();
 
     /**
-     * The meta object literal for the '<em><b>Imports2</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Imports2</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute IMPORT_DECL__IMPORTS2 = eINSTANCE.getImportDecl_Imports2();
+    EReference IMPORT_DECL__IMPORTS2 = eINSTANCE.getImportDecl_Imports2();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.ImportSpecImpl <em>Import Spec</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.go.impl.ImportSpecImpl
+     * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getImportSpec()
+     * @generated
+     */
+    EClass IMPORT_SPEC = eINSTANCE.getImportSpec();
+
+    /**
+     * The meta object literal for the '<em><b>Ip</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute IMPORT_SPEC__IP = eINSTANCE.getImportSpec_Ip();
 
   }
 

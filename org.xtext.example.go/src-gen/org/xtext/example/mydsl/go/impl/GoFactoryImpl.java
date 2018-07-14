@@ -163,6 +163,7 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
       case GoPackage.FUNCTION_BODY: return createFunctionBody();
       case GoPackage.OPERAND_NAME: return createOperandName();
       case GoPackage.IMPORT_DECL: return createImportDecl();
+      case GoPackage.IMPORT_SPEC: return createImportSpec();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -1244,6 +1245,17 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
   {
     ImportDeclImpl importDecl = new ImportDeclImpl();
     return importDecl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ImportSpec createImportSpec()
+  {
+    ImportSpecImpl importSpec = new ImportSpecImpl();
+    return importSpec;
   }
 
   /**

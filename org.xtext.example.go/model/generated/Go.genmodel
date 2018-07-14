@@ -372,8 +372,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//OperandName/qi"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//ImportDecl">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//ImportDecl/imports"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//ImportDecl/imports2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ImportDecl/imports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ImportDecl/imports2"/>
+    </genClasses>
+    <genClasses ecoreClass="Go.ecore#//ImportSpec">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//ImportSpec/ip"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

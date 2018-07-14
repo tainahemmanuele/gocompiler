@@ -44,6 +44,7 @@ import org.xtext.example.mydsl.go.GoPackage;
 import org.xtext.example.mydsl.go.IdentifierList;
 import org.xtext.example.mydsl.go.IfStmt;
 import org.xtext.example.mydsl.go.ImportDecl;
+import org.xtext.example.mydsl.go.ImportSpec;
 import org.xtext.example.mydsl.go.IncDecStmt;
 import org.xtext.example.mydsl.go.Index;
 import org.xtext.example.mydsl.go.InitStmt;
@@ -238,6 +239,9 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case GoPackage.IMPORT_DECL:
 				sequence_ImportDecl(context, (ImportDecl) semanticObject); 
+				return; 
+			case GoPackage.IMPORT_SPEC:
+				sequence_ImportSpec(context, (ImportSpec) semanticObject); 
 				return; 
 			case GoPackage.INC_DEC_STMT:
 				sequence_IncDecStmt(context, (IncDecStmt) semanticObject); 
@@ -1001,6 +1005,24 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_ImportDecl(ISerializationContext context, ImportDecl semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ImportSpec returns ImportSpec
+	 *
+	 * Constraint:
+	 *     ip=ImportPath
+	 */
+	protected void sequence_ImportSpec(ISerializationContext context, ImportSpec semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GoPackage.Literals.IMPORT_SPEC__IP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GoPackage.Literals.IMPORT_SPEC__IP));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getImportSpecAccess().getIpImportPathParserRuleCall_1_0(), semanticObject.getIp());
+		feeder.finish();
 	}
 	
 	

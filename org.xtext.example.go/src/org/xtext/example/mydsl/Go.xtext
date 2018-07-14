@@ -327,11 +327,12 @@ KEYWORDS:
 	| 'for'
 	| 'import'
 	| 'return'
-	| 'var';
+	| 'var'
+	| LITERAL_TYPE;
 
 
 terminal LITERAL_TYPE:
-	'int' | 'float' | 'boolean' | 'string'
+	'int' | 'float' | 'bool' | 'string'
 ;
 
 terminal BINARY_OP:
@@ -791,7 +792,7 @@ ImportDecl:
 	'import' (imports+=ImportSpec | '(' (imports2+=ImportSpec)* ')');
 
 ImportSpec:
-	 ('.' | IDENTIFIER)? ImportPath ;
+	 ('.' | IDENTIFIER)? ip=ImportPath ;
 
 ImportPath:
 	STRING;
