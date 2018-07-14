@@ -670,7 +670,7 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ConstSpec returns ConstSpec
 	 *
 	 * Constraint:
-	 *     (id=IdentifierList (tp=Type? expressionlist=ExpressionList)?)
+	 *     (id=IdentifierList tp=Type? expressionlist=ExpressionList?)
 	 */
 	protected void sequence_ConstSpec(ISerializationContext context, ConstSpec semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

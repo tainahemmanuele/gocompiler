@@ -129,7 +129,7 @@ public class GoParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getConstDeclAccess().getGroup_2_1(), "rule__ConstDecl__Group_2_1__0");
 			builder.put(grammarAccess.getConstDeclAccess().getGroup_2_1_1(), "rule__ConstDecl__Group_2_1_1__0");
 			builder.put(grammarAccess.getConstSpecAccess().getGroup(), "rule__ConstSpec__Group__0");
-			builder.put(grammarAccess.getConstSpecAccess().getGroup_1(), "rule__ConstSpec__Group_1__0");
+			builder.put(grammarAccess.getConstSpecAccess().getGroup_2(), "rule__ConstSpec__Group_2__0");
 			builder.put(grammarAccess.getTypeDeclAccess().getGroup(), "rule__TypeDecl__Group__0");
 			builder.put(grammarAccess.getTypeDeclAccess().getGroup_2_1(), "rule__TypeDecl__Group_2_1__0");
 			builder.put(grammarAccess.getTypeDeclAccess().getGroup_2_1_1(), "rule__TypeDecl__Group_2_1_1__0");
@@ -299,8 +299,8 @@ public class GoParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getConstDeclAccess().getConstspecAssignment_2_0(), "rule__ConstDecl__ConstspecAssignment_2_0");
 			builder.put(grammarAccess.getConstDeclAccess().getConstspec2Assignment_2_1_1_0(), "rule__ConstDecl__Constspec2Assignment_2_1_1_0");
 			builder.put(grammarAccess.getConstSpecAccess().getIdAssignment_0(), "rule__ConstSpec__IdAssignment_0");
-			builder.put(grammarAccess.getConstSpecAccess().getTpAssignment_1_0(), "rule__ConstSpec__TpAssignment_1_0");
-			builder.put(grammarAccess.getConstSpecAccess().getExpressionlistAssignment_1_2(), "rule__ConstSpec__ExpressionlistAssignment_1_2");
+			builder.put(grammarAccess.getConstSpecAccess().getTpAssignment_1(), "rule__ConstSpec__TpAssignment_1");
+			builder.put(grammarAccess.getConstSpecAccess().getExpressionlistAssignment_2_1(), "rule__ConstSpec__ExpressionlistAssignment_2_1");
 			builder.put(grammarAccess.getTypeDeclAccess().getTypespecAssignment_2_0(), "rule__TypeDecl__TypespecAssignment_2_0");
 			builder.put(grammarAccess.getTypeDeclAccess().getTypespec2Assignment_2_1_1_0(), "rule__TypeDecl__Typespec2Assignment_2_1_1_0");
 			builder.put(grammarAccess.getTypeDefAccess().getIdAssignment_0(), "rule__TypeDef__IdAssignment_0");

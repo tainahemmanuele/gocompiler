@@ -4,12 +4,14 @@
 package org.xtext.example.mydsl.validation
 
 import org.eclipse.xtext.validation.Check
-import org.xtext.example.mydsl.go.*
+import org.xtext.example.mydsl.go.BasicLit
+import org.xtext.example.mydsl.go.ConstDecl
 import org.xtext.example.mydsl.go.Expression
 import org.xtext.example.mydsl.go.Expression2
-import org.xtext.example.mydsl.go.IdentifierList
-import org.xtext.example.mydsl.validation.util.Typer
-import org.xtext.example.mydsl.go.BasicLit
+import org.xtext.example.mydsl.go.ForStmt
+import org.xtext.example.mydsl.go.OperandName
+import org.xtext.example.mydsl.go.VarDecl
+import org.xtext.example.mydsl.validation.util.*
 
 /**
  * This class contains custom validation rules. 
@@ -19,11 +21,6 @@ import org.xtext.example.mydsl.go.BasicLit
 class GoValidator extends AbstractGoValidator {
 	
 	val ids = newLinkedHashMap()
-
-
-	def static void main(String[] args) {
-	 println("Hello World")
-	}
 
 	@Check
 	def checkFor(ForStmt fors) {
@@ -44,7 +41,7 @@ class GoValidator extends AbstractGoValidator {
 			if(isArithimeticOp(binaryOperator)) {
 				var basicLiteral1 = e.up.pr.op.literal.basic
 				var basicLiteral2 = e.exp.expression.up.pr.op.literal.basic		
-				checkAritimeticLits(basicLiteral1, basicLiteral2, binaryOperator)
+				checkAritimeticLits(basicLiteral1, basicLiteral2, binaryOperator);
 			}
 		}
 	}
@@ -53,6 +50,8 @@ class GoValidator extends AbstractGoValidator {
 	def checkConstDecl(ConstDecl cd) {
 		
 		var constId   = cd.constspec.id.id;
+		nullDeclaration(constId);
+		
 		var constType = cd.constspec.tp.tp;
 		var constExp  = cd.constspec.expressionlist.exp.up.pr.op.literal.basic;
 				
@@ -60,25 +59,36 @@ class GoValidator extends AbstractGoValidator {
 		if(constType !== null && constExp !== null) {
 			var error = checkAndMakeDecl(constId, constType, constExp);
 			if(constId !== constId.toUpperCase() && !error) {
-				warning ("Constants usually be declared with Upper Case", null)
+				warning ("Constants usually be declared with Upper Case", null);
 			}
 		}
-		
 	}
 	
 	@Check
 	def checkVarDecl(VarDecl vd) {
 		
-		var varId   = vd.varspec.id.id;
+		var varId   = vd.varspec.id.id;	
+		nullDeclaration(varId);
+		
 		var varType = vd.varspec.tp2.tp;
 		var varExp  = vd.varspec.expressionlist.exp.up.pr.op.literal.basic;
 		
-		if (varType !== null && varExp !== null) {
+		
+		if (varType !== null && varExp !== null) {		
 			var error = checkAndMakeDecl(varId, varType, varExp);
 			if(varId.charAt(0) !== varId.toLowerCase().charAt(0) && !error) {
-				warning ("Variables usually starts with Lower Case", null)
+				warning ("Variables usually starts with Lower Case", null);
 			}
-		} 
+		}
+	}
+	
+	@Check
+	def checkOperandName(OperandName op) {
+		
+		if(!ids.containsKey(op.id)) {
+			error("Semantic Error: Identifier " + op.id + " was never declared" , null)
+		}
+		
 	}
 	
 	
@@ -161,13 +171,16 @@ class GoValidator extends AbstractGoValidator {
 		
 		return error;
 	}
+	
+	def nullDeclaration(String id) {
+		ids.put(id, new NullObj());
+	}
 
 
 	protected def boolean isArithimeticOp(String binaryOperator) {
 		return (binaryOperator == "+" || binaryOperator == "-" || binaryOperator == "*"
 			|| binaryOperator == "/" || binaryOperator == "%")
 	}
-	
 	
 	
 }

@@ -10586,7 +10586,7 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleConstSpec"
-    // InternalGo.g:3625:1: ruleConstSpec returns [EObject current=null] : ( ( (lv_id_0_0= ruleIdentifierList ) ) ( ( (lv_tp_1_0= ruleType ) )? otherlv_2= '=' ( (lv_expressionlist_3_0= ruleExpressionList ) ) )? ) ;
+    // InternalGo.g:3625:1: ruleConstSpec returns [EObject current=null] : ( ( (lv_id_0_0= ruleIdentifierList ) ) ( (lv_tp_1_0= ruleType ) )? (otherlv_2= '=' ( (lv_expressionlist_3_0= ruleExpressionList ) ) )? ) ;
     public final EObject ruleConstSpec() throws RecognitionException {
         EObject current = null;
 
@@ -10602,11 +10602,11 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGo.g:3631:2: ( ( ( (lv_id_0_0= ruleIdentifierList ) ) ( ( (lv_tp_1_0= ruleType ) )? otherlv_2= '=' ( (lv_expressionlist_3_0= ruleExpressionList ) ) )? ) )
-            // InternalGo.g:3632:2: ( ( (lv_id_0_0= ruleIdentifierList ) ) ( ( (lv_tp_1_0= ruleType ) )? otherlv_2= '=' ( (lv_expressionlist_3_0= ruleExpressionList ) ) )? )
+            // InternalGo.g:3631:2: ( ( ( (lv_id_0_0= ruleIdentifierList ) ) ( (lv_tp_1_0= ruleType ) )? (otherlv_2= '=' ( (lv_expressionlist_3_0= ruleExpressionList ) ) )? ) )
+            // InternalGo.g:3632:2: ( ( (lv_id_0_0= ruleIdentifierList ) ) ( (lv_tp_1_0= ruleType ) )? (otherlv_2= '=' ( (lv_expressionlist_3_0= ruleExpressionList ) ) )? )
             {
-            // InternalGo.g:3632:2: ( ( (lv_id_0_0= ruleIdentifierList ) ) ( ( (lv_tp_1_0= ruleType ) )? otherlv_2= '=' ( (lv_expressionlist_3_0= ruleExpressionList ) ) )? )
-            // InternalGo.g:3633:3: ( (lv_id_0_0= ruleIdentifierList ) ) ( ( (lv_tp_1_0= ruleType ) )? otherlv_2= '=' ( (lv_expressionlist_3_0= ruleExpressionList ) ) )?
+            // InternalGo.g:3632:2: ( ( (lv_id_0_0= ruleIdentifierList ) ) ( (lv_tp_1_0= ruleType ) )? (otherlv_2= '=' ( (lv_expressionlist_3_0= ruleExpressionList ) ) )? )
+            // InternalGo.g:3633:3: ( (lv_id_0_0= ruleIdentifierList ) ) ( (lv_tp_1_0= ruleType ) )? (otherlv_2= '=' ( (lv_expressionlist_3_0= ruleExpressionList ) ) )?
             {
             // InternalGo.g:3633:3: ( (lv_id_0_0= ruleIdentifierList ) )
             // InternalGo.g:3634:4: (lv_id_0_0= ruleIdentifierList )
@@ -10643,63 +10643,63 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalGo.g:3652:3: ( ( (lv_tp_1_0= ruleType ) )? otherlv_2= '=' ( (lv_expressionlist_3_0= ruleExpressionList ) ) )?
+            // InternalGo.g:3652:3: ( (lv_tp_1_0= ruleType ) )?
+            int alt47=2;
+            alt47 = dfa47.predict(input);
+            switch (alt47) {
+                case 1 :
+                    // InternalGo.g:3653:4: (lv_tp_1_0= ruleType )
+                    {
+                    // InternalGo.g:3653:4: (lv_tp_1_0= ruleType )
+                    // InternalGo.g:3654:5: lv_tp_1_0= ruleType
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      					newCompositeNode(grammarAccess.getConstSpecAccess().getTpTypeParserRuleCall_1_0());
+                      				
+                    }
+                    pushFollow(FOLLOW_46);
+                    lv_tp_1_0=ruleType();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      					if (current==null) {
+                      						current = createModelElementForParent(grammarAccess.getConstSpecRule());
+                      					}
+                      					set(
+                      						current,
+                      						"tp",
+                      						lv_tp_1_0,
+                      						"org.xtext.example.mydsl.Go.Type");
+                      					afterParserOrEnumRuleCall();
+                      				
+                    }
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // InternalGo.g:3671:3: (otherlv_2= '=' ( (lv_expressionlist_3_0= ruleExpressionList ) ) )?
             int alt48=2;
-            alt48 = dfa48.predict(input);
+            int LA48_0 = input.LA(1);
+
+            if ( (LA48_0==74) ) {
+                alt48=1;
+            }
             switch (alt48) {
                 case 1 :
-                    // InternalGo.g:3653:4: ( (lv_tp_1_0= ruleType ) )? otherlv_2= '=' ( (lv_expressionlist_3_0= ruleExpressionList ) )
+                    // InternalGo.g:3672:4: otherlv_2= '=' ( (lv_expressionlist_3_0= ruleExpressionList ) )
                     {
-                    // InternalGo.g:3653:4: ( (lv_tp_1_0= ruleType ) )?
-                    int alt47=2;
-                    int LA47_0 = input.LA(1);
-
-                    if ( (LA47_0==RULE_LITERAL_TYPE||LA47_0==RULE_MUL||LA47_0==43||LA47_0==47||LA47_0==50||LA47_0==52||(LA47_0>=58 && LA47_0<=61)) ) {
-                        alt47=1;
-                    }
-                    switch (alt47) {
-                        case 1 :
-                            // InternalGo.g:3654:5: (lv_tp_1_0= ruleType )
-                            {
-                            // InternalGo.g:3654:5: (lv_tp_1_0= ruleType )
-                            // InternalGo.g:3655:6: lv_tp_1_0= ruleType
-                            {
-                            if ( state.backtracking==0 ) {
-
-                              						newCompositeNode(grammarAccess.getConstSpecAccess().getTpTypeParserRuleCall_1_0_0());
-                              					
-                            }
-                            pushFollow(FOLLOW_46);
-                            lv_tp_1_0=ruleType();
-
-                            state._fsp--;
-                            if (state.failed) return current;
-                            if ( state.backtracking==0 ) {
-
-                              						if (current==null) {
-                              							current = createModelElementForParent(grammarAccess.getConstSpecRule());
-                              						}
-                              						set(
-                              							current,
-                              							"tp",
-                              							lv_tp_1_0,
-                              							"org.xtext.example.mydsl.Go.Type");
-                              						afterParserOrEnumRuleCall();
-                              					
-                            }
-
-                            }
-
-
-                            }
-                            break;
-
-                    }
-
                     otherlv_2=(Token)match(input,74,FOLLOW_14); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				newLeafNode(otherlv_2, grammarAccess.getConstSpecAccess().getEqualsSignKeyword_1_1());
+                      				newLeafNode(otherlv_2, grammarAccess.getConstSpecAccess().getEqualsSignKeyword_2_0());
                       			
                     }
                     // InternalGo.g:3676:4: ( (lv_expressionlist_3_0= ruleExpressionList ) )
@@ -10710,7 +10710,7 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
                     {
                     if ( state.backtracking==0 ) {
 
-                      						newCompositeNode(grammarAccess.getConstSpecAccess().getExpressionlistExpressionListParserRuleCall_1_2_0());
+                      						newCompositeNode(grammarAccess.getConstSpecAccess().getExpressionlistExpressionListParserRuleCall_2_1_0());
                       					
                     }
                     pushFollow(FOLLOW_2);
@@ -11426,7 +11426,7 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
             // InternalGo.g:3914:4: (lv_id_1_0= RULE_IDENTIFIER )
             // InternalGo.g:3915:5: lv_id_1_0= RULE_IDENTIFIER
             {
-            lv_id_1_0=(Token)match(input,RULE_IDENTIFIER,FOLLOW_46); if (state.failed) return current;
+            lv_id_1_0=(Token)match(input,RULE_IDENTIFIER,FOLLOW_47); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               					newLeafNode(lv_id_1_0, grammarAccess.getAliasDeclAccess().getIdIDENTIFIERTerminalRuleCall_1_0());
@@ -11908,7 +11908,7 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
                       					newCompositeNode(grammarAccess.getVarSpecAccess().getTp2TypeParserRuleCall_1_0());
                       				
                     }
-                    pushFollow(FOLLOW_47);
+                    pushFollow(FOLLOW_46);
                     lv_tp2_1_0=ruleType();
 
                     state._fsp--;
@@ -15300,7 +15300,7 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
                       					newCompositeNode(grammarAccess.getRecvStmtAccess().getExpressionListParserRuleCall_0_0_0());
                       				
                     }
-                    pushFollow(FOLLOW_46);
+                    pushFollow(FOLLOW_47);
                     this_ExpressionList_0=ruleExpressionList();
 
                     state._fsp--;
@@ -16022,7 +16022,7 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
                       							newCompositeNode(grammarAccess.getRangeClauseAccess().getExpressionlistExpressionListParserRuleCall_0_0_0_0());
                       						
                     }
-                    pushFollow(FOLLOW_46);
+                    pushFollow(FOLLOW_47);
                     lv_expressionlist_0_0=ruleExpressionList();
 
                     state._fsp--;
@@ -22696,10 +22696,7 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
                 if ( (LA101_1==49) ) {
                     int LA101_2 = input.LA(3);
 
-                    if ( (LA101_2==47) ) {
-                        alt101=1;
-                    }
-                    else if ( (LA101_2==RULE_IDENTIFIER) ) {
+                    if ( (LA101_2==RULE_IDENTIFIER) ) {
                         int LA101_4 = input.LA(4);
 
                         if ( (synpred147_InternalGo()) ) {
@@ -22715,6 +22712,9 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
 
                             throw nvae;
                         }
+                    }
+                    else if ( (LA101_2==47) ) {
+                        alt101=1;
                     }
                     else {
                         if (state.backtracking>0) {state.failed=true; return current;}
@@ -24006,64 +24006,24 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
     }
     // $ANTLR end synpred71_InternalGo
 
-    // $ANTLR start synpred76_InternalGo
-    public final void synpred76_InternalGo_fragment() throws RecognitionException {   
-        Token otherlv_2=null;
+    // $ANTLR start synpred75_InternalGo
+    public final void synpred75_InternalGo_fragment() throws RecognitionException {   
         EObject lv_tp_1_0 = null;
 
-        EObject lv_expressionlist_3_0 = null;
 
-
-        // InternalGo.g:3653:4: ( ( (lv_tp_1_0= ruleType ) )? otherlv_2= '=' ( (lv_expressionlist_3_0= ruleExpressionList ) ) )
-        // InternalGo.g:3653:4: ( (lv_tp_1_0= ruleType ) )? otherlv_2= '=' ( (lv_expressionlist_3_0= ruleExpressionList ) )
+        // InternalGo.g:3653:4: ( (lv_tp_1_0= ruleType ) )
+        // InternalGo.g:3653:4: (lv_tp_1_0= ruleType )
         {
-        // InternalGo.g:3653:4: ( (lv_tp_1_0= ruleType ) )?
-        int alt112=2;
-        int LA112_0 = input.LA(1);
-
-        if ( (LA112_0==RULE_LITERAL_TYPE||LA112_0==RULE_MUL||LA112_0==43||LA112_0==47||LA112_0==50||LA112_0==52||(LA112_0>=58 && LA112_0<=61)) ) {
-            alt112=1;
-        }
-        switch (alt112) {
-            case 1 :
-                // InternalGo.g:3654:5: (lv_tp_1_0= ruleType )
-                {
-                // InternalGo.g:3654:5: (lv_tp_1_0= ruleType )
-                // InternalGo.g:3655:6: lv_tp_1_0= ruleType
-                {
-                if ( state.backtracking==0 ) {
-
-                  						newCompositeNode(grammarAccess.getConstSpecAccess().getTpTypeParserRuleCall_1_0_0());
-                  					
-                }
-                pushFollow(FOLLOW_46);
-                lv_tp_1_0=ruleType();
-
-                state._fsp--;
-                if (state.failed) return ;
-
-                }
-
-
-                }
-                break;
-
-        }
-
-        otherlv_2=(Token)match(input,74,FOLLOW_14); if (state.failed) return ;
-        // InternalGo.g:3676:4: ( (lv_expressionlist_3_0= ruleExpressionList ) )
-        // InternalGo.g:3677:5: (lv_expressionlist_3_0= ruleExpressionList )
-        {
-        // InternalGo.g:3677:5: (lv_expressionlist_3_0= ruleExpressionList )
-        // InternalGo.g:3678:6: lv_expressionlist_3_0= ruleExpressionList
+        // InternalGo.g:3653:4: (lv_tp_1_0= ruleType )
+        // InternalGo.g:3654:5: lv_tp_1_0= ruleType
         {
         if ( state.backtracking==0 ) {
 
-          						newCompositeNode(grammarAccess.getConstSpecAccess().getExpressionlistExpressionListParserRuleCall_1_2_0());
-          					
+          					newCompositeNode(grammarAccess.getConstSpecAccess().getTpTypeParserRuleCall_1_0());
+          				
         }
         pushFollow(FOLLOW_2);
-        lv_expressionlist_3_0=ruleExpressionList();
+        lv_tp_1_0=ruleType();
 
         state._fsp--;
         if (state.failed) return ;
@@ -24072,11 +24032,8 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
 
 
         }
-
-
-        }
     }
-    // $ANTLR end synpred76_InternalGo
+    // $ANTLR end synpred75_InternalGo
 
     // $ANTLR start synpred83_InternalGo
     public final void synpred83_InternalGo_fragment() throws RecognitionException {   
@@ -24287,7 +24244,7 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
           					/* */
           				
         }
-        pushFollow(FOLLOW_46);
+        pushFollow(FOLLOW_47);
         this_ExpressionList_0=ruleExpressionList();
 
         state._fsp--;
@@ -25028,13 +24985,13 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
 
         otherlv_1=(Token)match(input,50,FOLLOW_62); if (state.failed) return ;
         // InternalGo.g:6809:4: ( (lv_expression_2_0= ruleExpression ) )?
-        int alt115=2;
-        int LA115_0 = input.LA(1);
+        int alt114=2;
+        int LA114_0 = input.LA(1);
 
-        if ( ((LA115_0>=RULE_IDENTIFIER && LA115_0<=RULE_FLOAT_LIT)||LA115_0==RULE_LITERAL_TYPE||(LA115_0>=RULE_UNARY_OP && LA115_0<=RULE_BOOLEAN_LIT)||LA115_0==RULE_MUL||LA115_0==43||(LA115_0>=46 && LA115_0<=47)||LA115_0==50||LA115_0==52||(LA115_0>=58 && LA115_0<=61)) ) {
-            alt115=1;
+        if ( ((LA114_0>=RULE_IDENTIFIER && LA114_0<=RULE_FLOAT_LIT)||LA114_0==RULE_LITERAL_TYPE||(LA114_0>=RULE_UNARY_OP && LA114_0<=RULE_BOOLEAN_LIT)||LA114_0==RULE_MUL||LA114_0==43||(LA114_0>=46 && LA114_0<=47)||LA114_0==50||LA114_0==52||(LA114_0>=58 && LA114_0<=61)) ) {
+            alt114=1;
         }
-        switch (alt115) {
+        switch (alt114) {
             case 1 :
                 // InternalGo.g:6810:5: (lv_expression_2_0= ruleExpression )
                 {
@@ -25062,13 +25019,13 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
 
         otherlv_3=(Token)match(input,62,FOLLOW_63); if (state.failed) return ;
         // InternalGo.g:6832:4: ( (lv_expression2_4_0= ruleExpression ) )?
-        int alt116=2;
-        int LA116_0 = input.LA(1);
+        int alt115=2;
+        int LA115_0 = input.LA(1);
 
-        if ( ((LA116_0>=RULE_IDENTIFIER && LA116_0<=RULE_FLOAT_LIT)||LA116_0==RULE_LITERAL_TYPE||(LA116_0>=RULE_UNARY_OP && LA116_0<=RULE_BOOLEAN_LIT)||LA116_0==RULE_MUL||LA116_0==43||(LA116_0>=46 && LA116_0<=47)||LA116_0==50||LA116_0==52||(LA116_0>=58 && LA116_0<=61)) ) {
-            alt116=1;
+        if ( ((LA115_0>=RULE_IDENTIFIER && LA115_0<=RULE_FLOAT_LIT)||LA115_0==RULE_LITERAL_TYPE||(LA115_0>=RULE_UNARY_OP && LA115_0<=RULE_BOOLEAN_LIT)||LA115_0==RULE_MUL||LA115_0==43||(LA115_0>=46 && LA115_0<=47)||LA115_0==50||LA115_0==52||(LA115_0>=58 && LA115_0<=61)) ) {
+            alt115=1;
         }
-        switch (alt116) {
+        switch (alt115) {
             case 1 :
                 // InternalGo.g:6833:5: (lv_expression2_4_0= ruleExpression )
                 {
@@ -25576,20 +25533,6 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred76_InternalGo() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred76_InternalGo_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
     public final boolean synpred43_InternalGo() {
         state.backtracking++;
         int start = input.mark();
@@ -25870,6 +25813,20 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
         state.failed=false;
         return success;
     }
+    public final boolean synpred75_InternalGo() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred75_InternalGo_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
     public final boolean synpred98_InternalGo() {
         state.backtracking++;
         int start = input.mark();
@@ -25937,7 +25894,7 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
     protected DFA35 dfa35 = new DFA35(this);
     protected DFA38 dfa38 = new DFA38(this);
     protected DFA43 dfa43 = new DFA43(this);
-    protected DFA48 dfa48 = new DFA48(this);
+    protected DFA47 dfa47 = new DFA47(this);
     protected DFA55 dfa55 = new DFA55(this);
     protected DFA57 dfa57 = new DFA57(this);
     protected DFA59 dfa59 = new DFA59(this);
@@ -27916,248 +27873,13 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
             throw nvae;
         }
     }
-    static final String dfa_53s = "\50\uffff";
-    static final String dfa_54s = "\1\14\47\uffff";
-    static final String dfa_55s = "\1\4\12\0\35\uffff";
-    static final String dfa_56s = "\1\122\12\0\35\uffff";
-    static final String dfa_57s = "\13\uffff\1\1\1\2\33\uffff";
-    static final String dfa_58s = "\1\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\35\uffff}>";
+    static final String dfa_53s = "\51\uffff";
+    static final String dfa_54s = "\1\13\50\uffff";
+    static final String dfa_55s = "\1\4\12\0\36\uffff";
+    static final String dfa_56s = "\1\122\12\0\36\uffff";
+    static final String dfa_57s = "\13\uffff\1\2\34\uffff\1\1";
+    static final String dfa_58s = "\1\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\36\uffff}>";
     static final String[] dfa_59s = {
-            "\3\14\4\uffff\1\1\2\uffff\4\14\6\uffff\1\11\22\uffff\1\4\2\uffff\1\14\1\12\1\14\1\uffff\1\2\1\uffff\1\3\3\14\2\uffff\1\5\1\6\1\7\1\10\1\uffff\5\14\1\uffff\5\14\1\13\2\14\3\uffff\3\14",
-            "\1\uffff",
-            "\1\uffff",
-            "\1\uffff",
-            "\1\uffff",
-            "\1\uffff",
-            "\1\uffff",
-            "\1\uffff",
-            "\1\uffff",
-            "\1\uffff",
-            "\1\uffff",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-    };
-
-    static final short[] dfa_53 = DFA.unpackEncodedString(dfa_53s);
-    static final short[] dfa_54 = DFA.unpackEncodedString(dfa_54s);
-    static final char[] dfa_55 = DFA.unpackEncodedStringToUnsignedChars(dfa_55s);
-    static final char[] dfa_56 = DFA.unpackEncodedStringToUnsignedChars(dfa_56s);
-    static final short[] dfa_57 = DFA.unpackEncodedString(dfa_57s);
-    static final short[] dfa_58 = DFA.unpackEncodedString(dfa_58s);
-    static final short[][] dfa_59 = unpackEncodedStringArray(dfa_59s);
-
-    class DFA48 extends DFA {
-
-        public DFA48(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 48;
-            this.eot = dfa_53;
-            this.eof = dfa_54;
-            this.min = dfa_55;
-            this.max = dfa_56;
-            this.accept = dfa_57;
-            this.special = dfa_58;
-            this.transition = dfa_59;
-        }
-        public String getDescription() {
-            return "3652:3: ( ( (lv_tp_1_0= ruleType ) )? otherlv_2= '=' ( (lv_expressionlist_3_0= ruleExpressionList ) ) )?";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            TokenStream input = (TokenStream)_input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA48_1 = input.LA(1);
-
-                         
-                        int index48_1 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred76_InternalGo()) ) {s = 11;}
-
-                        else if ( (true) ) {s = 12;}
-
-                         
-                        input.seek(index48_1);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA48_2 = input.LA(1);
-
-                         
-                        int index48_2 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred76_InternalGo()) ) {s = 11;}
-
-                        else if ( (true) ) {s = 12;}
-
-                         
-                        input.seek(index48_2);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA48_3 = input.LA(1);
-
-                         
-                        int index48_3 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred76_InternalGo()) ) {s = 11;}
-
-                        else if ( (true) ) {s = 12;}
-
-                         
-                        input.seek(index48_3);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 3 : 
-                        int LA48_4 = input.LA(1);
-
-                         
-                        int index48_4 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred76_InternalGo()) ) {s = 11;}
-
-                        else if ( (true) ) {s = 12;}
-
-                         
-                        input.seek(index48_4);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 4 : 
-                        int LA48_5 = input.LA(1);
-
-                         
-                        int index48_5 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred76_InternalGo()) ) {s = 11;}
-
-                        else if ( (true) ) {s = 12;}
-
-                         
-                        input.seek(index48_5);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 5 : 
-                        int LA48_6 = input.LA(1);
-
-                         
-                        int index48_6 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred76_InternalGo()) ) {s = 11;}
-
-                        else if ( (true) ) {s = 12;}
-
-                         
-                        input.seek(index48_6);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 6 : 
-                        int LA48_7 = input.LA(1);
-
-                         
-                        int index48_7 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred76_InternalGo()) ) {s = 11;}
-
-                        else if ( (true) ) {s = 12;}
-
-                         
-                        input.seek(index48_7);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 7 : 
-                        int LA48_8 = input.LA(1);
-
-                         
-                        int index48_8 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred76_InternalGo()) ) {s = 11;}
-
-                        else if ( (true) ) {s = 12;}
-
-                         
-                        input.seek(index48_8);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 8 : 
-                        int LA48_9 = input.LA(1);
-
-                         
-                        int index48_9 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred76_InternalGo()) ) {s = 11;}
-
-                        else if ( (true) ) {s = 12;}
-
-                         
-                        input.seek(index48_9);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 9 : 
-                        int LA48_10 = input.LA(1);
-
-                         
-                        int index48_10 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred76_InternalGo()) ) {s = 11;}
-
-                        else if ( (true) ) {s = 12;}
-
-                         
-                        input.seek(index48_10);
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            if (state.backtracking>0) {state.failed=true; return -1;}
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 48, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
-    static final String dfa_60s = "\51\uffff";
-    static final String dfa_61s = "\1\13\50\uffff";
-    static final String dfa_62s = "\1\4\12\0\36\uffff";
-    static final String dfa_63s = "\1\122\12\0\36\uffff";
-    static final String dfa_64s = "\13\uffff\1\2\34\uffff\1\1";
-    static final String dfa_65s = "\1\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\36\uffff}>";
-    static final String[] dfa_66s = {
             "\3\13\4\uffff\1\1\2\uffff\4\13\6\uffff\1\11\22\uffff\1\4\2\uffff\1\13\1\12\1\13\1\uffff\1\2\1\uffff\1\3\3\13\2\uffff\1\5\1\6\1\7\1\10\1\uffff\5\13\1\uffff\10\13\3\uffff\3\13",
             "\1\uffff",
             "\1\uffff",
@@ -28201,26 +27923,205 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
             ""
     };
 
-    static final short[] dfa_60 = DFA.unpackEncodedString(dfa_60s);
-    static final short[] dfa_61 = DFA.unpackEncodedString(dfa_61s);
-    static final char[] dfa_62 = DFA.unpackEncodedStringToUnsignedChars(dfa_62s);
-    static final char[] dfa_63 = DFA.unpackEncodedStringToUnsignedChars(dfa_63s);
-    static final short[] dfa_64 = DFA.unpackEncodedString(dfa_64s);
-    static final short[] dfa_65 = DFA.unpackEncodedString(dfa_65s);
-    static final short[][] dfa_66 = unpackEncodedStringArray(dfa_66s);
+    static final short[] dfa_53 = DFA.unpackEncodedString(dfa_53s);
+    static final short[] dfa_54 = DFA.unpackEncodedString(dfa_54s);
+    static final char[] dfa_55 = DFA.unpackEncodedStringToUnsignedChars(dfa_55s);
+    static final char[] dfa_56 = DFA.unpackEncodedStringToUnsignedChars(dfa_56s);
+    static final short[] dfa_57 = DFA.unpackEncodedString(dfa_57s);
+    static final short[] dfa_58 = DFA.unpackEncodedString(dfa_58s);
+    static final short[][] dfa_59 = unpackEncodedStringArray(dfa_59s);
+
+    class DFA47 extends DFA {
+
+        public DFA47(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 47;
+            this.eot = dfa_53;
+            this.eof = dfa_54;
+            this.min = dfa_55;
+            this.max = dfa_56;
+            this.accept = dfa_57;
+            this.special = dfa_58;
+            this.transition = dfa_59;
+        }
+        public String getDescription() {
+            return "3652:3: ( (lv_tp_1_0= ruleType ) )?";
+        }
+        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
+            TokenStream input = (TokenStream)_input;
+        	int _s = s;
+            switch ( s ) {
+                    case 0 : 
+                        int LA47_1 = input.LA(1);
+
+                         
+                        int index47_1 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred75_InternalGo()) ) {s = 40;}
+
+                        else if ( (true) ) {s = 11;}
+
+                         
+                        input.seek(index47_1);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
+                        int LA47_2 = input.LA(1);
+
+                         
+                        int index47_2 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred75_InternalGo()) ) {s = 40;}
+
+                        else if ( (true) ) {s = 11;}
+
+                         
+                        input.seek(index47_2);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
+                        int LA47_3 = input.LA(1);
+
+                         
+                        int index47_3 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred75_InternalGo()) ) {s = 40;}
+
+                        else if ( (true) ) {s = 11;}
+
+                         
+                        input.seek(index47_3);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 3 : 
+                        int LA47_4 = input.LA(1);
+
+                         
+                        int index47_4 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred75_InternalGo()) ) {s = 40;}
+
+                        else if ( (true) ) {s = 11;}
+
+                         
+                        input.seek(index47_4);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 4 : 
+                        int LA47_5 = input.LA(1);
+
+                         
+                        int index47_5 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred75_InternalGo()) ) {s = 40;}
+
+                        else if ( (true) ) {s = 11;}
+
+                         
+                        input.seek(index47_5);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 5 : 
+                        int LA47_6 = input.LA(1);
+
+                         
+                        int index47_6 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred75_InternalGo()) ) {s = 40;}
+
+                        else if ( (true) ) {s = 11;}
+
+                         
+                        input.seek(index47_6);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 6 : 
+                        int LA47_7 = input.LA(1);
+
+                         
+                        int index47_7 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred75_InternalGo()) ) {s = 40;}
+
+                        else if ( (true) ) {s = 11;}
+
+                         
+                        input.seek(index47_7);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 7 : 
+                        int LA47_8 = input.LA(1);
+
+                         
+                        int index47_8 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred75_InternalGo()) ) {s = 40;}
+
+                        else if ( (true) ) {s = 11;}
+
+                         
+                        input.seek(index47_8);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 8 : 
+                        int LA47_9 = input.LA(1);
+
+                         
+                        int index47_9 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred75_InternalGo()) ) {s = 40;}
+
+                        else if ( (true) ) {s = 11;}
+
+                         
+                        input.seek(index47_9);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 9 : 
+                        int LA47_10 = input.LA(1);
+
+                         
+                        int index47_10 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred75_InternalGo()) ) {s = 40;}
+
+                        else if ( (true) ) {s = 11;}
+
+                         
+                        input.seek(index47_10);
+                        if ( s>=0 ) return s;
+                        break;
+            }
+            if (state.backtracking>0) {state.failed=true; return -1;}
+            NoViableAltException nvae =
+                new NoViableAltException(getDescription(), 47, _s, input);
+            error(nvae);
+            throw nvae;
+        }
+    }
 
     class DFA55 extends DFA {
 
         public DFA55(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 55;
-            this.eot = dfa_60;
-            this.eof = dfa_61;
-            this.min = dfa_62;
-            this.max = dfa_63;
-            this.accept = dfa_64;
-            this.special = dfa_65;
-            this.transition = dfa_66;
+            this.eot = dfa_53;
+            this.eof = dfa_54;
+            this.min = dfa_55;
+            this.max = dfa_56;
+            this.accept = dfa_57;
+            this.special = dfa_58;
+            this.transition = dfa_59;
         }
         public String getDescription() {
             return "4084:3: ( (lv_tp2_1_0= ruleType ) )?";
@@ -28387,7 +28288,7 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
             throw nvae;
         }
     }
-    static final String[] dfa_67s = {
+    static final String[] dfa_60s = {
             "\1\12\1\3\1\2\4\uffff\1\15\2\uffff\1\22\1\1\1\5\1\6\6\uffff\1\21\22\uffff\1\13\2\uffff\1\4\1\14\2\uffff\1\10\1\uffff\1\7\5\uffff\1\16\1\11\1\17\1\20",
             "\1\uffff",
             "\1\uffff",
@@ -28410,7 +28311,7 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
             "",
             ""
     };
-    static final short[][] dfa_67 = unpackEncodedStringArray(dfa_67s);
+    static final short[][] dfa_60 = unpackEncodedStringArray(dfa_60s);
 
     class DFA57 extends DFA {
 
@@ -28423,7 +28324,7 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
             this.max = dfa_43;
             this.accept = dfa_44;
             this.special = dfa_45;
-            this.transition = dfa_67;
+            this.transition = dfa_60;
         }
         public String getDescription() {
             return "4323:2: ( ( () ( (lv_exp_1_0= ruleExpression ) ) otherlv_2= '++' ) | ( ( (lv_exp2_3_0= ruleExpression ) ) otherlv_4= '--' ) )";
@@ -28710,7 +28611,7 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
             throw nvae;
         }
     }
-    static final String[] dfa_68s = {
+    static final String[] dfa_61s = {
             "\1\12\1\3\1\2\4\uffff\1\15\2\uffff\1\22\1\1\1\5\1\6\6\uffff\1\21\22\uffff\1\13\2\uffff\1\4\1\14\2\uffff\1\10\1\uffff\1\7\1\24\1\23\3\uffff\1\16\1\11\1\17\1\20",
             "\1\uffff",
             "\1\uffff",
@@ -28733,7 +28634,7 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
             "",
             ""
     };
-    static final short[][] dfa_68 = unpackEncodedStringArray(dfa_68s);
+    static final short[][] dfa_61 = unpackEncodedStringArray(dfa_61s);
 
     class DFA59 extends DFA {
 
@@ -28746,7 +28647,7 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
             this.max = dfa_43;
             this.accept = dfa_44;
             this.special = dfa_45;
-            this.transition = dfa_68;
+            this.transition = dfa_61;
         }
         public String getDescription() {
             return "4587:3: ( ( (lv_simplestmt_2_0= ruleSimpleStmt ) ) otherlv_3= ';' )?";
@@ -29033,11 +28934,11 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
             throw nvae;
         }
     }
-    static final String dfa_69s = "\1\4\21\0\3\uffff";
-    static final String dfa_70s = "\1\75\21\0\3\uffff";
-    static final String dfa_71s = "\22\uffff\1\1\1\uffff\1\2";
-    static final String dfa_72s = "\1\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20\3\uffff}>";
-    static final String[] dfa_73s = {
+    static final String dfa_62s = "\1\4\21\0\3\uffff";
+    static final String dfa_63s = "\1\75\21\0\3\uffff";
+    static final String dfa_64s = "\22\uffff\1\1\1\uffff\1\2";
+    static final String dfa_65s = "\1\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20\3\uffff}>";
+    static final String[] dfa_66s = {
             "\1\12\1\3\1\2\4\uffff\1\15\2\uffff\1\22\1\1\1\5\1\6\6\uffff\1\21\22\uffff\1\13\2\uffff\1\4\1\14\2\uffff\1\10\1\uffff\1\7\1\uffff\1\22\3\uffff\1\16\1\11\1\17\1\20",
             "\1\uffff",
             "\1\uffff",
@@ -29060,11 +28961,11 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
             "",
             ""
     };
-    static final char[] dfa_69 = DFA.unpackEncodedStringToUnsignedChars(dfa_69s);
-    static final char[] dfa_70 = DFA.unpackEncodedStringToUnsignedChars(dfa_70s);
-    static final short[] dfa_71 = DFA.unpackEncodedString(dfa_71s);
-    static final short[] dfa_72 = DFA.unpackEncodedString(dfa_72s);
-    static final short[][] dfa_73 = unpackEncodedStringArray(dfa_73s);
+    static final char[] dfa_62 = DFA.unpackEncodedStringToUnsignedChars(dfa_62s);
+    static final char[] dfa_63 = DFA.unpackEncodedStringToUnsignedChars(dfa_63s);
+    static final short[] dfa_64 = DFA.unpackEncodedString(dfa_64s);
+    static final short[] dfa_65 = DFA.unpackEncodedString(dfa_65s);
+    static final short[][] dfa_66 = unpackEncodedStringArray(dfa_66s);
 
     class DFA63 extends DFA {
 
@@ -29073,11 +28974,11 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
             this.decisionNumber = 63;
             this.eot = dfa_41;
             this.eof = dfa_41;
-            this.min = dfa_69;
-            this.max = dfa_70;
-            this.accept = dfa_71;
-            this.special = dfa_72;
-            this.transition = dfa_73;
+            this.min = dfa_62;
+            this.max = dfa_63;
+            this.accept = dfa_64;
+            this.special = dfa_65;
+            this.transition = dfa_66;
         }
         public String getDescription() {
             return "4805:3: ( ( (lv_simplestm_1_0= ruleSimpleStmt ) ) otherlv_2= ';' )?";
@@ -29361,7 +29262,7 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
             this.max = dfa_43;
             this.accept = dfa_44;
             this.special = dfa_45;
-            this.transition = dfa_67;
+            this.transition = dfa_60;
         }
         public String getDescription() {
             return "5238:4: ( ( (lv_sendstmt_2_0= ruleSendStmt ) ) | ( (lv_recvstmt_3_0= ruleRecvStmt ) ) )";
@@ -29648,12 +29549,12 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
             throw nvae;
         }
     }
-    static final String dfa_74s = "\26\uffff";
-    static final String dfa_75s = "\1\4\22\0\3\uffff";
-    static final String dfa_76s = "\1\75\22\0\3\uffff";
-    static final String dfa_77s = "\23\uffff\1\1\1\3\1\2";
-    static final String dfa_78s = "\1\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\21\3\uffff}>";
-    static final String[] dfa_79s = {
+    static final String dfa_67s = "\26\uffff";
+    static final String dfa_68s = "\1\4\22\0\3\uffff";
+    static final String dfa_69s = "\1\75\22\0\3\uffff";
+    static final String dfa_70s = "\23\uffff\1\1\1\3\1\2";
+    static final String dfa_71s = "\1\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\21\3\uffff}>";
+    static final String[] dfa_72s = {
             "\1\12\1\3\1\2\4\uffff\1\15\2\uffff\1\22\1\1\1\5\1\6\6\uffff\1\21\22\uffff\1\13\2\uffff\1\4\1\14\2\uffff\1\10\1\uffff\1\7\5\uffff\1\16\1\11\1\17\1\20",
             "\1\uffff",
             "\1\uffff",
@@ -29678,25 +29579,25 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
             ""
     };
 
-    static final short[] dfa_74 = DFA.unpackEncodedString(dfa_74s);
-    static final char[] dfa_75 = DFA.unpackEncodedStringToUnsignedChars(dfa_75s);
-    static final char[] dfa_76 = DFA.unpackEncodedStringToUnsignedChars(dfa_76s);
-    static final short[] dfa_77 = DFA.unpackEncodedString(dfa_77s);
-    static final short[] dfa_78 = DFA.unpackEncodedString(dfa_78s);
-    static final short[][] dfa_79 = unpackEncodedStringArray(dfa_79s);
+    static final short[] dfa_67 = DFA.unpackEncodedString(dfa_67s);
+    static final char[] dfa_68 = DFA.unpackEncodedStringToUnsignedChars(dfa_68s);
+    static final char[] dfa_69 = DFA.unpackEncodedStringToUnsignedChars(dfa_69s);
+    static final short[] dfa_70 = DFA.unpackEncodedString(dfa_70s);
+    static final short[] dfa_71 = DFA.unpackEncodedString(dfa_71s);
+    static final short[][] dfa_72 = unpackEncodedStringArray(dfa_72s);
 
     class DFA70 extends DFA {
 
         public DFA70(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 70;
-            this.eot = dfa_74;
-            this.eof = dfa_74;
-            this.min = dfa_75;
-            this.max = dfa_76;
-            this.accept = dfa_77;
-            this.special = dfa_78;
-            this.transition = dfa_79;
+            this.eot = dfa_67;
+            this.eof = dfa_67;
+            this.min = dfa_68;
+            this.max = dfa_69;
+            this.accept = dfa_70;
+            this.special = dfa_71;
+            this.transition = dfa_72;
         }
         public String getDescription() {
             return "5316:3: ( (this_ExpressionList_0= ruleExpressionList otherlv_1= '=' ) | ( ( (lv_idl_2_0= ruleIdentifierList ) ) otherlv_3= ':=' ) )?";
@@ -29985,11 +29886,11 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
             throw nvae;
         }
     }
-    static final String dfa_80s = "\1\4\22\uffff\1\0\1\uffff";
-    static final String dfa_81s = "\1\75\22\uffff\1\0\1\uffff";
-    static final String dfa_82s = "\1\uffff\1\1\22\uffff\1\2";
-    static final String dfa_83s = "\23\uffff\1\0\1\uffff}>";
-    static final String[] dfa_84s = {
+    static final String dfa_73s = "\1\4\22\uffff\1\0\1\uffff";
+    static final String dfa_74s = "\1\75\22\uffff\1\0\1\uffff";
+    static final String dfa_75s = "\1\uffff\1\1\22\uffff\1\2";
+    static final String dfa_76s = "\23\uffff\1\0\1\uffff}>";
+    static final String[] dfa_77s = {
             "\3\1\4\uffff\1\1\2\uffff\4\1\6\uffff\1\1\22\uffff\1\1\2\uffff\2\1\2\uffff\1\1\1\uffff\1\1\1\uffff\1\23\3\uffff\4\1",
             "",
             "",
@@ -30012,11 +29913,11 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
             "\1\uffff",
             ""
     };
-    static final char[] dfa_80 = DFA.unpackEncodedStringToUnsignedChars(dfa_80s);
-    static final char[] dfa_81 = DFA.unpackEncodedStringToUnsignedChars(dfa_81s);
-    static final short[] dfa_82 = DFA.unpackEncodedString(dfa_82s);
-    static final short[] dfa_83 = DFA.unpackEncodedString(dfa_83s);
-    static final short[][] dfa_84 = unpackEncodedStringArray(dfa_84s);
+    static final char[] dfa_73 = DFA.unpackEncodedStringToUnsignedChars(dfa_73s);
+    static final char[] dfa_74 = DFA.unpackEncodedStringToUnsignedChars(dfa_74s);
+    static final short[] dfa_75 = DFA.unpackEncodedString(dfa_75s);
+    static final short[] dfa_76 = DFA.unpackEncodedString(dfa_76s);
+    static final short[][] dfa_77 = unpackEncodedStringArray(dfa_77s);
 
     class DFA71 extends DFA {
 
@@ -30025,11 +29926,11 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
             this.decisionNumber = 71;
             this.eot = dfa_41;
             this.eof = dfa_41;
-            this.min = dfa_80;
-            this.max = dfa_81;
-            this.accept = dfa_82;
-            this.special = dfa_83;
-            this.transition = dfa_84;
+            this.min = dfa_73;
+            this.max = dfa_74;
+            this.accept = dfa_75;
+            this.special = dfa_76;
+            this.transition = dfa_77;
         }
         public String getDescription() {
             return "5493:3: ( (lv_init_1_0= ruleInitStmt ) )?";
@@ -30061,12 +29962,12 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
             throw nvae;
         }
     }
-    static final String dfa_85s = "\7\uffff";
-    static final String dfa_86s = "\1\4\1\uffff\1\15\1\uffff\1\4\1\uffff\1\15";
-    static final String dfa_87s = "\1\123\1\uffff\1\117\1\uffff\1\75\1\uffff\1\117";
-    static final String dfa_88s = "\1\uffff\1\1\1\uffff\1\3\1\uffff\1\2\1\uffff";
-    static final String dfa_89s = "\7\uffff}>";
-    static final String[] dfa_90s = {
+    static final String dfa_78s = "\7\uffff";
+    static final String dfa_79s = "\1\4\1\uffff\1\15\1\uffff\1\4\1\uffff\1\15";
+    static final String dfa_80s = "\1\123\1\uffff\1\117\1\uffff\1\75\1\uffff\1\117";
+    static final String dfa_81s = "\1\uffff\1\1\1\uffff\1\3\1\uffff\1\2\1\uffff";
+    static final String dfa_82s = "\7\uffff}>";
+    static final String[] dfa_83s = {
             "\1\2\2\1\4\uffff\1\1\2\uffff\4\1\6\uffff\1\1\22\uffff\1\1\2\uffff\2\1\2\uffff\1\1\1\uffff\1\1\5\uffff\4\1\25\uffff\1\3",
             "",
             "\1\1\41\uffff\1\1\1\uffff\2\1\2\uffff\1\1\2\uffff\1\4\21\uffff\1\1\4\uffff\1\5",
@@ -30076,36 +29977,36 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
             "\1\1\41\uffff\1\1\1\uffff\2\1\2\uffff\1\1\2\uffff\1\4\21\uffff\1\1\4\uffff\1\5"
     };
 
-    static final short[] dfa_85 = DFA.unpackEncodedString(dfa_85s);
-    static final char[] dfa_86 = DFA.unpackEncodedStringToUnsignedChars(dfa_86s);
-    static final char[] dfa_87 = DFA.unpackEncodedStringToUnsignedChars(dfa_87s);
-    static final short[] dfa_88 = DFA.unpackEncodedString(dfa_88s);
-    static final short[] dfa_89 = DFA.unpackEncodedString(dfa_89s);
-    static final short[][] dfa_90 = unpackEncodedStringArray(dfa_90s);
+    static final short[] dfa_78 = DFA.unpackEncodedString(dfa_78s);
+    static final char[] dfa_79 = DFA.unpackEncodedStringToUnsignedChars(dfa_79s);
+    static final char[] dfa_80 = DFA.unpackEncodedStringToUnsignedChars(dfa_80s);
+    static final short[] dfa_81 = DFA.unpackEncodedString(dfa_81s);
+    static final short[] dfa_82 = DFA.unpackEncodedString(dfa_82s);
+    static final short[][] dfa_83 = unpackEncodedStringArray(dfa_83s);
 
     class DFA74 extends DFA {
 
         public DFA74(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 74;
-            this.eot = dfa_85;
-            this.eof = dfa_85;
-            this.min = dfa_86;
-            this.max = dfa_87;
-            this.accept = dfa_88;
-            this.special = dfa_89;
-            this.transition = dfa_90;
+            this.eot = dfa_78;
+            this.eof = dfa_78;
+            this.min = dfa_79;
+            this.max = dfa_80;
+            this.accept = dfa_81;
+            this.special = dfa_82;
+            this.transition = dfa_83;
         }
         public String getDescription() {
             return "5577:3: ( ( ( (lv_expressionlist_0_0= ruleExpressionList ) ) otherlv_1= '=' ) | ( ( (lv_idl_2_0= ruleIdentifierList ) ) otherlv_3= ':=' ) )?";
         }
     }
-    static final String dfa_91s = "\24\uffff";
-    static final String dfa_92s = "\1\4\6\uffff\3\0\1\uffff\7\0\2\uffff";
-    static final String dfa_93s = "\1\75\6\uffff\3\0\1\uffff\7\0\2\uffff";
-    static final String dfa_94s = "\1\uffff\1\1\20\uffff\1\2\1\3";
-    static final String dfa_95s = "\7\uffff\1\0\1\1\1\2\1\uffff\1\3\1\4\1\5\1\6\1\7\1\10\1\11\2\uffff}>";
-    static final String[] dfa_96s = {
+    static final String dfa_84s = "\24\uffff";
+    static final String dfa_85s = "\1\4\6\uffff\3\0\1\uffff\7\0\2\uffff";
+    static final String dfa_86s = "\1\75\6\uffff\3\0\1\uffff\7\0\2\uffff";
+    static final String dfa_87s = "\1\uffff\1\1\20\uffff\1\2\1\3";
+    static final String dfa_88s = "\7\uffff\1\0\1\1\1\2\1\uffff\1\3\1\4\1\5\1\6\1\7\1\10\1\11\2\uffff}>";
+    static final String[] dfa_89s = {
             "\3\1\4\uffff\1\15\3\uffff\3\1\6\uffff\1\21\22\uffff\1\13\2\uffff\1\1\1\14\2\uffff\1\10\1\uffff\1\7\5\uffff\1\16\1\11\1\17\1\20",
             "",
             "",
@@ -30128,25 +30029,25 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
             ""
     };
 
-    static final short[] dfa_91 = DFA.unpackEncodedString(dfa_91s);
-    static final char[] dfa_92 = DFA.unpackEncodedStringToUnsignedChars(dfa_92s);
-    static final char[] dfa_93 = DFA.unpackEncodedStringToUnsignedChars(dfa_93s);
-    static final short[] dfa_94 = DFA.unpackEncodedString(dfa_94s);
-    static final short[] dfa_95 = DFA.unpackEncodedString(dfa_95s);
-    static final short[][] dfa_96 = unpackEncodedStringArray(dfa_96s);
+    static final short[] dfa_84 = DFA.unpackEncodedString(dfa_84s);
+    static final char[] dfa_85 = DFA.unpackEncodedStringToUnsignedChars(dfa_85s);
+    static final char[] dfa_86 = DFA.unpackEncodedStringToUnsignedChars(dfa_86s);
+    static final short[] dfa_87 = DFA.unpackEncodedString(dfa_87s);
+    static final short[] dfa_88 = DFA.unpackEncodedString(dfa_88s);
+    static final short[][] dfa_89 = unpackEncodedStringArray(dfa_89s);
 
     class DFA78 extends DFA {
 
         public DFA78(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 78;
-            this.eot = dfa_91;
-            this.eof = dfa_91;
-            this.min = dfa_92;
-            this.max = dfa_93;
-            this.accept = dfa_94;
-            this.special = dfa_95;
-            this.transition = dfa_96;
+            this.eot = dfa_84;
+            this.eof = dfa_84;
+            this.min = dfa_85;
+            this.max = dfa_86;
+            this.accept = dfa_87;
+            this.special = dfa_88;
+            this.transition = dfa_89;
         }
         public String getDescription() {
             return "6096:2: ( ( () ( (lv_op_1_0= ruleOperand ) ) ( (lv_pr_2_0= rulePrimaryExpr2 ) ) ) | ( ( (lv_con_3_0= ruleConversion ) ) ( (lv_pr_4_0= rulePrimaryExpr2 ) ) ) | ( ( (lv_me_5_0= ruleMethodExpr ) ) ( (lv_pr_6_0= rulePrimaryExpr2 ) ) ) )";
@@ -30323,13 +30224,13 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
             throw nvae;
         }
     }
-    static final String dfa_97s = "\66\uffff";
-    static final String dfa_98s = "\1\4\65\uffff";
-    static final String dfa_99s = "\1\4\3\0\62\uffff";
-    static final String dfa_100s = "\1\122\3\0\62\uffff";
-    static final String dfa_101s = "\4\uffff\1\6\54\uffff\1\1\1\4\1\2\1\3\1\5";
-    static final String dfa_102s = "\1\uffff\1\0\1\1\1\2\62\uffff}>";
-    static final String[] dfa_103s = {
+    static final String dfa_90s = "\66\uffff";
+    static final String dfa_91s = "\1\4\65\uffff";
+    static final String dfa_92s = "\1\4\3\0\62\uffff";
+    static final String dfa_93s = "\1\122\3\0\62\uffff";
+    static final String dfa_94s = "\4\uffff\1\6\54\uffff\1\1\1\4\1\2\1\3\1\5";
+    static final String dfa_95s = "\1\uffff\1\0\1\1\1\2\62\uffff}>";
+    static final String[] dfa_96s = {
             "\3\4\4\uffff\7\4\6\uffff\1\4\22\uffff\1\4\2\uffff\1\4\1\3\1\4\1\1\1\2\21\4\1\uffff\12\4\1\uffff\3\4",
             "\1\uffff",
             "\1\uffff",
@@ -30386,26 +30287,26 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
             ""
     };
 
-    static final short[] dfa_97 = DFA.unpackEncodedString(dfa_97s);
-    static final short[] dfa_98 = DFA.unpackEncodedString(dfa_98s);
-    static final char[] dfa_99 = DFA.unpackEncodedStringToUnsignedChars(dfa_99s);
-    static final char[] dfa_100 = DFA.unpackEncodedStringToUnsignedChars(dfa_100s);
-    static final short[] dfa_101 = DFA.unpackEncodedString(dfa_101s);
-    static final short[] dfa_102 = DFA.unpackEncodedString(dfa_102s);
-    static final short[][] dfa_103 = unpackEncodedStringArray(dfa_103s);
+    static final short[] dfa_90 = DFA.unpackEncodedString(dfa_90s);
+    static final short[] dfa_91 = DFA.unpackEncodedString(dfa_91s);
+    static final char[] dfa_92 = DFA.unpackEncodedStringToUnsignedChars(dfa_92s);
+    static final char[] dfa_93 = DFA.unpackEncodedStringToUnsignedChars(dfa_93s);
+    static final short[] dfa_94 = DFA.unpackEncodedString(dfa_94s);
+    static final short[] dfa_95 = DFA.unpackEncodedString(dfa_95s);
+    static final short[][] dfa_96 = unpackEncodedStringArray(dfa_96s);
 
     class DFA79 extends DFA {
 
         public DFA79(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 79;
-            this.eot = dfa_97;
-            this.eof = dfa_98;
-            this.min = dfa_99;
-            this.max = dfa_100;
-            this.accept = dfa_101;
-            this.special = dfa_102;
-            this.transition = dfa_103;
+            this.eot = dfa_90;
+            this.eof = dfa_91;
+            this.min = dfa_92;
+            this.max = dfa_93;
+            this.accept = dfa_94;
+            this.special = dfa_95;
+            this.transition = dfa_96;
         }
         public String getDescription() {
             return "6258:3: ( ( ( (lv_selector_1_0= ruleSelector ) ) ( (lv_pr_2_0= rulePrimaryExpr2 ) ) ) | ( ( (lv_index_3_0= ruleIndex ) ) ( (lv_pr_4_0= rulePrimaryExpr2 ) ) ) | ( ( (lv_slice_5_0= ruleSlice ) ) ( (lv_pr_6_0= rulePrimaryExpr2 ) ) ) | ( ( (lv_typeass_7_0= ruleTypeAssertion ) ) ( (lv_pr_8_0= rulePrimaryExpr2 ) ) ) | ( ( (lv_arguments_9_0= ruleArguments ) ) ( (lv_pr_10_0= rulePrimaryExpr2 ) ) ) )?";
@@ -30471,12 +30372,12 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
             throw nvae;
         }
     }
-    static final String dfa_104s = "\16\uffff";
-    static final String dfa_105s = "\1\4\11\uffff\1\0\3\uffff";
-    static final String dfa_106s = "\1\73\11\uffff\1\0\3\uffff";
-    static final String dfa_107s = "\1\uffff\1\1\12\uffff\1\3\1\2";
-    static final String dfa_108s = "\12\uffff\1\0\3\uffff}>";
-    static final String[] dfa_109s = {
+    static final String dfa_97s = "\16\uffff";
+    static final String dfa_98s = "\1\4\11\uffff\1\0\3\uffff";
+    static final String dfa_99s = "\1\73\11\uffff\1\0\3\uffff";
+    static final String dfa_100s = "\1\uffff\1\1\12\uffff\1\3\1\2";
+    static final String dfa_101s = "\12\uffff\1\0\3\uffff}>";
+    static final String[] dfa_102s = {
             "\1\12\2\1\10\uffff\3\1\31\uffff\1\1\2\uffff\1\1\1\14\2\uffff\1\1\1\uffff\1\1\6\uffff\1\1",
             "",
             "",
@@ -30493,25 +30394,25 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
             ""
     };
 
-    static final short[] dfa_104 = DFA.unpackEncodedString(dfa_104s);
-    static final char[] dfa_105 = DFA.unpackEncodedStringToUnsignedChars(dfa_105s);
-    static final char[] dfa_106 = DFA.unpackEncodedStringToUnsignedChars(dfa_106s);
-    static final short[] dfa_107 = DFA.unpackEncodedString(dfa_107s);
-    static final short[] dfa_108 = DFA.unpackEncodedString(dfa_108s);
-    static final short[][] dfa_109 = unpackEncodedStringArray(dfa_109s);
+    static final short[] dfa_97 = DFA.unpackEncodedString(dfa_97s);
+    static final char[] dfa_98 = DFA.unpackEncodedStringToUnsignedChars(dfa_98s);
+    static final char[] dfa_99 = DFA.unpackEncodedStringToUnsignedChars(dfa_99s);
+    static final short[] dfa_100 = DFA.unpackEncodedString(dfa_100s);
+    static final short[] dfa_101 = DFA.unpackEncodedString(dfa_101s);
+    static final short[][] dfa_102 = unpackEncodedStringArray(dfa_102s);
 
     class DFA80 extends DFA {
 
         public DFA80(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 80;
-            this.eot = dfa_104;
-            this.eof = dfa_104;
-            this.min = dfa_105;
-            this.max = dfa_106;
-            this.accept = dfa_107;
-            this.special = dfa_108;
-            this.transition = dfa_109;
+            this.eot = dfa_97;
+            this.eof = dfa_97;
+            this.min = dfa_98;
+            this.max = dfa_99;
+            this.accept = dfa_100;
+            this.special = dfa_101;
+            this.transition = dfa_102;
         }
         public String getDescription() {
             return "6482:2: ( ( () ( (lv_literal_1_0= ruleLiteral ) ) ) | ( (lv_operandn_2_0= ruleOperandName ) ) | (otherlv_3= '(' ( (lv_expression_4_0= ruleExpression ) ) otherlv_5= ')' ) )";
@@ -30543,8 +30444,8 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
             throw nvae;
         }
     }
-    static final String dfa_110s = "\1\uffff\1\1\21\uffff\1\2";
-    static final String[] dfa_111s = {
+    static final String dfa_103s = "\1\uffff\1\1\21\uffff\1\2";
+    static final String[] dfa_104s = {
             "\3\1\4\uffff\1\15\2\uffff\4\1\6\uffff\1\21\22\uffff\1\13\2\uffff\1\1\1\14\2\uffff\1\10\1\uffff\1\7\5\uffff\1\16\1\11\1\17\1\20",
             "",
             "",
@@ -30566,21 +30467,21 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
             "",
             ""
     };
-    static final short[] dfa_110 = DFA.unpackEncodedString(dfa_110s);
-    static final short[][] dfa_111 = unpackEncodedStringArray(dfa_111s);
+    static final short[] dfa_103 = DFA.unpackEncodedString(dfa_103s);
+    static final short[][] dfa_104 = unpackEncodedStringArray(dfa_104s);
 
     class DFA87 extends DFA {
 
         public DFA87(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 87;
-            this.eot = dfa_91;
-            this.eof = dfa_91;
-            this.min = dfa_92;
-            this.max = dfa_93;
-            this.accept = dfa_110;
-            this.special = dfa_95;
-            this.transition = dfa_111;
+            this.eot = dfa_84;
+            this.eof = dfa_84;
+            this.min = dfa_85;
+            this.max = dfa_86;
+            this.accept = dfa_103;
+            this.special = dfa_88;
+            this.transition = dfa_104;
         }
         public String getDescription() {
             return "7008:4: ( ( (lv_expressionlist_2_0= ruleExpressionList ) ) | ( ( (lv_type_3_0= ruleType ) ) (otherlv_4= ',' ( (lv_expressionlist_5_0= ruleExpressionList ) ) )? ) )";
@@ -30747,11 +30648,11 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
             throw nvae;
         }
     }
-    static final String dfa_112s = "\1\4\23\0\2\uffff";
-    static final String dfa_113s = "\1\75\23\0\2\uffff";
-    static final String dfa_114s = "\24\uffff\1\1\1\2";
-    static final String dfa_115s = "\1\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\21\1\22\2\uffff}>";
-    static final String[] dfa_116s = {
+    static final String dfa_105s = "\1\4\23\0\2\uffff";
+    static final String dfa_106s = "\1\75\23\0\2\uffff";
+    static final String dfa_107s = "\24\uffff\1\1\1\2";
+    static final String dfa_108s = "\1\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\21\1\22\2\uffff}>";
+    static final String[] dfa_109s = {
             "\1\1\1\4\1\3\4\uffff\1\15\2\uffff\1\22\1\2\1\6\1\7\6\uffff\1\21\22\uffff\1\13\2\uffff\1\5\1\14\2\uffff\1\11\1\uffff\1\10\1\23\4\uffff\1\16\1\12\1\17\1\20",
             "\1\uffff",
             "\1\uffff",
@@ -30775,24 +30676,24 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
             "",
             ""
     };
-    static final char[] dfa_112 = DFA.unpackEncodedStringToUnsignedChars(dfa_112s);
-    static final char[] dfa_113 = DFA.unpackEncodedStringToUnsignedChars(dfa_113s);
-    static final short[] dfa_114 = DFA.unpackEncodedString(dfa_114s);
-    static final short[] dfa_115 = DFA.unpackEncodedString(dfa_115s);
-    static final short[][] dfa_116 = unpackEncodedStringArray(dfa_116s);
+    static final char[] dfa_105 = DFA.unpackEncodedStringToUnsignedChars(dfa_105s);
+    static final char[] dfa_106 = DFA.unpackEncodedStringToUnsignedChars(dfa_106s);
+    static final short[] dfa_107 = DFA.unpackEncodedString(dfa_107s);
+    static final short[] dfa_108 = DFA.unpackEncodedString(dfa_108s);
+    static final short[][] dfa_109 = unpackEncodedStringArray(dfa_109s);
 
     class DFA97 extends DFA {
 
         public DFA97(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 97;
-            this.eot = dfa_74;
-            this.eof = dfa_74;
-            this.min = dfa_112;
-            this.max = dfa_113;
-            this.accept = dfa_114;
-            this.special = dfa_115;
-            this.transition = dfa_116;
+            this.eot = dfa_67;
+            this.eof = dfa_67;
+            this.min = dfa_105;
+            this.max = dfa_106;
+            this.accept = dfa_107;
+            this.special = dfa_108;
+            this.transition = dfa_109;
         }
         public String getDescription() {
             return "7605:3: (this_Key_0= ruleKey otherlv_1= ':' )?";
@@ -31141,8 +31042,8 @@ public class InternalGoParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0001000000000010L});
     public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0041000000000010L});
     public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x3C14880001000802L,0x0000000000000400L});
-    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000400L});
-    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000400L});
+    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000400L});
+    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000400L});
     public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x2000000000000000L});
     public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0000000000000000L,0x0000000000002000L});
     public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x0000000000000000L,0x0000000000004000L});

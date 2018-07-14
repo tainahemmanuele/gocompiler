@@ -7,14 +7,15 @@ import com.google.common.base.Objects;
 import java.util.LinkedHashMap;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.xtext.example.mydsl.go.BasicLit;
 import org.xtext.example.mydsl.go.ConstDecl;
 import org.xtext.example.mydsl.go.Expression;
 import org.xtext.example.mydsl.go.Expression2;
 import org.xtext.example.mydsl.go.ForStmt;
+import org.xtext.example.mydsl.go.OperandName;
 import org.xtext.example.mydsl.go.VarDecl;
 import org.xtext.example.mydsl.validation.AbstractGoValidator;
+import org.xtext.example.mydsl.validation.util.NullObj;
 
 /**
  * This class contains custom validation rules.
@@ -24,10 +25,6 @@ import org.xtext.example.mydsl.validation.AbstractGoValidator;
 @SuppressWarnings("all")
 public class GoValidator extends AbstractGoValidator {
   private final LinkedHashMap<Object, Object> ids = CollectionLiterals.<Object, Object>newLinkedHashMap();
-  
-  public static void main(final String[] args) {
-    InputOutput.<String>println("Hello World");
-  }
   
   @Check
   public Object checkFor(final ForStmt fors) {
@@ -52,6 +49,7 @@ public class GoValidator extends AbstractGoValidator {
   @Check
   public void checkConstDecl(final ConstDecl cd) {
     String constId = cd.getConstspec().getId().getId();
+    this.nullDeclaration(constId);
     String constType = cd.getConstspec().getTp().getTp();
     BasicLit constExp = cd.getConstspec().getExpressionlist().getExp().getUp().getPr().getOp().getLiteral().getBasic();
     if (((constType != null) && (constExp != null))) {
@@ -65,6 +63,7 @@ public class GoValidator extends AbstractGoValidator {
   @Check
   public void checkVarDecl(final VarDecl vd) {
     String varId = vd.getVarspec().getId().getId();
+    this.nullDeclaration(varId);
     String varType = vd.getVarspec().getTp2().getTp();
     BasicLit varExp = vd.getVarspec().getExpressionlist().getExp().getUp().getPr().getOp().getLiteral().getBasic();
     if (((varType != null) && (varExp != null))) {
@@ -72,6 +71,18 @@ public class GoValidator extends AbstractGoValidator {
       if (((varId.charAt(0) != varId.toLowerCase().charAt(0)) && (!error))) {
         this.warning("Variables usually starts with Lower Case", null);
       }
+    }
+  }
+  
+  @Check
+  public void checkOperandName(final OperandName op) {
+    boolean _containsKey = this.ids.containsKey(op.getId());
+    boolean _not = (!_containsKey);
+    if (_not) {
+      String _id = op.getId();
+      String _plus = ("Semantic Error: Identifier " + _id);
+      String _plus_1 = (_plus + " was never declared");
+      this.error(_plus_1, null);
     }
   }
   
@@ -176,6 +187,11 @@ public class GoValidator extends AbstractGoValidator {
       }
     }
     return error;
+  }
+  
+  public Object nullDeclaration(final String id) {
+    NullObj _nullObj = new NullObj();
+    return this.ids.put(id, _nullObj);
   }
   
   protected boolean isArithimeticOp(final String binaryOperator) {

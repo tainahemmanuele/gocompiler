@@ -1982,18 +1982,18 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cIdAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cIdIdentifierListParserRuleCall_0_0 = (RuleCall)cIdAssignment_0.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Assignment cTpAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
-		private final RuleCall cTpTypeParserRuleCall_1_0_0 = (RuleCall)cTpAssignment_1_0.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Assignment cExpressionlistAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cExpressionlistExpressionListParserRuleCall_1_2_0 = (RuleCall)cExpressionlistAssignment_1_2.eContents().get(0);
+		private final Assignment cTpAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cTpTypeParserRuleCall_1_0 = (RuleCall)cTpAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cEqualsSignKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cExpressionlistAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cExpressionlistExpressionListParserRuleCall_2_1_0 = (RuleCall)cExpressionlistAssignment_2_1.eContents().get(0);
 		
 		//ConstSpec:
-		//	id=IdentifierList (tp=Type? '=' expressionlist=ExpressionList)?;
+		//	id=IdentifierList tp=Type? ('=' expressionlist=ExpressionList)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//id=IdentifierList (tp=Type? '=' expressionlist=ExpressionList)?
+		//id=IdentifierList tp=Type? ('=' expressionlist=ExpressionList)?
 		public Group getGroup() { return cGroup; }
 		
 		//id=IdentifierList
@@ -2002,23 +2002,23 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		//IdentifierList
 		public RuleCall getIdIdentifierListParserRuleCall_0_0() { return cIdIdentifierListParserRuleCall_0_0; }
 		
-		//(tp=Type? '=' expressionlist=ExpressionList)?
-		public Group getGroup_1() { return cGroup_1; }
-		
 		//tp=Type?
-		public Assignment getTpAssignment_1_0() { return cTpAssignment_1_0; }
+		public Assignment getTpAssignment_1() { return cTpAssignment_1; }
 		
 		//Type
-		public RuleCall getTpTypeParserRuleCall_1_0_0() { return cTpTypeParserRuleCall_1_0_0; }
+		public RuleCall getTpTypeParserRuleCall_1_0() { return cTpTypeParserRuleCall_1_0; }
+		
+		//('=' expressionlist=ExpressionList)?
+		public Group getGroup_2() { return cGroup_2; }
 		
 		//'='
-		public Keyword getEqualsSignKeyword_1_1() { return cEqualsSignKeyword_1_1; }
+		public Keyword getEqualsSignKeyword_2_0() { return cEqualsSignKeyword_2_0; }
 		
 		//expressionlist=ExpressionList
-		public Assignment getExpressionlistAssignment_1_2() { return cExpressionlistAssignment_1_2; }
+		public Assignment getExpressionlistAssignment_2_1() { return cExpressionlistAssignment_2_1; }
 		
 		//ExpressionList
-		public RuleCall getExpressionlistExpressionListParserRuleCall_1_2_0() { return cExpressionlistExpressionListParserRuleCall_1_2_0; }
+		public RuleCall getExpressionlistExpressionListParserRuleCall_2_1_0() { return cExpressionlistExpressionListParserRuleCall_2_1_0; }
 	}
 	public class TypeDeclElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.TypeDecl");
@@ -5650,7 +5650,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ConstSpec:
-	//	id=IdentifierList (tp=Type? '=' expressionlist=ExpressionList)?;
+	//	id=IdentifierList tp=Type? ('=' expressionlist=ExpressionList)?;
 	public ConstSpecElements getConstSpecAccess() {
 		return pConstSpec;
 	}

@@ -3651,32 +3651,32 @@ ruleConstSpec returns [EObject current=null]
 		)
 		(
 			(
-				(
-					{
-						newCompositeNode(grammarAccess.getConstSpecAccess().getTpTypeParserRuleCall_1_0_0());
+				{
+					newCompositeNode(grammarAccess.getConstSpecAccess().getTpTypeParserRuleCall_1_0());
+				}
+				lv_tp_1_0=ruleType
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getConstSpecRule());
 					}
-					lv_tp_1_0=ruleType
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getConstSpecRule());
-						}
-						set(
-							$current,
-							"tp",
-							lv_tp_1_0,
-							"org.xtext.example.mydsl.Go.Type");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)?
+					set(
+						$current,
+						"tp",
+						lv_tp_1_0,
+						"org.xtext.example.mydsl.Go.Type");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		(
 			otherlv_2='='
 			{
-				newLeafNode(otherlv_2, grammarAccess.getConstSpecAccess().getEqualsSignKeyword_1_1());
+				newLeafNode(otherlv_2, grammarAccess.getConstSpecAccess().getEqualsSignKeyword_2_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getConstSpecAccess().getExpressionlistExpressionListParserRuleCall_1_2_0());
+						newCompositeNode(grammarAccess.getConstSpecAccess().getExpressionlistExpressionListParserRuleCall_2_1_0());
 					}
 					lv_expressionlist_3_0=ruleExpressionList
 					{

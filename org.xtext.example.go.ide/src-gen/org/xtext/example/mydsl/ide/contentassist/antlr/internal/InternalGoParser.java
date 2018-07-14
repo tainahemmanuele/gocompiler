@@ -28495,17 +28495,22 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ConstSpec__Group__1"
-    // InternalGo.g:8283:1: rule__ConstSpec__Group__1 : rule__ConstSpec__Group__1__Impl ;
+    // InternalGo.g:8283:1: rule__ConstSpec__Group__1 : rule__ConstSpec__Group__1__Impl rule__ConstSpec__Group__2 ;
     public final void rule__ConstSpec__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGo.g:8287:1: ( rule__ConstSpec__Group__1__Impl )
-            // InternalGo.g:8288:2: rule__ConstSpec__Group__1__Impl
+            // InternalGo.g:8287:1: ( rule__ConstSpec__Group__1__Impl rule__ConstSpec__Group__2 )
+            // InternalGo.g:8288:2: rule__ConstSpec__Group__1__Impl rule__ConstSpec__Group__2
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_56);
             rule__ConstSpec__Group__1__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__ConstSpec__Group__2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -28528,30 +28533,30 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ConstSpec__Group__1__Impl"
-    // InternalGo.g:8294:1: rule__ConstSpec__Group__1__Impl : ( ( rule__ConstSpec__Group_1__0 )? ) ;
+    // InternalGo.g:8295:1: rule__ConstSpec__Group__1__Impl : ( ( rule__ConstSpec__TpAssignment_1 )? ) ;
     public final void rule__ConstSpec__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGo.g:8298:1: ( ( ( rule__ConstSpec__Group_1__0 )? ) )
-            // InternalGo.g:8299:1: ( ( rule__ConstSpec__Group_1__0 )? )
+            // InternalGo.g:8299:1: ( ( ( rule__ConstSpec__TpAssignment_1 )? ) )
+            // InternalGo.g:8300:1: ( ( rule__ConstSpec__TpAssignment_1 )? )
             {
-            // InternalGo.g:8299:1: ( ( rule__ConstSpec__Group_1__0 )? )
-            // InternalGo.g:8300:2: ( rule__ConstSpec__Group_1__0 )?
+            // InternalGo.g:8300:1: ( ( rule__ConstSpec__TpAssignment_1 )? )
+            // InternalGo.g:8301:2: ( rule__ConstSpec__TpAssignment_1 )?
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getConstSpecAccess().getGroup_1()); 
+               before(grammarAccess.getConstSpecAccess().getTpAssignment_1()); 
             }
-            // InternalGo.g:8301:2: ( rule__ConstSpec__Group_1__0 )?
+            // InternalGo.g:8302:2: ( rule__ConstSpec__TpAssignment_1 )?
             int alt73=2;
             alt73 = dfa73.predict(input);
             switch (alt73) {
                 case 1 :
-                    // InternalGo.g:8301:3: rule__ConstSpec__Group_1__0
+                    // InternalGo.g:8302:3: rule__ConstSpec__TpAssignment_1
                     {
                     pushFollow(FOLLOW_2);
-                    rule__ConstSpec__Group_1__0();
+                    rule__ConstSpec__TpAssignment_1();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -28562,7 +28567,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getConstSpecAccess().getGroup_1()); 
+               after(grammarAccess.getConstSpecAccess().getTpAssignment_1()); 
             }
 
             }
@@ -28585,23 +28590,18 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__ConstSpec__Group__1__Impl"
 
 
-    // $ANTLR start "rule__ConstSpec__Group_1__0"
-    // InternalGo.g:8310:1: rule__ConstSpec__Group_1__0 : rule__ConstSpec__Group_1__0__Impl rule__ConstSpec__Group_1__1 ;
-    public final void rule__ConstSpec__Group_1__0() throws RecognitionException {
+    // $ANTLR start "rule__ConstSpec__Group__2"
+    // InternalGo.g:8310:1: rule__ConstSpec__Group__2 : rule__ConstSpec__Group__2__Impl ;
+    public final void rule__ConstSpec__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGo.g:8314:1: ( rule__ConstSpec__Group_1__0__Impl rule__ConstSpec__Group_1__1 )
-            // InternalGo.g:8315:2: rule__ConstSpec__Group_1__0__Impl rule__ConstSpec__Group_1__1
+            // InternalGo.g:8314:1: ( rule__ConstSpec__Group__2__Impl )
+            // InternalGo.g:8315:2: rule__ConstSpec__Group__2__Impl
             {
-            pushFollow(FOLLOW_56);
-            rule__ConstSpec__Group_1__0__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__ConstSpec__Group_1__1();
+            rule__ConstSpec__Group__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -28620,38 +28620,38 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__ConstSpec__Group_1__0"
+    // $ANTLR end "rule__ConstSpec__Group__2"
 
 
-    // $ANTLR start "rule__ConstSpec__Group_1__0__Impl"
-    // InternalGo.g:8322:1: rule__ConstSpec__Group_1__0__Impl : ( ( rule__ConstSpec__TpAssignment_1_0 )? ) ;
-    public final void rule__ConstSpec__Group_1__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__ConstSpec__Group__2__Impl"
+    // InternalGo.g:8321:1: rule__ConstSpec__Group__2__Impl : ( ( rule__ConstSpec__Group_2__0 )? ) ;
+    public final void rule__ConstSpec__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGo.g:8326:1: ( ( ( rule__ConstSpec__TpAssignment_1_0 )? ) )
-            // InternalGo.g:8327:1: ( ( rule__ConstSpec__TpAssignment_1_0 )? )
+            // InternalGo.g:8325:1: ( ( ( rule__ConstSpec__Group_2__0 )? ) )
+            // InternalGo.g:8326:1: ( ( rule__ConstSpec__Group_2__0 )? )
             {
-            // InternalGo.g:8327:1: ( ( rule__ConstSpec__TpAssignment_1_0 )? )
-            // InternalGo.g:8328:2: ( rule__ConstSpec__TpAssignment_1_0 )?
+            // InternalGo.g:8326:1: ( ( rule__ConstSpec__Group_2__0 )? )
+            // InternalGo.g:8327:2: ( rule__ConstSpec__Group_2__0 )?
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getConstSpecAccess().getTpAssignment_1_0()); 
+               before(grammarAccess.getConstSpecAccess().getGroup_2()); 
             }
-            // InternalGo.g:8329:2: ( rule__ConstSpec__TpAssignment_1_0 )?
+            // InternalGo.g:8328:2: ( rule__ConstSpec__Group_2__0 )?
             int alt74=2;
             int LA74_0 = input.LA(1);
 
-            if ( (LA74_0==RULE_LITERAL_TYPE||LA74_0==RULE_MUL||LA74_0==47||LA74_0==51||LA74_0==53||LA74_0==55||(LA74_0>=60 && LA74_0<=63)) ) {
+            if ( (LA74_0==45) ) {
                 alt74=1;
             }
             switch (alt74) {
                 case 1 :
-                    // InternalGo.g:8329:3: rule__ConstSpec__TpAssignment_1_0
+                    // InternalGo.g:8328:3: rule__ConstSpec__Group_2__0
                     {
                     pushFollow(FOLLOW_2);
-                    rule__ConstSpec__TpAssignment_1_0();
+                    rule__ConstSpec__Group_2__0();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -28662,7 +28662,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getConstSpecAccess().getTpAssignment_1_0()); 
+               after(grammarAccess.getConstSpecAccess().getGroup_2()); 
             }
 
             }
@@ -28682,26 +28682,26 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__ConstSpec__Group_1__0__Impl"
+    // $ANTLR end "rule__ConstSpec__Group__2__Impl"
 
 
-    // $ANTLR start "rule__ConstSpec__Group_1__1"
-    // InternalGo.g:8337:1: rule__ConstSpec__Group_1__1 : rule__ConstSpec__Group_1__1__Impl rule__ConstSpec__Group_1__2 ;
-    public final void rule__ConstSpec__Group_1__1() throws RecognitionException {
+    // $ANTLR start "rule__ConstSpec__Group_2__0"
+    // InternalGo.g:8337:1: rule__ConstSpec__Group_2__0 : rule__ConstSpec__Group_2__0__Impl rule__ConstSpec__Group_2__1 ;
+    public final void rule__ConstSpec__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGo.g:8341:1: ( rule__ConstSpec__Group_1__1__Impl rule__ConstSpec__Group_1__2 )
-            // InternalGo.g:8342:2: rule__ConstSpec__Group_1__1__Impl rule__ConstSpec__Group_1__2
+            // InternalGo.g:8341:1: ( rule__ConstSpec__Group_2__0__Impl rule__ConstSpec__Group_2__1 )
+            // InternalGo.g:8342:2: rule__ConstSpec__Group_2__0__Impl rule__ConstSpec__Group_2__1
             {
             pushFollow(FOLLOW_19);
-            rule__ConstSpec__Group_1__1__Impl();
+            rule__ConstSpec__Group_2__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__ConstSpec__Group_1__2();
+            rule__ConstSpec__Group_2__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -28720,12 +28720,12 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__ConstSpec__Group_1__1"
+    // $ANTLR end "rule__ConstSpec__Group_2__0"
 
 
-    // $ANTLR start "rule__ConstSpec__Group_1__1__Impl"
-    // InternalGo.g:8349:1: rule__ConstSpec__Group_1__1__Impl : ( '=' ) ;
-    public final void rule__ConstSpec__Group_1__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__ConstSpec__Group_2__0__Impl"
+    // InternalGo.g:8349:1: rule__ConstSpec__Group_2__0__Impl : ( '=' ) ;
+    public final void rule__ConstSpec__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -28737,11 +28737,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:8355:2: '='
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getConstSpecAccess().getEqualsSignKeyword_1_1()); 
+               before(grammarAccess.getConstSpecAccess().getEqualsSignKeyword_2_0()); 
             }
             match(input,45,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getConstSpecAccess().getEqualsSignKeyword_1_1()); 
+               after(grammarAccess.getConstSpecAccess().getEqualsSignKeyword_2_0()); 
             }
 
             }
@@ -28761,21 +28761,21 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__ConstSpec__Group_1__1__Impl"
+    // $ANTLR end "rule__ConstSpec__Group_2__0__Impl"
 
 
-    // $ANTLR start "rule__ConstSpec__Group_1__2"
-    // InternalGo.g:8364:1: rule__ConstSpec__Group_1__2 : rule__ConstSpec__Group_1__2__Impl ;
-    public final void rule__ConstSpec__Group_1__2() throws RecognitionException {
+    // $ANTLR start "rule__ConstSpec__Group_2__1"
+    // InternalGo.g:8364:1: rule__ConstSpec__Group_2__1 : rule__ConstSpec__Group_2__1__Impl ;
+    public final void rule__ConstSpec__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGo.g:8368:1: ( rule__ConstSpec__Group_1__2__Impl )
-            // InternalGo.g:8369:2: rule__ConstSpec__Group_1__2__Impl
+            // InternalGo.g:8368:1: ( rule__ConstSpec__Group_2__1__Impl )
+            // InternalGo.g:8369:2: rule__ConstSpec__Group_2__1__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__ConstSpec__Group_1__2__Impl();
+            rule__ConstSpec__Group_2__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -28794,30 +28794,30 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__ConstSpec__Group_1__2"
+    // $ANTLR end "rule__ConstSpec__Group_2__1"
 
 
-    // $ANTLR start "rule__ConstSpec__Group_1__2__Impl"
-    // InternalGo.g:8375:1: rule__ConstSpec__Group_1__2__Impl : ( ( rule__ConstSpec__ExpressionlistAssignment_1_2 ) ) ;
-    public final void rule__ConstSpec__Group_1__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__ConstSpec__Group_2__1__Impl"
+    // InternalGo.g:8375:1: rule__ConstSpec__Group_2__1__Impl : ( ( rule__ConstSpec__ExpressionlistAssignment_2_1 ) ) ;
+    public final void rule__ConstSpec__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGo.g:8379:1: ( ( ( rule__ConstSpec__ExpressionlistAssignment_1_2 ) ) )
-            // InternalGo.g:8380:1: ( ( rule__ConstSpec__ExpressionlistAssignment_1_2 ) )
+            // InternalGo.g:8379:1: ( ( ( rule__ConstSpec__ExpressionlistAssignment_2_1 ) ) )
+            // InternalGo.g:8380:1: ( ( rule__ConstSpec__ExpressionlistAssignment_2_1 ) )
             {
-            // InternalGo.g:8380:1: ( ( rule__ConstSpec__ExpressionlistAssignment_1_2 ) )
-            // InternalGo.g:8381:2: ( rule__ConstSpec__ExpressionlistAssignment_1_2 )
+            // InternalGo.g:8380:1: ( ( rule__ConstSpec__ExpressionlistAssignment_2_1 ) )
+            // InternalGo.g:8381:2: ( rule__ConstSpec__ExpressionlistAssignment_2_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getConstSpecAccess().getExpressionlistAssignment_1_2()); 
+               before(grammarAccess.getConstSpecAccess().getExpressionlistAssignment_2_1()); 
             }
-            // InternalGo.g:8382:2: ( rule__ConstSpec__ExpressionlistAssignment_1_2 )
-            // InternalGo.g:8382:3: rule__ConstSpec__ExpressionlistAssignment_1_2
+            // InternalGo.g:8382:2: ( rule__ConstSpec__ExpressionlistAssignment_2_1 )
+            // InternalGo.g:8382:3: rule__ConstSpec__ExpressionlistAssignment_2_1
             {
             pushFollow(FOLLOW_2);
-            rule__ConstSpec__ExpressionlistAssignment_1_2();
+            rule__ConstSpec__ExpressionlistAssignment_2_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -28825,7 +28825,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getConstSpecAccess().getExpressionlistAssignment_1_2()); 
+               after(grammarAccess.getConstSpecAccess().getExpressionlistAssignment_2_1()); 
             }
 
             }
@@ -28845,7 +28845,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__ConstSpec__Group_1__2__Impl"
+    // $ANTLR end "rule__ConstSpec__Group_2__1__Impl"
 
 
     // $ANTLR start "rule__TypeDecl__Group__0"
@@ -53266,9 +53266,9 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__ConstSpec__IdAssignment_0"
 
 
-    // $ANTLR start "rule__ConstSpec__TpAssignment_1_0"
-    // InternalGo.g:16275:1: rule__ConstSpec__TpAssignment_1_0 : ( ruleType ) ;
-    public final void rule__ConstSpec__TpAssignment_1_0() throws RecognitionException {
+    // $ANTLR start "rule__ConstSpec__TpAssignment_1"
+    // InternalGo.g:16275:1: rule__ConstSpec__TpAssignment_1 : ( ruleType ) ;
+    public final void rule__ConstSpec__TpAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -53280,7 +53280,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:16281:3: ruleType
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getConstSpecAccess().getTpTypeParserRuleCall_1_0_0()); 
+               before(grammarAccess.getConstSpecAccess().getTpTypeParserRuleCall_1_0()); 
             }
             pushFollow(FOLLOW_2);
             ruleType();
@@ -53288,7 +53288,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getConstSpecAccess().getTpTypeParserRuleCall_1_0_0()); 
+               after(grammarAccess.getConstSpecAccess().getTpTypeParserRuleCall_1_0()); 
             }
 
             }
@@ -53308,12 +53308,12 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__ConstSpec__TpAssignment_1_0"
+    // $ANTLR end "rule__ConstSpec__TpAssignment_1"
 
 
-    // $ANTLR start "rule__ConstSpec__ExpressionlistAssignment_1_2"
-    // InternalGo.g:16290:1: rule__ConstSpec__ExpressionlistAssignment_1_2 : ( ruleExpressionList ) ;
-    public final void rule__ConstSpec__ExpressionlistAssignment_1_2() throws RecognitionException {
+    // $ANTLR start "rule__ConstSpec__ExpressionlistAssignment_2_1"
+    // InternalGo.g:16290:1: rule__ConstSpec__ExpressionlistAssignment_2_1 : ( ruleExpressionList ) ;
+    public final void rule__ConstSpec__ExpressionlistAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -53325,7 +53325,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:16296:3: ruleExpressionList
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getConstSpecAccess().getExpressionlistExpressionListParserRuleCall_1_2_0()); 
+               before(grammarAccess.getConstSpecAccess().getExpressionlistExpressionListParserRuleCall_2_1_0()); 
             }
             pushFollow(FOLLOW_2);
             ruleExpressionList();
@@ -53333,7 +53333,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getConstSpecAccess().getExpressionlistExpressionListParserRuleCall_1_2_0()); 
+               after(grammarAccess.getConstSpecAccess().getExpressionlistExpressionListParserRuleCall_2_1_0()); 
             }
 
             }
@@ -53353,7 +53353,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__ConstSpec__ExpressionlistAssignment_1_2"
+    // $ANTLR end "rule__ConstSpec__ExpressionlistAssignment_2_1"
 
 
     // $ANTLR start "rule__TypeDecl__TypespecAssignment_2_0"
@@ -59618,11 +59618,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred115_InternalGo
     public final void synpred115_InternalGo_fragment() throws RecognitionException {   
-        // InternalGo.g:8301:3: ( rule__ConstSpec__Group_1__0 )
-        // InternalGo.g:8301:3: rule__ConstSpec__Group_1__0
+        // InternalGo.g:8302:3: ( rule__ConstSpec__TpAssignment_1 )
+        // InternalGo.g:8302:3: rule__ConstSpec__TpAssignment_1
         {
         pushFollow(FOLLOW_2);
-        rule__ConstSpec__Group_1__0();
+        rule__ConstSpec__TpAssignment_1();
 
         state._fsp--;
         if (state.failed) return ;
@@ -63550,14 +63550,14 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             throw nvae;
         }
     }
-    static final String dfa_80s = "\50\uffff";
-    static final String dfa_81s = "\1\14\47\uffff";
-    static final String dfa_82s = "\1\4\12\0\35\uffff";
-    static final String dfa_83s = "\1\122\12\0\35\uffff";
-    static final String dfa_84s = "\13\uffff\1\1\1\2\33\uffff";
-    static final String dfa_85s = "\1\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\35\uffff}>";
+    static final String dfa_80s = "\51\uffff";
+    static final String dfa_81s = "\1\13\50\uffff";
+    static final String dfa_82s = "\1\4\12\0\36\uffff";
+    static final String dfa_83s = "\1\122\12\0\36\uffff";
+    static final String dfa_84s = "\13\uffff\1\2\34\uffff\1\1";
+    static final String dfa_85s = "\1\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\36\uffff}>";
     static final String[] dfa_86s = {
-            "\4\14\5\uffff\1\1\1\uffff\3\14\6\uffff\1\11\22\uffff\2\14\1\13\1\uffff\1\4\2\uffff\1\14\1\12\1\14\1\2\1\uffff\1\3\2\14\2\uffff\1\5\1\6\1\7\1\10\1\uffff\5\14\1\uffff\6\14\3\uffff\3\14",
+            "\4\13\5\uffff\1\1\1\uffff\3\13\6\uffff\1\11\22\uffff\3\13\1\uffff\1\4\2\uffff\1\13\1\12\1\13\1\2\1\uffff\1\3\2\13\2\uffff\1\5\1\6\1\7\1\10\1\uffff\5\13\1\uffff\6\13\3\uffff\3\13",
             "\1\uffff",
             "\1\uffff",
             "\1\uffff",
@@ -63568,6 +63568,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             "\1\uffff",
             "\1\uffff",
             "\1\uffff",
+            "",
             "",
             "",
             "",
@@ -63621,7 +63622,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             this.transition = dfa_86;
         }
         public String getDescription() {
-            return "8301:2: ( rule__ConstSpec__Group_1__0 )?";
+            return "8302:2: ( rule__ConstSpec__TpAssignment_1 )?";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -63634,9 +63635,9 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                         int index73_1 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred115_InternalGo()) ) {s = 11;}
+                        if ( (synpred115_InternalGo()) ) {s = 40;}
 
-                        else if ( (true) ) {s = 12;}
+                        else if ( (true) ) {s = 11;}
 
                          
                         input.seek(index73_1);
@@ -63649,9 +63650,9 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                         int index73_2 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred115_InternalGo()) ) {s = 11;}
+                        if ( (synpred115_InternalGo()) ) {s = 40;}
 
-                        else if ( (true) ) {s = 12;}
+                        else if ( (true) ) {s = 11;}
 
                          
                         input.seek(index73_2);
@@ -63664,9 +63665,9 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                         int index73_3 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred115_InternalGo()) ) {s = 11;}
+                        if ( (synpred115_InternalGo()) ) {s = 40;}
 
-                        else if ( (true) ) {s = 12;}
+                        else if ( (true) ) {s = 11;}
 
                          
                         input.seek(index73_3);
@@ -63679,9 +63680,9 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                         int index73_4 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred115_InternalGo()) ) {s = 11;}
+                        if ( (synpred115_InternalGo()) ) {s = 40;}
 
-                        else if ( (true) ) {s = 12;}
+                        else if ( (true) ) {s = 11;}
 
                          
                         input.seek(index73_4);
@@ -63694,9 +63695,9 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                         int index73_5 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred115_InternalGo()) ) {s = 11;}
+                        if ( (synpred115_InternalGo()) ) {s = 40;}
 
-                        else if ( (true) ) {s = 12;}
+                        else if ( (true) ) {s = 11;}
 
                          
                         input.seek(index73_5);
@@ -63709,9 +63710,9 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                         int index73_6 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred115_InternalGo()) ) {s = 11;}
+                        if ( (synpred115_InternalGo()) ) {s = 40;}
 
-                        else if ( (true) ) {s = 12;}
+                        else if ( (true) ) {s = 11;}
 
                          
                         input.seek(index73_6);
@@ -63724,9 +63725,9 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                         int index73_7 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred115_InternalGo()) ) {s = 11;}
+                        if ( (synpred115_InternalGo()) ) {s = 40;}
 
-                        else if ( (true) ) {s = 12;}
+                        else if ( (true) ) {s = 11;}
 
                          
                         input.seek(index73_7);
@@ -63739,9 +63740,9 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                         int index73_8 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred115_InternalGo()) ) {s = 11;}
+                        if ( (synpred115_InternalGo()) ) {s = 40;}
 
-                        else if ( (true) ) {s = 12;}
+                        else if ( (true) ) {s = 11;}
 
                          
                         input.seek(index73_8);
@@ -63754,9 +63755,9 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                         int index73_9 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred115_InternalGo()) ) {s = 11;}
+                        if ( (synpred115_InternalGo()) ) {s = 40;}
 
-                        else if ( (true) ) {s = 12;}
+                        else if ( (true) ) {s = 11;}
 
                          
                         input.seek(index73_9);
@@ -63769,9 +63770,9 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                         int index73_10 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred115_InternalGo()) ) {s = 11;}
+                        if ( (synpred115_InternalGo()) ) {s = 40;}
 
-                        else if ( (true) ) {s = 12;}
+                        else if ( (true) ) {s = 11;}
 
                          
                         input.seek(index73_10);
@@ -63785,76 +63786,19 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             throw nvae;
         }
     }
-    static final String dfa_87s = "\51\uffff";
-    static final String dfa_88s = "\1\13\50\uffff";
-    static final String dfa_89s = "\1\4\12\0\36\uffff";
-    static final String dfa_90s = "\1\122\12\0\36\uffff";
-    static final String dfa_91s = "\13\uffff\1\2\34\uffff\1\1";
-    static final String dfa_92s = "\1\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\36\uffff}>";
-    static final String[] dfa_93s = {
-            "\4\13\5\uffff\1\1\1\uffff\3\13\6\uffff\1\11\22\uffff\3\13\1\uffff\1\4\2\uffff\1\13\1\12\1\13\1\2\1\uffff\1\3\2\13\2\uffff\1\5\1\6\1\7\1\10\1\uffff\5\13\1\uffff\6\13\3\uffff\3\13",
-            "\1\uffff",
-            "\1\uffff",
-            "\1\uffff",
-            "\1\uffff",
-            "\1\uffff",
-            "\1\uffff",
-            "\1\uffff",
-            "\1\uffff",
-            "\1\uffff",
-            "\1\uffff",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-    };
-
-    static final short[] dfa_87 = DFA.unpackEncodedString(dfa_87s);
-    static final short[] dfa_88 = DFA.unpackEncodedString(dfa_88s);
-    static final char[] dfa_89 = DFA.unpackEncodedStringToUnsignedChars(dfa_89s);
-    static final char[] dfa_90 = DFA.unpackEncodedStringToUnsignedChars(dfa_90s);
-    static final short[] dfa_91 = DFA.unpackEncodedString(dfa_91s);
-    static final short[] dfa_92 = DFA.unpackEncodedString(dfa_92s);
-    static final short[][] dfa_93 = unpackEncodedStringArray(dfa_93s);
 
     class DFA78 extends DFA {
 
         public DFA78(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 78;
-            this.eot = dfa_87;
-            this.eof = dfa_88;
-            this.min = dfa_89;
-            this.max = dfa_90;
-            this.accept = dfa_91;
-            this.special = dfa_92;
-            this.transition = dfa_93;
+            this.eot = dfa_80;
+            this.eof = dfa_81;
+            this.min = dfa_82;
+            this.max = dfa_83;
+            this.accept = dfa_84;
+            this.special = dfa_85;
+            this.transition = dfa_86;
         }
         public String getDescription() {
             return "9031:2: ( rule__VarSpec__Tp2Assignment_1 )?";
@@ -64021,7 +63965,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             throw nvae;
         }
     }
-    static final String[] dfa_94s = {
+    static final String[] dfa_87s = {
             "\1\12\1\5\1\3\1\2\5\uffff\1\15\1\uffff\1\22\1\1\1\6\6\uffff\1\21\23\uffff\1\23\2\uffff\1\13\2\uffff\1\4\1\14\1\uffff\1\10\1\uffff\1\7\1\24\3\uffff\1\16\1\11\1\17\1\20",
             "\1\uffff",
             "\1\uffff",
@@ -64044,7 +63988,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             "",
             ""
     };
-    static final short[][] dfa_94 = unpackEncodedStringArray(dfa_94s);
+    static final short[][] dfa_87 = unpackEncodedStringArray(dfa_87s);
 
     class DFA80 extends DFA {
 
@@ -64057,7 +64001,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             this.max = dfa_34;
             this.accept = dfa_35;
             this.special = dfa_36;
-            this.transition = dfa_94;
+            this.transition = dfa_87;
         }
         public String getDescription() {
             return "9706:2: ( rule__ExprSwitchStmt__Group_2__0 )?";
@@ -64344,11 +64288,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             throw nvae;
         }
     }
-    static final String dfa_95s = "\1\4\21\0\3\uffff";
-    static final String dfa_96s = "\1\77\21\0\3\uffff";
-    static final String dfa_97s = "\22\uffff\1\1\1\uffff\1\2";
-    static final String dfa_98s = "\1\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20\3\uffff}>";
-    static final String[] dfa_99s = {
+    static final String dfa_88s = "\1\4\21\0\3\uffff";
+    static final String dfa_89s = "\1\77\21\0\3\uffff";
+    static final String dfa_90s = "\22\uffff\1\1\1\uffff\1\2";
+    static final String dfa_91s = "\1\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20\3\uffff}>";
+    static final String[] dfa_92s = {
             "\1\12\1\5\1\3\1\2\5\uffff\1\15\1\uffff\1\22\1\1\1\6\6\uffff\1\21\23\uffff\1\22\2\uffff\1\13\2\uffff\1\4\1\14\1\uffff\1\10\1\uffff\1\7\4\uffff\1\16\1\11\1\17\1\20",
             "\1\uffff",
             "\1\uffff",
@@ -64371,11 +64315,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             "",
             ""
     };
-    static final char[] dfa_95 = DFA.unpackEncodedStringToUnsignedChars(dfa_95s);
-    static final char[] dfa_96 = DFA.unpackEncodedStringToUnsignedChars(dfa_96s);
-    static final short[] dfa_97 = DFA.unpackEncodedString(dfa_97s);
-    static final short[] dfa_98 = DFA.unpackEncodedString(dfa_98s);
-    static final short[][] dfa_99 = unpackEncodedStringArray(dfa_99s);
+    static final char[] dfa_88 = DFA.unpackEncodedStringToUnsignedChars(dfa_88s);
+    static final char[] dfa_89 = DFA.unpackEncodedStringToUnsignedChars(dfa_89s);
+    static final short[] dfa_90 = DFA.unpackEncodedString(dfa_90s);
+    static final short[] dfa_91 = DFA.unpackEncodedString(dfa_91s);
+    static final short[][] dfa_92 = unpackEncodedStringArray(dfa_92s);
 
     class DFA83 extends DFA {
 
@@ -64384,11 +64328,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             this.decisionNumber = 83;
             this.eot = dfa_32;
             this.eof = dfa_32;
-            this.min = dfa_95;
-            this.max = dfa_96;
-            this.accept = dfa_97;
-            this.special = dfa_98;
-            this.transition = dfa_99;
+            this.min = dfa_88;
+            this.max = dfa_89;
+            this.accept = dfa_90;
+            this.special = dfa_91;
+            this.transition = dfa_92;
         }
         public String getDescription() {
             return "10138:2: ( rule__TypeSwitchStmt__Group_1__0 )?";
@@ -64959,11 +64903,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             throw nvae;
         }
     }
-    static final String dfa_100s = "\1\4\22\uffff\1\0\1\uffff";
-    static final String dfa_101s = "\1\77\22\uffff\1\0\1\uffff";
-    static final String dfa_102s = "\1\uffff\1\1\22\uffff\1\2";
-    static final String dfa_103s = "\23\uffff\1\0\1\uffff}>";
-    static final String[] dfa_104s = {
+    static final String dfa_93s = "\1\4\22\uffff\1\0\1\uffff";
+    static final String dfa_94s = "\1\77\22\uffff\1\0\1\uffff";
+    static final String dfa_95s = "\1\uffff\1\1\22\uffff\1\2";
+    static final String dfa_96s = "\23\uffff\1\0\1\uffff}>";
+    static final String[] dfa_97s = {
             "\4\1\5\uffff\1\1\1\uffff\3\1\6\uffff\1\1\23\uffff\1\23\2\uffff\1\1\2\uffff\2\1\1\uffff\1\1\1\uffff\1\1\4\uffff\4\1",
             "",
             "",
@@ -64986,11 +64930,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             "\1\uffff",
             ""
     };
-    static final char[] dfa_100 = DFA.unpackEncodedStringToUnsignedChars(dfa_100s);
-    static final char[] dfa_101 = DFA.unpackEncodedStringToUnsignedChars(dfa_101s);
-    static final short[] dfa_102 = DFA.unpackEncodedString(dfa_102s);
-    static final short[] dfa_103 = DFA.unpackEncodedString(dfa_103s);
-    static final short[][] dfa_104 = unpackEncodedStringArray(dfa_104s);
+    static final char[] dfa_93 = DFA.unpackEncodedStringToUnsignedChars(dfa_93s);
+    static final char[] dfa_94 = DFA.unpackEncodedStringToUnsignedChars(dfa_94s);
+    static final short[] dfa_95 = DFA.unpackEncodedString(dfa_95s);
+    static final short[] dfa_96 = DFA.unpackEncodedString(dfa_96s);
+    static final short[][] dfa_97 = unpackEncodedStringArray(dfa_97s);
 
     class DFA88 extends DFA {
 
@@ -64999,11 +64943,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             this.decisionNumber = 88;
             this.eot = dfa_32;
             this.eof = dfa_32;
-            this.min = dfa_100;
-            this.max = dfa_101;
-            this.accept = dfa_102;
-            this.special = dfa_103;
-            this.transition = dfa_104;
+            this.min = dfa_93;
+            this.max = dfa_94;
+            this.accept = dfa_95;
+            this.special = dfa_96;
+            this.transition = dfa_97;
         }
         public String getDescription() {
             return "11353:2: ( rule__ForClause__InitAssignment_1 )?";
@@ -65035,13 +64979,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             throw nvae;
         }
     }
-    static final String dfa_105s = "\62\uffff";
-    static final String dfa_106s = "\1\4\61\uffff";
-    static final String dfa_107s = "\1\4\3\0\56\uffff";
-    static final String dfa_108s = "\1\122\3\0\56\uffff";
-    static final String dfa_109s = "\4\uffff\1\2\54\uffff\1\1";
-    static final String dfa_110s = "\1\uffff\1\0\1\1\1\2\56\uffff}>";
-    static final String[] dfa_111s = {
+    static final String dfa_98s = "\62\uffff";
+    static final String dfa_99s = "\1\4\61\uffff";
+    static final String dfa_100s = "\1\4\3\0\56\uffff";
+    static final String dfa_101s = "\1\122\3\0\56\uffff";
+    static final String dfa_102s = "\4\uffff\1\2\54\uffff\1\1";
+    static final String dfa_103s = "\1\uffff\1\0\1\1\1\2\56\uffff}>";
+    static final String[] dfa_104s = {
             "\4\4\4\uffff\6\4\6\uffff\1\4\22\uffff\3\4\1\1\1\4\2\uffff\1\4\1\3\1\4\1\2\20\4\1\uffff\10\4\1\uffff\3\4",
             "\1\uffff",
             "\1\uffff",
@@ -65094,26 +65038,26 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             ""
     };
 
-    static final short[] dfa_105 = DFA.unpackEncodedString(dfa_105s);
-    static final short[] dfa_106 = DFA.unpackEncodedString(dfa_106s);
-    static final char[] dfa_107 = DFA.unpackEncodedStringToUnsignedChars(dfa_107s);
-    static final char[] dfa_108 = DFA.unpackEncodedStringToUnsignedChars(dfa_108s);
-    static final short[] dfa_109 = DFA.unpackEncodedString(dfa_109s);
-    static final short[] dfa_110 = DFA.unpackEncodedString(dfa_110s);
-    static final short[][] dfa_111 = unpackEncodedStringArray(dfa_111s);
+    static final short[] dfa_98 = DFA.unpackEncodedString(dfa_98s);
+    static final short[] dfa_99 = DFA.unpackEncodedString(dfa_99s);
+    static final char[] dfa_100 = DFA.unpackEncodedStringToUnsignedChars(dfa_100s);
+    static final char[] dfa_101 = DFA.unpackEncodedStringToUnsignedChars(dfa_101s);
+    static final short[] dfa_102 = DFA.unpackEncodedString(dfa_102s);
+    static final short[] dfa_103 = DFA.unpackEncodedString(dfa_103s);
+    static final short[][] dfa_104 = unpackEncodedStringArray(dfa_104s);
 
     class DFA94 extends DFA {
 
         public DFA94(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 94;
-            this.eot = dfa_105;
-            this.eof = dfa_106;
-            this.min = dfa_107;
-            this.max = dfa_108;
-            this.accept = dfa_109;
-            this.special = dfa_110;
-            this.transition = dfa_111;
+            this.eot = dfa_98;
+            this.eof = dfa_99;
+            this.min = dfa_100;
+            this.max = dfa_101;
+            this.accept = dfa_102;
+            this.special = dfa_103;
+            this.transition = dfa_104;
         }
         public String getDescription() {
             return "12405:2: ( rule__PrimaryExpr2__Alternatives_1 )?";
@@ -65175,11 +65119,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             throw nvae;
         }
     }
-    static final String dfa_112s = "\1\4\23\0\2\uffff";
-    static final String dfa_113s = "\1\77\23\0\2\uffff";
-    static final String dfa_114s = "\24\uffff\1\1\1\2";
-    static final String dfa_115s = "\1\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\21\1\22\2\uffff}>";
-    static final String[] dfa_116s = {
+    static final String dfa_105s = "\1\4\23\0\2\uffff";
+    static final String dfa_106s = "\1\77\23\0\2\uffff";
+    static final String dfa_107s = "\24\uffff\1\1\1\2";
+    static final String dfa_108s = "\1\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\21\1\22\2\uffff}>";
+    static final String[] dfa_109s = {
             "\1\1\1\6\1\4\1\3\5\uffff\1\15\1\uffff\1\22\1\2\1\7\6\uffff\1\21\26\uffff\1\13\2\uffff\1\5\1\14\1\uffff\1\11\1\uffff\1\10\1\23\3\uffff\1\16\1\12\1\17\1\20",
             "\1\uffff",
             "\1\uffff",
@@ -65203,11 +65147,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             "",
             ""
     };
-    static final char[] dfa_112 = DFA.unpackEncodedStringToUnsignedChars(dfa_112s);
-    static final char[] dfa_113 = DFA.unpackEncodedStringToUnsignedChars(dfa_113s);
-    static final short[] dfa_114 = DFA.unpackEncodedString(dfa_114s);
-    static final short[] dfa_115 = DFA.unpackEncodedString(dfa_115s);
-    static final short[][] dfa_116 = unpackEncodedStringArray(dfa_116s);
+    static final char[] dfa_105 = DFA.unpackEncodedStringToUnsignedChars(dfa_105s);
+    static final char[] dfa_106 = DFA.unpackEncodedStringToUnsignedChars(dfa_106s);
+    static final short[] dfa_107 = DFA.unpackEncodedString(dfa_107s);
+    static final short[] dfa_108 = DFA.unpackEncodedString(dfa_108s);
+    static final short[][] dfa_109 = unpackEncodedStringArray(dfa_109s);
 
     class DFA107 extends DFA {
 
@@ -65216,11 +65160,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             this.decisionNumber = 107;
             this.eot = dfa_26;
             this.eof = dfa_26;
-            this.min = dfa_112;
-            this.max = dfa_113;
-            this.accept = dfa_114;
-            this.special = dfa_115;
-            this.transition = dfa_116;
+            this.min = dfa_105;
+            this.max = dfa_106;
+            this.accept = dfa_107;
+            this.special = dfa_108;
+            this.transition = dfa_109;
         }
         public String getDescription() {
             return "14593:2: ( rule__KeyedElement__Group_0__0 )?";

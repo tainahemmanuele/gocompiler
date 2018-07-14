@@ -529,9 +529,9 @@ ruleConstDecl:
 // Rule ConstSpec
 ruleConstSpec:
 	ruleIdentifierList
+	ruleType
+	?
 	(
-		ruleType
-		?
 		'='
 		ruleExpressionList
 	)?
