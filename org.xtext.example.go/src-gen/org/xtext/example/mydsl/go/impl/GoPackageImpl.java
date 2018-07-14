@@ -1431,9 +1431,9 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getParameterDecl_IdentifierL()
+  public EAttribute getParameterDecl_Id()
   {
-    return (EReference)parameterDeclEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)parameterDeclEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3923,7 +3923,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     createEReference(parameterListEClass, PARAMETER_LIST__PARAMETERDECL);
 
     parameterDeclEClass = createEClass(PARAMETER_DECL);
-    createEReference(parameterDeclEClass, PARAMETER_DECL__IDENTIFIER_L);
+    createEAttribute(parameterDeclEClass, PARAMETER_DECL__ID);
     createEReference(parameterDeclEClass, PARAMETER_DECL__TYPE);
 
     interfaceTypeEClass = createEClass(INTERFACE_TYPE);
@@ -4385,7 +4385,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     initEReference(getParameterList_Parameterdecl(), this.getParameterDecl(), null, "parameterdecl", null, 0, -1, ParameterList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(parameterDeclEClass, ParameterDecl.class, "ParameterDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getParameterDecl_IdentifierL(), this.getIdentifierList(), null, "identifierL", null, 0, 1, ParameterDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getParameterDecl_Id(), ecorePackage.getEString(), "id", null, 0, 1, ParameterDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getParameterDecl_Type(), this.getType(), null, "type", null, 0, 1, ParameterDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(interfaceTypeEClass, InterfaceType.class, "InterfaceType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

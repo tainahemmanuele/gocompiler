@@ -270,8 +270,7 @@ ruleParameterList:
 
 // Rule ParameterDecl
 ruleParameterDecl:
-	ruleIdentifierList
-	?
+	RULE_IDENTIFIER
 	'...'?
 	ruleType
 	?

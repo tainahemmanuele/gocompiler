@@ -328,7 +328,8 @@ KEYWORDS:
 	| 'import'
 	| 'return'
 	| 'var'
-	| LITERAL_TYPE;
+	| LITERAL_TYPE
+	| BOOLEAN_LIT;
 
 
 terminal LITERAL_TYPE:
@@ -500,7 +501,7 @@ ParameterList:{ParameterList}
 	parameterDecl1=ParameterDecl (',' parameterdecl+=ParameterDecl)*;
 
 ParameterDecl:{ParameterDecl}
-	(identifierL=IdentifierList)? ('...')? (type=Type)?;
+	(id=IDENTIFIER) ('...')? (type=Type)?;
 
 InterfaceType:
 	{InterfaceType}

@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.go.GoPackage;
-import org.xtext.example.mydsl.go.IdentifierList;
 import org.xtext.example.mydsl.go.ParameterDecl;
 import org.xtext.example.mydsl.go.Type;
 
@@ -25,7 +24,7 @@ import org.xtext.example.mydsl.go.Type;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.go.impl.ParameterDeclImpl#getIdentifierL <em>Identifier L</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.ParameterDeclImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.ParameterDeclImpl#getType <em>Type</em>}</li>
  * </ul>
  *
@@ -34,14 +33,24 @@ import org.xtext.example.mydsl.go.Type;
 public class ParameterDeclImpl extends MinimalEObjectImpl.Container implements ParameterDecl
 {
   /**
-   * The cached value of the '{@link #getIdentifierL() <em>Identifier L</em>}' containment reference.
+   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getIdentifierL()
+   * @see #getId()
    * @generated
    * @ordered
    */
-  protected IdentifierList identifierL;
+  protected static final String ID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getId()
+   * @generated
+   * @ordered
+   */
+  protected String id = ID_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -79,9 +88,9 @@ public class ParameterDeclImpl extends MinimalEObjectImpl.Container implements P
    * <!-- end-user-doc -->
    * @generated
    */
-  public IdentifierList getIdentifierL()
+  public String getId()
   {
-    return identifierL;
+    return id;
   }
 
   /**
@@ -89,37 +98,12 @@ public class ParameterDeclImpl extends MinimalEObjectImpl.Container implements P
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetIdentifierL(IdentifierList newIdentifierL, NotificationChain msgs)
+  public void setId(String newId)
   {
-    IdentifierList oldIdentifierL = identifierL;
-    identifierL = newIdentifierL;
+    String oldId = id;
+    id = newId;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.PARAMETER_DECL__IDENTIFIER_L, oldIdentifierL, newIdentifierL);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setIdentifierL(IdentifierList newIdentifierL)
-  {
-    if (newIdentifierL != identifierL)
-    {
-      NotificationChain msgs = null;
-      if (identifierL != null)
-        msgs = ((InternalEObject)identifierL).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.PARAMETER_DECL__IDENTIFIER_L, null, msgs);
-      if (newIdentifierL != null)
-        msgs = ((InternalEObject)newIdentifierL).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.PARAMETER_DECL__IDENTIFIER_L, null, msgs);
-      msgs = basicSetIdentifierL(newIdentifierL, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.PARAMETER_DECL__IDENTIFIER_L, newIdentifierL, newIdentifierL));
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.PARAMETER_DECL__ID, oldId, id));
   }
 
   /**
@@ -180,8 +164,6 @@ public class ParameterDeclImpl extends MinimalEObjectImpl.Container implements P
   {
     switch (featureID)
     {
-      case GoPackage.PARAMETER_DECL__IDENTIFIER_L:
-        return basicSetIdentifierL(null, msgs);
       case GoPackage.PARAMETER_DECL__TYPE:
         return basicSetType(null, msgs);
     }
@@ -198,8 +180,8 @@ public class ParameterDeclImpl extends MinimalEObjectImpl.Container implements P
   {
     switch (featureID)
     {
-      case GoPackage.PARAMETER_DECL__IDENTIFIER_L:
-        return getIdentifierL();
+      case GoPackage.PARAMETER_DECL__ID:
+        return getId();
       case GoPackage.PARAMETER_DECL__TYPE:
         return getType();
     }
@@ -216,8 +198,8 @@ public class ParameterDeclImpl extends MinimalEObjectImpl.Container implements P
   {
     switch (featureID)
     {
-      case GoPackage.PARAMETER_DECL__IDENTIFIER_L:
-        setIdentifierL((IdentifierList)newValue);
+      case GoPackage.PARAMETER_DECL__ID:
+        setId((String)newValue);
         return;
       case GoPackage.PARAMETER_DECL__TYPE:
         setType((Type)newValue);
@@ -236,8 +218,8 @@ public class ParameterDeclImpl extends MinimalEObjectImpl.Container implements P
   {
     switch (featureID)
     {
-      case GoPackage.PARAMETER_DECL__IDENTIFIER_L:
-        setIdentifierL((IdentifierList)null);
+      case GoPackage.PARAMETER_DECL__ID:
+        setId(ID_EDEFAULT);
         return;
       case GoPackage.PARAMETER_DECL__TYPE:
         setType((Type)null);
@@ -256,12 +238,29 @@ public class ParameterDeclImpl extends MinimalEObjectImpl.Container implements P
   {
     switch (featureID)
     {
-      case GoPackage.PARAMETER_DECL__IDENTIFIER_L:
-        return identifierL != null;
+      case GoPackage.PARAMETER_DECL__ID:
+        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
       case GoPackage.PARAMETER_DECL__TYPE:
         return type != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (id: ");
+    result.append(id);
+    result.append(')');
+    return result.toString();
   }
 
 } //ParameterDeclImpl

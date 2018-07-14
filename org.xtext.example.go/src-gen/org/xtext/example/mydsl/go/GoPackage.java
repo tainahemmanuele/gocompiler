@@ -774,13 +774,13 @@ public interface GoPackage extends EPackage
   int PARAMETER_DECL = 22;
 
   /**
-   * The feature id for the '<em><b>Identifier L</b></em>' containment reference.
+   * The feature id for the '<em><b>Id</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARAMETER_DECL__IDENTIFIER_L = 0;
+  int PARAMETER_DECL__ID = 0;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -4529,15 +4529,15 @@ public interface GoPackage extends EPackage
   EClass getParameterDecl();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ParameterDecl#getIdentifierL <em>Identifier L</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.go.ParameterDecl#getId <em>Id</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Identifier L</em>'.
-   * @see org.xtext.example.mydsl.go.ParameterDecl#getIdentifierL()
+   * @return the meta object for the attribute '<em>Id</em>'.
+   * @see org.xtext.example.mydsl.go.ParameterDecl#getId()
    * @see #getParameterDecl()
    * @generated
    */
-  EReference getParameterDecl_IdentifierL();
+  EAttribute getParameterDecl_Id();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ParameterDecl#getType <em>Type</em>}'.
@@ -7591,12 +7591,12 @@ public interface GoPackage extends EPackage
     EClass PARAMETER_DECL = eINSTANCE.getParameterDecl();
 
     /**
-     * The meta object literal for the '<em><b>Identifier L</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PARAMETER_DECL__IDENTIFIER_L = eINSTANCE.getParameterDecl_IdentifierL();
+    EAttribute PARAMETER_DECL__ID = eINSTANCE.getParameterDecl_Id();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.

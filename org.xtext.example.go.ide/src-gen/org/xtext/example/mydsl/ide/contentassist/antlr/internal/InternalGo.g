@@ -6219,9 +6219,9 @@ rule__ParameterDecl__Group__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getParameterDeclAccess().getIdentifierLAssignment_1()); }
-	(rule__ParameterDecl__IdentifierLAssignment_1)?
-	{ after(grammarAccess.getParameterDeclAccess().getIdentifierLAssignment_1()); }
+	{ before(grammarAccess.getParameterDeclAccess().getIdAssignment_1()); }
+	(rule__ParameterDecl__IdAssignment_1)
+	{ after(grammarAccess.getParameterDeclAccess().getIdAssignment_1()); }
 )
 ;
 finally {
@@ -15537,15 +15537,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ParameterDecl__IdentifierLAssignment_1
+rule__ParameterDecl__IdAssignment_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getParameterDeclAccess().getIdentifierLIdentifierListParserRuleCall_1_0()); }
-		ruleIdentifierList
-		{ after(grammarAccess.getParameterDeclAccess().getIdentifierLIdentifierListParserRuleCall_1_0()); }
+		{ before(grammarAccess.getParameterDeclAccess().getIdIDENTIFIERTerminalRuleCall_1_0()); }
+		RULE_IDENTIFIER
+		{ after(grammarAccess.getParameterDeclAccess().getIdIDENTIFIERTerminalRuleCall_1_0()); }
 	)
 ;
 finally {

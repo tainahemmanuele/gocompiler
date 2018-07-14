@@ -14,10 +14,14 @@ import org.xtext.example.mydsl.go.Expression;
 import org.xtext.example.mydsl.go.Expression2;
 import org.xtext.example.mydsl.go.ForClause;
 import org.xtext.example.mydsl.go.ForStmt;
+import org.xtext.example.mydsl.go.FunctionDecl;
 import org.xtext.example.mydsl.go.IdentifierList;
 import org.xtext.example.mydsl.go.ImportDecl;
 import org.xtext.example.mydsl.go.ImportSpec;
 import org.xtext.example.mydsl.go.OperandName;
+import org.xtext.example.mydsl.go.ParameterDecl;
+import org.xtext.example.mydsl.go.ParameterList;
+import org.xtext.example.mydsl.go.Type;
 import org.xtext.example.mydsl.go.VarDecl;
 import org.xtext.example.mydsl.validation.AbstractGoValidator;
 import org.xtext.example.mydsl.validation.util.NullObj;
@@ -93,6 +97,43 @@ public class GoValidator extends AbstractGoValidator {
     {
       IdentifierList forID = fd.getInit().getSimple().getSvd().getIdl();
       _xblockexpression = this.nullDeclaration(forID.getId());
+    }
+    return _xblockexpression;
+  }
+  
+  @Check
+  public Object funcDecla(final FunctionDecl fd) {
+    Object _xblockexpression = null;
+    {
+      String funcName = fd.getFunctionn();
+      ParameterList parameters = fd.getSignature().getParameters().getParameterlist();
+      LinkedHashMap<String, Object> parameterList = CollectionLiterals.<String, Object>newLinkedHashMap();
+      Type _type = parameters.getParameterDecl1().getType();
+      boolean _tripleNotEquals = (_type != null);
+      if (_tripleNotEquals) {
+        parameterList.put(
+          parameters.getParameterDecl1().getId(), 
+          parameters.getParameterDecl1().getType().getTp());
+      } else {
+        String _id = parameters.getParameterDecl1().getId();
+        NullObj _nullObj = new NullObj();
+        parameterList.put(_id, _nullObj);
+      }
+      EList<ParameterDecl> _parameterdecl = parameters.getParameterdecl();
+      for (final ParameterDecl param : _parameterdecl) {
+        Type _type_1 = param.getType();
+        boolean _tripleNotEquals_1 = (_type_1 != null);
+        if (_tripleNotEquals_1) {
+          parameterList.put(
+            param.getId(), 
+            param.getType().getTp());
+        } else {
+          String _id_1 = param.getId();
+          NullObj _nullObj_1 = new NullObj();
+          parameterList.put(_id_1, _nullObj_1);
+        }
+      }
+      _xblockexpression = this.ids.put(funcName, parameterList);
     }
     return _xblockexpression;
   }

@@ -201,10 +201,8 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '...'?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) (rule start)
-	 *     (rule start) (ambiguity) type=Type
-	 *     identifierL=IdentifierList (ambiguity) (rule end)
-	 *     identifierL=IdentifierList (ambiguity) type=Type
+	 *     id=IDENTIFIER (ambiguity) (rule end)
+	 *     id=IDENTIFIER (ambiguity) type=Type
 	 */
 	protected void emit_ParameterDecl_FullStopFullStopFullStopKeyword_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

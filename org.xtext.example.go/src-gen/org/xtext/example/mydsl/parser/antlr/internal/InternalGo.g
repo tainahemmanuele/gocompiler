@@ -1820,23 +1820,22 @@ ruleParameterDecl returns [EObject current=null]
 		)
 		(
 			(
+				lv_id_1_0=RULE_IDENTIFIER
 				{
-					newCompositeNode(grammarAccess.getParameterDeclAccess().getIdentifierLIdentifierListParserRuleCall_1_0());
+					newLeafNode(lv_id_1_0, grammarAccess.getParameterDeclAccess().getIdIDENTIFIERTerminalRuleCall_1_0());
 				}
-				lv_identifierL_1_0=ruleIdentifierList
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getParameterDeclRule());
+						$current = createModelElement(grammarAccess.getParameterDeclRule());
 					}
-					set(
+					setWithLastConsumed(
 						$current,
-						"identifierL",
-						lv_identifierL_1_0,
-						"org.xtext.example.mydsl.Go.IdentifierList");
-					afterParserOrEnumRuleCall();
+						"id",
+						lv_id_1_0,
+						"org.xtext.example.mydsl.Go.IDENTIFIER");
 				}
 			)
-		)?
+		)
 		(
 			otherlv_2='...'
 			{

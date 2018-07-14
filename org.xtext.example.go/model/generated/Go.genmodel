@@ -76,7 +76,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ParameterList/parameterdecl"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//ParameterDecl">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ParameterDecl/identifierL"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//ParameterDecl/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ParameterDecl/type"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//InterfaceType">

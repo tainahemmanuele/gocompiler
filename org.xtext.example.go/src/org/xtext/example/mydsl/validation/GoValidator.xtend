@@ -14,6 +14,7 @@ import org.xtext.example.mydsl.go.VarDecl
 import org.xtext.example.mydsl.validation.util.NullObj
 import org.xtext.example.mydsl.go.ImportDecl
 import org.xtext.example.mydsl.go.ForClause
+import org.xtext.example.mydsl.go.FunctionDecl
 
 /**
  * This class contains custom validation rules. 
@@ -98,6 +99,44 @@ class GoValidator extends AbstractGoValidator {
 		var forID = fd.init.simple.svd.idl
 		nullDeclaration(forID.id)
 		
+	}
+	
+	@Check
+	def funcDecla(FunctionDecl fd) {
+		
+		var funcName      = fd.functionn;
+		var parameters    = fd.signature.parameters.parameterlist;
+		var parameterList = newLinkedHashMap()
+		
+		if(parameters.parameterDecl1.type !== null) {
+			
+			parameterList.put(
+				parameters.parameterDecl1.id,
+				parameters.parameterDecl1.type.tp
+			);
+		}
+		else {
+			parameterList.put(
+				parameters.parameterDecl1.id,
+				new NullObj()
+			);
+		}
+		
+		for(param : parameters.parameterdecl) {
+			if(param.type !== null) {
+				parameterList.put(
+					param.id,
+					param.type.tp
+				)
+			}else {
+				parameterList.put(
+					param.id,
+					new NullObj()
+				)
+			}
+		}
+		
+		ids.put(funcName, parameterList);	
 	}
 	
 	@Check

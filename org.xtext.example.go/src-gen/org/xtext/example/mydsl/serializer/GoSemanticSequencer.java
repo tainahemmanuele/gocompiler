@@ -1331,7 +1331,7 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ParameterDecl returns ParameterDecl
 	 *
 	 * Constraint:
-	 *     (identifierL=IdentifierList? type=Type?)
+	 *     (id=IDENTIFIER type=Type?)
 	 */
 	protected void sequence_ParameterDecl(ISerializationContext context, ParameterDecl semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

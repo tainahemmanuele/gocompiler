@@ -270,6 +270,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cReturnKeyword_23 = (Keyword)cAlternatives.eContents().get(23);
 		private final Keyword cVarKeyword_24 = (Keyword)cAlternatives.eContents().get(24);
 		private final RuleCall cLITERAL_TYPETerminalRuleCall_25 = (RuleCall)cAlternatives.eContents().get(25);
+		private final RuleCall cBOOLEAN_LITTerminalRuleCall_26 = (RuleCall)cAlternatives.eContents().get(26);
 		
 		//KEYWORDS:
 		//	'break'
@@ -297,12 +298,13 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		//	| 'import'
 		//	| 'return'
 		//	| 'var'
-		//	| LITERAL_TYPE;
+		//	| LITERAL_TYPE
+		//	| BOOLEAN_LIT;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'break' | 'default' | 'func' | 'interface' | 'select' | 'case' | 'defer' | 'go' | 'map' | 'struct' | 'chan' | 'else' |
 		//'goto' | 'package' | 'switch' | 'const' | 'fallthrough' | 'if' | 'range' | 'type' | 'continue' | 'for' | 'import' |
-		//'return' | 'var' | LITERAL_TYPE
+		//'return' | 'var' | LITERAL_TYPE | BOOLEAN_LIT
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//'break'
@@ -382,6 +384,9 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//LITERAL_TYPE
 		public RuleCall getLITERAL_TYPETerminalRuleCall_25() { return cLITERAL_TYPETerminalRuleCall_25; }
+		
+		//BOOLEAN_LIT
+		public RuleCall getBOOLEAN_LITTerminalRuleCall_26() { return cBOOLEAN_LITTerminalRuleCall_26; }
 	}
 	public class IMAGINARY_LITElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.IMAGINARY_LIT");
@@ -1044,27 +1049,27 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.ParameterDecl");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cParameterDeclAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cIdentifierLAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cIdentifierLIdentifierListParserRuleCall_1_0 = (RuleCall)cIdentifierLAssignment_1.eContents().get(0);
+		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cIdIDENTIFIERTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
 		private final Keyword cFullStopFullStopFullStopKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cTypeTypeParserRuleCall_3_0 = (RuleCall)cTypeAssignment_3.eContents().get(0);
 		
 		//ParameterDecl:
-		//	{ParameterDecl} identifierL=IdentifierList? '...'? type=Type?;
+		//	{ParameterDecl} id=IDENTIFIER '...'? type=Type?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ParameterDecl} identifierL=IdentifierList? '...'? type=Type?
+		//{ParameterDecl} id=IDENTIFIER '...'? type=Type?
 		public Group getGroup() { return cGroup; }
 		
 		//{ParameterDecl}
 		public Action getParameterDeclAction_0() { return cParameterDeclAction_0; }
 		
-		//identifierL=IdentifierList?
-		public Assignment getIdentifierLAssignment_1() { return cIdentifierLAssignment_1; }
+		//id=IDENTIFIER
+		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
 		
-		//IdentifierList
-		public RuleCall getIdentifierLIdentifierListParserRuleCall_1_0() { return cIdentifierLIdentifierListParserRuleCall_1_0; }
+		//IDENTIFIER
+		public RuleCall getIdIDENTIFIERTerminalRuleCall_1_0() { return cIdIDENTIFIERTerminalRuleCall_1_0; }
 		
 		//'...'?
 		public Keyword getFullStopFullStopFullStopKeyword_2() { return cFullStopFullStopFullStopKeyword_2; }
@@ -4967,7 +4972,8 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	//	| 'import'
 	//	| 'return'
 	//	| 'var'
-	//	| LITERAL_TYPE;
+	//	| LITERAL_TYPE
+	//	| BOOLEAN_LIT;
 	public KEYWORDSElements getKEYWORDSAccess() {
 		return pKEYWORDS;
 	}
@@ -5394,7 +5400,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ParameterDecl:
-	//	{ParameterDecl} identifierL=IdentifierList? '...'? type=Type?;
+	//	{ParameterDecl} id=IDENTIFIER '...'? type=Type?;
 	public ParameterDeclElements getParameterDeclAccess() {
 		return pParameterDecl;
 	}
