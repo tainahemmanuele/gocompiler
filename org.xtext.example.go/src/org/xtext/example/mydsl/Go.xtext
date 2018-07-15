@@ -339,14 +339,10 @@ terminal ADD_OP:
 	"+" | "-" | "|" | "^";
 	
 terminal  MUL_OP:
-	 MUL | "/" | "%" | "<<" | ">>" | "&" | "&^";
-
-terminal fragment MUL:
-	'*'
-;
+	"*" | "/" | "%" | "<<" | ">>" | "&" | "&^";
 
 terminal UNARY_OP:
-	"+" | "-" | "!" | "^" | MUL | "&" | "<-";
+	"+" | "-" | "!" | "^" | "*" | "&" | "<-";
 
 terminal ASSING_OP:
 	  '=' |'+=' | '-=' | '*='| '^=' | ':=';
@@ -469,7 +465,7 @@ Tag:
 	STRING_LIT;
 
 PointerType:
-	'*' basetype=BaseType;
+	'*'basetype=BaseType;
 
 BaseType:
 	Type;
@@ -490,11 +486,11 @@ ParameterList:{ParameterList}
 	parameterDecl1=ParameterDecl (',' parameterdecl+=ParameterDecl)*;
 
 ParameterDecl:{ParameterDecl}
-	(identifierL=IdentifierList)? ('...')? (type=Type)?;
+	(identifierL=IdentifierList)? ('...')? (type=Type)? |{ParameterDecl} (identifierL=IdentifierList)? ('...')? type=Type;
 
 InterfaceType:
 	{InterfaceType}
-	'interface' '{' (methodspec+=MethodSpec ';')* '}';
+	'interface' '{' (methodspec+=MethodSpec (';')?)* '}';
 
 MethodSpec:
 	mn=MethodName signature=Signature | {MethodSpec} itn=InterfaceTypeName;
@@ -682,10 +678,10 @@ Expression:{Expression}
 
 Expression2:
 	{Expression2}
-	(bop=BINARY_OP expression=Expression expression2=Expression2)?;
+	(bop=(BINARY_OP|'*') expression=Expression expression2=Expression2)?;
 
 UnaryExpr: {UnaryExpr}
-	pr=PrimaryExpr | up=UNARY_OP ue=UnaryExpr;
+	pr=PrimaryExpr | up=(UNARY_OP|'*') ue=UnaryExpr;
 
 PrimaryExpr: {PrimaryExpr}
 	op=Operand pr=PrimaryExpr2 |
