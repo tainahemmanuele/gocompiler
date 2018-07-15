@@ -714,7 +714,7 @@ PrimaryExpr2:
 
 Operand:
 	{Operand}
-	literal=Literal | operandn=OperandName | '(' expression=Expression ')';
+	literal=Literal | operandn=OperandName ('(' exp=ExpressionList ')')? | '(' expression=Expression ')';
 
 Conversion: {Conversion}
 	type=Type '(' expression=Expression (',')? ')';

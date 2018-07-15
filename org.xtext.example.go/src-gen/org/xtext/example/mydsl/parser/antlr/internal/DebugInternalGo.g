@@ -891,6 +891,11 @@ ruleOperand:
 		ruleLiteral
 		    |
 		ruleOperandName
+		(
+			'('
+			ruleExpressionList
+			')'
+		)?
 		    |
 		'('
 		ruleExpression

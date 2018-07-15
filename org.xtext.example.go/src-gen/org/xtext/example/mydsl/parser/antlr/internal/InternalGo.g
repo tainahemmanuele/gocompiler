@@ -6513,35 +6513,66 @@ ruleOperand returns [EObject current=null]
 		    |
 		(
 			(
-				{
-					newCompositeNode(grammarAccess.getOperandAccess().getOperandnOperandNameParserRuleCall_1_0());
-				}
-				lv_operandn_2_0=ruleOperandName
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getOperandRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getOperandAccess().getOperandnOperandNameParserRuleCall_1_0_0());
 					}
-					set(
-						$current,
-						"operandn",
-						lv_operandn_2_0,
-						"org.xtext.example.mydsl.Go.OperandName");
-					afterParserOrEnumRuleCall();
-				}
+					lv_operandn_2_0=ruleOperandName
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getOperandRule());
+						}
+						set(
+							$current,
+							"operandn",
+							lv_operandn_2_0,
+							"org.xtext.example.mydsl.Go.OperandName");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
+			(
+				otherlv_3='('
+				{
+					newLeafNode(otherlv_3, grammarAccess.getOperandAccess().getLeftParenthesisKeyword_1_1_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getOperandAccess().getExpExpressionListParserRuleCall_1_1_1_0());
+						}
+						lv_exp_4_0=ruleExpressionList
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getOperandRule());
+							}
+							set(
+								$current,
+								"exp",
+								lv_exp_4_0,
+								"org.xtext.example.mydsl.Go.ExpressionList");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+				otherlv_5=')'
+				{
+					newLeafNode(otherlv_5, grammarAccess.getOperandAccess().getRightParenthesisKeyword_1_1_2());
+				}
+			)?
 		)
 		    |
 		(
-			otherlv_3='('
+			otherlv_6='('
 			{
-				newLeafNode(otherlv_3, grammarAccess.getOperandAccess().getLeftParenthesisKeyword_2_0());
+				newLeafNode(otherlv_6, grammarAccess.getOperandAccess().getLeftParenthesisKeyword_2_0());
 			}
 			(
 				(
 					{
 						newCompositeNode(grammarAccess.getOperandAccess().getExpressionExpressionParserRuleCall_2_1_0());
 					}
-					lv_expression_4_0=ruleExpression
+					lv_expression_7_0=ruleExpression
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getOperandRule());
@@ -6549,15 +6580,15 @@ ruleOperand returns [EObject current=null]
 						set(
 							$current,
 							"expression",
-							lv_expression_4_0,
+							lv_expression_7_0,
 							"org.xtext.example.mydsl.Go.Expression");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-			otherlv_5=')'
+			otherlv_8=')'
 			{
-				newLeafNode(otherlv_5, grammarAccess.getOperandAccess().getRightParenthesisKeyword_2_2());
+				newLeafNode(otherlv_8, grammarAccess.getOperandAccess().getRightParenthesisKeyword_2_2());
 			}
 		)
 	)

@@ -416,6 +416,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operandn" eType="#//OperandName"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//ExpressionList"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
         containment="true"/>
   </eClassifiers>

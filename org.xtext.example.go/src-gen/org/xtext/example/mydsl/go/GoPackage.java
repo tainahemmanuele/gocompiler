@@ -3143,13 +3143,22 @@ public interface GoPackage extends EPackage
   int OPERAND__OPERANDN = 1;
 
   /**
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERAND__EXP = 2;
+
+  /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPERAND__EXPRESSION = 2;
+  int OPERAND__EXPRESSION = 3;
 
   /**
    * The number of structural features of the '<em>Operand</em>' class.
@@ -3158,7 +3167,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OPERAND_FEATURE_COUNT = 3;
+  int OPERAND_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.ConversionImpl <em>Conversion</em>}' class.
@@ -6421,6 +6430,17 @@ public interface GoPackage extends EPackage
   EReference getOperand_Operandn();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.Operand#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see org.xtext.example.mydsl.go.Operand#getExp()
+   * @see #getOperand()
+   * @generated
+   */
+  EReference getOperand_Exp();
+
+  /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.Operand#getExpression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -9115,6 +9135,14 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EReference OPERAND__OPERANDN = eINSTANCE.getOperand_Operandn();
+
+    /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OPERAND__EXP = eINSTANCE.getOperand_Exp();
 
     /**
      * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.

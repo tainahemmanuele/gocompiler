@@ -8,13 +8,15 @@ import org.xtext.example.mydsl.go.BasicLit
 import org.xtext.example.mydsl.go.ConstDecl
 import org.xtext.example.mydsl.go.Expression
 import org.xtext.example.mydsl.go.Expression2
+import org.xtext.example.mydsl.go.ExpressionList
+import org.xtext.example.mydsl.go.ForClause
 import org.xtext.example.mydsl.go.ForStmt
+import org.xtext.example.mydsl.go.FunctionDecl
+import org.xtext.example.mydsl.go.ImportDecl
+import org.xtext.example.mydsl.go.Operand
 import org.xtext.example.mydsl.go.OperandName
 import org.xtext.example.mydsl.go.VarDecl
 import org.xtext.example.mydsl.validation.util.NullObj
-import org.xtext.example.mydsl.go.ImportDecl
-import org.xtext.example.mydsl.go.ForClause
-import org.xtext.example.mydsl.go.FunctionDecl
 
 /**
  * This class contains custom validation rules. 
@@ -136,18 +138,23 @@ class GoValidator extends AbstractGoValidator {
 			}
 		}
 		
-		ids.put(funcName, parameterList);	
+		ids.put(funcName, parameterList.toString);	
 	}
 	
 	@Check
-	def checkOperandName(OperandName op) {
+	def checkOperandName(Operand op) {
 		
-		if(!ids.containsKey(op.id)) {
-			error("Semantic Error: Identifier " + op.id + " was never declared" , null)
+		if(!ids.containsKey(op.operandn.id)) {	
+			error("Semantic Error: Identifier " + op.operandn.id + " was never declared" , null)
+		}
+		else if(ids.get(op.operandn.id).toString().contains(',')) {
+			
+			var elements   = ids.get(op.operandn.id).toString().split(",");
+			var expList    = op.exp;
+			callMethodCheck(expList, elements, op)
 		}
 		
 	}
-	
 	
 	/*
 	 * Checa se dois literais são compativeis em uma operação aritimética 
@@ -229,11 +236,44 @@ class GoValidator extends AbstractGoValidator {
 		return error;
 	}
 	
+	/*
+	 * Checa a chamada de métodos
+	 */
+	protected def void callMethodCheck(ExpressionList expList, String[] elements, Operand op) {
+		var termsCount = 0
+	
+		if(expList.exp.up.pr.op.operandn !== null) {
+			if(expList.exp.up.pr.op.operandn.id !== null) {
+				termsCount += 1;
+			}
+		}else if(expList.exp.up.pr.op.literal.basic !== null) {
+			info(expList.exp.up.pr.op.literal.basic.toString, null)
+			termsCount += 1;
+		}
+		
+		
+		if(expList.expression2 !== null) {
+			for(exp : expList.expression2) {
+				termsCount += 1;
+			}
+		}
+		
+		if(termsCount !== elements.length) {
+			error("Semantic Error: Wrong number of parameters for " + op.operandn.id, null )
+		}
+	}
+	
+	/*
+	 * Declara IDs sem atribuição
+	 */
 	def nullDeclaration(String id) {
 		ids.put(id, new NullObj());
 	}
 
 
+	/*
+	 * Retorna se é operação aritimética
+	 */
 	protected def boolean isArithimeticOp(String binaryOperator) {
 		return (binaryOperator == "+" || binaryOperator == "-" || binaryOperator == "*"
 			|| binaryOperator == "/" || binaryOperator == "%")

@@ -12,12 +12,14 @@ import org.xtext.example.mydsl.go.BasicLit;
 import org.xtext.example.mydsl.go.ConstDecl;
 import org.xtext.example.mydsl.go.Expression;
 import org.xtext.example.mydsl.go.Expression2;
+import org.xtext.example.mydsl.go.ExpressionList;
 import org.xtext.example.mydsl.go.ForClause;
 import org.xtext.example.mydsl.go.ForStmt;
 import org.xtext.example.mydsl.go.FunctionDecl;
 import org.xtext.example.mydsl.go.IdentifierList;
 import org.xtext.example.mydsl.go.ImportDecl;
 import org.xtext.example.mydsl.go.ImportSpec;
+import org.xtext.example.mydsl.go.Operand;
 import org.xtext.example.mydsl.go.OperandName;
 import org.xtext.example.mydsl.go.ParameterDecl;
 import org.xtext.example.mydsl.go.ParameterList;
@@ -133,20 +135,27 @@ public class GoValidator extends AbstractGoValidator {
           parameterList.put(_id_1, _nullObj_1);
         }
       }
-      _xblockexpression = this.ids.put(funcName, parameterList);
+      _xblockexpression = this.ids.put(funcName, parameterList.toString());
     }
     return _xblockexpression;
   }
   
   @Check
-  public void checkOperandName(final OperandName op) {
-    boolean _containsKey = this.ids.containsKey(op.getId());
+  public void checkOperandName(final Operand op) {
+    boolean _containsKey = this.ids.containsKey(op.getOperandn().getId());
     boolean _not = (!_containsKey);
     if (_not) {
-      String _id = op.getId();
+      String _id = op.getOperandn().getId();
       String _plus = ("Semantic Error: Identifier " + _id);
       String _plus_1 = (_plus + " was never declared");
       this.error(_plus_1, null);
+    } else {
+      boolean _contains = this.ids.get(op.getOperandn().getId()).toString().contains(",");
+      if (_contains) {
+        String[] elements = this.ids.get(op.getOperandn().getId()).toString().split(",");
+        ExpressionList expList = op.getExp();
+        this.callMethodCheck(expList, elements, op);
+      }
     }
   }
   
@@ -253,11 +262,58 @@ public class GoValidator extends AbstractGoValidator {
     return error;
   }
   
+  /**
+   * Checa a chamada de métodos
+   */
+  protected void callMethodCheck(final ExpressionList expList, final String[] elements, final Operand op) {
+    int termsCount = 0;
+    OperandName _operandn = expList.getExp().getUp().getPr().getOp().getOperandn();
+    boolean _tripleNotEquals = (_operandn != null);
+    if (_tripleNotEquals) {
+      String _id = expList.getExp().getUp().getPr().getOp().getOperandn().getId();
+      boolean _tripleNotEquals_1 = (_id != null);
+      if (_tripleNotEquals_1) {
+        int _termsCount = termsCount;
+        termsCount = (_termsCount + 1);
+      }
+    } else {
+      BasicLit _basic = expList.getExp().getUp().getPr().getOp().getLiteral().getBasic();
+      boolean _tripleNotEquals_2 = (_basic != null);
+      if (_tripleNotEquals_2) {
+        this.info(expList.getExp().getUp().getPr().getOp().getLiteral().getBasic().toString(), null);
+        int _termsCount_1 = termsCount;
+        termsCount = (_termsCount_1 + 1);
+      }
+    }
+    EList<Expression> _expression2 = expList.getExpression2();
+    boolean _tripleNotEquals_3 = (_expression2 != null);
+    if (_tripleNotEquals_3) {
+      EList<Expression> _expression2_1 = expList.getExpression2();
+      for (final Expression exp : _expression2_1) {
+        int _termsCount_2 = termsCount;
+        termsCount = (_termsCount_2 + 1);
+      }
+    }
+    int _length = elements.length;
+    boolean _tripleNotEquals_4 = (termsCount != _length);
+    if (_tripleNotEquals_4) {
+      String _id_1 = op.getOperandn().getId();
+      String _plus = ("Semantic Error: Wrong number of parameters for " + _id_1);
+      this.error(_plus, null);
+    }
+  }
+  
+  /**
+   * Declara IDs sem atribuição
+   */
   public Object nullDeclaration(final String id) {
     NullObj _nullObj = new NullObj();
     return this.ids.put(id, _nullObj);
   }
   
+  /**
+   * Retorna se é operação aritimética
+   */
   protected boolean isArithimeticOp(final String binaryOperator) {
     return ((((Objects.equal(binaryOperator, "+") || Objects.equal(binaryOperator, "-")) || Objects.equal(binaryOperator, "*")) || Objects.equal(binaryOperator, "/")) || Objects.equal(binaryOperator, "%"));
   }

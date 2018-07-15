@@ -299,6 +299,7 @@
     <genClasses ecoreClass="Go.ecore#//Operand">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Operand/literal"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Operand/operandn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Operand/exp"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Operand/expression"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//Conversion">

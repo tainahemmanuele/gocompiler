@@ -3201,9 +3201,19 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getOperand_Expression()
+  public EReference getOperand_Exp()
   {
     return (EReference)operandEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getOperand_Expression()
+  {
+    return (EReference)operandEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -4155,6 +4165,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     operandEClass = createEClass(OPERAND);
     createEReference(operandEClass, OPERAND__LITERAL);
     createEReference(operandEClass, OPERAND__OPERANDN);
+    createEReference(operandEClass, OPERAND__EXP);
     createEReference(operandEClass, OPERAND__EXPRESSION);
 
     conversionEClass = createEClass(CONVERSION);
@@ -4617,6 +4628,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     initEClass(operandEClass, Operand.class, "Operand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOperand_Literal(), this.getLiteral(), null, "literal", null, 0, 1, Operand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getOperand_Operandn(), this.getOperandName(), null, "operandn", null, 0, 1, Operand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOperand_Exp(), this.getExpressionList(), null, "exp", null, 0, 1, Operand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getOperand_Expression(), this.getExpression(), null, "expression", null, 0, 1, Operand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(conversionEClass, Conversion.class, "Conversion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -1319,7 +1319,7 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Operand returns Operand
 	 *
 	 * Constraint:
-	 *     (literal=Literal | operandn=OperandName | expression=Expression)
+	 *     (literal=Literal | (operandn=OperandName exp=ExpressionList?) | expression=Expression)
 	 */
 	protected void sequence_Operand(ISerializationContext context, Operand semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

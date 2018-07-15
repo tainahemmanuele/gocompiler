@@ -3522,8 +3522,14 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cOperandAction_0_0 = (Action)cGroup_0.eContents().get(0);
 		private final Assignment cLiteralAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
 		private final RuleCall cLiteralLiteralParserRuleCall_0_1_0 = (RuleCall)cLiteralAssignment_0_1.eContents().get(0);
-		private final Assignment cOperandnAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
-		private final RuleCall cOperandnOperandNameParserRuleCall_1_0 = (RuleCall)cOperandnAssignment_1.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Assignment cOperandnAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cOperandnOperandNameParserRuleCall_1_0_0 = (RuleCall)cOperandnAssignment_1_0.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final Assignment cExpAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
+		private final RuleCall cExpExpressionListParserRuleCall_1_1_1_0 = (RuleCall)cExpAssignment_1_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_1_1_2 = (Keyword)cGroup_1_1.eContents().get(2);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
 		private final Keyword cLeftParenthesisKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Assignment cExpressionAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
@@ -3531,10 +3537,10 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
 		
 		//Operand:
-		//	{Operand} literal=Literal | operandn=OperandName | '(' expression=Expression ')';
+		//	{Operand} literal=Literal | operandn=OperandName ('(' exp=ExpressionList ')')? | '(' expression=Expression ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Operand} literal=Literal | operandn=OperandName | '(' expression=Expression ')'
+		//{Operand} literal=Literal | operandn=OperandName ('(' exp=ExpressionList ')')? | '(' expression=Expression ')'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//{Operand} literal=Literal
@@ -3549,11 +3555,29 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		//Literal
 		public RuleCall getLiteralLiteralParserRuleCall_0_1_0() { return cLiteralLiteralParserRuleCall_0_1_0; }
 		
+		//operandn=OperandName ('(' exp=ExpressionList ')')?
+		public Group getGroup_1() { return cGroup_1; }
+		
 		//operandn=OperandName
-		public Assignment getOperandnAssignment_1() { return cOperandnAssignment_1; }
+		public Assignment getOperandnAssignment_1_0() { return cOperandnAssignment_1_0; }
 		
 		//OperandName
-		public RuleCall getOperandnOperandNameParserRuleCall_1_0() { return cOperandnOperandNameParserRuleCall_1_0; }
+		public RuleCall getOperandnOperandNameParserRuleCall_1_0_0() { return cOperandnOperandNameParserRuleCall_1_0_0; }
+		
+		//('(' exp=ExpressionList ')')?
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_1_1_0() { return cLeftParenthesisKeyword_1_1_0; }
+		
+		//exp=ExpressionList
+		public Assignment getExpAssignment_1_1_1() { return cExpAssignment_1_1_1; }
+		
+		//ExpressionList
+		public RuleCall getExpExpressionListParserRuleCall_1_1_1_0() { return cExpExpressionListParserRuleCall_1_1_1_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_1_1_2() { return cRightParenthesisKeyword_1_1_2; }
 		
 		//'(' expression=Expression ')'
 		public Group getGroup_2() { return cGroup_2; }
@@ -6050,7 +6074,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Operand:
-	//	{Operand} literal=Literal | operandn=OperandName | '(' expression=Expression ')';
+	//	{Operand} literal=Literal | operandn=OperandName ('(' exp=ExpressionList ')')? | '(' expression=Expression ')';
 	public OperandElements getOperandAccess() {
 		return pOperand;
 	}
