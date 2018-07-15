@@ -14,7 +14,6 @@ import org.xtext.example.mydsl.go.ForStmt
 import org.xtext.example.mydsl.go.FunctionDecl
 import org.xtext.example.mydsl.go.ImportDecl
 import org.xtext.example.mydsl.go.Operand
-import org.xtext.example.mydsl.go.OperandName
 import org.xtext.example.mydsl.go.VarDecl
 import org.xtext.example.mydsl.validation.util.NullObj
 
@@ -40,16 +39,18 @@ class GoValidator extends AbstractGoValidator {
 			var binaryOperator = e.exp.bop;
 			
 			if(binaryOperator == "||" || e.exp.bop == "&&") {
-				//checkBooleanExp(e.exp.expression)
+				checkRelExp(e)
 			}
-			
-			if(isArithimeticOp(binaryOperator)) {
+			else if(isArithimeticOp(binaryOperator)) {
 				var basicLiteral1 = e.up.pr.op.literal.basic
 				var basicLiteral2 = e.exp.expression.up.pr.op.literal.basic		
 				checkAritimeticLits(basicLiteral1, basicLiteral2, binaryOperator);
 			}
+			else if(isBooleanOp(binaryOperator)) {
+				checkBooleanOp(e, binaryOperator);
+			}
 		}
-	}
+	}	
 	
 	@Check
 	def checkConstDecl(ConstDecl cd) {
@@ -160,6 +161,7 @@ class GoValidator extends AbstractGoValidator {
 	 * Checa se dois literais são compativeis em uma operação aritimética 
 	 */
 	def checkAritimeticLits(BasicLit basicLit1, BasicLit basicLit2, String binaryOp) {
+		
 		if(basicLit1 !== null && basicLit2 !== null) {
 			if(basicLit1.strd !== null || basicLit2.strd !== null) {
 				if(basicLit1.strd !== null && binaryOp == "+") {
@@ -247,7 +249,6 @@ class GoValidator extends AbstractGoValidator {
 				termsCount += 1;
 			}
 		}else if(expList.exp.up.pr.op.literal.basic !== null) {
-			info(expList.exp.up.pr.op.literal.basic.toString, null)
 			termsCount += 1;
 		}
 		
@@ -264,6 +265,107 @@ class GoValidator extends AbstractGoValidator {
 	}
 	
 	/*
+	 * Checa se expressoes relacionais são validas
+	 */
+	def checkRelExp(Expression e) {
+		
+		if(e.up.pr.op.literal !== null && e.exp.expression.up.pr.op.literal !== null) {
+			var basicLiteral1 = e.up.pr.op.literal.basic
+			var basicLiteral2 = e.exp.expression.up.pr.op.literal.basic	
+			
+			if(basicLiteral1.bool === null || basicLiteral2.bool === null) {
+				error("Semantic Error: Invalid boolean expression", null);
+			}
+		}
+	}
+	
+	/*
+	 * Checa uma operação é booleana
+	 */
+	def checkBooleanOp(Expression e, String binaryOp) {
+		
+		var type1 = "";
+		var type2 = "";
+		
+		if(e.up.pr.op.literal !== null && e.exp.expression.up.pr.op.literal !== null) {
+			var basicLiteral1 = e.up.pr.op.literal.basic;
+			var basicLiteral2 = e.exp.expression.up.pr.op.literal.basic;
+			
+			type1 = getBasicLitType(basicLiteral1);
+			type2 = getBasicLitType(basicLiteral2);	
+		}
+		else if(e.up.pr.op.literal !== null) {
+			var basicLiteral1 = e.up.pr.op.literal.basic;
+			var id2 = e.exp.expression.up.pr.op.operandn.id
+			
+			type1 = getBasicLitType(basicLiteral1);
+			type2 = getType(ids.get(id2));
+		}
+		else if(e.exp.expression.up.pr.op.literal !== null){
+			var id1 = e.up.pr.op.operandn.id
+			var basicLiteral2 = e.exp.expression.up.pr.op.literal.basic;
+			
+			type2 = getBasicLitType(basicLiteral2);
+			type1 = getType(ids.get(id1));
+		}
+		else {
+			var id1 = e.up.pr.op.operandn.id
+			var id2 = e.exp.expression.up.pr.op.operandn.id
+			
+			type1 = getType(ids.get(id1));
+			type2 = getType(ids.get(id2));
+		}
+		
+		checkTypesInBoolOp(binaryOp, type1, type2)
+	}
+	
+	protected def void checkTypesInBoolOp(String binaryOp, String type1, String type2) {
+		if(binaryOp == "==" || binaryOp == "!=") {
+			if(type1 != type2) {
+				error("Semantic Error: Invalid boolean operation. Mismatched types " + type1
+						+ " and " + type2, null)
+			}
+		}	
+		else{
+			if(type1 == "int") {
+				if(type2 == "bool" || type2 == "string") {
+					error("Semantic Error: Invalid boolean operation. Mismatched types " + type1
+						+ " and " + type2, null)
+				}
+			}
+			else if(type1 == "float") {
+				if(type2 == "bool" || type2 == "string") {
+					error("Semantic Error: Invalid boolean operation. Mismatched types " + type1
+						+ " and " + type2, null)
+				}
+			}else if(type1 == "bool" || type2 == "bool") {
+				error("Semantic Error: Invalid boolean operation. Operator " + binaryOp + 
+						" not defined on bool.", null)
+			} else if(type1 == "string") {
+				if(type2 != "string") {
+					error("Semantic Error: Invalid boolean operation. Mismatched types " + type1
+						+ " and " + type2, null)
+				}
+			}
+		}
+	}
+	
+	def getBasicLitType(BasicLit lit) {
+		if(lit.bool !== null) {
+			return "bool";
+		}
+		else if(lit.intd !== null) {
+			return "int";
+		}
+		else if(lit.floatd !== null) {
+			return "float";
+		}
+		else if(lit.strd !== null) {
+			return "string";
+		}
+	}
+	
+	/*
 	 * Declara IDs sem atribuição
 	 */
 	def nullDeclaration(String id) {
@@ -276,8 +378,37 @@ class GoValidator extends AbstractGoValidator {
 	 */
 	protected def boolean isArithimeticOp(String binaryOperator) {
 		return (binaryOperator == "+" || binaryOperator == "-" || binaryOperator == "*"
-			|| binaryOperator == "/" || binaryOperator == "%")
+			 || binaryOperator == "/" || binaryOperator == "%")
 	}
 	
+	/*
+	 * Retorna se a operação é booleana
+	 */
+	protected def boolean isBooleanOp(String binaryOperator) {
+		
+		return (  binaryOperator == "==" || binaryOperator == "!=" 
+			    || binaryOperator == "<" || binaryOperator == "<=" 
+			    || binaryOperator == ">" || binaryOperator == ">="  );
+	}
 	
+	/*
+	 * Retorna o tipo de um objeto
+	 */
+	def getType(Object obj) {	
+		if(obj instanceof Integer) {
+			return "int"
+		}
+		else if(obj instanceof Double) {
+			return "float"
+		}
+		else if(obj instanceof Boolean) {
+			return "bool"
+		}
+		else if(obj instanceof String) {
+			return "string"
+		}
+		else if(obj instanceof NullObj) {
+			return "null"
+		}
+	}
 }

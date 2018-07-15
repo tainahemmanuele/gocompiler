@@ -19,6 +19,7 @@ import org.xtext.example.mydsl.go.FunctionDecl;
 import org.xtext.example.mydsl.go.IdentifierList;
 import org.xtext.example.mydsl.go.ImportDecl;
 import org.xtext.example.mydsl.go.ImportSpec;
+import org.xtext.example.mydsl.go.Literal;
 import org.xtext.example.mydsl.go.Operand;
 import org.xtext.example.mydsl.go.OperandName;
 import org.xtext.example.mydsl.go.ParameterDecl;
@@ -47,12 +48,19 @@ public class GoValidator extends AbstractGoValidator {
     if (((e.getExp() != null) && (e.getExp() instanceof Expression2))) {
       String binaryOperator = e.getExp().getBop();
       if ((Objects.equal(binaryOperator, "||") || Objects.equal(e.getExp().getBop(), "&&"))) {
-      }
-      boolean _isArithimeticOp = this.isArithimeticOp(binaryOperator);
-      if (_isArithimeticOp) {
-        BasicLit basicLiteral1 = e.getUp().getPr().getOp().getLiteral().getBasic();
-        BasicLit basicLiteral2 = e.getExp().getExpression().getUp().getPr().getOp().getLiteral().getBasic();
-        this.checkAritimeticLits(basicLiteral1, basicLiteral2, binaryOperator);
+        this.checkRelExp(e);
+      } else {
+        boolean _isArithimeticOp = this.isArithimeticOp(binaryOperator);
+        if (_isArithimeticOp) {
+          BasicLit basicLiteral1 = e.getUp().getPr().getOp().getLiteral().getBasic();
+          BasicLit basicLiteral2 = e.getExp().getExpression().getUp().getPr().getOp().getLiteral().getBasic();
+          this.checkAritimeticLits(basicLiteral1, basicLiteral2, binaryOperator);
+        } else {
+          boolean _isBooleanOp = this.isBooleanOp(binaryOperator);
+          if (_isBooleanOp) {
+            this.checkBooleanOp(e, binaryOperator);
+          }
+        }
       }
     }
   }
@@ -280,7 +288,6 @@ public class GoValidator extends AbstractGoValidator {
       BasicLit _basic = expList.getExp().getUp().getPr().getOp().getLiteral().getBasic();
       boolean _tripleNotEquals_2 = (_basic != null);
       if (_tripleNotEquals_2) {
-        this.info(expList.getExp().getUp().getPr().getOp().getLiteral().getBasic().toString(), null);
         int _termsCount_1 = termsCount;
         termsCount = (_termsCount_1 + 1);
       }
@@ -304,6 +311,120 @@ public class GoValidator extends AbstractGoValidator {
   }
   
   /**
+   * Checa se expressoes relacionais são validas
+   */
+  public void checkRelExp(final Expression e) {
+    if (((e.getUp().getPr().getOp().getLiteral() != null) && (e.getExp().getExpression().getUp().getPr().getOp().getLiteral() != null))) {
+      BasicLit basicLiteral1 = e.getUp().getPr().getOp().getLiteral().getBasic();
+      BasicLit basicLiteral2 = e.getExp().getExpression().getUp().getPr().getOp().getLiteral().getBasic();
+      if (((basicLiteral1.getBool() == null) || (basicLiteral2.getBool() == null))) {
+        this.error("Semantic Error: Invalid boolean expression", null);
+      }
+    }
+  }
+  
+  /**
+   * Checa uma operação é booleana
+   */
+  public void checkBooleanOp(final Expression e, final String binaryOp) {
+    String type1 = "";
+    String type2 = "";
+    if (((e.getUp().getPr().getOp().getLiteral() != null) && (e.getExp().getExpression().getUp().getPr().getOp().getLiteral() != null))) {
+      BasicLit basicLiteral1 = e.getUp().getPr().getOp().getLiteral().getBasic();
+      BasicLit basicLiteral2 = e.getExp().getExpression().getUp().getPr().getOp().getLiteral().getBasic();
+      type1 = this.getBasicLitType(basicLiteral1);
+      type2 = this.getBasicLitType(basicLiteral2);
+    } else {
+      Literal _literal = e.getUp().getPr().getOp().getLiteral();
+      boolean _tripleNotEquals = (_literal != null);
+      if (_tripleNotEquals) {
+        BasicLit basicLiteral1_1 = e.getUp().getPr().getOp().getLiteral().getBasic();
+        String id2 = e.getExp().getExpression().getUp().getPr().getOp().getOperandn().getId();
+        type1 = this.getBasicLitType(basicLiteral1_1);
+        type2 = this.getType(this.ids.get(id2));
+      } else {
+        Literal _literal_1 = e.getExp().getExpression().getUp().getPr().getOp().getLiteral();
+        boolean _tripleNotEquals_1 = (_literal_1 != null);
+        if (_tripleNotEquals_1) {
+          String id1 = e.getUp().getPr().getOp().getOperandn().getId();
+          BasicLit basicLiteral2_1 = e.getExp().getExpression().getUp().getPr().getOp().getLiteral().getBasic();
+          type2 = this.getBasicLitType(basicLiteral2_1);
+          type1 = this.getType(this.ids.get(id1));
+        } else {
+          String id1_1 = e.getUp().getPr().getOp().getOperandn().getId();
+          String id2_1 = e.getExp().getExpression().getUp().getPr().getOp().getOperandn().getId();
+          type1 = this.getType(this.ids.get(id1_1));
+          type2 = this.getType(this.ids.get(id2_1));
+        }
+      }
+    }
+    this.checkTypesInBoolOp(binaryOp, type1, type2);
+  }
+  
+  protected void checkTypesInBoolOp(final String binaryOp, final String type1, final String type2) {
+    if ((Objects.equal(binaryOp, "==") || Objects.equal(binaryOp, "!="))) {
+      boolean _notEquals = (!Objects.equal(type1, type2));
+      if (_notEquals) {
+        this.error(((("Semantic Error: Invalid boolean operation. Mismatched types " + type1) + " and ") + type2), null);
+      }
+    } else {
+      boolean _equals = Objects.equal(type1, "int");
+      if (_equals) {
+        if ((Objects.equal(type2, "bool") || Objects.equal(type2, "string"))) {
+          this.error(((("Semantic Error: Invalid boolean operation. Mismatched types " + type1) + " and ") + type2), null);
+        }
+      } else {
+        boolean _equals_1 = Objects.equal(type1, "float");
+        if (_equals_1) {
+          if ((Objects.equal(type2, "bool") || Objects.equal(type2, "string"))) {
+            this.error(((("Semantic Error: Invalid boolean operation. Mismatched types " + type1) + " and ") + type2), null);
+          }
+        } else {
+          if ((Objects.equal(type1, "bool") || Objects.equal(type2, "bool"))) {
+            this.error((("Semantic Error: Invalid boolean operation. Operator " + binaryOp) + 
+              " not defined on bool."), null);
+          } else {
+            boolean _equals_2 = Objects.equal(type1, "string");
+            if (_equals_2) {
+              boolean _notEquals_1 = (!Objects.equal(type2, "string"));
+              if (_notEquals_1) {
+                this.error(((("Semantic Error: Invalid boolean operation. Mismatched types " + type1) + " and ") + type2), null);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  public String getBasicLitType(final BasicLit lit) {
+    String _bool = lit.getBool();
+    boolean _tripleNotEquals = (_bool != null);
+    if (_tripleNotEquals) {
+      return "bool";
+    } else {
+      String _intd = lit.getIntd();
+      boolean _tripleNotEquals_1 = (_intd != null);
+      if (_tripleNotEquals_1) {
+        return "int";
+      } else {
+        String _floatd = lit.getFloatd();
+        boolean _tripleNotEquals_2 = (_floatd != null);
+        if (_tripleNotEquals_2) {
+          return "float";
+        } else {
+          String _strd = lit.getStrd();
+          boolean _tripleNotEquals_3 = (_strd != null);
+          if (_tripleNotEquals_3) {
+            return "string";
+          }
+        }
+      }
+    }
+    return null;
+  }
+  
+  /**
    * Declara IDs sem atribuição
    */
   public Object nullDeclaration(final String id) {
@@ -316,5 +437,38 @@ public class GoValidator extends AbstractGoValidator {
    */
   protected boolean isArithimeticOp(final String binaryOperator) {
     return ((((Objects.equal(binaryOperator, "+") || Objects.equal(binaryOperator, "-")) || Objects.equal(binaryOperator, "*")) || Objects.equal(binaryOperator, "/")) || Objects.equal(binaryOperator, "%"));
+  }
+  
+  /**
+   * Retorna se a operação é booleana
+   */
+  protected boolean isBooleanOp(final String binaryOperator) {
+    return (((((Objects.equal(binaryOperator, "==") || Objects.equal(binaryOperator, "!=")) || Objects.equal(binaryOperator, "<")) || Objects.equal(binaryOperator, "<=")) || Objects.equal(binaryOperator, ">")) || Objects.equal(binaryOperator, ">="));
+  }
+  
+  /**
+   * Retorna o tipo de um objeto
+   */
+  public String getType(final Object obj) {
+    if ((obj instanceof Integer)) {
+      return "int";
+    } else {
+      if ((obj instanceof Double)) {
+        return "float";
+      } else {
+        if ((obj instanceof Boolean)) {
+          return "bool";
+        } else {
+          if ((obj instanceof String)) {
+            return "string";
+          } else {
+            if ((obj instanceof NullObj)) {
+              return "null";
+            }
+          }
+        }
+      }
+    }
+    return null;
   }
 }
