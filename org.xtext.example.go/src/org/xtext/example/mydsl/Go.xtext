@@ -362,7 +362,7 @@ terminal HEX_DIGIT:
 	| 'd' | 'e' | 'f');
 
 IDENTIFIER:
-	ID;
+	ID |'-'ID;
 
 terminal INT_LIT:
 	DECIMAL_LIT | OCTAL_LIT | HEX_LIT;
@@ -519,7 +519,7 @@ Block:
 
 StatementList:
 	{StatementList}
-	(statment+=Statement (';')?)*;
+	(statment+=Statement (';'|',')?)*;
 
 Statement:
 	{Statement}
@@ -719,6 +719,7 @@ Index:
 Slice:
 	{Slice}
 	'[' (expression=Expression)? ':' (expression2=Expression)? ']' |
+	{Slice} ('[')? (expression=Expression)? ':' (expression2=Expression)?  (']')?|
 	'[' (expression3=Expression)? ':' expression4=Expression ':' expression5=Expression ']';
 
 TypeAssertion:
@@ -764,7 +765,7 @@ Element:
 	Expression | LiteralValue;
 
 BasicLit:
-	  INT_LIT | FLOAT_LIT | IMAGINARY_LIT | RUNE_LIT | STRING;
+	  INT_LIT | FLOAT_LIT | IMAGINARY_LIT | RUNE_LIT | STRING | '-'FLOAT_LIT | '-'INT_LIT ;
 
 ReceiverType:
 	type=Type;

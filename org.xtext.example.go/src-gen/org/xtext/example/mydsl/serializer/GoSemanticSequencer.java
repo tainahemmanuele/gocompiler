@@ -1566,7 +1566,11 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Slice returns Slice
 	 *
 	 * Constraint:
-	 *     ((expression=Expression? expression2=Expression?) | (expression3=Expression? expression4=Expression expression5=Expression))
+	 *     (
+	 *         (expression=Expression? expression2=Expression?) | 
+	 *         (expression=Expression? expression2=Expression?) | 
+	 *         (expression3=Expression? expression4=Expression expression5=Expression)
+	 *     )
 	 */
 	protected void sequence_Slice(ISerializationContext context, Slice semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

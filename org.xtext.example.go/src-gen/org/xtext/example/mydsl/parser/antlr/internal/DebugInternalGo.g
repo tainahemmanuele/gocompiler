@@ -67,7 +67,12 @@ rulePackageClause:
 
 // Rule IDENTIFIER
 ruleIDENTIFIER:
-	RULE_ID
+	(
+		RULE_ID
+		    |
+		'-'
+		RULE_ID
+	)
 ;
 
 // Rule IMAGINARY_LIT
@@ -350,7 +355,11 @@ ruleBlock:
 ruleStatementList:
 	(
 		ruleStatement
-		';'?
+		(
+			';'
+			    |
+			','
+		)?
 	)*
 ;
 
@@ -944,6 +953,14 @@ ruleSlice:
 		?
 		']'
 		    |
+		'['?
+		ruleExpression
+		?
+		':'
+		ruleExpression
+		?
+		']'?
+		    |
 		'['
 		ruleExpression
 		?
@@ -1091,6 +1108,12 @@ ruleBasicLit:
 		ruleRUNE_LIT
 		    |
 		RULE_STRING
+		    |
+		'-'
+		RULE_FLOAT_LIT
+		    |
+		'-'
+		RULE_INT_LIT
 	)
 ;
 
