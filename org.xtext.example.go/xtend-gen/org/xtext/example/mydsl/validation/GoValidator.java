@@ -52,9 +52,7 @@ public class GoValidator extends AbstractGoValidator {
       } else {
         boolean _isArithimeticOp = this.isArithimeticOp(binaryOperator);
         if (_isArithimeticOp) {
-          BasicLit basicLiteral1 = e.getUp().getPr().getOp().getLiteral().getBasic();
-          BasicLit basicLiteral2 = e.getExp().getExpression().getUp().getPr().getOp().getLiteral().getBasic();
-          this.checkAritimeticLits(basicLiteral1, basicLiteral2, binaryOperator);
+          this.checkAritOp(e, binaryOperator);
         } else {
           boolean _isBooleanOp = this.isBooleanOp(binaryOperator);
           if (_isBooleanOp) {
@@ -163,38 +161,6 @@ public class GoValidator extends AbstractGoValidator {
         String[] elements = this.ids.get(op.getOperandn().getId()).toString().split(",");
         ExpressionList expList = op.getExp();
         this.callMethodCheck(expList, elements, op);
-      }
-    }
-  }
-  
-  /**
-   * Checa se dois literais são compativeis em uma operação aritimética
-   */
-  public void checkAritimeticLits(final BasicLit basicLit1, final BasicLit basicLit2, final String binaryOp) {
-    if (((basicLit1 != null) && (basicLit2 != null))) {
-      if (((basicLit1.getStrd() != null) || (basicLit2.getStrd() != null))) {
-        if (((basicLit1.getStrd() != null) && Objects.equal(binaryOp, "+"))) {
-          String _strd = basicLit2.getStrd();
-          boolean _tripleEquals = (_strd == null);
-          if (_tripleEquals) {
-            this.error("Semantic Error: Invalid arithmetic operation", null);
-          }
-        } else {
-          if (((basicLit2.getStrd() != null) && Objects.equal(binaryOp, "+"))) {
-            String _strd_1 = basicLit1.getStrd();
-            boolean _tripleEquals_1 = (_strd_1 == null);
-            if (_tripleEquals_1) {
-              this.error("Semantic Error: Invalid arithmetic operation", null);
-            }
-          } else {
-            this.error(
-              (("Semantic Error: Invalid arithmetic operation, operator " + binaryOp) + " not defined on string."), null);
-          }
-        }
-      } else {
-        if ((((basicLit1.getIntd() == null) && (basicLit1.getFloatd() == null)) && (basicLit1.getImagd() == null))) {
-          this.error("Semantic Error: Invalid arithmetic operation", null);
-        }
       }
     }
   }
@@ -359,6 +325,67 @@ public class GoValidator extends AbstractGoValidator {
       }
     }
     this.checkTypesInBoolOp(binaryOp, type1, type2);
+  }
+  
+  public void checkAritOp(final Expression e, final String binaryOp) {
+    String type1 = "";
+    String type2 = "";
+    if (((e.getUp().getPr().getOp().getLiteral() != null) && (e.getExp().getExpression().getUp().getPr().getOp().getLiteral() != null))) {
+      BasicLit basicLiteral1 = e.getUp().getPr().getOp().getLiteral().getBasic();
+      BasicLit basicLiteral2 = e.getExp().getExpression().getUp().getPr().getOp().getLiteral().getBasic();
+      type1 = this.getBasicLitType(basicLiteral1);
+      type2 = this.getBasicLitType(basicLiteral2);
+    } else {
+      Literal _literal = e.getUp().getPr().getOp().getLiteral();
+      boolean _tripleNotEquals = (_literal != null);
+      if (_tripleNotEquals) {
+        BasicLit basicLiteral1_1 = e.getUp().getPr().getOp().getLiteral().getBasic();
+        String id2 = e.getExp().getExpression().getUp().getPr().getOp().getOperandn().getId();
+        type1 = this.getBasicLitType(basicLiteral1_1);
+        type2 = this.getType(this.ids.get(id2));
+      } else {
+        Literal _literal_1 = e.getExp().getExpression().getUp().getPr().getOp().getLiteral();
+        boolean _tripleNotEquals_1 = (_literal_1 != null);
+        if (_tripleNotEquals_1) {
+          String id1 = e.getUp().getPr().getOp().getOperandn().getId();
+          BasicLit basicLiteral2_1 = e.getExp().getExpression().getUp().getPr().getOp().getLiteral().getBasic();
+          type2 = this.getBasicLitType(basicLiteral2_1);
+          type1 = this.getType(this.ids.get(id1));
+        } else {
+          String id1_1 = e.getUp().getPr().getOp().getOperandn().getId();
+          String id2_1 = e.getExp().getExpression().getUp().getPr().getOp().getOperandn().getId();
+          type1 = this.getType(this.ids.get(id1_1));
+          type2 = this.getType(this.ids.get(id2_1));
+        }
+      }
+    }
+    this.checkTypesInAritimeticOp(binaryOp, type1, type2);
+  }
+  
+  /**
+   * Checa se dois tipos são compativeis em uma operação aritimética
+   */
+  public void checkTypesInAritimeticOp(final String binaryOp, final String type1, final String type2) {
+    if ((Objects.equal(type1, "string") || Objects.equal(type2, "string"))) {
+      if ((Objects.equal(type1, "string") && Objects.equal(binaryOp, "+"))) {
+        if ((type2 != "string")) {
+          this.error("Semantic Error: Invalid arithmetic operation", null);
+        }
+      } else {
+        if ((Objects.equal(type2, "string") && Objects.equal(binaryOp, "+"))) {
+          if ((type1 != "string")) {
+            this.error("Semantic Error: Invalid arithmetic operation", null);
+          }
+        } else {
+          this.error(
+            (("Semantic Error: Invalid arithmetic operation, operator " + binaryOp) + " not defined on string."), null);
+        }
+      }
+    } else {
+      if ((Objects.equal(type1, "bool") || Objects.equal(type2, "bool"))) {
+        this.error("Semantic Error: Invalid arithmetic operation", null);
+      }
+    }
   }
   
   protected void checkTypesInBoolOp(final String binaryOp, final String type1, final String type2) {

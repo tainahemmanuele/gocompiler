@@ -41,10 +41,8 @@ class GoValidator extends AbstractGoValidator {
 			if(binaryOperator == "||" || e.exp.bop == "&&") {
 				checkRelExp(e)
 			}
-			else if(isArithimeticOp(binaryOperator)) {
-				var basicLiteral1 = e.up.pr.op.literal.basic
-				var basicLiteral2 = e.exp.expression.up.pr.op.literal.basic		
-				checkAritimeticLits(basicLiteral1, basicLiteral2, binaryOperator);
+			else if(isArithimeticOp(binaryOperator)) {	
+				checkAritOp(e, binaryOperator);
 			}
 			else if(isBooleanOp(binaryOperator)) {
 				checkBooleanOp(e, binaryOperator);
@@ -155,33 +153,6 @@ class GoValidator extends AbstractGoValidator {
 			callMethodCheck(expList, elements, op)
 		}
 		
-	}
-	
-	/*
-	 * Checa se dois literais são compativeis em uma operação aritimética 
-	 */
-	def checkAritimeticLits(BasicLit basicLit1, BasicLit basicLit2, String binaryOp) {
-		
-		if(basicLit1 !== null && basicLit2 !== null) {
-			if(basicLit1.strd !== null || basicLit2.strd !== null) {
-				if(basicLit1.strd !== null && binaryOp == "+") {
-					if(basicLit2.strd === null) {
-						error("Semantic Error: Invalid arithmetic operation", null)
-					}
-				}
-				else if(basicLit2.strd !== null && binaryOp == "+") {
-					if(basicLit1.strd === null) {
-						error("Semantic Error: Invalid arithmetic operation", null)
-					}
-				}else {
-					error("Semantic Error: Invalid arithmetic operation, operator "
-							+ binaryOp + " not defined on string.", null
-						)
-				}
-			}else if(basicLit1.intd === null && basicLit1.floatd  === null && basicLit1.imagd === null) {
-				error("Semantic Error: Invalid arithmetic operation" , null)
-			}
-		}
 	}
 	
 	/*
@@ -317,6 +288,68 @@ class GoValidator extends AbstractGoValidator {
 		}
 		
 		checkTypesInBoolOp(binaryOp, type1, type2)
+	}
+	
+	def checkAritOp(Expression e, String binaryOp) {
+		
+		var type1 = "";
+		var type2 = "";
+		
+		if(e.up.pr.op.literal !== null && e.exp.expression.up.pr.op.literal !== null) {
+			var basicLiteral1 = e.up.pr.op.literal.basic;
+			var basicLiteral2 = e.exp.expression.up.pr.op.literal.basic;
+			
+			type1 = getBasicLitType(basicLiteral1);
+			type2 = getBasicLitType(basicLiteral2);	
+		}
+		else if(e.up.pr.op.literal !== null) {
+			var basicLiteral1 = e.up.pr.op.literal.basic;
+			var id2 = e.exp.expression.up.pr.op.operandn.id
+			
+			type1 = getBasicLitType(basicLiteral1);
+			type2 = getType(ids.get(id2));
+		}
+		else if(e.exp.expression.up.pr.op.literal !== null){
+			var id1 = e.up.pr.op.operandn.id
+			var basicLiteral2 = e.exp.expression.up.pr.op.literal.basic;
+			
+			type2 = getBasicLitType(basicLiteral2);
+			type1 = getType(ids.get(id1));
+		}
+		else {
+			var id1 = e.up.pr.op.operandn.id
+			var id2 = e.exp.expression.up.pr.op.operandn.id
+			
+			type1 = getType(ids.get(id1));
+			type2 = getType(ids.get(id2));
+		}
+		
+		checkTypesInAritimeticOp(binaryOp, type1, type2)
+	}
+	
+	/*
+	 * Checa se dois tipos são compativeis em uma operação aritimética 
+	 */
+	def checkTypesInAritimeticOp(String binaryOp, String type1, String type2) {
+	
+		if(type1 == "string" || type2 == "string") {
+			if(type1 == "string" && binaryOp == "+") {
+				if(type2 !== "string") {
+					error("Semantic Error: Invalid arithmetic operation", null)
+				}
+			}
+			else if(type2 == "string" && binaryOp == "+") {
+				if(type1 !== "string") {
+					error("Semantic Error: Invalid arithmetic operation", null)
+				}
+			}else {
+				error("Semantic Error: Invalid arithmetic operation, operator "
+						+ binaryOp + " not defined on string.", null
+					)
+			}
+		}else if(type1 == "bool" || type2 == "bool") {
+			error("Semantic Error: Invalid arithmetic operation" , null)
+		}
 	}
 	
 	protected def void checkTypesInBoolOp(String binaryOp, String type1, String type2) {
