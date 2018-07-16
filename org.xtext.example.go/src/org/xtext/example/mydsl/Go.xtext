@@ -339,14 +339,10 @@ terminal ADD_OP:
 	"+" | "-" | "|" | "^";
 	
 terminal  MUL_OP:
-	 MUL | "/" | "%" | "<<" | ">>" | "&" | "&^";
-
-terminal fragment MUL:
-	'*'
-;
+	"*" | "/" | "%" | "<<" | ">>" | "&" | "&^";
 
 terminal UNARY_OP:
-	"+" | "-" | "!" | "^" | MUL | "&" | "<-";
+	"+" | "-" | "!" | "^" | "*" | "&" | "<-";
 
 terminal ASSING_OP:
 	  '=' |'+=' | '-=' | '*='| '^=' | ':=';
@@ -362,7 +358,7 @@ terminal HEX_DIGIT:
 	| 'd' | 'e' | 'f');
 
 IDENTIFIER:
-	ID;
+	ID |'-'ID;
 
 terminal INT_LIT:
 	DECIMAL_LIT | OCTAL_LIT | HEX_LIT;
@@ -469,7 +465,7 @@ Tag:
 	STRING_LIT;
 
 PointerType:
-	'*' basetype=BaseType;
+	'*'basetype=BaseType;
 
 BaseType:
 	Type;
@@ -490,11 +486,11 @@ ParameterList:{ParameterList}
 	parameterDecl1=ParameterDecl (',' parameterdecl+=ParameterDecl)*;
 
 ParameterDecl:{ParameterDecl}
-	(identifierL=IdentifierList)? ('...')? (type=Type)?;
+	(identifierL=IdentifierList)? ('...')? (type=Type)? |{ParameterDecl} (identifierL=IdentifierList)? ('...')? type=Type;
 
 InterfaceType:
 	{InterfaceType}
-	'interface' '{' (methodspec+=MethodSpec ';')* '}';
+	'interface' '{' (methodspec+=MethodSpec (';')?)* '}';
 
 MethodSpec:
 	mn=MethodName signature=Signature | {MethodSpec} itn=InterfaceTypeName;
@@ -519,7 +515,7 @@ Block:
 
 StatementList:
 	{StatementList}
-	(statment+=Statement (';')?)*;
+	(statment+=Statement (';'|',')?)*;
 
 Statement:
 	{Statement}
@@ -682,10 +678,10 @@ Expression:{Expression}
 
 Expression2:
 	{Expression2}
-	(bop=BINARY_OP expression=Expression expression2=Expression2)?;
+	(bop=(BINARY_OP|'*') expression=Expression expression2=Expression2)?;
 
 UnaryExpr: {UnaryExpr}
-	pr=PrimaryExpr | up=UNARY_OP ue=UnaryExpr;
+	pr=PrimaryExpr | up=(UNARY_OP|'*') ue=UnaryExpr;
 
 PrimaryExpr: {PrimaryExpr}
 	op=Operand pr=PrimaryExpr2 |
@@ -719,6 +715,7 @@ Index:
 Slice:
 	{Slice}
 	'[' (expression=Expression)? ':' (expression2=Expression)? ']' |
+	{Slice} ('[')? (expression=Expression)? ':' (expression2=Expression)?  (']')?|
 	'[' (expression3=Expression)? ':' expression4=Expression ':' expression5=Expression ']';
 
 TypeAssertion:
@@ -764,7 +761,7 @@ Element:
 	Expression | LiteralValue;
 
 BasicLit:
-	  INT_LIT | FLOAT_LIT | IMAGINARY_LIT | RUNE_LIT | STRING;
+	  INT_LIT | FLOAT_LIT | IMAGINARY_LIT | RUNE_LIT | STRING | '-'FLOAT_LIT | '-'INT_LIT ;
 
 ReceiverType:
 	type=Type;

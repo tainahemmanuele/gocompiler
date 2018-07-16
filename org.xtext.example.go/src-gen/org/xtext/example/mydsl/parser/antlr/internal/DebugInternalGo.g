@@ -67,7 +67,12 @@ rulePackageClause:
 
 // Rule IDENTIFIER
 ruleIDENTIFIER:
-	RULE_ID
+	(
+		RULE_ID
+		    |
+		'-'
+		RULE_ID
+	)
 ;
 
 // Rule IMAGINARY_LIT
@@ -275,11 +280,18 @@ ruleParameterList:
 
 // Rule ParameterDecl
 ruleParameterDecl:
-	ruleIdentifierList
-	?
-	'...'?
-	ruleType
-	?
+	(
+		ruleIdentifierList
+		?
+		'...'?
+		ruleType
+		?
+		    |
+		ruleIdentifierList
+		?
+		'...'?
+		ruleType
+	)
 ;
 
 // Rule InterfaceType
@@ -288,7 +300,7 @@ ruleInterfaceType:
 	'{'
 	(
 		ruleMethodSpec
-		';'
+		';'?
 	)*
 	'}'
 ;
@@ -350,7 +362,11 @@ ruleBlock:
 ruleStatementList:
 	(
 		ruleStatement
-		';'?
+		(
+			';'
+			    |
+			','
+		)?
 	)*
 ;
 
@@ -841,7 +857,10 @@ ruleExpression:
 // Rule Expression2
 ruleExpression2:
 	(
-		RULE_BINARY_OP
+		(
+			RULE_BINARY_OP
+			    |'*'
+		)
 		ruleExpression
 		ruleExpression2
 	)?
@@ -852,7 +871,10 @@ ruleUnaryExpr:
 	(
 		rulePrimaryExpr
 		    |
-		RULE_UNARY_OP
+		(
+			RULE_UNARY_OP
+			    |'*'
+		)
 		ruleUnaryExpr
 	)
 ;
@@ -943,6 +965,14 @@ ruleSlice:
 		ruleExpression
 		?
 		']'
+		    |
+		'['?
+		ruleExpression
+		?
+		':'
+		ruleExpression
+		?
+		']'?
 		    |
 		'['
 		ruleExpression
@@ -1091,6 +1121,12 @@ ruleBasicLit:
 		ruleRUNE_LIT
 		    |
 		RULE_STRING
+		    |
+		'-'
+		RULE_FLOAT_LIT
+		    |
+		'-'
+		RULE_INT_LIT
 	)
 ;
 
@@ -1153,11 +1189,9 @@ fragment RULE_REL_OP : ('=='|'!='|'<'|'<='|'>'|'>=');
 
 fragment RULE_ADD_OP : ('+'|'-'|'|'|'^');
 
-fragment RULE_MUL_OP : (RULE_MUL|'/'|'%'|'<<'|'>>'|'&'|'&^');
+fragment RULE_MUL_OP : ('*'|'/'|'%'|'<<'|'>>'|'&'|'&^');
 
-fragment RULE_MUL : '*';
-
-RULE_UNARY_OP : ('+'|'-'|'!'|'^'|RULE_MUL|'&'|'<-');
+RULE_UNARY_OP : ('+'|'-'|'!'|'^'|'*'|'&'|'<-');
 
 RULE_ASSING_OP : ('='|'+='|'-='|'*='|'^='|':=');
 
