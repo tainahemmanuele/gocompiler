@@ -43,6 +43,9 @@ public class GoValidator extends AbstractGoValidator {
     return null;
   }
   
+  /**
+   * Checa alguns tipos de expressões que estão presentes no escopo do projeto
+   */
   @Check
   public void checkExpression(final Expression e) {
     if (((e.getExp() != null) && (e.getExp() instanceof Expression2))) {
@@ -63,6 +66,9 @@ public class GoValidator extends AbstractGoValidator {
     }
   }
   
+  /**
+   * Checa a declaração de uma constante e realiza a sintese
+   */
   @Check
   public void checkConstDecl(final ConstDecl cd) {
     String constId = cd.getConstspec().getId().getId();
@@ -77,6 +83,9 @@ public class GoValidator extends AbstractGoValidator {
     }
   }
   
+  /**
+   * Checa a declaração de uma variavel e realiza a sintese
+   */
   @Check
   public void checkVarDecl(final VarDecl vd) {
     String varId = vd.getVarspec().getId().getId();
@@ -91,6 +100,9 @@ public class GoValidator extends AbstractGoValidator {
     }
   }
   
+  /**
+   * Realiza a sintese dos imports
+   */
   @Check
   public void imporDecl(final ImportDecl id) {
     EList<ImportSpec> imports = id.getImports();
@@ -99,16 +111,63 @@ public class GoValidator extends AbstractGoValidator {
     }
   }
   
+  /**
+   * Realiza a sintese da declaração contida em um for
+   */
   @Check
   public Object forDecl(final ForClause fd) {
     Object _xblockexpression = null;
     {
       IdentifierList forID = fd.getInit().getSimple().getSvd().getIdl();
-      _xblockexpression = this.nullDeclaration(forID.getId());
+      Operand forVar = fd.getInit().getSimple().getSvd().getEpl().getExp().getUp().getPr().getOp();
+      Object _xifexpression = null;
+      Literal _literal = forVar.getLiteral();
+      boolean _tripleNotEquals = (_literal != null);
+      if (_tripleNotEquals) {
+        boolean _xblockexpression_1 = false;
+        {
+          String type = this.getBasicLitType(forVar.getLiteral().getBasic());
+          boolean _xifexpression_1 = false;
+          if ((type != null)) {
+            _xifexpression_1 = this.checkAndMakeDecl(forID.getId(), type, forVar.getLiteral().getBasic());
+          } else {
+            this.error("Semantic Error: Invalid declaration", null);
+          }
+          _xblockexpression_1 = _xifexpression_1;
+        }
+        _xifexpression = Boolean.valueOf(_xblockexpression_1);
+      } else {
+        Object _xifexpression_1 = null;
+        String _id = forVar.getOperandn().getId();
+        boolean _tripleNotEquals_1 = (_id != null);
+        if (_tripleNotEquals_1) {
+          Object _xblockexpression_2 = null;
+          {
+            String type = this.getType(this.ids.get(forVar.getOperandn().getId()));
+            Object _xifexpression_2 = null;
+            if ((type != null)) {
+              _xifexpression_2 = this.ids.put(
+                forID.getId(), 
+                this.ids.get(forVar.getOperandn().getId()));
+            } else {
+              this.error("Semantic Error: Invalid declaration", null);
+            }
+            _xblockexpression_2 = _xifexpression_2;
+          }
+          _xifexpression_1 = _xblockexpression_2;
+        } else {
+          this.error("Semantic Error: Invalid declaration", null);
+        }
+        _xifexpression = _xifexpression_1;
+      }
+      _xblockexpression = _xifexpression;
     }
     return _xblockexpression;
   }
   
+  /**
+   * Realiza a sintese da declaração de uma função
+   */
   @Check
   public Object funcDecla(final FunctionDecl fd) {
     Object _xblockexpression = null;
@@ -122,10 +181,16 @@ public class GoValidator extends AbstractGoValidator {
         parameterList.put(
           parameters.getParameterDecl1().getId(), 
           parameters.getParameterDecl1().getType().getTp());
+        this.ids.put(
+          parameters.getParameterDecl1().getId(), 
+          parameters.getParameterDecl1().getType().getTp());
       } else {
         String _id = parameters.getParameterDecl1().getId();
         NullObj _nullObj = new NullObj();
         parameterList.put(_id, _nullObj);
+        String _id_1 = parameters.getParameterDecl1().getId();
+        NullObj _nullObj_1 = new NullObj();
+        this.ids.put(_id_1, _nullObj_1);
       }
       EList<ParameterDecl> _parameterdecl = parameters.getParameterdecl();
       for (final ParameterDecl param : _parameterdecl) {
@@ -136,9 +201,9 @@ public class GoValidator extends AbstractGoValidator {
             param.getId(), 
             param.getType().getTp());
         } else {
-          String _id_1 = param.getId();
-          NullObj _nullObj_1 = new NullObj();
-          parameterList.put(_id_1, _nullObj_1);
+          String _id_2 = param.getId();
+          NullObj _nullObj_2 = new NullObj();
+          parameterList.put(_id_2, _nullObj_2);
         }
       }
       _xblockexpression = this.ids.put(funcName, parameterList.toString());
@@ -146,6 +211,9 @@ public class GoValidator extends AbstractGoValidator {
     return _xblockexpression;
   }
   
+  /**
+   * Verifica se identificadores foram declarados
+   */
   @Check
   public void checkOperandName(final Operand op) {
     boolean _containsKey = this.ids.containsKey(op.getOperandn().getId());
@@ -295,6 +363,8 @@ public class GoValidator extends AbstractGoValidator {
   public void checkBooleanOp(final Expression e, final String binaryOp) {
     String type1 = "";
     String type2 = "";
+    String id1 = "";
+    String id2 = "";
     if (((e.getUp().getPr().getOp().getLiteral() != null) && (e.getExp().getExpression().getUp().getPr().getOp().getLiteral() != null))) {
       BasicLit basicLiteral1 = e.getUp().getPr().getOp().getLiteral().getBasic();
       BasicLit basicLiteral2 = e.getExp().getExpression().getUp().getPr().getOp().getLiteral().getBasic();
@@ -305,31 +375,47 @@ public class GoValidator extends AbstractGoValidator {
       boolean _tripleNotEquals = (_literal != null);
       if (_tripleNotEquals) {
         BasicLit basicLiteral1_1 = e.getUp().getPr().getOp().getLiteral().getBasic();
-        String id2 = e.getExp().getExpression().getUp().getPr().getOp().getOperandn().getId();
+        id2 = e.getExp().getExpression().getUp().getPr().getOp().getOperandn().getId();
         type1 = this.getBasicLitType(basicLiteral1_1);
         type2 = this.getType(this.ids.get(id2));
       } else {
         Literal _literal_1 = e.getExp().getExpression().getUp().getPr().getOp().getLiteral();
         boolean _tripleNotEquals_1 = (_literal_1 != null);
         if (_tripleNotEquals_1) {
-          String id1 = e.getUp().getPr().getOp().getOperandn().getId();
+          id1 = e.getUp().getPr().getOp().getOperandn().getId();
           BasicLit basicLiteral2_1 = e.getExp().getExpression().getUp().getPr().getOp().getLiteral().getBasic();
           type2 = this.getBasicLitType(basicLiteral2_1);
           type1 = this.getType(this.ids.get(id1));
         } else {
-          String id1_1 = e.getUp().getPr().getOp().getOperandn().getId();
-          String id2_1 = e.getExp().getExpression().getUp().getPr().getOp().getOperandn().getId();
-          type1 = this.getType(this.ids.get(id1_1));
-          type2 = this.getType(this.ids.get(id2_1));
+          id1 = e.getUp().getPr().getOp().getOperandn().getId();
+          id2 = e.getExp().getExpression().getUp().getPr().getOp().getOperandn().getId();
+          type1 = this.getType(this.ids.get(id1));
+          type2 = this.getType(this.ids.get(id2));
         }
       }
     }
-    this.checkTypesInBoolOp(binaryOp, type1, type2);
+    if ((Objects.equal(type1, "null") || Objects.equal(type2, "null"))) {
+      boolean _equals = Objects.equal(type1, "null");
+      if (_equals) {
+        this.error((("Semantic Error: " + id1) + " was declared but never assigned."), null);
+      }
+      boolean _equals_1 = Objects.equal(type2, "null");
+      if (_equals_1) {
+        this.error((("Semantic Error: " + id2) + " was declared but never assigned."), null);
+      }
+    } else {
+      this.checkTypesInBoolOp(binaryOp, type1, type2);
+    }
   }
   
+  /**
+   * Checa uma operação aritimética
+   */
   public void checkAritOp(final Expression e, final String binaryOp) {
     String type1 = "";
     String type2 = "";
+    String id1 = "";
+    String id2 = "";
     if (((e.getUp().getPr().getOp().getLiteral() != null) && (e.getExp().getExpression().getUp().getPr().getOp().getLiteral() != null))) {
       BasicLit basicLiteral1 = e.getUp().getPr().getOp().getLiteral().getBasic();
       BasicLit basicLiteral2 = e.getExp().getExpression().getUp().getPr().getOp().getLiteral().getBasic();
@@ -340,26 +426,37 @@ public class GoValidator extends AbstractGoValidator {
       boolean _tripleNotEquals = (_literal != null);
       if (_tripleNotEquals) {
         BasicLit basicLiteral1_1 = e.getUp().getPr().getOp().getLiteral().getBasic();
-        String id2 = e.getExp().getExpression().getUp().getPr().getOp().getOperandn().getId();
+        id2 = e.getExp().getExpression().getUp().getPr().getOp().getOperandn().getId();
         type1 = this.getBasicLitType(basicLiteral1_1);
         type2 = this.getType(this.ids.get(id2));
       } else {
         Literal _literal_1 = e.getExp().getExpression().getUp().getPr().getOp().getLiteral();
         boolean _tripleNotEquals_1 = (_literal_1 != null);
         if (_tripleNotEquals_1) {
-          String id1 = e.getUp().getPr().getOp().getOperandn().getId();
+          id1 = e.getUp().getPr().getOp().getOperandn().getId();
           BasicLit basicLiteral2_1 = e.getExp().getExpression().getUp().getPr().getOp().getLiteral().getBasic();
           type2 = this.getBasicLitType(basicLiteral2_1);
           type1 = this.getType(this.ids.get(id1));
         } else {
-          String id1_1 = e.getUp().getPr().getOp().getOperandn().getId();
-          String id2_1 = e.getExp().getExpression().getUp().getPr().getOp().getOperandn().getId();
-          type1 = this.getType(this.ids.get(id1_1));
-          type2 = this.getType(this.ids.get(id2_1));
+          id1 = e.getUp().getPr().getOp().getOperandn().getId();
+          id2 = e.getExp().getExpression().getUp().getPr().getOp().getOperandn().getId();
+          type1 = this.getType(this.ids.get(id1));
+          type2 = this.getType(this.ids.get(id2));
         }
       }
     }
-    this.checkTypesInAritimeticOp(binaryOp, type1, type2);
+    if ((Objects.equal(type1, "null") || Objects.equal(type2, "null"))) {
+      boolean _equals = Objects.equal(type1, "null");
+      if (_equals) {
+        this.error((("Semantic Error: " + id1) + " was declared but never assigned."), null);
+      }
+      boolean _equals_1 = Objects.equal(type2, "null");
+      if (_equals_1) {
+        this.error((("Semantic Error: " + id2) + " was declared but never assigned."), null);
+      }
+    } else {
+      this.checkTypesInAritimeticOp(binaryOp, type1, type2);
+    }
   }
   
   /**
@@ -388,6 +485,9 @@ public class GoValidator extends AbstractGoValidator {
     }
   }
   
+  /**
+   * Checa os tipos de uma operação booleana
+   */
   protected void checkTypesInBoolOp(final String binaryOp, final String type1, final String type2) {
     if ((Objects.equal(binaryOp, "==") || Objects.equal(binaryOp, "!="))) {
       boolean _notEquals = (!Objects.equal(type1, type2));
@@ -422,33 +522,6 @@ public class GoValidator extends AbstractGoValidator {
         }
       }
     }
-  }
-  
-  public String getBasicLitType(final BasicLit lit) {
-    String _bool = lit.getBool();
-    boolean _tripleNotEquals = (_bool != null);
-    if (_tripleNotEquals) {
-      return "bool";
-    } else {
-      String _intd = lit.getIntd();
-      boolean _tripleNotEquals_1 = (_intd != null);
-      if (_tripleNotEquals_1) {
-        return "int";
-      } else {
-        String _floatd = lit.getFloatd();
-        boolean _tripleNotEquals_2 = (_floatd != null);
-        if (_tripleNotEquals_2) {
-          return "float";
-        } else {
-          String _strd = lit.getStrd();
-          boolean _tripleNotEquals_3 = (_strd != null);
-          if (_tripleNotEquals_3) {
-            return "string";
-          }
-        }
-      }
-    }
-    return null;
   }
   
   /**
@@ -492,6 +565,36 @@ public class GoValidator extends AbstractGoValidator {
             if ((obj instanceof NullObj)) {
               return "null";
             }
+          }
+        }
+      }
+    }
+    return null;
+  }
+  
+  /**
+   * Retorna o tipo de um literal
+   */
+  public String getBasicLitType(final BasicLit lit) {
+    String _bool = lit.getBool();
+    boolean _tripleNotEquals = (_bool != null);
+    if (_tripleNotEquals) {
+      return "bool";
+    } else {
+      String _intd = lit.getIntd();
+      boolean _tripleNotEquals_1 = (_intd != null);
+      if (_tripleNotEquals_1) {
+        return "int";
+      } else {
+        String _floatd = lit.getFloatd();
+        boolean _tripleNotEquals_2 = (_floatd != null);
+        if (_tripleNotEquals_2) {
+          return "float";
+        } else {
+          String _strd = lit.getStrd();
+          boolean _tripleNotEquals_3 = (_strd != null);
+          if (_tripleNotEquals_3) {
+            return "string";
           }
         }
       }

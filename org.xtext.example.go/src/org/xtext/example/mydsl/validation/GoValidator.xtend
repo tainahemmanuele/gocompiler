@@ -31,6 +31,9 @@ class GoValidator extends AbstractGoValidator {
 		//TODO: Check for statements
 	}
 	
+	/*
+	 * Checa alguns tipos de expressões que estão presentes no escopo do projeto
+	 */
 	@Check
 	def checkExpression(Expression e) {
 		
@@ -50,6 +53,9 @@ class GoValidator extends AbstractGoValidator {
 		}
 	}	
 	
+	/*
+	 * Checa a declaração de uma constante e realiza a sintese
+	 */
 	@Check
 	def checkConstDecl(ConstDecl cd) {
 		
@@ -68,6 +74,9 @@ class GoValidator extends AbstractGoValidator {
 		}
 	}
 	
+	/*
+	 * Checa a declaração de uma variavel e realiza a sintese
+	 */
 	@Check
 	def checkVarDecl(VarDecl vd) {
 		
@@ -86,6 +95,9 @@ class GoValidator extends AbstractGoValidator {
 		}
 	}
 	
+	/*
+	 * Realiza a sintese dos imports
+	 */
 	@Check
 	def imporDecl(ImportDecl id) {
 		var imports = id.imports
@@ -94,14 +106,44 @@ class GoValidator extends AbstractGoValidator {
 		}
 	}
 	
+	/*
+	 * Realiza a sintese da declaração contida em um for
+	 */
 	@Check
 	def forDecl(ForClause fd) {
 		
-		var forID = fd.init.simple.svd.idl
-		nullDeclaration(forID.id)
+		var forID  = fd.init.simple.svd.idl;
+		var forVar = fd.init.simple.svd.epl.exp.up.pr.op;
 		
+		if(forVar.literal !== null) {
+			var type = getBasicLitType(forVar.literal.basic)
+			if(type !== null) {
+				checkAndMakeDecl(forID.id, type, forVar.literal.basic)
+			}
+			else {
+				error("Semantic Error: Invalid declaration", null)
+			}
+		}
+		else if(forVar.operandn.id !== null) {
+			var type = getType(ids.get(forVar.operandn.id))
+			if(type !== null) {
+				ids.put(
+					forID.id,
+					ids.get(forVar.operandn.id)
+				);
+			}
+			else {
+				error("Semantic Error: Invalid declaration", null)
+			}
+		}
+		else {
+			error("Semantic Error: Invalid declaration", null);
+		}
 	}
 	
+	/*
+	 * Realiza a sintese da declaração de uma função
+	 */
 	@Check
 	def funcDecla(FunctionDecl fd) {
 		
@@ -115,9 +157,19 @@ class GoValidator extends AbstractGoValidator {
 				parameters.parameterDecl1.id,
 				parameters.parameterDecl1.type.tp
 			);
+			
+			ids.put(
+				parameters.parameterDecl1.id,
+				parameters.parameterDecl1.type.tp
+			);
 		}
 		else {
 			parameterList.put(
+				parameters.parameterDecl1.id,
+				new NullObj()
+			);
+			
+			ids.put(
 				parameters.parameterDecl1.id,
 				new NullObj()
 			);
@@ -140,6 +192,9 @@ class GoValidator extends AbstractGoValidator {
 		ids.put(funcName, parameterList.toString);	
 	}
 	
+	/*
+	 * Verifica se identificadores foram declarados
+	 */
 	@Check
 	def checkOperandName(Operand op) {
 		
@@ -258,6 +313,9 @@ class GoValidator extends AbstractGoValidator {
 		var type1 = "";
 		var type2 = "";
 		
+		var id1 = "";
+		var id2 = "";
+		
 		if(e.up.pr.op.literal !== null && e.exp.expression.up.pr.op.literal !== null) {
 			var basicLiteral1 = e.up.pr.op.literal.basic;
 			var basicLiteral2 = e.exp.expression.up.pr.op.literal.basic;
@@ -267,33 +325,48 @@ class GoValidator extends AbstractGoValidator {
 		}
 		else if(e.up.pr.op.literal !== null) {
 			var basicLiteral1 = e.up.pr.op.literal.basic;
-			var id2 = e.exp.expression.up.pr.op.operandn.id
+			id2               = e.exp.expression.up.pr.op.operandn.id
 			
 			type1 = getBasicLitType(basicLiteral1);
 			type2 = getType(ids.get(id2));
 		}
 		else if(e.exp.expression.up.pr.op.literal !== null){
-			var id1 = e.up.pr.op.operandn.id
+			id1               = e.up.pr.op.operandn.id
 			var basicLiteral2 = e.exp.expression.up.pr.op.literal.basic;
 			
 			type2 = getBasicLitType(basicLiteral2);
 			type1 = getType(ids.get(id1));
 		}
 		else {
-			var id1 = e.up.pr.op.operandn.id
-			var id2 = e.exp.expression.up.pr.op.operandn.id
+			id1 = e.up.pr.op.operandn.id
+			id2 = e.exp.expression.up.pr.op.operandn.id
 			
 			type1 = getType(ids.get(id1));
 			type2 = getType(ids.get(id2));
 		}
 		
-		checkTypesInBoolOp(binaryOp, type1, type2)
+		if(type1 == "null" || type2 == "null") {
+			if(type1 == "null") {
+				error("Semantic Error: " + id1 + " was declared but never assigned.", null)
+			}
+			if(type2 == "null") {
+				error("Semantic Error: " + id2 + " was declared but never assigned.", null)
+			}
+		}
+		else {
+			checkTypesInBoolOp(binaryOp, type1, type2)
+		}	
 	}
 	
+	/*
+	 * Checa uma operação aritimética
+	 */
 	def checkAritOp(Expression e, String binaryOp) {
 		
 		var type1 = "";
 		var type2 = "";
+		var id1 = "";
+		var id2 = "";
 		
 		if(e.up.pr.op.literal !== null && e.exp.expression.up.pr.op.literal !== null) {
 			var basicLiteral1 = e.up.pr.op.literal.basic;
@@ -304,27 +377,37 @@ class GoValidator extends AbstractGoValidator {
 		}
 		else if(e.up.pr.op.literal !== null) {
 			var basicLiteral1 = e.up.pr.op.literal.basic;
-			var id2 = e.exp.expression.up.pr.op.operandn.id
+			id2               = e.exp.expression.up.pr.op.operandn.id;
 			
 			type1 = getBasicLitType(basicLiteral1);
 			type2 = getType(ids.get(id2));
 		}
 		else if(e.exp.expression.up.pr.op.literal !== null){
-			var id1 = e.up.pr.op.operandn.id
+			id1               = e.up.pr.op.operandn.id;
 			var basicLiteral2 = e.exp.expression.up.pr.op.literal.basic;
 			
 			type2 = getBasicLitType(basicLiteral2);
 			type1 = getType(ids.get(id1));
 		}
 		else {
-			var id1 = e.up.pr.op.operandn.id
-			var id2 = e.exp.expression.up.pr.op.operandn.id
+			id1 = e.up.pr.op.operandn.id
+			id2 = e.exp.expression.up.pr.op.operandn.id
 			
 			type1 = getType(ids.get(id1));
 			type2 = getType(ids.get(id2));
 		}
 		
-		checkTypesInAritimeticOp(binaryOp, type1, type2)
+		if(type1 == "null" || type2 == "null") {
+			if(type1 == "null") {
+				error("Semantic Error: " + id1 + " was declared but never assigned.", null)
+			}
+			if(type2 == "null") {
+				error("Semantic Error: " + id2 + " was declared but never assigned.", null)
+			}
+		}
+		else {
+			checkTypesInAritimeticOp(binaryOp, type1, type2)
+		}
 	}
 	
 	/*
@@ -352,6 +435,9 @@ class GoValidator extends AbstractGoValidator {
 		}
 	}
 	
+	/*
+	 * Checa os tipos de uma operação booleana
+	 */
 	protected def void checkTypesInBoolOp(String binaryOp, String type1, String type2) {
 		if(binaryOp == "==" || binaryOp == "!=") {
 			if(type1 != type2) {
@@ -382,22 +468,7 @@ class GoValidator extends AbstractGoValidator {
 			}
 		}
 	}
-	
-	def getBasicLitType(BasicLit lit) {
-		if(lit.bool !== null) {
-			return "bool";
-		}
-		else if(lit.intd !== null) {
-			return "int";
-		}
-		else if(lit.floatd !== null) {
-			return "float";
-		}
-		else if(lit.strd !== null) {
-			return "string";
-		}
-	}
-	
+
 	/*
 	 * Declara IDs sem atribuição
 	 */
@@ -442,6 +513,24 @@ class GoValidator extends AbstractGoValidator {
 		}
 		else if(obj instanceof NullObj) {
 			return "null"
+		}
+	}
+	
+	/*
+	 * Retorna o tipo de um literal
+	 */
+	def getBasicLitType(BasicLit lit) {
+		if(lit.bool !== null) {
+			return "bool";
+		}
+		else if(lit.intd !== null) {
+			return "int";
+		}
+		else if(lit.floatd !== null) {
+			return "float";
+		}
+		else if(lit.strd !== null) {
+			return "string";
 		}
 	}
 }
