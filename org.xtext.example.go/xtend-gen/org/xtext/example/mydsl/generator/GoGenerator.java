@@ -3,10 +3,22 @@
  */
 package org.xtext.example.mydsl.generator;
 
+import com.google.common.collect.Iterables;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.xtext.example.mydsl.go.Block;
+import org.xtext.example.mydsl.go.Declaration;
+import org.xtext.example.mydsl.go.ForStmt;
+import org.xtext.example.mydsl.go.FunctionBody;
+import org.xtext.example.mydsl.go.FunctionDecl;
+import org.xtext.example.mydsl.go.SimpleStmt;
+import org.xtext.example.mydsl.go.Statement;
+import org.xtext.example.mydsl.go.StatementList;
 
 /**
  * Generates code from your model files on save.
@@ -15,7 +27,143 @@ import org.eclipse.xtext.generator.IGeneratorContext;
  */
 @SuppressWarnings("all")
 public class GoGenerator extends AbstractGenerator {
+  private Integer regCount = Integer.valueOf(0);
+  
+  private Integer lineCount = Integer.valueOf(0);
+  
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    Iterable<FunctionDecl> _filter = Iterables.<FunctionDecl>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), FunctionDecl.class);
+    for (final FunctionDecl f : _filter) {
+      String _string = f.getFunctionn().toString();
+      String _plus = (_string + ".txt");
+      fsa.generateFile(_plus, this.genFunc(f));
+    }
+  }
+  
+  public CharSequence genFunc(final FunctionDecl f) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<<lineCount>>: LD SP 1000");
+    _builder.newLine();
+    _builder.append("<<nextLine>>");
+    _builder.newLine();
+    _builder.append("<<f.body.genFunctionBody>>");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence genFunctionBody(final FunctionBody fb) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<<fb.block.genBlock>>");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence genBlock(final Block b) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<<IF b.statementlist != null>>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<b.statementlist.genStatementList>>");
+    _builder.newLine();
+    _builder.append("<<ENDIF>>");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence genStatementList(final StatementList sl) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<<FOR stmt : sl.statements>>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<stmt.genStatement>>");
+    _builder.newLine();
+    _builder.append("<<ENDFOR>>");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence genStatement(final Statement s) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<<IF s.declaration != null>>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<genDeclaration(s.declaration)>>");
+    _builder.newLine();
+    _builder.append("<<ELSEIF s.simplest != null>>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<genSimpleStmt(s.simplest)>>");
+    _builder.newLine();
+    _builder.append("<<ELSEIF s.forst != null>>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<genForStmt(s.forst)>>");
+    _builder.newLine();
+    _builder.append("<<ENDIF>>");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence genDeclaration(final Declaration d) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<<IF d.constdecl != null>>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<genConstDecl(d.constdecl)>>");
+    _builder.newLine();
+    _builder.append("<<ELSEIF d.vardecl != null>>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<genVarDecl(d.vardecl)>>");
+    _builder.newLine();
+    _builder.append("<<ENDIF>>");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence genSimpleStatement(final SimpleStmt ss) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<<IF ss.inc != null>>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<genIncDecStmt(ss.inc)>>");
+    _builder.newLine();
+    _builder.append("<<ELSEIF ss.ass != null>>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<genAssignment(ss.ass)>>");
+    _builder.newLine();
+    _builder.append("<<ELSEIF ss.svd != null>>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<genShortVarDecl(ss.svd)>>");
+    _builder.newLine();
+    _builder.append("<<ELSEIF ss.es != null>>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<genExpressionStmt(ss.es)>>");
+    _builder.newLine();
+    _builder.append("<ENDIF>>");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence genForStmt(final ForStmt fs) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("#FOR");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("<<lineCount>>: BR #FOR");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public void nextReg() {
+    this.regCount++;
+  }
+  
+  public void nextLine() {
+    this.lineCount = Integer.valueOf(((this.lineCount).intValue() + 8));
   }
 }

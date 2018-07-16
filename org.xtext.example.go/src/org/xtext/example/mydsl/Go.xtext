@@ -515,11 +515,11 @@ ChannelType:
 	('chan' ('<-')? | '<-' 'chan') elemtype=ElementType;
 
 Block: 
-	'{' StatementList '}';
+	'{' statementlist=StatementList '}';
 
 StatementList:
 	{StatementList}
-	(statment+=Statement (';')?)*;
+	(statements+=Statement (';')?)*;
 
 Statement:
 	{Statement}
@@ -529,7 +529,7 @@ Statement:
 	deferst=DeferStmt;
 
 Declaration:
-	ConstDecl | TypeDecl | VarDecl;
+	constdecl=ConstDecl | TypeDecl | vardecl=VarDecl;
 
 LabeledStmt:
 	label=Label ':' statement=Statement;
@@ -770,7 +770,7 @@ ReceiverType:
 	type=Type;
 
 FunctionBody:
-	Block;
+	block=Block;
 
 OperandName:
 	{OperandName} id=IDENTIFIER | {OperandName} qi=QualifiedIdent;

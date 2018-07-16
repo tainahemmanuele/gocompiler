@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.xtext.example.mydsl.go.*
 
 /**
  * Generates code from your model files on save.
@@ -15,11 +16,77 @@ import org.eclipse.xtext.generator.IGeneratorContext
  */
 class GoGenerator extends AbstractGenerator {
 
+	Integer regCount = 0
+	Integer lineCount = 0
+
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+		for (f : resource.allContents.toIterable.filter(FunctionDecl))
+			fsa.generateFile(f.functionn.toString + '.txt', f.genFunc)
+	}
+	
+	def genFunc(FunctionDecl f) '''
+		<<lineCount>>: LD SP 1000
+		<<nextLine>>
+		<<f.body.genFunctionBody>>
+	'''
+	
+	def genFunctionBody(FunctionBody fb) '''
+		<<fb.block.genBlock>>
+	'''
+	
+	def genBlock(Block b) '''
+		<<IF b.statementlist != null>>
+			<<b.statementlist.genStatementList>>
+		<<ENDIF>>
+	'''
+	
+	def genStatementList(StatementList sl) '''
+		<<FOR stmt : sl.statements>>
+			<<stmt.genStatement>>
+		<<ENDFOR>>
+	'''
+	
+	def genStatement(Statement s) '''
+		<<IF s.declaration != null>>
+			<<genDeclaration(s.declaration)>>
+		<<ELSEIF s.simplest != null>>
+			<<genSimpleStmt(s.simplest)>>
+		<<ELSEIF s.forst != null>>
+			<<genForStmt(s.forst)>>
+		<<ENDIF>>
+	'''
+	
+	def genDeclaration(Declaration d)'''
+		<<IF d.constdecl != null>>
+			<<genConstDecl(d.constdecl)>>
+		<<ELSEIF d.vardecl != null>>
+			<<genVarDecl(d.vardecl)>>
+		<<ENDIF>>
+	'''
+	
+	def genSimpleStatement(SimpleStmt ss)'''
+		<<IF ss.inc != null>>
+			<<genIncDecStmt(ss.inc)>>
+		<<ELSEIF ss.ass != null>>
+			<<genAssignment(ss.ass)>>
+		<<ELSEIF ss.svd != null>>
+			<<genShortVarDecl(ss.svd)>>
+		<<ELSEIF ss.es != null>>
+			<<genExpressionStmt(ss.es)>>
+		<ENDIF>>
+	'''
+	
+	def genForStmt(ForStmt fs)'''
+		#FOR
+		
+		<<lineCount>>: BR #FOR
+	'''
+	
+	def void nextReg() {
+		regCount++
+	}
+	
+	def void nextLine() {
+		lineCount = lineCount + 8
 	}
 }
