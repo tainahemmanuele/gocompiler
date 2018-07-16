@@ -456,7 +456,7 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GoPackage.Literals.TYPE_SPEC__TP));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAliasDeclAccess().getIdIDENTIFIERTerminalRuleCall_1_0(), semanticObject.getId());
+		feeder.accept(grammarAccess.getAliasDeclAccess().getIdIDENTIFIERParserRuleCall_1_0(), semanticObject.getId());
 		feeder.accept(grammarAccess.getAliasDeclAccess().getTpTypeParserRuleCall_3_0(), semanticObject.getTp());
 		feeder.finish();
 	}
@@ -805,7 +805,7 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Expression2 returns Expression2
 	 *
 	 * Constraint:
-	 *     (bop=BINARY_OP expression=Expression expression2=Expression2)?
+	 *     ((bop=BINARY_OP | bop='*') expression=Expression expression2=Expression2)?
 	 */
 	protected void sequence_Expression2(ISerializationContext context, Expression2 semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1331,7 +1331,7 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ParameterDecl returns ParameterDecl
 	 *
 	 * Constraint:
-	 *     (id=IDENTIFIER type=Type?)
+	 *     ((id=IDENTIFIER? type=Type?) | (id=IDENTIFIER? type=Type))
 	 */
 	protected void sequence_ParameterDecl(ISerializationContext context, ParameterDecl semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1626,7 +1626,11 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Slice returns Slice
 	 *
 	 * Constraint:
-	 *     ((expression=Expression? expression2=Expression?) | (expression3=Expression? expression4=Expression expression5=Expression))
+	 *     (
+	 *         (expression=Expression? expression2=Expression?) | 
+	 *         (expression=Expression? expression2=Expression?) | 
+	 *         (expression3=Expression? expression4=Expression expression5=Expression)
+	 *     )
 	 */
 	protected void sequence_Slice(ISerializationContext context, Slice semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1727,7 +1731,7 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GoPackage.Literals.TYPE_SPEC__TP));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTypeDefAccess().getIdIDENTIFIERTerminalRuleCall_0_0(), semanticObject.getId());
+		feeder.accept(grammarAccess.getTypeDefAccess().getIdIDENTIFIERParserRuleCall_0_0(), semanticObject.getId());
 		feeder.accept(grammarAccess.getTypeDefAccess().getTpTypeParserRuleCall_1_0(), semanticObject.getTp());
 		feeder.finish();
 	}
@@ -1803,7 +1807,7 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     UnaryExpr returns UnaryExpr
 	 *
 	 * Constraint:
-	 *     (pr=PrimaryExpr | (up=UNARY_OP ue=UnaryExpr))
+	 *     (pr=PrimaryExpr | ((up=UNARY_OP | up='*') ue=UnaryExpr))
 	 */
 	protected void sequence_UnaryExpr(ISerializationContext context, UnaryExpr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

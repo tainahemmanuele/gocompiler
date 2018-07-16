@@ -47,7 +47,7 @@ ruleReceiver:
 
 // Rule FunctionName
 ruleFunctionName:
-	RULE_IDENTIFIER
+	ruleIDENTIFIER
 ;
 
 // Rule FunctionDecl
@@ -63,6 +63,16 @@ ruleFunctionDecl:
 rulePackageClause:
 	'package'
 	rulePackageName
+;
+
+// Rule IDENTIFIER
+ruleIDENTIFIER:
+	(
+		RULE_ID
+		    |
+		'-'
+		RULE_ID
+	)
 ;
 
 // Rule IMAGINARY_LIT
@@ -111,7 +121,7 @@ ruleType:
 // Rule TypeName
 ruleTypeName:
 	(
-		RULE_IDENTIFIER
+		ruleIDENTIFIER
 		    |
 		ruleQualifiedIdent
 	)
@@ -121,12 +131,12 @@ ruleTypeName:
 ruleQualifiedIdent:
 	rulePackageName
 	'.'
-	RULE_IDENTIFIER
+	ruleIDENTIFIER
 ;
 
 // Rule PackageName
 rulePackageName:
-	RULE_IDENTIFIER
+	ruleIDENTIFIER
 ;
 
 // Rule TypeLit
@@ -200,10 +210,10 @@ ruleFieldDecl:
 
 // Rule IdentifierList
 ruleIdentifierList:
-	RULE_IDENTIFIER
+	ruleIDENTIFIER
 	(
 		','
-		RULE_IDENTIFIER
+		ruleIDENTIFIER
 	)*
 ;
 
@@ -270,10 +280,18 @@ ruleParameterList:
 
 // Rule ParameterDecl
 ruleParameterDecl:
-	RULE_IDENTIFIER
-	'...'?
-	ruleType
-	?
+	(
+		ruleIDENTIFIER
+		?
+		'...'?
+		ruleType
+		?
+		    |
+		ruleIDENTIFIER
+		?
+		'...'?
+		ruleType
+	)
 ;
 
 // Rule InterfaceType
@@ -282,7 +300,7 @@ ruleInterfaceType:
 	'{'
 	(
 		ruleMethodSpec
-		';'
+		';'?
 	)*
 	'}'
 ;
@@ -299,7 +317,7 @@ ruleMethodSpec:
 
 // Rule MethodName
 ruleMethodName:
-	RULE_IDENTIFIER
+	ruleIDENTIFIER
 ;
 
 // Rule InterfaceTypeName
@@ -344,7 +362,11 @@ ruleBlock:
 ruleStatementList:
 	(
 		ruleStatement
-		';'?
+		(
+			';'
+			    |
+			','
+		)?
 	)*
 ;
 
@@ -562,13 +584,13 @@ ruleTypeSpec:
 
 // Rule TypeDef
 ruleTypeDef:
-	RULE_IDENTIFIER
+	ruleIDENTIFIER
 	ruleType
 ;
 
 // Rule AliasDecl
 ruleAliasDecl:
-	RULE_IDENTIFIER
+	ruleIDENTIFIER
 	'='
 	ruleType
 ;
@@ -698,7 +720,7 @@ ruleTypeSwitchStmt:
 // Rule TypeSwitchGuard
 ruleTypeSwitchGuard:
 	(
-		RULE_IDENTIFIER
+		ruleIDENTIFIER
 		':='
 	)?
 	rulePrimaryExpr
@@ -814,7 +836,7 @@ rulePostStmt:
 
 // Rule Label
 ruleLabel:
-	RULE_IDENTIFIER
+	ruleIDENTIFIER
 ;
 
 // Rule ExpressionList
@@ -835,7 +857,10 @@ ruleExpression:
 // Rule Expression2
 ruleExpression2:
 	(
-		RULE_BINARY_OP
+		(
+			RULE_BINARY_OP
+			    |'*'
+		)
 		ruleExpression
 		ruleExpression2
 	)?
@@ -846,7 +871,10 @@ ruleUnaryExpr:
 	(
 		rulePrimaryExpr
 		    |
-		RULE_UNARY_OP
+		(
+			RULE_UNARY_OP
+			    |'*'
+		)
 		ruleUnaryExpr
 	)
 ;
@@ -922,7 +950,7 @@ ruleMethodExpr:
 // Rule Selector
 ruleSelector:
 	'.'
-	RULE_IDENTIFIER
+	ruleIDENTIFIER
 ;
 
 // Rule Index
@@ -942,6 +970,14 @@ ruleSlice:
 		ruleExpression
 		?
 		']'
+		    |
+		'['?
+		ruleExpression
+		?
+		':'
+		ruleExpression
+		?
+		']'?
 		    |
 		'['
 		ruleExpression
@@ -1066,7 +1102,7 @@ ruleKey:
 
 // Rule FieldName
 ruleFieldName:
-	RULE_IDENTIFIER
+	ruleIDENTIFIER
 ;
 
 // Rule Element
@@ -1108,7 +1144,7 @@ ruleFunctionBody:
 // Rule OperandName
 ruleOperandName:
 	(
-		RULE_IDENTIFIER
+		ruleIDENTIFIER
 		    |
 		ruleQualifiedIdent
 	)
@@ -1132,7 +1168,7 @@ ruleImportSpec:
 	(
 		'.'
 		    |
-		RULE_IDENTIFIER
+		ruleIDENTIFIER
 	)?
 	ruleImportPath
 ;
@@ -1156,11 +1192,9 @@ fragment RULE_REL_OP : ('=='|'!='|'<'|'<='|'>'|'>=');
 
 fragment RULE_ADD_OP : ('+'|'-'|'|'|'^');
 
-fragment RULE_MUL_OP : (RULE_MUL|'/'|'%'|'<<'|'>>'|'&'|'&^');
+fragment RULE_MUL_OP : ('*'|'/'|'%'|'<<'|'>>'|'&'|'&^');
 
-fragment RULE_MUL : '*';
-
-RULE_UNARY_OP : ('+'|'-'|'!'|'^'|RULE_MUL|'&'|'<-');
+RULE_UNARY_OP : ('+'|'-'|'!'|'^'|'*'|'&'|'<-');
 
 RULE_ASSING_OP : ('='|'+='|'-='|'*='|'^='|':=');
 
@@ -1171,8 +1205,6 @@ fragment RULE_OCTAL_DIGIT : ('0'|'1'|'2'|'3'|'4'|'5'|'6'|'7');
 fragment RULE_HEX_DIGIT : (('0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9')|('A'|'B'|'C'|'D'|'E'|'F')|('a'|'b'|'c'|'d'|'e'|'f'));
 
 RULE_BOOLEAN_LIT : ('true'|'false');
-
-RULE_IDENTIFIER : RULE_ID;
 
 RULE_FLOAT_LIT : (RULE_DECIMAL_LIT '.' RULE_DECIMAL_LIT? RULE_EXPOENT?|RULE_DECIMALS RULE_EXPOENT|'.' RULE_DECIMALS RULE_EXPOENT?);
 
@@ -1206,7 +1238,7 @@ RULE_RAW_STRING_LIT : '\'' (RULE_UNICODE_CHAR|RULE_NEWLINE)? '\'';
 
 RULE_INTERPRETED_STRING_LIT : '"' (RULE_UNICODE_VALUE|RULE_BYTE_VALUE)? '"';
 
-fragment RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
 fragment RULE_INT : ('0'..'9')+;
 
