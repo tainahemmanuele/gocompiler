@@ -14,7 +14,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Compilation_initial/importdecl"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Compilation_initial/toplevel"/>
     </genClasses>
-    <genClasses ecoreClass="Go.ecore#//TopLevelDecl"/>
+    <genClasses ecoreClass="Go.ecore#//TopLevelDecl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//TopLevelDecl/dl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//TopLevelDecl/fd"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//TopLevelDecl/mt"/>
+    </genClasses>
     <genClasses ecoreClass="Go.ecore#//MethodDecl">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//MethodDecl/receiver"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//MethodDecl/method"/>

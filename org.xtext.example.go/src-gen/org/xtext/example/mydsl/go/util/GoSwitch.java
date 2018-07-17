@@ -98,7 +98,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         MethodDecl methodDecl = (MethodDecl)theEObject;
         T result = caseMethodDecl(methodDecl);
-        if (result == null) result = caseTopLevelDecl(methodDecl);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -113,7 +112,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         FunctionDecl functionDecl = (FunctionDecl)theEObject;
         T result = caseFunctionDecl(functionDecl);
-        if (result == null) result = caseTopLevelDecl(functionDecl);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -316,7 +314,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         Declaration declaration = (Declaration)theEObject;
         T result = caseDeclaration(declaration);
-        if (result == null) result = caseTopLevelDecl(declaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

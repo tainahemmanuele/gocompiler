@@ -12,8 +12,15 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="toplevel" upperBound="-1"
         eType="#//TopLevelDecl" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TopLevelDecl"/>
-  <eClassifiers xsi:type="ecore:EClass" name="MethodDecl" eSuperTypes="#//TopLevelDecl">
+  <eClassifiers xsi:type="ecore:EClass" name="TopLevelDecl">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dl" eType="#//Declaration"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fd" eType="#//FunctionDecl"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mt" eType="#//MethodDecl"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MethodDecl">
     <eStructuralFeatures xsi:type="ecore:EReference" name="receiver" eType="#//Receiver"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="method" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -23,7 +30,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Receiver"/>
-  <eClassifiers xsi:type="ecore:EClass" name="FunctionDecl" eSuperTypes="#//TopLevelDecl">
+  <eClassifiers xsi:type="ecore:EClass" name="FunctionDecl">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="functionn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="signature" eType="#//Signature"
         containment="true"/>
@@ -146,7 +153,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="deferst" eType="#//DeferStmt"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Declaration" eSuperTypes="#//TopLevelDecl">
+  <eClassifiers xsi:type="ecore:EClass" name="Declaration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="cd" eType="#//ConstDecl"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="td" eType="#//TypeDecl"

@@ -9,7 +9,8 @@ Compilation_initial:
 	{Compilation_initial} (initial=PackageClause (importdecl+=ImportDecl)* (toplevel+=TopLevelDecl)*)?;
 
 TopLevelDecl:
-	Declaration | FunctionDecl | MethodDecl;
+	{TopLevelDecl}
+	dl=Declaration | fd=FunctionDecl | mt=MethodDecl;
 
 MethodDecl:
 	{MethodDecl}
@@ -331,7 +332,6 @@ KEYWORDS:
 	| LITERAL_TYPE
 	| BOOLEAN_LIT;
 
-
 terminal LITERAL_TYPE:
 	'int' | 'float' | 'bool' | 'string'
 ;
@@ -514,7 +514,7 @@ MethodName:
 
 InterfaceTypeName:
 	TypeName;
-
+	
 MapType:
 	'map' '[' keytype=KeyType ']' elemtype=ElementType;
 

@@ -206,41 +206,77 @@ ruleTopLevelDecl returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		{
-			/* */
-		}
-		{
-			newCompositeNode(grammarAccess.getTopLevelDeclAccess().getDeclarationParserRuleCall_0());
-		}
-		this_Declaration_0=ruleDeclaration
-		{
-			$current = $this_Declaration_0.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				{
+					/* */
+				}
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getTopLevelDeclAccess().getTopLevelDeclAction_0_0(),
+						$current);
+				}
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTopLevelDeclAccess().getDlDeclarationParserRuleCall_0_1_0());
+					}
+					lv_dl_1_0=ruleDeclaration
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTopLevelDeclRule());
+						}
+						set(
+							$current,
+							"dl",
+							lv_dl_1_0,
+							"org.xtext.example.mydsl.Go.Declaration");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
 		    |
-		{
-			/* */
-		}
-		{
-			newCompositeNode(grammarAccess.getTopLevelDeclAccess().getFunctionDeclParserRuleCall_1());
-		}
-		this_FunctionDecl_1=ruleFunctionDecl
-		{
-			$current = $this_FunctionDecl_1.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getTopLevelDeclAccess().getFdFunctionDeclParserRuleCall_1_0());
+				}
+				lv_fd_2_0=ruleFunctionDecl
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getTopLevelDeclRule());
+					}
+					set(
+						$current,
+						"fd",
+						lv_fd_2_0,
+						"org.xtext.example.mydsl.Go.FunctionDecl");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 		    |
-		{
-			/* */
-		}
-		{
-			newCompositeNode(grammarAccess.getTopLevelDeclAccess().getMethodDeclParserRuleCall_2());
-		}
-		this_MethodDecl_2=ruleMethodDecl
-		{
-			$current = $this_MethodDecl_2.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getTopLevelDeclAccess().getMtMethodDeclParserRuleCall_2_0());
+				}
+				lv_mt_3_0=ruleMethodDecl
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getTopLevelDeclRule());
+					}
+					set(
+						$current,
+						"mt",
+						lv_mt_3_0,
+						"org.xtext.example.mydsl.Go.MethodDecl");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 	)
 ;
 

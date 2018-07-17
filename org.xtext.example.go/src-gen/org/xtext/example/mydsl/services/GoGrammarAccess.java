@@ -84,25 +84,45 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	public class TopLevelDeclElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.TopLevelDecl");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cDeclarationParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cFunctionDeclParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cMethodDeclParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cTopLevelDeclAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Assignment cDlAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cDlDeclarationParserRuleCall_0_1_0 = (RuleCall)cDlAssignment_0_1.eContents().get(0);
+		private final Assignment cFdAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cFdFunctionDeclParserRuleCall_1_0 = (RuleCall)cFdAssignment_1.eContents().get(0);
+		private final Assignment cMtAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
+		private final RuleCall cMtMethodDeclParserRuleCall_2_0 = (RuleCall)cMtAssignment_2.eContents().get(0);
 		
 		//TopLevelDecl:
-		//	Declaration | FunctionDecl | MethodDecl;
+		//	{TopLevelDecl} dl=Declaration | fd=FunctionDecl | mt=MethodDecl;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Declaration | FunctionDecl | MethodDecl
+		//{TopLevelDecl} dl=Declaration | fd=FunctionDecl | mt=MethodDecl
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
+		//{TopLevelDecl} dl=Declaration
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//{TopLevelDecl}
+		public Action getTopLevelDeclAction_0_0() { return cTopLevelDeclAction_0_0; }
+		
+		//dl=Declaration
+		public Assignment getDlAssignment_0_1() { return cDlAssignment_0_1; }
+		
 		//Declaration
-		public RuleCall getDeclarationParserRuleCall_0() { return cDeclarationParserRuleCall_0; }
+		public RuleCall getDlDeclarationParserRuleCall_0_1_0() { return cDlDeclarationParserRuleCall_0_1_0; }
+		
+		//fd=FunctionDecl
+		public Assignment getFdAssignment_1() { return cFdAssignment_1; }
 		
 		//FunctionDecl
-		public RuleCall getFunctionDeclParserRuleCall_1() { return cFunctionDeclParserRuleCall_1; }
+		public RuleCall getFdFunctionDeclParserRuleCall_1_0() { return cFdFunctionDeclParserRuleCall_1_0; }
+		
+		//mt=MethodDecl
+		public Assignment getMtAssignment_2() { return cMtAssignment_2; }
 		
 		//MethodDecl
-		public RuleCall getMethodDeclParserRuleCall_2() { return cMethodDeclParserRuleCall_2; }
+		public RuleCall getMtMethodDeclParserRuleCall_2_0() { return cMtMethodDeclParserRuleCall_2_0; }
 	}
 	public class MethodDeclElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.MethodDecl");
@@ -4967,7 +4987,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//TopLevelDecl:
-	//	Declaration | FunctionDecl | MethodDecl;
+	//	{TopLevelDecl} dl=Declaration | fd=FunctionDecl | mt=MethodDecl;
 	public TopLevelDeclElements getTopLevelDeclAccess() {
 		return pTopLevelDecl;
 	}

@@ -82,6 +82,7 @@ public class GoParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getImportSpecAccess().getAlternatives_0(), "rule__ImportSpec__Alternatives_0");
 			builder.put(grammarAccess.getCompilation_initialAccess().getGroup(), "rule__Compilation_initial__Group__0");
 			builder.put(grammarAccess.getCompilation_initialAccess().getGroup_1(), "rule__Compilation_initial__Group_1__0");
+			builder.put(grammarAccess.getTopLevelDeclAccess().getGroup_0(), "rule__TopLevelDecl__Group_0__0");
 			builder.put(grammarAccess.getMethodDeclAccess().getGroup(), "rule__MethodDecl__Group__0");
 			builder.put(grammarAccess.getFunctionDeclAccess().getGroup(), "rule__FunctionDecl__Group__0");
 			builder.put(grammarAccess.getPackageClauseAccess().getGroup(), "rule__PackageClause__Group__0");
@@ -232,6 +233,9 @@ public class GoParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getCompilation_initialAccess().getInitialAssignment_1_0(), "rule__Compilation_initial__InitialAssignment_1_0");
 			builder.put(grammarAccess.getCompilation_initialAccess().getImportdeclAssignment_1_1(), "rule__Compilation_initial__ImportdeclAssignment_1_1");
 			builder.put(grammarAccess.getCompilation_initialAccess().getToplevelAssignment_1_2(), "rule__Compilation_initial__ToplevelAssignment_1_2");
+			builder.put(grammarAccess.getTopLevelDeclAccess().getDlAssignment_0_1(), "rule__TopLevelDecl__DlAssignment_0_1");
+			builder.put(grammarAccess.getTopLevelDeclAccess().getFdAssignment_1(), "rule__TopLevelDecl__FdAssignment_1");
+			builder.put(grammarAccess.getTopLevelDeclAccess().getMtAssignment_2(), "rule__TopLevelDecl__MtAssignment_2");
 			builder.put(grammarAccess.getMethodDeclAccess().getReceiverAssignment_2(), "rule__MethodDecl__ReceiverAssignment_2");
 			builder.put(grammarAccess.getMethodDeclAccess().getMethodAssignment_3(), "rule__MethodDecl__MethodAssignment_3");
 			builder.put(grammarAccess.getMethodDeclAccess().getSignatureAssignment_4(), "rule__MethodDecl__SignatureAssignment_4");

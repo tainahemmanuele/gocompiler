@@ -951,6 +951,36 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getTopLevelDecl_Dl()
+  {
+    return (EReference)topLevelDeclEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTopLevelDecl_Fd()
+  {
+    return (EReference)topLevelDeclEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTopLevelDecl_Mt()
+  {
+    return (EReference)topLevelDeclEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getMethodDecl()
   {
     return methodDeclEClass;
@@ -3865,6 +3895,9 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     createEReference(compilation_initialEClass, COMPILATION_INITIAL__TOPLEVEL);
 
     topLevelDeclEClass = createEClass(TOP_LEVEL_DECL);
+    createEReference(topLevelDeclEClass, TOP_LEVEL_DECL__DL);
+    createEReference(topLevelDeclEClass, TOP_LEVEL_DECL__FD);
+    createEReference(topLevelDeclEClass, TOP_LEVEL_DECL__MT);
 
     methodDeclEClass = createEClass(METHOD_DECL);
     createEReference(methodDeclEClass, METHOD_DECL__RECEIVER);
@@ -4280,8 +4313,6 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    methodDeclEClass.getESuperTypes().add(this.getTopLevelDecl());
-    functionDeclEClass.getESuperTypes().add(this.getTopLevelDecl());
     typeEClass.getESuperTypes().add(this.getElementType());
     typeEClass.getESuperTypes().add(this.getBaseType());
     typeEClass.getESuperTypes().add(this.getKeyType());
@@ -4299,7 +4330,6 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     channelTypeEClass.getESuperTypes().add(this.getTypeLit());
     blockEClass.getESuperTypes().add(this.getFunctionBody());
     statementListEClass.getESuperTypes().add(this.getBlock());
-    declarationEClass.getESuperTypes().add(this.getTopLevelDecl());
     returnStmtEClass.getESuperTypes().add(this.getStatement());
     typeDefEClass.getESuperTypes().add(this.getTypeSpec());
     aliasDeclEClass.getESuperTypes().add(this.getTypeSpec());
@@ -4328,6 +4358,9 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     initEReference(getCompilation_initial_Toplevel(), this.getTopLevelDecl(), null, "toplevel", null, 0, -1, Compilation_initial.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(topLevelDeclEClass, TopLevelDecl.class, "TopLevelDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTopLevelDecl_Dl(), this.getDeclaration(), null, "dl", null, 0, 1, TopLevelDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTopLevelDecl_Fd(), this.getFunctionDecl(), null, "fd", null, 0, 1, TopLevelDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTopLevelDecl_Mt(), this.getMethodDecl(), null, "mt", null, 0, 1, TopLevelDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(methodDeclEClass, MethodDecl.class, "MethodDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMethodDecl_Receiver(), this.getReceiver(), null, "receiver", null, 0, 1, MethodDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

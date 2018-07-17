@@ -3,22 +3,68 @@
  */
 package org.xtext.example.mydsl.go.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.xtext.example.mydsl.go.Declaration;
+import org.xtext.example.mydsl.go.FunctionDecl;
 import org.xtext.example.mydsl.go.GoPackage;
+import org.xtext.example.mydsl.go.MethodDecl;
 import org.xtext.example.mydsl.go.TopLevelDecl;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Top Level Decl</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.TopLevelDeclImpl#getDl <em>Dl</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.TopLevelDeclImpl#getFd <em>Fd</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.TopLevelDeclImpl#getMt <em>Mt</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class TopLevelDeclImpl extends MinimalEObjectImpl.Container implements TopLevelDecl
 {
+  /**
+   * The cached value of the '{@link #getDl() <em>Dl</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDl()
+   * @generated
+   * @ordered
+   */
+  protected Declaration dl;
+
+  /**
+   * The cached value of the '{@link #getFd() <em>Fd</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFd()
+   * @generated
+   * @ordered
+   */
+  protected FunctionDecl fd;
+
+  /**
+   * The cached value of the '{@link #getMt() <em>Mt</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMt()
+   * @generated
+   * @ordered
+   */
+  protected MethodDecl mt;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -38,6 +84,256 @@ public class TopLevelDeclImpl extends MinimalEObjectImpl.Container implements To
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.TOP_LEVEL_DECL;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Declaration getDl()
+  {
+    return dl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetDl(Declaration newDl, NotificationChain msgs)
+  {
+    Declaration oldDl = dl;
+    dl = newDl;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.TOP_LEVEL_DECL__DL, oldDl, newDl);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDl(Declaration newDl)
+  {
+    if (newDl != dl)
+    {
+      NotificationChain msgs = null;
+      if (dl != null)
+        msgs = ((InternalEObject)dl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.TOP_LEVEL_DECL__DL, null, msgs);
+      if (newDl != null)
+        msgs = ((InternalEObject)newDl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.TOP_LEVEL_DECL__DL, null, msgs);
+      msgs = basicSetDl(newDl, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TOP_LEVEL_DECL__DL, newDl, newDl));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FunctionDecl getFd()
+  {
+    return fd;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetFd(FunctionDecl newFd, NotificationChain msgs)
+  {
+    FunctionDecl oldFd = fd;
+    fd = newFd;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.TOP_LEVEL_DECL__FD, oldFd, newFd);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFd(FunctionDecl newFd)
+  {
+    if (newFd != fd)
+    {
+      NotificationChain msgs = null;
+      if (fd != null)
+        msgs = ((InternalEObject)fd).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.TOP_LEVEL_DECL__FD, null, msgs);
+      if (newFd != null)
+        msgs = ((InternalEObject)newFd).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.TOP_LEVEL_DECL__FD, null, msgs);
+      msgs = basicSetFd(newFd, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TOP_LEVEL_DECL__FD, newFd, newFd));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MethodDecl getMt()
+  {
+    return mt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetMt(MethodDecl newMt, NotificationChain msgs)
+  {
+    MethodDecl oldMt = mt;
+    mt = newMt;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.TOP_LEVEL_DECL__MT, oldMt, newMt);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMt(MethodDecl newMt)
+  {
+    if (newMt != mt)
+    {
+      NotificationChain msgs = null;
+      if (mt != null)
+        msgs = ((InternalEObject)mt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.TOP_LEVEL_DECL__MT, null, msgs);
+      if (newMt != null)
+        msgs = ((InternalEObject)newMt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.TOP_LEVEL_DECL__MT, null, msgs);
+      msgs = basicSetMt(newMt, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TOP_LEVEL_DECL__MT, newMt, newMt));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case GoPackage.TOP_LEVEL_DECL__DL:
+        return basicSetDl(null, msgs);
+      case GoPackage.TOP_LEVEL_DECL__FD:
+        return basicSetFd(null, msgs);
+      case GoPackage.TOP_LEVEL_DECL__MT:
+        return basicSetMt(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case GoPackage.TOP_LEVEL_DECL__DL:
+        return getDl();
+      case GoPackage.TOP_LEVEL_DECL__FD:
+        return getFd();
+      case GoPackage.TOP_LEVEL_DECL__MT:
+        return getMt();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case GoPackage.TOP_LEVEL_DECL__DL:
+        setDl((Declaration)newValue);
+        return;
+      case GoPackage.TOP_LEVEL_DECL__FD:
+        setFd((FunctionDecl)newValue);
+        return;
+      case GoPackage.TOP_LEVEL_DECL__MT:
+        setMt((MethodDecl)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.TOP_LEVEL_DECL__DL:
+        setDl((Declaration)null);
+        return;
+      case GoPackage.TOP_LEVEL_DECL__FD:
+        setFd((FunctionDecl)null);
+        return;
+      case GoPackage.TOP_LEVEL_DECL__MT:
+        setMt((MethodDecl)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.TOP_LEVEL_DECL__DL:
+        return dl != null;
+      case GoPackage.TOP_LEVEL_DECL__FD:
+        return fd != null;
+      case GoPackage.TOP_LEVEL_DECL__MT:
+        return mt != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //TopLevelDeclImpl

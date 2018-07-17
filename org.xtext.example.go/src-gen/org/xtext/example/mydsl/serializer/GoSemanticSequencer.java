@@ -84,6 +84,7 @@ import org.xtext.example.mydsl.go.SliceType;
 import org.xtext.example.mydsl.go.Statement;
 import org.xtext.example.mydsl.go.StatementList;
 import org.xtext.example.mydsl.go.StructType;
+import org.xtext.example.mydsl.go.TopLevelDecl;
 import org.xtext.example.mydsl.go.Type;
 import org.xtext.example.mydsl.go.TypeDecl;
 import org.xtext.example.mydsl.go.TypeDef;
@@ -398,6 +399,9 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case GoPackage.STRUCT_TYPE:
 				sequence_StructType(context, (StructType) semanticObject); 
 				return; 
+			case GoPackage.TOP_LEVEL_DECL:
+				sequence_TopLevelDecl(context, (TopLevelDecl) semanticObject); 
+				return; 
 			case GoPackage.TYPE:
 				sequence_Type(context, (Type) semanticObject); 
 				return; 
@@ -704,7 +708,6 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     TopLevelDecl returns Declaration
 	 *     Declaration returns Declaration
 	 *
 	 * Constraint:
@@ -940,7 +943,6 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     TopLevelDecl returns FunctionDecl
 	 *     FunctionDecl returns FunctionDecl
 	 *
 	 * Constraint:
@@ -1246,7 +1248,6 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     TopLevelDecl returns MethodDecl
 	 *     MethodDecl returns MethodDecl
 	 *
 	 * Constraint:
@@ -1687,6 +1688,18 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     fielddecl+=FieldDecl*
 	 */
 	protected void sequence_StructType(ISerializationContext context, StructType semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     TopLevelDecl returns TopLevelDecl
+	 *
+	 * Constraint:
+	 *     (dl=Declaration | fd=FunctionDecl | mt=MethodDecl)
+	 */
+	protected void sequence_TopLevelDecl(ISerializationContext context, TopLevelDecl semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

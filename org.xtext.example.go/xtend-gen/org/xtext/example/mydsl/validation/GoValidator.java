@@ -5,6 +5,7 @@ package org.xtext.example.mydsl.validation;
 
 import com.google.common.base.Objects;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
@@ -14,7 +15,6 @@ import org.xtext.example.mydsl.go.Expression;
 import org.xtext.example.mydsl.go.Expression2;
 import org.xtext.example.mydsl.go.ExpressionList;
 import org.xtext.example.mydsl.go.ForClause;
-import org.xtext.example.mydsl.go.ForStmt;
 import org.xtext.example.mydsl.go.FunctionDecl;
 import org.xtext.example.mydsl.go.IdentifierList;
 import org.xtext.example.mydsl.go.ImportDecl;
@@ -24,6 +24,7 @@ import org.xtext.example.mydsl.go.Operand;
 import org.xtext.example.mydsl.go.OperandName;
 import org.xtext.example.mydsl.go.ParameterDecl;
 import org.xtext.example.mydsl.go.ParameterList;
+import org.xtext.example.mydsl.go.ShortVarDecl;
 import org.xtext.example.mydsl.go.Type;
 import org.xtext.example.mydsl.go.VarDecl;
 import org.xtext.example.mydsl.validation.AbstractGoValidator;
@@ -37,11 +38,6 @@ import org.xtext.example.mydsl.validation.util.NullObj;
 @SuppressWarnings("all")
 public class GoValidator extends AbstractGoValidator {
   private final LinkedHashMap<Object, Object> ids = CollectionLiterals.<Object, Object>newLinkedHashMap();
-  
-  @Check
-  public Object checkFor(final ForStmt fors) {
-    return null;
-  }
   
   /**
    * Checa alguns tipos de expressões que estão presentes no escopo do projeto
@@ -90,13 +86,45 @@ public class GoValidator extends AbstractGoValidator {
   public void checkVarDecl(final VarDecl vd) {
     String varId = vd.getVarspec().getId().getId();
     this.nullDeclaration(varId);
-    String varType = vd.getVarspec().getTp2().getTp();
+    Type type = vd.getVarspec().getTp2();
     BasicLit varExp = vd.getVarspec().getExpressionlist().getExp().getUp().getPr().getOp().getLiteral().getBasic();
-    if (((varType != null) && (varExp != null))) {
-      boolean error = this.checkAndMakeDecl(varId, varType, varExp);
-      if (((varId.charAt(0) != varId.toLowerCase().charAt(0)) && (!error))) {
-        this.warning("Variables usually starts with Lower Case", null);
+    if (((type != null) && (varExp != null))) {
+      String varType = type.getTp();
+      if ((varType != null)) {
+        boolean error = this.checkAndMakeDecl(varId, varType, varExp);
+        if (((varId.charAt(0) != varId.toLowerCase().charAt(0)) && (!error))) {
+          this.warning("Variables usually starts with Lower Case", null);
+        }
       }
+    }
+    LinkedList<String> varIds = CollectionLiterals.<String>newLinkedList();
+    EList<String> _id2 = vd.getVarspec().getId().getId2();
+    for (final String id : _id2) {
+      varIds.add(id);
+    }
+    LinkedList<BasicLit> exps = CollectionLiterals.<BasicLit>newLinkedList();
+    EList<Expression> _expression2 = vd.getVarspec().getExpressionlist().getExpression2();
+    boolean _tripleNotEquals = (_expression2 != null);
+    if (_tripleNotEquals) {
+      EList<Expression> _expression2_1 = vd.getVarspec().getExpressionlist().getExpression2();
+      for (final Expression expr : _expression2_1) {
+        exps.add(expr.getUp().getPr().getOp().getLiteral().getBasic());
+      }
+    }
+    int _size = varIds.size();
+    int _size_1 = exps.size();
+    boolean _equals = (_size == _size_1);
+    if (_equals) {
+      int index = 0;
+      for (final String id_1 : varIds) {
+        if ((type != null)) {
+          this.checkAndMakeDecl(id_1, type.getTp(), exps.get(index));
+        } else {
+          this.nullDeclaration(id_1);
+        }
+      }
+    } else {
+      this.error("Semantic Error: Wrong number of atributes", null);
     }
   }
   
@@ -231,6 +259,16 @@ public class GoValidator extends AbstractGoValidator {
         this.callMethodCheck(expList, elements, op);
       }
     }
+  }
+  
+  /**
+   * Realiza a declaração de expressoes 'Short'
+   */
+  @Check
+  public Object shortVarDecl(final ShortVarDecl sv) {
+    return this.ids.put(
+      sv.getIdl().getId(), 
+      sv.getEpl());
   }
   
   /**

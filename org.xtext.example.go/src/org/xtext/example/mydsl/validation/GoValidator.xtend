@@ -10,12 +10,12 @@ import org.xtext.example.mydsl.go.Expression
 import org.xtext.example.mydsl.go.Expression2
 import org.xtext.example.mydsl.go.ExpressionList
 import org.xtext.example.mydsl.go.ForClause
-import org.xtext.example.mydsl.go.ForStmt
 import org.xtext.example.mydsl.go.FunctionDecl
 import org.xtext.example.mydsl.go.ImportDecl
 import org.xtext.example.mydsl.go.Operand
 import org.xtext.example.mydsl.go.VarDecl
 import org.xtext.example.mydsl.validation.util.NullObj
+import org.xtext.example.mydsl.go.ShortVarDecl
 
 /**
  * This class contains custom validation rules. 
@@ -25,11 +25,7 @@ import org.xtext.example.mydsl.validation.util.NullObj
 class GoValidator extends AbstractGoValidator {
 	
 	val ids = newLinkedHashMap()
-
-	@Check
-	def checkFor(ForStmt fors) {
-		//TODO: Check for statements
-	}
+	
 	
 	/*
 	 * Checa alguns tipos de expressões que estão presentes no escopo do projeto
@@ -51,7 +47,8 @@ class GoValidator extends AbstractGoValidator {
 				checkBooleanOp(e, binaryOperator);
 			}
 		}
-	}	
+	}
+		
 	
 	/*
 	 * Checa a declaração de uma constante e realiza a sintese
@@ -83,15 +80,44 @@ class GoValidator extends AbstractGoValidator {
 		var varId   = vd.varspec.id.id;	
 		nullDeclaration(varId);
 		
-		var varType = vd.varspec.tp2.tp;
+		var type    = vd.varspec.tp2;
 		var varExp  = vd.varspec.expressionlist.exp.up.pr.op.literal.basic;
+	
 		
-		
-		if (varType !== null && varExp !== null) {		
-			var error = checkAndMakeDecl(varId, varType, varExp);
-			if(varId.charAt(0) !== varId.toLowerCase().charAt(0) && !error) {
-				warning ("Variables usually starts with Lower Case", null);
+		if (type !== null && varExp !== null) {
+			var varType = type.tp; 		
+			if(varType !== null) {
+				var error = checkAndMakeDecl(varId, varType, varExp);
+				if(varId.charAt(0) !== varId.toLowerCase().charAt(0) && !error) {
+					warning ("Variables usually starts with Lower Case", null);
+				}
 			}
+		}
+		
+		var varIds = newLinkedList;
+		for(id : vd.varspec.id.id2) {
+			varIds.add(id)
+		}
+		
+		var exps = newLinkedList;
+		if(vd.varspec.expressionlist.expression2 !== null) {
+			for(expr : vd.varspec.expressionlist.expression2) {
+				exps.add(expr.up.pr.op.literal.basic)
+			}
+		}
+		
+		if(varIds.size == exps.size) {
+			var index = 0
+			for(id : varIds) {
+				if(type !== null) {
+					checkAndMakeDecl(id, type.tp, exps.get(index));
+				} else {
+					nullDeclaration(id)
+				}
+			}
+		}
+		else {
+			error('Semantic Error: Wrong number of atributes', null)
 		}
 	}
 	
@@ -208,6 +234,17 @@ class GoValidator extends AbstractGoValidator {
 			callMethodCheck(expList, elements, op)
 		}
 		
+	}
+	
+	/*
+	 * Realiza a declaração de expressoes 'Short'
+	 */
+	@Check
+	def shortVarDecl(ShortVarDecl sv) {
+		ids.put(
+			sv.idl.id,
+			sv.epl
+		);
 	}
 	
 	/*

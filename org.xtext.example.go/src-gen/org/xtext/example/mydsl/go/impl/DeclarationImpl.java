@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.go.ConstDecl;
 import org.xtext.example.mydsl.go.Declaration;
@@ -32,7 +33,7 @@ import org.xtext.example.mydsl.go.VarDecl;
  *
  * @generated
  */
-public class DeclarationImpl extends TopLevelDeclImpl implements Declaration
+public class DeclarationImpl extends MinimalEObjectImpl.Container implements Declaration
 {
   /**
    * The cached value of the '{@link #getCd() <em>Cd</em>}' containment reference.

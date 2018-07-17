@@ -142,13 +142,40 @@ public interface GoPackage extends EPackage
   int TOP_LEVEL_DECL = 2;
 
   /**
+   * The feature id for the '<em><b>Dl</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TOP_LEVEL_DECL__DL = 0;
+
+  /**
+   * The feature id for the '<em><b>Fd</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TOP_LEVEL_DECL__FD = 1;
+
+  /**
+   * The feature id for the '<em><b>Mt</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TOP_LEVEL_DECL__MT = 2;
+
+  /**
    * The number of structural features of the '<em>Top Level Decl</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TOP_LEVEL_DECL_FEATURE_COUNT = 0;
+  int TOP_LEVEL_DECL_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.MethodDeclImpl <em>Method Decl</em>}' class.
@@ -167,7 +194,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int METHOD_DECL__RECEIVER = TOP_LEVEL_DECL_FEATURE_COUNT + 0;
+  int METHOD_DECL__RECEIVER = 0;
 
   /**
    * The feature id for the '<em><b>Method</b></em>' attribute.
@@ -176,7 +203,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int METHOD_DECL__METHOD = TOP_LEVEL_DECL_FEATURE_COUNT + 1;
+  int METHOD_DECL__METHOD = 1;
 
   /**
    * The feature id for the '<em><b>Signature</b></em>' containment reference.
@@ -185,7 +212,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int METHOD_DECL__SIGNATURE = TOP_LEVEL_DECL_FEATURE_COUNT + 2;
+  int METHOD_DECL__SIGNATURE = 2;
 
   /**
    * The feature id for the '<em><b>Body</b></em>' containment reference list.
@@ -194,7 +221,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int METHOD_DECL__BODY = TOP_LEVEL_DECL_FEATURE_COUNT + 3;
+  int METHOD_DECL__BODY = 3;
 
   /**
    * The number of structural features of the '<em>Method Decl</em>' class.
@@ -203,7 +230,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int METHOD_DECL_FEATURE_COUNT = TOP_LEVEL_DECL_FEATURE_COUNT + 4;
+  int METHOD_DECL_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.ReceiverImpl <em>Receiver</em>}' class.
@@ -241,7 +268,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUNCTION_DECL__FUNCTIONN = TOP_LEVEL_DECL_FEATURE_COUNT + 0;
+  int FUNCTION_DECL__FUNCTIONN = 0;
 
   /**
    * The feature id for the '<em><b>Signature</b></em>' containment reference.
@@ -250,7 +277,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUNCTION_DECL__SIGNATURE = TOP_LEVEL_DECL_FEATURE_COUNT + 1;
+  int FUNCTION_DECL__SIGNATURE = 1;
 
   /**
    * The feature id for the '<em><b>Body</b></em>' containment reference list.
@@ -259,7 +286,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUNCTION_DECL__BODY = TOP_LEVEL_DECL_FEATURE_COUNT + 2;
+  int FUNCTION_DECL__BODY = 2;
 
   /**
    * The number of structural features of the '<em>Function Decl</em>' class.
@@ -268,7 +295,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUNCTION_DECL_FEATURE_COUNT = TOP_LEVEL_DECL_FEATURE_COUNT + 3;
+  int FUNCTION_DECL_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.ElementTypeImpl <em>Element Type</em>}' class.
@@ -1186,7 +1213,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DECLARATION__CD = TOP_LEVEL_DECL_FEATURE_COUNT + 0;
+  int DECLARATION__CD = 0;
 
   /**
    * The feature id for the '<em><b>Td</b></em>' containment reference.
@@ -1195,7 +1222,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DECLARATION__TD = TOP_LEVEL_DECL_FEATURE_COUNT + 1;
+  int DECLARATION__TD = 1;
 
   /**
    * The feature id for the '<em><b>Vd</b></em>' containment reference.
@@ -1204,7 +1231,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DECLARATION__VD = TOP_LEVEL_DECL_FEATURE_COUNT + 2;
+  int DECLARATION__VD = 2;
 
   /**
    * The number of structural features of the '<em>Declaration</em>' class.
@@ -1213,7 +1240,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DECLARATION_FEATURE_COUNT = TOP_LEVEL_DECL_FEATURE_COUNT + 3;
+  int DECLARATION_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.LabeledStmtImpl <em>Labeled Stmt</em>}' class.
@@ -4028,6 +4055,39 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getTopLevelDecl();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.TopLevelDecl#getDl <em>Dl</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Dl</em>'.
+   * @see org.xtext.example.mydsl.go.TopLevelDecl#getDl()
+   * @see #getTopLevelDecl()
+   * @generated
+   */
+  EReference getTopLevelDecl_Dl();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.TopLevelDecl#getFd <em>Fd</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Fd</em>'.
+   * @see org.xtext.example.mydsl.go.TopLevelDecl#getFd()
+   * @see #getTopLevelDecl()
+   * @generated
+   */
+  EReference getTopLevelDecl_Fd();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.TopLevelDecl#getMt <em>Mt</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Mt</em>'.
+   * @see org.xtext.example.mydsl.go.TopLevelDecl#getMt()
+   * @see #getTopLevelDecl()
+   * @generated
+   */
+  EReference getTopLevelDecl_Mt();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.MethodDecl <em>Method Decl</em>}'.
@@ -7185,6 +7245,30 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass TOP_LEVEL_DECL = eINSTANCE.getTopLevelDecl();
+
+    /**
+     * The meta object literal for the '<em><b>Dl</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TOP_LEVEL_DECL__DL = eINSTANCE.getTopLevelDecl_Dl();
+
+    /**
+     * The meta object literal for the '<em><b>Fd</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TOP_LEVEL_DECL__FD = eINSTANCE.getTopLevelDecl_Fd();
+
+    /**
+     * The meta object literal for the '<em><b>Mt</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TOP_LEVEL_DECL__MT = eINSTANCE.getTopLevelDecl_Mt();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.MethodDeclImpl <em>Method Decl</em>}' class.
