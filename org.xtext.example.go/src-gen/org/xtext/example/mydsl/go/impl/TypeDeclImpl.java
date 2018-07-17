@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -36,7 +37,7 @@ import org.xtext.example.mydsl.go.TypeSpec;
  *
  * @generated
  */
-public class TypeDeclImpl extends DeclarationImpl implements TypeDecl
+public class TypeDeclImpl extends MinimalEObjectImpl.Container implements TypeDecl
 {
   /**
    * The cached value of the '{@link #getTypespec() <em>Typespec</em>}' containment reference.

@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.go.Expression;
+import org.xtext.example.mydsl.go.ExpressionList;
 import org.xtext.example.mydsl.go.GoPackage;
 import org.xtext.example.mydsl.go.Literal;
 import org.xtext.example.mydsl.go.Operand;
@@ -28,6 +29,7 @@ import org.xtext.example.mydsl.go.OperandName;
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.go.impl.OperandImpl#getLiteral <em>Literal</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.OperandImpl#getOperandn <em>Operandn</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.OperandImpl#getExp <em>Exp</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.OperandImpl#getExpression <em>Expression</em>}</li>
  * </ul>
  *
@@ -54,6 +56,16 @@ public class OperandImpl extends MinimalEObjectImpl.Container implements Operand
    * @ordered
    */
   protected OperandName operandn;
+
+  /**
+   * The cached value of the '{@link #getExp() <em>Exp</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExp()
+   * @generated
+   * @ordered
+   */
+  protected ExpressionList exp;
 
   /**
    * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
@@ -187,6 +199,54 @@ public class OperandImpl extends MinimalEObjectImpl.Container implements Operand
    * <!-- end-user-doc -->
    * @generated
    */
+  public ExpressionList getExp()
+  {
+    return exp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExp(ExpressionList newExp, NotificationChain msgs)
+  {
+    ExpressionList oldExp = exp;
+    exp = newExp;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.OPERAND__EXP, oldExp, newExp);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExp(ExpressionList newExp)
+  {
+    if (newExp != exp)
+    {
+      NotificationChain msgs = null;
+      if (exp != null)
+        msgs = ((InternalEObject)exp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.OPERAND__EXP, null, msgs);
+      if (newExp != null)
+        msgs = ((InternalEObject)newExp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.OPERAND__EXP, null, msgs);
+      msgs = basicSetExp(newExp, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.OPERAND__EXP, newExp, newExp));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Expression getExpression()
   {
     return expression;
@@ -244,6 +304,8 @@ public class OperandImpl extends MinimalEObjectImpl.Container implements Operand
         return basicSetLiteral(null, msgs);
       case GoPackage.OPERAND__OPERANDN:
         return basicSetOperandn(null, msgs);
+      case GoPackage.OPERAND__EXP:
+        return basicSetExp(null, msgs);
       case GoPackage.OPERAND__EXPRESSION:
         return basicSetExpression(null, msgs);
     }
@@ -264,6 +326,8 @@ public class OperandImpl extends MinimalEObjectImpl.Container implements Operand
         return getLiteral();
       case GoPackage.OPERAND__OPERANDN:
         return getOperandn();
+      case GoPackage.OPERAND__EXP:
+        return getExp();
       case GoPackage.OPERAND__EXPRESSION:
         return getExpression();
     }
@@ -285,6 +349,9 @@ public class OperandImpl extends MinimalEObjectImpl.Container implements Operand
         return;
       case GoPackage.OPERAND__OPERANDN:
         setOperandn((OperandName)newValue);
+        return;
+      case GoPackage.OPERAND__EXP:
+        setExp((ExpressionList)newValue);
         return;
       case GoPackage.OPERAND__EXPRESSION:
         setExpression((Expression)newValue);
@@ -309,6 +376,9 @@ public class OperandImpl extends MinimalEObjectImpl.Container implements Operand
       case GoPackage.OPERAND__OPERANDN:
         setOperandn((OperandName)null);
         return;
+      case GoPackage.OPERAND__EXP:
+        setExp((ExpressionList)null);
+        return;
       case GoPackage.OPERAND__EXPRESSION:
         setExpression((Expression)null);
         return;
@@ -330,6 +400,8 @@ public class OperandImpl extends MinimalEObjectImpl.Container implements Operand
         return literal != null;
       case GoPackage.OPERAND__OPERANDN:
         return operandn != null;
+      case GoPackage.OPERAND__EXP:
+        return exp != null;
       case GoPackage.OPERAND__EXPRESSION:
         return expression != null;
     }

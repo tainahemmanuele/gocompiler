@@ -9,7 +9,8 @@ Compilation_initial:
 	{Compilation_initial} (initial=PackageClause (importdecl+=ImportDecl)* (toplevel+=TopLevelDecl)*)?;
 
 TopLevelDecl:
-	Declaration | FunctionDecl | MethodDecl;
+	{TopLevelDecl}
+	dl=Declaration | fd=FunctionDecl | mt=MethodDecl;
 
 MethodDecl:
 	{MethodDecl}
@@ -327,7 +328,15 @@ KEYWORDS:
 	| 'for'
 	| 'import'
 	| 'return'
-	| 'var';
+	| 'var'
+	| LITERAL_TYPE
+	| BOOLEAN_LIT;
+
+terminal LITERAL_TYPE:
+	'int' | 'int8' 'int32' |'int64' 
+	      |'float' |'float32' |'float64' 
+	      | 'bool' | 'string'
+;
 
 terminal BINARY_OP:
 	   "||" | "&&" | REL_OP | MUL_OP| ADD_OP ;
@@ -357,9 +366,20 @@ terminal HEX_DIGIT:
 	('0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9') | ('A' | 'B' | 'C' | 'D' | 'E' | 'F') | ('a' | 'b' | 'c'
 	| 'd' | 'e' | 'f');
 
+terminal BOOLEAN_LIT:
+	'true' | 'false'
+;
+
+
 IDENTIFIER:
 	ID |'-'ID;
 
+
+terminal FLOAT_LIT: 
+	DECIMAL_LIT '.' (DECIMAL_LIT)? (EXPOENT)? |
+	DECIMALS EXPOENT |
+	'.' DECIMALS (EXPOENT)?;
+	
 terminal INT_LIT:
 	DECIMAL_LIT | OCTAL_LIT | HEX_LIT;
 
@@ -371,11 +391,6 @@ terminal fragment OCTAL_LIT:
 
 terminal  fragment HEX_LIT:
 	'0' ('x' | 'X') HEX_DIGIT (HEX_DIGIT)+;
-
-terminal FLOAT_LIT: 
-	DECIMAL_LIT '.' (DECIMAL_LIT)? (EXPOENT)? |
-	DECIMALS EXPOENT |
-	'.' DECIMALS (EXPOENT)?;
 
 terminal DECIMALS:
 	(DECIMAL_DIGIT)+;
@@ -421,7 +436,7 @@ terminal INTERPRETED_STRING_LIT:
 	'"' (UNICODE_VALUE | BYTE_VALUE)? '"';
 
 Type:
-	{Type} tp=TypeName | tp2=TypeLit | "(" tp3=Type ")";
+	{Type} tp=LITERAL_TYPE | tp2=TypeLit | "(" tp3=Type ")";
 
 TypeName:
 	IDENTIFIER |  QualifiedIdent  ;
@@ -486,7 +501,8 @@ ParameterList:{ParameterList}
 	parameterDecl1=ParameterDecl (',' parameterdecl+=ParameterDecl)*;
 
 ParameterDecl:{ParameterDecl}
-	(identifierL=IdentifierList)? ('...')? (type=Type)? |{ParameterDecl} (identifierL=IdentifierList)? ('...')? type=Type;
+	(id=IDENTIFIER)? ('...')? (type=Type)? |
+	(id=IDENTIFIER)? ('...')? type=Type;   
 
 InterfaceType:
 	{InterfaceType}
@@ -500,7 +516,7 @@ MethodName:
 
 InterfaceTypeName:
 	TypeName;
-
+	
 MapType:
 	'map' '[' keytype=KeyType ']' elemtype=ElementType;
 
@@ -525,7 +541,7 @@ Statement:
 	deferst=DeferStmt;
 
 Declaration:
-	ConstDecl | TypeDecl | VarDecl;
+	cd=ConstDecl | td=TypeDecl | vd=VarDecl;
 
 LabeledStmt:
 	label=Label ':' statement=Statement;
@@ -572,7 +588,7 @@ ConstDecl:
 	{ConstDecl} 'const' (constspec=ConstSpec | '(' (constspec2+=ConstSpec (';')?)* ')');
 
 ConstSpec:
-	id=IdentifierList ((tp=Type)? '=' expressionlist=ExpressionList)?;
+	id=IdentifierList (tp=Type)? ('=' expressionlist=ExpressionList)?;
 
 TypeDecl:
 	{TypeDecl}
@@ -680,6 +696,7 @@ Expression2:
 	{Expression2}
 	(bop=(BINARY_OP|'*') expression=Expression expression2=Expression2)?;
 
+
 UnaryExpr: {UnaryExpr}
 	pr=PrimaryExpr | up=(UNARY_OP|'*') ue=UnaryExpr;
 
@@ -698,7 +715,7 @@ PrimaryExpr2:
 
 Operand:
 	{Operand}
-	literal=Literal | operandn=OperandName | '(' expression=Expression ')';
+	literal=Literal | operandn=OperandName ('(' exp=ExpressionList ')')? | '(' expression=Expression ')';
 
 Conversion: {Conversion}
 	type=Type '(' expression=Expression (',')? ')';
@@ -761,14 +778,15 @@ Element:
 	Expression | LiteralValue;
 
 BasicLit:
-	  INT_LIT | FLOAT_LIT | IMAGINARY_LIT | RUNE_LIT | STRING | '-'FLOAT_LIT | '-'INT_LIT ;
+	  intd = INT_LIT | floatd = FLOAT_LIT | imagd = IMAGINARY_LIT 
+	  | runed = RUNE_LIT | strd = STRING | bool = BOOLEAN_LIT;
 
 ReceiverType:
 	type=Type;
 
 FunctionBody:
 	Block;
-
+	
 OperandName:
 	{OperandName} id=IDENTIFIER | {OperandName} qi=QualifiedIdent;
 
@@ -777,7 +795,7 @@ ImportDecl:
 	'import' (imports+=ImportSpec | '(' (imports2+=ImportSpec)* ')');
 
 ImportSpec:
-	 ('.' | IDENTIFIER)? ImportPath ;
+	 ('.' | IDENTIFIER)? ip=ImportPath ;
 
 ImportPath:
 	STRING;

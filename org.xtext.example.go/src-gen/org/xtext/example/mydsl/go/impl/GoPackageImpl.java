@@ -16,6 +16,7 @@ import org.xtext.example.mydsl.go.ArrayLength;
 import org.xtext.example.mydsl.go.ArrayType;
 import org.xtext.example.mydsl.go.Assignment;
 import org.xtext.example.mydsl.go.BaseType;
+import org.xtext.example.mydsl.go.BasicLit;
 import org.xtext.example.mydsl.go.Block;
 import org.xtext.example.mydsl.go.Channel;
 import org.xtext.example.mydsl.go.ChannelType;
@@ -51,6 +52,7 @@ import org.xtext.example.mydsl.go.GoPackage;
 import org.xtext.example.mydsl.go.IdentifierList;
 import org.xtext.example.mydsl.go.IfStmt;
 import org.xtext.example.mydsl.go.ImportDecl;
+import org.xtext.example.mydsl.go.ImportSpec;
 import org.xtext.example.mydsl.go.IncDecStmt;
 import org.xtext.example.mydsl.go.Index;
 import org.xtext.example.mydsl.go.InitStmt;
@@ -774,6 +776,13 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass basicLitEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass receiverTypeEClass = null;
 
   /**
@@ -796,6 +805,13 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * @generated
    */
   private EClass importDeclEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass importSpecEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -928,6 +944,36 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
   public EClass getTopLevelDecl()
   {
     return topLevelDeclEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTopLevelDecl_Dl()
+  {
+    return (EReference)topLevelDeclEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTopLevelDecl_Fd()
+  {
+    return (EReference)topLevelDeclEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTopLevelDecl_Mt()
+  {
+    return (EReference)topLevelDeclEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1415,9 +1461,9 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getParameterDecl_IdentifierL()
+  public EAttribute getParameterDecl_Id()
   {
-    return (EReference)parameterDeclEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)parameterDeclEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1738,6 +1784,36 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
   public EClass getDeclaration()
   {
     return declarationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDeclaration_Cd()
+  {
+    return (EReference)declarationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDeclaration_Td()
+  {
+    return (EReference)declarationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDeclaration_Vd()
+  {
+    return (EReference)declarationEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -3155,9 +3231,19 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getOperand_Expression()
+  public EReference getOperand_Exp()
   {
     return (EReference)operandEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getOperand_Expression()
+  {
+    return (EReference)operandEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -3335,9 +3421,9 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getLiteral_Basic()
+  public EReference getLiteral_Basic()
   {
-    return (EAttribute)literalEClass.getEStructuralFeatures().get(0);
+    return (EReference)literalEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3585,6 +3671,76 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getBasicLit()
+  {
+    return basicLitEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBasicLit_Intd()
+  {
+    return (EAttribute)basicLitEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBasicLit_Floatd()
+  {
+    return (EAttribute)basicLitEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBasicLit_Imagd()
+  {
+    return (EAttribute)basicLitEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBasicLit_Runed()
+  {
+    return (EAttribute)basicLitEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBasicLit_Strd()
+  {
+    return (EAttribute)basicLitEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBasicLit_Bool()
+  {
+    return (EAttribute)basicLitEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getReceiverType()
   {
     return receiverTypeEClass;
@@ -3665,9 +3821,9 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getImportDecl_Imports()
+  public EReference getImportDecl_Imports()
   {
-    return (EAttribute)importDeclEClass.getEStructuralFeatures().get(0);
+    return (EReference)importDeclEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3675,9 +3831,29 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getImportDecl_Imports2()
+  public EReference getImportDecl_Imports2()
   {
-    return (EAttribute)importDeclEClass.getEStructuralFeatures().get(1);
+    return (EReference)importDeclEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getImportSpec()
+  {
+    return importSpecEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getImportSpec_Ip()
+  {
+    return (EAttribute)importSpecEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3719,6 +3895,9 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     createEReference(compilation_initialEClass, COMPILATION_INITIAL__TOPLEVEL);
 
     topLevelDeclEClass = createEClass(TOP_LEVEL_DECL);
+    createEReference(topLevelDeclEClass, TOP_LEVEL_DECL__DL);
+    createEReference(topLevelDeclEClass, TOP_LEVEL_DECL__FD);
+    createEReference(topLevelDeclEClass, TOP_LEVEL_DECL__MT);
 
     methodDeclEClass = createEClass(METHOD_DECL);
     createEReference(methodDeclEClass, METHOD_DECL__RECEIVER);
@@ -3787,7 +3966,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     createEReference(parameterListEClass, PARAMETER_LIST__PARAMETERDECL);
 
     parameterDeclEClass = createEClass(PARAMETER_DECL);
-    createEReference(parameterDeclEClass, PARAMETER_DECL__IDENTIFIER_L);
+    createEAttribute(parameterDeclEClass, PARAMETER_DECL__ID);
     createEReference(parameterDeclEClass, PARAMETER_DECL__TYPE);
 
     interfaceTypeEClass = createEClass(INTERFACE_TYPE);
@@ -3829,6 +4008,9 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     createEReference(statementEClass, STATEMENT__DEFERST);
 
     declarationEClass = createEClass(DECLARATION);
+    createEReference(declarationEClass, DECLARATION__CD);
+    createEReference(declarationEClass, DECLARATION__TD);
+    createEReference(declarationEClass, DECLARATION__VD);
 
     labeledStmtEClass = createEClass(LABELED_STMT);
     createEAttribute(labeledStmtEClass, LABELED_STMT__LABEL);
@@ -4016,6 +4198,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     operandEClass = createEClass(OPERAND);
     createEReference(operandEClass, OPERAND__LITERAL);
     createEReference(operandEClass, OPERAND__OPERANDN);
+    createEReference(operandEClass, OPERAND__EXP);
     createEReference(operandEClass, OPERAND__EXPRESSION);
 
     conversionEClass = createEClass(CONVERSION);
@@ -4041,7 +4224,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     createEReference(argumentsEClass, ARGUMENTS__TYPE);
 
     literalEClass = createEClass(LITERAL);
-    createEAttribute(literalEClass, LITERAL__BASIC);
+    createEReference(literalEClass, LITERAL__BASIC);
     createEReference(literalEClass, LITERAL__CL);
     createEReference(literalEClass, LITERAL__FL);
 
@@ -4075,6 +4258,14 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
 
     elementEClass = createEClass(ELEMENT);
 
+    basicLitEClass = createEClass(BASIC_LIT);
+    createEAttribute(basicLitEClass, BASIC_LIT__INTD);
+    createEAttribute(basicLitEClass, BASIC_LIT__FLOATD);
+    createEAttribute(basicLitEClass, BASIC_LIT__IMAGD);
+    createEAttribute(basicLitEClass, BASIC_LIT__RUNED);
+    createEAttribute(basicLitEClass, BASIC_LIT__STRD);
+    createEAttribute(basicLitEClass, BASIC_LIT__BOOL);
+
     receiverTypeEClass = createEClass(RECEIVER_TYPE);
     createEAttribute(receiverTypeEClass, RECEIVER_TYPE__METHODN);
     createEReference(receiverTypeEClass, RECEIVER_TYPE__TYPE);
@@ -4086,8 +4277,11 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     createEAttribute(operandNameEClass, OPERAND_NAME__QI);
 
     importDeclEClass = createEClass(IMPORT_DECL);
-    createEAttribute(importDeclEClass, IMPORT_DECL__IMPORTS);
-    createEAttribute(importDeclEClass, IMPORT_DECL__IMPORTS2);
+    createEReference(importDeclEClass, IMPORT_DECL__IMPORTS);
+    createEReference(importDeclEClass, IMPORT_DECL__IMPORTS2);
+
+    importSpecEClass = createEClass(IMPORT_SPEC);
+    createEAttribute(importSpecEClass, IMPORT_SPEC__IP);
   }
 
   /**
@@ -4119,8 +4313,6 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    methodDeclEClass.getESuperTypes().add(this.getTopLevelDecl());
-    functionDeclEClass.getESuperTypes().add(this.getTopLevelDecl());
     typeEClass.getESuperTypes().add(this.getElementType());
     typeEClass.getESuperTypes().add(this.getBaseType());
     typeEClass.getESuperTypes().add(this.getKeyType());
@@ -4138,13 +4330,9 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     channelTypeEClass.getESuperTypes().add(this.getTypeLit());
     blockEClass.getESuperTypes().add(this.getFunctionBody());
     statementListEClass.getESuperTypes().add(this.getBlock());
-    declarationEClass.getESuperTypes().add(this.getTopLevelDecl());
     returnStmtEClass.getESuperTypes().add(this.getStatement());
-    constDeclEClass.getESuperTypes().add(this.getDeclaration());
-    typeDeclEClass.getESuperTypes().add(this.getDeclaration());
     typeDefEClass.getESuperTypes().add(this.getTypeSpec());
     aliasDeclEClass.getESuperTypes().add(this.getTypeSpec());
-    varDeclEClass.getESuperTypes().add(this.getDeclaration());
     exprSwitchStmtEClass.getESuperTypes().add(this.getSwitchStmt());
     exprSwitchCaseEClass.getESuperTypes().add(this.getExprCaseClause());
     typeSwitchStmtEClass.getESuperTypes().add(this.getSwitchStmt());
@@ -4170,6 +4358,9 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     initEReference(getCompilation_initial_Toplevel(), this.getTopLevelDecl(), null, "toplevel", null, 0, -1, Compilation_initial.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(topLevelDeclEClass, TopLevelDecl.class, "TopLevelDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTopLevelDecl_Dl(), this.getDeclaration(), null, "dl", null, 0, 1, TopLevelDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTopLevelDecl_Fd(), this.getFunctionDecl(), null, "fd", null, 0, 1, TopLevelDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTopLevelDecl_Mt(), this.getMethodDecl(), null, "mt", null, 0, 1, TopLevelDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(methodDeclEClass, MethodDecl.class, "MethodDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMethodDecl_Receiver(), this.getReceiver(), null, "receiver", null, 0, 1, MethodDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4238,7 +4429,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     initEReference(getParameterList_Parameterdecl(), this.getParameterDecl(), null, "parameterdecl", null, 0, -1, ParameterList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(parameterDeclEClass, ParameterDecl.class, "ParameterDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getParameterDecl_IdentifierL(), this.getIdentifierList(), null, "identifierL", null, 0, 1, ParameterDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getParameterDecl_Id(), ecorePackage.getEString(), "id", null, 0, 1, ParameterDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getParameterDecl_Type(), this.getType(), null, "type", null, 0, 1, ParameterDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(interfaceTypeEClass, InterfaceType.class, "InterfaceType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4280,6 +4471,9 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     initEReference(getStatement_Deferst(), this.getDeferStmt(), null, "deferst", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(declarationEClass, Declaration.class, "Declaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDeclaration_Cd(), this.getConstDecl(), null, "cd", null, 0, 1, Declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDeclaration_Td(), this.getTypeDecl(), null, "td", null, 0, 1, Declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDeclaration_Vd(), this.getVarDecl(), null, "vd", null, 0, 1, Declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(labeledStmtEClass, LabeledStmt.class, "LabeledStmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getLabeledStmt_Label(), ecorePackage.getEString(), "label", null, 0, 1, LabeledStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4467,6 +4661,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     initEClass(operandEClass, Operand.class, "Operand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOperand_Literal(), this.getLiteral(), null, "literal", null, 0, 1, Operand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getOperand_Operandn(), this.getOperandName(), null, "operandn", null, 0, 1, Operand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOperand_Exp(), this.getExpressionList(), null, "exp", null, 0, 1, Operand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getOperand_Expression(), this.getExpression(), null, "expression", null, 0, 1, Operand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(conversionEClass, Conversion.class, "Conversion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4492,7 +4687,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     initEReference(getArguments_Type(), this.getType(), null, "type", null, 0, 1, Arguments.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(literalEClass, Literal.class, "Literal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getLiteral_Basic(), ecorePackage.getEString(), "basic", null, 0, 1, Literal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLiteral_Basic(), this.getBasicLit(), null, "basic", null, 0, 1, Literal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLiteral_Cl(), this.getCompositeLit(), null, "cl", null, 0, 1, Literal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLiteral_Fl(), this.getFunctionLit(), null, "fl", null, 0, 1, Literal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -4526,6 +4721,14 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
 
     initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(basicLitEClass, BasicLit.class, "BasicLit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBasicLit_Intd(), ecorePackage.getEString(), "intd", null, 0, 1, BasicLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBasicLit_Floatd(), ecorePackage.getEString(), "floatd", null, 0, 1, BasicLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBasicLit_Imagd(), ecorePackage.getEString(), "imagd", null, 0, 1, BasicLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBasicLit_Runed(), ecorePackage.getEString(), "runed", null, 0, 1, BasicLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBasicLit_Strd(), ecorePackage.getEString(), "strd", null, 0, 1, BasicLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBasicLit_Bool(), ecorePackage.getEString(), "bool", null, 0, 1, BasicLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(receiverTypeEClass, ReceiverType.class, "ReceiverType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getReceiverType_Methodn(), ecorePackage.getEString(), "methodn", null, 0, 1, ReceiverType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getReceiverType_Type(), this.getType(), null, "type", null, 0, 1, ReceiverType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4537,8 +4740,11 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     initEAttribute(getOperandName_Qi(), ecorePackage.getEString(), "qi", null, 0, 1, OperandName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(importDeclEClass, ImportDecl.class, "ImportDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getImportDecl_Imports(), ecorePackage.getEString(), "imports", null, 0, -1, ImportDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getImportDecl_Imports2(), ecorePackage.getEString(), "imports2", null, 0, -1, ImportDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getImportDecl_Imports(), this.getImportSpec(), null, "imports", null, 0, -1, ImportDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getImportDecl_Imports2(), this.getImportSpec(), null, "imports2", null, 0, -1, ImportDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(importSpecEClass, ImportSpec.class, "ImportSpec", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getImportSpec_Ip(), ecorePackage.getEString(), "ip", null, 0, 1, ImportSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

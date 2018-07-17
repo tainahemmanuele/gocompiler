@@ -26,30 +26,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface Literal extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Basic</b></em>' attribute.
+   * Returns the value of the '<em><b>Basic</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Basic</em>' attribute isn't clear,
+   * If the meaning of the '<em>Basic</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Basic</em>' attribute.
-   * @see #setBasic(String)
+   * @return the value of the '<em>Basic</em>' containment reference.
+   * @see #setBasic(BasicLit)
    * @see org.xtext.example.mydsl.go.GoPackage#getLiteral_Basic()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getBasic();
+  BasicLit getBasic();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.go.Literal#getBasic <em>Basic</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.Literal#getBasic <em>Basic</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Basic</em>' attribute.
+   * @param value the new value of the '<em>Basic</em>' containment reference.
    * @see #getBasic()
    * @generated
    */
-  void setBasic(String value);
+  void setBasic(BasicLit value);
 
   /**
    * Returns the value of the '<em><b>Cl</b></em>' containment reference.
