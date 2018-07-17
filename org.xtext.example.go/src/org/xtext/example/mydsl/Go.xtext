@@ -333,7 +333,9 @@ KEYWORDS:
 	| BOOLEAN_LIT;
 
 terminal LITERAL_TYPE:
-	'int' | 'float' | 'bool' | 'string'
+	'int' | 'int8' 'int32' |'int64' 
+	      |'float' |'float32' |'float64' 
+	      | 'bool' | 'string'
 ;
 
 terminal BINARY_OP:

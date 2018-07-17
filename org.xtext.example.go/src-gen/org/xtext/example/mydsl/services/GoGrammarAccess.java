@@ -5141,7 +5141,9 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal LITERAL_TYPE:
-	//	'int' | 'float' | 'bool' | 'string';
+	//	'int' | 'int8' 'int32' | 'int64'
+	//	| 'float' | 'float32' | 'float64'
+	//	| 'bool' | 'string';
 	public TerminalRule getLITERAL_TYPERule() {
 		return tLITERAL_TYPE;
 	}
