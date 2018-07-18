@@ -571,8 +571,10 @@ IfStmt:
 FallthroughStmt:
 	'fallthrough';
 
-SwitchStmt:
-	ExprSwitchStmt | TypeSwitchStmt;
+SwitchStmt: 
+	{SwitchStmt} tss=TypeSwitchStmt | {SwitchStmt}
+	expr=ExprSwitchStmt 
+;
 
 SelectStmt:
 	{SelectStmt}
@@ -632,17 +634,17 @@ ShortVarDecl: {ShortVarDecl}
 
 ExprSwitchStmt:
 	{ExprSwitchStmt}
-	'switch' (simplestmt=SimpleStmt ';')? (expression=Expression)? "{" (exprcase+=ExprCaseClause)* "}";
+	'switch' (simplestmt=SimpleStmt (';')?)? (expression=Expression)? "{" (exprcase+=ExprCaseClause)* "}";
 
-ExprCaseClause:
-	ExprSwitchCase ':' statementlist=StatementList;
+ExprCaseClause: {ExprCaseClause}
+	expr=ExprSwitchCase ':' statementlist=StatementList;
 
 ExprSwitchCase:
 	{ExprSwitchCase}
 	'case' expressionlist=ExpressionList | {ExprSwitchCase} 'default';
 
 TypeSwitchStmt:
-	'switch' (simplestm=SimpleStmt ';')? typesg=TypeSwitchGuard '{' (typecc+=TypeCaseClause)* '}';
+	'switch' (simplestm=SimpleStmt (';')?)? typesg=TypeSwitchGuard '{' (typecc+=TypeCaseClause)* '}';
 
 TypeSwitchGuard:
 	(id=IDENTIFIER ':=')? per=PrimaryExpr '.' '(' 'type' ')';
@@ -732,7 +734,7 @@ Index:
 Slice:
 	{Slice}
 	'[' (expression=Expression)? ':' (expression2=Expression)? ']' |
-	{Slice} ('[')? (expression=Expression)? ':' (expression2=Expression)?  (']')?|
+	//{Slice} ('[')? (expression=Expression)? ':' (expression2=Expression)?  (']')?|
 	'[' (expression3=Expression)? ':' expression4=Expression ':' expression5=Expression ']';
 
 TypeAssertion:

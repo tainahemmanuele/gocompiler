@@ -498,9 +498,9 @@ ruleFallthroughStmt:
 // Rule SwitchStmt
 ruleSwitchStmt:
 	(
-		ruleExprSwitchStmt
-		    |
 		ruleTypeSwitchStmt
+		    |
+		ruleExprSwitchStmt
 	)
 ;
 
@@ -676,7 +676,7 @@ ruleExprSwitchStmt:
 	'switch'
 	(
 		ruleSimpleStmt
-		';'
+		';'?
 	)?
 	ruleExpression
 	?
@@ -708,7 +708,7 @@ ruleTypeSwitchStmt:
 	'switch'
 	(
 		ruleSimpleStmt
-		';'
+		';'?
 	)?
 	ruleTypeSwitchGuard
 	'{'
@@ -970,14 +970,6 @@ ruleSlice:
 		ruleExpression
 		?
 		']'
-		    |
-		'['?
-		ruleExpression
-		?
-		':'
-		ruleExpression
-		?
-		']'?
 		    |
 		'['
 		ruleExpression

@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -39,7 +40,7 @@ import org.xtext.example.mydsl.go.TypeSwitchStmt;
  *
  * @generated
  */
-public class TypeSwitchStmtImpl extends SwitchStmtImpl implements TypeSwitchStmt
+public class TypeSwitchStmtImpl extends MinimalEObjectImpl.Container implements TypeSwitchStmt
 {
   /**
    * The cached value of the '{@link #getSimplestm() <em>Simplestm</em>}' containment reference.

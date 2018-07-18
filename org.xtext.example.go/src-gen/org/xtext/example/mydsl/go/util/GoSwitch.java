@@ -478,7 +478,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         ExprSwitchStmt exprSwitchStmt = (ExprSwitchStmt)theEObject;
         T result = caseExprSwitchStmt(exprSwitchStmt);
-        if (result == null) result = caseSwitchStmt(exprSwitchStmt);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -493,7 +492,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         ExprSwitchCase exprSwitchCase = (ExprSwitchCase)theEObject;
         T result = caseExprSwitchCase(exprSwitchCase);
-        if (result == null) result = caseExprCaseClause(exprSwitchCase);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -501,7 +499,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         TypeSwitchStmt typeSwitchStmt = (TypeSwitchStmt)theEObject;
         T result = caseTypeSwitchStmt(typeSwitchStmt);
-        if (result == null) result = caseSwitchStmt(typeSwitchStmt);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
