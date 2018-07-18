@@ -5,16 +5,21 @@ package org.xtext.example.mydsl.go.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.example.mydsl.go.GoPackage;
 import org.xtext.example.mydsl.go.ImportDecl;
+import org.xtext.example.mydsl.go.ImportSpec;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,24 +38,24 @@ import org.xtext.example.mydsl.go.ImportDecl;
 public class ImportDeclImpl extends MinimalEObjectImpl.Container implements ImportDecl
 {
   /**
-   * The cached value of the '{@link #getImports() <em>Imports</em>}' attribute list.
+   * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getImports()
    * @generated
    * @ordered
    */
-  protected EList<String> imports;
+  protected EList<ImportSpec> imports;
 
   /**
-   * The cached value of the '{@link #getImports2() <em>Imports2</em>}' attribute list.
+   * The cached value of the '{@link #getImports2() <em>Imports2</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getImports2()
    * @generated
    * @ordered
    */
-  protected EList<String> imports2;
+  protected EList<ImportSpec> imports2;
 
   /**
    * <!-- begin-user-doc -->
@@ -78,11 +83,11 @@ public class ImportDeclImpl extends MinimalEObjectImpl.Container implements Impo
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getImports()
+  public EList<ImportSpec> getImports()
   {
     if (imports == null)
     {
-      imports = new EDataTypeEList<String>(String.class, this, GoPackage.IMPORT_DECL__IMPORTS);
+      imports = new EObjectContainmentEList<ImportSpec>(ImportSpec.class, this, GoPackage.IMPORT_DECL__IMPORTS);
     }
     return imports;
   }
@@ -92,13 +97,31 @@ public class ImportDeclImpl extends MinimalEObjectImpl.Container implements Impo
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getImports2()
+  public EList<ImportSpec> getImports2()
   {
     if (imports2 == null)
     {
-      imports2 = new EDataTypeEList<String>(String.class, this, GoPackage.IMPORT_DECL__IMPORTS2);
+      imports2 = new EObjectContainmentEList<ImportSpec>(ImportSpec.class, this, GoPackage.IMPORT_DECL__IMPORTS2);
     }
     return imports2;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case GoPackage.IMPORT_DECL__IMPORTS:
+        return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
+      case GoPackage.IMPORT_DECL__IMPORTS2:
+        return ((InternalEList<?>)getImports2()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -132,11 +155,11 @@ public class ImportDeclImpl extends MinimalEObjectImpl.Container implements Impo
     {
       case GoPackage.IMPORT_DECL__IMPORTS:
         getImports().clear();
-        getImports().addAll((Collection<? extends String>)newValue);
+        getImports().addAll((Collection<? extends ImportSpec>)newValue);
         return;
       case GoPackage.IMPORT_DECL__IMPORTS2:
         getImports2().clear();
-        getImports2().addAll((Collection<? extends String>)newValue);
+        getImports2().addAll((Collection<? extends ImportSpec>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -178,25 +201,6 @@ public class ImportDeclImpl extends MinimalEObjectImpl.Container implements Impo
         return imports2 != null && !imports2.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (imports: ");
-    result.append(imports);
-    result.append(", imports2: ");
-    result.append(imports2);
-    result.append(')');
-    return result.toString();
   }
 
 } //ImportDeclImpl

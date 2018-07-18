@@ -3,7 +3,32 @@
  */
 package org.xtext.example.mydsl.validation;
 
+import com.google.common.base.Objects;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.CollectionLiterals;
+import org.xtext.example.mydsl.go.BasicLit;
+import org.xtext.example.mydsl.go.ConstDecl;
+import org.xtext.example.mydsl.go.Expression;
+import org.xtext.example.mydsl.go.Expression2;
+import org.xtext.example.mydsl.go.ExpressionList;
+import org.xtext.example.mydsl.go.ForClause;
+import org.xtext.example.mydsl.go.FunctionDecl;
+import org.xtext.example.mydsl.go.IdentifierList;
+import org.xtext.example.mydsl.go.ImportDecl;
+import org.xtext.example.mydsl.go.ImportSpec;
+import org.xtext.example.mydsl.go.Literal;
+import org.xtext.example.mydsl.go.Operand;
+import org.xtext.example.mydsl.go.OperandName;
+import org.xtext.example.mydsl.go.ParameterDecl;
+import org.xtext.example.mydsl.go.ParameterList;
+import org.xtext.example.mydsl.go.ShortVarDecl;
+import org.xtext.example.mydsl.go.Type;
+import org.xtext.example.mydsl.go.VarDecl;
 import org.xtext.example.mydsl.validation.AbstractGoValidator;
+import org.xtext.example.mydsl.validation.util.NullObj;
 
 /**
  * This class contains custom validation rules.
@@ -12,4 +37,606 @@ import org.xtext.example.mydsl.validation.AbstractGoValidator;
  */
 @SuppressWarnings("all")
 public class GoValidator extends AbstractGoValidator {
+  private final LinkedHashMap<Object, Object> ids = CollectionLiterals.<Object, Object>newLinkedHashMap();
+  
+  /**
+   * Checa alguns tipos de expressões que estão presentes no escopo do projeto
+   */
+  @Check
+  public void checkExpression(final Expression e) {
+    if (((e.getExp() != null) && (e.getExp() instanceof Expression2))) {
+      String binaryOperator = e.getExp().getBop();
+      if ((Objects.equal(binaryOperator, "||") || Objects.equal(e.getExp().getBop(), "&&"))) {
+        this.checkRelExp(e);
+      } else {
+        boolean _isArithimeticOp = this.isArithimeticOp(binaryOperator);
+        if (_isArithimeticOp) {
+          this.checkAritOp(e, binaryOperator);
+        } else {
+          boolean _isBooleanOp = this.isBooleanOp(binaryOperator);
+          if (_isBooleanOp) {
+            this.checkBooleanOp(e, binaryOperator);
+          }
+        }
+      }
+    }
+  }
+  
+  /**
+   * Checa a declaração de uma constante e realiza a sintese
+   */
+  @Check
+  public void checkConstDecl(final ConstDecl cd) {
+    String constId = cd.getConstspec().getId().getId();
+    this.nullDeclaration(constId);
+    String constType = cd.getConstspec().getTp().getTp();
+    BasicLit constExp = cd.getConstspec().getExpressionlist().getExp().getUp().getPr().getOp().getLiteral().getBasic();
+    if (((constType != null) && (constExp != null))) {
+      boolean error = this.checkAndMakeDecl(constId, constType, constExp);
+      if (((constId != constId.toUpperCase()) && (!error))) {
+        this.warning("Constants usually be declared with Upper Case", null);
+      }
+    }
+  }
+  
+  /**
+   * Checa a declaração de uma variavel e realiza a sintese
+   */
+  @Check
+  public void checkVarDecl(final VarDecl vd) {
+    String varId = vd.getVarspec().getId().getId();
+    this.nullDeclaration(varId);
+    Type type = vd.getVarspec().getTp2();
+    BasicLit varExp = vd.getVarspec().getExpressionlist().getExp().getUp().getPr().getOp().getLiteral().getBasic();
+    if (((type != null) && (varExp != null))) {
+      String varType = type.getTp();
+      if ((varType != null)) {
+        boolean error = this.checkAndMakeDecl(varId, varType, varExp);
+        if (((varId.charAt(0) != varId.toLowerCase().charAt(0)) && (!error))) {
+          this.warning("Variables usually starts with Lower Case", null);
+        }
+      }
+    }
+    LinkedList<String> varIds = CollectionLiterals.<String>newLinkedList();
+    EList<String> _id2 = vd.getVarspec().getId().getId2();
+    for (final String id : _id2) {
+      varIds.add(id);
+    }
+    LinkedList<BasicLit> exps = CollectionLiterals.<BasicLit>newLinkedList();
+    EList<Expression> _expression2 = vd.getVarspec().getExpressionlist().getExpression2();
+    boolean _tripleNotEquals = (_expression2 != null);
+    if (_tripleNotEquals) {
+      EList<Expression> _expression2_1 = vd.getVarspec().getExpressionlist().getExpression2();
+      for (final Expression expr : _expression2_1) {
+        exps.add(expr.getUp().getPr().getOp().getLiteral().getBasic());
+      }
+    }
+    int _size = varIds.size();
+    int _size_1 = exps.size();
+    boolean _equals = (_size == _size_1);
+    if (_equals) {
+      int index = 0;
+      for (final String id_1 : varIds) {
+        if ((type != null)) {
+          this.checkAndMakeDecl(id_1, type.getTp(), exps.get(index));
+        } else {
+          this.nullDeclaration(id_1);
+        }
+      }
+    } else {
+      this.error("Semantic Error: Wrong number of atributes", null);
+    }
+  }
+  
+  /**
+   * Realiza a sintese dos imports
+   */
+  @Check
+  public void imporDecl(final ImportDecl id) {
+    EList<ImportSpec> imports = id.getImports();
+    for (final ImportSpec import_ : imports) {
+      this.nullDeclaration(import_.getIp().replaceAll("\"", ""));
+    }
+  }
+  
+  /**
+   * Realiza a sintese da declaração contida em um for
+   */
+  @Check
+  public Object forDecl(final ForClause fd) {
+    Object _xblockexpression = null;
+    {
+      IdentifierList forID = fd.getInit().getSimple().getSvd().getIdl();
+      Operand forVar = fd.getInit().getSimple().getSvd().getEpl().getExp().getUp().getPr().getOp();
+      Object _xifexpression = null;
+      Literal _literal = forVar.getLiteral();
+      boolean _tripleNotEquals = (_literal != null);
+      if (_tripleNotEquals) {
+        boolean _xblockexpression_1 = false;
+        {
+          String type = this.getBasicLitType(forVar.getLiteral().getBasic());
+          boolean _xifexpression_1 = false;
+          if ((type != null)) {
+            _xifexpression_1 = this.checkAndMakeDecl(forID.getId(), type, forVar.getLiteral().getBasic());
+          } else {
+            this.error("Semantic Error: Invalid declaration", null);
+          }
+          _xblockexpression_1 = _xifexpression_1;
+        }
+        _xifexpression = Boolean.valueOf(_xblockexpression_1);
+      } else {
+        Object _xifexpression_1 = null;
+        String _id = forVar.getOperandn().getId();
+        boolean _tripleNotEquals_1 = (_id != null);
+        if (_tripleNotEquals_1) {
+          Object _xblockexpression_2 = null;
+          {
+            String type = this.getType(this.ids.get(forVar.getOperandn().getId()));
+            Object _xifexpression_2 = null;
+            if ((type != null)) {
+              _xifexpression_2 = this.ids.put(
+                forID.getId(), 
+                this.ids.get(forVar.getOperandn().getId()));
+            } else {
+              this.error("Semantic Error: Invalid declaration", null);
+            }
+            _xblockexpression_2 = _xifexpression_2;
+          }
+          _xifexpression_1 = _xblockexpression_2;
+        } else {
+          this.error("Semantic Error: Invalid declaration", null);
+        }
+        _xifexpression = _xifexpression_1;
+      }
+      _xblockexpression = _xifexpression;
+    }
+    return _xblockexpression;
+  }
+  
+  /**
+   * Realiza a sintese da declaração de uma função
+   */
+  @Check
+  public Object funcDecla(final FunctionDecl fd) {
+    Object _xblockexpression = null;
+    {
+      String funcName = fd.getFunctionn();
+      ParameterList parameters = fd.getSignature().getParameters().getParameterlist();
+      LinkedHashMap<String, Object> parameterList = CollectionLiterals.<String, Object>newLinkedHashMap();
+      Type _type = parameters.getParameterDecl1().getType();
+      boolean _tripleNotEquals = (_type != null);
+      if (_tripleNotEquals) {
+        parameterList.put(
+          parameters.getParameterDecl1().getId(), 
+          parameters.getParameterDecl1().getType().getTp());
+        this.ids.put(
+          parameters.getParameterDecl1().getId(), 
+          parameters.getParameterDecl1().getType().getTp());
+      } else {
+        String _id = parameters.getParameterDecl1().getId();
+        NullObj _nullObj = new NullObj();
+        parameterList.put(_id, _nullObj);
+        String _id_1 = parameters.getParameterDecl1().getId();
+        NullObj _nullObj_1 = new NullObj();
+        this.ids.put(_id_1, _nullObj_1);
+      }
+      EList<ParameterDecl> _parameterdecl = parameters.getParameterdecl();
+      for (final ParameterDecl param : _parameterdecl) {
+        Type _type_1 = param.getType();
+        boolean _tripleNotEquals_1 = (_type_1 != null);
+        if (_tripleNotEquals_1) {
+          parameterList.put(
+            param.getId(), 
+            param.getType().getTp());
+        } else {
+          String _id_2 = param.getId();
+          NullObj _nullObj_2 = new NullObj();
+          parameterList.put(_id_2, _nullObj_2);
+        }
+      }
+      _xblockexpression = this.ids.put(funcName, parameterList.toString());
+    }
+    return _xblockexpression;
+  }
+  
+  /**
+   * Verifica se identificadores foram declarados
+   */
+  @Check
+  public void checkOperandName(final Operand op) {
+    boolean _containsKey = this.ids.containsKey(op.getOperandn().getId());
+    boolean _not = (!_containsKey);
+    if (_not) {
+      String _id = op.getOperandn().getId();
+      String _plus = ("Semantic Error: Identifier " + _id);
+      String _plus_1 = (_plus + " was never declared");
+      this.error(_plus_1, null);
+    } else {
+      boolean _contains = this.ids.get(op.getOperandn().getId()).toString().contains(",");
+      if (_contains) {
+        String[] elements = this.ids.get(op.getOperandn().getId()).toString().split(",");
+        ExpressionList expList = op.getExp();
+        this.callMethodCheck(expList, elements, op);
+      }
+    }
+  }
+  
+  /**
+   * Realiza a declaração de expressoes 'Short'
+   */
+  @Check
+  public Object shortVarDecl(final ShortVarDecl sv) {
+    return this.ids.put(
+      sv.getIdl().getId(), 
+      sv.getEpl());
+  }
+  
+  /**
+   * Checa se uma declaração é valida
+   */
+  public boolean checkAndMakeDecl(final String id, final String constType, final BasicLit literal) {
+    boolean error = false;
+    boolean _equals = Objects.equal(constType, "float");
+    if (_equals) {
+      String _intd = literal.getIntd();
+      boolean _tripleNotEquals = (_intd != null);
+      if (_tripleNotEquals) {
+        String _intd_1 = literal.getIntd();
+        Integer _integer = new Integer(_intd_1);
+        this.ids.put(id, _integer);
+      } else {
+        String _floatd = literal.getFloatd();
+        boolean _tripleNotEquals_1 = (_floatd != null);
+        if (_tripleNotEquals_1) {
+          String _floatd_1 = literal.getFloatd();
+          Double _double = new Double(_floatd_1);
+          this.ids.put(id, _double);
+        } else {
+          error = true;
+          this.error("Semantic Error: Invalid declaration, operator \r\n\t\t\t\t\t\tnot assigned to float.", null);
+        }
+      }
+    } else {
+      boolean _equals_1 = Objects.equal(constType, "int");
+      if (_equals_1) {
+        String _intd_2 = literal.getIntd();
+        boolean _tripleNotEquals_2 = (_intd_2 != null);
+        if (_tripleNotEquals_2) {
+          String _intd_3 = literal.getIntd();
+          Integer _integer_1 = new Integer(_intd_3);
+          this.ids.put(id, _integer_1);
+        } else {
+          error = true;
+          this.error("Semantic Error: Invalid declaration, operator \r\n\t\t\t\t\t\tnot assigned to int.", null);
+        }
+      } else {
+        boolean _equals_2 = Objects.equal(constType, "string");
+        if (_equals_2) {
+          String _strd = literal.getStrd();
+          boolean _tripleNotEquals_3 = (_strd != null);
+          if (_tripleNotEquals_3) {
+            String _strd_1 = literal.getStrd();
+            String _string = new String(_strd_1);
+            this.ids.put(id, _string);
+          } else {
+            error = true;
+            this.error("Semantic Error: Invalid declaration, operator \r\n\t\t\t\t\t\tnot assigned to string.", null);
+          }
+        } else {
+          boolean _equals_3 = Objects.equal(constType, "bool");
+          if (_equals_3) {
+            String _bool = literal.getBool();
+            boolean _tripleNotEquals_4 = (_bool != null);
+            if (_tripleNotEquals_4) {
+              String _bool_1 = literal.getBool();
+              Boolean _boolean = new Boolean(_bool_1);
+              this.ids.put(id, _boolean);
+            } else {
+              error = true;
+              this.error("Semantic Error: Invalid declaration, operator \r\n\t\t\t\t\t\tnot assigned to boolean.", null);
+            }
+          }
+        }
+      }
+    }
+    return error;
+  }
+  
+  /**
+   * Checa a chamada de métodos
+   */
+  protected void callMethodCheck(final ExpressionList expList, final String[] elements, final Operand op) {
+    int termsCount = 0;
+    OperandName _operandn = expList.getExp().getUp().getPr().getOp().getOperandn();
+    boolean _tripleNotEquals = (_operandn != null);
+    if (_tripleNotEquals) {
+      String _id = expList.getExp().getUp().getPr().getOp().getOperandn().getId();
+      boolean _tripleNotEquals_1 = (_id != null);
+      if (_tripleNotEquals_1) {
+        int _termsCount = termsCount;
+        termsCount = (_termsCount + 1);
+      }
+    } else {
+      BasicLit _basic = expList.getExp().getUp().getPr().getOp().getLiteral().getBasic();
+      boolean _tripleNotEquals_2 = (_basic != null);
+      if (_tripleNotEquals_2) {
+        int _termsCount_1 = termsCount;
+        termsCount = (_termsCount_1 + 1);
+      }
+    }
+    EList<Expression> _expression2 = expList.getExpression2();
+    boolean _tripleNotEquals_3 = (_expression2 != null);
+    if (_tripleNotEquals_3) {
+      EList<Expression> _expression2_1 = expList.getExpression2();
+      for (final Expression exp : _expression2_1) {
+        int _termsCount_2 = termsCount;
+        termsCount = (_termsCount_2 + 1);
+      }
+    }
+    int _length = elements.length;
+    boolean _tripleNotEquals_4 = (termsCount != _length);
+    if (_tripleNotEquals_4) {
+      String _id_1 = op.getOperandn().getId();
+      String _plus = ("Semantic Error: Wrong number of parameters for " + _id_1);
+      this.error(_plus, null);
+    }
+  }
+  
+  /**
+   * Checa se expressoes relacionais são validas
+   */
+  public void checkRelExp(final Expression e) {
+    if (((e.getUp().getPr().getOp().getLiteral() != null) && (e.getExp().getExpression().getUp().getPr().getOp().getLiteral() != null))) {
+      BasicLit basicLiteral1 = e.getUp().getPr().getOp().getLiteral().getBasic();
+      BasicLit basicLiteral2 = e.getExp().getExpression().getUp().getPr().getOp().getLiteral().getBasic();
+      if (((basicLiteral1.getBool() == null) || (basicLiteral2.getBool() == null))) {
+        this.error("Semantic Error: Invalid boolean expression", null);
+      }
+    }
+  }
+  
+  /**
+   * Checa uma operação é booleana
+   */
+  public void checkBooleanOp(final Expression e, final String binaryOp) {
+    String type1 = "";
+    String type2 = "";
+    String id1 = "";
+    String id2 = "";
+    if (((e.getUp().getPr().getOp().getLiteral() != null) && (e.getExp().getExpression().getUp().getPr().getOp().getLiteral() != null))) {
+      BasicLit basicLiteral1 = e.getUp().getPr().getOp().getLiteral().getBasic();
+      BasicLit basicLiteral2 = e.getExp().getExpression().getUp().getPr().getOp().getLiteral().getBasic();
+      type1 = this.getBasicLitType(basicLiteral1);
+      type2 = this.getBasicLitType(basicLiteral2);
+    } else {
+      Literal _literal = e.getUp().getPr().getOp().getLiteral();
+      boolean _tripleNotEquals = (_literal != null);
+      if (_tripleNotEquals) {
+        BasicLit basicLiteral1_1 = e.getUp().getPr().getOp().getLiteral().getBasic();
+        id2 = e.getExp().getExpression().getUp().getPr().getOp().getOperandn().getId();
+        type1 = this.getBasicLitType(basicLiteral1_1);
+        type2 = this.getType(this.ids.get(id2));
+      } else {
+        Literal _literal_1 = e.getExp().getExpression().getUp().getPr().getOp().getLiteral();
+        boolean _tripleNotEquals_1 = (_literal_1 != null);
+        if (_tripleNotEquals_1) {
+          id1 = e.getUp().getPr().getOp().getOperandn().getId();
+          BasicLit basicLiteral2_1 = e.getExp().getExpression().getUp().getPr().getOp().getLiteral().getBasic();
+          type2 = this.getBasicLitType(basicLiteral2_1);
+          type1 = this.getType(this.ids.get(id1));
+        } else {
+          id1 = e.getUp().getPr().getOp().getOperandn().getId();
+          id2 = e.getExp().getExpression().getUp().getPr().getOp().getOperandn().getId();
+          type1 = this.getType(this.ids.get(id1));
+          type2 = this.getType(this.ids.get(id2));
+        }
+      }
+    }
+    if ((Objects.equal(type1, "null") || Objects.equal(type2, "null"))) {
+      boolean _equals = Objects.equal(type1, "null");
+      if (_equals) {
+        this.error((("Semantic Error: " + id1) + " was declared but never assigned."), null);
+      }
+      boolean _equals_1 = Objects.equal(type2, "null");
+      if (_equals_1) {
+        this.error((("Semantic Error: " + id2) + " was declared but never assigned."), null);
+      }
+    } else {
+      this.checkTypesInBoolOp(binaryOp, type1, type2);
+    }
+  }
+  
+  /**
+   * Checa uma operação aritimética
+   */
+  public void checkAritOp(final Expression e, final String binaryOp) {
+    String type1 = "";
+    String type2 = "";
+    String id1 = "";
+    String id2 = "";
+    if (((e.getUp().getPr().getOp().getLiteral() != null) && (e.getExp().getExpression().getUp().getPr().getOp().getLiteral() != null))) {
+      BasicLit basicLiteral1 = e.getUp().getPr().getOp().getLiteral().getBasic();
+      BasicLit basicLiteral2 = e.getExp().getExpression().getUp().getPr().getOp().getLiteral().getBasic();
+      type1 = this.getBasicLitType(basicLiteral1);
+      type2 = this.getBasicLitType(basicLiteral2);
+    } else {
+      Literal _literal = e.getUp().getPr().getOp().getLiteral();
+      boolean _tripleNotEquals = (_literal != null);
+      if (_tripleNotEquals) {
+        BasicLit basicLiteral1_1 = e.getUp().getPr().getOp().getLiteral().getBasic();
+        id2 = e.getExp().getExpression().getUp().getPr().getOp().getOperandn().getId();
+        type1 = this.getBasicLitType(basicLiteral1_1);
+        type2 = this.getType(this.ids.get(id2));
+      } else {
+        Literal _literal_1 = e.getExp().getExpression().getUp().getPr().getOp().getLiteral();
+        boolean _tripleNotEquals_1 = (_literal_1 != null);
+        if (_tripleNotEquals_1) {
+          id1 = e.getUp().getPr().getOp().getOperandn().getId();
+          BasicLit basicLiteral2_1 = e.getExp().getExpression().getUp().getPr().getOp().getLiteral().getBasic();
+          type2 = this.getBasicLitType(basicLiteral2_1);
+          type1 = this.getType(this.ids.get(id1));
+        } else {
+          id1 = e.getUp().getPr().getOp().getOperandn().getId();
+          id2 = e.getExp().getExpression().getUp().getPr().getOp().getOperandn().getId();
+          type1 = this.getType(this.ids.get(id1));
+          type2 = this.getType(this.ids.get(id2));
+        }
+      }
+    }
+    if ((Objects.equal(type1, "null") || Objects.equal(type2, "null"))) {
+      boolean _equals = Objects.equal(type1, "null");
+      if (_equals) {
+        this.error((("Semantic Error: " + id1) + " was declared but never assigned."), null);
+      }
+      boolean _equals_1 = Objects.equal(type2, "null");
+      if (_equals_1) {
+        this.error((("Semantic Error: " + id2) + " was declared but never assigned."), null);
+      }
+    } else {
+      this.checkTypesInAritimeticOp(binaryOp, type1, type2);
+    }
+  }
+  
+  /**
+   * Checa se dois tipos são compativeis em uma operação aritimética
+   */
+  public void checkTypesInAritimeticOp(final String binaryOp, final String type1, final String type2) {
+    if ((Objects.equal(type1, "string") || Objects.equal(type2, "string"))) {
+      if ((Objects.equal(type1, "string") && Objects.equal(binaryOp, "+"))) {
+        if ((type2 != "string")) {
+          this.error("Semantic Error: Invalid arithmetic operation", null);
+        }
+      } else {
+        if ((Objects.equal(type2, "string") && Objects.equal(binaryOp, "+"))) {
+          if ((type1 != "string")) {
+            this.error("Semantic Error: Invalid arithmetic operation", null);
+          }
+        } else {
+          this.error(
+            (("Semantic Error: Invalid arithmetic operation, operator " + binaryOp) + " not defined on string."), null);
+        }
+      }
+    } else {
+      if ((Objects.equal(type1, "bool") || Objects.equal(type2, "bool"))) {
+        this.error("Semantic Error: Invalid arithmetic operation", null);
+      }
+    }
+  }
+  
+  /**
+   * Checa os tipos de uma operação booleana
+   */
+  protected void checkTypesInBoolOp(final String binaryOp, final String type1, final String type2) {
+    if ((Objects.equal(binaryOp, "==") || Objects.equal(binaryOp, "!="))) {
+      boolean _notEquals = (!Objects.equal(type1, type2));
+      if (_notEquals) {
+        this.error(((("Semantic Error: Invalid boolean operation. Mismatched types " + type1) + " and ") + type2), null);
+      }
+    } else {
+      boolean _equals = Objects.equal(type1, "int");
+      if (_equals) {
+        if ((Objects.equal(type2, "bool") || Objects.equal(type2, "string"))) {
+          this.error(((("Semantic Error: Invalid boolean operation. Mismatched types " + type1) + " and ") + type2), null);
+        }
+      } else {
+        boolean _equals_1 = Objects.equal(type1, "float");
+        if (_equals_1) {
+          if ((Objects.equal(type2, "bool") || Objects.equal(type2, "string"))) {
+            this.error(((("Semantic Error: Invalid boolean operation. Mismatched types " + type1) + " and ") + type2), null);
+          }
+        } else {
+          if ((Objects.equal(type1, "bool") || Objects.equal(type2, "bool"))) {
+            this.error((("Semantic Error: Invalid boolean operation. Operator " + binaryOp) + 
+              " not defined on bool."), null);
+          } else {
+            boolean _equals_2 = Objects.equal(type1, "string");
+            if (_equals_2) {
+              boolean _notEquals_1 = (!Objects.equal(type2, "string"));
+              if (_notEquals_1) {
+                this.error(((("Semantic Error: Invalid boolean operation. Mismatched types " + type1) + " and ") + type2), null);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  /**
+   * Declara IDs sem atribuição
+   */
+  public Object nullDeclaration(final String id) {
+    NullObj _nullObj = new NullObj();
+    return this.ids.put(id, _nullObj);
+  }
+  
+  /**
+   * Retorna se é operação aritimética
+   */
+  protected boolean isArithimeticOp(final String binaryOperator) {
+    return ((((Objects.equal(binaryOperator, "+") || Objects.equal(binaryOperator, "-")) || Objects.equal(binaryOperator, "*")) || Objects.equal(binaryOperator, "/")) || Objects.equal(binaryOperator, "%"));
+  }
+  
+  /**
+   * Retorna se a operação é booleana
+   */
+  protected boolean isBooleanOp(final String binaryOperator) {
+    return (((((Objects.equal(binaryOperator, "==") || Objects.equal(binaryOperator, "!=")) || Objects.equal(binaryOperator, "<")) || Objects.equal(binaryOperator, "<=")) || Objects.equal(binaryOperator, ">")) || Objects.equal(binaryOperator, ">="));
+  }
+  
+  /**
+   * Retorna o tipo de um objeto
+   */
+  public String getType(final Object obj) {
+    if ((obj instanceof Integer)) {
+      return "int";
+    } else {
+      if ((obj instanceof Double)) {
+        return "float";
+      } else {
+        if ((obj instanceof Boolean)) {
+          return "bool";
+        } else {
+          if ((obj instanceof String)) {
+            return "string";
+          } else {
+            if ((obj instanceof NullObj)) {
+              return "null";
+            }
+          }
+        }
+      }
+    }
+    return null;
+  }
+  
+  /**
+   * Retorna o tipo de um literal
+   */
+  public String getBasicLitType(final BasicLit lit) {
+    String _bool = lit.getBool();
+    boolean _tripleNotEquals = (_bool != null);
+    if (_tripleNotEquals) {
+      return "bool";
+    } else {
+      String _intd = lit.getIntd();
+      boolean _tripleNotEquals_1 = (_intd != null);
+      if (_tripleNotEquals_1) {
+        return "int";
+      } else {
+        String _floatd = lit.getFloatd();
+        boolean _tripleNotEquals_2 = (_floatd != null);
+        if (_tripleNotEquals_2) {
+          return "float";
+        } else {
+          String _strd = lit.getStrd();
+          boolean _tripleNotEquals_3 = (_strd != null);
+          if (_tripleNotEquals_3) {
+            return "string";
+          }
+        }
+      }
+    }
+    return null;
+  }
 }

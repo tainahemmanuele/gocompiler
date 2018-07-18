@@ -3,7 +3,7 @@
  */
 package org.xtext.example.mydsl.scoping;
 
-import org.xtext.example.mydsl.scoping.AbstractGoScopeProvider;
+import org.eclipse.xtext.scoping.impl.DelegatingScopeProvider;
 
 /**
  * This class contains custom scoping description.
@@ -12,5 +12,5 @@ import org.xtext.example.mydsl.scoping.AbstractGoScopeProvider;
  * on how and when to use it.
  */
 @SuppressWarnings("all")
-public class GoScopeProvider extends AbstractGoScopeProvider {
+public class GoScopeProvider extends DelegatingScopeProvider {
 }

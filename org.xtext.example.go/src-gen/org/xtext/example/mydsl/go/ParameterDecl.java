@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.go.ParameterDecl#getIdentifierL <em>Identifier L</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.ParameterDecl#getId <em>Id</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.ParameterDecl#getType <em>Type</em>}</li>
  * </ul>
  *
@@ -25,30 +25,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface ParameterDecl extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Identifier L</b></em>' containment reference.
+   * Returns the value of the '<em><b>Id</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Identifier L</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Id</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Identifier L</em>' containment reference.
-   * @see #setIdentifierL(IdentifierList)
-   * @see org.xtext.example.mydsl.go.GoPackage#getParameterDecl_IdentifierL()
-   * @model containment="true"
+   * @return the value of the '<em>Id</em>' attribute.
+   * @see #setId(String)
+   * @see org.xtext.example.mydsl.go.GoPackage#getParameterDecl_Id()
+   * @model
    * @generated
    */
-  IdentifierList getIdentifierL();
+  String getId();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.go.ParameterDecl#getIdentifierL <em>Identifier L</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.ParameterDecl#getId <em>Id</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Identifier L</em>' containment reference.
-   * @see #getIdentifierL()
+   * @param value the new value of the '<em>Id</em>' attribute.
+   * @see #getId()
    * @generated
    */
-  void setIdentifierL(IdentifierList value);
+  void setId(String value);
 
   /**
    * Returns the value of the '<em><b>Type</b></em>' containment reference.

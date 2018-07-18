@@ -861,6 +861,15 @@ public interface GoFactory extends EFactory
   Element createElement();
 
   /**
+   * Returns a new object of class '<em>Basic Lit</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Basic Lit</em>'.
+   * @generated
+   */
+  BasicLit createBasicLit();
+
+  /**
    * Returns a new object of class '<em>Receiver Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -895,6 +904,15 @@ public interface GoFactory extends EFactory
    * @generated
    */
   ImportDecl createImportDecl();
+
+  /**
+   * Returns a new object of class '<em>Import Spec</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Import Spec</em>'.
+   * @generated
+   */
+  ImportSpec createImportSpec();
 
   /**
    * Returns the package supported by this factory.

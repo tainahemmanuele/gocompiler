@@ -98,7 +98,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         MethodDecl methodDecl = (MethodDecl)theEObject;
         T result = caseMethodDecl(methodDecl);
-        if (result == null) result = caseTopLevelDecl(methodDecl);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -113,7 +112,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         FunctionDecl functionDecl = (FunctionDecl)theEObject;
         T result = caseFunctionDecl(functionDecl);
-        if (result == null) result = caseTopLevelDecl(functionDecl);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -316,7 +314,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         Declaration declaration = (Declaration)theEObject;
         T result = caseDeclaration(declaration);
-        if (result == null) result = caseTopLevelDecl(declaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -381,8 +378,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         ConstDecl constDecl = (ConstDecl)theEObject;
         T result = caseConstDecl(constDecl);
-        if (result == null) result = caseDeclaration(constDecl);
-        if (result == null) result = caseTopLevelDecl(constDecl);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -397,8 +392,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         TypeDecl typeDecl = (TypeDecl)theEObject;
         T result = caseTypeDecl(typeDecl);
-        if (result == null) result = caseDeclaration(typeDecl);
-        if (result == null) result = caseTopLevelDecl(typeDecl);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -429,8 +422,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         VarDecl varDecl = (VarDecl)theEObject;
         T result = caseVarDecl(varDecl);
-        if (result == null) result = caseDeclaration(varDecl);
-        if (result == null) result = caseTopLevelDecl(varDecl);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -774,6 +765,13 @@ public class GoSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GoPackage.BASIC_LIT:
+      {
+        BasicLit basicLit = (BasicLit)theEObject;
+        T result = caseBasicLit(basicLit);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GoPackage.RECEIVER_TYPE:
       {
         ReceiverType receiverType = (ReceiverType)theEObject;
@@ -800,6 +798,13 @@ public class GoSwitch<T> extends Switch<T>
       {
         ImportDecl importDecl = (ImportDecl)theEObject;
         T result = caseImportDecl(importDecl);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case GoPackage.IMPORT_SPEC:
+      {
+        ImportSpec importSpec = (ImportSpec)theEObject;
+        T result = caseImportSpec(importSpec);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -2296,6 +2301,22 @@ public class GoSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Basic Lit</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Basic Lit</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBasicLit(BasicLit object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Receiver Type</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -2355,6 +2376,22 @@ public class GoSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseImportDecl(ImportDecl object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Import Spec</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Import Spec</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseImportSpec(ImportSpec object)
   {
     return null;
   }

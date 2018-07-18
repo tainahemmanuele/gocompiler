@@ -14,7 +14,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Compilation_initial/importdecl"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Compilation_initial/toplevel"/>
     </genClasses>
-    <genClasses ecoreClass="Go.ecore#//TopLevelDecl"/>
+    <genClasses ecoreClass="Go.ecore#//TopLevelDecl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//TopLevelDecl/dl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//TopLevelDecl/fd"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//TopLevelDecl/mt"/>
+    </genClasses>
     <genClasses ecoreClass="Go.ecore#//MethodDecl">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//MethodDecl/receiver"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//MethodDecl/method"/>
@@ -76,7 +80,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ParameterList/parameterdecl"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//ParameterDecl">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ParameterDecl/identifierL"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//ParameterDecl/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ParameterDecl/type"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//InterfaceType">
@@ -115,7 +119,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Statement/forst"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Statement/deferst"/>
     </genClasses>
-    <genClasses ecoreClass="Go.ecore#//Declaration"/>
+    <genClasses ecoreClass="Go.ecore#//Declaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Declaration/cd"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Declaration/td"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Declaration/vd"/>
+    </genClasses>
     <genClasses ecoreClass="Go.ecore#//LabeledStmt">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//LabeledStmt/label"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//LabeledStmt/statement"/>
@@ -295,6 +303,7 @@
     <genClasses ecoreClass="Go.ecore#//Operand">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Operand/literal"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Operand/operandn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Operand/exp"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Operand/expression"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//Conversion">
@@ -318,7 +327,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Arguments/type"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//Literal">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//Literal/basic"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Literal/basic"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Literal/cl"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Literal/fl"/>
     </genClasses>
@@ -350,6 +359,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//Key/fieldn"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//Element"/>
+    <genClasses ecoreClass="Go.ecore#//BasicLit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//BasicLit/intd"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//BasicLit/floatd"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//BasicLit/imagd"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//BasicLit/runed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//BasicLit/strd"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//BasicLit/bool"/>
+    </genClasses>
     <genClasses ecoreClass="Go.ecore#//ReceiverType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//ReceiverType/methodn"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ReceiverType/type"/>
@@ -360,8 +377,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//OperandName/qi"/>
     </genClasses>
     <genClasses ecoreClass="Go.ecore#//ImportDecl">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//ImportDecl/imports"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//ImportDecl/imports2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ImportDecl/imports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ImportDecl/imports2"/>
+    </genClasses>
+    <genClasses ecoreClass="Go.ecore#//ImportSpec">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//ImportSpec/ip"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

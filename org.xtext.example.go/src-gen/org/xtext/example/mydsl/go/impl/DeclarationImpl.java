@@ -3,20 +3,68 @@
  */
 package org.xtext.example.mydsl.go.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.xtext.example.mydsl.go.ConstDecl;
 import org.xtext.example.mydsl.go.Declaration;
 import org.xtext.example.mydsl.go.GoPackage;
+import org.xtext.example.mydsl.go.TypeDecl;
+import org.xtext.example.mydsl.go.VarDecl;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Declaration</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.DeclarationImpl#getCd <em>Cd</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.DeclarationImpl#getTd <em>Td</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.DeclarationImpl#getVd <em>Vd</em>}</li>
+ * </ul>
  *
  * @generated
  */
-public class DeclarationImpl extends TopLevelDeclImpl implements Declaration
+public class DeclarationImpl extends MinimalEObjectImpl.Container implements Declaration
 {
+  /**
+   * The cached value of the '{@link #getCd() <em>Cd</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCd()
+   * @generated
+   * @ordered
+   */
+  protected ConstDecl cd;
+
+  /**
+   * The cached value of the '{@link #getTd() <em>Td</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTd()
+   * @generated
+   * @ordered
+   */
+  protected TypeDecl td;
+
+  /**
+   * The cached value of the '{@link #getVd() <em>Vd</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVd()
+   * @generated
+   * @ordered
+   */
+  protected VarDecl vd;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +84,256 @@ public class DeclarationImpl extends TopLevelDeclImpl implements Declaration
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.DECLARATION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ConstDecl getCd()
+  {
+    return cd;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetCd(ConstDecl newCd, NotificationChain msgs)
+  {
+    ConstDecl oldCd = cd;
+    cd = newCd;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.DECLARATION__CD, oldCd, newCd);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setCd(ConstDecl newCd)
+  {
+    if (newCd != cd)
+    {
+      NotificationChain msgs = null;
+      if (cd != null)
+        msgs = ((InternalEObject)cd).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.DECLARATION__CD, null, msgs);
+      if (newCd != null)
+        msgs = ((InternalEObject)newCd).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.DECLARATION__CD, null, msgs);
+      msgs = basicSetCd(newCd, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.DECLARATION__CD, newCd, newCd));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TypeDecl getTd()
+  {
+    return td;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetTd(TypeDecl newTd, NotificationChain msgs)
+  {
+    TypeDecl oldTd = td;
+    td = newTd;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.DECLARATION__TD, oldTd, newTd);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTd(TypeDecl newTd)
+  {
+    if (newTd != td)
+    {
+      NotificationChain msgs = null;
+      if (td != null)
+        msgs = ((InternalEObject)td).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.DECLARATION__TD, null, msgs);
+      if (newTd != null)
+        msgs = ((InternalEObject)newTd).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.DECLARATION__TD, null, msgs);
+      msgs = basicSetTd(newTd, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.DECLARATION__TD, newTd, newTd));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public VarDecl getVd()
+  {
+    return vd;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetVd(VarDecl newVd, NotificationChain msgs)
+  {
+    VarDecl oldVd = vd;
+    vd = newVd;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.DECLARATION__VD, oldVd, newVd);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setVd(VarDecl newVd)
+  {
+    if (newVd != vd)
+    {
+      NotificationChain msgs = null;
+      if (vd != null)
+        msgs = ((InternalEObject)vd).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.DECLARATION__VD, null, msgs);
+      if (newVd != null)
+        msgs = ((InternalEObject)newVd).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.DECLARATION__VD, null, msgs);
+      msgs = basicSetVd(newVd, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.DECLARATION__VD, newVd, newVd));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case GoPackage.DECLARATION__CD:
+        return basicSetCd(null, msgs);
+      case GoPackage.DECLARATION__TD:
+        return basicSetTd(null, msgs);
+      case GoPackage.DECLARATION__VD:
+        return basicSetVd(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case GoPackage.DECLARATION__CD:
+        return getCd();
+      case GoPackage.DECLARATION__TD:
+        return getTd();
+      case GoPackage.DECLARATION__VD:
+        return getVd();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case GoPackage.DECLARATION__CD:
+        setCd((ConstDecl)newValue);
+        return;
+      case GoPackage.DECLARATION__TD:
+        setTd((TypeDecl)newValue);
+        return;
+      case GoPackage.DECLARATION__VD:
+        setVd((VarDecl)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.DECLARATION__CD:
+        setCd((ConstDecl)null);
+        return;
+      case GoPackage.DECLARATION__TD:
+        setTd((TypeDecl)null);
+        return;
+      case GoPackage.DECLARATION__VD:
+        setVd((VarDecl)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.DECLARATION__CD:
+        return cd != null;
+      case GoPackage.DECLARATION__TD:
+        return td != null;
+      case GoPackage.DECLARATION__VD:
+        return vd != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //DeclarationImpl

@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.go.Operand#getLiteral <em>Literal</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.Operand#getOperandn <em>Operandn</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.Operand#getExp <em>Exp</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.Operand#getExpression <em>Expression</em>}</li>
  * </ul>
  *
@@ -76,6 +77,32 @@ public interface Operand extends EObject
    * @generated
    */
   void setOperandn(OperandName value);
+
+  /**
+   * Returns the value of the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Exp</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Exp</em>' containment reference.
+   * @see #setExp(ExpressionList)
+   * @see org.xtext.example.mydsl.go.GoPackage#getOperand_Exp()
+   * @model containment="true"
+   * @generated
+   */
+  ExpressionList getExp();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.Operand#getExp <em>Exp</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Exp</em>' containment reference.
+   * @see #getExp()
+   * @generated
+   */
+  void setExp(ExpressionList value);
 
   /**
    * Returns the value of the '<em><b>Expression</b></em>' containment reference.

@@ -27,35 +27,35 @@ import org.eclipse.emf.ecore.EObject;
 public interface ImportDecl extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Imports</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Imports</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.example.mydsl.go.ImportSpec}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Imports</em>' attribute list isn't clear,
+   * If the meaning of the '<em>Imports</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Imports</em>' attribute list.
+   * @return the value of the '<em>Imports</em>' containment reference list.
    * @see org.xtext.example.mydsl.go.GoPackage#getImportDecl_Imports()
-   * @model unique="false"
+   * @model containment="true"
    * @generated
    */
-  EList<String> getImports();
+  EList<ImportSpec> getImports();
 
   /**
-   * Returns the value of the '<em><b>Imports2</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Imports2</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.example.mydsl.go.ImportSpec}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Imports2</em>' attribute list isn't clear,
+   * If the meaning of the '<em>Imports2</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Imports2</em>' attribute list.
+   * @return the value of the '<em>Imports2</em>' containment reference list.
    * @see org.xtext.example.mydsl.go.GoPackage#getImportDecl_Imports2()
-   * @model unique="false"
+   * @model containment="true"
    * @generated
    */
-  EList<String> getImports2();
+  EList<ImportSpec> getImports2();
 
 } // ImportDecl

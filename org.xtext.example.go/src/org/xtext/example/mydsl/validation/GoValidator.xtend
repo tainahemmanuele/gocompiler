@@ -3,6 +3,19 @@
  */
 package org.xtext.example.mydsl.validation
 
+import org.eclipse.xtext.validation.Check
+import org.xtext.example.mydsl.go.BasicLit
+import org.xtext.example.mydsl.go.ConstDecl
+import org.xtext.example.mydsl.go.Expression
+import org.xtext.example.mydsl.go.Expression2
+import org.xtext.example.mydsl.go.ExpressionList
+import org.xtext.example.mydsl.go.ForClause
+import org.xtext.example.mydsl.go.FunctionDecl
+import org.xtext.example.mydsl.go.ImportDecl
+import org.xtext.example.mydsl.go.Operand
+import org.xtext.example.mydsl.go.VarDecl
+import org.xtext.example.mydsl.validation.util.NullObj
+import org.xtext.example.mydsl.go.ShortVarDecl
 
 /**
  * This class contains custom validation rules. 
@@ -11,15 +24,550 @@ package org.xtext.example.mydsl.validation
  */
 class GoValidator extends AbstractGoValidator {
 	
-//	public static val INVALID_NAME = 'invalidName'
-//
-//	@Check
-//	def checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.name.charAt(0))) {
-//			warning('Name should start with a capital', 
-//					GoPackage.Literals.GREETING__NAME,
-//					INVALID_NAME)
-//		}
-//	}
+	val ids = newLinkedHashMap()
 	
+	
+	/*
+	 * Checa alguns tipos de expressões que estão presentes no escopo do projeto
+	 */
+	@Check
+	def checkExpression(Expression e) {
+		
+		if(e.exp !== null && e.exp instanceof Expression2) {
+			
+			var binaryOperator = e.exp.bop;
+			
+			if(binaryOperator == "||" || e.exp.bop == "&&") {
+				checkRelExp(e)
+			}
+			else if(isArithimeticOp(binaryOperator)) {	
+				checkAritOp(e, binaryOperator);
+			}
+			else if(isBooleanOp(binaryOperator)) {
+				checkBooleanOp(e, binaryOperator);
+			}
+		}
+	}
+		
+	
+	/*
+	 * Checa a declaração de uma constante e realiza a sintese
+	 */
+	@Check
+	def checkConstDecl(ConstDecl cd) {
+		
+		var constId   = cd.constspec.id.id;
+		nullDeclaration(constId);
+		
+		var constType = cd.constspec.tp.tp;
+		var constExp  = cd.constspec.expressionlist.exp.up.pr.op.literal.basic;
+				
+				
+		if(constType !== null && constExp !== null) {
+			var error = checkAndMakeDecl(constId, constType, constExp);
+			if(constId !== constId.toUpperCase() && !error) {
+				warning ("Constants usually be declared with Upper Case", null);
+			}
+		}
+	}
+	
+	/*
+	 * Checa a declaração de uma variavel e realiza a sintese
+	 */
+	@Check
+	def checkVarDecl(VarDecl vd) {
+		
+		var varId   = vd.varspec.id.id;	
+		nullDeclaration(varId);
+		
+		var type    = vd.varspec.tp2;
+		var varExp  = vd.varspec.expressionlist.exp.up.pr.op.literal.basic;
+	
+		
+		if (type !== null && varExp !== null) {
+			var varType = type.tp; 		
+			if(varType !== null) {
+				var error = checkAndMakeDecl(varId, varType, varExp);
+				if(varId.charAt(0) !== varId.toLowerCase().charAt(0) && !error) {
+					warning ("Variables usually starts with Lower Case", null);
+				}
+			}
+		}
+		
+		var varIds = newLinkedList;
+		for(id : vd.varspec.id.id2) {
+			varIds.add(id)
+		}
+		
+		var exps = newLinkedList;
+		if(vd.varspec.expressionlist.expression2 !== null) {
+			for(expr : vd.varspec.expressionlist.expression2) {
+				exps.add(expr.up.pr.op.literal.basic)
+			}
+		}
+		
+		if(varIds.size == exps.size) {
+			var index = 0
+			for(id : varIds) {
+				if(type !== null) {
+					checkAndMakeDecl(id, type.tp, exps.get(index));
+				} else {
+					nullDeclaration(id)
+				}
+			}
+		}
+		else {
+			error('Semantic Error: Wrong number of atributes', null)
+		}
+	}
+	
+	/*
+	 * Realiza a sintese dos imports
+	 */
+	@Check
+	def imporDecl(ImportDecl id) {
+		var imports = id.imports
+		for(import:imports) {
+			nullDeclaration(import.ip.replaceAll("\"", ""))
+		}
+	}
+	
+	/*
+	 * Realiza a sintese da declaração contida em um for
+	 */
+	@Check
+	def forDecl(ForClause fd) {
+		
+		var forID  = fd.init.simple.svd.idl;
+		var forVar = fd.init.simple.svd.epl.exp.up.pr.op;
+		
+		if(forVar.literal !== null) {
+			var type = getBasicLitType(forVar.literal.basic)
+			if(type !== null) {
+				checkAndMakeDecl(forID.id, type, forVar.literal.basic)
+			}
+			else {
+				error("Semantic Error: Invalid declaration", null)
+			}
+		}
+		else if(forVar.operandn.id !== null) {
+			var type = getType(ids.get(forVar.operandn.id))
+			if(type !== null) {
+				ids.put(
+					forID.id,
+					ids.get(forVar.operandn.id)
+				);
+			}
+			else {
+				error("Semantic Error: Invalid declaration", null)
+			}
+		}
+		else {
+			error("Semantic Error: Invalid declaration", null);
+		}
+	}
+	
+	/*
+	 * Realiza a sintese da declaração de uma função
+	 */
+	@Check
+	def funcDecla(FunctionDecl fd) {
+		
+		var funcName      = fd.functionn;
+		var parameters    = fd.signature.parameters.parameterlist;
+		var parameterList = newLinkedHashMap()
+		
+		if(parameters.parameterDecl1.type !== null) {
+			
+			parameterList.put(
+				parameters.parameterDecl1.id,
+				parameters.parameterDecl1.type.tp
+			);
+			
+			ids.put(
+				parameters.parameterDecl1.id,
+				parameters.parameterDecl1.type.tp
+			);
+		}
+		else {
+			parameterList.put(
+				parameters.parameterDecl1.id,
+				new NullObj()
+			);
+			
+			ids.put(
+				parameters.parameterDecl1.id,
+				new NullObj()
+			);
+		}
+		
+		for(param : parameters.parameterdecl) {
+			if(param.type !== null) {
+				parameterList.put(
+					param.id,
+					param.type.tp
+				)
+			}else {
+				parameterList.put(
+					param.id,
+					new NullObj()
+				)
+			}
+		}
+		
+		ids.put(funcName, parameterList.toString);	
+	}
+	
+	/*
+	 * Verifica se identificadores foram declarados
+	 */
+	@Check
+	def checkOperandName(Operand op) {
+		
+		if(!ids.containsKey(op.operandn.id)) {	
+			error("Semantic Error: Identifier " + op.operandn.id + " was never declared" , null)
+		}
+		else if(ids.get(op.operandn.id).toString().contains(',')) {
+			
+			var elements   = ids.get(op.operandn.id).toString().split(",");
+			var expList    = op.exp;
+			callMethodCheck(expList, elements, op)
+		}
+		
+	}
+	
+	/*
+	 * Realiza a declaração de expressoes 'Short'
+	 */
+	@Check
+	def shortVarDecl(ShortVarDecl sv) {
+		ids.put(
+			sv.idl.id,
+			sv.epl
+		);
+	}
+	
+	/*
+	 * Checa se uma declaração é valida
+	 */
+	def checkAndMakeDecl(String id, String constType, BasicLit literal) {
+		
+		var error = false;
+				
+		if(constType == "float") {
+			if(literal.intd !== null) {
+				ids.put(id, new Integer(literal.intd));
+			}
+			else if(literal.floatd !== null) {
+				ids.put(id, new Double(literal.floatd));
+			}
+			else {
+				error = true;
+				error("Semantic Error: Invalid declaration, operator 
+						not assigned to float.", null);
+			}
+		} 
+		else if(constType == "int") {
+			if(literal.intd !== null) {
+				ids.put(id, new Integer(literal.intd));
+			}
+			else {
+				error = true;
+				error("Semantic Error: Invalid declaration, operator 
+						not assigned to int.", null);
+			}
+		}
+		else if(constType == "string") {
+			if(literal.strd !== null) {
+				ids.put(id, new String(literal.strd));
+			}
+			else {
+				error = true;
+				error("Semantic Error: Invalid declaration, operator 
+						not assigned to string.", null);
+			}
+		}
+		else if(constType == "bool") {
+			if(literal.bool !== null) {
+				ids.put(id, new Boolean(literal.bool));
+			}
+			else {
+				error = true;
+				error("Semantic Error: Invalid declaration, operator 
+						not assigned to boolean.", null);
+			}
+		}
+		
+		return error;
+	}
+	
+	/*
+	 * Checa a chamada de métodos
+	 */
+	protected def void callMethodCheck(ExpressionList expList, String[] elements, Operand op) {
+		var termsCount = 0
+	
+		if(expList.exp.up.pr.op.operandn !== null) {
+			if(expList.exp.up.pr.op.operandn.id !== null) {
+				termsCount += 1;
+			}
+		}else if(expList.exp.up.pr.op.literal.basic !== null) {
+			termsCount += 1;
+		}
+		
+		
+		if(expList.expression2 !== null) {
+			for(exp : expList.expression2) {
+				termsCount += 1;
+			}
+		}
+		
+		if(termsCount !== elements.length) {
+			error("Semantic Error: Wrong number of parameters for " + op.operandn.id, null )
+		}
+	}
+	
+	/*
+	 * Checa se expressoes relacionais são validas
+	 */
+	def checkRelExp(Expression e) {
+		
+		if(e.up.pr.op.literal !== null && e.exp.expression.up.pr.op.literal !== null) {
+			var basicLiteral1 = e.up.pr.op.literal.basic
+			var basicLiteral2 = e.exp.expression.up.pr.op.literal.basic	
+			
+			if(basicLiteral1.bool === null || basicLiteral2.bool === null) {
+				error("Semantic Error: Invalid boolean expression", null);
+			}
+		}
+	}
+	
+	/*
+	 * Checa uma operação é booleana
+	 */
+	def checkBooleanOp(Expression e, String binaryOp) {
+		
+		var type1 = "";
+		var type2 = "";
+		
+		var id1 = "";
+		var id2 = "";
+		
+		if(e.up.pr.op.literal !== null && e.exp.expression.up.pr.op.literal !== null) {
+			var basicLiteral1 = e.up.pr.op.literal.basic;
+			var basicLiteral2 = e.exp.expression.up.pr.op.literal.basic;
+			
+			type1 = getBasicLitType(basicLiteral1);
+			type2 = getBasicLitType(basicLiteral2);	
+		}
+		else if(e.up.pr.op.literal !== null) {
+			var basicLiteral1 = e.up.pr.op.literal.basic;
+			id2               = e.exp.expression.up.pr.op.operandn.id
+			
+			type1 = getBasicLitType(basicLiteral1);
+			type2 = getType(ids.get(id2));
+		}
+		else if(e.exp.expression.up.pr.op.literal !== null){
+			id1               = e.up.pr.op.operandn.id
+			var basicLiteral2 = e.exp.expression.up.pr.op.literal.basic;
+			
+			type2 = getBasicLitType(basicLiteral2);
+			type1 = getType(ids.get(id1));
+		}
+		else {
+			id1 = e.up.pr.op.operandn.id
+			id2 = e.exp.expression.up.pr.op.operandn.id
+			
+			type1 = getType(ids.get(id1));
+			type2 = getType(ids.get(id2));
+		}
+		
+		if(type1 == "null" || type2 == "null") {
+			if(type1 == "null") {
+				error("Semantic Error: " + id1 + " was declared but never assigned.", null)
+			}
+			if(type2 == "null") {
+				error("Semantic Error: " + id2 + " was declared but never assigned.", null)
+			}
+		}
+		else {
+			checkTypesInBoolOp(binaryOp, type1, type2)
+		}	
+	}
+	
+	/*
+	 * Checa uma operação aritimética
+	 */
+	def checkAritOp(Expression e, String binaryOp) {
+		
+		var type1 = "";
+		var type2 = "";
+		var id1 = "";
+		var id2 = "";
+		
+		if(e.up.pr.op.literal !== null && e.exp.expression.up.pr.op.literal !== null) {
+			var basicLiteral1 = e.up.pr.op.literal.basic;
+			var basicLiteral2 = e.exp.expression.up.pr.op.literal.basic;
+			
+			type1 = getBasicLitType(basicLiteral1);
+			type2 = getBasicLitType(basicLiteral2);	
+		}
+		else if(e.up.pr.op.literal !== null) {
+			var basicLiteral1 = e.up.pr.op.literal.basic;
+			id2               = e.exp.expression.up.pr.op.operandn.id;
+			
+			type1 = getBasicLitType(basicLiteral1);
+			type2 = getType(ids.get(id2));
+		}
+		else if(e.exp.expression.up.pr.op.literal !== null){
+			id1               = e.up.pr.op.operandn.id;
+			var basicLiteral2 = e.exp.expression.up.pr.op.literal.basic;
+			
+			type2 = getBasicLitType(basicLiteral2);
+			type1 = getType(ids.get(id1));
+		}
+		else {
+			id1 = e.up.pr.op.operandn.id
+			id2 = e.exp.expression.up.pr.op.operandn.id
+			
+			type1 = getType(ids.get(id1));
+			type2 = getType(ids.get(id2));
+		}
+		
+		if(type1 == "null" || type2 == "null") {
+			if(type1 == "null") {
+				error("Semantic Error: " + id1 + " was declared but never assigned.", null)
+			}
+			if(type2 == "null") {
+				error("Semantic Error: " + id2 + " was declared but never assigned.", null)
+			}
+		}
+		else {
+			checkTypesInAritimeticOp(binaryOp, type1, type2)
+		}
+	}
+	
+	/*
+	 * Checa se dois tipos são compativeis em uma operação aritimética 
+	 */
+	def checkTypesInAritimeticOp(String binaryOp, String type1, String type2) {
+	
+		if(type1 == "string" || type2 == "string") {
+			if(type1 == "string" && binaryOp == "+") {
+				if(type2 !== "string") {
+					error("Semantic Error: Invalid arithmetic operation", null)
+				}
+			}
+			else if(type2 == "string" && binaryOp == "+") {
+				if(type1 !== "string") {
+					error("Semantic Error: Invalid arithmetic operation", null)
+				}
+			}else {
+				error("Semantic Error: Invalid arithmetic operation, operator "
+						+ binaryOp + " not defined on string.", null
+					)
+			}
+		}else if(type1 == "bool" || type2 == "bool") {
+			error("Semantic Error: Invalid arithmetic operation" , null)
+		}
+	}
+	
+	/*
+	 * Checa os tipos de uma operação booleana
+	 */
+	protected def void checkTypesInBoolOp(String binaryOp, String type1, String type2) {
+		if(binaryOp == "==" || binaryOp == "!=") {
+			if(type1 != type2) {
+				error("Semantic Error: Invalid boolean operation. Mismatched types " + type1
+						+ " and " + type2, null)
+			}
+		}	
+		else{
+			if(type1 == "int") {
+				if(type2 == "bool" || type2 == "string") {
+					error("Semantic Error: Invalid boolean operation. Mismatched types " + type1
+						+ " and " + type2, null)
+				}
+			}
+			else if(type1 == "float") {
+				if(type2 == "bool" || type2 == "string") {
+					error("Semantic Error: Invalid boolean operation. Mismatched types " + type1
+						+ " and " + type2, null)
+				}
+			}else if(type1 == "bool" || type2 == "bool") {
+				error("Semantic Error: Invalid boolean operation. Operator " + binaryOp + 
+						" not defined on bool.", null)
+			} else if(type1 == "string") {
+				if(type2 != "string") {
+					error("Semantic Error: Invalid boolean operation. Mismatched types " + type1
+						+ " and " + type2, null)
+				}
+			}
+		}
+	}
+
+	/*
+	 * Declara IDs sem atribuição
+	 */
+	def nullDeclaration(String id) {
+		ids.put(id, new NullObj());
+	}
+
+
+	/*
+	 * Retorna se é operação aritimética
+	 */
+	protected def boolean isArithimeticOp(String binaryOperator) {
+		return (binaryOperator == "+" || binaryOperator == "-" || binaryOperator == "*"
+			 || binaryOperator == "/" || binaryOperator == "%")
+	}
+	
+	/*
+	 * Retorna se a operação é booleana
+	 */
+	protected def boolean isBooleanOp(String binaryOperator) {
+		
+		return (  binaryOperator == "==" || binaryOperator == "!=" 
+			    || binaryOperator == "<" || binaryOperator == "<=" 
+			    || binaryOperator == ">" || binaryOperator == ">="  );
+	}
+	
+	/*
+	 * Retorna o tipo de um objeto
+	 */
+	def getType(Object obj) {	
+		if(obj instanceof Integer) {
+			return "int"
+		}
+		else if(obj instanceof Double) {
+			return "float"
+		}
+		else if(obj instanceof Boolean) {
+			return "bool"
+		}
+		else if(obj instanceof String) {
+			return "string"
+		}
+		else if(obj instanceof NullObj) {
+			return "null"
+		}
+	}
+	
+	/*
+	 * Retorna o tipo de um literal
+	 */
+	def getBasicLitType(BasicLit lit) {
+		if(lit.bool !== null) {
+			return "bool";
+		}
+		else if(lit.intd !== null) {
+			return "int";
+		}
+		else if(lit.floatd !== null) {
+			return "float";
+		}
+		else if(lit.strd !== null) {
+			return "string";
+		}
+	}
 }
