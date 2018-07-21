@@ -1581,13 +1581,31 @@ public interface GoPackage extends EPackage
   int SWITCH_STMT = 36;
 
   /**
+   * The feature id for the '<em><b>Tss</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SWITCH_STMT__TSS = 0;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SWITCH_STMT__EXPR = 1;
+
+  /**
    * The number of structural features of the '<em>Switch Stmt</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SWITCH_STMT_FEATURE_COUNT = 0;
+  int SWITCH_STMT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.SelectStmtImpl <em>Select Stmt</em>}' class.
@@ -2235,7 +2253,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPR_SWITCH_STMT__SIMPLESTMT = SWITCH_STMT_FEATURE_COUNT + 0;
+  int EXPR_SWITCH_STMT__SIMPLESTMT = 0;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -2244,7 +2262,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPR_SWITCH_STMT__EXPRESSION = SWITCH_STMT_FEATURE_COUNT + 1;
+  int EXPR_SWITCH_STMT__EXPRESSION = 1;
 
   /**
    * The feature id for the '<em><b>Exprcase</b></em>' containment reference list.
@@ -2253,7 +2271,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPR_SWITCH_STMT__EXPRCASE = SWITCH_STMT_FEATURE_COUNT + 2;
+  int EXPR_SWITCH_STMT__EXPRCASE = 2;
 
   /**
    * The number of structural features of the '<em>Expr Switch Stmt</em>' class.
@@ -2262,7 +2280,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPR_SWITCH_STMT_FEATURE_COUNT = SWITCH_STMT_FEATURE_COUNT + 3;
+  int EXPR_SWITCH_STMT_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.ExprCaseClauseImpl <em>Expr Case Clause</em>}' class.
@@ -2275,13 +2293,31 @@ public interface GoPackage extends EPackage
   int EXPR_CASE_CLAUSE = 55;
 
   /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_CASE_CLAUSE__EXPR = 0;
+
+  /**
+   * The feature id for the '<em><b>Statementlist</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_CASE_CLAUSE__STATEMENTLIST = 1;
+
+  /**
    * The number of structural features of the '<em>Expr Case Clause</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPR_CASE_CLAUSE_FEATURE_COUNT = 0;
+  int EXPR_CASE_CLAUSE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.ExprSwitchCaseImpl <em>Expr Switch Case</em>}' class.
@@ -2294,22 +2330,13 @@ public interface GoPackage extends EPackage
   int EXPR_SWITCH_CASE = 56;
 
   /**
-   * The feature id for the '<em><b>Statementlist</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPR_SWITCH_CASE__STATEMENTLIST = EXPR_CASE_CLAUSE_FEATURE_COUNT + 0;
-
-  /**
    * The feature id for the '<em><b>Expressionlist</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPR_SWITCH_CASE__EXPRESSIONLIST = EXPR_CASE_CLAUSE_FEATURE_COUNT + 1;
+  int EXPR_SWITCH_CASE__EXPRESSIONLIST = 0;
 
   /**
    * The number of structural features of the '<em>Expr Switch Case</em>' class.
@@ -2318,7 +2345,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPR_SWITCH_CASE_FEATURE_COUNT = EXPR_CASE_CLAUSE_FEATURE_COUNT + 2;
+  int EXPR_SWITCH_CASE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.TypeSwitchStmtImpl <em>Type Switch Stmt</em>}' class.
@@ -2337,7 +2364,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_SWITCH_STMT__SIMPLESTM = SWITCH_STMT_FEATURE_COUNT + 0;
+  int TYPE_SWITCH_STMT__SIMPLESTM = 0;
 
   /**
    * The feature id for the '<em><b>Typesg</b></em>' containment reference.
@@ -2346,7 +2373,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_SWITCH_STMT__TYPESG = SWITCH_STMT_FEATURE_COUNT + 1;
+  int TYPE_SWITCH_STMT__TYPESG = 1;
 
   /**
    * The feature id for the '<em><b>Typecc</b></em>' containment reference list.
@@ -2355,7 +2382,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_SWITCH_STMT__TYPECC = SWITCH_STMT_FEATURE_COUNT + 2;
+  int TYPE_SWITCH_STMT__TYPECC = 2;
 
   /**
    * The number of structural features of the '<em>Type Switch Stmt</em>' class.
@@ -2364,7 +2391,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_SWITCH_STMT_FEATURE_COUNT = SWITCH_STMT_FEATURE_COUNT + 3;
+  int TYPE_SWITCH_STMT_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.TypeSwitchGuardImpl <em>Type Switch Guard</em>}' class.
@@ -5189,6 +5216,28 @@ public interface GoPackage extends EPackage
   EClass getSwitchStmt();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.SwitchStmt#getTss <em>Tss</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Tss</em>'.
+   * @see org.xtext.example.mydsl.go.SwitchStmt#getTss()
+   * @see #getSwitchStmt()
+   * @generated
+   */
+  EReference getSwitchStmt_Tss();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.SwitchStmt#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see org.xtext.example.mydsl.go.SwitchStmt#getExpr()
+   * @see #getSwitchStmt()
+   * @generated
+   */
+  EReference getSwitchStmt_Expr();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.SelectStmt <em>Select Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5742,6 +5791,28 @@ public interface GoPackage extends EPackage
   EClass getExprCaseClause();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ExprCaseClause#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see org.xtext.example.mydsl.go.ExprCaseClause#getExpr()
+   * @see #getExprCaseClause()
+   * @generated
+   */
+  EReference getExprCaseClause_Expr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ExprCaseClause#getStatementlist <em>Statementlist</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Statementlist</em>'.
+   * @see org.xtext.example.mydsl.go.ExprCaseClause#getStatementlist()
+   * @see #getExprCaseClause()
+   * @generated
+   */
+  EReference getExprCaseClause_Statementlist();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.ExprSwitchCase <em>Expr Switch Case</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5750,17 +5821,6 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getExprSwitchCase();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ExprSwitchCase#getStatementlist <em>Statementlist</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Statementlist</em>'.
-   * @see org.xtext.example.mydsl.go.ExprSwitchCase#getStatementlist()
-   * @see #getExprSwitchCase()
-   * @generated
-   */
-  EReference getExprSwitchCase_Statementlist();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.ExprSwitchCase#getExpressionlist <em>Expressionlist</em>}'.
@@ -8163,6 +8223,22 @@ public interface GoPackage extends EPackage
     EClass SWITCH_STMT = eINSTANCE.getSwitchStmt();
 
     /**
+     * The meta object literal for the '<em><b>Tss</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SWITCH_STMT__TSS = eINSTANCE.getSwitchStmt_Tss();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SWITCH_STMT__EXPR = eINSTANCE.getSwitchStmt_Expr();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.SelectStmtImpl <em>Select Stmt</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8617,6 +8693,22 @@ public interface GoPackage extends EPackage
     EClass EXPR_CASE_CLAUSE = eINSTANCE.getExprCaseClause();
 
     /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPR_CASE_CLAUSE__EXPR = eINSTANCE.getExprCaseClause_Expr();
+
+    /**
+     * The meta object literal for the '<em><b>Statementlist</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPR_CASE_CLAUSE__STATEMENTLIST = eINSTANCE.getExprCaseClause_Statementlist();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.ExprSwitchCaseImpl <em>Expr Switch Case</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8625,14 +8717,6 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass EXPR_SWITCH_CASE = eINSTANCE.getExprSwitchCase();
-
-    /**
-     * The meta object literal for the '<em><b>Statementlist</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXPR_SWITCH_CASE__STATEMENTLIST = eINSTANCE.getExprSwitchCase_Statementlist();
 
     /**
      * The meta object literal for the '<em><b>Expressionlist</b></em>' containment reference feature.

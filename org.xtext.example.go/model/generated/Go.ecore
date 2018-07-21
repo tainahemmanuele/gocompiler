@@ -195,7 +195,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="block2" eType="#//Block"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SwitchStmt"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SwitchStmt">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tss" eType="#//TypeSwitchStmt"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//ExprSwitchStmt"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SelectStmt">
     <eStructuralFeatures xsi:type="ecore:EReference" name="commclause" upperBound="-1"
         eType="#//CommClause" containment="true"/>
@@ -282,7 +287,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="epl" eType="#//ExpressionList"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ExprSwitchStmt" eSuperTypes="#//SwitchStmt">
+  <eClassifiers xsi:type="ecore:EClass" name="ExprSwitchStmt">
     <eStructuralFeatures xsi:type="ecore:EReference" name="simplestmt" eType="#//SimpleStmt"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
@@ -290,14 +295,17 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="exprcase" upperBound="-1"
         eType="#//ExprCaseClause" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ExprCaseClause"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ExprSwitchCase" eSuperTypes="#//ExprCaseClause">
+  <eClassifiers xsi:type="ecore:EClass" name="ExprCaseClause">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//ExprSwitchCase"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="statementlist" eType="#//StatementList"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExprSwitchCase">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expressionlist" eType="#//ExpressionList"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TypeSwitchStmt" eSuperTypes="#//SwitchStmt">
+  <eClassifiers xsi:type="ecore:EClass" name="TypeSwitchStmt">
     <eStructuralFeatures xsi:type="ecore:EReference" name="simplestm" eType="#//SimpleStmt"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="typesg" eType="#//TypeSwitchGuard"

@@ -2011,6 +2011,26 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getSwitchStmt_Tss()
+  {
+    return (EReference)switchStmtEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSwitchStmt_Expr()
+  {
+    return (EReference)switchStmtEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getSelectStmt()
   {
     return selectStmtEClass;
@@ -2531,6 +2551,26 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getExprCaseClause_Expr()
+  {
+    return (EReference)exprCaseClauseEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getExprCaseClause_Statementlist()
+  {
+    return (EReference)exprCaseClauseEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getExprSwitchCase()
   {
     return exprSwitchCaseEClass;
@@ -2541,19 +2581,9 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExprSwitchCase_Statementlist()
-  {
-    return (EReference)exprSwitchCaseEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getExprSwitchCase_Expressionlist()
   {
-    return (EReference)exprSwitchCaseEClass.getEStructuralFeatures().get(1);
+    return (EReference)exprSwitchCaseEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -4035,6 +4065,8 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     createEReference(ifStmtEClass, IF_STMT__BLOCK2);
 
     switchStmtEClass = createEClass(SWITCH_STMT);
+    createEReference(switchStmtEClass, SWITCH_STMT__TSS);
+    createEReference(switchStmtEClass, SWITCH_STMT__EXPR);
 
     selectStmtEClass = createEClass(SELECT_STMT);
     createEReference(selectStmtEClass, SELECT_STMT__COMMCLAUSE);
@@ -4106,9 +4138,10 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     createEReference(exprSwitchStmtEClass, EXPR_SWITCH_STMT__EXPRCASE);
 
     exprCaseClauseEClass = createEClass(EXPR_CASE_CLAUSE);
+    createEReference(exprCaseClauseEClass, EXPR_CASE_CLAUSE__EXPR);
+    createEReference(exprCaseClauseEClass, EXPR_CASE_CLAUSE__STATEMENTLIST);
 
     exprSwitchCaseEClass = createEClass(EXPR_SWITCH_CASE);
-    createEReference(exprSwitchCaseEClass, EXPR_SWITCH_CASE__STATEMENTLIST);
     createEReference(exprSwitchCaseEClass, EXPR_SWITCH_CASE__EXPRESSIONLIST);
 
     typeSwitchStmtEClass = createEClass(TYPE_SWITCH_STMT);
@@ -4333,9 +4366,6 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     returnStmtEClass.getESuperTypes().add(this.getStatement());
     typeDefEClass.getESuperTypes().add(this.getTypeSpec());
     aliasDeclEClass.getESuperTypes().add(this.getTypeSpec());
-    exprSwitchStmtEClass.getESuperTypes().add(this.getSwitchStmt());
-    exprSwitchCaseEClass.getESuperTypes().add(this.getExprCaseClause());
-    typeSwitchStmtEClass.getESuperTypes().add(this.getSwitchStmt());
     typeSwitchCaseEClass.getESuperTypes().add(this.getTypeCaseClause());
     commCaseEClass.getESuperTypes().add(this.getCommClause());
     expressionListEClass.getESuperTypes().add(this.getRecvStmt());
@@ -4498,6 +4528,8 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     initEReference(getIfStmt_Block2(), this.getBlock(), null, "block2", null, 0, 1, IfStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(switchStmtEClass, SwitchStmt.class, "SwitchStmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSwitchStmt_Tss(), this.getTypeSwitchStmt(), null, "tss", null, 0, 1, SwitchStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSwitchStmt_Expr(), this.getExprSwitchStmt(), null, "expr", null, 0, 1, SwitchStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(selectStmtEClass, SelectStmt.class, "SelectStmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSelectStmt_Commclause(), this.getCommClause(), null, "commclause", null, 0, -1, SelectStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4569,9 +4601,10 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     initEReference(getExprSwitchStmt_Exprcase(), this.getExprCaseClause(), null, "exprcase", null, 0, -1, ExprSwitchStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exprCaseClauseEClass, ExprCaseClause.class, "ExprCaseClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getExprCaseClause_Expr(), this.getExprSwitchCase(), null, "expr", null, 0, 1, ExprCaseClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExprCaseClause_Statementlist(), this.getStatementList(), null, "statementlist", null, 0, 1, ExprCaseClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exprSwitchCaseEClass, ExprSwitchCase.class, "ExprSwitchCase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getExprSwitchCase_Statementlist(), this.getStatementList(), null, "statementlist", null, 0, 1, ExprSwitchCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExprSwitchCase_Expressionlist(), this.getExpressionList(), null, "expressionlist", null, 0, 1, ExprSwitchCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeSwitchStmtEClass, TypeSwitchStmt.class, "TypeSwitchStmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

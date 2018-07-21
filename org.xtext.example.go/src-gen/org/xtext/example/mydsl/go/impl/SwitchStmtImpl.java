@@ -3,22 +3,56 @@
  */
 package org.xtext.example.mydsl.go.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.xtext.example.mydsl.go.ExprSwitchStmt;
 import org.xtext.example.mydsl.go.GoPackage;
 import org.xtext.example.mydsl.go.SwitchStmt;
+import org.xtext.example.mydsl.go.TypeSwitchStmt;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Switch Stmt</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.SwitchStmtImpl#getTss <em>Tss</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.SwitchStmtImpl#getExpr <em>Expr</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class SwitchStmtImpl extends MinimalEObjectImpl.Container implements SwitchStmt
 {
+  /**
+   * The cached value of the '{@link #getTss() <em>Tss</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTss()
+   * @generated
+   * @ordered
+   */
+  protected TypeSwitchStmt tss;
+
+  /**
+   * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExpr()
+   * @generated
+   * @ordered
+   */
+  protected ExprSwitchStmt expr;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -38,6 +72,196 @@ public class SwitchStmtImpl extends MinimalEObjectImpl.Container implements Swit
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.SWITCH_STMT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TypeSwitchStmt getTss()
+  {
+    return tss;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetTss(TypeSwitchStmt newTss, NotificationChain msgs)
+  {
+    TypeSwitchStmt oldTss = tss;
+    tss = newTss;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.SWITCH_STMT__TSS, oldTss, newTss);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTss(TypeSwitchStmt newTss)
+  {
+    if (newTss != tss)
+    {
+      NotificationChain msgs = null;
+      if (tss != null)
+        msgs = ((InternalEObject)tss).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.SWITCH_STMT__TSS, null, msgs);
+      if (newTss != null)
+        msgs = ((InternalEObject)newTss).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.SWITCH_STMT__TSS, null, msgs);
+      msgs = basicSetTss(newTss, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.SWITCH_STMT__TSS, newTss, newTss));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ExprSwitchStmt getExpr()
+  {
+    return expr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExpr(ExprSwitchStmt newExpr, NotificationChain msgs)
+  {
+    ExprSwitchStmt oldExpr = expr;
+    expr = newExpr;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.SWITCH_STMT__EXPR, oldExpr, newExpr);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExpr(ExprSwitchStmt newExpr)
+  {
+    if (newExpr != expr)
+    {
+      NotificationChain msgs = null;
+      if (expr != null)
+        msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.SWITCH_STMT__EXPR, null, msgs);
+      if (newExpr != null)
+        msgs = ((InternalEObject)newExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.SWITCH_STMT__EXPR, null, msgs);
+      msgs = basicSetExpr(newExpr, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.SWITCH_STMT__EXPR, newExpr, newExpr));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case GoPackage.SWITCH_STMT__TSS:
+        return basicSetTss(null, msgs);
+      case GoPackage.SWITCH_STMT__EXPR:
+        return basicSetExpr(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case GoPackage.SWITCH_STMT__TSS:
+        return getTss();
+      case GoPackage.SWITCH_STMT__EXPR:
+        return getExpr();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case GoPackage.SWITCH_STMT__TSS:
+        setTss((TypeSwitchStmt)newValue);
+        return;
+      case GoPackage.SWITCH_STMT__EXPR:
+        setExpr((ExprSwitchStmt)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.SWITCH_STMT__TSS:
+        setTss((TypeSwitchStmt)null);
+        return;
+      case GoPackage.SWITCH_STMT__EXPR:
+        setExpr((ExprSwitchStmt)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.SWITCH_STMT__TSS:
+        return tss != null;
+      case GoPackage.SWITCH_STMT__EXPR:
+        return expr != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //SwitchStmtImpl
