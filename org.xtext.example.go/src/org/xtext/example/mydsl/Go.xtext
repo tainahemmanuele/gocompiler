@@ -531,11 +531,7 @@ Block:
 
 StatementList:
 	{StatementList}
-<<<<<<< HEAD
-	(statements+=Statement (';')?)*;
-=======
 	(statment+=Statement (';'|',')?)*;
->>>>>>> master
 
 Statement:
 	{Statement}
@@ -545,11 +541,8 @@ Statement:
 	deferst=DeferStmt;
 
 Declaration:
-<<<<<<< HEAD
-	constdecl=ConstDecl | TypeDecl | vardecl=VarDecl;
-=======
 	cd=ConstDecl | td=TypeDecl | vd=VarDecl;
->>>>>>> master
+
 
 LabeledStmt:
 	label=Label ':' statement=Statement;
@@ -793,13 +786,11 @@ ReceiverType:
 	type=Type;
 
 FunctionBody:
-<<<<<<< HEAD
+
 	block=Block;
 
-=======
-	Block;
 	
->>>>>>> master
+
 OperandName:
 	{OperandName} id=IDENTIFIER | {OperandName} qi=QualifiedIdent;
 
