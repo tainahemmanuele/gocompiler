@@ -396,6 +396,12 @@ public class GoGenerator extends AbstractGenerator {
     _builder.append("<<genIntLiteralExpression(exp)>>");
     _builder.newLine();
     _builder.append("\t\t\t");
+    _builder.append("<<ELSE>>");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("<<genLogicalExpression(exp)>>");
+    _builder.newLine();
+    _builder.append("\t\t\t");
     _builder.append("<<ENDIF>>");
     _builder.newLine();
     _builder.append("\t\t");
@@ -538,10 +544,200 @@ public class GoGenerator extends AbstractGenerator {
   
   public CharSequence genLogicalExpression(final Expression exp) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("\t\t");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.newLine();
+    String _string = this.lineCount.toString();
+    _builder.append(_string);
+    _builder.append(": LD R");
+    String _string_1 = this.regCount.toString();
+    _builder.append(_string_1);
+    _builder.append(", #");
+    String _intd = exp.getUp().getPr().getOp().getLiteral().getBasic().getIntd();
+    _builder.append(_intd);
+    _builder.newLineIfNotEmpty();
+    this.nextReg();
+    _builder.newLineIfNotEmpty();
+    this.nextLine();
+    _builder.newLineIfNotEmpty();
+    String _string_2 = this.lineCount.toString();
+    _builder.append(_string_2);
+    _builder.append(": LD R");
+    String _string_3 = this.regCount.toString();
+    _builder.append(_string_3);
+    _builder.append(", #");
+    String _intd_1 = exp.getExp().getExpression().getUp().getPr().getOp().getLiteral().getBasic().getIntd();
+    _builder.append(_intd_1);
+    _builder.newLineIfNotEmpty();
+    this.nextReg();
+    _builder.newLineIfNotEmpty();
+    this.nextLine();
+    _builder.newLineIfNotEmpty();
+    {
+      boolean _equals = exp.getExp().getBop().toString().equals("<");
+      if (_equals) {
+        String _string_4 = this.lineCount.toString();
+        _builder.append(_string_4);
+        _builder.append(": SUB R");
+        String _string_5 = new Integer((this.regCount).intValue()).toString();
+        _builder.append(_string_5);
+        _builder.append(", R");
+        String _string_6 = new Integer(((this.regCount).intValue() - 2)).toString();
+        _builder.append(_string_6);
+        _builder.append(" , R");
+        String _string_7 = new Integer(((this.regCount).intValue() - 1)).toString();
+        _builder.append(_string_7);
+        _builder.newLineIfNotEmpty();
+        this.nextLine();
+        _builder.newLineIfNotEmpty();
+        String _string_8 = this.lineCount.toString();
+        _builder.append(_string_8);
+        _builder.append(": BGTZ R");
+        String _string_9 = new Integer((this.regCount).intValue()).toString();
+        _builder.append(_string_9);
+        _builder.append(", #ENDFOR");
+        _builder.newLineIfNotEmpty();
+        this.nextLine();
+        _builder.newLineIfNotEmpty();
+      } else {
+        boolean _equals_1 = exp.getExp().getBop().toString().equals(">");
+        if (_equals_1) {
+          String _string_10 = this.lineCount.toString();
+          _builder.append(_string_10);
+          _builder.append(": SUB R");
+          String _string_11 = new Integer((this.regCount).intValue()).toString();
+          _builder.append(_string_11);
+          _builder.append(", R");
+          String _string_12 = new Integer(((this.regCount).intValue() - 2)).toString();
+          _builder.append(_string_12);
+          _builder.append(" , R");
+          String _string_13 = new Integer(((this.regCount).intValue() - 1)).toString();
+          _builder.append(_string_13);
+          _builder.newLineIfNotEmpty();
+          this.nextLine();
+          _builder.newLineIfNotEmpty();
+          String _string_14 = this.lineCount.toString();
+          _builder.append(_string_14);
+          _builder.append(": BGTZ R");
+          String _string_15 = new Integer((this.regCount).intValue()).toString();
+          _builder.append(_string_15);
+          _builder.append(", #ENDFOR");
+          _builder.newLineIfNotEmpty();
+          this.nextLine();
+          _builder.newLineIfNotEmpty();
+        } else {
+          boolean _equals_2 = exp.getExp().getBop().toString().equals(">=");
+          if (_equals_2) {
+            String _string_16 = this.lineCount.toString();
+            _builder.append(_string_16);
+            _builder.append(": SUB R");
+            String _string_17 = new Integer((this.regCount).intValue()).toString();
+            _builder.append(_string_17);
+            _builder.append(", R");
+            String _string_18 = new Integer(((this.regCount).intValue() - 2)).toString();
+            _builder.append(_string_18);
+            _builder.append(" , R");
+            String _string_19 = new Integer(((this.regCount).intValue() - 1)).toString();
+            _builder.append(_string_19);
+            _builder.newLineIfNotEmpty();
+            this.nextLine();
+            _builder.newLineIfNotEmpty();
+            String _string_20 = this.lineCount.toString();
+            _builder.append(_string_20);
+            _builder.append(": BGEZ R");
+            String _string_21 = new Integer((this.regCount).intValue()).toString();
+            _builder.append(_string_21);
+            _builder.append(", #ENDFOR");
+            _builder.newLineIfNotEmpty();
+            this.nextLine();
+            _builder.newLineIfNotEmpty();
+          } else {
+            boolean _equals_3 = exp.getExp().getBop().toString().equals("<=");
+            if (_equals_3) {
+              String _string_22 = this.lineCount.toString();
+              _builder.append(_string_22);
+              _builder.append(": SUB R");
+              String _string_23 = new Integer((this.regCount).intValue()).toString();
+              _builder.append(_string_23);
+              _builder.append(", R");
+              String _string_24 = new Integer(((this.regCount).intValue() - 2)).toString();
+              _builder.append(_string_24);
+              _builder.append(" , R");
+              String _string_25 = new Integer(((this.regCount).intValue() - 1)).toString();
+              _builder.append(_string_25);
+              _builder.newLineIfNotEmpty();
+              this.nextLine();
+              _builder.newLineIfNotEmpty();
+              String _string_26 = this.lineCount.toString();
+              _builder.append(_string_26);
+              _builder.append(": BGEZ R");
+              String _string_27 = new Integer((this.regCount).intValue()).toString();
+              _builder.append(_string_27);
+              _builder.append(", #ENDFOR");
+              _builder.newLineIfNotEmpty();
+              this.nextLine();
+              _builder.append("\t");
+              _builder.newLineIfNotEmpty();
+            } else {
+              boolean _equals_4 = exp.getExp().getBop().toString().equals("==");
+              if (_equals_4) {
+                String _string_28 = this.lineCount.toString();
+                _builder.append(_string_28);
+                _builder.append(": SUB R");
+                String _string_29 = new Integer((this.regCount).intValue()).toString();
+                _builder.append(_string_29);
+                _builder.append(", R");
+                String _string_30 = new Integer(((this.regCount).intValue() - 2)).toString();
+                _builder.append(_string_30);
+                _builder.append(" , R");
+                String _string_31 = new Integer(((this.regCount).intValue() - 1)).toString();
+                _builder.append(_string_31);
+                _builder.newLineIfNotEmpty();
+                this.nextLine();
+                _builder.newLineIfNotEmpty();
+                this.nextReg();
+                _builder.newLineIfNotEmpty();
+                String _string_32 = this.lineCount.toString();
+                _builder.append(_string_32);
+                _builder.append(": BGEZ R");
+                String _string_33 = new Integer((this.regCount).intValue()).toString();
+                _builder.append(_string_33);
+                _builder.append(", #ENDFOR");
+                _builder.newLineIfNotEmpty();
+                this.nextLine();
+                _builder.newLineIfNotEmpty();
+              } else {
+                boolean _equals_5 = exp.getExp().getBop().toString().equals("!=");
+                if (_equals_5) {
+                  String _string_34 = this.lineCount.toString();
+                  _builder.append(_string_34);
+                  _builder.append(": SUB R");
+                  String _string_35 = new Integer((this.regCount).intValue()).toString();
+                  _builder.append(_string_35);
+                  _builder.append(", R");
+                  String _string_36 = new Integer(((this.regCount).intValue() - 2)).toString();
+                  _builder.append(_string_36);
+                  _builder.append(" , R");
+                  String _string_37 = new Integer(((this.regCount).intValue() - 1)).toString();
+                  _builder.append(_string_37);
+                  _builder.newLineIfNotEmpty();
+                  this.nextLine();
+                  _builder.newLineIfNotEmpty();
+                  this.nextReg();
+                  _builder.newLineIfNotEmpty();
+                  String _string_38 = this.lineCount.toString();
+                  _builder.append(_string_38);
+                  _builder.append(": BGEZ R");
+                  String _string_39 = new Integer((this.regCount).intValue()).toString();
+                  _builder.append(_string_39);
+                  _builder.append(", #ENDFOR");
+                  _builder.newLineIfNotEmpty();
+                  this.nextLine();
+                  _builder.newLineIfNotEmpty();
+                }
+              }
+            }
+          }
+        }
+      }
+    }
     return _builder;
   }
   

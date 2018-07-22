@@ -177,6 +177,8 @@ class GoGenerator extends AbstractGenerator {
 						<<genIntLiteralExpression(exp)>>
 					<<ELSE IF exp.exp.bop.equals("/")  >>
 						<<genIntLiteralExpression(exp)>>
+					<<ELSE>>
+						<<genLogicalExpression(exp)>>
 					<<ENDIF>>
 				<<ENDIF>>
 				
@@ -214,8 +216,45 @@ class GoGenerator extends AbstractGenerator {
 	'''
 	
 	def genLogicalExpression(Expression exp)'''
-		
-	
+		«lineCount.toString()»: LD R«regCount.toString()», #«exp.up.pr.op.literal.basic.intd»
+		«nextReg»
+		«nextLine»
+		«lineCount.toString()»: LD R«regCount.toString()», #«exp.exp.expression.up.pr.op.literal.basic.intd»
+		«nextReg»
+		«nextLine»
+		«IF exp.exp.bop.toString.equals("<")»
+			«lineCount.toString()»: SUB R«new Integer(regCount).toString()», R«new Integer(regCount-2).toString()» , R«new Integer(regCount-1).toString()»
+			«nextLine»
+			«lineCount.toString()»: BGTZ R«new Integer(regCount).toString()», #ENDFOR
+			«nextLine»
+		«ELSEIF  exp.exp.bop.toString.equals(">")»
+			«lineCount.toString()»: SUB R«new Integer(regCount).toString()», R«new Integer(regCount-2).toString()» , R«new Integer(regCount-1).toString()»
+			«nextLine»
+			«lineCount.toString()»: BGTZ R«new Integer(regCount).toString()», #ENDFOR
+			«nextLine»
+		«ELSEIF  exp.exp.bop.toString.equals(">=")»
+			«lineCount.toString()»: SUB R«new Integer(regCount).toString()», R«new Integer(regCount-2).toString()» , R«new Integer(regCount-1).toString()»
+			«nextLine»
+			«lineCount.toString()»: BGEZ R«new Integer(regCount).toString()», #ENDFOR
+			«nextLine»
+		«ELSEIF  exp.exp.bop.toString.equals("<=")»
+			«lineCount.toString()»: SUB R«new Integer(regCount).toString()», R«new Integer(regCount-2).toString()» , R«new Integer(regCount-1).toString()»
+			«nextLine»
+			«lineCount.toString()»: BGEZ R«new Integer(regCount).toString()», #ENDFOR
+			«nextLine»	
+		«ELSEIF  exp.exp.bop.toString.equals("==")»
+			«lineCount.toString()»: SUB R«new Integer(regCount).toString()», R«new Integer(regCount-2).toString()» , R«new Integer(regCount-1).toString()»
+			«nextLine»
+			«nextReg»
+			«lineCount.toString()»: BGEZ R«new Integer(regCount).toString()», #ENDFOR
+			«nextLine»
+		«ELSEIF  exp.exp.bop.toString.equals("!=")»
+			«lineCount.toString()»: SUB R«new Integer(regCount).toString()», R«new Integer(regCount-2).toString()» , R«new Integer(regCount-1).toString()»
+			«nextLine»
+			«nextReg»
+			«lineCount.toString()»: BGEZ R«new Integer(regCount).toString()», #ENDFOR
+			«nextLine»
+		«ENDIF»
 	'''
 	
 	def void nextReg() {
