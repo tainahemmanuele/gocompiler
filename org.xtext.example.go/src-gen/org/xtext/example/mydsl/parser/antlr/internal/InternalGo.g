@@ -2398,17 +2398,25 @@ ruleBlock returns [EObject current=null]
 		{
 			newLeafNode(otherlv_0, grammarAccess.getBlockAccess().getLeftCurlyBracketKeyword_0());
 		}
-		{
-			/* */
-		}
-		{
-			newCompositeNode(grammarAccess.getBlockAccess().getStatementListParserRuleCall_1());
-		}
-		this_StatementList_1=ruleStatementList
-		{
-			$current = $this_StatementList_1.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getBlockAccess().getStatementlistStatementListParserRuleCall_1_0());
+				}
+				lv_statementlist_1_0=ruleStatementList
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getBlockRule());
+					}
+					set(
+						$current,
+						"statementlist",
+						lv_statementlist_1_0,
+						"org.xtext.example.mydsl.Go.StatementList");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 		otherlv_2='}'
 		{
 			newLeafNode(otherlv_2, grammarAccess.getBlockAccess().getRightCurlyBracketKeyword_2());
@@ -8247,17 +8255,25 @@ ruleFunctionBody returns [EObject current=null]
 @after {
 	leaveRule();
 }:
-	{
-		/* */
-	}
-	{
-		newCompositeNode(grammarAccess.getFunctionBodyAccess().getBlockParserRuleCall());
-	}
-	this_Block_0=ruleBlock
-	{
-		$current = $this_Block_0.current;
-		afterParserOrEnumRuleCall();
-	}
+	(
+		(
+			{
+				newCompositeNode(grammarAccess.getFunctionBodyAccess().getBlockBlockParserRuleCall_0());
+			}
+			lv_block_0_0=ruleBlock
+			{
+				if ($current==null) {
+					$current = createModelElementForParent(grammarAccess.getFunctionBodyRule());
+				}
+				set(
+					$current,
+					"block",
+					lv_block_0_0,
+					"org.xtext.example.mydsl.Go.Block");
+				afterParserOrEnumRuleCall();
+			}
+		)
+	)
 ;
 
 // Entry rule entryRuleOperandName

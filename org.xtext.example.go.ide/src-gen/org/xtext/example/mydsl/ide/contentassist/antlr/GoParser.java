@@ -276,6 +276,7 @@ public class GoParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMapTypeAccess().getKeytypeAssignment_2(), "rule__MapType__KeytypeAssignment_2");
 			builder.put(grammarAccess.getMapTypeAccess().getElemtypeAssignment_4(), "rule__MapType__ElemtypeAssignment_4");
 			builder.put(grammarAccess.getChannelTypeAccess().getElemtypeAssignment_1(), "rule__ChannelType__ElemtypeAssignment_1");
+			builder.put(grammarAccess.getBlockAccess().getStatementlistAssignment_1(), "rule__Block__StatementlistAssignment_1");
 			builder.put(grammarAccess.getStatementListAccess().getStatmentAssignment_1_0(), "rule__StatementList__StatmentAssignment_1_0");
 			builder.put(grammarAccess.getStatementAccess().getDeclarationAssignment_0_1(), "rule__Statement__DeclarationAssignment_0_1");
 			builder.put(grammarAccess.getStatementAccess().getLabestAssignment_1(), "rule__Statement__LabestAssignment_1");
@@ -438,6 +439,7 @@ public class GoParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getBasicLitAccess().getStrdAssignment_4(), "rule__BasicLit__StrdAssignment_4");
 			builder.put(grammarAccess.getBasicLitAccess().getBoolAssignment_5(), "rule__BasicLit__BoolAssignment_5");
 			builder.put(grammarAccess.getReceiverTypeAccess().getTypeAssignment(), "rule__ReceiverType__TypeAssignment");
+			builder.put(grammarAccess.getFunctionBodyAccess().getBlockAssignment(), "rule__FunctionBody__BlockAssignment");
 			builder.put(grammarAccess.getOperandNameAccess().getIdAssignment_0_1(), "rule__OperandName__IdAssignment_0_1");
 			builder.put(grammarAccess.getOperandNameAccess().getQiAssignment_1_1(), "rule__OperandName__QiAssignment_1_1");
 			builder.put(grammarAccess.getImportDeclAccess().getImportsAssignment_2_0(), "rule__ImportDecl__ImportsAssignment_2_0");

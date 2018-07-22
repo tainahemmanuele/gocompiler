@@ -1611,6 +1611,16 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getBlock_Statementlist()
+  {
+    return (EReference)blockEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getStatementList()
   {
     return statementListEClass;
@@ -3811,6 +3821,16 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getFunctionBody_Block()
+  {
+    return (EReference)functionBodyEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getOperandName()
   {
     return operandNameEClass;
@@ -4017,6 +4037,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     createEReference(channelTypeEClass, CHANNEL_TYPE__ELEMTYPE);
 
     blockEClass = createEClass(BLOCK);
+    createEReference(blockEClass, BLOCK__STATEMENTLIST);
 
     statementListEClass = createEClass(STATEMENT_LIST);
     createEReference(statementListEClass, STATEMENT_LIST__STATMENT);
@@ -4304,6 +4325,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     createEReference(receiverTypeEClass, RECEIVER_TYPE__TYPE);
 
     functionBodyEClass = createEClass(FUNCTION_BODY);
+    createEReference(functionBodyEClass, FUNCTION_BODY__BLOCK);
 
     operandNameEClass = createEClass(OPERAND_NAME);
     createEAttribute(operandNameEClass, OPERAND_NAME__ID);
@@ -4361,8 +4383,6 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     interfaceTypeEClass.getESuperTypes().add(this.getTypeLit());
     mapTypeEClass.getESuperTypes().add(this.getTypeLit());
     channelTypeEClass.getESuperTypes().add(this.getTypeLit());
-    blockEClass.getESuperTypes().add(this.getFunctionBody());
-    statementListEClass.getESuperTypes().add(this.getBlock());
     returnStmtEClass.getESuperTypes().add(this.getStatement());
     typeDefEClass.getESuperTypes().add(this.getTypeSpec());
     aliasDeclEClass.getESuperTypes().add(this.getTypeSpec());
@@ -4480,6 +4500,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     initEReference(getChannelType_Elemtype(), this.getElementType(), null, "elemtype", null, 0, 1, ChannelType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(blockEClass, Block.class, "Block", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBlock_Statementlist(), this.getStatementList(), null, "statementlist", null, 0, 1, Block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(statementListEClass, StatementList.class, "StatementList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getStatementList_Statment(), this.getStatement(), null, "statment", null, 0, -1, StatementList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4767,6 +4788,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     initEReference(getReceiverType_Type(), this.getType(), null, "type", null, 0, 1, ReceiverType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(functionBodyEClass, FunctionBody.class, "FunctionBody", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFunctionBody_Block(), this.getBlock(), null, "block", null, 0, 1, FunctionBody.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(operandNameEClass, OperandName.class, "OperandName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getOperandName_Id(), ecorePackage.getEString(), "id", null, 0, 1, OperandName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

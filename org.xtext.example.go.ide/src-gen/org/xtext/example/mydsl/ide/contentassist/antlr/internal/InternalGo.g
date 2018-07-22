@@ -2991,9 +2991,9 @@ ruleFunctionBody
 	}
 	:
 	(
-		{ before(grammarAccess.getFunctionBodyAccess().getBlockParserRuleCall()); }
-		ruleBlock
-		{ after(grammarAccess.getFunctionBodyAccess().getBlockParserRuleCall()); }
+		{ before(grammarAccess.getFunctionBodyAccess().getBlockAssignment()); }
+		(rule__FunctionBody__BlockAssignment)
+		{ after(grammarAccess.getFunctionBodyAccess().getBlockAssignment()); }
 	)
 ;
 finally {
@@ -7240,9 +7240,9 @@ rule__Block__Group__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getBlockAccess().getStatementListParserRuleCall_1()); }
-	ruleStatementList
-	{ after(grammarAccess.getBlockAccess().getStatementListParserRuleCall_1()); }
+	{ before(grammarAccess.getBlockAccess().getStatementlistAssignment_1()); }
+	(rule__Block__StatementlistAssignment_1)
+	{ after(grammarAccess.getBlockAccess().getStatementlistAssignment_1()); }
 )
 ;
 finally {
@@ -16336,6 +16336,21 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__Block__StatementlistAssignment_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getBlockAccess().getStatementlistStatementListParserRuleCall_1_0()); }
+		ruleStatementList
+		{ after(grammarAccess.getBlockAccess().getStatementlistStatementListParserRuleCall_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__StatementList__StatmentAssignment_1_0
 	@init {
 		int stackSize = keepStackSize();
@@ -18760,6 +18775,21 @@ rule__ReceiverType__TypeAssignment
 		{ before(grammarAccess.getReceiverTypeAccess().getTypeTypeParserRuleCall_0()); }
 		ruleType
 		{ after(grammarAccess.getReceiverTypeAccess().getTypeTypeParserRuleCall_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__FunctionBody__BlockAssignment
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getFunctionBodyAccess().getBlockBlockParserRuleCall_0()); }
+		ruleBlock
+		{ after(grammarAccess.getFunctionBodyAccess().getBlockBlockParserRuleCall_0()); }
 	)
 ;
 finally {

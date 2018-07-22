@@ -13,13 +13,17 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.xtext.example.mydsl.go.Assignment;
 import org.xtext.example.mydsl.go.Block;
+import org.xtext.example.mydsl.go.Condition;
 import org.xtext.example.mydsl.go.Declaration;
 import org.xtext.example.mydsl.go.Expression;
 import org.xtext.example.mydsl.go.ExpressionStmt;
+import org.xtext.example.mydsl.go.ForClause;
 import org.xtext.example.mydsl.go.ForStmt;
 import org.xtext.example.mydsl.go.FunctionBody;
 import org.xtext.example.mydsl.go.FunctionDecl;
 import org.xtext.example.mydsl.go.IncDecStmt;
+import org.xtext.example.mydsl.go.InitStmt;
+import org.xtext.example.mydsl.go.PostStmt;
 import org.xtext.example.mydsl.go.ShortVarDecl;
 import org.xtext.example.mydsl.go.SimpleStmt;
 import org.xtext.example.mydsl.go.Statement;
@@ -150,6 +154,139 @@ public class GoGenerator extends AbstractGenerator {
     _builder.append("<<genExpressionStmt(ss.es)>>");
     _builder.newLine();
     _builder.append("<ENDIF>>");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence genForStmt(final ForStmt fs) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("#FOR");
+    _builder.newLine();
+    _builder.append("<<IF fs.for != null>>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<genForClause(fs.for)>>");
+    _builder.newLine();
+    _builder.append("<<ELSEIF fs.condition != null>>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<genCondition(f.condition)>>");
+    _builder.newLine();
+    _builder.append("<<ENDIF>>");
+    _builder.newLine();
+    _builder.append("<<IF fs.block != null>>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<genBlock(fs.block)>>");
+    _builder.newLine();
+    _builder.append("<<ENDIF>>");
+    _builder.newLine();
+    _builder.append("<<lineCount>>: BR #FOR");
+    _builder.newLine();
+    _builder.append("<<nextLine>>");
+    _builder.newLine();
+    _builder.append("#ENDFOR");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence genForClause(final ForClause fc) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<<IF fc.init != null>>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<genInitStmt(fc.init)>>");
+    _builder.newLine();
+    _builder.append("<<ENDIF>>");
+    _builder.newLine();
+    _builder.append("<<IF fc.condition != null>>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<genCondition(fc.condition)>>");
+    _builder.newLine();
+    _builder.append("<<ENDIF>>");
+    _builder.newLine();
+    _builder.append("<<IF fc.poststmt != null>>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<genPostStmt(fc.poststmt)>>");
+    _builder.newLine();
+    _builder.append("<<ENDIF>>");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence genInitStmt(final InitStmt is) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<<IF is.simple != null>>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<genSimpleStmt(is.simple)>>");
+    _builder.newLine();
+    _builder.append("<<ENDIF>>");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence genCondition(final Condition c) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<<IF c.exp != null>>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<genExpression(c.exp)>>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<IF c.exp.exp.bop.toString.equals(\"<\")>>");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<<lineCount>>: BLTZ R<<regCount>>, #ENDFOR");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<<nextLine>>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<ELSEIF c.exp.exp.bop.toString.equals(\"<=\")>>");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<<lineCount>>: BLEZ R<<regCount>>, #ENDFOR");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<<nextLine>>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<ELSEIF c.exp.exp.bop.toString.equals(\">\")>>");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<<lineCount>>: BGTZ R<<regCount>>, #ENDFOR");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<<nextLine>>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<ELSEIF c.exp.exp.bop.toString.equals(\"<=\")>>");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<<lineCount>>: BGEZ R<<regCount>>, #ENDFOR");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<<nextLine>>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<ENDIF>>");
+    _builder.newLine();
+    _builder.append("<<ENDIF>>");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence genPostStmt(final PostStmt ps) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<<IF ps.simple != null>>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<genSimpleStmt(ps.simple)>>");
+    _builder.newLine();
+    _builder.append("<<ENDIF>>");
     _builder.newLine();
     return _builder;
   }
@@ -404,16 +541,6 @@ public class GoGenerator extends AbstractGenerator {
     _builder.append("\t\t");
     _builder.newLine();
     _builder.append("\t");
-    _builder.newLine();
-    return _builder;
-  }
-  
-  public CharSequence genForStmt(final ForStmt fs) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("#FOR");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("<<lineCount>>: BR #FOR");
     _builder.newLine();
     return _builder;
   }

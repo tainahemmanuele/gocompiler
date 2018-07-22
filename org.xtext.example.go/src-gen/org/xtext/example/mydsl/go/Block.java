@@ -3,17 +3,50 @@
  */
 package org.xtext.example.mydsl.go;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Block</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.mydsl.go.Block#getStatementlist <em>Statementlist</em>}</li>
+ * </ul>
  *
  * @see org.xtext.example.mydsl.go.GoPackage#getBlock()
  * @model
  * @generated
  */
-public interface Block extends FunctionBody
+public interface Block extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Statementlist</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Statementlist</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Statementlist</em>' containment reference.
+   * @see #setStatementlist(StatementList)
+   * @see org.xtext.example.mydsl.go.GoPackage#getBlock_Statementlist()
+   * @model containment="true"
+   * @generated
+   */
+  StatementList getStatementlist();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.go.Block#getStatementlist <em>Statementlist</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Statementlist</em>' containment reference.
+   * @see #getStatementlist()
+   * @generated
+   */
+  void setStatementlist(StatementList value);
+
 } // Block

@@ -124,8 +124,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="elemtype" eType="#//ElementType"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Block" eSuperTypes="#//FunctionBody"/>
-  <eClassifiers xsi:type="ecore:EClass" name="StatementList" eSuperTypes="#//Block">
+  <eClassifiers xsi:type="ecore:EClass" name="Block">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="statementlist" eType="#//StatementList"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StatementList">
     <eStructuralFeatures xsi:type="ecore:EReference" name="statment" upperBound="-1"
         eType="#//Statement" containment="true"/>
   </eClassifiers>
@@ -524,7 +527,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="methodn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FunctionBody"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FunctionBody">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//Block"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OperandName">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="qi" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

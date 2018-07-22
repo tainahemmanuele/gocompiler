@@ -986,25 +986,6 @@ public interface GoPackage extends EPackage
   int CHANNEL_TYPE_FEATURE_COUNT = TYPE_LIT_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.FunctionBodyImpl <em>Function Body</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.go.impl.FunctionBodyImpl
-   * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getFunctionBody()
-   * @generated
-   */
-  int FUNCTION_BODY = 95;
-
-  /**
-   * The number of structural features of the '<em>Function Body</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION_BODY_FEATURE_COUNT = 0;
-
-  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.BlockImpl <em>Block</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1015,13 +996,22 @@ public interface GoPackage extends EPackage
   int BLOCK = 28;
 
   /**
+   * The feature id for the '<em><b>Statementlist</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BLOCK__STATEMENTLIST = 0;
+
+  /**
    * The number of structural features of the '<em>Block</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BLOCK_FEATURE_COUNT = FUNCTION_BODY_FEATURE_COUNT + 0;
+  int BLOCK_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.StatementListImpl <em>Statement List</em>}' class.
@@ -1040,7 +1030,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT_LIST__STATMENT = BLOCK_FEATURE_COUNT + 0;
+  int STATEMENT_LIST__STATMENT = 0;
 
   /**
    * The number of structural features of the '<em>Statement List</em>' class.
@@ -1049,7 +1039,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT_LIST_FEATURE_COUNT = BLOCK_FEATURE_COUNT + 1;
+  int STATEMENT_LIST_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.StatementImpl <em>Statement</em>}' class.
@@ -3907,6 +3897,34 @@ public interface GoPackage extends EPackage
   int RECEIVER_TYPE_FEATURE_COUNT = METHOD_EXPR_FEATURE_COUNT + 2;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.FunctionBodyImpl <em>Function Body</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.go.impl.FunctionBodyImpl
+   * @see org.xtext.example.mydsl.go.impl.GoPackageImpl#getFunctionBody()
+   * @generated
+   */
+  int FUNCTION_BODY = 95;
+
+  /**
+   * The feature id for the '<em><b>Block</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_BODY__BLOCK = 0;
+
+  /**
+   * The number of structural features of the '<em>Function Body</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_BODY_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.go.impl.OperandNameImpl <em>Operand Name</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4782,6 +4800,17 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getBlock();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.Block#getStatementlist <em>Statementlist</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Statementlist</em>'.
+   * @see org.xtext.example.mydsl.go.Block#getStatementlist()
+   * @see #getBlock()
+   * @generated
+   */
+  EReference getBlock_Statementlist();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.StatementList <em>Statement List</em>}'.
@@ -7137,6 +7166,17 @@ public interface GoPackage extends EPackage
   EClass getFunctionBody();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.go.FunctionBody#getBlock <em>Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Block</em>'.
+   * @see org.xtext.example.mydsl.go.FunctionBody#getBlock()
+   * @see #getFunctionBody()
+   * @generated
+   */
+  EReference getFunctionBody_Block();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.go.OperandName <em>Operand Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7885,6 +7925,14 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass BLOCK = eINSTANCE.getBlock();
+
+    /**
+     * The meta object literal for the '<em><b>Statementlist</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BLOCK__STATEMENTLIST = eINSTANCE.getBlock_Statementlist();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.StatementListImpl <em>Statement List</em>}' class.
@@ -9779,6 +9827,14 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass FUNCTION_BODY = eINSTANCE.getFunctionBody();
+
+    /**
+     * The meta object literal for the '<em><b>Block</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTION_BODY__BLOCK = eINSTANCE.getFunctionBody_Block();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.go.impl.OperandNameImpl <em>Operand Name</em>}' class.

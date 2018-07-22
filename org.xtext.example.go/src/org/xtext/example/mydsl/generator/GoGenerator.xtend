@@ -75,6 +75,65 @@ class GoGenerator extends AbstractGenerator {
 			<<genExpressionStmt(ss.es)>>
 		<ENDIF>>
 	'''
+	
+	def genForStmt(ForStmt fs)'''
+		#FOR
+		<<IF fs.for != null>>
+			<<genForClause(fs.for)>>
+		<<ELSEIF fs.condition != null>>
+			<<genCondition(f.condition)>>
+		<<ENDIF>>
+		<<IF fs.block != null>>
+			<<genBlock(fs.block)>>
+		<<ENDIF>>
+		<<lineCount>>: BR #FOR
+		<<nextLine>>
+		#ENDFOR
+	'''
+	
+	def genForClause(ForClause fc)'''
+		<<IF fc.init != null>>
+			<<genInitStmt(fc.init)>>
+		<<ENDIF>>
+		<<IF fc.condition != null>>
+			<<genCondition(fc.condition)>>
+		<<ENDIF>>
+		<<IF fc.poststmt != null>>
+			<<genPostStmt(fc.poststmt)>>
+		<<ENDIF>>
+	'''
+	
+	def genInitStmt(InitStmt is)'''
+		<<IF is.simple != null>>
+			<<genSimpleStmt(is.simple)>>
+		<<ENDIF>>
+	'''
+	
+	def genCondition(Condition c)'''
+		<<IF c.exp != null>>
+			<<genExpression(c.exp)>>
+			<<IF c.exp.exp.bop.toString.equals("<")>>
+				<<lineCount>>: BLTZ R<<regCount>>, #ENDFOR
+				<<nextLine>>
+			<<ELSEIF c.exp.exp.bop.toString.equals("<=")>>
+				<<lineCount>>: BLEZ R<<regCount>>, #ENDFOR
+				<<nextLine>>
+			<<ELSEIF c.exp.exp.bop.toString.equals(">")>>
+				<<lineCount>>: BGTZ R<<regCount>>, #ENDFOR
+				<<nextLine>>
+			<<ELSEIF c.exp.exp.bop.toString.equals("<=")>>
+				<<lineCount>>: BGEZ R<<regCount>>, #ENDFOR
+				<<nextLine>>
+			<<ENDIF>>
+		<<ENDIF>>
+	'''
+	
+	def genPostStmt(PostStmt ps)'''
+		<<IF ps.simple != null>>
+			<<genSimpleStmt(ps.simple)>>
+		<<ENDIF>>
+	'''
+	
 	def genIncDecStmt(IncDecStmt inc)'''
 		<<IF inc.exp != null >>
 			<<genExpression(inc.exp)>>
@@ -96,6 +155,7 @@ class GoGenerator extends AbstractGenerator {
 			<<genExpressionList(ss.epl)>>
 		<<ENDIF>>
 	'''
+	
 	def genExpressionStmt(ExpressionStmt es)'''
 		<<IF es.exp != null>>
 			<<genExpression(es.exp)>>
@@ -156,13 +216,6 @@ class GoGenerator extends AbstractGenerator {
 	def genLogicalExpression(Expression exp)'''
 		
 	
-	'''
-	
-	
-	def genForStmt(ForStmt fs)'''
-		#FOR
-		
-		<<lineCount>>: BR #FOR
 	'''
 	
 	def void nextReg() {
