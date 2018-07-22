@@ -28,16 +28,15 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_ConstDecl_SemicolonKeyword_2_1_1_1_q;
 	protected AbstractElementAlias match_Conversion_CommaKeyword_4_q;
 	protected AbstractElementAlias match_ElementList_CommaKeyword_1_0_q;
+	protected AbstractElementAlias match_ExprSwitchStmt_SemicolonKeyword_2_1_q;
 	protected AbstractElementAlias match_ImportSpec___FullStopKeyword_0_0_or_IDENTIFIERParserRuleCall_0_1__q;
 	protected AbstractElementAlias match_InterfaceType_SemicolonKeyword_3_1_q;
 	protected AbstractElementAlias match_LiteralValue_CommaKeyword_2_1_q;
 	protected AbstractElementAlias match_ParameterDecl_FullStopFullStopFullStopKeyword_0_2_q;
 	protected AbstractElementAlias match_ParameterDecl_FullStopFullStopFullStopKeyword_1_1_q;
-	protected AbstractElementAlias match_Slice_LeftSquareBracketKeyword_1_1_q;
-	protected AbstractElementAlias match_Slice_RightSquareBracketKeyword_1_5_q;
-	protected AbstractElementAlias match_Slice___LeftSquareBracketKeyword_0_1_ColonKeyword_0_3_RightSquareBracketKeyword_0_5___or___LeftSquareBracketKeyword_1_1_q_ColonKeyword_1_3_RightSquareBracketKeyword_1_5_q__;
 	protected AbstractElementAlias match_StatementList___CommaKeyword_1_1_1_or_SemicolonKeyword_1_1_0__q;
 	protected AbstractElementAlias match_StructType_SemicolonKeyword_3_1_q;
+	protected AbstractElementAlias match_TypeSwitchStmt_SemicolonKeyword_1_1_q;
 	protected AbstractElementAlias match_VarDecl_SemicolonKeyword_2_1_1_1_q;
 	
 	@Inject
@@ -49,16 +48,15 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_ConstDecl_SemicolonKeyword_2_1_1_1_q = new TokenAlias(false, true, grammarAccess.getConstDeclAccess().getSemicolonKeyword_2_1_1_1());
 		match_Conversion_CommaKeyword_4_q = new TokenAlias(false, true, grammarAccess.getConversionAccess().getCommaKeyword_4());
 		match_ElementList_CommaKeyword_1_0_q = new TokenAlias(false, true, grammarAccess.getElementListAccess().getCommaKeyword_1_0());
+		match_ExprSwitchStmt_SemicolonKeyword_2_1_q = new TokenAlias(false, true, grammarAccess.getExprSwitchStmtAccess().getSemicolonKeyword_2_1());
 		match_ImportSpec___FullStopKeyword_0_0_or_IDENTIFIERParserRuleCall_0_1__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getImportSpecAccess().getFullStopKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getImportSpecAccess().getIDENTIFIERParserRuleCall_0_1()));
 		match_InterfaceType_SemicolonKeyword_3_1_q = new TokenAlias(false, true, grammarAccess.getInterfaceTypeAccess().getSemicolonKeyword_3_1());
 		match_LiteralValue_CommaKeyword_2_1_q = new TokenAlias(false, true, grammarAccess.getLiteralValueAccess().getCommaKeyword_2_1());
 		match_ParameterDecl_FullStopFullStopFullStopKeyword_0_2_q = new TokenAlias(false, true, grammarAccess.getParameterDeclAccess().getFullStopFullStopFullStopKeyword_0_2());
 		match_ParameterDecl_FullStopFullStopFullStopKeyword_1_1_q = new TokenAlias(false, true, grammarAccess.getParameterDeclAccess().getFullStopFullStopFullStopKeyword_1_1());
-		match_Slice_LeftSquareBracketKeyword_1_1_q = new TokenAlias(false, true, grammarAccess.getSliceAccess().getLeftSquareBracketKeyword_1_1());
-		match_Slice_RightSquareBracketKeyword_1_5_q = new TokenAlias(false, true, grammarAccess.getSliceAccess().getRightSquareBracketKeyword_1_5());
-		match_Slice___LeftSquareBracketKeyword_0_1_ColonKeyword_0_3_RightSquareBracketKeyword_0_5___or___LeftSquareBracketKeyword_1_1_q_ColonKeyword_1_3_RightSquareBracketKeyword_1_5_q__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getSliceAccess().getLeftSquareBracketKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getSliceAccess().getColonKeyword_0_3()), new TokenAlias(false, false, grammarAccess.getSliceAccess().getRightSquareBracketKeyword_0_5())), new GroupAlias(false, false, new TokenAlias(false, true, grammarAccess.getSliceAccess().getLeftSquareBracketKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getSliceAccess().getColonKeyword_1_3()), new TokenAlias(false, true, grammarAccess.getSliceAccess().getRightSquareBracketKeyword_1_5())));
 		match_StatementList___CommaKeyword_1_1_1_or_SemicolonKeyword_1_1_0__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getStatementListAccess().getCommaKeyword_1_1_1()), new TokenAlias(false, false, grammarAccess.getStatementListAccess().getSemicolonKeyword_1_1_0()));
 		match_StructType_SemicolonKeyword_3_1_q = new TokenAlias(false, true, grammarAccess.getStructTypeAccess().getSemicolonKeyword_3_1());
+		match_TypeSwitchStmt_SemicolonKeyword_1_1_q = new TokenAlias(false, true, grammarAccess.getTypeSwitchStmtAccess().getSemicolonKeyword_1_1());
 		match_VarDecl_SemicolonKeyword_2_1_1_1_q = new TokenAlias(false, true, grammarAccess.getVarDeclAccess().getSemicolonKeyword_2_1_1_1());
 	}
 	
@@ -97,6 +95,8 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Conversion_CommaKeyword_4_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_ElementList_CommaKeyword_1_0_q.equals(syntax))
 				emit_ElementList_CommaKeyword_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_ExprSwitchStmt_SemicolonKeyword_2_1_q.equals(syntax))
+				emit_ExprSwitchStmt_SemicolonKeyword_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_ImportSpec___FullStopKeyword_0_0_or_IDENTIFIERParserRuleCall_0_1__q.equals(syntax))
 				emit_ImportSpec___FullStopKeyword_0_0_or_IDENTIFIERParserRuleCall_0_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_InterfaceType_SemicolonKeyword_3_1_q.equals(syntax))
@@ -107,16 +107,12 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_ParameterDecl_FullStopFullStopFullStopKeyword_0_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_ParameterDecl_FullStopFullStopFullStopKeyword_1_1_q.equals(syntax))
 				emit_ParameterDecl_FullStopFullStopFullStopKeyword_1_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Slice_LeftSquareBracketKeyword_1_1_q.equals(syntax))
-				emit_Slice_LeftSquareBracketKeyword_1_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Slice_RightSquareBracketKeyword_1_5_q.equals(syntax))
-				emit_Slice_RightSquareBracketKeyword_1_5_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Slice___LeftSquareBracketKeyword_0_1_ColonKeyword_0_3_RightSquareBracketKeyword_0_5___or___LeftSquareBracketKeyword_1_1_q_ColonKeyword_1_3_RightSquareBracketKeyword_1_5_q__.equals(syntax))
-				emit_Slice___LeftSquareBracketKeyword_0_1_ColonKeyword_0_3_RightSquareBracketKeyword_0_5___or___LeftSquareBracketKeyword_1_1_q_ColonKeyword_1_3_RightSquareBracketKeyword_1_5_q__(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_StatementList___CommaKeyword_1_1_1_or_SemicolonKeyword_1_1_0__q.equals(syntax))
 				emit_StatementList___CommaKeyword_1_1_1_or_SemicolonKeyword_1_1_0__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_StructType_SemicolonKeyword_3_1_q.equals(syntax))
 				emit_StructType_SemicolonKeyword_3_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_TypeSwitchStmt_SemicolonKeyword_1_1_q.equals(syntax))
+				emit_TypeSwitchStmt_SemicolonKeyword_1_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_VarDecl_SemicolonKeyword_2_1_1_1_q.equals(syntax))
 				emit_VarDecl_SemicolonKeyword_2_1_1_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
@@ -195,6 +191,19 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
+	 *     ';'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     simplestmt=SimpleStmt (ambiguity) '{' '}' (rule end)
+	 *     simplestmt=SimpleStmt (ambiguity) '{' exprcase+=ExprCaseClause
+	 *     simplestmt=SimpleStmt (ambiguity) expression=Expression
+	 */
+	protected void emit_ExprSwitchStmt_SemicolonKeyword_2_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
 	 *     ('.' | IDENTIFIER)?
 	 *
 	 * This ambiguous syntax occurs at:
@@ -256,41 +265,6 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     '['?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) ':' expression2=Expression
-	 *     (rule start) (ambiguity) expression=Expression
-	 */
-	protected void emit_Slice_LeftSquareBracketKeyword_1_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ']'?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     expression2=Expression (ambiguity) (rule end)
-	 *     expression=Expression ':' (ambiguity) (rule end)
-	 */
-	protected void emit_Slice_RightSquareBracketKeyword_1_5_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ('[' ':' ']') | ('['? ':' ']'?)
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) (rule start)
-	 */
-	protected void emit_Slice___LeftSquareBracketKeyword_0_1_ColonKeyword_0_3_RightSquareBracketKeyword_0_5___or___LeftSquareBracketKeyword_1_1_q_ColonKeyword_1_3_RightSquareBracketKeyword_1_5_q__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
 	 *     (';' | ',')?
 	 *
 	 * This ambiguous syntax occurs at:
@@ -311,6 +285,17 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     fielddecl+=FieldDecl (ambiguity) fielddecl+=FieldDecl
 	 */
 	protected void emit_StructType_SemicolonKeyword_3_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ';'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     simplestm=SimpleStmt (ambiguity) typesg=TypeSwitchGuard
+	 */
+	protected void emit_TypeSwitchStmt_SemicolonKeyword_1_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

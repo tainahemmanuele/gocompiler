@@ -29,6 +29,7 @@ import org.xtext.example.mydsl.go.ConstDecl;
 import org.xtext.example.mydsl.go.ConstSpec;
 import org.xtext.example.mydsl.go.Conversion;
 import org.xtext.example.mydsl.go.Declaration;
+import org.xtext.example.mydsl.go.ExprCaseClause;
 import org.xtext.example.mydsl.go.ExprSwitchCase;
 import org.xtext.example.mydsl.go.ExprSwitchStmt;
 import org.xtext.example.mydsl.go.Expression;
@@ -84,6 +85,7 @@ import org.xtext.example.mydsl.go.SliceType;
 import org.xtext.example.mydsl.go.Statement;
 import org.xtext.example.mydsl.go.StatementList;
 import org.xtext.example.mydsl.go.StructType;
+import org.xtext.example.mydsl.go.SwitchStmt;
 import org.xtext.example.mydsl.go.TopLevelDecl;
 import org.xtext.example.mydsl.go.Type;
 import org.xtext.example.mydsl.go.TypeDecl;
@@ -171,16 +173,12 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case GoPackage.DECLARATION:
 				sequence_Declaration(context, (Declaration) semanticObject); 
 				return; 
+			case GoPackage.EXPR_CASE_CLAUSE:
+				sequence_ExprCaseClause(context, (ExprCaseClause) semanticObject); 
+				return; 
 			case GoPackage.EXPR_SWITCH_CASE:
-				if (rule == grammarAccess.getExprCaseClauseRule()) {
-					sequence_ExprCaseClause_ExprSwitchCase(context, (ExprSwitchCase) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getExprSwitchCaseRule()) {
-					sequence_ExprSwitchCase(context, (ExprSwitchCase) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_ExprSwitchCase(context, (ExprSwitchCase) semanticObject); 
+				return; 
 			case GoPackage.EXPR_SWITCH_STMT:
 				sequence_ExprSwitchStmt(context, (ExprSwitchStmt) semanticObject); 
 				return; 
@@ -398,6 +396,9 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case GoPackage.STRUCT_TYPE:
 				sequence_StructType(context, (StructType) semanticObject); 
+				return; 
+			case GoPackage.SWITCH_STMT:
+				sequence_SwitchStmt(context, (SwitchStmt) semanticObject); 
 				return; 
 			case GoPackage.TOP_LEVEL_DECL:
 				sequence_TopLevelDecl(context, (TopLevelDecl) semanticObject); 
@@ -768,13 +769,22 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     ExprCaseClause returns ExprSwitchCase
+	 *     ExprCaseClause returns ExprCaseClause
 	 *
 	 * Constraint:
-	 *     (expressionlist=ExpressionList? statementlist=StatementList)
+	 *     (expr=ExprSwitchCase statementlist=StatementList)
 	 */
-	protected void sequence_ExprCaseClause_ExprSwitchCase(ISerializationContext context, ExprSwitchCase semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+	protected void sequence_ExprCaseClause(ISerializationContext context, ExprCaseClause semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GoPackage.Literals.EXPR_CASE_CLAUSE__EXPR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GoPackage.Literals.EXPR_CASE_CLAUSE__EXPR));
+			if (transientValues.isValueTransient(semanticObject, GoPackage.Literals.EXPR_CASE_CLAUSE__STATEMENTLIST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GoPackage.Literals.EXPR_CASE_CLAUSE__STATEMENTLIST));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getExprCaseClauseAccess().getExprExprSwitchCaseParserRuleCall_1_0(), semanticObject.getExpr());
+		feeder.accept(grammarAccess.getExprCaseClauseAccess().getStatementlistStatementListParserRuleCall_3_0(), semanticObject.getStatementlist());
+		feeder.finish();
 	}
 	
 	
@@ -792,7 +802,6 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     SwitchStmt returns ExprSwitchStmt
 	 *     ExprSwitchStmt returns ExprSwitchStmt
 	 *
 	 * Constraint:
@@ -1627,11 +1636,7 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Slice returns Slice
 	 *
 	 * Constraint:
-	 *     (
-	 *         (expression=Expression? expression2=Expression?) | 
-	 *         (expression=Expression? expression2=Expression?) | 
-	 *         (expression3=Expression? expression4=Expression expression5=Expression)
-	 *     )
+	 *     ((expression=Expression? expression2=Expression?) | (expression3=Expression? expression4=Expression expression5=Expression))
 	 */
 	protected void sequence_Slice(ISerializationContext context, Slice semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1688,6 +1693,18 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     fielddecl+=FieldDecl*
 	 */
 	protected void sequence_StructType(ISerializationContext context, StructType semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SwitchStmt returns SwitchStmt
+	 *
+	 * Constraint:
+	 *     (tss=TypeSwitchStmt | expr=ExprSwitchStmt)
+	 */
+	protected void sequence_SwitchStmt(ISerializationContext context, SwitchStmt semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1788,7 +1805,6 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     SwitchStmt returns TypeSwitchStmt
 	 *     TypeSwitchStmt returns TypeSwitchStmt
 	 *
 	 * Constraint:

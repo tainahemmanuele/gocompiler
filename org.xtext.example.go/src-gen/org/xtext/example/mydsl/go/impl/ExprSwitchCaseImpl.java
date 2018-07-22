@@ -10,11 +10,11 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.go.ExprSwitchCase;
 import org.xtext.example.mydsl.go.ExpressionList;
 import org.xtext.example.mydsl.go.GoPackage;
-import org.xtext.example.mydsl.go.StatementList;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,24 +24,13 @@ import org.xtext.example.mydsl.go.StatementList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.go.impl.ExprSwitchCaseImpl#getStatementlist <em>Statementlist</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.go.impl.ExprSwitchCaseImpl#getExpressionlist <em>Expressionlist</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ExprSwitchCaseImpl extends ExprCaseClauseImpl implements ExprSwitchCase
+public class ExprSwitchCaseImpl extends MinimalEObjectImpl.Container implements ExprSwitchCase
 {
-  /**
-   * The cached value of the '{@link #getStatementlist() <em>Statementlist</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getStatementlist()
-   * @generated
-   * @ordered
-   */
-  protected StatementList statementlist;
-
   /**
    * The cached value of the '{@link #getExpressionlist() <em>Expressionlist</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -71,54 +60,6 @@ public class ExprSwitchCaseImpl extends ExprCaseClauseImpl implements ExprSwitch
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.EXPR_SWITCH_CASE;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public StatementList getStatementlist()
-  {
-    return statementlist;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetStatementlist(StatementList newStatementlist, NotificationChain msgs)
-  {
-    StatementList oldStatementlist = statementlist;
-    statementlist = newStatementlist;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.EXPR_SWITCH_CASE__STATEMENTLIST, oldStatementlist, newStatementlist);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setStatementlist(StatementList newStatementlist)
-  {
-    if (newStatementlist != statementlist)
-    {
-      NotificationChain msgs = null;
-      if (statementlist != null)
-        msgs = ((InternalEObject)statementlist).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.EXPR_SWITCH_CASE__STATEMENTLIST, null, msgs);
-      if (newStatementlist != null)
-        msgs = ((InternalEObject)newStatementlist).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.EXPR_SWITCH_CASE__STATEMENTLIST, null, msgs);
-      msgs = basicSetStatementlist(newStatementlist, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.EXPR_SWITCH_CASE__STATEMENTLIST, newStatementlist, newStatementlist));
   }
 
   /**
@@ -179,8 +120,6 @@ public class ExprSwitchCaseImpl extends ExprCaseClauseImpl implements ExprSwitch
   {
     switch (featureID)
     {
-      case GoPackage.EXPR_SWITCH_CASE__STATEMENTLIST:
-        return basicSetStatementlist(null, msgs);
       case GoPackage.EXPR_SWITCH_CASE__EXPRESSIONLIST:
         return basicSetExpressionlist(null, msgs);
     }
@@ -197,8 +136,6 @@ public class ExprSwitchCaseImpl extends ExprCaseClauseImpl implements ExprSwitch
   {
     switch (featureID)
     {
-      case GoPackage.EXPR_SWITCH_CASE__STATEMENTLIST:
-        return getStatementlist();
       case GoPackage.EXPR_SWITCH_CASE__EXPRESSIONLIST:
         return getExpressionlist();
     }
@@ -215,9 +152,6 @@ public class ExprSwitchCaseImpl extends ExprCaseClauseImpl implements ExprSwitch
   {
     switch (featureID)
     {
-      case GoPackage.EXPR_SWITCH_CASE__STATEMENTLIST:
-        setStatementlist((StatementList)newValue);
-        return;
       case GoPackage.EXPR_SWITCH_CASE__EXPRESSIONLIST:
         setExpressionlist((ExpressionList)newValue);
         return;
@@ -235,9 +169,6 @@ public class ExprSwitchCaseImpl extends ExprCaseClauseImpl implements ExprSwitch
   {
     switch (featureID)
     {
-      case GoPackage.EXPR_SWITCH_CASE__STATEMENTLIST:
-        setStatementlist((StatementList)null);
-        return;
       case GoPackage.EXPR_SWITCH_CASE__EXPRESSIONLIST:
         setExpressionlist((ExpressionList)null);
         return;
@@ -255,8 +186,6 @@ public class ExprSwitchCaseImpl extends ExprCaseClauseImpl implements ExprSwitch
   {
     switch (featureID)
     {
-      case GoPackage.EXPR_SWITCH_CASE__STATEMENTLIST:
-        return statementlist != null;
       case GoPackage.EXPR_SWITCH_CASE__EXPRESSIONLIST:
         return expressionlist != null;
     }
