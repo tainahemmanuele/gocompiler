@@ -75,6 +75,89 @@ class GoGenerator extends AbstractGenerator {
 			<<genExpressionStmt(ss.es)>>
 		<ENDIF>>
 	'''
+	def genIncDecStmt(IncDecStmt inc)'''
+		<<IF inc.exp != null >>
+			<<genExpression(inc.exp)>>
+		<<ENDIF>>
+	'''
+	
+	def genAssignment(Assignment ass)'''
+		<<IF ass.expressionlist != null>>
+			<<genExpressionList(ass.expressionlist)>>
+		<<ELSEIF ass.expressionlist2 != null>>
+			<<genExpressionList(ass.expressionlist)>>
+		<<ENDIF>>
+	'''
+	
+	def genShortVarDecl(ShortVarDecl ss)'''
+		<<IF ss.idl != null>>
+			<<genIdentifierList(ss.idl)>>
+		<<ELSEIF ss.epl != null>>
+			<<genExpressionList(ss.epl)>>
+		<<ENDIF>>
+	'''
+	def genExpressionStmt(ExpressionStmt es)'''
+		<<IF es.exp != null>>
+			<<genExpression(es.exp)>>
+		<<ENDIF>>	
+	'''
+	def genExpression(Expression exp)'''
+		<<IF exp.up != null >>
+			<<IF exp.up.pr.op.literal != null>>
+				<<IF exp.exp ==null >>
+					<<IF exp.up.pr.op.literal.basic.strd != null>>
+						<<genStringExpression(exp)>>
+					<<ENDIF>>
+				<<ELSE>>
+					<<IF exp.exp.bop.equals("+")  >>
+						<<genIntLiteralExpression(exp)>>
+					<<ELSE IF exp.exp.bop.equals("-")  >>
+						<<genIntLiteralExpression(exp)>>
+					<<ELSE IF exp.exp.bop.equals("*")  >>
+						<<genIntLiteralExpression(exp)>>
+					<<ELSE IF exp.exp.bop.equals("/")  >>
+						<<genIntLiteralExpression(exp)>>
+					<<ENDIF>>
+				<<ENDIF>>
+				
+			<<ENDIF>>
+		<<ENDIF>>
+	'''
+	
+	def genStringExpression(Expression exp) '''
+		«lineCount.toString()»: LD R«regCount.toString()», "«exp.up.pr.op.literal.basic.strd»"
+		«nextReg»
+		«nextLine»
+	'''
+	
+	def genIntLiteralExpression(Expression exp)'''
+		«lineCount.toString()»: LD R«regCount.toString()», #«exp.up.pr.op.literal.basic.intd»
+		«nextReg»
+		«nextLine»
+		«lineCount.toString()»: LD R«regCount.toString()», #«exp.exp.expression.up.pr.op.literal.basic.intd»
+		«nextReg»
+		«nextLine»
+		«IF exp.exp.bop.equals("+")»
+			«lineCount.toString()»: ADD R«new Integer(regCount-2).toString()», R«new Integer(regCount-1).toString()» , R«new Integer(regCount-2).toString()»
+			«nextLine»
+		«ELSEIF exp.exp.bop.equals("*")»
+			«lineCount.toString()»: MUL R«new Integer(regCount-2).toString()», R«new Integer(regCount-1).toString()» , R«new Integer(regCount-2).toString()»
+			«nextLine»
+		«ELSEIF exp.exp.bop.equals("/")»
+			«lineCount.toString()»: DIV R«new Integer(regCount-2).toString()», R«new Integer(regCount-1).toString()» , R«new Integer(regCount-2).toString()»
+			«nextLine»
+		«ELSEIF exp.exp.bop.equals("-")»
+			«lineCount.toString()»: SUB R«new Integer(regCount-2).toString()», R«new Integer(regCount-1).toString()» , R«new Integer(regCount-2).toString()»
+			«nextLine»
+		«ENDIF»
+		«nextReg»
+	'''
+	
+	def genLogicalExpression(Expression exp)'''
+		
+	
+	'''
+	
 	
 	def genForStmt(ForStmt fs)'''
 		#FOR
@@ -89,4 +172,6 @@ class GoGenerator extends AbstractGenerator {
 	def void nextLine() {
 		lineCount = lineCount + 8
 	}
+	
+	
 }

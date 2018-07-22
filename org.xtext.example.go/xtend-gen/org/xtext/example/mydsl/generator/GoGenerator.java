@@ -11,11 +11,16 @@ import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.xtext.example.mydsl.go.Assignment;
 import org.xtext.example.mydsl.go.Block;
 import org.xtext.example.mydsl.go.Declaration;
+import org.xtext.example.mydsl.go.Expression;
+import org.xtext.example.mydsl.go.ExpressionStmt;
 import org.xtext.example.mydsl.go.ForStmt;
 import org.xtext.example.mydsl.go.FunctionBody;
 import org.xtext.example.mydsl.go.FunctionDecl;
+import org.xtext.example.mydsl.go.IncDecStmt;
+import org.xtext.example.mydsl.go.ShortVarDecl;
 import org.xtext.example.mydsl.go.SimpleStmt;
 import org.xtext.example.mydsl.go.Statement;
 import org.xtext.example.mydsl.go.StatementList;
@@ -145,6 +150,260 @@ public class GoGenerator extends AbstractGenerator {
     _builder.append("<<genExpressionStmt(ss.es)>>");
     _builder.newLine();
     _builder.append("<ENDIF>>");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence genIncDecStmt(final IncDecStmt inc) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<<IF inc.exp != null >>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<genExpression(inc.exp)>>");
+    _builder.newLine();
+    _builder.append("<<ENDIF>>");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence genAssignment(final Assignment ass) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<<IF ass.expressionlist != null>>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<genExpressionList(ass.expressionlist)>>");
+    _builder.newLine();
+    _builder.append("<<ELSEIF ass.expressionlist2 != null>>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<genExpressionList(ass.expressionlist)>>");
+    _builder.newLine();
+    _builder.append("<<ENDIF>>");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence genShortVarDecl(final ShortVarDecl ss) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<<IF ss.idl != null>>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<genIdentifierList(ss.idl)>>");
+    _builder.newLine();
+    _builder.append("<<ELSEIF ss.epl != null>>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<genExpressionList(ss.epl)>>");
+    _builder.newLine();
+    _builder.append("<<ENDIF>>");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence genExpressionStmt(final ExpressionStmt es) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<<IF es.exp != null>>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<genExpression(es.exp)>>");
+    _builder.newLine();
+    _builder.append("<<ENDIF>>\t");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence genExpression(final Expression exp) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<<IF exp.up != null >>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<IF exp.up.pr.op.literal != null>>");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<<IF exp.exp ==null >>");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("<<IF exp.up.pr.op.literal.basic.strd != null>>");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("<<genStringExpression(exp)>>");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("<<ENDIF>>");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<<ELSE>>");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("<<IF exp.exp.bop.equals(\"+\")  >>");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("<<genIntLiteralExpression(exp)>>");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("<<ELSE IF exp.exp.bop.equals(\"-\")  >>");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("<<genIntLiteralExpression(exp)>>");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("<<ELSE IF exp.exp.bop.equals(\"*\")  >>");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("<<genIntLiteralExpression(exp)>>");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("<<ELSE IF exp.exp.bop.equals(\"/\")  >>");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("<<genIntLiteralExpression(exp)>>");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("<<ENDIF>>");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<<ENDIF>>");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<<ENDIF>>");
+    _builder.newLine();
+    _builder.append("<<ENDIF>>");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence genStringExpression(final Expression exp) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _string = this.lineCount.toString();
+    _builder.append(_string);
+    _builder.append(": LD R");
+    String _string_1 = this.regCount.toString();
+    _builder.append(_string_1);
+    _builder.append(", \"");
+    String _strd = exp.getUp().getPr().getOp().getLiteral().getBasic().getStrd();
+    _builder.append(_strd);
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    this.nextReg();
+    _builder.newLineIfNotEmpty();
+    this.nextLine();
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence genIntLiteralExpression(final Expression exp) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _string = this.lineCount.toString();
+    _builder.append(_string);
+    _builder.append(": LD R");
+    String _string_1 = this.regCount.toString();
+    _builder.append(_string_1);
+    _builder.append(", #");
+    String _intd = exp.getUp().getPr().getOp().getLiteral().getBasic().getIntd();
+    _builder.append(_intd);
+    _builder.newLineIfNotEmpty();
+    this.nextReg();
+    _builder.newLineIfNotEmpty();
+    this.nextLine();
+    _builder.newLineIfNotEmpty();
+    String _string_2 = this.lineCount.toString();
+    _builder.append(_string_2);
+    _builder.append(": LD R");
+    String _string_3 = this.regCount.toString();
+    _builder.append(_string_3);
+    _builder.append(", #");
+    String _intd_1 = exp.getExp().getExpression().getUp().getPr().getOp().getLiteral().getBasic().getIntd();
+    _builder.append(_intd_1);
+    _builder.newLineIfNotEmpty();
+    this.nextReg();
+    _builder.newLineIfNotEmpty();
+    this.nextLine();
+    _builder.newLineIfNotEmpty();
+    {
+      boolean _equals = exp.getExp().getBop().equals("+");
+      if (_equals) {
+        String _string_4 = this.lineCount.toString();
+        _builder.append(_string_4);
+        _builder.append(": ADD R");
+        String _string_5 = new Integer(((this.regCount).intValue() - 2)).toString();
+        _builder.append(_string_5);
+        _builder.append(", R");
+        String _string_6 = new Integer(((this.regCount).intValue() - 1)).toString();
+        _builder.append(_string_6);
+        _builder.append(" , R");
+        String _string_7 = new Integer(((this.regCount).intValue() - 2)).toString();
+        _builder.append(_string_7);
+        _builder.newLineIfNotEmpty();
+        this.nextLine();
+        _builder.newLineIfNotEmpty();
+      } else {
+        boolean _equals_1 = exp.getExp().getBop().equals("*");
+        if (_equals_1) {
+          String _string_8 = this.lineCount.toString();
+          _builder.append(_string_8);
+          _builder.append(": MUL R");
+          String _string_9 = new Integer(((this.regCount).intValue() - 2)).toString();
+          _builder.append(_string_9);
+          _builder.append(", R");
+          String _string_10 = new Integer(((this.regCount).intValue() - 1)).toString();
+          _builder.append(_string_10);
+          _builder.append(" , R");
+          String _string_11 = new Integer(((this.regCount).intValue() - 2)).toString();
+          _builder.append(_string_11);
+          _builder.newLineIfNotEmpty();
+          this.nextLine();
+          _builder.newLineIfNotEmpty();
+        } else {
+          boolean _equals_2 = exp.getExp().getBop().equals("/");
+          if (_equals_2) {
+            String _string_12 = this.lineCount.toString();
+            _builder.append(_string_12);
+            _builder.append(": DIV R");
+            String _string_13 = new Integer(((this.regCount).intValue() - 2)).toString();
+            _builder.append(_string_13);
+            _builder.append(", R");
+            String _string_14 = new Integer(((this.regCount).intValue() - 1)).toString();
+            _builder.append(_string_14);
+            _builder.append(" , R");
+            String _string_15 = new Integer(((this.regCount).intValue() - 2)).toString();
+            _builder.append(_string_15);
+            _builder.newLineIfNotEmpty();
+            this.nextLine();
+            _builder.newLineIfNotEmpty();
+          } else {
+            boolean _equals_3 = exp.getExp().getBop().equals("-");
+            if (_equals_3) {
+              String _string_16 = this.lineCount.toString();
+              _builder.append(_string_16);
+              _builder.append(": SUB R");
+              String _string_17 = new Integer(((this.regCount).intValue() - 2)).toString();
+              _builder.append(_string_17);
+              _builder.append(", R");
+              String _string_18 = new Integer(((this.regCount).intValue() - 1)).toString();
+              _builder.append(_string_18);
+              _builder.append(" , R");
+              String _string_19 = new Integer(((this.regCount).intValue() - 2)).toString();
+              _builder.append(_string_19);
+              _builder.newLineIfNotEmpty();
+              this.nextLine();
+              _builder.newLineIfNotEmpty();
+            }
+          }
+        }
+      }
+    }
+    this.nextReg();
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence genLogicalExpression(final Expression exp) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t");
     _builder.newLine();
     return _builder;
   }
