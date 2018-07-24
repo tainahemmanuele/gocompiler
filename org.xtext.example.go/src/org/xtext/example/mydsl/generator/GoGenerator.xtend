@@ -7,6 +7,13 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.xtext.example.mydsl.go.TopLevelDecl
+import org.xtext.example.mydsl.go.VarDecl
+import org.xtext.example.mydsl.go.FunctionDecl
+import java.util.concurrent.ForkJoinPool
+import org.xtext.example.mydsl.go.MethodDecl
+import org.xtext.example.mydsl.go.FunctionBody
+import org.xtext.example.mydsl.go.BasicLit
 
 /**
  * Generates code from your model files on save.
@@ -14,12 +21,110 @@ import org.eclipse.xtext.generator.IGeneratorContext
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class GoGenerator extends AbstractGenerator {
+	
+	Integer variables = 1;
+	Integer address   = 0;
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+		for(e : resource.allContents.toIterable.filter(TopLevelDecl)) {		
+			fsa.generateFile(
+				e.toString() + ".asm",
+				e.compile
+			)		
+		}
+	}
+	
+	
+	def compile(TopLevelDecl td) '''
+		«address»: LD SP, 1000 «nextAddress»
+		
+		«IF td.dl !== null »
+			«IF td.dl.vd !== null »
+			«vardecl(td.dl.vd)»
+			«ENDIF»
+		«ENDIF»
+		«IF td.fd !== null »
+			«funcdecl(td.fd)»
+		«ENDIF»
+		«IF td.mt !== null»
+			«methdecl(td.mt)»
+		«ENDIF»
+	'''
+	
+	def methdecl(MethodDecl md) '''
+		«FOR bd : md.body»
+			«genericdecl(bd)»
+		«ENDFOR»
+		
+	'''
+	
+	def funcdecl(FunctionDecl fd) '''
+		«FOR bd: fd.body»
+			«genericdecl(bd)»
+		«ENDFOR»
+	'''
+	
+	def genericdecl(FunctionBody fb) '''
+		«FOR stmt : fb.bc.stmtl.statment»
+			«IF stmt.declaration !== null»
+				«IF stmt.declaration.vd !== null»
+					«vardecl(stmt.declaration.vd)»
+				«ENDIF»
+			«ENDIF»
+		«ENDFOR»
+	'''
+	
+	def vardecl(VarDecl vd) '''	 
+		«IF vd !== null»
+			«IF vd.varspec.expressionlist.exp.up.pr.op.literal !== null»
+				«address»: LD «reg», #«getliteral(vd.varspec.expressionlist.exp.up.pr.op.literal.basic)»
+			«ELSE»
+				«address»: LD «reg», «vd.varspec.expressionlist.exp.up.pr.op.operandn.id» «nextAddress»
+			«ENDIF»
+			«IF vd.varspec.expressionlist.exp.exp !== null »
+				«IF vd.varspec.expressionlist.exp.exp.expression.up.pr.op.literal !== null»
+					«address»: ADD «reg», «reg», #«getliteral(vd.varspec.expressionlist.exp.exp.expression.up.pr.op.literal.basic)» «nextAddress»
+				«ENDIF»
+				«IF vd.varspec.expressionlist.exp.exp.expression.up.pr.op.operandn !== null»
+					«address»: ADD «reg», «reg», «vd.varspec.expressionlist.exp.exp.expression.up.pr.op.operandn.id» «nextAddress»
+				«ENDIF»
+			«ENDIF»
+		«ENDIF»
+		«address»: ST «vd.varspec.id.id», «reg»
+		«nextAddress»
+		
+	'''
+	
+	def getliteral(BasicLit lit) {
+		
+		if(lit.intd !== null) {
+			return lit.intd
+		}
+		
+		if(lit.floatd !== null) {
+			return lit.floatd
+		}
+		
+		if(lit.strd !== null) {
+			return lit.strd
+		}
+		
+		if(lit.bool !== null ) {
+			return lit.bool
+		}
+		
+	}
+	
+	def String reg() {
+		return "R" + variables;
+	}
+	
+	def void increment() {
+		variables = variables + 1;
+	}
+	
+
+	def void nextAddress() {
+		address = address + 8;
 	}
 }

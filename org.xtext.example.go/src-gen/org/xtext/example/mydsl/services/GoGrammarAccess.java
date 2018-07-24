@@ -1369,21 +1369,25 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.Block");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final RuleCall cStatementListParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cStmtlAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cStmtlStatementListParserRuleCall_1_0 = (RuleCall)cStmtlAssignment_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//Block:
-		//	'{' StatementList '}';
+		//	'{' stmtl=StatementList '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'{' StatementList '}'
+		//'{' stmtl=StatementList '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_0() { return cLeftCurlyBracketKeyword_0; }
 		
+		//stmtl=StatementList
+		public Assignment getStmtlAssignment_1() { return cStmtlAssignment_1; }
+		
 		//StatementList
-		public RuleCall getStatementListParserRuleCall_1() { return cStatementListParserRuleCall_1; }
+		public RuleCall getStmtlStatementListParserRuleCall_1_0() { return cStmtlStatementListParserRuleCall_1_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_2() { return cRightCurlyBracketKeyword_2; }
@@ -4471,14 +4475,18 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class FunctionBodyElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.FunctionBody");
-		private final RuleCall cBlockParserRuleCall = (RuleCall)rule.eContents().get(1);
+		private final Assignment cBcAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cBcBlockParserRuleCall_0 = (RuleCall)cBcAssignment.eContents().get(0);
 		
 		//FunctionBody:
-		//	Block;
+		//	bc=Block;
 		@Override public ParserRule getRule() { return rule; }
 		
+		//bc=Block
+		public Assignment getBcAssignment() { return cBcAssignment; }
+		
 		//Block
-		public RuleCall getBlockParserRuleCall() { return cBlockParserRuleCall; }
+		public RuleCall getBcBlockParserRuleCall_0() { return cBcBlockParserRuleCall_0; }
 	}
 	public class OperandNameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Go.OperandName");
@@ -5637,7 +5645,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Block:
-	//	'{' StatementList '}';
+	//	'{' stmtl=StatementList '}';
 	public BlockElements getBlockAccess() {
 		return pBlock;
 	}
@@ -6413,7 +6421,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//FunctionBody:
-	//	Block;
+	//	bc=Block;
 	public FunctionBodyElements getFunctionBodyAccess() {
 		return pFunctionBody;
 	}

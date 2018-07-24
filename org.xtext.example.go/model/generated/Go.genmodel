@@ -99,7 +99,9 @@
     <genClasses ecoreClass="Go.ecore#//ChannelType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ChannelType/elemtype"/>
     </genClasses>
-    <genClasses ecoreClass="Go.ecore#//Block"/>
+    <genClasses ecoreClass="Go.ecore#//Block">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//Block/stmtl"/>
+    </genClasses>
     <genClasses ecoreClass="Go.ecore#//StatementList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//StatementList/statment"/>
     </genClasses>
@@ -376,7 +378,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//ReceiverType/methodn"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//ReceiverType/type"/>
     </genClasses>
-    <genClasses ecoreClass="Go.ecore#//FunctionBody"/>
+    <genClasses ecoreClass="Go.ecore#//FunctionBody">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Go.ecore#//FunctionBody/bc"/>
+    </genClasses>
     <genClasses ecoreClass="Go.ecore#//OperandName">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//OperandName/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Go.ecore#//OperandName/qi"/>

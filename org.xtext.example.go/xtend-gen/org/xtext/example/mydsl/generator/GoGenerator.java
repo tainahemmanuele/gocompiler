@@ -3,10 +3,26 @@
  */
 package org.xtext.example.mydsl.generator;
 
+import com.google.common.collect.Iterables;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.xtext.example.mydsl.go.BasicLit;
+import org.xtext.example.mydsl.go.Declaration;
+import org.xtext.example.mydsl.go.Expression2;
+import org.xtext.example.mydsl.go.FunctionBody;
+import org.xtext.example.mydsl.go.FunctionDecl;
+import org.xtext.example.mydsl.go.Literal;
+import org.xtext.example.mydsl.go.MethodDecl;
+import org.xtext.example.mydsl.go.OperandName;
+import org.xtext.example.mydsl.go.Statement;
+import org.xtext.example.mydsl.go.TopLevelDecl;
+import org.xtext.example.mydsl.go.VarDecl;
 
 /**
  * Generates code from your model files on save.
@@ -15,7 +31,238 @@ import org.eclipse.xtext.generator.IGeneratorContext;
  */
 @SuppressWarnings("all")
 public class GoGenerator extends AbstractGenerator {
+  private Integer variables = Integer.valueOf(1);
+  
+  private Integer address = Integer.valueOf(0);
+  
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    Iterable<TopLevelDecl> _filter = Iterables.<TopLevelDecl>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), TopLevelDecl.class);
+    for (final TopLevelDecl e : _filter) {
+      String _string = e.toString();
+      String _plus = (_string + ".asm");
+      fsa.generateFile(_plus, 
+        this.compile(e));
+    }
+  }
+  
+  public CharSequence compile(final TopLevelDecl td) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append(this.address);
+    _builder.append(": LD SP, 1000 ");
+    this.nextAddress();
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    {
+      Declaration _dl = td.getDl();
+      boolean _tripleNotEquals = (_dl != null);
+      if (_tripleNotEquals) {
+        {
+          VarDecl _vd = td.getDl().getVd();
+          boolean _tripleNotEquals_1 = (_vd != null);
+          if (_tripleNotEquals_1) {
+            CharSequence _vardecl = this.vardecl(td.getDl().getVd());
+            _builder.append(_vardecl);
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    {
+      FunctionDecl _fd = td.getFd();
+      boolean _tripleNotEquals_2 = (_fd != null);
+      if (_tripleNotEquals_2) {
+        CharSequence _funcdecl = this.funcdecl(td.getFd());
+        _builder.append(_funcdecl);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      MethodDecl _mt = td.getMt();
+      boolean _tripleNotEquals_3 = (_mt != null);
+      if (_tripleNotEquals_3) {
+        CharSequence _methdecl = this.methdecl(td.getMt());
+        _builder.append(_methdecl);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence methdecl(final MethodDecl md) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<FunctionBody> _body = md.getBody();
+      for(final FunctionBody bd : _body) {
+        CharSequence _genericdecl = this.genericdecl(bd);
+        _builder.append(_genericdecl);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence funcdecl(final FunctionDecl fd) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<FunctionBody> _body = fd.getBody();
+      for(final FunctionBody bd : _body) {
+        CharSequence _genericdecl = this.genericdecl(bd);
+        _builder.append(_genericdecl);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence genericdecl(final FunctionBody fb) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<Statement> _statment = fb.getBc().getStmtl().getStatment();
+      for(final Statement stmt : _statment) {
+        {
+          Declaration _declaration = stmt.getDeclaration();
+          boolean _tripleNotEquals = (_declaration != null);
+          if (_tripleNotEquals) {
+            {
+              VarDecl _vd = stmt.getDeclaration().getVd();
+              boolean _tripleNotEquals_1 = (_vd != null);
+              if (_tripleNotEquals_1) {
+                CharSequence _vardecl = this.vardecl(stmt.getDeclaration().getVd());
+                _builder.append(_vardecl);
+                _builder.newLineIfNotEmpty();
+              }
+            }
+          }
+        }
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence vardecl(final VarDecl vd) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      if ((vd != null)) {
+        {
+          Literal _literal = vd.getVarspec().getExpressionlist().getExp().getUp().getPr().getOp().getLiteral();
+          boolean _tripleNotEquals = (_literal != null);
+          if (_tripleNotEquals) {
+            _builder.append(this.address);
+            _builder.append(": LD ");
+            String _reg = this.reg();
+            _builder.append(_reg);
+            _builder.append(", #");
+            String _literal_1 = this.getliteral(vd.getVarspec().getExpressionlist().getExp().getUp().getPr().getOp().getLiteral().getBasic());
+            _builder.append(_literal_1);
+            _builder.newLineIfNotEmpty();
+          } else {
+            _builder.append(this.address);
+            _builder.append(": LD ");
+            String _reg_1 = this.reg();
+            _builder.append(_reg_1);
+            _builder.append(", ");
+            String _id = vd.getVarspec().getExpressionlist().getExp().getUp().getPr().getOp().getOperandn().getId();
+            _builder.append(_id);
+            _builder.append(" ");
+            this.nextAddress();
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        {
+          Expression2 _exp = vd.getVarspec().getExpressionlist().getExp().getExp();
+          boolean _tripleNotEquals_1 = (_exp != null);
+          if (_tripleNotEquals_1) {
+            {
+              Literal _literal_2 = vd.getVarspec().getExpressionlist().getExp().getExp().getExpression().getUp().getPr().getOp().getLiteral();
+              boolean _tripleNotEquals_2 = (_literal_2 != null);
+              if (_tripleNotEquals_2) {
+                _builder.append(this.address);
+                _builder.append(": ADD ");
+                String _reg_2 = this.reg();
+                _builder.append(_reg_2);
+                _builder.append(", ");
+                String _reg_3 = this.reg();
+                _builder.append(_reg_3);
+                _builder.append(", #");
+                String _literal_3 = this.getliteral(vd.getVarspec().getExpressionlist().getExp().getExp().getExpression().getUp().getPr().getOp().getLiteral().getBasic());
+                _builder.append(_literal_3);
+                _builder.append(" ");
+                this.nextAddress();
+                _builder.newLineIfNotEmpty();
+              }
+            }
+            {
+              OperandName _operandn = vd.getVarspec().getExpressionlist().getExp().getExp().getExpression().getUp().getPr().getOp().getOperandn();
+              boolean _tripleNotEquals_3 = (_operandn != null);
+              if (_tripleNotEquals_3) {
+                _builder.append(this.address);
+                _builder.append(": ADD ");
+                String _reg_4 = this.reg();
+                _builder.append(_reg_4);
+                _builder.append(", ");
+                String _reg_5 = this.reg();
+                _builder.append(_reg_5);
+                _builder.append(", ");
+                String _id_1 = vd.getVarspec().getExpressionlist().getExp().getExp().getExpression().getUp().getPr().getOp().getOperandn().getId();
+                _builder.append(_id_1);
+                _builder.append(" ");
+                this.nextAddress();
+                _builder.newLineIfNotEmpty();
+              }
+            }
+          }
+        }
+      }
+    }
+    _builder.append(this.address);
+    _builder.append(": ST ");
+    String _id_2 = vd.getVarspec().getId().getId();
+    _builder.append(_id_2);
+    _builder.append(", ");
+    String _reg_6 = this.reg();
+    _builder.append(_reg_6);
+    _builder.newLineIfNotEmpty();
+    this.nextAddress();
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public String getliteral(final BasicLit lit) {
+    String _intd = lit.getIntd();
+    boolean _tripleNotEquals = (_intd != null);
+    if (_tripleNotEquals) {
+      return lit.getIntd();
+    }
+    String _floatd = lit.getFloatd();
+    boolean _tripleNotEquals_1 = (_floatd != null);
+    if (_tripleNotEquals_1) {
+      return lit.getFloatd();
+    }
+    String _strd = lit.getStrd();
+    boolean _tripleNotEquals_2 = (_strd != null);
+    if (_tripleNotEquals_2) {
+      return lit.getStrd();
+    }
+    String _bool = lit.getBool();
+    boolean _tripleNotEquals_3 = (_bool != null);
+    if (_tripleNotEquals_3) {
+      return lit.getBool();
+    }
+    return null;
+  }
+  
+  public String reg() {
+    return ("R" + this.variables);
+  }
+  
+  public void increment() {
+    this.variables = Integer.valueOf(((this.variables).intValue() + 1));
+  }
+  
+  public void nextAddress() {
+    this.address = Integer.valueOf(((this.address).intValue() + 8));
   }
 }

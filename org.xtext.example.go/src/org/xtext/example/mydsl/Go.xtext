@@ -527,7 +527,7 @@ ChannelType:
 	('chan' ('<-')? | '<-' 'chan') elemtype=ElementType;
 
 Block: 
-	'{' StatementList '}';
+	'{' stmtl=StatementList '}';
 
 StatementList:
 	{StatementList}
@@ -787,7 +787,7 @@ ReceiverType:
 	type=Type;
 
 FunctionBody:
-	Block;
+	bc=Block;
 	
 OperandName:
 	{OperandName} id=IDENTIFIER | {OperandName} qi=QualifiedIdent;
