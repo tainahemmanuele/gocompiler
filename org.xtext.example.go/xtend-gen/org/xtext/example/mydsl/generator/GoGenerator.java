@@ -4,6 +4,7 @@
 package org.xtext.example.mydsl.generator;
 
 import com.google.common.collect.Iterables;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
@@ -14,20 +15,27 @@ import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.xtext.example.mydsl.go.Assignment;
 import org.xtext.example.mydsl.go.Block;
 import org.xtext.example.mydsl.go.Condition;
+import org.xtext.example.mydsl.go.ConstDecl;
 import org.xtext.example.mydsl.go.Declaration;
 import org.xtext.example.mydsl.go.Expression;
+import org.xtext.example.mydsl.go.Expression2;
+import org.xtext.example.mydsl.go.ExpressionList;
 import org.xtext.example.mydsl.go.ExpressionStmt;
 import org.xtext.example.mydsl.go.ForClause;
 import org.xtext.example.mydsl.go.ForStmt;
 import org.xtext.example.mydsl.go.FunctionBody;
 import org.xtext.example.mydsl.go.FunctionDecl;
+import org.xtext.example.mydsl.go.IdentifierList;
 import org.xtext.example.mydsl.go.IncDecStmt;
 import org.xtext.example.mydsl.go.InitStmt;
+import org.xtext.example.mydsl.go.Literal;
 import org.xtext.example.mydsl.go.PostStmt;
 import org.xtext.example.mydsl.go.ShortVarDecl;
 import org.xtext.example.mydsl.go.SimpleStmt;
 import org.xtext.example.mydsl.go.Statement;
 import org.xtext.example.mydsl.go.StatementList;
+import org.xtext.example.mydsl.go.UnaryExpr;
+import org.xtext.example.mydsl.go.VarDecl;
 
 /**
  * Generates code from your model files on save.
@@ -52,109 +60,160 @@ public class GoGenerator extends AbstractGenerator {
   
   public CharSequence genFunc(final FunctionDecl f) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<<lineCount>>: LD SP 1000");
-    _builder.newLine();
-    _builder.append("<<nextLine>>");
-    _builder.newLine();
-    _builder.append("<<f.body.genFunctionBody>>");
-    _builder.newLine();
+    _builder.append(this.lineCount);
+    _builder.append(": LD SP 1000");
+    _builder.newLineIfNotEmpty();
+    this.nextLine();
+    _builder.newLineIfNotEmpty();
+    {
+      FunctionBody _body = f.getBody();
+      boolean _tripleNotEquals = (_body != null);
+      if (_tripleNotEquals) {
+        CharSequence _genFunctionBody = this.genFunctionBody(f.getBody());
+        _builder.append(_genFunctionBody);
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder;
   }
   
   public CharSequence genFunctionBody(final FunctionBody fb) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<<fb.block.genBlock>>");
-    _builder.newLine();
+    CharSequence _genBlock = this.genBlock(fb.getBlock());
+    _builder.append(_genBlock);
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
   public CharSequence genBlock(final Block b) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<<IF b.statementlist != null>>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<b.statementlist.genStatementList>>");
-    _builder.newLine();
-    _builder.append("<<ENDIF>>");
-    _builder.newLine();
+    {
+      StatementList _statementlist = b.getStatementlist();
+      boolean _tripleNotEquals = (_statementlist != null);
+      if (_tripleNotEquals) {
+        CharSequence _genStatementList = this.genStatementList(b.getStatementlist());
+        _builder.append(_genStatementList);
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder;
   }
   
   public CharSequence genStatementList(final StatementList sl) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<<FOR stmt : sl.statements>>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<stmt.genStatement>>");
-    _builder.newLine();
-    _builder.append("<<ENDFOR>>");
-    _builder.newLine();
+    {
+      EList<Statement> _statment = sl.getStatment();
+      for(final Statement stmt : _statment) {
+        CharSequence _genStatement = this.genStatement(stmt);
+        _builder.append(_genStatement);
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder;
   }
   
   public CharSequence genStatement(final Statement s) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<<IF s.declaration != null>>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<genDeclaration(s.declaration)>>");
-    _builder.newLine();
-    _builder.append("<<ELSEIF s.simplest != null>>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<genSimpleStmt(s.simplest)>>");
-    _builder.newLine();
-    _builder.append("<<ELSEIF s.forst != null>>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<genForStmt(s.forst)>>");
-    _builder.newLine();
-    _builder.append("<<ENDIF>>");
-    _builder.newLine();
+    {
+      Declaration _declaration = s.getDeclaration();
+      boolean _tripleNotEquals = (_declaration != null);
+      if (_tripleNotEquals) {
+        CharSequence _genDeclaration = this.genDeclaration(s.getDeclaration());
+        _builder.append(_genDeclaration);
+        _builder.newLineIfNotEmpty();
+      } else {
+        SimpleStmt _simplest = s.getSimplest();
+        boolean _tripleNotEquals_1 = (_simplest != null);
+        if (_tripleNotEquals_1) {
+          CharSequence _genSimpleStmt = this.genSimpleStmt(s.getSimplest());
+          _builder.append(_genSimpleStmt);
+          _builder.newLineIfNotEmpty();
+        } else {
+          ForStmt _forst = s.getForst();
+          boolean _tripleNotEquals_2 = (_forst != null);
+          if (_tripleNotEquals_2) {
+            CharSequence _genForStmt = this.genForStmt(s.getForst());
+            _builder.append(_genForStmt);
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence genSimpleStmt(final SimpleStmt stmt) {
+    StringConcatenation _builder = new StringConcatenation();
     return _builder;
   }
   
   public CharSequence genDeclaration(final Declaration d) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<<IF d.constdecl != null>>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<genConstDecl(d.constdecl)>>");
-    _builder.newLine();
-    _builder.append("<<ELSEIF d.vardecl != null>>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<genVarDecl(d.vardecl)>>");
-    _builder.newLine();
-    _builder.append("<<ENDIF>>");
-    _builder.newLine();
+    {
+      ConstDecl _cd = d.getCd();
+      boolean _tripleNotEquals = (_cd != null);
+      if (_tripleNotEquals) {
+        CharSequence _genConstDecl = this.genConstDecl(d.getCd());
+        _builder.append(_genConstDecl);
+        _builder.newLineIfNotEmpty();
+      } else {
+        VarDecl _vd = d.getVd();
+        boolean _tripleNotEquals_1 = (_vd != null);
+        if (_tripleNotEquals_1) {
+          CharSequence _genVarDecl = this.genVarDecl(d.getVd());
+          _builder.append(_genVarDecl);
+          _builder.newLineIfNotEmpty();
+        }
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence genVarDecl(final VarDecl decl) {
+    StringConcatenation _builder = new StringConcatenation();
+    return _builder;
+  }
+  
+  public CharSequence genConstDecl(final ConstDecl decl) {
+    StringConcatenation _builder = new StringConcatenation();
     return _builder;
   }
   
   public CharSequence genSimpleStatement(final SimpleStmt ss) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<<IF ss.inc != null>>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<genIncDecStmt(ss.inc)>>");
-    _builder.newLine();
-    _builder.append("<<ELSEIF ss.ass != null>>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<genAssignment(ss.ass)>>");
-    _builder.newLine();
-    _builder.append("<<ELSEIF ss.svd != null>>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<genShortVarDecl(ss.svd)>>");
-    _builder.newLine();
-    _builder.append("<<ELSEIF ss.es != null>>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<genExpressionStmt(ss.es)>>");
-    _builder.newLine();
-    _builder.append("<ENDIF>>");
-    _builder.newLine();
+    {
+      IncDecStmt _inc = ss.getInc();
+      boolean _tripleNotEquals = (_inc != null);
+      if (_tripleNotEquals) {
+        CharSequence _genIncDecStmt = this.genIncDecStmt(ss.getInc());
+        _builder.append(_genIncDecStmt);
+        _builder.newLineIfNotEmpty();
+      } else {
+        Assignment _ass = ss.getAss();
+        boolean _tripleNotEquals_1 = (_ass != null);
+        if (_tripleNotEquals_1) {
+          CharSequence _genAssignment = this.genAssignment(ss.getAss());
+          _builder.append(_genAssignment);
+          _builder.newLineIfNotEmpty();
+        } else {
+          ShortVarDecl _svd = ss.getSvd();
+          boolean _tripleNotEquals_2 = (_svd != null);
+          if (_tripleNotEquals_2) {
+            CharSequence _genShortVarDecl = this.genShortVarDecl(ss.getSvd());
+            _builder.append(_genShortVarDecl);
+            _builder.newLineIfNotEmpty();
+          } else {
+            ExpressionStmt _es = ss.getEs();
+            boolean _tripleNotEquals_3 = (_es != null);
+            if (_tripleNotEquals_3) {
+              CharSequence _genExpressionStmt = this.genExpressionStmt(ss.getEs());
+              _builder.append(_genExpressionStmt);
+              _builder.newLineIfNotEmpty();
+            }
+          }
+        }
+      }
+    }
     return _builder;
   }
   
@@ -162,29 +221,37 @@ public class GoGenerator extends AbstractGenerator {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("#FOR");
     _builder.newLine();
-    _builder.append("<<IF fs.for != null>>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<genForClause(fs.for)>>");
-    _builder.newLine();
-    _builder.append("<<ELSEIF fs.condition != null>>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<genCondition(f.condition)>>");
-    _builder.newLine();
-    _builder.append("<<ENDIF>>");
-    _builder.newLine();
-    _builder.append("<<IF fs.block != null>>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<genBlock(fs.block)>>");
-    _builder.newLine();
-    _builder.append("<<ENDIF>>");
-    _builder.newLine();
-    _builder.append("<<lineCount>>: BR #FOR");
-    _builder.newLine();
-    _builder.append("<<nextLine>>");
-    _builder.newLine();
+    {
+      ForClause _for = fs.getFor();
+      boolean _tripleNotEquals = (_for != null);
+      if (_tripleNotEquals) {
+        CharSequence _genForClause = this.genForClause(fs.getFor());
+        _builder.append(_genForClause);
+        _builder.newLineIfNotEmpty();
+      } else {
+        Condition _condition = fs.getCondition();
+        boolean _tripleNotEquals_1 = (_condition != null);
+        if (_tripleNotEquals_1) {
+          CharSequence _genCondition = this.genCondition(fs.getCondition());
+          _builder.append(_genCondition);
+          _builder.newLineIfNotEmpty();
+        }
+      }
+    }
+    {
+      Block _block = fs.getBlock();
+      boolean _tripleNotEquals_2 = (_block != null);
+      if (_tripleNotEquals_2) {
+        Object _genBlock = this.genBlock(fs.getBlock());
+        _builder.append(_genBlock);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append(this.lineCount);
+    _builder.append(": BR #FOR");
+    _builder.newLineIfNotEmpty();
+    this.nextLine();
+    _builder.newLineIfNotEmpty();
     _builder.append("#ENDFOR");
     _builder.newLine();
     return _builder;
@@ -192,228 +259,268 @@ public class GoGenerator extends AbstractGenerator {
   
   public CharSequence genForClause(final ForClause fc) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<<IF fc.init != null>>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<genInitStmt(fc.init)>>");
-    _builder.newLine();
-    _builder.append("<<ENDIF>>");
-    _builder.newLine();
-    _builder.append("<<IF fc.condition != null>>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<genCondition(fc.condition)>>");
-    _builder.newLine();
-    _builder.append("<<ENDIF>>");
-    _builder.newLine();
-    _builder.append("<<IF fc.poststmt != null>>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<genPostStmt(fc.poststmt)>>");
-    _builder.newLine();
-    _builder.append("<<ENDIF>>");
-    _builder.newLine();
+    {
+      InitStmt _init = fc.getInit();
+      boolean _tripleNotEquals = (_init != null);
+      if (_tripleNotEquals) {
+        CharSequence _genInitStmt = this.genInitStmt(fc.getInit());
+        _builder.append(_genInitStmt);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      Condition _condition = fc.getCondition();
+      boolean _tripleNotEquals_1 = (_condition != null);
+      if (_tripleNotEquals_1) {
+        CharSequence _genCondition = this.genCondition(fc.getCondition());
+        _builder.append(_genCondition);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      PostStmt _poststmt = fc.getPoststmt();
+      boolean _tripleNotEquals_2 = (_poststmt != null);
+      if (_tripleNotEquals_2) {
+        CharSequence _genPostStmt = this.genPostStmt(fc.getPoststmt());
+        _builder.append(_genPostStmt);
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder;
   }
   
   public CharSequence genInitStmt(final InitStmt is) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<<IF is.simple != null>>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<genSimpleStmt(is.simple)>>");
-    _builder.newLine();
-    _builder.append("<<ENDIF>>");
-    _builder.newLine();
+    {
+      SimpleStmt _simple = is.getSimple();
+      boolean _tripleNotEquals = (_simple != null);
+      if (_tripleNotEquals) {
+        CharSequence _genSimpleStmt = this.genSimpleStmt(is.getSimple());
+        _builder.append(_genSimpleStmt);
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder;
   }
   
   public CharSequence genCondition(final Condition c) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<<IF c.exp != null>>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<genExpression(c.exp)>>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<IF c.exp.exp.bop.toString.equals(\"<\")>>");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("<<lineCount>>: BLTZ R<<regCount>>, #ENDFOR");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("<<nextLine>>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<ELSEIF c.exp.exp.bop.toString.equals(\"<=\")>>");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("<<lineCount>>: BLEZ R<<regCount>>, #ENDFOR");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("<<nextLine>>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<ELSEIF c.exp.exp.bop.toString.equals(\">\")>>");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("<<lineCount>>: BGTZ R<<regCount>>, #ENDFOR");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("<<nextLine>>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<ELSEIF c.exp.exp.bop.toString.equals(\"<=\")>>");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("<<lineCount>>: BGEZ R<<regCount>>, #ENDFOR");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("<<nextLine>>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<ENDIF>>");
-    _builder.newLine();
-    _builder.append("<<ENDIF>>");
-    _builder.newLine();
+    {
+      Expression _exp = c.getExp();
+      boolean _tripleNotEquals = (_exp != null);
+      if (_tripleNotEquals) {
+        CharSequence _genExpression = this.genExpression(c.getExp());
+        _builder.append(_genExpression);
+        _builder.newLineIfNotEmpty();
+        {
+          boolean _equals = c.getExp().getExp().getBop().toString().equals("<");
+          if (_equals) {
+            _builder.append(this.lineCount);
+            _builder.append(": BLTZ R");
+            _builder.append(this.regCount);
+            _builder.append(", #ENDFOR");
+            _builder.newLineIfNotEmpty();
+            this.nextLine();
+            _builder.newLineIfNotEmpty();
+          } else {
+            boolean _equals_1 = c.getExp().getExp().getBop().toString().equals("<=");
+            if (_equals_1) {
+              _builder.append(this.lineCount);
+              _builder.append(": BLEZ R");
+              _builder.append(this.regCount);
+              _builder.append(", #ENDFOR");
+              _builder.newLineIfNotEmpty();
+              this.nextLine();
+              _builder.newLineIfNotEmpty();
+            } else {
+              boolean _equals_2 = c.getExp().getExp().getBop().toString().equals(">");
+              if (_equals_2) {
+                _builder.append(this.lineCount);
+                _builder.append(": BGTZ R");
+                _builder.append(this.regCount);
+                _builder.append(", #ENDFOR");
+                _builder.newLineIfNotEmpty();
+                this.nextLine();
+                _builder.newLineIfNotEmpty();
+              } else {
+                boolean _equals_3 = c.getExp().getExp().getBop().toString().equals("<=");
+                if (_equals_3) {
+                  _builder.append(this.lineCount);
+                  _builder.append(": BGEZ R");
+                  _builder.append(this.regCount);
+                  _builder.append(", #ENDFOR");
+                  _builder.newLineIfNotEmpty();
+                  this.nextLine();
+                  _builder.newLineIfNotEmpty();
+                }
+              }
+            }
+          }
+        }
+      }
+    }
     return _builder;
   }
   
   public CharSequence genPostStmt(final PostStmt ps) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<<IF ps.simple != null>>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<genSimpleStmt(ps.simple)>>");
-    _builder.newLine();
-    _builder.append("<<ENDIF>>");
-    _builder.newLine();
+    {
+      SimpleStmt _simple = ps.getSimple();
+      boolean _tripleNotEquals = (_simple != null);
+      if (_tripleNotEquals) {
+        CharSequence _genSimpleStmt = this.genSimpleStmt(ps.getSimple());
+        _builder.append(_genSimpleStmt);
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder;
   }
   
   public CharSequence genIncDecStmt(final IncDecStmt inc) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<<IF inc.exp != null >>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<genExpression(inc.exp)>>");
-    _builder.newLine();
-    _builder.append("<<ENDIF>>");
-    _builder.newLine();
+    {
+      Expression _exp = inc.getExp();
+      boolean _tripleNotEquals = (_exp != null);
+      if (_tripleNotEquals) {
+        CharSequence _genExpression = this.genExpression(inc.getExp());
+        _builder.append(_genExpression);
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder;
   }
   
   public CharSequence genAssignment(final Assignment ass) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<<IF ass.expressionlist != null>>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<genExpressionList(ass.expressionlist)>>");
-    _builder.newLine();
-    _builder.append("<<ELSEIF ass.expressionlist2 != null>>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<genExpressionList(ass.expressionlist)>>");
-    _builder.newLine();
-    _builder.append("<<ENDIF>>");
-    _builder.newLine();
+    {
+      ExpressionList _expressionlist = ass.getExpressionlist();
+      boolean _tripleNotEquals = (_expressionlist != null);
+      if (_tripleNotEquals) {
+        CharSequence _genExpressionList = this.genExpressionList(ass.getExpressionlist());
+        _builder.append(_genExpressionList);
+        _builder.newLineIfNotEmpty();
+      } else {
+        ExpressionList _expressionlist2 = ass.getExpressionlist2();
+        boolean _tripleNotEquals_1 = (_expressionlist2 != null);
+        if (_tripleNotEquals_1) {
+          CharSequence _genExpressionList_1 = this.genExpressionList(ass.getExpressionlist());
+          _builder.append(_genExpressionList_1);
+          _builder.newLineIfNotEmpty();
+        }
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence genExpressionList(final ExpressionList list) {
+    StringConcatenation _builder = new StringConcatenation();
     return _builder;
   }
   
   public CharSequence genShortVarDecl(final ShortVarDecl ss) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<<IF ss.idl != null>>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<genIdentifierList(ss.idl)>>");
-    _builder.newLine();
-    _builder.append("<<ELSEIF ss.epl != null>>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<genExpressionList(ss.epl)>>");
-    _builder.newLine();
-    _builder.append("<<ENDIF>>");
-    _builder.newLine();
+    {
+      IdentifierList _idl = ss.getIdl();
+      boolean _tripleNotEquals = (_idl != null);
+      if (_tripleNotEquals) {
+        CharSequence _genIdentifierList = this.genIdentifierList(ss.getIdl());
+        _builder.append(_genIdentifierList);
+        _builder.newLineIfNotEmpty();
+      } else {
+        ExpressionList _epl = ss.getEpl();
+        boolean _tripleNotEquals_1 = (_epl != null);
+        if (_tripleNotEquals_1) {
+          CharSequence _genExpressionList = this.genExpressionList(ss.getEpl());
+          _builder.append(_genExpressionList);
+          _builder.newLineIfNotEmpty();
+        }
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence genIdentifierList(final IdentifierList list) {
+    StringConcatenation _builder = new StringConcatenation();
     return _builder;
   }
   
   public CharSequence genExpressionStmt(final ExpressionStmt es) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<<IF es.exp != null>>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<genExpression(es.exp)>>");
-    _builder.newLine();
-    _builder.append("<<ENDIF>>\t");
-    _builder.newLine();
+    {
+      Expression _exp = es.getExp();
+      boolean _tripleNotEquals = (_exp != null);
+      if (_tripleNotEquals) {
+        CharSequence _genExpression = this.genExpression(es.getExp());
+        _builder.append(_genExpression);
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder;
   }
   
   public CharSequence genExpression(final Expression exp) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<<IF exp.up != null >>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<IF exp.up.pr.op.literal != null>>");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("<<IF exp.exp ==null >>");
-    _builder.newLine();
-    _builder.append("\t\t\t");
-    _builder.append("<<IF exp.up.pr.op.literal.basic.strd != null>>");
-    _builder.newLine();
-    _builder.append("\t\t\t\t");
-    _builder.append("<<genStringExpression(exp)>>");
-    _builder.newLine();
-    _builder.append("\t\t\t");
-    _builder.append("<<ENDIF>>");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("<<ELSE>>");
-    _builder.newLine();
-    _builder.append("\t\t\t");
-    _builder.append("<<IF exp.exp.bop.equals(\"+\")  >>");
-    _builder.newLine();
-    _builder.append("\t\t\t\t");
-    _builder.append("<<genIntLiteralExpression(exp)>>");
-    _builder.newLine();
-    _builder.append("\t\t\t");
-    _builder.append("<<ELSE IF exp.exp.bop.equals(\"-\")  >>");
-    _builder.newLine();
-    _builder.append("\t\t\t\t");
-    _builder.append("<<genIntLiteralExpression(exp)>>");
-    _builder.newLine();
-    _builder.append("\t\t\t");
-    _builder.append("<<ELSE IF exp.exp.bop.equals(\"*\")  >>");
-    _builder.newLine();
-    _builder.append("\t\t\t\t");
-    _builder.append("<<genIntLiteralExpression(exp)>>");
-    _builder.newLine();
-    _builder.append("\t\t\t");
-    _builder.append("<<ELSE IF exp.exp.bop.equals(\"/\")  >>");
-    _builder.newLine();
-    _builder.append("\t\t\t\t");
-    _builder.append("<<genIntLiteralExpression(exp)>>");
-    _builder.newLine();
-    _builder.append("\t\t\t");
-    _builder.append("<<ELSE>>");
-    _builder.newLine();
-    _builder.append("\t\t\t\t");
-    _builder.append("<<genLogicalExpression(exp)>>");
-    _builder.newLine();
-    _builder.append("\t\t\t");
-    _builder.append("<<ENDIF>>");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("<<ENDIF>>");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<<ENDIF>>");
-    _builder.newLine();
-    _builder.append("<<ENDIF>>");
-    _builder.newLine();
+    {
+      UnaryExpr _up = exp.getUp();
+      boolean _tripleNotEquals = (_up != null);
+      if (_tripleNotEquals) {
+        {
+          Literal _literal = exp.getUp().getPr().getOp().getLiteral();
+          boolean _tripleNotEquals_1 = (_literal != null);
+          if (_tripleNotEquals_1) {
+            {
+              Expression2 _exp = exp.getExp();
+              boolean _tripleEquals = (_exp == null);
+              if (_tripleEquals) {
+                {
+                  String _strd = exp.getUp().getPr().getOp().getLiteral().getBasic().getStrd();
+                  boolean _tripleNotEquals_2 = (_strd != null);
+                  if (_tripleNotEquals_2) {
+                    CharSequence _genStringExpression = this.genStringExpression(exp);
+                    _builder.append(_genStringExpression);
+                    _builder.newLineIfNotEmpty();
+                  }
+                }
+              } else {
+                {
+                  boolean _equals = exp.getExp().getBop().equals("+");
+                  if (_equals) {
+                    CharSequence _genIntLiteralExpression = this.genIntLiteralExpression(exp);
+                    _builder.append(_genIntLiteralExpression);
+                    _builder.newLineIfNotEmpty();
+                  } else {
+                    boolean _equals_1 = exp.getExp().getBop().equals("-");
+                    if (_equals_1) {
+                      CharSequence _genIntLiteralExpression_1 = this.genIntLiteralExpression(exp);
+                      _builder.append(_genIntLiteralExpression_1);
+                      _builder.newLineIfNotEmpty();
+                    } else {
+                      boolean _equals_2 = exp.getExp().getBop().equals("*");
+                      if (_equals_2) {
+                        CharSequence _genIntLiteralExpression_2 = this.genIntLiteralExpression(exp);
+                        _builder.append(_genIntLiteralExpression_2);
+                        _builder.newLineIfNotEmpty();
+                      } else {
+                        boolean _equals_3 = exp.getExp().getBop().equals("/");
+                        if (_equals_3) {
+                          CharSequence _genIntLiteralExpression_3 = this.genIntLiteralExpression(exp);
+                          _builder.append(_genIntLiteralExpression_3);
+                          _builder.newLineIfNotEmpty();
+                        } else {
+                          CharSequence _genLogicalExpression = this.genLogicalExpression(exp);
+                          _builder.append(_genLogicalExpression);
+                          _builder.newLineIfNotEmpty();
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
     return _builder;
   }
   

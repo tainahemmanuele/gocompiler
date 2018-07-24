@@ -293,7 +293,7 @@ public class GoValidator extends AbstractGoValidator {
           this.ids.put(id, _double);
         } else {
           error = true;
-          this.error("Semantic Error: Invalid declaration, operator \r\n\t\t\t\t\t\tnot assigned to float.", null);
+          this.error("Semantic Error: Invalid declaration, operator \n\t\t\t\t\t\tnot assigned to float.", null);
         }
       }
     } else {
@@ -307,7 +307,7 @@ public class GoValidator extends AbstractGoValidator {
           this.ids.put(id, _integer_1);
         } else {
           error = true;
-          this.error("Semantic Error: Invalid declaration, operator \r\n\t\t\t\t\t\tnot assigned to int.", null);
+          this.error("Semantic Error: Invalid declaration, operator \n\t\t\t\t\t\tnot assigned to int.", null);
         }
       } else {
         boolean _equals_2 = Objects.equal(constType, "string");
@@ -320,7 +320,7 @@ public class GoValidator extends AbstractGoValidator {
             this.ids.put(id, _string);
           } else {
             error = true;
-            this.error("Semantic Error: Invalid declaration, operator \r\n\t\t\t\t\t\tnot assigned to string.", null);
+            this.error("Semantic Error: Invalid declaration, operator \n\t\t\t\t\t\tnot assigned to string.", null);
           }
         } else {
           boolean _equals_3 = Objects.equal(constType, "bool");
@@ -333,7 +333,7 @@ public class GoValidator extends AbstractGoValidator {
               this.ids.put(id, _boolean);
             } else {
               error = true;
-              this.error("Semantic Error: Invalid declaration, operator \r\n\t\t\t\t\t\tnot assigned to boolean.", null);
+              this.error("Semantic Error: Invalid declaration, operator \n\t\t\t\t\t\tnot assigned to boolean.", null);
             }
           }
         }

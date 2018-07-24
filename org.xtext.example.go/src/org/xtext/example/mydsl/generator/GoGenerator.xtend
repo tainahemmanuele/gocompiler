@@ -8,6 +8,11 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import org.xtext.example.mydsl.go.*
+import org.xtext.example.mydsl.go.ConstDecl
+import org.xtext.example.mydsl.go.VarDecl
+import org.xtext.example.mydsl.go.SimpleStmt
+import org.xtext.example.mydsl.go.ExpressionList
+import org.xtext.example.mydsl.go.IdentifierList
 
 /**
  * Generates code from your model files on save.
@@ -16,174 +21,191 @@ import org.xtext.example.mydsl.go.*
  */
 class GoGenerator extends AbstractGenerator {
 
-	Integer regCount = 0
-	Integer lineCount = 0
+Integer regCount = 0
+Integer lineCount = 0
 
-	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		for (f : resource.allContents.toIterable.filter(FunctionDecl))
-			fsa.generateFile(f.functionn.toString + '.txt', f.genFunc)
-	}
-	
-	def genFunc(FunctionDecl f) '''
-		<<lineCount>>: LD SP 1000
-		<<nextLine>>
-		<<f.body.genFunctionBody>>
-	'''
-	
-	def genFunctionBody(FunctionBody fb) '''
-		<<fb.block.genBlock>>
-	'''
-	
-	def genBlock(Block b) '''
-		<<IF b.statementlist != null>>
-			<<b.statementlist.genStatementList>>
-		<<ENDIF>>
-	'''
-	
-	def genStatementList(StatementList sl) '''
-		<<FOR stmt : sl.statements>>
-			<<stmt.genStatement>>
-		<<ENDFOR>>
-	'''
-	
-	def genStatement(Statement s) '''
-		<<IF s.declaration != null>>
-			<<genDeclaration(s.declaration)>>
-		<<ELSEIF s.simplest != null>>
-			<<genSimpleStmt(s.simplest)>>
-		<<ELSEIF s.forst != null>>
-			<<genForStmt(s.forst)>>
-		<<ENDIF>>
-	'''
-	
-	def genDeclaration(Declaration d)'''
-		<<IF d.constdecl != null>>
-			<<genConstDecl(d.constdecl)>>
-		<<ELSEIF d.vardecl != null>>
-			<<genVarDecl(d.vardecl)>>
-		<<ENDIF>>
-	'''
-	
-	def genSimpleStatement(SimpleStmt ss)'''
-		<<IF ss.inc != null>>
-			<<genIncDecStmt(ss.inc)>>
-		<<ELSEIF ss.ass != null>>
-			<<genAssignment(ss.ass)>>
-		<<ELSEIF ss.svd != null>>
-			<<genShortVarDecl(ss.svd)>>
-		<<ELSEIF ss.es != null>>
-			<<genExpressionStmt(ss.es)>>
-		<ENDIF>>
-	'''
-	
-	def genForStmt(ForStmt fs)'''
+override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
+	for (f : resource.allContents.toIterable.filter(FunctionDecl))
+		fsa.generateFile(f.functionn.toString + '.txt', f.genFunc)
+}
+
+def genFunc(FunctionDecl f) '''
+	«lineCount»: LD SP 1000
+	«nextLine»
+	«IF f.body !== null»
+		«f.body.genFunctionBody»
+	«ENDIF»
+'''
+
+def genFunctionBody(FunctionBody fb) '''
+	«fb.block.genBlock»
+'''
+
+def genBlock(Block b) '''
+	«IF b.statementlist !== null»
+		«b.statementlist.genStatementList»
+	«ENDIF»
+'''
+
+def genStatementList(StatementList sl) '''
+	«FOR stmt : sl.statment»
+		«stmt.genStatement»
+	«ENDFOR»
+'''
+
+def genStatement(Statement s) '''
+	«IF s.declaration !== null»
+		«genDeclaration(s.declaration)»
+	«ELSEIF s.simplest !== null»
+		«genSimpleStmt(s.simplest)»
+	«ELSEIF s.forst !== null»
+		«genForStmt(s.forst)»
+	«ENDIF»
+'''
+
+def genSimpleStmt(SimpleStmt stmt) '''
+'''
+
+def genDeclaration(Declaration d) '''
+	«IF d.cd !== null»
+		«genConstDecl(d.cd)»
+	«ELSEIF d.vd !== null»
+		«genVarDecl(d.vd)»
+	«ENDIF»
+'''
+
+def genVarDecl(VarDecl decl) '''
+'''
+
+def genConstDecl(ConstDecl decl) '''
+'''
+
+def genSimpleStatement(SimpleStmt ss) '''
+	«IF ss.inc !== null»
+		«genIncDecStmt(ss.inc)»
+	«ELSEIF ss.ass !== null»
+		«genAssignment(ss.ass)»
+	«ELSEIF ss.svd !== null»
+		«genShortVarDecl(ss.svd)»
+	«ELSEIF ss.es !== null»
+		«genExpressionStmt(ss.es)»
+	«ENDIF»
+'''
+
+def genForStmt(ForStmt fs) '''
 		#FOR
-		<<IF fs.for != null>>
-			<<genForClause(fs.for)>>
-		<<ELSEIF fs.condition != null>>
-			<<genCondition(f.condition)>>
-		<<ENDIF>>
-		<<IF fs.block != null>>
-			<<genBlock(fs.block)>>
-		<<ENDIF>>
-		<<lineCount>>: BR #FOR
-		<<nextLine>>
+		«IF fs.^for !== null»
+			«genForClause(fs.^for)»
+		«ELSEIF fs.condition !== null»
+			«genCondition(fs.condition)»
+		«ENDIF»
+		«IF fs.block !== null»
+			«genBlock(fs.block)»
+		«ENDIF»
+		«lineCount»: BR #FOR
+		«nextLine»
 		#ENDFOR
 	'''
-	
-	def genForClause(ForClause fc)'''
-		<<IF fc.init != null>>
-			<<genInitStmt(fc.init)>>
-		<<ENDIF>>
-		<<IF fc.condition != null>>
-			<<genCondition(fc.condition)>>
-		<<ENDIF>>
-		<<IF fc.poststmt != null>>
-			<<genPostStmt(fc.poststmt)>>
-		<<ENDIF>>
+
+def genForClause(ForClause fc) '''
+	«IF fc.init !== null»
+		«genInitStmt(fc.init)»
+	«ENDIF»
+	«IF fc.condition !== null»
+		«genCondition(fc.condition)»
+	«ENDIF»
+	«IF fc.poststmt !== null»
+		«genPostStmt(fc.poststmt)»
+	«ENDIF»
+'''
+
+def genInitStmt(InitStmt is) '''
+	«IF is.simple !== null»
+		«genSimpleStmt(is.simple)»
+	«ENDIF»
+'''
+
+def genCondition(Condition c) '''
+		«IF c.exp !== null»
+			«genExpression(c.exp)»
+			«IF c.exp.exp.bop.toString.equals("<")»
+				«lineCount»: BLTZ R«regCount», #ENDFOR
+				«nextLine»
+			«ELSEIF c.exp.exp.bop.toString.equals("<=")»
+				«lineCount»: BLEZ R«regCount», #ENDFOR
+				«nextLine»
+			«ELSEIF c.exp.exp.bop.toString.equals(">")»
+				«lineCount»: BGTZ R«regCount», #ENDFOR
+				«nextLine»
+			«ELSEIF c.exp.exp.bop.toString.equals("<=")»
+				«lineCount»: BGEZ R«regCount», #ENDFOR
+				«nextLine»
+			«ENDIF»
+		«ENDIF»
 	'''
-	
-	def genInitStmt(InitStmt is)'''
-		<<IF is.simple != null>>
-			<<genSimpleStmt(is.simple)>>
-		<<ENDIF>>
-	'''
-	
-	def genCondition(Condition c)'''
-		<<IF c.exp != null>>
-			<<genExpression(c.exp)>>
-			<<IF c.exp.exp.bop.toString.equals("<")>>
-				<<lineCount>>: BLTZ R<<regCount>>, #ENDFOR
-				<<nextLine>>
-			<<ELSEIF c.exp.exp.bop.toString.equals("<=")>>
-				<<lineCount>>: BLEZ R<<regCount>>, #ENDFOR
-				<<nextLine>>
-			<<ELSEIF c.exp.exp.bop.toString.equals(">")>>
-				<<lineCount>>: BGTZ R<<regCount>>, #ENDFOR
-				<<nextLine>>
-			<<ELSEIF c.exp.exp.bop.toString.equals("<=")>>
-				<<lineCount>>: BGEZ R<<regCount>>, #ENDFOR
-				<<nextLine>>
-			<<ENDIF>>
-		<<ENDIF>>
-	'''
-	
-	def genPostStmt(PostStmt ps)'''
-		<<IF ps.simple != null>>
-			<<genSimpleStmt(ps.simple)>>
-		<<ENDIF>>
-	'''
-	
-	def genIncDecStmt(IncDecStmt inc)'''
-		<<IF inc.exp != null >>
-			<<genExpression(inc.exp)>>
-		<<ENDIF>>
-	'''
-	
-	def genAssignment(Assignment ass)'''
-		<<IF ass.expressionlist != null>>
-			<<genExpressionList(ass.expressionlist)>>
-		<<ELSEIF ass.expressionlist2 != null>>
-			<<genExpressionList(ass.expressionlist)>>
-		<<ENDIF>>
-	'''
-	
-	def genShortVarDecl(ShortVarDecl ss)'''
-		<<IF ss.idl != null>>
-			<<genIdentifierList(ss.idl)>>
-		<<ELSEIF ss.epl != null>>
-			<<genExpressionList(ss.epl)>>
-		<<ENDIF>>
-	'''
-	
-	def genExpressionStmt(ExpressionStmt es)'''
-		<<IF es.exp != null>>
-			<<genExpression(es.exp)>>
-		<<ENDIF>>	
-	'''
-	def genExpression(Expression exp)'''
-		<<IF exp.up != null >>
-			<<IF exp.up.pr.op.literal != null>>
-				<<IF exp.exp ==null >>
-					<<IF exp.up.pr.op.literal.basic.strd != null>>
-						<<genStringExpression(exp)>>
-					<<ENDIF>>
-				<<ELSE>>
-					<<IF exp.exp.bop.equals("+")  >>
-						<<genIntLiteralExpression(exp)>>
-					<<ELSE IF exp.exp.bop.equals("-")  >>
-						<<genIntLiteralExpression(exp)>>
-					<<ELSE IF exp.exp.bop.equals("*")  >>
-						<<genIntLiteralExpression(exp)>>
-					<<ELSE IF exp.exp.bop.equals("/")  >>
-						<<genIntLiteralExpression(exp)>>
-					<<ELSE>>
-						<<genLogicalExpression(exp)>>
-					<<ENDIF>>
-				<<ENDIF>>
-				
-			<<ENDIF>>
-		<<ENDIF>>
+
+def genPostStmt(PostStmt ps) '''
+	«IF ps.simple !== null»
+		«genSimpleStmt(ps.simple)»
+	«ENDIF»
+'''
+
+def genIncDecStmt(IncDecStmt inc) '''
+	«IF inc.exp !== null »
+		«genExpression(inc.exp)»
+	«ENDIF»
+'''
+
+def genAssignment(Assignment ass) '''
+	«IF ass.expressionlist !== null»
+		«genExpressionList(ass.expressionlist)»
+	«ELSEIF ass.expressionlist2 !== null»
+		«genExpressionList(ass.expressionlist)»
+	«ENDIF»
+'''
+
+def genExpressionList(ExpressionList list) '''
+'''
+
+def genShortVarDecl(ShortVarDecl ss) '''
+	«IF ss.idl !== null»
+		«genIdentifierList(ss.idl)»
+	«ELSEIF ss.epl !== null»
+		«genExpressionList(ss.epl)»
+	«ENDIF»
+'''
+
+def genIdentifierList(IdentifierList list) '''
+'''
+
+def genExpressionStmt(ExpressionStmt es) '''
+	«IF es.exp !== null»
+		«genExpression(es.exp)»
+	«ENDIF»	
+'''
+
+def genExpression(Expression exp) '''
+		«IF exp.up !== null »
+			«IF exp.up.pr.op.literal !== null»
+				«IF exp.exp ===null »
+					«IF exp.up.pr.op.literal.basic.strd !== null»
+						«genStringExpression(exp)»
+					«ENDIF»
+				«ELSE»
+					«IF exp.exp.bop.equals("+")  »
+						«genIntLiteralExpression(exp)»
+					«ELSEIF exp.exp.bop.equals("-")  »
+						«genIntLiteralExpression(exp)»
+					«ELSEIF exp.exp.bop.equals("*") »
+						«genIntLiteralExpression(exp)»
+					«ELSEIF exp.exp.bop.equals("/")  »
+						«genIntLiteralExpression(exp)»
+					«ELSE»
+						«genLogicalExpression(exp)»
+					«ENDIF»
+				«ENDIF»					
+			«ENDIF»
+		«ENDIF»
 	'''
 	
 	def genStringExpression(Expression exp) '''

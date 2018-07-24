@@ -14,7 +14,7 @@ TopLevelDecl:
 
 MethodDecl:
 	{MethodDecl}
-	'func' receiver=Receiver method=MethodName signature=Signature (body+=FunctionBody)?;
+	'func' receiver=Receiver method=MethodName signature=Signature (body=FunctionBody)?;
 
 Receiver:
 	Parameters;
@@ -25,7 +25,7 @@ FunctionName:
 
 FunctionDecl:
 	{FunctionDecl}
-	'func' functionn=FunctionName signature=Signature (body+=FunctionBody)?;
+	'func' functionn=FunctionName signature=Signature (body=FunctionBody)?;
 
 PackageClause:
 	'package' PackageName;
@@ -787,8 +787,7 @@ BasicLit:
 ReceiverType:
 	type=Type;
 
-FunctionBody:
-
+FunctionBody: {FunctionBody}
 	block=Block;
 
 	
