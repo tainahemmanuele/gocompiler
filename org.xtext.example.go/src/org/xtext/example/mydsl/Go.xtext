@@ -378,10 +378,10 @@ IDENTIFIER:
 terminal FLOAT_LIT: 
 	DECIMAL_LIT '.' (DECIMAL_LIT)? (EXPOENT)? |
 	DECIMALS EXPOENT |
-	'.' DECIMALS (EXPOENT)?;
+	'.' DECIMALS (EXPOENT)? | '-' DECIMAL_LIT '.' (DECIMAL_LIT)? (EXPOENT)?;
 	
 terminal INT_LIT:
-	DECIMAL_LIT | OCTAL_LIT | HEX_LIT;
+	DECIMAL_LIT | OCTAL_LIT | HEX_LIT | '-'DECIMAL_LIT;
 
 terminal fragment DECIMAL_LIT:
 	('1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9') (DECIMAL_DIGIT)*;
