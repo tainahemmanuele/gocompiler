@@ -3,6 +3,8 @@
  */
 package org.xtext.example.mydsl;
 
+import org.eclipse.xtext.parser.antlr.ISyntaxErrorMessageProvider;
+import org.eclipse.xtext.parser.antlr.SyntaxErrorMessageProvider;
 import org.xtext.example.mydsl.AbstractGoRuntimeModule;
 
 /**
@@ -10,4 +12,9 @@ import org.xtext.example.mydsl.AbstractGoRuntimeModule;
  */
 @SuppressWarnings("all")
 public class GoRuntimeModule extends AbstractGoRuntimeModule {
+	
+	
+	public Class<? extends ISyntaxErrorMessageProvider> bindISyntaxErrorMessageProvider() {
+	    return GoSyntaxError.class;
+	}
 }
