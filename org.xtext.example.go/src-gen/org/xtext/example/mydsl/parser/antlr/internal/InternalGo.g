@@ -6174,6 +6174,17 @@ ruleExpression2 returns [EObject current=null]
 							}
 							setWithLastConsumed($current, "bop", lv_bop_1_2, null);
 						}
+						    |
+						lv_bop_1_3='-'
+						{
+							newLeafNode(lv_bop_1_3, grammarAccess.getExpression2Access().getBopHyphenMinusKeyword_1_0_0_2());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getExpression2Rule());
+							}
+							setWithLastConsumed($current, "bop", lv_bop_1_3, null);
+						}
 					)
 				)
 			)
@@ -6295,6 +6306,17 @@ ruleUnaryExpr returns [EObject current=null]
 								$current = createModelElement(grammarAccess.getUnaryExprRule());
 							}
 							setWithLastConsumed($current, "up", lv_up_2_2, null);
+						}
+						    |
+						lv_up_2_3='-'
+						{
+							newLeafNode(lv_up_2_3, grammarAccess.getUnaryExprAccess().getUpHyphenMinusKeyword_1_0_0_2());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getUnaryExprRule());
+							}
+							setWithLastConsumed($current, "up", lv_up_2_3, null);
 						}
 					)
 				)

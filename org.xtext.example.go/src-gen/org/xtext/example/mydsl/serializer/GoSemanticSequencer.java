@@ -817,7 +817,7 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Expression2 returns Expression2
 	 *
 	 * Constraint:
-	 *     ((bop=BINARY_OP | bop='*') expression=Expression expression2=Expression2)?
+	 *     ((bop=BINARY_OP | bop='*' | bop='-') expression=Expression expression2=Expression2)?
 	 */
 	protected void sequence_Expression2(ISerializationContext context, Expression2 semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1836,7 +1836,7 @@ public class GoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     UnaryExpr returns UnaryExpr
 	 *
 	 * Constraint:
-	 *     (pr=PrimaryExpr | ((up=UNARY_OP | up='*') ue=UnaryExpr))
+	 *     (pr=PrimaryExpr | ((up=UNARY_OP | up='*' | up='-') ue=UnaryExpr))
 	 */
 	protected void sequence_UnaryExpr(ISerializationContext context, UnaryExpr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

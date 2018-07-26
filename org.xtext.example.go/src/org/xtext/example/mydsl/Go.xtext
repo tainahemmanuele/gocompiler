@@ -696,11 +696,11 @@ Expression:{Expression}
 
 Expression2:
 	{Expression2}
-	(bop=(BINARY_OP|'*') expression=Expression expression2=Expression2)?;
+	(bop=(BINARY_OP|'*'| '-') expression=Expression expression2=Expression2)?;
 
 
 UnaryExpr: {UnaryExpr}
-	pr=PrimaryExpr | up=(UNARY_OP|'*') ue=UnaryExpr;
+	pr=PrimaryExpr | up=(UNARY_OP|'*'| '-') ue=UnaryExpr;
 
 PrimaryExpr: {PrimaryExpr}
 	op=Operand pr=PrimaryExpr2 |
