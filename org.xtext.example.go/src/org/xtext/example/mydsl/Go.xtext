@@ -372,7 +372,7 @@ terminal BOOLEAN_LIT:
 
 
 IDENTIFIER:
-	ID |'-'ID;
+	ID |('-')? ID ;
 
 
 terminal FLOAT_LIT: 

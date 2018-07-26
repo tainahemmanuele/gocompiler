@@ -417,19 +417,19 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
 		
 		//IDENTIFIER:
-		//	ID | '-' ID;
+		//	ID | '-'? ID;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ID | '-' ID
+		//ID | '-'? ID
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//ID
 		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
 		
-		//'-' ID
+		//'-'? ID
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//'-'
+		//'-'?
 		public Keyword getHyphenMinusKeyword_1_0() { return cHyphenMinusKeyword_1_0; }
 		
 		//ID
@@ -5216,7 +5216,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//IDENTIFIER:
-	//	ID | '-' ID;
+	//	ID | '-'? ID;
 	public IDENTIFIERElements getIDENTIFIERAccess() {
 		return pIDENTIFIER;
 	}

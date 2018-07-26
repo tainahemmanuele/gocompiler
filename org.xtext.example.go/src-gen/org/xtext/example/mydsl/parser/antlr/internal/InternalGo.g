@@ -593,11 +593,13 @@ ruleIDENTIFIER returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToke
 		}
 		    |
 		(
-			kw='-'
-			{
-				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getIDENTIFIERAccess().getHyphenMinusKeyword_1_0());
-			}
+			(
+				kw='-'
+				{
+					$current.merge(kw);
+					newLeafNode(kw, grammarAccess.getIDENTIFIERAccess().getHyphenMinusKeyword_1_0());
+				}
+			)?
 			this_ID_2=RULE_ID
 			{
 				$current.merge(this_ID_2);

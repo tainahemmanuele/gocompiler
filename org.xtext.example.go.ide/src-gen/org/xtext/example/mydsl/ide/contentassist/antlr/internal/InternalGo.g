@@ -4931,7 +4931,7 @@ rule__IDENTIFIER__Group_1__0__Impl
 :
 (
 	{ before(grammarAccess.getIDENTIFIERAccess().getHyphenMinusKeyword_1_0()); }
-	'-'
+	('-')?
 	{ after(grammarAccess.getIDENTIFIERAccess().getHyphenMinusKeyword_1_0()); }
 )
 ;

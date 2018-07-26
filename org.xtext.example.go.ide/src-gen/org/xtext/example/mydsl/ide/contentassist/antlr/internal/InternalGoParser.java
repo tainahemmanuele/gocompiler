@@ -10428,11 +10428,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             else if ( (LA1_0==48) ) {
                 int LA1_2 = input.LA(2);
 
-                if ( (LA1_2==52) ) {
-                    alt1=3;
-                }
-                else if ( (LA1_2==RULE_ID||LA1_2==46) ) {
+                if ( (LA1_2==RULE_ID||LA1_2==46) ) {
                     alt1=2;
+                }
+                else if ( (LA1_2==52) ) {
+                    alt1=3;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return ;}
@@ -10566,7 +10566,21 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             int LA2_0 = input.LA(1);
 
             if ( (LA2_0==RULE_ID) ) {
-                alt2=1;
+                int LA2_1 = input.LA(2);
+
+                if ( (synpred3_InternalGo()) ) {
+                    alt2=1;
+                }
+                else if ( (true) ) {
+                    alt2=2;
+                }
+                else {
+                    if (state.backtracking>0) {state.failed=true; return ;}
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 2, 1, input);
+
+                    throw nvae;
+                }
             }
             else if ( (LA2_0==46) ) {
                 alt2=2;
@@ -11043,11 +11057,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             if ( (LA7_0==RULE_ID) ) {
                 int LA7_1 = input.LA(2);
 
-                if ( (LA7_1==EOF||LA7_1==RULE_ID||(LA7_1>=RULE_RAW_STRING_LIT && LA7_1<=RULE_INTERPRETED_STRING_LIT)||LA7_1==42||(LA7_1>=45 && LA7_1<=46)||(LA7_1>=57 && LA7_1<=58)) ) {
-                    alt7=1;
-                }
-                else if ( (LA7_1==47) ) {
+                if ( (LA7_1==47) ) {
                     alt7=2;
+                }
+                else if ( (LA7_1==EOF||LA7_1==RULE_ID||(LA7_1>=RULE_RAW_STRING_LIT && LA7_1<=RULE_INTERPRETED_STRING_LIT)||LA7_1==42||(LA7_1>=45 && LA7_1<=46)||(LA7_1>=57 && LA7_1<=58)) ) {
+                    alt7=1;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return ;}
@@ -11063,11 +11077,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                 if ( (LA7_2==RULE_ID) ) {
                     int LA7_5 = input.LA(3);
 
-                    if ( (LA7_5==EOF||LA7_5==RULE_ID||(LA7_5>=RULE_RAW_STRING_LIT && LA7_5<=RULE_INTERPRETED_STRING_LIT)||LA7_5==42||(LA7_5>=45 && LA7_5<=46)||(LA7_5>=57 && LA7_5<=58)) ) {
-                        alt7=1;
-                    }
-                    else if ( (LA7_5==47) ) {
+                    if ( (LA7_5==47) ) {
                         alt7=2;
+                    }
+                    else if ( (LA7_5==EOF||LA7_5==RULE_ID||(LA7_5>=RULE_RAW_STRING_LIT && LA7_5<=RULE_INTERPRETED_STRING_LIT)||LA7_5==42||(LA7_5>=45 && LA7_5<=46)||(LA7_5>=57 && LA7_5<=58)) ) {
+                        alt7=1;
                     }
                     else {
                         if (state.backtracking>0) {state.failed=true; return ;}
@@ -11393,25 +11407,6 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                     alt9=2;
                     }
                     break;
-                case 45:
-                    {
-                    int LA9_4 = input.LA(3);
-
-                    if ( (LA9_4==RULE_LITERAL_TYPE||LA9_4==45||LA9_4==48||LA9_4==52||LA9_4==54||LA9_4==56||(LA9_4>=60 && LA9_4<=63)) ) {
-                        alt9=1;
-                    }
-                    else if ( (LA9_4==RULE_ID||LA9_4==46) ) {
-                        alt9=2;
-                    }
-                    else {
-                        if (state.backtracking>0) {state.failed=true; return ;}
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 9, 4, input);
-
-                        throw nvae;
-                    }
-                    }
-                    break;
                 case RULE_LITERAL_TYPE:
                 case 43:
                 case 48:
@@ -11424,6 +11419,25 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                 case 63:
                     {
                     alt9=1;
+                    }
+                    break;
+                case 45:
+                    {
+                    int LA9_5 = input.LA(3);
+
+                    if ( (LA9_5==RULE_LITERAL_TYPE||LA9_5==45||LA9_5==48||LA9_5==52||LA9_5==54||LA9_5==56||(LA9_5>=60 && LA9_5<=63)) ) {
+                        alt9=1;
+                    }
+                    else if ( (LA9_5==RULE_ID||LA9_5==46) ) {
+                        alt9=2;
+                    }
+                    else {
+                        if (state.backtracking>0) {state.failed=true; return ;}
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 9, 5, input);
+
+                        throw nvae;
+                    }
                     }
                     break;
                 default:
@@ -11454,25 +11468,6 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                         alt9=2;
                         }
                         break;
-                    case 45:
-                        {
-                        int LA9_4 = input.LA(4);
-
-                        if ( (LA9_4==RULE_LITERAL_TYPE||LA9_4==45||LA9_4==48||LA9_4==52||LA9_4==54||LA9_4==56||(LA9_4>=60 && LA9_4<=63)) ) {
-                            alt9=1;
-                        }
-                        else if ( (LA9_4==RULE_ID||LA9_4==46) ) {
-                            alt9=2;
-                        }
-                        else {
-                            if (state.backtracking>0) {state.failed=true; return ;}
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 9, 4, input);
-
-                            throw nvae;
-                        }
-                        }
-                        break;
                     case RULE_LITERAL_TYPE:
                     case 43:
                     case 48:
@@ -11485,6 +11480,25 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                     case 63:
                         {
                         alt9=1;
+                        }
+                        break;
+                    case 45:
+                        {
+                        int LA9_5 = input.LA(4);
+
+                        if ( (LA9_5==RULE_LITERAL_TYPE||LA9_5==45||LA9_5==48||LA9_5==52||LA9_5==54||LA9_5==56||(LA9_5>=60 && LA9_5<=63)) ) {
+                            alt9=1;
+                        }
+                        else if ( (LA9_5==RULE_ID||LA9_5==46) ) {
+                            alt9=2;
+                        }
+                        else {
+                            if (state.backtracking>0) {state.failed=true; return ;}
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 9, 5, input);
+
+                            throw nvae;
+                        }
                         }
                         break;
                     default:
@@ -13422,11 +13436,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             if ( (LA23_0==RULE_ID) ) {
                 int LA23_1 = input.LA(2);
 
-                if ( (LA23_1==RULE_LITERAL_TYPE||LA23_1==45||LA23_1==48||LA23_1==52||LA23_1==54||LA23_1==56||(LA23_1>=60 && LA23_1<=63)) ) {
-                    alt23=2;
-                }
-                else if ( (LA23_1==44) ) {
+                if ( (LA23_1==44) ) {
                     alt23=1;
+                }
+                else if ( (LA23_1==RULE_LITERAL_TYPE||LA23_1==45||LA23_1==48||LA23_1==52||LA23_1==54||LA23_1==56||(LA23_1>=60 && LA23_1<=63)) ) {
+                    alt23=2;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return ;}
@@ -13442,11 +13456,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                 if ( (LA23_2==RULE_ID) ) {
                     int LA23_5 = input.LA(3);
 
-                    if ( (LA23_5==RULE_LITERAL_TYPE||LA23_5==45||LA23_5==48||LA23_5==52||LA23_5==54||LA23_5==56||(LA23_5>=60 && LA23_5<=63)) ) {
-                        alt23=2;
-                    }
-                    else if ( (LA23_5==44) ) {
+                    if ( (LA23_5==44) ) {
                         alt23=1;
+                    }
+                    else if ( (LA23_5==RULE_LITERAL_TYPE||LA23_5==45||LA23_5==48||LA23_5==52||LA23_5==54||LA23_5==56||(LA23_5>=60 && LA23_5<=63)) ) {
+                        alt23=2;
                     }
                     else {
                         if (state.backtracking>0) {state.failed=true; return ;}
@@ -15500,14 +15514,14 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                     alt42=2;
                     }
                     break;
-                case 55:
-                    {
-                    alt42=4;
-                    }
-                    break;
                 case 59:
                     {
                     alt42=3;
+                    }
+                    break;
+                case 55:
+                    {
+                    alt42=4;
                     }
                     break;
                 default:
@@ -16027,11 +16041,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                 {
                 int LA45_2 = input.LA(2);
 
-                if ( (LA45_2==50) ) {
-                    alt45=3;
-                }
-                else if ( (LA45_2==EOF||(LA45_2>=RULE_STRING && LA45_2<=RULE_FLOAT_LIT)||(LA45_2>=RULE_ASSING_OP && LA45_2<=RULE_BOOLEAN_LIT)||(LA45_2>=41 && LA45_2<=48)||(LA45_2>=51 && LA45_2<=69)||(LA45_2>=71 && LA45_2<=78)||(LA45_2>=80 && LA45_2<=82)) ) {
+                if ( (LA45_2==EOF||(LA45_2>=RULE_STRING && LA45_2<=RULE_FLOAT_LIT)||(LA45_2>=RULE_ASSING_OP && LA45_2<=RULE_BOOLEAN_LIT)||(LA45_2>=41 && LA45_2<=48)||(LA45_2>=51 && LA45_2<=69)||(LA45_2>=71 && LA45_2<=78)||(LA45_2>=80 && LA45_2<=82)) ) {
                     alt45=2;
+                }
+                else if ( (LA45_2==50) ) {
+                    alt45=3;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return ;}
@@ -18285,7 +18299,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:4919:1: ( rule__IDENTIFIER__Group_1__0__Impl rule__IDENTIFIER__Group_1__1 )
             // InternalGo.g:4920:2: rule__IDENTIFIER__Group_1__0__Impl rule__IDENTIFIER__Group_1__1
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_10);
             rule__IDENTIFIER__Group_1__0__Impl();
 
             state._fsp--;
@@ -18314,22 +18328,39 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IDENTIFIER__Group_1__0__Impl"
-    // InternalGo.g:4927:1: rule__IDENTIFIER__Group_1__0__Impl : ( '-' ) ;
+    // InternalGo.g:4927:1: rule__IDENTIFIER__Group_1__0__Impl : ( ( '-' )? ) ;
     public final void rule__IDENTIFIER__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalGo.g:4931:1: ( ( '-' ) )
-            // InternalGo.g:4932:1: ( '-' )
+            // InternalGo.g:4931:1: ( ( ( '-' )? ) )
+            // InternalGo.g:4932:1: ( ( '-' )? )
             {
-            // InternalGo.g:4932:1: ( '-' )
-            // InternalGo.g:4933:2: '-'
+            // InternalGo.g:4932:1: ( ( '-' )? )
+            // InternalGo.g:4933:2: ( '-' )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getIDENTIFIERAccess().getHyphenMinusKeyword_1_0()); 
             }
-            match(input,46,FOLLOW_2); if (state.failed) return ;
+            // InternalGo.g:4934:2: ( '-' )?
+            int alt54=2;
+            int LA54_0 = input.LA(1);
+
+            if ( (LA54_0==46) ) {
+                alt54=1;
+            }
+            switch (alt54) {
+                case 1 :
+                    // InternalGo.g:4934:3: '-'
+                    {
+                    match(input,46,FOLLOW_2); if (state.failed) return ;
+
+                    }
+                    break;
+
+            }
+
             if ( state.backtracking==0 ) {
                after(grammarAccess.getIDENTIFIERAccess().getHyphenMinusKeyword_1_0()); 
             }
@@ -18438,7 +18469,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:4973:1: ( rule__IMAGINARY_LIT__Group__0__Impl rule__IMAGINARY_LIT__Group__1 )
             // InternalGo.g:4974:2: rule__IMAGINARY_LIT__Group__0__Impl rule__IMAGINARY_LIT__Group__1
             {
-            pushFollow(FOLLOW_14);
+            pushFollow(FOLLOW_13);
             rule__IMAGINARY_LIT__Group__0__Impl();
 
             state._fsp--;
@@ -18601,7 +18632,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:5027:1: ( rule__RUNE_LIT__Group__0__Impl rule__RUNE_LIT__Group__1 )
             // InternalGo.g:5028:2: rule__RUNE_LIT__Group__0__Impl rule__RUNE_LIT__Group__1
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_14);
             rule__RUNE_LIT__Group__0__Impl();
 
             state._fsp--;
@@ -18680,7 +18711,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:5054:1: ( rule__RUNE_LIT__Group__1__Impl rule__RUNE_LIT__Group__2 )
             // InternalGo.g:5055:2: rule__RUNE_LIT__Group__1__Impl rule__RUNE_LIT__Group__2
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_15);
             rule__RUNE_LIT__Group__1__Impl();
 
             state._fsp--;
@@ -18843,7 +18874,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:5108:1: ( rule__Type__Group_0__0__Impl rule__Type__Group_0__1 )
             // InternalGo.g:5109:2: rule__Type__Group_0__0__Impl rule__Type__Group_0__1
             {
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_16);
             rule__Type__Group_0__0__Impl();
 
             state._fsp--;
@@ -19006,7 +19037,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:5162:1: ( rule__Type__Group_2__0__Impl rule__Type__Group_2__1 )
             // InternalGo.g:5163:2: rule__Type__Group_2__0__Impl rule__Type__Group_2__1
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_17);
             rule__Type__Group_2__0__Impl();
 
             state._fsp--;
@@ -19085,7 +19116,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:5189:1: ( rule__Type__Group_2__1__Impl rule__Type__Group_2__2 )
             // InternalGo.g:5190:2: rule__Type__Group_2__1__Impl rule__Type__Group_2__2
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_18);
             rule__Type__Group_2__1__Impl();
 
             state._fsp--;
@@ -19248,7 +19279,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:5243:1: ( rule__QualifiedIdent__Group__0__Impl rule__QualifiedIdent__Group__1 )
             // InternalGo.g:5244:2: rule__QualifiedIdent__Group__0__Impl rule__QualifiedIdent__Group__1
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_19);
             rule__QualifiedIdent__Group__0__Impl();
 
             state._fsp--;
@@ -19488,7 +19519,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:5324:1: ( rule__ArrayType__Group__0__Impl rule__ArrayType__Group__1 )
             // InternalGo.g:5325:2: rule__ArrayType__Group__0__Impl rule__ArrayType__Group__1
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__ArrayType__Group__0__Impl();
 
             state._fsp--;
@@ -19567,7 +19598,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:5351:1: ( rule__ArrayType__Group__1__Impl rule__ArrayType__Group__2 )
             // InternalGo.g:5352:2: rule__ArrayType__Group__1__Impl rule__ArrayType__Group__2
             {
-            pushFollow(FOLLOW_22);
+            pushFollow(FOLLOW_21);
             rule__ArrayType__Group__1__Impl();
 
             state._fsp--;
@@ -19650,7 +19681,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:5378:1: ( rule__ArrayType__Group__2__Impl rule__ArrayType__Group__3 )
             // InternalGo.g:5379:2: rule__ArrayType__Group__2__Impl rule__ArrayType__Group__3
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_17);
             rule__ArrayType__Group__2__Impl();
 
             state._fsp--;
@@ -19813,7 +19844,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:5432:1: ( rule__SliceType__Group__0__Impl rule__SliceType__Group__1 )
             // InternalGo.g:5433:2: rule__SliceType__Group__0__Impl rule__SliceType__Group__1
             {
-            pushFollow(FOLLOW_22);
+            pushFollow(FOLLOW_21);
             rule__SliceType__Group__0__Impl();
 
             state._fsp--;
@@ -19892,7 +19923,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:5459:1: ( rule__SliceType__Group__1__Impl rule__SliceType__Group__2 )
             // InternalGo.g:5460:2: rule__SliceType__Group__1__Impl rule__SliceType__Group__2
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_17);
             rule__SliceType__Group__1__Impl();
 
             state._fsp--;
@@ -20055,7 +20086,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:5513:1: ( rule__StructType__Group__0__Impl rule__StructType__Group__1 )
             // InternalGo.g:5514:2: rule__StructType__Group__0__Impl rule__StructType__Group__1
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_22);
             rule__StructType__Group__0__Impl();
 
             state._fsp--;
@@ -20213,7 +20244,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:5567:1: ( rule__StructType__Group__2__Impl rule__StructType__Group__3 )
             // InternalGo.g:5568:2: rule__StructType__Group__2__Impl rule__StructType__Group__3
             {
-            pushFollow(FOLLOW_24);
+            pushFollow(FOLLOW_23);
             rule__StructType__Group__2__Impl();
 
             state._fsp--;
@@ -20292,7 +20323,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:5594:1: ( rule__StructType__Group__3__Impl rule__StructType__Group__4 )
             // InternalGo.g:5595:2: rule__StructType__Group__3__Impl rule__StructType__Group__4
             {
-            pushFollow(FOLLOW_24);
+            pushFollow(FOLLOW_23);
             rule__StructType__Group__3__Impl();
 
             state._fsp--;
@@ -20337,21 +20368,21 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getStructTypeAccess().getGroup_3()); 
             }
             // InternalGo.g:5609:2: ( rule__StructType__Group_3__0 )*
-            loop54:
+            loop55:
             do {
-                int alt54=2;
-                int LA54_0 = input.LA(1);
+                int alt55=2;
+                int LA55_0 = input.LA(1);
 
-                if ( (LA54_0==RULE_ID||(LA54_0>=45 && LA54_0<=46)) ) {
-                    alt54=1;
+                if ( (LA55_0==RULE_ID||(LA55_0>=45 && LA55_0<=46)) ) {
+                    alt55=1;
                 }
 
 
-                switch (alt54) {
+                switch (alt55) {
             	case 1 :
             	    // InternalGo.g:5609:3: rule__StructType__Group_3__0
             	    {
-            	    pushFollow(FOLLOW_25);
+            	    pushFollow(FOLLOW_24);
             	    rule__StructType__Group_3__0();
 
             	    state._fsp--;
@@ -20361,7 +20392,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop54;
+            	    break loop55;
                 }
             } while (true);
 
@@ -20473,7 +20504,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:5648:1: ( rule__StructType__Group_3__0__Impl rule__StructType__Group_3__1 )
             // InternalGo.g:5649:2: rule__StructType__Group_3__0__Impl rule__StructType__Group_3__1
             {
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_25);
             rule__StructType__Group_3__0__Impl();
 
             state._fsp--;
@@ -20602,13 +20633,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getStructTypeAccess().getSemicolonKeyword_3_1()); 
             }
             // InternalGo.g:5689:2: ( ';' )?
-            int alt55=2;
-            int LA55_0 = input.LA(1);
+            int alt56=2;
+            int LA56_0 = input.LA(1);
 
-            if ( (LA55_0==42) ) {
-                alt55=1;
+            if ( (LA56_0==42) ) {
+                alt56=1;
             }
-            switch (alt55) {
+            switch (alt56) {
                 case 1 :
                     // InternalGo.g:5689:3: ';'
                     {
@@ -20653,7 +20684,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:5702:1: ( rule__FieldDecl__Group__0__Impl rule__FieldDecl__Group__1 )
             // InternalGo.g:5703:2: rule__FieldDecl__Group__0__Impl rule__FieldDecl__Group__1
             {
-            pushFollow(FOLLOW_27);
+            pushFollow(FOLLOW_26);
             rule__FieldDecl__Group__0__Impl();
 
             state._fsp--;
@@ -20732,7 +20763,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:5729:1: ( rule__FieldDecl__Group__1__Impl rule__FieldDecl__Group__2 )
             // InternalGo.g:5730:2: rule__FieldDecl__Group__1__Impl rule__FieldDecl__Group__2
             {
-            pushFollow(FOLLOW_28);
+            pushFollow(FOLLOW_27);
             rule__FieldDecl__Group__1__Impl();
 
             state._fsp--;
@@ -20861,13 +20892,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getFieldDeclAccess().getTagAssignment_2()); 
             }
             // InternalGo.g:5770:2: ( rule__FieldDecl__TagAssignment_2 )?
-            int alt56=2;
-            int LA56_0 = input.LA(1);
+            int alt57=2;
+            int LA57_0 = input.LA(1);
 
-            if ( ((LA56_0>=RULE_RAW_STRING_LIT && LA56_0<=RULE_INTERPRETED_STRING_LIT)) ) {
-                alt56=1;
+            if ( ((LA57_0>=RULE_RAW_STRING_LIT && LA57_0<=RULE_INTERPRETED_STRING_LIT)) ) {
+                alt57=1;
             }
-            switch (alt56) {
+            switch (alt57) {
                 case 1 :
                     // InternalGo.g:5770:3: rule__FieldDecl__TagAssignment_2
                     {
@@ -20916,7 +20947,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:5783:1: ( rule__FieldDecl__Group_1_0__0__Impl rule__FieldDecl__Group_1_0__1 )
             // InternalGo.g:5784:2: rule__FieldDecl__Group_1_0__0__Impl rule__FieldDecl__Group_1_0__1
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_17);
             rule__FieldDecl__Group_1_0__0__Impl();
 
             state._fsp--;
@@ -21168,7 +21199,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:5864:1: ( rule__IdentifierList__Group__1__Impl rule__IdentifierList__Group__2 )
             // InternalGo.g:5865:2: rule__IdentifierList__Group__1__Impl rule__IdentifierList__Group__2
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_28);
             rule__IdentifierList__Group__1__Impl();
 
             state._fsp--;
@@ -21297,31 +21328,31 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getIdentifierListAccess().getGroup_2()); 
             }
             // InternalGo.g:5905:2: ( rule__IdentifierList__Group_2__0 )*
-            loop57:
+            loop58:
             do {
-                int alt57=2;
-                int LA57_0 = input.LA(1);
+                int alt58=2;
+                int LA58_0 = input.LA(1);
 
-                if ( (LA57_0==43) ) {
-                    int LA57_2 = input.LA(2);
+                if ( (LA58_0==43) ) {
+                    int LA58_2 = input.LA(2);
 
-                    if ( (LA57_2==RULE_ID) ) {
-                        int LA57_3 = input.LA(3);
+                    if ( (LA58_2==RULE_ID) ) {
+                        int LA58_3 = input.LA(3);
 
-                        if ( (synpred101_InternalGo()) ) {
-                            alt57=1;
+                        if ( (synpred102_InternalGo()) ) {
+                            alt58=1;
                         }
 
 
                     }
-                    else if ( (LA57_2==46) ) {
-                        int LA57_4 = input.LA(3);
+                    else if ( (LA58_2==46) ) {
+                        int LA58_4 = input.LA(3);
 
-                        if ( (LA57_4==RULE_ID) ) {
-                            int LA57_6 = input.LA(4);
+                        if ( (LA58_4==RULE_ID) ) {
+                            int LA58_6 = input.LA(4);
 
-                            if ( (synpred101_InternalGo()) ) {
-                                alt57=1;
+                            if ( (synpred102_InternalGo()) ) {
+                                alt58=1;
                             }
 
 
@@ -21334,11 +21365,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                 }
 
 
-                switch (alt57) {
+                switch (alt58) {
             	case 1 :
             	    // InternalGo.g:5905:3: rule__IdentifierList__Group_2__0
             	    {
-            	    pushFollow(FOLLOW_30);
+            	    pushFollow(FOLLOW_29);
             	    rule__IdentifierList__Group_2__0();
 
             	    state._fsp--;
@@ -21348,7 +21379,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop57;
+            	    break loop58;
                 }
             } while (true);
 
@@ -21549,7 +21580,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:5972:1: ( rule__EmbeddedField__Group__0__Impl rule__EmbeddedField__Group__1 )
             // InternalGo.g:5973:2: rule__EmbeddedField__Group__0__Impl rule__EmbeddedField__Group__1
             {
-            pushFollow(FOLLOW_27);
+            pushFollow(FOLLOW_26);
             rule__EmbeddedField__Group__0__Impl();
 
             state._fsp--;
@@ -21594,13 +21625,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getEmbeddedFieldAccess().getAsteriskKeyword_0()); 
             }
             // InternalGo.g:5987:2: ( '*' )?
-            int alt58=2;
-            int LA58_0 = input.LA(1);
+            int alt59=2;
+            int LA59_0 = input.LA(1);
 
-            if ( (LA58_0==45) ) {
-                alt58=1;
+            if ( (LA59_0==45) ) {
+                alt59=1;
             }
-            switch (alt58) {
+            switch (alt59) {
                 case 1 :
                     // InternalGo.g:5987:3: '*'
                     {
@@ -21723,7 +21754,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:6026:1: ( rule__PointerType__Group__0__Impl rule__PointerType__Group__1 )
             // InternalGo.g:6027:2: rule__PointerType__Group__0__Impl rule__PointerType__Group__1
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_17);
             rule__PointerType__Group__0__Impl();
 
             state._fsp--;
@@ -22043,7 +22074,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:6134:1: ( rule__Signature__Group__0__Impl rule__Signature__Group__1 )
             // InternalGo.g:6135:2: rule__Signature__Group__0__Impl rule__Signature__Group__1
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_17);
             rule__Signature__Group__0__Impl();
 
             state._fsp--;
@@ -22172,9 +22203,9 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getSignatureAccess().getResultAssignment_1()); 
             }
             // InternalGo.g:6175:2: ( rule__Signature__ResultAssignment_1 )?
-            int alt59=2;
-            alt59 = dfa59.predict(input);
-            switch (alt59) {
+            int alt60=2;
+            alt60 = dfa60.predict(input);
+            switch (alt60) {
                 case 1 :
                     // InternalGo.g:6175:3: rule__Signature__ResultAssignment_1
                     {
@@ -22302,7 +22333,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:6215:1: ( rule__Parameters__Group__1__Impl rule__Parameters__Group__2 )
             // InternalGo.g:6216:2: rule__Parameters__Group__1__Impl rule__Parameters__Group__2
             {
-            pushFollow(FOLLOW_31);
+            pushFollow(FOLLOW_30);
             rule__Parameters__Group__1__Impl();
 
             state._fsp--;
@@ -22381,7 +22412,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:6242:1: ( rule__Parameters__Group__2__Impl rule__Parameters__Group__3 )
             // InternalGo.g:6243:2: rule__Parameters__Group__2__Impl rule__Parameters__Group__3
             {
-            pushFollow(FOLLOW_31);
+            pushFollow(FOLLOW_30);
             rule__Parameters__Group__2__Impl();
 
             state._fsp--;
@@ -22426,20 +22457,20 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getParametersAccess().getParameterlistAssignment_2()); 
             }
             // InternalGo.g:6257:2: ( rule__Parameters__ParameterlistAssignment_2 )?
-            int alt60=2;
-            int LA60_0 = input.LA(1);
+            int alt61=2;
+            int LA61_0 = input.LA(1);
 
-            if ( (LA60_0==RULE_ID||LA60_0==RULE_LITERAL_TYPE||LA60_0==43||(LA60_0>=45 && LA60_0<=46)||LA60_0==48||LA60_0==52||LA60_0==54||LA60_0==56||(LA60_0>=59 && LA60_0<=63)) ) {
-                alt60=1;
+            if ( (LA61_0==RULE_ID||LA61_0==RULE_LITERAL_TYPE||LA61_0==43||(LA61_0>=45 && LA61_0<=46)||LA61_0==48||LA61_0==52||LA61_0==54||LA61_0==56||(LA61_0>=59 && LA61_0<=63)) ) {
+                alt61=1;
             }
-            else if ( (LA60_0==53) ) {
-                int LA60_2 = input.LA(2);
+            else if ( (LA61_0==53) ) {
+                int LA61_2 = input.LA(2);
 
-                if ( (synpred104_InternalGo()) ) {
-                    alt60=1;
+                if ( (synpred105_InternalGo()) ) {
+                    alt61=1;
                 }
             }
-            switch (alt60) {
+            switch (alt61) {
                 case 1 :
                     // InternalGo.g:6257:3: rule__Parameters__ParameterlistAssignment_2
                     {
@@ -22562,7 +22593,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:6296:1: ( rule__ParameterList__Group__0__Impl rule__ParameterList__Group__1 )
             // InternalGo.g:6297:2: rule__ParameterList__Group__0__Impl rule__ParameterList__Group__1
             {
-            pushFollow(FOLLOW_32);
+            pushFollow(FOLLOW_31);
             rule__ParameterList__Group__0__Impl();
 
             state._fsp--;
@@ -22641,7 +22672,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:6323:1: ( rule__ParameterList__Group__1__Impl rule__ParameterList__Group__2 )
             // InternalGo.g:6324:2: rule__ParameterList__Group__1__Impl rule__ParameterList__Group__2
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_28);
             rule__ParameterList__Group__1__Impl();
 
             state._fsp--;
@@ -22770,21 +22801,21 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getParameterListAccess().getGroup_2()); 
             }
             // InternalGo.g:6364:2: ( rule__ParameterList__Group_2__0 )*
-            loop61:
+            loop62:
             do {
-                int alt61=2;
-                int LA61_0 = input.LA(1);
+                int alt62=2;
+                int LA62_0 = input.LA(1);
 
-                if ( (LA61_0==43) ) {
-                    alt61=1;
+                if ( (LA62_0==43) ) {
+                    alt62=1;
                 }
 
 
-                switch (alt61) {
+                switch (alt62) {
             	case 1 :
             	    // InternalGo.g:6364:3: rule__ParameterList__Group_2__0
             	    {
-            	    pushFollow(FOLLOW_30);
+            	    pushFollow(FOLLOW_29);
             	    rule__ParameterList__Group_2__0();
 
             	    state._fsp--;
@@ -22794,7 +22825,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop61;
+            	    break loop62;
                 }
             } while (true);
 
@@ -22832,7 +22863,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:6377:1: ( rule__ParameterList__Group_2__0__Impl rule__ParameterList__Group_2__1 )
             // InternalGo.g:6378:2: rule__ParameterList__Group_2__0__Impl rule__ParameterList__Group_2__1
             {
-            pushFollow(FOLLOW_32);
+            pushFollow(FOLLOW_31);
             rule__ParameterList__Group_2__0__Impl();
 
             state._fsp--;
@@ -22995,7 +23026,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:6431:1: ( rule__ParameterDecl__Group_0__0__Impl rule__ParameterDecl__Group_0__1 )
             // InternalGo.g:6432:2: rule__ParameterDecl__Group_0__0__Impl rule__ParameterDecl__Group_0__1
             {
-            pushFollow(FOLLOW_32);
+            pushFollow(FOLLOW_31);
             rule__ParameterDecl__Group_0__0__Impl();
 
             state._fsp--;
@@ -23074,7 +23105,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:6458:1: ( rule__ParameterDecl__Group_0__1__Impl rule__ParameterDecl__Group_0__2 )
             // InternalGo.g:6459:2: rule__ParameterDecl__Group_0__1__Impl rule__ParameterDecl__Group_0__2
             {
-            pushFollow(FOLLOW_32);
+            pushFollow(FOLLOW_31);
             rule__ParameterDecl__Group_0__1__Impl();
 
             state._fsp--;
@@ -23119,13 +23150,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getParameterDeclAccess().getIdAssignment_0_1()); 
             }
             // InternalGo.g:6473:2: ( rule__ParameterDecl__IdAssignment_0_1 )?
-            int alt62=2;
-            int LA62_0 = input.LA(1);
+            int alt63=2;
+            int LA63_0 = input.LA(1);
 
-            if ( (LA62_0==RULE_ID||LA62_0==46) ) {
-                alt62=1;
+            if ( (LA63_0==RULE_ID||LA63_0==46) ) {
+                alt63=1;
             }
-            switch (alt62) {
+            switch (alt63) {
                 case 1 :
                     // InternalGo.g:6473:3: rule__ParameterDecl__IdAssignment_0_1
                     {
@@ -23174,7 +23205,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:6485:1: ( rule__ParameterDecl__Group_0__2__Impl rule__ParameterDecl__Group_0__3 )
             // InternalGo.g:6486:2: rule__ParameterDecl__Group_0__2__Impl rule__ParameterDecl__Group_0__3
             {
-            pushFollow(FOLLOW_32);
+            pushFollow(FOLLOW_31);
             rule__ParameterDecl__Group_0__2__Impl();
 
             state._fsp--;
@@ -23219,13 +23250,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getParameterDeclAccess().getFullStopFullStopFullStopKeyword_0_2()); 
             }
             // InternalGo.g:6500:2: ( '...' )?
-            int alt63=2;
-            int LA63_0 = input.LA(1);
+            int alt64=2;
+            int LA64_0 = input.LA(1);
 
-            if ( (LA63_0==59) ) {
-                alt63=1;
+            if ( (LA64_0==59) ) {
+                alt64=1;
             }
-            switch (alt63) {
+            switch (alt64) {
                 case 1 :
                     // InternalGo.g:6500:3: '...'
                     {
@@ -23310,13 +23341,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getParameterDeclAccess().getTypeAssignment_0_3()); 
             }
             // InternalGo.g:6526:2: ( rule__ParameterDecl__TypeAssignment_0_3 )?
-            int alt64=2;
-            int LA64_0 = input.LA(1);
+            int alt65=2;
+            int LA65_0 = input.LA(1);
 
-            if ( (LA64_0==RULE_LITERAL_TYPE||LA64_0==45||LA64_0==48||LA64_0==52||LA64_0==54||LA64_0==56||(LA64_0>=60 && LA64_0<=63)) ) {
-                alt64=1;
+            if ( (LA65_0==RULE_LITERAL_TYPE||LA65_0==45||LA65_0==48||LA65_0==52||LA65_0==54||LA65_0==56||(LA65_0>=60 && LA65_0<=63)) ) {
+                alt65=1;
             }
-            switch (alt64) {
+            switch (alt65) {
                 case 1 :
                     // InternalGo.g:6526:3: rule__ParameterDecl__TypeAssignment_0_3
                     {
@@ -23365,7 +23396,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:6539:1: ( rule__ParameterDecl__Group_1__0__Impl rule__ParameterDecl__Group_1__1 )
             // InternalGo.g:6540:2: rule__ParameterDecl__Group_1__0__Impl rule__ParameterDecl__Group_1__1
             {
-            pushFollow(FOLLOW_32);
+            pushFollow(FOLLOW_31);
             rule__ParameterDecl__Group_1__0__Impl();
 
             state._fsp--;
@@ -23410,13 +23441,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getParameterDeclAccess().getIdAssignment_1_0()); 
             }
             // InternalGo.g:6554:2: ( rule__ParameterDecl__IdAssignment_1_0 )?
-            int alt65=2;
-            int LA65_0 = input.LA(1);
+            int alt66=2;
+            int LA66_0 = input.LA(1);
 
-            if ( (LA65_0==RULE_ID||LA65_0==46) ) {
-                alt65=1;
+            if ( (LA66_0==RULE_ID||LA66_0==46) ) {
+                alt66=1;
             }
-            switch (alt65) {
+            switch (alt66) {
                 case 1 :
                     // InternalGo.g:6554:3: rule__ParameterDecl__IdAssignment_1_0
                     {
@@ -23465,7 +23496,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:6566:1: ( rule__ParameterDecl__Group_1__1__Impl rule__ParameterDecl__Group_1__2 )
             // InternalGo.g:6567:2: rule__ParameterDecl__Group_1__1__Impl rule__ParameterDecl__Group_1__2
             {
-            pushFollow(FOLLOW_32);
+            pushFollow(FOLLOW_31);
             rule__ParameterDecl__Group_1__1__Impl();
 
             state._fsp--;
@@ -23510,13 +23541,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getParameterDeclAccess().getFullStopFullStopFullStopKeyword_1_1()); 
             }
             // InternalGo.g:6581:2: ( '...' )?
-            int alt66=2;
-            int LA66_0 = input.LA(1);
+            int alt67=2;
+            int LA67_0 = input.LA(1);
 
-            if ( (LA66_0==59) ) {
-                alt66=1;
+            if ( (LA67_0==59) ) {
+                alt67=1;
             }
-            switch (alt66) {
+            switch (alt67) {
                 case 1 :
                     // InternalGo.g:6581:3: '...'
                     {
@@ -23645,7 +23676,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:6620:1: ( rule__InterfaceType__Group__0__Impl rule__InterfaceType__Group__1 )
             // InternalGo.g:6621:2: rule__InterfaceType__Group__0__Impl rule__InterfaceType__Group__1
             {
-            pushFollow(FOLLOW_33);
+            pushFollow(FOLLOW_32);
             rule__InterfaceType__Group__0__Impl();
 
             state._fsp--;
@@ -23803,7 +23834,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:6674:1: ( rule__InterfaceType__Group__2__Impl rule__InterfaceType__Group__3 )
             // InternalGo.g:6675:2: rule__InterfaceType__Group__2__Impl rule__InterfaceType__Group__3
             {
-            pushFollow(FOLLOW_34);
+            pushFollow(FOLLOW_33);
             rule__InterfaceType__Group__2__Impl();
 
             state._fsp--;
@@ -23882,7 +23913,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:6701:1: ( rule__InterfaceType__Group__3__Impl rule__InterfaceType__Group__4 )
             // InternalGo.g:6702:2: rule__InterfaceType__Group__3__Impl rule__InterfaceType__Group__4
             {
-            pushFollow(FOLLOW_34);
+            pushFollow(FOLLOW_33);
             rule__InterfaceType__Group__3__Impl();
 
             state._fsp--;
@@ -23927,21 +23958,21 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getInterfaceTypeAccess().getGroup_3()); 
             }
             // InternalGo.g:6716:2: ( rule__InterfaceType__Group_3__0 )*
-            loop67:
+            loop68:
             do {
-                int alt67=2;
-                int LA67_0 = input.LA(1);
+                int alt68=2;
+                int LA68_0 = input.LA(1);
 
-                if ( (LA67_0==RULE_ID||LA67_0==46) ) {
-                    alt67=1;
+                if ( (LA68_0==RULE_ID||LA68_0==46) ) {
+                    alt68=1;
                 }
 
 
-                switch (alt67) {
+                switch (alt68) {
             	case 1 :
             	    // InternalGo.g:6716:3: rule__InterfaceType__Group_3__0
             	    {
-            	    pushFollow(FOLLOW_35);
+            	    pushFollow(FOLLOW_34);
             	    rule__InterfaceType__Group_3__0();
 
             	    state._fsp--;
@@ -23951,7 +23982,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop67;
+            	    break loop68;
                 }
             } while (true);
 
@@ -24063,7 +24094,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:6755:1: ( rule__InterfaceType__Group_3__0__Impl rule__InterfaceType__Group_3__1 )
             // InternalGo.g:6756:2: rule__InterfaceType__Group_3__0__Impl rule__InterfaceType__Group_3__1
             {
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_25);
             rule__InterfaceType__Group_3__0__Impl();
 
             state._fsp--;
@@ -24192,13 +24223,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getInterfaceTypeAccess().getSemicolonKeyword_3_1()); 
             }
             // InternalGo.g:6796:2: ( ';' )?
-            int alt68=2;
-            int LA68_0 = input.LA(1);
+            int alt69=2;
+            int LA69_0 = input.LA(1);
 
-            if ( (LA68_0==42) ) {
-                alt68=1;
+            if ( (LA69_0==42) ) {
+                alt69=1;
             }
-            switch (alt68) {
+            switch (alt69) {
                 case 1 :
                     // InternalGo.g:6796:3: ';'
                     {
@@ -24416,7 +24447,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:6863:1: ( rule__MethodSpec__Group_1__0__Impl rule__MethodSpec__Group_1__1 )
             // InternalGo.g:6864:2: rule__MethodSpec__Group_1__0__Impl rule__MethodSpec__Group_1__1
             {
-            pushFollow(FOLLOW_36);
+            pushFollow(FOLLOW_35);
             rule__MethodSpec__Group_1__0__Impl();
 
             state._fsp--;
@@ -24579,7 +24610,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:6917:1: ( rule__MapType__Group__0__Impl rule__MapType__Group__1 )
             // InternalGo.g:6918:2: rule__MapType__Group__0__Impl rule__MapType__Group__1
             {
-            pushFollow(FOLLOW_37);
+            pushFollow(FOLLOW_36);
             rule__MapType__Group__0__Impl();
 
             state._fsp--;
@@ -24658,7 +24689,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:6944:1: ( rule__MapType__Group__1__Impl rule__MapType__Group__2 )
             // InternalGo.g:6945:2: rule__MapType__Group__1__Impl rule__MapType__Group__2
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_17);
             rule__MapType__Group__1__Impl();
 
             state._fsp--;
@@ -24737,7 +24768,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:6971:1: ( rule__MapType__Group__2__Impl rule__MapType__Group__3 )
             // InternalGo.g:6972:2: rule__MapType__Group__2__Impl rule__MapType__Group__3
             {
-            pushFollow(FOLLOW_22);
+            pushFollow(FOLLOW_21);
             rule__MapType__Group__2__Impl();
 
             state._fsp--;
@@ -24826,7 +24857,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:6998:1: ( rule__MapType__Group__3__Impl rule__MapType__Group__4 )
             // InternalGo.g:6999:2: rule__MapType__Group__3__Impl rule__MapType__Group__4
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_17);
             rule__MapType__Group__3__Impl();
 
             state._fsp--;
@@ -24989,7 +25020,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:7052:1: ( rule__ChannelType__Group__0__Impl rule__ChannelType__Group__1 )
             // InternalGo.g:7053:2: rule__ChannelType__Group__0__Impl rule__ChannelType__Group__1
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_17);
             rule__ChannelType__Group__0__Impl();
 
             state._fsp--;
@@ -25162,7 +25193,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:7106:1: ( rule__ChannelType__Group_0_0__0__Impl rule__ChannelType__Group_0_0__1 )
             // InternalGo.g:7107:2: rule__ChannelType__Group_0_0__0__Impl rule__ChannelType__Group_0_0__1
             {
-            pushFollow(FOLLOW_38);
+            pushFollow(FOLLOW_37);
             rule__ChannelType__Group_0_0__0__Impl();
 
             state._fsp--;
@@ -25281,9 +25312,9 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getChannelTypeAccess().getLessThanSignHyphenMinusKeyword_0_0_1()); 
             }
             // InternalGo.g:7147:2: ( '<-' )?
-            int alt69=2;
-            alt69 = dfa69.predict(input);
-            switch (alt69) {
+            int alt70=2;
+            alt70 = dfa70.predict(input);
+            switch (alt70) {
                 case 1 :
                     // InternalGo.g:7147:3: '<-'
                     {
@@ -25328,7 +25359,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:7160:1: ( rule__ChannelType__Group_0_1__0__Impl rule__ChannelType__Group_0_1__1 )
             // InternalGo.g:7161:2: rule__ChannelType__Group_0_1__0__Impl rule__ChannelType__Group_0_1__1
             {
-            pushFollow(FOLLOW_39);
+            pushFollow(FOLLOW_38);
             rule__ChannelType__Group_0_1__0__Impl();
 
             state._fsp--;
@@ -25481,7 +25512,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:7214:1: ( rule__Block__Group__0__Impl rule__Block__Group__1 )
             // InternalGo.g:7215:2: rule__Block__Group__0__Impl rule__Block__Group__1
             {
-            pushFollow(FOLLOW_40);
+            pushFollow(FOLLOW_39);
             rule__Block__Group__0__Impl();
 
             state._fsp--;
@@ -25560,7 +25591,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:7241:1: ( rule__Block__Group__1__Impl rule__Block__Group__2 )
             // InternalGo.g:7242:2: rule__Block__Group__1__Impl rule__Block__Group__2
             {
-            pushFollow(FOLLOW_41);
+            pushFollow(FOLLOW_40);
             rule__Block__Group__1__Impl();
 
             state._fsp--;
@@ -25717,7 +25748,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:7295:1: ( rule__StatementList__Group__0__Impl rule__StatementList__Group__1 )
             // InternalGo.g:7296:2: rule__StatementList__Group__0__Impl rule__StatementList__Group__1
             {
-            pushFollow(FOLLOW_40);
+            pushFollow(FOLLOW_39);
             rule__StatementList__Group__0__Impl();
 
             state._fsp--;
@@ -25836,21 +25867,21 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getStatementListAccess().getGroup_1()); 
             }
             // InternalGo.g:7336:2: ( rule__StatementList__Group_1__0 )*
-            loop70:
+            loop71:
             do {
-                int alt70=2;
-                int LA70_0 = input.LA(1);
+                int alt71=2;
+                int LA71_0 = input.LA(1);
 
-                if ( ((LA70_0>=RULE_STRING && LA70_0<=RULE_FLOAT_LIT)||(LA70_0>=RULE_UNARY_OP && LA70_0<=RULE_BOOLEAN_LIT)||(LA70_0>=41 && LA70_0<=42)||(LA70_0>=45 && LA70_0<=46)||LA70_0==48||(LA70_0>=51 && LA70_0<=52)||LA70_0==54||(LA70_0>=56 && LA70_0<=57)||(LA70_0>=60 && LA70_0<=63)||(LA70_0>=65 && LA70_0<=69)||(LA70_0>=71 && LA70_0<=76)||LA70_0==80) ) {
-                    alt70=1;
+                if ( ((LA71_0>=RULE_STRING && LA71_0<=RULE_FLOAT_LIT)||(LA71_0>=RULE_UNARY_OP && LA71_0<=RULE_BOOLEAN_LIT)||(LA71_0>=41 && LA71_0<=42)||(LA71_0>=45 && LA71_0<=46)||LA71_0==48||(LA71_0>=51 && LA71_0<=52)||LA71_0==54||(LA71_0>=56 && LA71_0<=57)||(LA71_0>=60 && LA71_0<=63)||(LA71_0>=65 && LA71_0<=69)||(LA71_0>=71 && LA71_0<=76)||LA71_0==80) ) {
+                    alt71=1;
                 }
 
 
-                switch (alt70) {
+                switch (alt71) {
             	case 1 :
             	    // InternalGo.g:7336:3: rule__StatementList__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_42);
+            	    pushFollow(FOLLOW_41);
             	    rule__StatementList__Group_1__0();
 
             	    state._fsp--;
@@ -25860,7 +25891,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop70;
+            	    break loop71;
                 }
             } while (true);
 
@@ -25898,7 +25929,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:7349:1: ( rule__StatementList__Group_1__0__Impl rule__StatementList__Group_1__1 )
             // InternalGo.g:7350:2: rule__StatementList__Group_1__0__Impl rule__StatementList__Group_1__1
             {
-            pushFollow(FOLLOW_43);
+            pushFollow(FOLLOW_42);
             rule__StatementList__Group_1__0__Impl();
 
             state._fsp--;
@@ -26027,20 +26058,20 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getStatementListAccess().getAlternatives_1_1()); 
             }
             // InternalGo.g:7390:2: ( rule__StatementList__Alternatives_1_1 )?
-            int alt71=2;
-            int LA71_0 = input.LA(1);
+            int alt72=2;
+            int LA72_0 = input.LA(1);
 
-            if ( (LA71_0==42) ) {
-                int LA71_1 = input.LA(2);
+            if ( (LA72_0==42) ) {
+                int LA72_1 = input.LA(2);
 
-                if ( (synpred115_InternalGo()) ) {
-                    alt71=1;
+                if ( (synpred116_InternalGo()) ) {
+                    alt72=1;
                 }
             }
-            else if ( (LA71_0==43) ) {
-                alt71=1;
+            else if ( (LA72_0==43) ) {
+                alt72=1;
             }
-            switch (alt71) {
+            switch (alt72) {
                 case 1 :
                     // InternalGo.g:7390:3: rule__StatementList__Alternatives_1_1
                     {
@@ -26252,7 +26283,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:7457:1: ( rule__LabeledStmt__Group__0__Impl rule__LabeledStmt__Group__1 )
             // InternalGo.g:7458:2: rule__LabeledStmt__Group__0__Impl rule__LabeledStmt__Group__1
             {
-            pushFollow(FOLLOW_44);
+            pushFollow(FOLLOW_43);
             rule__LabeledStmt__Group__0__Impl();
 
             state._fsp--;
@@ -26341,7 +26372,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:7484:1: ( rule__LabeledStmt__Group__1__Impl rule__LabeledStmt__Group__2 )
             // InternalGo.g:7485:2: rule__LabeledStmt__Group__1__Impl rule__LabeledStmt__Group__2
             {
-            pushFollow(FOLLOW_40);
+            pushFollow(FOLLOW_39);
             rule__LabeledStmt__Group__1__Impl();
 
             state._fsp--;
@@ -26661,7 +26692,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:7592:1: ( rule__ReturnStmt__Group__0__Impl rule__ReturnStmt__Group__1 )
             // InternalGo.g:7593:2: rule__ReturnStmt__Group__0__Impl rule__ReturnStmt__Group__1
             {
-            pushFollow(FOLLOW_45);
+            pushFollow(FOLLOW_44);
             rule__ReturnStmt__Group__0__Impl();
 
             state._fsp--;
@@ -26740,7 +26771,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:7619:1: ( rule__ReturnStmt__Group__1__Impl rule__ReturnStmt__Group__2 )
             // InternalGo.g:7620:2: rule__ReturnStmt__Group__1__Impl rule__ReturnStmt__Group__2
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__ReturnStmt__Group__1__Impl();
 
             state._fsp--;
@@ -26859,9 +26890,9 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getReturnStmtAccess().getExpressionlistAssignment_2()); 
             }
             // InternalGo.g:7660:2: ( rule__ReturnStmt__ExpressionlistAssignment_2 )?
-            int alt72=2;
-            alt72 = dfa72.predict(input);
-            switch (alt72) {
+            int alt73=2;
+            alt73 = dfa73.predict(input);
+            switch (alt73) {
                 case 1 :
                     // InternalGo.g:7660:3: rule__ReturnStmt__ExpressionlistAssignment_2
                     {
@@ -27029,28 +27060,28 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getBreakStmtAccess().getLabelParserRuleCall_1()); 
             }
             // InternalGo.g:7714:2: ( ruleLabel )?
-            int alt73=2;
-            int LA73_0 = input.LA(1);
+            int alt74=2;
+            int LA74_0 = input.LA(1);
 
-            if ( (LA73_0==RULE_ID) ) {
-                int LA73_1 = input.LA(2);
+            if ( (LA74_0==RULE_ID) ) {
+                int LA74_1 = input.LA(2);
 
-                if ( (synpred117_InternalGo()) ) {
-                    alt73=1;
+                if ( (synpred118_InternalGo()) ) {
+                    alt74=1;
                 }
             }
-            else if ( (LA73_0==46) ) {
-                int LA73_2 = input.LA(2);
+            else if ( (LA74_0==46) ) {
+                int LA74_2 = input.LA(2);
 
-                if ( (LA73_2==RULE_ID) ) {
-                    int LA73_5 = input.LA(3);
+                if ( (LA74_2==RULE_ID) ) {
+                    int LA74_5 = input.LA(3);
 
-                    if ( (synpred117_InternalGo()) ) {
-                        alt73=1;
+                    if ( (synpred118_InternalGo()) ) {
+                        alt74=1;
                     }
                 }
             }
-            switch (alt73) {
+            switch (alt74) {
                 case 1 :
                     // InternalGo.g:7714:3: ruleLabel
                     {
@@ -27218,28 +27249,28 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getContinueStmtAccess().getLabelParserRuleCall_1()); 
             }
             // InternalGo.g:7768:2: ( ruleLabel )?
-            int alt74=2;
-            int LA74_0 = input.LA(1);
+            int alt75=2;
+            int LA75_0 = input.LA(1);
 
-            if ( (LA74_0==RULE_ID) ) {
-                int LA74_1 = input.LA(2);
+            if ( (LA75_0==RULE_ID) ) {
+                int LA75_1 = input.LA(2);
 
-                if ( (synpred118_InternalGo()) ) {
-                    alt74=1;
+                if ( (synpred119_InternalGo()) ) {
+                    alt75=1;
                 }
             }
-            else if ( (LA74_0==46) ) {
-                int LA74_2 = input.LA(2);
+            else if ( (LA75_0==46) ) {
+                int LA75_2 = input.LA(2);
 
-                if ( (LA74_2==RULE_ID) ) {
-                    int LA74_5 = input.LA(3);
+                if ( (LA75_2==RULE_ID) ) {
+                    int LA75_5 = input.LA(3);
 
-                    if ( (synpred118_InternalGo()) ) {
-                        alt74=1;
+                    if ( (synpred119_InternalGo()) ) {
+                        alt75=1;
                     }
                 }
             }
-            switch (alt74) {
+            switch (alt75) {
                 case 1 :
                     // InternalGo.g:7768:3: ruleLabel
                     {
@@ -27445,7 +27476,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:7835:1: ( rule__IfStmt__Group__0__Impl rule__IfStmt__Group__1 )
             // InternalGo.g:7836:2: rule__IfStmt__Group__0__Impl rule__IfStmt__Group__1
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_45);
             rule__IfStmt__Group__0__Impl();
 
             state._fsp--;
@@ -27524,7 +27555,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:7862:1: ( rule__IfStmt__Group__1__Impl rule__IfStmt__Group__2 )
             // InternalGo.g:7863:2: rule__IfStmt__Group__1__Impl rule__IfStmt__Group__2
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_45);
             rule__IfStmt__Group__1__Impl();
 
             state._fsp--;
@@ -27569,9 +27600,9 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getIfStmtAccess().getGroup_1()); 
             }
             // InternalGo.g:7877:2: ( rule__IfStmt__Group_1__0 )?
-            int alt75=2;
-            alt75 = dfa75.predict(input);
-            switch (alt75) {
+            int alt76=2;
+            alt76 = dfa76.predict(input);
+            switch (alt76) {
                 case 1 :
                     // InternalGo.g:7877:3: rule__IfStmt__Group_1__0
                     {
@@ -27709,7 +27740,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:7916:1: ( rule__IfStmt__Group__3__Impl rule__IfStmt__Group__4 )
             // InternalGo.g:7917:2: rule__IfStmt__Group__3__Impl rule__IfStmt__Group__4
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_46);
             rule__IfStmt__Group__3__Impl();
 
             state._fsp--;
@@ -27838,13 +27869,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getIfStmtAccess().getGroup_4()); 
             }
             // InternalGo.g:7957:2: ( rule__IfStmt__Group_4__0 )?
-            int alt76=2;
-            int LA76_0 = input.LA(1);
+            int alt77=2;
+            int LA77_0 = input.LA(1);
 
-            if ( (LA76_0==70) ) {
-                alt76=1;
+            if ( (LA77_0==70) ) {
+                alt77=1;
             }
-            switch (alt76) {
+            switch (alt77) {
                 case 1 :
                     // InternalGo.g:7957:3: rule__IfStmt__Group_4__0
                     {
@@ -27893,7 +27924,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:7970:1: ( rule__IfStmt__Group_1__0__Impl rule__IfStmt__Group_1__1 )
             // InternalGo.g:7971:2: rule__IfStmt__Group_1__0__Impl rule__IfStmt__Group_1__1
             {
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_25);
             rule__IfStmt__Group_1__0__Impl();
 
             state._fsp--;
@@ -28056,7 +28087,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:8024:1: ( rule__IfStmt__Group_4__0__Impl rule__IfStmt__Group_4__1 )
             // InternalGo.g:8025:2: rule__IfStmt__Group_4__0__Impl rule__IfStmt__Group_4__1
             {
-            pushFollow(FOLLOW_48);
+            pushFollow(FOLLOW_47);
             rule__IfStmt__Group_4__0__Impl();
 
             state._fsp--;
@@ -28219,7 +28250,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:8078:1: ( rule__SwitchStmt__Group_0__0__Impl rule__SwitchStmt__Group_0__1 )
             // InternalGo.g:8079:2: rule__SwitchStmt__Group_0__0__Impl rule__SwitchStmt__Group_0__1
             {
-            pushFollow(FOLLOW_49);
+            pushFollow(FOLLOW_48);
             rule__SwitchStmt__Group_0__0__Impl();
 
             state._fsp--;
@@ -28382,7 +28413,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:8132:1: ( rule__SwitchStmt__Group_1__0__Impl rule__SwitchStmt__Group_1__1 )
             // InternalGo.g:8133:2: rule__SwitchStmt__Group_1__0__Impl rule__SwitchStmt__Group_1__1
             {
-            pushFollow(FOLLOW_49);
+            pushFollow(FOLLOW_48);
             rule__SwitchStmt__Group_1__0__Impl();
 
             state._fsp--;
@@ -28545,7 +28576,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:8186:1: ( rule__SelectStmt__Group__0__Impl rule__SelectStmt__Group__1 )
             // InternalGo.g:8187:2: rule__SelectStmt__Group__0__Impl rule__SelectStmt__Group__1
             {
-            pushFollow(FOLLOW_50);
+            pushFollow(FOLLOW_49);
             rule__SelectStmt__Group__0__Impl();
 
             state._fsp--;
@@ -28703,7 +28734,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:8240:1: ( rule__SelectStmt__Group__2__Impl rule__SelectStmt__Group__3 )
             // InternalGo.g:8241:2: rule__SelectStmt__Group__2__Impl rule__SelectStmt__Group__3
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_50);
             rule__SelectStmt__Group__2__Impl();
 
             state._fsp--;
@@ -28782,7 +28813,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:8267:1: ( rule__SelectStmt__Group__3__Impl rule__SelectStmt__Group__4 )
             // InternalGo.g:8268:2: rule__SelectStmt__Group__3__Impl rule__SelectStmt__Group__4
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_50);
             rule__SelectStmt__Group__3__Impl();
 
             state._fsp--;
@@ -28827,21 +28858,21 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getSelectStmtAccess().getCommclauseAssignment_3()); 
             }
             // InternalGo.g:8282:2: ( rule__SelectStmt__CommclauseAssignment_3 )*
-            loop77:
+            loop78:
             do {
-                int alt77=2;
-                int LA77_0 = input.LA(1);
+                int alt78=2;
+                int LA78_0 = input.LA(1);
 
-                if ( ((LA77_0>=81 && LA77_0<=82)) ) {
-                    alt77=1;
+                if ( ((LA78_0>=81 && LA78_0<=82)) ) {
+                    alt78=1;
                 }
 
 
-                switch (alt77) {
+                switch (alt78) {
             	case 1 :
             	    // InternalGo.g:8282:3: rule__SelectStmt__CommclauseAssignment_3
             	    {
-            	    pushFollow(FOLLOW_52);
+            	    pushFollow(FOLLOW_51);
             	    rule__SelectStmt__CommclauseAssignment_3();
 
             	    state._fsp--;
@@ -28851,7 +28882,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop77;
+            	    break loop78;
                 }
             } while (true);
 
@@ -28963,7 +28994,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:8321:1: ( rule__ForStmt__Group__0__Impl rule__ForStmt__Group__1 )
             // InternalGo.g:8322:2: rule__ForStmt__Group__0__Impl rule__ForStmt__Group__1
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_52);
             rule__ForStmt__Group__0__Impl();
 
             state._fsp--;
@@ -29042,7 +29073,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:8348:1: ( rule__ForStmt__Group__1__Impl rule__ForStmt__Group__2 )
             // InternalGo.g:8349:2: rule__ForStmt__Group__1__Impl rule__ForStmt__Group__2
             {
-            pushFollow(FOLLOW_54);
+            pushFollow(FOLLOW_53);
             rule__ForStmt__Group__1__Impl();
 
             state._fsp--;
@@ -29121,7 +29152,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:8375:1: ( rule__ForStmt__Group__2__Impl rule__ForStmt__Group__3 )
             // InternalGo.g:8376:2: rule__ForStmt__Group__2__Impl rule__ForStmt__Group__3
             {
-            pushFollow(FOLLOW_54);
+            pushFollow(FOLLOW_53);
             rule__ForStmt__Group__2__Impl();
 
             state._fsp--;
@@ -29166,13 +29197,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getForStmtAccess().getAlternatives_2()); 
             }
             // InternalGo.g:8390:2: ( rule__ForStmt__Alternatives_2 )?
-            int alt78=2;
-            int LA78_0 = input.LA(1);
+            int alt79=2;
+            int LA79_0 = input.LA(1);
 
-            if ( ((LA78_0>=RULE_STRING && LA78_0<=RULE_FLOAT_LIT)||(LA78_0>=RULE_UNARY_OP && LA78_0<=RULE_BOOLEAN_LIT)||LA78_0==42||(LA78_0>=45 && LA78_0<=46)||LA78_0==48||(LA78_0>=51 && LA78_0<=52)||LA78_0==54||LA78_0==56||(LA78_0>=60 && LA78_0<=63)||LA78_0==83) ) {
-                alt78=1;
+            if ( ((LA79_0>=RULE_STRING && LA79_0<=RULE_FLOAT_LIT)||(LA79_0>=RULE_UNARY_OP && LA79_0<=RULE_BOOLEAN_LIT)||LA79_0==42||(LA79_0>=45 && LA79_0<=46)||LA79_0==48||(LA79_0>=51 && LA79_0<=52)||LA79_0==54||LA79_0==56||(LA79_0>=60 && LA79_0<=63)||LA79_0==83) ) {
+                alt79=1;
             }
-            switch (alt78) {
+            switch (alt79) {
                 case 1 :
                     // InternalGo.g:8390:3: rule__ForStmt__Alternatives_2
                     {
@@ -29305,7 +29336,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:8429:1: ( rule__DeferStmt__Group__0__Impl rule__DeferStmt__Group__1 )
             // InternalGo.g:8430:2: rule__DeferStmt__Group__0__Impl rule__DeferStmt__Group__1
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__DeferStmt__Group__0__Impl();
 
             state._fsp--;
@@ -29462,7 +29493,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:8483:1: ( rule__ConstDecl__Group__0__Impl rule__ConstDecl__Group__1 )
             // InternalGo.g:8484:2: rule__ConstDecl__Group__0__Impl rule__ConstDecl__Group__1
             {
-            pushFollow(FOLLOW_55);
+            pushFollow(FOLLOW_54);
             rule__ConstDecl__Group__0__Impl();
 
             state._fsp--;
@@ -29541,7 +29572,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:8510:1: ( rule__ConstDecl__Group__1__Impl rule__ConstDecl__Group__2 )
             // InternalGo.g:8511:2: rule__ConstDecl__Group__1__Impl rule__ConstDecl__Group__2
             {
-            pushFollow(FOLLOW_56);
+            pushFollow(FOLLOW_55);
             rule__ConstDecl__Group__1__Impl();
 
             state._fsp--;
@@ -29704,7 +29735,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:8564:1: ( rule__ConstDecl__Group_2_1__0__Impl rule__ConstDecl__Group_2_1__1 )
             // InternalGo.g:8565:2: rule__ConstDecl__Group_2_1__0__Impl rule__ConstDecl__Group_2_1__1
             {
-            pushFollow(FOLLOW_57);
+            pushFollow(FOLLOW_56);
             rule__ConstDecl__Group_2_1__0__Impl();
 
             state._fsp--;
@@ -29783,7 +29814,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:8591:1: ( rule__ConstDecl__Group_2_1__1__Impl rule__ConstDecl__Group_2_1__2 )
             // InternalGo.g:8592:2: rule__ConstDecl__Group_2_1__1__Impl rule__ConstDecl__Group_2_1__2
             {
-            pushFollow(FOLLOW_57);
+            pushFollow(FOLLOW_56);
             rule__ConstDecl__Group_2_1__1__Impl();
 
             state._fsp--;
@@ -29828,21 +29859,21 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getConstDeclAccess().getGroup_2_1_1()); 
             }
             // InternalGo.g:8606:2: ( rule__ConstDecl__Group_2_1_1__0 )*
-            loop79:
+            loop80:
             do {
-                int alt79=2;
-                int LA79_0 = input.LA(1);
+                int alt80=2;
+                int LA80_0 = input.LA(1);
 
-                if ( (LA79_0==RULE_ID||LA79_0==46) ) {
-                    alt79=1;
+                if ( (LA80_0==RULE_ID||LA80_0==46) ) {
+                    alt80=1;
                 }
 
 
-                switch (alt79) {
+                switch (alt80) {
             	case 1 :
             	    // InternalGo.g:8606:3: rule__ConstDecl__Group_2_1_1__0
             	    {
-            	    pushFollow(FOLLOW_58);
+            	    pushFollow(FOLLOW_57);
             	    rule__ConstDecl__Group_2_1_1__0();
 
             	    state._fsp--;
@@ -29852,7 +29883,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop79;
+            	    break loop80;
                 }
             } while (true);
 
@@ -29964,7 +29995,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:8645:1: ( rule__ConstDecl__Group_2_1_1__0__Impl rule__ConstDecl__Group_2_1_1__1 )
             // InternalGo.g:8646:2: rule__ConstDecl__Group_2_1_1__0__Impl rule__ConstDecl__Group_2_1_1__1
             {
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_25);
             rule__ConstDecl__Group_2_1_1__0__Impl();
 
             state._fsp--;
@@ -30093,13 +30124,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getConstDeclAccess().getSemicolonKeyword_2_1_1_1()); 
             }
             // InternalGo.g:8686:2: ( ';' )?
-            int alt80=2;
-            int LA80_0 = input.LA(1);
+            int alt81=2;
+            int LA81_0 = input.LA(1);
 
-            if ( (LA80_0==42) ) {
-                alt80=1;
+            if ( (LA81_0==42) ) {
+                alt81=1;
             }
-            switch (alt80) {
+            switch (alt81) {
                 case 1 :
                     // InternalGo.g:8686:3: ';'
                     {
@@ -30144,7 +30175,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:8699:1: ( rule__ConstSpec__Group__0__Impl rule__ConstSpec__Group__1 )
             // InternalGo.g:8700:2: rule__ConstSpec__Group__0__Impl rule__ConstSpec__Group__1
             {
-            pushFollow(FOLLOW_59);
+            pushFollow(FOLLOW_58);
             rule__ConstSpec__Group__0__Impl();
 
             state._fsp--;
@@ -30233,7 +30264,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:8726:1: ( rule__ConstSpec__Group__1__Impl rule__ConstSpec__Group__2 )
             // InternalGo.g:8727:2: rule__ConstSpec__Group__1__Impl rule__ConstSpec__Group__2
             {
-            pushFollow(FOLLOW_59);
+            pushFollow(FOLLOW_58);
             rule__ConstSpec__Group__1__Impl();
 
             state._fsp--;
@@ -30278,9 +30309,9 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getConstSpecAccess().getTpAssignment_1()); 
             }
             // InternalGo.g:8741:2: ( rule__ConstSpec__TpAssignment_1 )?
-            int alt81=2;
-            alt81 = dfa81.predict(input);
-            switch (alt81) {
+            int alt82=2;
+            alt82 = dfa82.predict(input);
+            switch (alt82) {
                 case 1 :
                     // InternalGo.g:8741:3: rule__ConstSpec__TpAssignment_1
                     {
@@ -30369,13 +30400,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getConstSpecAccess().getGroup_2()); 
             }
             // InternalGo.g:8767:2: ( rule__ConstSpec__Group_2__0 )?
-            int alt82=2;
-            int LA82_0 = input.LA(1);
+            int alt83=2;
+            int LA83_0 = input.LA(1);
 
-            if ( (LA82_0==44) ) {
-                alt82=1;
+            if ( (LA83_0==44) ) {
+                alt83=1;
             }
-            switch (alt82) {
+            switch (alt83) {
                 case 1 :
                     // InternalGo.g:8767:3: rule__ConstSpec__Group_2__0
                     {
@@ -30424,7 +30455,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:8780:1: ( rule__ConstSpec__Group_2__0__Impl rule__ConstSpec__Group_2__1 )
             // InternalGo.g:8781:2: rule__ConstSpec__Group_2__0__Impl rule__ConstSpec__Group_2__1
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__ConstSpec__Group_2__0__Impl();
 
             state._fsp--;
@@ -30587,7 +30618,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:8834:1: ( rule__TypeDecl__Group__0__Impl rule__TypeDecl__Group__1 )
             // InternalGo.g:8835:2: rule__TypeDecl__Group__0__Impl rule__TypeDecl__Group__1
             {
-            pushFollow(FOLLOW_60);
+            pushFollow(FOLLOW_59);
             rule__TypeDecl__Group__0__Impl();
 
             state._fsp--;
@@ -30666,7 +30697,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:8861:1: ( rule__TypeDecl__Group__1__Impl rule__TypeDecl__Group__2 )
             // InternalGo.g:8862:2: rule__TypeDecl__Group__1__Impl rule__TypeDecl__Group__2
             {
-            pushFollow(FOLLOW_56);
+            pushFollow(FOLLOW_55);
             rule__TypeDecl__Group__1__Impl();
 
             state._fsp--;
@@ -30829,7 +30860,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:8915:1: ( rule__TypeDecl__Group_2_1__0__Impl rule__TypeDecl__Group_2_1__1 )
             // InternalGo.g:8916:2: rule__TypeDecl__Group_2_1__0__Impl rule__TypeDecl__Group_2_1__1
             {
-            pushFollow(FOLLOW_57);
+            pushFollow(FOLLOW_56);
             rule__TypeDecl__Group_2_1__0__Impl();
 
             state._fsp--;
@@ -30908,7 +30939,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:8942:1: ( rule__TypeDecl__Group_2_1__1__Impl rule__TypeDecl__Group_2_1__2 )
             // InternalGo.g:8943:2: rule__TypeDecl__Group_2_1__1__Impl rule__TypeDecl__Group_2_1__2
             {
-            pushFollow(FOLLOW_57);
+            pushFollow(FOLLOW_56);
             rule__TypeDecl__Group_2_1__1__Impl();
 
             state._fsp--;
@@ -30953,21 +30984,21 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getTypeDeclAccess().getGroup_2_1_1()); 
             }
             // InternalGo.g:8957:2: ( rule__TypeDecl__Group_2_1_1__0 )*
-            loop83:
+            loop84:
             do {
-                int alt83=2;
-                int LA83_0 = input.LA(1);
+                int alt84=2;
+                int LA84_0 = input.LA(1);
 
-                if ( (LA83_0==RULE_ID||LA83_0==46) ) {
-                    alt83=1;
+                if ( (LA84_0==RULE_ID||LA84_0==46) ) {
+                    alt84=1;
                 }
 
 
-                switch (alt83) {
+                switch (alt84) {
             	case 1 :
             	    // InternalGo.g:8957:3: rule__TypeDecl__Group_2_1_1__0
             	    {
-            	    pushFollow(FOLLOW_58);
+            	    pushFollow(FOLLOW_57);
             	    rule__TypeDecl__Group_2_1_1__0();
 
             	    state._fsp--;
@@ -30977,7 +31008,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop83;
+            	    break loop84;
                 }
             } while (true);
 
@@ -31089,7 +31120,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:8996:1: ( rule__TypeDecl__Group_2_1_1__0__Impl rule__TypeDecl__Group_2_1_1__1 )
             // InternalGo.g:8997:2: rule__TypeDecl__Group_2_1_1__0__Impl rule__TypeDecl__Group_2_1_1__1
             {
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_25);
             rule__TypeDecl__Group_2_1_1__0__Impl();
 
             state._fsp--;
@@ -31252,7 +31283,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:9050:1: ( rule__TypeDef__Group__0__Impl rule__TypeDef__Group__1 )
             // InternalGo.g:9051:2: rule__TypeDef__Group__0__Impl rule__TypeDef__Group__1
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_17);
             rule__TypeDef__Group__0__Impl();
 
             state._fsp--;
@@ -31504,7 +31535,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:9131:1: ( rule__AliasDecl__Group__1__Impl rule__AliasDecl__Group__2 )
             // InternalGo.g:9132:2: rule__AliasDecl__Group__1__Impl rule__AliasDecl__Group__2
             {
-            pushFollow(FOLLOW_61);
+            pushFollow(FOLLOW_60);
             rule__AliasDecl__Group__1__Impl();
 
             state._fsp--;
@@ -31593,7 +31624,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:9158:1: ( rule__AliasDecl__Group__2__Impl rule__AliasDecl__Group__3 )
             // InternalGo.g:9159:2: rule__AliasDecl__Group__2__Impl rule__AliasDecl__Group__3
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_17);
             rule__AliasDecl__Group__2__Impl();
 
             state._fsp--;
@@ -31835,7 +31866,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:9239:1: ( rule__VarDecl__Group__1__Impl rule__VarDecl__Group__2 )
             // InternalGo.g:9240:2: rule__VarDecl__Group__1__Impl rule__VarDecl__Group__2
             {
-            pushFollow(FOLLOW_56);
+            pushFollow(FOLLOW_55);
             rule__VarDecl__Group__1__Impl();
 
             state._fsp--;
@@ -31998,7 +32029,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:9293:1: ( rule__VarDecl__Group_2_1__0__Impl rule__VarDecl__Group_2_1__1 )
             // InternalGo.g:9294:2: rule__VarDecl__Group_2_1__0__Impl rule__VarDecl__Group_2_1__1
             {
-            pushFollow(FOLLOW_57);
+            pushFollow(FOLLOW_56);
             rule__VarDecl__Group_2_1__0__Impl();
 
             state._fsp--;
@@ -32077,7 +32108,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:9320:1: ( rule__VarDecl__Group_2_1__1__Impl rule__VarDecl__Group_2_1__2 )
             // InternalGo.g:9321:2: rule__VarDecl__Group_2_1__1__Impl rule__VarDecl__Group_2_1__2
             {
-            pushFollow(FOLLOW_57);
+            pushFollow(FOLLOW_56);
             rule__VarDecl__Group_2_1__1__Impl();
 
             state._fsp--;
@@ -32122,21 +32153,21 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getVarDeclAccess().getGroup_2_1_1()); 
             }
             // InternalGo.g:9335:2: ( rule__VarDecl__Group_2_1_1__0 )*
-            loop84:
+            loop85:
             do {
-                int alt84=2;
-                int LA84_0 = input.LA(1);
+                int alt85=2;
+                int LA85_0 = input.LA(1);
 
-                if ( (LA84_0==RULE_ID||LA84_0==46) ) {
-                    alt84=1;
+                if ( (LA85_0==RULE_ID||LA85_0==46) ) {
+                    alt85=1;
                 }
 
 
-                switch (alt84) {
+                switch (alt85) {
             	case 1 :
             	    // InternalGo.g:9335:3: rule__VarDecl__Group_2_1_1__0
             	    {
-            	    pushFollow(FOLLOW_58);
+            	    pushFollow(FOLLOW_57);
             	    rule__VarDecl__Group_2_1_1__0();
 
             	    state._fsp--;
@@ -32146,7 +32177,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop84;
+            	    break loop85;
                 }
             } while (true);
 
@@ -32258,7 +32289,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:9374:1: ( rule__VarDecl__Group_2_1_1__0__Impl rule__VarDecl__Group_2_1_1__1 )
             // InternalGo.g:9375:2: rule__VarDecl__Group_2_1_1__0__Impl rule__VarDecl__Group_2_1_1__1
             {
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_25);
             rule__VarDecl__Group_2_1_1__0__Impl();
 
             state._fsp--;
@@ -32387,13 +32418,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getVarDeclAccess().getSemicolonKeyword_2_1_1_1()); 
             }
             // InternalGo.g:9415:2: ( ';' )?
-            int alt85=2;
-            int LA85_0 = input.LA(1);
+            int alt86=2;
+            int LA86_0 = input.LA(1);
 
-            if ( (LA85_0==42) ) {
-                alt85=1;
+            if ( (LA86_0==42) ) {
+                alt86=1;
             }
-            switch (alt85) {
+            switch (alt86) {
                 case 1 :
                     // InternalGo.g:9415:3: ';'
                     {
@@ -32438,7 +32469,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:9428:1: ( rule__VarSpec__Group__0__Impl rule__VarSpec__Group__1 )
             // InternalGo.g:9429:2: rule__VarSpec__Group__0__Impl rule__VarSpec__Group__1
             {
-            pushFollow(FOLLOW_59);
+            pushFollow(FOLLOW_58);
             rule__VarSpec__Group__0__Impl();
 
             state._fsp--;
@@ -32527,7 +32558,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:9455:1: ( rule__VarSpec__Group__1__Impl rule__VarSpec__Group__2 )
             // InternalGo.g:9456:2: rule__VarSpec__Group__1__Impl rule__VarSpec__Group__2
             {
-            pushFollow(FOLLOW_59);
+            pushFollow(FOLLOW_58);
             rule__VarSpec__Group__1__Impl();
 
             state._fsp--;
@@ -32572,9 +32603,9 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getVarSpecAccess().getTp2Assignment_1()); 
             }
             // InternalGo.g:9470:2: ( rule__VarSpec__Tp2Assignment_1 )?
-            int alt86=2;
-            alt86 = dfa86.predict(input);
-            switch (alt86) {
+            int alt87=2;
+            alt87 = dfa87.predict(input);
+            switch (alt87) {
                 case 1 :
                     // InternalGo.g:9470:3: rule__VarSpec__Tp2Assignment_1
                     {
@@ -32663,13 +32694,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getVarSpecAccess().getGroup_2()); 
             }
             // InternalGo.g:9496:2: ( rule__VarSpec__Group_2__0 )?
-            int alt87=2;
-            int LA87_0 = input.LA(1);
+            int alt88=2;
+            int LA88_0 = input.LA(1);
 
-            if ( (LA87_0==44) ) {
-                alt87=1;
+            if ( (LA88_0==44) ) {
+                alt88=1;
             }
-            switch (alt87) {
+            switch (alt88) {
                 case 1 :
                     // InternalGo.g:9496:3: rule__VarSpec__Group_2__0
                     {
@@ -32718,7 +32749,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:9509:1: ( rule__VarSpec__Group_2__0__Impl rule__VarSpec__Group_2__1 )
             // InternalGo.g:9510:2: rule__VarSpec__Group_2__0__Impl rule__VarSpec__Group_2__1
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__VarSpec__Group_2__0__Impl();
 
             state._fsp--;
@@ -32881,7 +32912,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:9563:1: ( rule__ExpressionStmt__Group__0__Impl rule__ExpressionStmt__Group__1 )
             // InternalGo.g:9564:2: rule__ExpressionStmt__Group__0__Impl rule__ExpressionStmt__Group__1
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__ExpressionStmt__Group__0__Impl();
 
             state._fsp--;
@@ -33044,7 +33075,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:9617:1: ( rule__SendStmt__Group__0__Impl rule__SendStmt__Group__1 )
             // InternalGo.g:9618:2: rule__SendStmt__Group__0__Impl rule__SendStmt__Group__1
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__SendStmt__Group__0__Impl();
 
             state._fsp--;
@@ -33123,7 +33154,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:9644:1: ( rule__SendStmt__Group__1__Impl rule__SendStmt__Group__2 )
             // InternalGo.g:9645:2: rule__SendStmt__Group__1__Impl rule__SendStmt__Group__2
             {
-            pushFollow(FOLLOW_38);
+            pushFollow(FOLLOW_37);
             rule__SendStmt__Group__1__Impl();
 
             state._fsp--;
@@ -33212,7 +33243,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:9671:1: ( rule__SendStmt__Group__2__Impl rule__SendStmt__Group__3 )
             // InternalGo.g:9672:2: rule__SendStmt__Group__2__Impl rule__SendStmt__Group__3
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__SendStmt__Group__2__Impl();
 
             state._fsp--;
@@ -33375,7 +33406,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:9725:1: ( rule__IncDecStmt__Group_0__0__Impl rule__IncDecStmt__Group_0__1 )
             // InternalGo.g:9726:2: rule__IncDecStmt__Group_0__0__Impl rule__IncDecStmt__Group_0__1
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__IncDecStmt__Group_0__0__Impl();
 
             state._fsp--;
@@ -33454,7 +33485,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:9752:1: ( rule__IncDecStmt__Group_0__1__Impl rule__IncDecStmt__Group_0__2 )
             // InternalGo.g:9753:2: rule__IncDecStmt__Group_0__1__Impl rule__IncDecStmt__Group_0__2
             {
-            pushFollow(FOLLOW_62);
+            pushFollow(FOLLOW_61);
             rule__IncDecStmt__Group_0__1__Impl();
 
             state._fsp--;
@@ -33617,7 +33648,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:9806:1: ( rule__IncDecStmt__Group_1__0__Impl rule__IncDecStmt__Group_1__1 )
             // InternalGo.g:9807:2: rule__IncDecStmt__Group_1__0__Impl rule__IncDecStmt__Group_1__1
             {
-            pushFollow(FOLLOW_63);
+            pushFollow(FOLLOW_62);
             rule__IncDecStmt__Group_1__0__Impl();
 
             state._fsp--;
@@ -33780,7 +33811,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:9860:1: ( rule__Assignment__Group__0__Impl rule__Assignment__Group__1 )
             // InternalGo.g:9861:2: rule__Assignment__Group__0__Impl rule__Assignment__Group__1
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__Assignment__Group__0__Impl();
 
             state._fsp--;
@@ -33859,7 +33890,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:9887:1: ( rule__Assignment__Group__1__Impl rule__Assignment__Group__2 )
             // InternalGo.g:9888:2: rule__Assignment__Group__1__Impl rule__Assignment__Group__2
             {
-            pushFollow(FOLLOW_64);
+            pushFollow(FOLLOW_63);
             rule__Assignment__Group__1__Impl();
 
             state._fsp--;
@@ -33948,7 +33979,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:9914:1: ( rule__Assignment__Group__2__Impl rule__Assignment__Group__3 )
             // InternalGo.g:9915:2: rule__Assignment__Group__2__Impl rule__Assignment__Group__3
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__Assignment__Group__2__Impl();
 
             state._fsp--;
@@ -34200,7 +34231,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:9995:1: ( rule__ShortVarDecl__Group__1__Impl rule__ShortVarDecl__Group__2 )
             // InternalGo.g:9996:2: rule__ShortVarDecl__Group__1__Impl rule__ShortVarDecl__Group__2
             {
-            pushFollow(FOLLOW_65);
+            pushFollow(FOLLOW_64);
             rule__ShortVarDecl__Group__1__Impl();
 
             state._fsp--;
@@ -34289,7 +34320,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:10022:1: ( rule__ShortVarDecl__Group__2__Impl rule__ShortVarDecl__Group__3 )
             // InternalGo.g:10023:2: rule__ShortVarDecl__Group__2__Impl rule__ShortVarDecl__Group__3
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__ShortVarDecl__Group__2__Impl();
 
             state._fsp--;
@@ -34452,7 +34483,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:10076:1: ( rule__ExprSwitchStmt__Group__0__Impl rule__ExprSwitchStmt__Group__1 )
             // InternalGo.g:10077:2: rule__ExprSwitchStmt__Group__0__Impl rule__ExprSwitchStmt__Group__1
             {
-            pushFollow(FOLLOW_49);
+            pushFollow(FOLLOW_48);
             rule__ExprSwitchStmt__Group__0__Impl();
 
             state._fsp--;
@@ -34531,7 +34562,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:10103:1: ( rule__ExprSwitchStmt__Group__1__Impl rule__ExprSwitchStmt__Group__2 )
             // InternalGo.g:10104:2: rule__ExprSwitchStmt__Group__1__Impl rule__ExprSwitchStmt__Group__2
             {
-            pushFollow(FOLLOW_66);
+            pushFollow(FOLLOW_65);
             rule__ExprSwitchStmt__Group__1__Impl();
 
             state._fsp--;
@@ -34610,7 +34641,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:10130:1: ( rule__ExprSwitchStmt__Group__2__Impl rule__ExprSwitchStmt__Group__3 )
             // InternalGo.g:10131:2: rule__ExprSwitchStmt__Group__2__Impl rule__ExprSwitchStmt__Group__3
             {
-            pushFollow(FOLLOW_66);
+            pushFollow(FOLLOW_65);
             rule__ExprSwitchStmt__Group__2__Impl();
 
             state._fsp--;
@@ -34655,9 +34686,9 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getExprSwitchStmtAccess().getGroup_2()); 
             }
             // InternalGo.g:10145:2: ( rule__ExprSwitchStmt__Group_2__0 )?
-            int alt88=2;
-            alt88 = dfa88.predict(input);
-            switch (alt88) {
+            int alt89=2;
+            alt89 = dfa89.predict(input);
+            switch (alt89) {
                 case 1 :
                     // InternalGo.g:10145:3: rule__ExprSwitchStmt__Group_2__0
                     {
@@ -34706,7 +34737,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:10157:1: ( rule__ExprSwitchStmt__Group__3__Impl rule__ExprSwitchStmt__Group__4 )
             // InternalGo.g:10158:2: rule__ExprSwitchStmt__Group__3__Impl rule__ExprSwitchStmt__Group__4
             {
-            pushFollow(FOLLOW_66);
+            pushFollow(FOLLOW_65);
             rule__ExprSwitchStmt__Group__3__Impl();
 
             state._fsp--;
@@ -34751,13 +34782,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getExprSwitchStmtAccess().getExpressionAssignment_3()); 
             }
             // InternalGo.g:10172:2: ( rule__ExprSwitchStmt__ExpressionAssignment_3 )?
-            int alt89=2;
-            int LA89_0 = input.LA(1);
+            int alt90=2;
+            int LA90_0 = input.LA(1);
 
-            if ( ((LA89_0>=RULE_STRING && LA89_0<=RULE_FLOAT_LIT)||(LA89_0>=RULE_UNARY_OP && LA89_0<=RULE_BOOLEAN_LIT)||(LA89_0>=45 && LA89_0<=46)||LA89_0==48||(LA89_0>=51 && LA89_0<=52)||LA89_0==54||LA89_0==56||(LA89_0>=60 && LA89_0<=63)) ) {
-                alt89=1;
+            if ( ((LA90_0>=RULE_STRING && LA90_0<=RULE_FLOAT_LIT)||(LA90_0>=RULE_UNARY_OP && LA90_0<=RULE_BOOLEAN_LIT)||(LA90_0>=45 && LA90_0<=46)||LA90_0==48||(LA90_0>=51 && LA90_0<=52)||LA90_0==54||LA90_0==56||(LA90_0>=60 && LA90_0<=63)) ) {
+                alt90=1;
             }
-            switch (alt89) {
+            switch (alt90) {
                 case 1 :
                     // InternalGo.g:10172:3: rule__ExprSwitchStmt__ExpressionAssignment_3
                     {
@@ -34806,7 +34837,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:10184:1: ( rule__ExprSwitchStmt__Group__4__Impl rule__ExprSwitchStmt__Group__5 )
             // InternalGo.g:10185:2: rule__ExprSwitchStmt__Group__4__Impl rule__ExprSwitchStmt__Group__5
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_50);
             rule__ExprSwitchStmt__Group__4__Impl();
 
             state._fsp--;
@@ -34885,7 +34916,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:10211:1: ( rule__ExprSwitchStmt__Group__5__Impl rule__ExprSwitchStmt__Group__6 )
             // InternalGo.g:10212:2: rule__ExprSwitchStmt__Group__5__Impl rule__ExprSwitchStmt__Group__6
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_50);
             rule__ExprSwitchStmt__Group__5__Impl();
 
             state._fsp--;
@@ -34930,21 +34961,21 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getExprSwitchStmtAccess().getExprcaseAssignment_5()); 
             }
             // InternalGo.g:10226:2: ( rule__ExprSwitchStmt__ExprcaseAssignment_5 )*
-            loop90:
+            loop91:
             do {
-                int alt90=2;
-                int LA90_0 = input.LA(1);
+                int alt91=2;
+                int LA91_0 = input.LA(1);
 
-                if ( ((LA90_0>=81 && LA90_0<=82)) ) {
-                    alt90=1;
+                if ( ((LA91_0>=81 && LA91_0<=82)) ) {
+                    alt91=1;
                 }
 
 
-                switch (alt90) {
+                switch (alt91) {
             	case 1 :
             	    // InternalGo.g:10226:3: rule__ExprSwitchStmt__ExprcaseAssignment_5
             	    {
-            	    pushFollow(FOLLOW_52);
+            	    pushFollow(FOLLOW_51);
             	    rule__ExprSwitchStmt__ExprcaseAssignment_5();
 
             	    state._fsp--;
@@ -34954,7 +34985,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop90;
+            	    break loop91;
                 }
             } while (true);
 
@@ -35066,7 +35097,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:10265:1: ( rule__ExprSwitchStmt__Group_2__0__Impl rule__ExprSwitchStmt__Group_2__1 )
             // InternalGo.g:10266:2: rule__ExprSwitchStmt__Group_2__0__Impl rule__ExprSwitchStmt__Group_2__1
             {
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_25);
             rule__ExprSwitchStmt__Group_2__0__Impl();
 
             state._fsp--;
@@ -35195,13 +35226,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getExprSwitchStmtAccess().getSemicolonKeyword_2_1()); 
             }
             // InternalGo.g:10306:2: ( ';' )?
-            int alt91=2;
-            int LA91_0 = input.LA(1);
+            int alt92=2;
+            int LA92_0 = input.LA(1);
 
-            if ( (LA91_0==42) ) {
-                alt91=1;
+            if ( (LA92_0==42) ) {
+                alt92=1;
             }
-            switch (alt91) {
+            switch (alt92) {
                 case 1 :
                     // InternalGo.g:10306:3: ';'
                     {
@@ -35246,7 +35277,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:10319:1: ( rule__ExprCaseClause__Group__0__Impl rule__ExprCaseClause__Group__1 )
             // InternalGo.g:10320:2: rule__ExprCaseClause__Group__0__Impl rule__ExprCaseClause__Group__1
             {
-            pushFollow(FOLLOW_67);
+            pushFollow(FOLLOW_66);
             rule__ExprCaseClause__Group__0__Impl();
 
             state._fsp--;
@@ -35325,7 +35356,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:10346:1: ( rule__ExprCaseClause__Group__1__Impl rule__ExprCaseClause__Group__2 )
             // InternalGo.g:10347:2: rule__ExprCaseClause__Group__1__Impl rule__ExprCaseClause__Group__2
             {
-            pushFollow(FOLLOW_44);
+            pushFollow(FOLLOW_43);
             rule__ExprCaseClause__Group__1__Impl();
 
             state._fsp--;
@@ -35414,7 +35445,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:10373:1: ( rule__ExprCaseClause__Group__2__Impl rule__ExprCaseClause__Group__3 )
             // InternalGo.g:10374:2: rule__ExprCaseClause__Group__2__Impl rule__ExprCaseClause__Group__3
             {
-            pushFollow(FOLLOW_40);
+            pushFollow(FOLLOW_39);
             rule__ExprCaseClause__Group__2__Impl();
 
             state._fsp--;
@@ -35577,7 +35608,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:10427:1: ( rule__ExprSwitchCase__Group_0__0__Impl rule__ExprSwitchCase__Group_0__1 )
             // InternalGo.g:10428:2: rule__ExprSwitchCase__Group_0__0__Impl rule__ExprSwitchCase__Group_0__1
             {
-            pushFollow(FOLLOW_68);
+            pushFollow(FOLLOW_67);
             rule__ExprSwitchCase__Group_0__0__Impl();
 
             state._fsp--;
@@ -35656,7 +35687,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:10454:1: ( rule__ExprSwitchCase__Group_0__1__Impl rule__ExprSwitchCase__Group_0__2 )
             // InternalGo.g:10455:2: rule__ExprSwitchCase__Group_0__1__Impl rule__ExprSwitchCase__Group_0__2
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__ExprSwitchCase__Group_0__1__Impl();
 
             state._fsp--;
@@ -35819,7 +35850,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:10508:1: ( rule__ExprSwitchCase__Group_1__0__Impl rule__ExprSwitchCase__Group_1__1 )
             // InternalGo.g:10509:2: rule__ExprSwitchCase__Group_1__0__Impl rule__ExprSwitchCase__Group_1__1
             {
-            pushFollow(FOLLOW_67);
+            pushFollow(FOLLOW_66);
             rule__ExprSwitchCase__Group_1__0__Impl();
 
             state._fsp--;
@@ -35972,7 +36003,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:10562:1: ( rule__TypeSwitchStmt__Group__0__Impl rule__TypeSwitchStmt__Group__1 )
             // InternalGo.g:10563:2: rule__TypeSwitchStmt__Group__0__Impl rule__TypeSwitchStmt__Group__1
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_45);
             rule__TypeSwitchStmt__Group__0__Impl();
 
             state._fsp--;
@@ -36051,7 +36082,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:10589:1: ( rule__TypeSwitchStmt__Group__1__Impl rule__TypeSwitchStmt__Group__2 )
             // InternalGo.g:10590:2: rule__TypeSwitchStmt__Group__1__Impl rule__TypeSwitchStmt__Group__2
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_45);
             rule__TypeSwitchStmt__Group__1__Impl();
 
             state._fsp--;
@@ -36096,9 +36127,9 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getTypeSwitchStmtAccess().getGroup_1()); 
             }
             // InternalGo.g:10604:2: ( rule__TypeSwitchStmt__Group_1__0 )?
-            int alt92=2;
-            alt92 = dfa92.predict(input);
-            switch (alt92) {
+            int alt93=2;
+            alt93 = dfa93.predict(input);
+            switch (alt93) {
                 case 1 :
                     // InternalGo.g:10604:3: rule__TypeSwitchStmt__Group_1__0
                     {
@@ -36236,7 +36267,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:10643:1: ( rule__TypeSwitchStmt__Group__3__Impl rule__TypeSwitchStmt__Group__4 )
             // InternalGo.g:10644:2: rule__TypeSwitchStmt__Group__3__Impl rule__TypeSwitchStmt__Group__4
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_50);
             rule__TypeSwitchStmt__Group__3__Impl();
 
             state._fsp--;
@@ -36315,7 +36346,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:10670:1: ( rule__TypeSwitchStmt__Group__4__Impl rule__TypeSwitchStmt__Group__5 )
             // InternalGo.g:10671:2: rule__TypeSwitchStmt__Group__4__Impl rule__TypeSwitchStmt__Group__5
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_50);
             rule__TypeSwitchStmt__Group__4__Impl();
 
             state._fsp--;
@@ -36360,21 +36391,21 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getTypeSwitchStmtAccess().getTypeccAssignment_4()); 
             }
             // InternalGo.g:10685:2: ( rule__TypeSwitchStmt__TypeccAssignment_4 )*
-            loop93:
+            loop94:
             do {
-                int alt93=2;
-                int LA93_0 = input.LA(1);
+                int alt94=2;
+                int LA94_0 = input.LA(1);
 
-                if ( ((LA93_0>=81 && LA93_0<=82)) ) {
-                    alt93=1;
+                if ( ((LA94_0>=81 && LA94_0<=82)) ) {
+                    alt94=1;
                 }
 
 
-                switch (alt93) {
+                switch (alt94) {
             	case 1 :
             	    // InternalGo.g:10685:3: rule__TypeSwitchStmt__TypeccAssignment_4
             	    {
-            	    pushFollow(FOLLOW_52);
+            	    pushFollow(FOLLOW_51);
             	    rule__TypeSwitchStmt__TypeccAssignment_4();
 
             	    state._fsp--;
@@ -36384,7 +36415,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop93;
+            	    break loop94;
                 }
             } while (true);
 
@@ -36496,7 +36527,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:10724:1: ( rule__TypeSwitchStmt__Group_1__0__Impl rule__TypeSwitchStmt__Group_1__1 )
             // InternalGo.g:10725:2: rule__TypeSwitchStmt__Group_1__0__Impl rule__TypeSwitchStmt__Group_1__1
             {
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_25);
             rule__TypeSwitchStmt__Group_1__0__Impl();
 
             state._fsp--;
@@ -36625,13 +36656,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getTypeSwitchStmtAccess().getSemicolonKeyword_1_1()); 
             }
             // InternalGo.g:10765:2: ( ';' )?
-            int alt94=2;
-            int LA94_0 = input.LA(1);
+            int alt95=2;
+            int LA95_0 = input.LA(1);
 
-            if ( (LA94_0==42) ) {
-                alt94=1;
+            if ( (LA95_0==42) ) {
+                alt95=1;
             }
-            switch (alt94) {
+            switch (alt95) {
                 case 1 :
                     // InternalGo.g:10765:3: ';'
                     {
@@ -36676,7 +36707,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:10778:1: ( rule__TypeSwitchGuard__Group__0__Impl rule__TypeSwitchGuard__Group__1 )
             // InternalGo.g:10779:2: rule__TypeSwitchGuard__Group__0__Impl rule__TypeSwitchGuard__Group__1
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_45);
             rule__TypeSwitchGuard__Group__0__Impl();
 
             state._fsp--;
@@ -36721,28 +36752,28 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getTypeSwitchGuardAccess().getGroup_0()); 
             }
             // InternalGo.g:10793:2: ( rule__TypeSwitchGuard__Group_0__0 )?
-            int alt95=2;
-            int LA95_0 = input.LA(1);
+            int alt96=2;
+            int LA96_0 = input.LA(1);
 
-            if ( (LA95_0==RULE_ID) ) {
-                int LA95_1 = input.LA(2);
+            if ( (LA96_0==RULE_ID) ) {
+                int LA96_1 = input.LA(2);
 
-                if ( (LA95_1==79) ) {
-                    alt95=1;
+                if ( (LA96_1==79) ) {
+                    alt96=1;
                 }
             }
-            else if ( (LA95_0==46) ) {
-                int LA95_2 = input.LA(2);
+            else if ( (LA96_0==46) ) {
+                int LA96_2 = input.LA(2);
 
-                if ( (LA95_2==RULE_ID) ) {
-                    int LA95_5 = input.LA(3);
+                if ( (LA96_2==RULE_ID) ) {
+                    int LA96_5 = input.LA(3);
 
-                    if ( (LA95_5==79) ) {
-                        alt95=1;
+                    if ( (LA96_5==79) ) {
+                        alt96=1;
                     }
                 }
             }
-            switch (alt95) {
+            switch (alt96) {
                 case 1 :
                     // InternalGo.g:10793:3: rule__TypeSwitchGuard__Group_0__0
                     {
@@ -36791,7 +36822,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:10805:1: ( rule__TypeSwitchGuard__Group__1__Impl rule__TypeSwitchGuard__Group__2 )
             // InternalGo.g:10806:2: rule__TypeSwitchGuard__Group__1__Impl rule__TypeSwitchGuard__Group__2
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_19);
             rule__TypeSwitchGuard__Group__1__Impl();
 
             state._fsp--;
@@ -36959,7 +36990,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:10859:1: ( rule__TypeSwitchGuard__Group__3__Impl rule__TypeSwitchGuard__Group__4 )
             // InternalGo.g:10860:2: rule__TypeSwitchGuard__Group__3__Impl rule__TypeSwitchGuard__Group__4
             {
-            pushFollow(FOLLOW_60);
+            pushFollow(FOLLOW_59);
             rule__TypeSwitchGuard__Group__3__Impl();
 
             state._fsp--;
@@ -37038,7 +37069,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:10886:1: ( rule__TypeSwitchGuard__Group__4__Impl rule__TypeSwitchGuard__Group__5 )
             // InternalGo.g:10887:2: rule__TypeSwitchGuard__Group__4__Impl rule__TypeSwitchGuard__Group__5
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_18);
             rule__TypeSwitchGuard__Group__4__Impl();
 
             state._fsp--;
@@ -37191,7 +37222,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:10940:1: ( rule__TypeSwitchGuard__Group_0__0__Impl rule__TypeSwitchGuard__Group_0__1 )
             // InternalGo.g:10941:2: rule__TypeSwitchGuard__Group_0__0__Impl rule__TypeSwitchGuard__Group_0__1
             {
-            pushFollow(FOLLOW_65);
+            pushFollow(FOLLOW_64);
             rule__TypeSwitchGuard__Group_0__0__Impl();
 
             state._fsp--;
@@ -37354,7 +37385,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:10994:1: ( rule__TypeCaseClause__Group__0__Impl rule__TypeCaseClause__Group__1 )
             // InternalGo.g:10995:2: rule__TypeCaseClause__Group__0__Impl rule__TypeCaseClause__Group__1
             {
-            pushFollow(FOLLOW_44);
+            pushFollow(FOLLOW_43);
             rule__TypeCaseClause__Group__0__Impl();
 
             state._fsp--;
@@ -37437,7 +37468,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:11021:1: ( rule__TypeCaseClause__Group__1__Impl rule__TypeCaseClause__Group__2 )
             // InternalGo.g:11022:2: rule__TypeCaseClause__Group__1__Impl rule__TypeCaseClause__Group__2
             {
-            pushFollow(FOLLOW_40);
+            pushFollow(FOLLOW_39);
             rule__TypeCaseClause__Group__1__Impl();
 
             state._fsp--;
@@ -37600,7 +37631,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:11075:1: ( rule__TypeSwitchCase__Group_0__0__Impl rule__TypeSwitchCase__Group_0__1 )
             // InternalGo.g:11076:2: rule__TypeSwitchCase__Group_0__0__Impl rule__TypeSwitchCase__Group_0__1
             {
-            pushFollow(FOLLOW_68);
+            pushFollow(FOLLOW_67);
             rule__TypeSwitchCase__Group_0__0__Impl();
 
             state._fsp--;
@@ -37679,7 +37710,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:11102:1: ( rule__TypeSwitchCase__Group_0__1__Impl rule__TypeSwitchCase__Group_0__2 )
             // InternalGo.g:11103:2: rule__TypeSwitchCase__Group_0__1__Impl rule__TypeSwitchCase__Group_0__2
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_17);
             rule__TypeSwitchCase__Group_0__1__Impl();
 
             state._fsp--;
@@ -37842,7 +37873,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:11156:1: ( rule__TypeSwitchCase__Group_1__0__Impl rule__TypeSwitchCase__Group_1__1 )
             // InternalGo.g:11157:2: rule__TypeSwitchCase__Group_1__0__Impl rule__TypeSwitchCase__Group_1__1
             {
-            pushFollow(FOLLOW_67);
+            pushFollow(FOLLOW_66);
             rule__TypeSwitchCase__Group_1__0__Impl();
 
             state._fsp--;
@@ -37995,7 +38026,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:11210:1: ( rule__TypeList__Group__0__Impl rule__TypeList__Group__1 )
             // InternalGo.g:11211:2: rule__TypeList__Group__0__Impl rule__TypeList__Group__1
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_17);
             rule__TypeList__Group__0__Impl();
 
             state._fsp--;
@@ -38074,7 +38105,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:11237:1: ( rule__TypeList__Group__1__Impl rule__TypeList__Group__2 )
             // InternalGo.g:11238:2: rule__TypeList__Group__1__Impl rule__TypeList__Group__2
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_28);
             rule__TypeList__Group__1__Impl();
 
             state._fsp--;
@@ -38203,21 +38234,21 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getTypeListAccess().getGroup_2()); 
             }
             // InternalGo.g:11278:2: ( rule__TypeList__Group_2__0 )*
-            loop96:
+            loop97:
             do {
-                int alt96=2;
-                int LA96_0 = input.LA(1);
+                int alt97=2;
+                int LA97_0 = input.LA(1);
 
-                if ( (LA96_0==43) ) {
-                    alt96=1;
+                if ( (LA97_0==43) ) {
+                    alt97=1;
                 }
 
 
-                switch (alt96) {
+                switch (alt97) {
             	case 1 :
             	    // InternalGo.g:11278:3: rule__TypeList__Group_2__0
             	    {
-            	    pushFollow(FOLLOW_30);
+            	    pushFollow(FOLLOW_29);
             	    rule__TypeList__Group_2__0();
 
             	    state._fsp--;
@@ -38227,7 +38258,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop96;
+            	    break loop97;
                 }
             } while (true);
 
@@ -38265,7 +38296,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:11291:1: ( rule__TypeList__Group_2__0__Impl rule__TypeList__Group_2__1 )
             // InternalGo.g:11292:2: rule__TypeList__Group_2__0__Impl rule__TypeList__Group_2__1
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_17);
             rule__TypeList__Group_2__0__Impl();
 
             state._fsp--;
@@ -38428,7 +38459,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:11345:1: ( rule__CommClause__Group__0__Impl rule__CommClause__Group__1 )
             // InternalGo.g:11346:2: rule__CommClause__Group__0__Impl rule__CommClause__Group__1
             {
-            pushFollow(FOLLOW_44);
+            pushFollow(FOLLOW_43);
             rule__CommClause__Group__0__Impl();
 
             state._fsp--;
@@ -38511,7 +38542,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:11372:1: ( rule__CommClause__Group__1__Impl rule__CommClause__Group__2 )
             // InternalGo.g:11373:2: rule__CommClause__Group__1__Impl rule__CommClause__Group__2
             {
-            pushFollow(FOLLOW_40);
+            pushFollow(FOLLOW_39);
             rule__CommClause__Group__1__Impl();
 
             state._fsp--;
@@ -38674,7 +38705,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:11426:1: ( rule__CommCase__Group_0__0__Impl rule__CommCase__Group_0__1 )
             // InternalGo.g:11427:2: rule__CommCase__Group_0__0__Impl rule__CommCase__Group_0__1
             {
-            pushFollow(FOLLOW_68);
+            pushFollow(FOLLOW_67);
             rule__CommCase__Group_0__0__Impl();
 
             state._fsp--;
@@ -38753,7 +38784,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:11453:1: ( rule__CommCase__Group_0__1__Impl rule__CommCase__Group_0__2 )
             // InternalGo.g:11454:2: rule__CommCase__Group_0__1__Impl rule__CommCase__Group_0__2
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__CommCase__Group_0__1__Impl();
 
             state._fsp--;
@@ -38916,7 +38947,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:11507:1: ( rule__CommCase__Group_1__0__Impl rule__CommCase__Group_1__1 )
             // InternalGo.g:11508:2: rule__CommCase__Group_1__0__Impl rule__CommCase__Group_1__1
             {
-            pushFollow(FOLLOW_67);
+            pushFollow(FOLLOW_66);
             rule__CommCase__Group_1__0__Impl();
 
             state._fsp--;
@@ -39069,7 +39100,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:11561:1: ( rule__RecvStmt__Group__0__Impl rule__RecvStmt__Group__1 )
             // InternalGo.g:11562:2: rule__RecvStmt__Group__0__Impl rule__RecvStmt__Group__1
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__RecvStmt__Group__0__Impl();
 
             state._fsp--;
@@ -39114,9 +39145,9 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getRecvStmtAccess().getAlternatives_0()); 
             }
             // InternalGo.g:11576:2: ( rule__RecvStmt__Alternatives_0 )?
-            int alt97=2;
-            alt97 = dfa97.predict(input);
-            switch (alt97) {
+            int alt98=2;
+            alt98 = dfa98.predict(input);
+            switch (alt98) {
                 case 1 :
                     // InternalGo.g:11576:3: rule__RecvStmt__Alternatives_0
                     {
@@ -39249,7 +39280,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:11615:1: ( rule__RecvStmt__Group_0_0__0__Impl rule__RecvStmt__Group_0_0__1 )
             // InternalGo.g:11616:2: rule__RecvStmt__Group_0_0__0__Impl rule__RecvStmt__Group_0_0__1
             {
-            pushFollow(FOLLOW_61);
+            pushFollow(FOLLOW_60);
             rule__RecvStmt__Group_0_0__0__Impl();
 
             state._fsp--;
@@ -39406,7 +39437,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:11669:1: ( rule__RecvStmt__Group_0_1__0__Impl rule__RecvStmt__Group_0_1__1 )
             // InternalGo.g:11670:2: rule__RecvStmt__Group_0_1__0__Impl rule__RecvStmt__Group_0_1__1
             {
-            pushFollow(FOLLOW_65);
+            pushFollow(FOLLOW_64);
             rule__RecvStmt__Group_0_1__0__Impl();
 
             state._fsp--;
@@ -39569,7 +39600,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:11723:1: ( rule__Condition__Group__0__Impl rule__Condition__Group__1 )
             // InternalGo.g:11724:2: rule__Condition__Group__0__Impl rule__Condition__Group__1
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__Condition__Group__0__Impl();
 
             state._fsp--;
@@ -39732,7 +39763,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:11777:1: ( rule__ForClause__Group__0__Impl rule__ForClause__Group__1 )
             // InternalGo.g:11778:2: rule__ForClause__Group__0__Impl rule__ForClause__Group__1
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_45);
             rule__ForClause__Group__0__Impl();
 
             state._fsp--;
@@ -39811,7 +39842,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:11804:1: ( rule__ForClause__Group__1__Impl rule__ForClause__Group__2 )
             // InternalGo.g:11805:2: rule__ForClause__Group__1__Impl rule__ForClause__Group__2
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_45);
             rule__ForClause__Group__1__Impl();
 
             state._fsp--;
@@ -39856,9 +39887,9 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getForClauseAccess().getInitAssignment_1()); 
             }
             // InternalGo.g:11819:2: ( rule__ForClause__InitAssignment_1 )?
-            int alt98=2;
-            alt98 = dfa98.predict(input);
-            switch (alt98) {
+            int alt99=2;
+            alt99 = dfa99.predict(input);
+            switch (alt99) {
                 case 1 :
                     // InternalGo.g:11819:3: rule__ForClause__InitAssignment_1
                     {
@@ -39907,7 +39938,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:11831:1: ( rule__ForClause__Group__2__Impl rule__ForClause__Group__3 )
             // InternalGo.g:11832:2: rule__ForClause__Group__2__Impl rule__ForClause__Group__3
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_45);
             rule__ForClause__Group__2__Impl();
 
             state._fsp--;
@@ -39986,7 +40017,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:11858:1: ( rule__ForClause__Group__3__Impl rule__ForClause__Group__4 )
             // InternalGo.g:11859:2: rule__ForClause__Group__3__Impl rule__ForClause__Group__4
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_45);
             rule__ForClause__Group__3__Impl();
 
             state._fsp--;
@@ -40031,13 +40062,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getForClauseAccess().getConditionAssignment_3()); 
             }
             // InternalGo.g:11873:2: ( rule__ForClause__ConditionAssignment_3 )?
-            int alt99=2;
-            int LA99_0 = input.LA(1);
+            int alt100=2;
+            int LA100_0 = input.LA(1);
 
-            if ( ((LA99_0>=RULE_STRING && LA99_0<=RULE_FLOAT_LIT)||(LA99_0>=RULE_UNARY_OP && LA99_0<=RULE_BOOLEAN_LIT)||(LA99_0>=45 && LA99_0<=46)||LA99_0==48||(LA99_0>=51 && LA99_0<=52)||LA99_0==54||LA99_0==56||(LA99_0>=60 && LA99_0<=63)) ) {
-                alt99=1;
+            if ( ((LA100_0>=RULE_STRING && LA100_0<=RULE_FLOAT_LIT)||(LA100_0>=RULE_UNARY_OP && LA100_0<=RULE_BOOLEAN_LIT)||(LA100_0>=45 && LA100_0<=46)||LA100_0==48||(LA100_0>=51 && LA100_0<=52)||LA100_0==54||LA100_0==56||(LA100_0>=60 && LA100_0<=63)) ) {
+                alt100=1;
             }
-            switch (alt99) {
+            switch (alt100) {
                 case 1 :
                     // InternalGo.g:11873:3: rule__ForClause__ConditionAssignment_3
                     {
@@ -40086,7 +40117,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:11885:1: ( rule__ForClause__Group__4__Impl rule__ForClause__Group__5 )
             // InternalGo.g:11886:2: rule__ForClause__Group__4__Impl rule__ForClause__Group__5
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_45);
             rule__ForClause__Group__4__Impl();
 
             state._fsp--;
@@ -40205,13 +40236,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getForClauseAccess().getPoststmtAssignment_5()); 
             }
             // InternalGo.g:11926:2: ( rule__ForClause__PoststmtAssignment_5 )?
-            int alt100=2;
-            int LA100_0 = input.LA(1);
+            int alt101=2;
+            int LA101_0 = input.LA(1);
 
-            if ( ((LA100_0>=RULE_STRING && LA100_0<=RULE_FLOAT_LIT)||(LA100_0>=RULE_UNARY_OP && LA100_0<=RULE_BOOLEAN_LIT)||LA100_0==42||(LA100_0>=45 && LA100_0<=46)||LA100_0==48||(LA100_0>=51 && LA100_0<=52)||LA100_0==54||LA100_0==56||(LA100_0>=60 && LA100_0<=63)) ) {
-                alt100=1;
+            if ( ((LA101_0>=RULE_STRING && LA101_0<=RULE_FLOAT_LIT)||(LA101_0>=RULE_UNARY_OP && LA101_0<=RULE_BOOLEAN_LIT)||LA101_0==42||(LA101_0>=45 && LA101_0<=46)||LA101_0==48||(LA101_0>=51 && LA101_0<=52)||LA101_0==54||LA101_0==56||(LA101_0>=60 && LA101_0<=63)) ) {
+                alt101=1;
             }
-            switch (alt100) {
+            switch (alt101) {
                 case 1 :
                     // InternalGo.g:11926:3: rule__ForClause__PoststmtAssignment_5
                     {
@@ -40260,7 +40291,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:11939:1: ( rule__RangeClause__Group__0__Impl rule__RangeClause__Group__1 )
             // InternalGo.g:11940:2: rule__RangeClause__Group__0__Impl rule__RangeClause__Group__1
             {
-            pushFollow(FOLLOW_69);
+            pushFollow(FOLLOW_68);
             rule__RangeClause__Group__0__Impl();
 
             state._fsp--;
@@ -40305,13 +40336,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getRangeClauseAccess().getAlternatives_0()); 
             }
             // InternalGo.g:11954:2: ( rule__RangeClause__Alternatives_0 )?
-            int alt101=2;
-            int LA101_0 = input.LA(1);
+            int alt102=2;
+            int LA102_0 = input.LA(1);
 
-            if ( ((LA101_0>=RULE_STRING && LA101_0<=RULE_FLOAT_LIT)||(LA101_0>=RULE_UNARY_OP && LA101_0<=RULE_BOOLEAN_LIT)||(LA101_0>=45 && LA101_0<=46)||LA101_0==48||(LA101_0>=51 && LA101_0<=52)||LA101_0==54||LA101_0==56||(LA101_0>=60 && LA101_0<=63)) ) {
-                alt101=1;
+            if ( ((LA102_0>=RULE_STRING && LA102_0<=RULE_FLOAT_LIT)||(LA102_0>=RULE_UNARY_OP && LA102_0<=RULE_BOOLEAN_LIT)||(LA102_0>=45 && LA102_0<=46)||LA102_0==48||(LA102_0>=51 && LA102_0<=52)||LA102_0==54||LA102_0==56||(LA102_0>=60 && LA102_0<=63)) ) {
+                alt102=1;
             }
-            switch (alt101) {
+            switch (alt102) {
                 case 1 :
                     // InternalGo.g:11954:3: rule__RangeClause__Alternatives_0
                     {
@@ -40360,7 +40391,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:11966:1: ( rule__RangeClause__Group__1__Impl rule__RangeClause__Group__2 )
             // InternalGo.g:11967:2: rule__RangeClause__Group__1__Impl rule__RangeClause__Group__2
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__RangeClause__Group__1__Impl();
 
             state._fsp--;
@@ -40523,7 +40554,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:12020:1: ( rule__RangeClause__Group_0_0__0__Impl rule__RangeClause__Group_0_0__1 )
             // InternalGo.g:12021:2: rule__RangeClause__Group_0_0__0__Impl rule__RangeClause__Group_0_0__1
             {
-            pushFollow(FOLLOW_61);
+            pushFollow(FOLLOW_60);
             rule__RangeClause__Group_0_0__0__Impl();
 
             state._fsp--;
@@ -40686,7 +40717,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:12074:1: ( rule__RangeClause__Group_0_1__0__Impl rule__RangeClause__Group_0_1__1 )
             // InternalGo.g:12075:2: rule__RangeClause__Group_0_1__0__Impl rule__RangeClause__Group_0_1__1
             {
-            pushFollow(FOLLOW_65);
+            pushFollow(FOLLOW_64);
             rule__RangeClause__Group_0_1__0__Impl();
 
             state._fsp--;
@@ -40849,7 +40880,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:12128:1: ( rule__PostStmt__Group__0__Impl rule__PostStmt__Group__1 )
             // InternalGo.g:12129:2: rule__PostStmt__Group__0__Impl rule__PostStmt__Group__1
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_45);
             rule__PostStmt__Group__0__Impl();
 
             state._fsp--;
@@ -41012,7 +41043,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:12182:1: ( rule__ExpressionList__Group__0__Impl rule__ExpressionList__Group__1 )
             // InternalGo.g:12183:2: rule__ExpressionList__Group__0__Impl rule__ExpressionList__Group__1
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__ExpressionList__Group__0__Impl();
 
             state._fsp--;
@@ -41091,7 +41122,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:12209:1: ( rule__ExpressionList__Group__1__Impl rule__ExpressionList__Group__2 )
             // InternalGo.g:12210:2: rule__ExpressionList__Group__1__Impl rule__ExpressionList__Group__2
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_28);
             rule__ExpressionList__Group__1__Impl();
 
             state._fsp--;
@@ -41220,15 +41251,15 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getExpressionListAccess().getGroup_2()); 
             }
             // InternalGo.g:12250:2: ( rule__ExpressionList__Group_2__0 )*
-            loop102:
+            loop103:
             do {
-                int alt102=2;
-                alt102 = dfa102.predict(input);
-                switch (alt102) {
+                int alt103=2;
+                alt103 = dfa103.predict(input);
+                switch (alt103) {
             	case 1 :
             	    // InternalGo.g:12250:3: rule__ExpressionList__Group_2__0
             	    {
-            	    pushFollow(FOLLOW_30);
+            	    pushFollow(FOLLOW_29);
             	    rule__ExpressionList__Group_2__0();
 
             	    state._fsp--;
@@ -41238,7 +41269,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop102;
+            	    break loop103;
                 }
             } while (true);
 
@@ -41276,7 +41307,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:12263:1: ( rule__ExpressionList__Group_2__0__Impl rule__ExpressionList__Group_2__1 )
             // InternalGo.g:12264:2: rule__ExpressionList__Group_2__0__Impl rule__ExpressionList__Group_2__1
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__ExpressionList__Group_2__0__Impl();
 
             state._fsp--;
@@ -41439,7 +41470,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:12317:1: ( rule__Expression__Group__0__Impl rule__Expression__Group__1 )
             // InternalGo.g:12318:2: rule__Expression__Group__0__Impl rule__Expression__Group__1
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__Expression__Group__0__Impl();
 
             state._fsp--;
@@ -41518,7 +41549,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:12344:1: ( rule__Expression__Group__1__Impl rule__Expression__Group__2 )
             // InternalGo.g:12345:2: rule__Expression__Group__1__Impl rule__Expression__Group__2
             {
-            pushFollow(FOLLOW_70);
+            pushFollow(FOLLOW_69);
             rule__Expression__Group__1__Impl();
 
             state._fsp--;
@@ -41691,7 +41722,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:12398:1: ( rule__Expression2__Group__0__Impl rule__Expression2__Group__1 )
             // InternalGo.g:12399:2: rule__Expression2__Group__0__Impl rule__Expression2__Group__1
             {
-            pushFollow(FOLLOW_70);
+            pushFollow(FOLLOW_69);
             rule__Expression2__Group__0__Impl();
 
             state._fsp--;
@@ -41810,38 +41841,38 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getExpression2Access().getGroup_1()); 
             }
             // InternalGo.g:12439:2: ( rule__Expression2__Group_1__0 )?
-            int alt103=2;
+            int alt104=2;
             switch ( input.LA(1) ) {
                 case RULE_BINARY_OP:
                     {
-                    int LA103_1 = input.LA(2);
+                    int LA104_1 = input.LA(2);
 
-                    if ( (synpred147_InternalGo()) ) {
-                        alt103=1;
+                    if ( (synpred148_InternalGo()) ) {
+                        alt104=1;
                     }
                     }
                     break;
                 case 45:
                     {
-                    int LA103_2 = input.LA(2);
+                    int LA104_2 = input.LA(2);
 
-                    if ( (synpred147_InternalGo()) ) {
-                        alt103=1;
+                    if ( (synpred148_InternalGo()) ) {
+                        alt104=1;
                     }
                     }
                     break;
                 case 46:
                     {
-                    int LA103_3 = input.LA(2);
+                    int LA104_3 = input.LA(2);
 
-                    if ( (synpred147_InternalGo()) ) {
-                        alt103=1;
+                    if ( (synpred148_InternalGo()) ) {
+                        alt104=1;
                     }
                     }
                     break;
             }
 
-            switch (alt103) {
+            switch (alt104) {
                 case 1 :
                     // InternalGo.g:12439:3: rule__Expression2__Group_1__0
                     {
@@ -41890,7 +41921,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:12452:1: ( rule__Expression2__Group_1__0__Impl rule__Expression2__Group_1__1 )
             // InternalGo.g:12453:2: rule__Expression2__Group_1__0__Impl rule__Expression2__Group_1__1
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__Expression2__Group_1__0__Impl();
 
             state._fsp--;
@@ -41979,7 +42010,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:12479:1: ( rule__Expression2__Group_1__1__Impl rule__Expression2__Group_1__2 )
             // InternalGo.g:12480:2: rule__Expression2__Group_1__1__Impl rule__Expression2__Group_1__2
             {
-            pushFollow(FOLLOW_70);
+            pushFollow(FOLLOW_69);
             rule__Expression2__Group_1__1__Impl();
 
             state._fsp--;
@@ -42152,7 +42183,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:12533:1: ( rule__UnaryExpr__Group_0__0__Impl rule__UnaryExpr__Group_0__1 )
             // InternalGo.g:12534:2: rule__UnaryExpr__Group_0__0__Impl rule__UnaryExpr__Group_0__1
             {
-            pushFollow(FOLLOW_71);
+            pushFollow(FOLLOW_70);
             rule__UnaryExpr__Group_0__0__Impl();
 
             state._fsp--;
@@ -42315,7 +42346,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:12587:1: ( rule__UnaryExpr__Group_1__0__Impl rule__UnaryExpr__Group_1__1 )
             // InternalGo.g:12588:2: rule__UnaryExpr__Group_1__0__Impl rule__UnaryExpr__Group_1__1
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__UnaryExpr__Group_1__0__Impl();
 
             state._fsp--;
@@ -42488,7 +42519,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:12641:1: ( rule__PrimaryExpr__Group_0__0__Impl rule__PrimaryExpr__Group_0__1 )
             // InternalGo.g:12642:2: rule__PrimaryExpr__Group_0__0__Impl rule__PrimaryExpr__Group_0__1
             {
-            pushFollow(FOLLOW_72);
+            pushFollow(FOLLOW_71);
             rule__PrimaryExpr__Group_0__0__Impl();
 
             state._fsp--;
@@ -42567,7 +42598,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:12668:1: ( rule__PrimaryExpr__Group_0__1__Impl rule__PrimaryExpr__Group_0__2 )
             // InternalGo.g:12669:2: rule__PrimaryExpr__Group_0__1__Impl rule__PrimaryExpr__Group_0__2
             {
-            pushFollow(FOLLOW_73);
+            pushFollow(FOLLOW_72);
             rule__PrimaryExpr__Group_0__1__Impl();
 
             state._fsp--;
@@ -42740,7 +42771,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:12722:1: ( rule__PrimaryExpr__Group_1__0__Impl rule__PrimaryExpr__Group_1__1 )
             // InternalGo.g:12723:2: rule__PrimaryExpr__Group_1__0__Impl rule__PrimaryExpr__Group_1__1
             {
-            pushFollow(FOLLOW_73);
+            pushFollow(FOLLOW_72);
             rule__PrimaryExpr__Group_1__0__Impl();
 
             state._fsp--;
@@ -42913,7 +42944,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:12776:1: ( rule__PrimaryExpr__Group_2__0__Impl rule__PrimaryExpr__Group_2__1 )
             // InternalGo.g:12777:2: rule__PrimaryExpr__Group_2__0__Impl rule__PrimaryExpr__Group_2__1
             {
-            pushFollow(FOLLOW_73);
+            pushFollow(FOLLOW_72);
             rule__PrimaryExpr__Group_2__0__Impl();
 
             state._fsp--;
@@ -43086,7 +43117,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:12830:1: ( rule__PrimaryExpr2__Group__0__Impl rule__PrimaryExpr2__Group__1 )
             // InternalGo.g:12831:2: rule__PrimaryExpr2__Group__0__Impl rule__PrimaryExpr2__Group__1
             {
-            pushFollow(FOLLOW_73);
+            pushFollow(FOLLOW_72);
             rule__PrimaryExpr2__Group__0__Impl();
 
             state._fsp--;
@@ -43205,9 +43236,9 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getPrimaryExpr2Access().getAlternatives_1()); 
             }
             // InternalGo.g:12871:2: ( rule__PrimaryExpr2__Alternatives_1 )?
-            int alt104=2;
-            alt104 = dfa104.predict(input);
-            switch (alt104) {
+            int alt105=2;
+            alt105 = dfa105.predict(input);
+            switch (alt105) {
                 case 1 :
                     // InternalGo.g:12871:3: rule__PrimaryExpr2__Alternatives_1
                     {
@@ -43256,7 +43287,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:12884:1: ( rule__PrimaryExpr2__Group_1_0__0__Impl rule__PrimaryExpr2__Group_1_0__1 )
             // InternalGo.g:12885:2: rule__PrimaryExpr2__Group_1_0__0__Impl rule__PrimaryExpr2__Group_1_0__1
             {
-            pushFollow(FOLLOW_73);
+            pushFollow(FOLLOW_72);
             rule__PrimaryExpr2__Group_1_0__0__Impl();
 
             state._fsp--;
@@ -43429,7 +43460,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:12938:1: ( rule__PrimaryExpr2__Group_1_1__0__Impl rule__PrimaryExpr2__Group_1_1__1 )
             // InternalGo.g:12939:2: rule__PrimaryExpr2__Group_1_1__0__Impl rule__PrimaryExpr2__Group_1_1__1
             {
-            pushFollow(FOLLOW_73);
+            pushFollow(FOLLOW_72);
             rule__PrimaryExpr2__Group_1_1__0__Impl();
 
             state._fsp--;
@@ -43602,7 +43633,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:12992:1: ( rule__PrimaryExpr2__Group_1_2__0__Impl rule__PrimaryExpr2__Group_1_2__1 )
             // InternalGo.g:12993:2: rule__PrimaryExpr2__Group_1_2__0__Impl rule__PrimaryExpr2__Group_1_2__1
             {
-            pushFollow(FOLLOW_73);
+            pushFollow(FOLLOW_72);
             rule__PrimaryExpr2__Group_1_2__0__Impl();
 
             state._fsp--;
@@ -43775,7 +43806,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:13046:1: ( rule__PrimaryExpr2__Group_1_3__0__Impl rule__PrimaryExpr2__Group_1_3__1 )
             // InternalGo.g:13047:2: rule__PrimaryExpr2__Group_1_3__0__Impl rule__PrimaryExpr2__Group_1_3__1
             {
-            pushFollow(FOLLOW_73);
+            pushFollow(FOLLOW_72);
             rule__PrimaryExpr2__Group_1_3__0__Impl();
 
             state._fsp--;
@@ -43948,7 +43979,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:13100:1: ( rule__PrimaryExpr2__Group_1_4__0__Impl rule__PrimaryExpr2__Group_1_4__1 )
             // InternalGo.g:13101:2: rule__PrimaryExpr2__Group_1_4__0__Impl rule__PrimaryExpr2__Group_1_4__1
             {
-            pushFollow(FOLLOW_73);
+            pushFollow(FOLLOW_72);
             rule__PrimaryExpr2__Group_1_4__0__Impl();
 
             state._fsp--;
@@ -44121,7 +44152,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:13154:1: ( rule__Operand__Group_0__0__Impl rule__Operand__Group_0__1 )
             // InternalGo.g:13155:2: rule__Operand__Group_0__0__Impl rule__Operand__Group_0__1
             {
-            pushFollow(FOLLOW_74);
+            pushFollow(FOLLOW_73);
             rule__Operand__Group_0__0__Impl();
 
             state._fsp--;
@@ -44413,9 +44444,9 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getOperandAccess().getGroup_1_1()); 
             }
             // InternalGo.g:13249:2: ( rule__Operand__Group_1_1__0 )?
-            int alt105=2;
-            alt105 = dfa105.predict(input);
-            switch (alt105) {
+            int alt106=2;
+            alt106 = dfa106.predict(input);
+            switch (alt106) {
                 case 1 :
                     // InternalGo.g:13249:3: rule__Operand__Group_1_1__0
                     {
@@ -44464,7 +44495,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:13262:1: ( rule__Operand__Group_1_1__0__Impl rule__Operand__Group_1_1__1 )
             // InternalGo.g:13263:2: rule__Operand__Group_1_1__0__Impl rule__Operand__Group_1_1__1
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__Operand__Group_1_1__0__Impl();
 
             state._fsp--;
@@ -44543,7 +44574,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:13289:1: ( rule__Operand__Group_1_1__1__Impl rule__Operand__Group_1_1__2 )
             // InternalGo.g:13290:2: rule__Operand__Group_1_1__1__Impl rule__Operand__Group_1_1__2
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_18);
             rule__Operand__Group_1_1__1__Impl();
 
             state._fsp--;
@@ -44706,7 +44737,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:13343:1: ( rule__Operand__Group_2__0__Impl rule__Operand__Group_2__1 )
             // InternalGo.g:13344:2: rule__Operand__Group_2__0__Impl rule__Operand__Group_2__1
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__Operand__Group_2__0__Impl();
 
             state._fsp--;
@@ -44785,7 +44816,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:13370:1: ( rule__Operand__Group_2__1__Impl rule__Operand__Group_2__2 )
             // InternalGo.g:13371:2: rule__Operand__Group_2__1__Impl rule__Operand__Group_2__2
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_18);
             rule__Operand__Group_2__1__Impl();
 
             state._fsp--;
@@ -44948,7 +44979,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:13424:1: ( rule__Conversion__Group__0__Impl rule__Conversion__Group__1 )
             // InternalGo.g:13425:2: rule__Conversion__Group__0__Impl rule__Conversion__Group__1
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_17);
             rule__Conversion__Group__0__Impl();
 
             state._fsp--;
@@ -45116,7 +45147,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:13478:1: ( rule__Conversion__Group__2__Impl rule__Conversion__Group__3 )
             // InternalGo.g:13479:2: rule__Conversion__Group__2__Impl rule__Conversion__Group__3
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__Conversion__Group__2__Impl();
 
             state._fsp--;
@@ -45195,7 +45226,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:13505:1: ( rule__Conversion__Group__3__Impl rule__Conversion__Group__4 )
             // InternalGo.g:13506:2: rule__Conversion__Group__3__Impl rule__Conversion__Group__4
             {
-            pushFollow(FOLLOW_75);
+            pushFollow(FOLLOW_74);
             rule__Conversion__Group__3__Impl();
 
             state._fsp--;
@@ -45284,7 +45315,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:13532:1: ( rule__Conversion__Group__4__Impl rule__Conversion__Group__5 )
             // InternalGo.g:13533:2: rule__Conversion__Group__4__Impl rule__Conversion__Group__5
             {
-            pushFollow(FOLLOW_75);
+            pushFollow(FOLLOW_74);
             rule__Conversion__Group__4__Impl();
 
             state._fsp--;
@@ -45329,13 +45360,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getConversionAccess().getCommaKeyword_4()); 
             }
             // InternalGo.g:13547:2: ( ',' )?
-            int alt106=2;
-            int LA106_0 = input.LA(1);
+            int alt107=2;
+            int LA107_0 = input.LA(1);
 
-            if ( (LA106_0==43) ) {
-                alt106=1;
+            if ( (LA107_0==43) ) {
+                alt107=1;
             }
-            switch (alt106) {
+            switch (alt107) {
                 case 1 :
                     // InternalGo.g:13547:3: ','
                     {
@@ -45454,7 +45485,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:13586:1: ( rule__MethodExpr__Group__0__Impl rule__MethodExpr__Group__1 )
             // InternalGo.g:13587:2: rule__MethodExpr__Group__0__Impl rule__MethodExpr__Group__1
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_19);
             rule__MethodExpr__Group__0__Impl();
 
             state._fsp--;
@@ -45857,7 +45888,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:13721:1: ( rule__Index__Group__0__Impl rule__Index__Group__1 )
             // InternalGo.g:13722:2: rule__Index__Group__0__Impl rule__Index__Group__1
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__Index__Group__0__Impl();
 
             state._fsp--;
@@ -45936,7 +45967,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:13748:1: ( rule__Index__Group__1__Impl rule__Index__Group__2 )
             // InternalGo.g:13749:2: rule__Index__Group__1__Impl rule__Index__Group__2
             {
-            pushFollow(FOLLOW_22);
+            pushFollow(FOLLOW_21);
             rule__Index__Group__1__Impl();
 
             state._fsp--;
@@ -46099,7 +46130,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:13802:1: ( rule__Slice__Group_0__0__Impl rule__Slice__Group_0__1 )
             // InternalGo.g:13803:2: rule__Slice__Group_0__0__Impl rule__Slice__Group_0__1
             {
-            pushFollow(FOLLOW_37);
+            pushFollow(FOLLOW_36);
             rule__Slice__Group_0__0__Impl();
 
             state._fsp--;
@@ -46178,7 +46209,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:13829:1: ( rule__Slice__Group_0__1__Impl rule__Slice__Group_0__2 )
             // InternalGo.g:13830:2: rule__Slice__Group_0__1__Impl rule__Slice__Group_0__2
             {
-            pushFollow(FOLLOW_76);
+            pushFollow(FOLLOW_75);
             rule__Slice__Group_0__1__Impl();
 
             state._fsp--;
@@ -46257,7 +46288,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:13856:1: ( rule__Slice__Group_0__2__Impl rule__Slice__Group_0__3 )
             // InternalGo.g:13857:2: rule__Slice__Group_0__2__Impl rule__Slice__Group_0__3
             {
-            pushFollow(FOLLOW_76);
+            pushFollow(FOLLOW_75);
             rule__Slice__Group_0__2__Impl();
 
             state._fsp--;
@@ -46302,13 +46333,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getSliceAccess().getExpressionAssignment_0_2()); 
             }
             // InternalGo.g:13871:2: ( rule__Slice__ExpressionAssignment_0_2 )?
-            int alt107=2;
-            int LA107_0 = input.LA(1);
+            int alt108=2;
+            int LA108_0 = input.LA(1);
 
-            if ( ((LA107_0>=RULE_STRING && LA107_0<=RULE_FLOAT_LIT)||(LA107_0>=RULE_UNARY_OP && LA107_0<=RULE_BOOLEAN_LIT)||(LA107_0>=45 && LA107_0<=46)||LA107_0==48||(LA107_0>=51 && LA107_0<=52)||LA107_0==54||LA107_0==56||(LA107_0>=60 && LA107_0<=63)) ) {
-                alt107=1;
+            if ( ((LA108_0>=RULE_STRING && LA108_0<=RULE_FLOAT_LIT)||(LA108_0>=RULE_UNARY_OP && LA108_0<=RULE_BOOLEAN_LIT)||(LA108_0>=45 && LA108_0<=46)||LA108_0==48||(LA108_0>=51 && LA108_0<=52)||LA108_0==54||LA108_0==56||(LA108_0>=60 && LA108_0<=63)) ) {
+                alt108=1;
             }
-            switch (alt107) {
+            switch (alt108) {
                 case 1 :
                     // InternalGo.g:13871:3: rule__Slice__ExpressionAssignment_0_2
                     {
@@ -46357,7 +46388,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:13883:1: ( rule__Slice__Group_0__3__Impl rule__Slice__Group_0__4 )
             // InternalGo.g:13884:2: rule__Slice__Group_0__3__Impl rule__Slice__Group_0__4
             {
-            pushFollow(FOLLOW_77);
+            pushFollow(FOLLOW_76);
             rule__Slice__Group_0__3__Impl();
 
             state._fsp--;
@@ -46436,7 +46467,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:13910:1: ( rule__Slice__Group_0__4__Impl rule__Slice__Group_0__5 )
             // InternalGo.g:13911:2: rule__Slice__Group_0__4__Impl rule__Slice__Group_0__5
             {
-            pushFollow(FOLLOW_77);
+            pushFollow(FOLLOW_76);
             rule__Slice__Group_0__4__Impl();
 
             state._fsp--;
@@ -46481,13 +46512,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getSliceAccess().getExpression2Assignment_0_4()); 
             }
             // InternalGo.g:13925:2: ( rule__Slice__Expression2Assignment_0_4 )?
-            int alt108=2;
-            int LA108_0 = input.LA(1);
+            int alt109=2;
+            int LA109_0 = input.LA(1);
 
-            if ( ((LA108_0>=RULE_STRING && LA108_0<=RULE_FLOAT_LIT)||(LA108_0>=RULE_UNARY_OP && LA108_0<=RULE_BOOLEAN_LIT)||(LA108_0>=45 && LA108_0<=46)||LA108_0==48||(LA108_0>=51 && LA108_0<=52)||LA108_0==54||LA108_0==56||(LA108_0>=60 && LA108_0<=63)) ) {
-                alt108=1;
+            if ( ((LA109_0>=RULE_STRING && LA109_0<=RULE_FLOAT_LIT)||(LA109_0>=RULE_UNARY_OP && LA109_0<=RULE_BOOLEAN_LIT)||(LA109_0>=45 && LA109_0<=46)||LA109_0==48||(LA109_0>=51 && LA109_0<=52)||LA109_0==54||LA109_0==56||(LA109_0>=60 && LA109_0<=63)) ) {
+                alt109=1;
             }
-            switch (alt108) {
+            switch (alt109) {
                 case 1 :
                     // InternalGo.g:13925:3: rule__Slice__Expression2Assignment_0_4
                     {
@@ -46610,7 +46641,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:13964:1: ( rule__Slice__Group_1__0__Impl rule__Slice__Group_1__1 )
             // InternalGo.g:13965:2: rule__Slice__Group_1__0__Impl rule__Slice__Group_1__1
             {
-            pushFollow(FOLLOW_76);
+            pushFollow(FOLLOW_75);
             rule__Slice__Group_1__0__Impl();
 
             state._fsp--;
@@ -46689,7 +46720,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:13991:1: ( rule__Slice__Group_1__1__Impl rule__Slice__Group_1__2 )
             // InternalGo.g:13992:2: rule__Slice__Group_1__1__Impl rule__Slice__Group_1__2
             {
-            pushFollow(FOLLOW_76);
+            pushFollow(FOLLOW_75);
             rule__Slice__Group_1__1__Impl();
 
             state._fsp--;
@@ -46734,13 +46765,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getSliceAccess().getExpression3Assignment_1_1()); 
             }
             // InternalGo.g:14006:2: ( rule__Slice__Expression3Assignment_1_1 )?
-            int alt109=2;
-            int LA109_0 = input.LA(1);
+            int alt110=2;
+            int LA110_0 = input.LA(1);
 
-            if ( ((LA109_0>=RULE_STRING && LA109_0<=RULE_FLOAT_LIT)||(LA109_0>=RULE_UNARY_OP && LA109_0<=RULE_BOOLEAN_LIT)||(LA109_0>=45 && LA109_0<=46)||LA109_0==48||(LA109_0>=51 && LA109_0<=52)||LA109_0==54||LA109_0==56||(LA109_0>=60 && LA109_0<=63)) ) {
-                alt109=1;
+            if ( ((LA110_0>=RULE_STRING && LA110_0<=RULE_FLOAT_LIT)||(LA110_0>=RULE_UNARY_OP && LA110_0<=RULE_BOOLEAN_LIT)||(LA110_0>=45 && LA110_0<=46)||LA110_0==48||(LA110_0>=51 && LA110_0<=52)||LA110_0==54||LA110_0==56||(LA110_0>=60 && LA110_0<=63)) ) {
+                alt110=1;
             }
-            switch (alt109) {
+            switch (alt110) {
                 case 1 :
                     // InternalGo.g:14006:3: rule__Slice__Expression3Assignment_1_1
                     {
@@ -46789,7 +46820,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:14018:1: ( rule__Slice__Group_1__2__Impl rule__Slice__Group_1__3 )
             // InternalGo.g:14019:2: rule__Slice__Group_1__2__Impl rule__Slice__Group_1__3
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__Slice__Group_1__2__Impl();
 
             state._fsp--;
@@ -46868,7 +46899,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:14045:1: ( rule__Slice__Group_1__3__Impl rule__Slice__Group_1__4 )
             // InternalGo.g:14046:2: rule__Slice__Group_1__3__Impl rule__Slice__Group_1__4
             {
-            pushFollow(FOLLOW_44);
+            pushFollow(FOLLOW_43);
             rule__Slice__Group_1__3__Impl();
 
             state._fsp--;
@@ -46957,7 +46988,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:14072:1: ( rule__Slice__Group_1__4__Impl rule__Slice__Group_1__5 )
             // InternalGo.g:14073:2: rule__Slice__Group_1__4__Impl rule__Slice__Group_1__5
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__Slice__Group_1__4__Impl();
 
             state._fsp--;
@@ -47036,7 +47067,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:14099:1: ( rule__Slice__Group_1__5__Impl rule__Slice__Group_1__6 )
             // InternalGo.g:14100:2: rule__Slice__Group_1__5__Impl rule__Slice__Group_1__6
             {
-            pushFollow(FOLLOW_22);
+            pushFollow(FOLLOW_21);
             rule__Slice__Group_1__5__Impl();
 
             state._fsp--;
@@ -47278,7 +47309,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:14180:1: ( rule__TypeAssertion__Group__1__Impl rule__TypeAssertion__Group__2 )
             // InternalGo.g:14181:2: rule__TypeAssertion__Group__1__Impl rule__TypeAssertion__Group__2
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_17);
             rule__TypeAssertion__Group__1__Impl();
 
             state._fsp--;
@@ -47357,7 +47388,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:14207:1: ( rule__TypeAssertion__Group__2__Impl rule__TypeAssertion__Group__3 )
             // InternalGo.g:14208:2: rule__TypeAssertion__Group__2__Impl rule__TypeAssertion__Group__3
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_18);
             rule__TypeAssertion__Group__2__Impl();
 
             state._fsp--;
@@ -47514,7 +47545,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:14261:1: ( rule__Arguments__Group__0__Impl rule__Arguments__Group__1 )
             // InternalGo.g:14262:2: rule__Arguments__Group__0__Impl rule__Arguments__Group__1
             {
-            pushFollow(FOLLOW_73);
+            pushFollow(FOLLOW_72);
             rule__Arguments__Group__0__Impl();
 
             state._fsp--;
@@ -47593,7 +47624,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:14288:1: ( rule__Arguments__Group__1__Impl rule__Arguments__Group__2 )
             // InternalGo.g:14289:2: rule__Arguments__Group__1__Impl rule__Arguments__Group__2
             {
-            pushFollow(FOLLOW_78);
+            pushFollow(FOLLOW_77);
             rule__Arguments__Group__1__Impl();
 
             state._fsp--;
@@ -47672,7 +47703,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:14315:1: ( rule__Arguments__Group__2__Impl rule__Arguments__Group__3 )
             // InternalGo.g:14316:2: rule__Arguments__Group__2__Impl rule__Arguments__Group__3
             {
-            pushFollow(FOLLOW_78);
+            pushFollow(FOLLOW_77);
             rule__Arguments__Group__2__Impl();
 
             state._fsp--;
@@ -47717,13 +47748,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getArgumentsAccess().getGroup_2()); 
             }
             // InternalGo.g:14330:2: ( rule__Arguments__Group_2__0 )?
-            int alt110=2;
-            int LA110_0 = input.LA(1);
+            int alt111=2;
+            int LA111_0 = input.LA(1);
 
-            if ( ((LA110_0>=RULE_STRING && LA110_0<=RULE_FLOAT_LIT)||(LA110_0>=RULE_UNARY_OP && LA110_0<=RULE_BOOLEAN_LIT)||(LA110_0>=45 && LA110_0<=46)||LA110_0==48||(LA110_0>=51 && LA110_0<=52)||LA110_0==54||LA110_0==56||(LA110_0>=60 && LA110_0<=63)) ) {
-                alt110=1;
+            if ( ((LA111_0>=RULE_STRING && LA111_0<=RULE_FLOAT_LIT)||(LA111_0>=RULE_UNARY_OP && LA111_0<=RULE_BOOLEAN_LIT)||(LA111_0>=45 && LA111_0<=46)||LA111_0==48||(LA111_0>=51 && LA111_0<=52)||LA111_0==54||LA111_0==56||(LA111_0>=60 && LA111_0<=63)) ) {
+                alt111=1;
             }
-            switch (alt110) {
+            switch (alt111) {
                 case 1 :
                     // InternalGo.g:14330:3: rule__Arguments__Group_2__0
                     {
@@ -47846,7 +47877,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:14369:1: ( rule__Arguments__Group_2__0__Impl rule__Arguments__Group_2__1 )
             // InternalGo.g:14370:2: rule__Arguments__Group_2__0__Impl rule__Arguments__Group_2__1
             {
-            pushFollow(FOLLOW_79);
+            pushFollow(FOLLOW_78);
             rule__Arguments__Group_2__0__Impl();
 
             state._fsp--;
@@ -47935,7 +47966,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:14396:1: ( rule__Arguments__Group_2__1__Impl rule__Arguments__Group_2__2 )
             // InternalGo.g:14397:2: rule__Arguments__Group_2__1__Impl rule__Arguments__Group_2__2
             {
-            pushFollow(FOLLOW_79);
+            pushFollow(FOLLOW_78);
             rule__Arguments__Group_2__1__Impl();
 
             state._fsp--;
@@ -47980,13 +48011,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getArgumentsAccess().getFullStopFullStopFullStopKeyword_2_1()); 
             }
             // InternalGo.g:14411:2: ( '...' )?
-            int alt111=2;
-            int LA111_0 = input.LA(1);
+            int alt112=2;
+            int LA112_0 = input.LA(1);
 
-            if ( (LA111_0==59) ) {
-                alt111=1;
+            if ( (LA112_0==59) ) {
+                alt112=1;
             }
-            switch (alt111) {
+            switch (alt112) {
                 case 1 :
                     // InternalGo.g:14411:3: '...'
                     {
@@ -48071,13 +48102,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getArgumentsAccess().getCommaKeyword_2_2()); 
             }
             // InternalGo.g:14437:2: ( ',' )?
-            int alt112=2;
-            int LA112_0 = input.LA(1);
+            int alt113=2;
+            int LA113_0 = input.LA(1);
 
-            if ( (LA112_0==43) ) {
-                alt112=1;
+            if ( (LA113_0==43) ) {
+                alt113=1;
             }
-            switch (alt112) {
+            switch (alt113) {
                 case 1 :
                     // InternalGo.g:14437:3: ','
                     {
@@ -48122,7 +48153,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:14450:1: ( rule__Arguments__Group_2_0_1__0__Impl rule__Arguments__Group_2_0_1__1 )
             // InternalGo.g:14451:2: rule__Arguments__Group_2_0_1__0__Impl rule__Arguments__Group_2_0_1__1
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_28);
             rule__Arguments__Group_2_0_1__0__Impl();
 
             state._fsp--;
@@ -48251,17 +48282,17 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getArgumentsAccess().getGroup_2_0_1_1()); 
             }
             // InternalGo.g:14491:2: ( rule__Arguments__Group_2_0_1_1__0 )?
-            int alt113=2;
-            int LA113_0 = input.LA(1);
+            int alt114=2;
+            int LA114_0 = input.LA(1);
 
-            if ( (LA113_0==43) ) {
-                int LA113_1 = input.LA(2);
+            if ( (LA114_0==43) ) {
+                int LA114_1 = input.LA(2);
 
-                if ( ((LA113_1>=RULE_STRING && LA113_1<=RULE_FLOAT_LIT)||(LA113_1>=RULE_UNARY_OP && LA113_1<=RULE_BOOLEAN_LIT)||(LA113_1>=45 && LA113_1<=46)||LA113_1==48||(LA113_1>=51 && LA113_1<=52)||LA113_1==54||LA113_1==56||(LA113_1>=60 && LA113_1<=63)) ) {
-                    alt113=1;
+                if ( ((LA114_1>=RULE_STRING && LA114_1<=RULE_FLOAT_LIT)||(LA114_1>=RULE_UNARY_OP && LA114_1<=RULE_BOOLEAN_LIT)||(LA114_1>=45 && LA114_1<=46)||LA114_1==48||(LA114_1>=51 && LA114_1<=52)||LA114_1==54||LA114_1==56||(LA114_1>=60 && LA114_1<=63)) ) {
+                    alt114=1;
                 }
             }
-            switch (alt113) {
+            switch (alt114) {
                 case 1 :
                     // InternalGo.g:14491:3: rule__Arguments__Group_2_0_1_1__0
                     {
@@ -48310,7 +48341,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:14504:1: ( rule__Arguments__Group_2_0_1_1__0__Impl rule__Arguments__Group_2_0_1_1__1 )
             // InternalGo.g:14505:2: rule__Arguments__Group_2_0_1_1__0__Impl rule__Arguments__Group_2_0_1_1__1
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__Arguments__Group_2_0_1_1__0__Impl();
 
             state._fsp--;
@@ -48473,7 +48504,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:14558:1: ( rule__Literal__Group_0__0__Impl rule__Literal__Group_0__1 )
             // InternalGo.g:14559:2: rule__Literal__Group_0__0__Impl rule__Literal__Group_0__1
             {
-            pushFollow(FOLLOW_80);
+            pushFollow(FOLLOW_79);
             rule__Literal__Group_0__0__Impl();
 
             state._fsp--;
@@ -49061,7 +49092,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:14747:1: ( rule__LiteralType__Group_0__0__Impl rule__LiteralType__Group_0__1 )
             // InternalGo.g:14748:2: rule__LiteralType__Group_0__0__Impl rule__LiteralType__Group_0__1
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_22);
             rule__LiteralType__Group_0__0__Impl();
 
             state._fsp--;
@@ -49224,7 +49255,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:14801:1: ( rule__LiteralType__Group_2__0__Impl rule__LiteralType__Group_2__1 )
             // InternalGo.g:14802:2: rule__LiteralType__Group_2__0__Impl rule__LiteralType__Group_2__1
             {
-            pushFollow(FOLLOW_81);
+            pushFollow(FOLLOW_80);
             rule__LiteralType__Group_2__0__Impl();
 
             state._fsp--;
@@ -49303,7 +49334,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:14828:1: ( rule__LiteralType__Group_2__1__Impl rule__LiteralType__Group_2__2 )
             // InternalGo.g:14829:2: rule__LiteralType__Group_2__1__Impl rule__LiteralType__Group_2__2
             {
-            pushFollow(FOLLOW_22);
+            pushFollow(FOLLOW_21);
             rule__LiteralType__Group_2__1__Impl();
 
             state._fsp--;
@@ -49382,7 +49413,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:14855:1: ( rule__LiteralType__Group_2__2__Impl rule__LiteralType__Group_2__3 )
             // InternalGo.g:14856:2: rule__LiteralType__Group_2__2__Impl rule__LiteralType__Group_2__3
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_17);
             rule__LiteralType__Group_2__2__Impl();
 
             state._fsp--;
@@ -49624,7 +49655,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:14936:1: ( rule__LiteralValue__Group__1__Impl rule__LiteralValue__Group__2 )
             // InternalGo.g:14937:2: rule__LiteralValue__Group__1__Impl rule__LiteralValue__Group__2
             {
-            pushFollow(FOLLOW_82);
+            pushFollow(FOLLOW_81);
             rule__LiteralValue__Group__1__Impl();
 
             state._fsp--;
@@ -49703,7 +49734,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:14963:1: ( rule__LiteralValue__Group__2__Impl rule__LiteralValue__Group__3 )
             // InternalGo.g:14964:2: rule__LiteralValue__Group__2__Impl rule__LiteralValue__Group__3
             {
-            pushFollow(FOLLOW_82);
+            pushFollow(FOLLOW_81);
             rule__LiteralValue__Group__2__Impl();
 
             state._fsp--;
@@ -49748,13 +49779,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getLiteralValueAccess().getGroup_2()); 
             }
             // InternalGo.g:14978:2: ( rule__LiteralValue__Group_2__0 )?
-            int alt114=2;
-            int LA114_0 = input.LA(1);
+            int alt115=2;
+            int LA115_0 = input.LA(1);
 
-            if ( ((LA114_0>=RULE_STRING && LA114_0<=RULE_FLOAT_LIT)||(LA114_0>=RULE_UNARY_OP && LA114_0<=RULE_BOOLEAN_LIT)||(LA114_0>=45 && LA114_0<=46)||LA114_0==48||(LA114_0>=51 && LA114_0<=52)||LA114_0==54||(LA114_0>=56 && LA114_0<=57)||(LA114_0>=60 && LA114_0<=63)) ) {
-                alt114=1;
+            if ( ((LA115_0>=RULE_STRING && LA115_0<=RULE_FLOAT_LIT)||(LA115_0>=RULE_UNARY_OP && LA115_0<=RULE_BOOLEAN_LIT)||(LA115_0>=45 && LA115_0<=46)||LA115_0==48||(LA115_0>=51 && LA115_0<=52)||LA115_0==54||(LA115_0>=56 && LA115_0<=57)||(LA115_0>=60 && LA115_0<=63)) ) {
+                alt115=1;
             }
-            switch (alt114) {
+            switch (alt115) {
                 case 1 :
                     // InternalGo.g:14978:3: rule__LiteralValue__Group_2__0
                     {
@@ -49877,7 +49908,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:15017:1: ( rule__LiteralValue__Group_2__0__Impl rule__LiteralValue__Group_2__1 )
             // InternalGo.g:15018:2: rule__LiteralValue__Group_2__0__Impl rule__LiteralValue__Group_2__1
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_28);
             rule__LiteralValue__Group_2__0__Impl();
 
             state._fsp--;
@@ -50006,13 +50037,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getLiteralValueAccess().getCommaKeyword_2_1()); 
             }
             // InternalGo.g:15058:2: ( ',' )?
-            int alt115=2;
-            int LA115_0 = input.LA(1);
+            int alt116=2;
+            int LA116_0 = input.LA(1);
 
-            if ( (LA115_0==43) ) {
-                alt115=1;
+            if ( (LA116_0==43) ) {
+                alt116=1;
             }
-            switch (alt115) {
+            switch (alt116) {
                 case 1 :
                     // InternalGo.g:15058:3: ','
                     {
@@ -50057,7 +50088,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:15071:1: ( rule__ElementList__Group__0__Impl rule__ElementList__Group__1 )
             // InternalGo.g:15072:2: rule__ElementList__Group__0__Impl rule__ElementList__Group__1
             {
-            pushFollow(FOLLOW_83);
+            pushFollow(FOLLOW_82);
             rule__ElementList__Group__0__Impl();
 
             state._fsp--;
@@ -50180,30 +50211,30 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getElementListAccess().getGroup_1()); 
             }
             // InternalGo.g:15112:2: ( rule__ElementList__Group_1__0 )*
-            loop116:
+            loop117:
             do {
-                int alt116=2;
-                int LA116_0 = input.LA(1);
+                int alt117=2;
+                int LA117_0 = input.LA(1);
 
-                if ( (LA116_0==43) ) {
-                    int LA116_2 = input.LA(2);
+                if ( (LA117_0==43) ) {
+                    int LA117_2 = input.LA(2);
 
-                    if ( ((LA116_2>=RULE_STRING && LA116_2<=RULE_FLOAT_LIT)||(LA116_2>=RULE_UNARY_OP && LA116_2<=RULE_BOOLEAN_LIT)||(LA116_2>=45 && LA116_2<=46)||LA116_2==48||(LA116_2>=51 && LA116_2<=52)||LA116_2==54||(LA116_2>=56 && LA116_2<=57)||(LA116_2>=60 && LA116_2<=63)) ) {
-                        alt116=1;
+                    if ( ((LA117_2>=RULE_STRING && LA117_2<=RULE_FLOAT_LIT)||(LA117_2>=RULE_UNARY_OP && LA117_2<=RULE_BOOLEAN_LIT)||(LA117_2>=45 && LA117_2<=46)||LA117_2==48||(LA117_2>=51 && LA117_2<=52)||LA117_2==54||(LA117_2>=56 && LA117_2<=57)||(LA117_2>=60 && LA117_2<=63)) ) {
+                        alt117=1;
                     }
 
 
                 }
-                else if ( ((LA116_0>=RULE_STRING && LA116_0<=RULE_FLOAT_LIT)||(LA116_0>=RULE_UNARY_OP && LA116_0<=RULE_BOOLEAN_LIT)||(LA116_0>=45 && LA116_0<=46)||LA116_0==48||(LA116_0>=51 && LA116_0<=52)||LA116_0==54||(LA116_0>=56 && LA116_0<=57)||(LA116_0>=60 && LA116_0<=63)) ) {
-                    alt116=1;
+                else if ( ((LA117_0>=RULE_STRING && LA117_0<=RULE_FLOAT_LIT)||(LA117_0>=RULE_UNARY_OP && LA117_0<=RULE_BOOLEAN_LIT)||(LA117_0>=45 && LA117_0<=46)||LA117_0==48||(LA117_0>=51 && LA117_0<=52)||LA117_0==54||(LA117_0>=56 && LA117_0<=57)||(LA117_0>=60 && LA117_0<=63)) ) {
+                    alt117=1;
                 }
 
 
-                switch (alt116) {
+                switch (alt117) {
             	case 1 :
             	    // InternalGo.g:15112:3: rule__ElementList__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_84);
+            	    pushFollow(FOLLOW_83);
             	    rule__ElementList__Group_1__0();
 
             	    state._fsp--;
@@ -50213,7 +50244,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop116;
+            	    break loop117;
                 }
             } while (true);
 
@@ -50251,7 +50282,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:15125:1: ( rule__ElementList__Group_1__0__Impl rule__ElementList__Group_1__1 )
             // InternalGo.g:15126:2: rule__ElementList__Group_1__0__Impl rule__ElementList__Group_1__1
             {
-            pushFollow(FOLLOW_83);
+            pushFollow(FOLLOW_82);
             rule__ElementList__Group_1__0__Impl();
 
             state._fsp--;
@@ -50296,13 +50327,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getElementListAccess().getCommaKeyword_1_0()); 
             }
             // InternalGo.g:15140:2: ( ',' )?
-            int alt117=2;
-            int LA117_0 = input.LA(1);
+            int alt118=2;
+            int LA118_0 = input.LA(1);
 
-            if ( (LA117_0==43) ) {
-                alt117=1;
+            if ( (LA118_0==43) ) {
+                alt118=1;
             }
-            switch (alt117) {
+            switch (alt118) {
                 case 1 :
                     // InternalGo.g:15140:3: ','
                     {
@@ -50431,7 +50462,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:15179:1: ( rule__KeyedElement__Group__0__Impl rule__KeyedElement__Group__1 )
             // InternalGo.g:15180:2: rule__KeyedElement__Group__0__Impl rule__KeyedElement__Group__1
             {
-            pushFollow(FOLLOW_85);
+            pushFollow(FOLLOW_84);
             rule__KeyedElement__Group__0__Impl();
 
             state._fsp--;
@@ -50476,9 +50507,9 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getKeyedElementAccess().getGroup_0()); 
             }
             // InternalGo.g:15194:2: ( rule__KeyedElement__Group_0__0 )?
-            int alt118=2;
-            alt118 = dfa118.predict(input);
-            switch (alt118) {
+            int alt119=2;
+            alt119 = dfa119.predict(input);
+            switch (alt119) {
                 case 1 :
                     // InternalGo.g:15194:3: rule__KeyedElement__Group_0__0
                     {
@@ -50611,7 +50642,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:15233:1: ( rule__KeyedElement__Group_0__0__Impl rule__KeyedElement__Group_0__1 )
             // InternalGo.g:15234:2: rule__KeyedElement__Group_0__0__Impl rule__KeyedElement__Group_0__1
             {
-            pushFollow(FOLLOW_44);
+            pushFollow(FOLLOW_43);
             rule__KeyedElement__Group_0__0__Impl();
 
             state._fsp--;
@@ -51094,7 +51125,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:15395:1: ( rule__OperandName__Group_1__0__Impl rule__OperandName__Group_1__1 )
             // InternalGo.g:15396:2: rule__OperandName__Group_1__0__Impl rule__OperandName__Group_1__1
             {
-            pushFollow(FOLLOW_36);
+            pushFollow(FOLLOW_35);
             rule__OperandName__Group_1__0__Impl();
 
             state._fsp--;
@@ -51257,7 +51288,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:15449:1: ( rule__ImportDecl__Group__0__Impl rule__ImportDecl__Group__1 )
             // InternalGo.g:15450:2: rule__ImportDecl__Group__0__Impl rule__ImportDecl__Group__1
             {
-            pushFollow(FOLLOW_86);
+            pushFollow(FOLLOW_85);
             rule__ImportDecl__Group__0__Impl();
 
             state._fsp--;
@@ -51336,7 +51367,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:15476:1: ( rule__ImportDecl__Group__1__Impl rule__ImportDecl__Group__2 )
             // InternalGo.g:15477:2: rule__ImportDecl__Group__1__Impl rule__ImportDecl__Group__2
             {
-            pushFollow(FOLLOW_87);
+            pushFollow(FOLLOW_86);
             rule__ImportDecl__Group__1__Impl();
 
             state._fsp--;
@@ -51499,7 +51530,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:15530:1: ( rule__ImportDecl__Group_2_1__0__Impl rule__ImportDecl__Group_2_1__1 )
             // InternalGo.g:15531:2: rule__ImportDecl__Group_2_1__0__Impl rule__ImportDecl__Group_2_1__1
             {
-            pushFollow(FOLLOW_88);
+            pushFollow(FOLLOW_87);
             rule__ImportDecl__Group_2_1__0__Impl();
 
             state._fsp--;
@@ -51578,7 +51609,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:15557:1: ( rule__ImportDecl__Group_2_1__1__Impl rule__ImportDecl__Group_2_1__2 )
             // InternalGo.g:15558:2: rule__ImportDecl__Group_2_1__1__Impl rule__ImportDecl__Group_2_1__2
             {
-            pushFollow(FOLLOW_88);
+            pushFollow(FOLLOW_87);
             rule__ImportDecl__Group_2_1__1__Impl();
 
             state._fsp--;
@@ -51623,21 +51654,21 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getImportDeclAccess().getImports2Assignment_2_1_1()); 
             }
             // InternalGo.g:15572:2: ( rule__ImportDecl__Imports2Assignment_2_1_1 )*
-            loop119:
+            loop120:
             do {
-                int alt119=2;
-                int LA119_0 = input.LA(1);
+                int alt120=2;
+                int LA120_0 = input.LA(1);
 
-                if ( ((LA119_0>=RULE_STRING && LA119_0<=RULE_ID)||(LA119_0>=46 && LA119_0<=47)) ) {
-                    alt119=1;
+                if ( ((LA120_0>=RULE_STRING && LA120_0<=RULE_ID)||(LA120_0>=46 && LA120_0<=47)) ) {
+                    alt120=1;
                 }
 
 
-                switch (alt119) {
+                switch (alt120) {
             	case 1 :
             	    // InternalGo.g:15572:3: rule__ImportDecl__Imports2Assignment_2_1_1
             	    {
-            	    pushFollow(FOLLOW_89);
+            	    pushFollow(FOLLOW_88);
             	    rule__ImportDecl__Imports2Assignment_2_1_1();
 
             	    state._fsp--;
@@ -51647,7 +51678,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop119;
+            	    break loop120;
                 }
             } while (true);
 
@@ -51759,7 +51790,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             // InternalGo.g:15611:1: ( rule__ImportSpec__Group__0__Impl rule__ImportSpec__Group__1 )
             // InternalGo.g:15612:2: rule__ImportSpec__Group__0__Impl rule__ImportSpec__Group__1
             {
-            pushFollow(FOLLOW_90);
+            pushFollow(FOLLOW_89);
             rule__ImportSpec__Group__0__Impl();
 
             state._fsp--;
@@ -51804,13 +51835,13 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                before(grammarAccess.getImportSpecAccess().getAlternatives_0()); 
             }
             // InternalGo.g:15626:2: ( rule__ImportSpec__Alternatives_0 )?
-            int alt120=2;
-            int LA120_0 = input.LA(1);
+            int alt121=2;
+            int LA121_0 = input.LA(1);
 
-            if ( (LA120_0==RULE_ID||(LA120_0>=46 && LA120_0<=47)) ) {
-                alt120=1;
+            if ( (LA121_0==RULE_ID||(LA121_0>=46 && LA121_0<=47)) ) {
+                alt121=1;
             }
-            switch (alt120) {
+            switch (alt121) {
                 case 1 :
                     // InternalGo.g:15626:3: rule__ImportSpec__Alternatives_0
                     {
@@ -61515,6 +61546,26 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
     }
     // $ANTLR end "rule__ImportSpec__IpAssignment_1"
 
+    // $ANTLR start synpred3_InternalGo
+    public final void synpred3_InternalGo_fragment() throws RecognitionException {   
+        // InternalGo.g:3135:2: ( ( RULE_ID ) )
+        // InternalGo.g:3135:2: ( RULE_ID )
+        {
+        // InternalGo.g:3135:2: ( RULE_ID )
+        // InternalGo.g:3136:3: RULE_ID
+        {
+        if ( state.backtracking==0 ) {
+           before(grammarAccess.getIDENTIFIERAccess().getIDTerminalRuleCall_0()); 
+        }
+        match(input,RULE_ID,FOLLOW_2); if (state.failed) return ;
+
+        }
+
+
+        }
+    }
+    // $ANTLR end synpred3_InternalGo
+
     // $ANTLR start synpred18_InternalGo
     public final void synpred18_InternalGo_fragment() throws RecognitionException {   
         // InternalGo.g:3345:2: ( ( ( rule__Result__ParameteresAssignment_0 ) ) )
@@ -62349,8 +62400,8 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
     }
     // $ANTLR end synpred90_InternalGo
 
-    // $ANTLR start synpred101_InternalGo
-    public final void synpred101_InternalGo_fragment() throws RecognitionException {   
+    // $ANTLR start synpred102_InternalGo
+    public final void synpred102_InternalGo_fragment() throws RecognitionException {   
         // InternalGo.g:5905:3: ( rule__IdentifierList__Group_2__0 )
         // InternalGo.g:5905:3: rule__IdentifierList__Group_2__0
         {
@@ -62362,10 +62413,10 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
 
         }
     }
-    // $ANTLR end synpred101_InternalGo
+    // $ANTLR end synpred102_InternalGo
 
-    // $ANTLR start synpred103_InternalGo
-    public final void synpred103_InternalGo_fragment() throws RecognitionException {   
+    // $ANTLR start synpred104_InternalGo
+    public final void synpred104_InternalGo_fragment() throws RecognitionException {   
         // InternalGo.g:6175:3: ( rule__Signature__ResultAssignment_1 )
         // InternalGo.g:6175:3: rule__Signature__ResultAssignment_1
         {
@@ -62377,10 +62428,10 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
 
         }
     }
-    // $ANTLR end synpred103_InternalGo
+    // $ANTLR end synpred104_InternalGo
 
-    // $ANTLR start synpred104_InternalGo
-    public final void synpred104_InternalGo_fragment() throws RecognitionException {   
+    // $ANTLR start synpred105_InternalGo
+    public final void synpred105_InternalGo_fragment() throws RecognitionException {   
         // InternalGo.g:6257:3: ( rule__Parameters__ParameterlistAssignment_2 )
         // InternalGo.g:6257:3: rule__Parameters__ParameterlistAssignment_2
         {
@@ -62392,10 +62443,10 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
 
         }
     }
-    // $ANTLR end synpred104_InternalGo
+    // $ANTLR end synpred105_InternalGo
 
-    // $ANTLR start synpred113_InternalGo
-    public final void synpred113_InternalGo_fragment() throws RecognitionException {   
+    // $ANTLR start synpred114_InternalGo
+    public final void synpred114_InternalGo_fragment() throws RecognitionException {   
         // InternalGo.g:7147:3: ( '<-' )
         // InternalGo.g:7147:3: '<-'
         {
@@ -62403,10 +62454,10 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
 
         }
     }
-    // $ANTLR end synpred113_InternalGo
+    // $ANTLR end synpred114_InternalGo
 
-    // $ANTLR start synpred115_InternalGo
-    public final void synpred115_InternalGo_fragment() throws RecognitionException {   
+    // $ANTLR start synpred116_InternalGo
+    public final void synpred116_InternalGo_fragment() throws RecognitionException {   
         // InternalGo.g:7390:3: ( rule__StatementList__Alternatives_1_1 )
         // InternalGo.g:7390:3: rule__StatementList__Alternatives_1_1
         {
@@ -62418,10 +62469,10 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
 
         }
     }
-    // $ANTLR end synpred115_InternalGo
+    // $ANTLR end synpred116_InternalGo
 
-    // $ANTLR start synpred116_InternalGo
-    public final void synpred116_InternalGo_fragment() throws RecognitionException {   
+    // $ANTLR start synpred117_InternalGo
+    public final void synpred117_InternalGo_fragment() throws RecognitionException {   
         // InternalGo.g:7660:3: ( rule__ReturnStmt__ExpressionlistAssignment_2 )
         // InternalGo.g:7660:3: rule__ReturnStmt__ExpressionlistAssignment_2
         {
@@ -62433,27 +62484,12 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
 
         }
     }
-    // $ANTLR end synpred116_InternalGo
-
-    // $ANTLR start synpred117_InternalGo
-    public final void synpred117_InternalGo_fragment() throws RecognitionException {   
-        // InternalGo.g:7714:3: ( ruleLabel )
-        // InternalGo.g:7714:3: ruleLabel
-        {
-        pushFollow(FOLLOW_2);
-        ruleLabel();
-
-        state._fsp--;
-        if (state.failed) return ;
-
-        }
-    }
     // $ANTLR end synpred117_InternalGo
 
     // $ANTLR start synpred118_InternalGo
     public final void synpred118_InternalGo_fragment() throws RecognitionException {   
-        // InternalGo.g:7768:3: ( ruleLabel )
-        // InternalGo.g:7768:3: ruleLabel
+        // InternalGo.g:7714:3: ( ruleLabel )
+        // InternalGo.g:7714:3: ruleLabel
         {
         pushFollow(FOLLOW_2);
         ruleLabel();
@@ -62467,6 +62503,21 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
 
     // $ANTLR start synpred119_InternalGo
     public final void synpred119_InternalGo_fragment() throws RecognitionException {   
+        // InternalGo.g:7768:3: ( ruleLabel )
+        // InternalGo.g:7768:3: ruleLabel
+        {
+        pushFollow(FOLLOW_2);
+        ruleLabel();
+
+        state._fsp--;
+        if (state.failed) return ;
+
+        }
+    }
+    // $ANTLR end synpred119_InternalGo
+
+    // $ANTLR start synpred120_InternalGo
+    public final void synpred120_InternalGo_fragment() throws RecognitionException {   
         // InternalGo.g:7877:3: ( rule__IfStmt__Group_1__0 )
         // InternalGo.g:7877:3: rule__IfStmt__Group_1__0
         {
@@ -62478,10 +62529,10 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
 
         }
     }
-    // $ANTLR end synpred119_InternalGo
+    // $ANTLR end synpred120_InternalGo
 
-    // $ANTLR start synpred125_InternalGo
-    public final void synpred125_InternalGo_fragment() throws RecognitionException {   
+    // $ANTLR start synpred126_InternalGo
+    public final void synpred126_InternalGo_fragment() throws RecognitionException {   
         // InternalGo.g:8741:3: ( rule__ConstSpec__TpAssignment_1 )
         // InternalGo.g:8741:3: rule__ConstSpec__TpAssignment_1
         {
@@ -62493,10 +62544,10 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
 
         }
     }
-    // $ANTLR end synpred125_InternalGo
+    // $ANTLR end synpred126_InternalGo
 
-    // $ANTLR start synpred130_InternalGo
-    public final void synpred130_InternalGo_fragment() throws RecognitionException {   
+    // $ANTLR start synpred131_InternalGo
+    public final void synpred131_InternalGo_fragment() throws RecognitionException {   
         // InternalGo.g:9470:3: ( rule__VarSpec__Tp2Assignment_1 )
         // InternalGo.g:9470:3: rule__VarSpec__Tp2Assignment_1
         {
@@ -62508,10 +62559,10 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
 
         }
     }
-    // $ANTLR end synpred130_InternalGo
+    // $ANTLR end synpred131_InternalGo
 
-    // $ANTLR start synpred132_InternalGo
-    public final void synpred132_InternalGo_fragment() throws RecognitionException {   
+    // $ANTLR start synpred133_InternalGo
+    public final void synpred133_InternalGo_fragment() throws RecognitionException {   
         // InternalGo.g:10145:3: ( rule__ExprSwitchStmt__Group_2__0 )
         // InternalGo.g:10145:3: rule__ExprSwitchStmt__Group_2__0
         {
@@ -62523,10 +62574,10 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
 
         }
     }
-    // $ANTLR end synpred132_InternalGo
+    // $ANTLR end synpred133_InternalGo
 
-    // $ANTLR start synpred136_InternalGo
-    public final void synpred136_InternalGo_fragment() throws RecognitionException {   
+    // $ANTLR start synpred137_InternalGo
+    public final void synpred137_InternalGo_fragment() throws RecognitionException {   
         // InternalGo.g:10604:3: ( rule__TypeSwitchStmt__Group_1__0 )
         // InternalGo.g:10604:3: rule__TypeSwitchStmt__Group_1__0
         {
@@ -62538,10 +62589,10 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
 
         }
     }
-    // $ANTLR end synpred136_InternalGo
+    // $ANTLR end synpred137_InternalGo
 
-    // $ANTLR start synpred141_InternalGo
-    public final void synpred141_InternalGo_fragment() throws RecognitionException {   
+    // $ANTLR start synpred142_InternalGo
+    public final void synpred142_InternalGo_fragment() throws RecognitionException {   
         // InternalGo.g:11576:3: ( rule__RecvStmt__Alternatives_0 )
         // InternalGo.g:11576:3: rule__RecvStmt__Alternatives_0
         {
@@ -62553,10 +62604,10 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
 
         }
     }
-    // $ANTLR end synpred141_InternalGo
+    // $ANTLR end synpred142_InternalGo
 
-    // $ANTLR start synpred142_InternalGo
-    public final void synpred142_InternalGo_fragment() throws RecognitionException {   
+    // $ANTLR start synpred143_InternalGo
+    public final void synpred143_InternalGo_fragment() throws RecognitionException {   
         // InternalGo.g:11819:3: ( rule__ForClause__InitAssignment_1 )
         // InternalGo.g:11819:3: rule__ForClause__InitAssignment_1
         {
@@ -62568,10 +62619,10 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
 
         }
     }
-    // $ANTLR end synpred142_InternalGo
+    // $ANTLR end synpred143_InternalGo
 
-    // $ANTLR start synpred146_InternalGo
-    public final void synpred146_InternalGo_fragment() throws RecognitionException {   
+    // $ANTLR start synpred147_InternalGo
+    public final void synpred147_InternalGo_fragment() throws RecognitionException {   
         // InternalGo.g:12250:3: ( rule__ExpressionList__Group_2__0 )
         // InternalGo.g:12250:3: rule__ExpressionList__Group_2__0
         {
@@ -62583,10 +62634,10 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
 
         }
     }
-    // $ANTLR end synpred146_InternalGo
+    // $ANTLR end synpred147_InternalGo
 
-    // $ANTLR start synpred147_InternalGo
-    public final void synpred147_InternalGo_fragment() throws RecognitionException {   
+    // $ANTLR start synpred148_InternalGo
+    public final void synpred148_InternalGo_fragment() throws RecognitionException {   
         // InternalGo.g:12439:3: ( rule__Expression2__Group_1__0 )
         // InternalGo.g:12439:3: rule__Expression2__Group_1__0
         {
@@ -62598,10 +62649,10 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
 
         }
     }
-    // $ANTLR end synpred147_InternalGo
+    // $ANTLR end synpred148_InternalGo
 
-    // $ANTLR start synpred148_InternalGo
-    public final void synpred148_InternalGo_fragment() throws RecognitionException {   
+    // $ANTLR start synpred149_InternalGo
+    public final void synpred149_InternalGo_fragment() throws RecognitionException {   
         // InternalGo.g:12871:3: ( rule__PrimaryExpr2__Alternatives_1 )
         // InternalGo.g:12871:3: rule__PrimaryExpr2__Alternatives_1
         {
@@ -62613,10 +62664,10 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
 
         }
     }
-    // $ANTLR end synpred148_InternalGo
+    // $ANTLR end synpred149_InternalGo
 
-    // $ANTLR start synpred149_InternalGo
-    public final void synpred149_InternalGo_fragment() throws RecognitionException {   
+    // $ANTLR start synpred150_InternalGo
+    public final void synpred150_InternalGo_fragment() throws RecognitionException {   
         // InternalGo.g:13249:3: ( rule__Operand__Group_1_1__0 )
         // InternalGo.g:13249:3: rule__Operand__Group_1_1__0
         {
@@ -62628,10 +62679,10 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
 
         }
     }
-    // $ANTLR end synpred149_InternalGo
+    // $ANTLR end synpred150_InternalGo
 
-    // $ANTLR start synpred162_InternalGo
-    public final void synpred162_InternalGo_fragment() throws RecognitionException {   
+    // $ANTLR start synpred163_InternalGo
+    public final void synpred163_InternalGo_fragment() throws RecognitionException {   
         // InternalGo.g:15194:3: ( rule__KeyedElement__Group_0__0 )
         // InternalGo.g:15194:3: rule__KeyedElement__Group_0__0
         {
@@ -62643,43 +62694,15 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
 
         }
     }
-    // $ANTLR end synpred162_InternalGo
+    // $ANTLR end synpred163_InternalGo
 
     // Delegated rules
 
-    public final boolean synpred104_InternalGo() {
+    public final boolean synpred150_InternalGo() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred104_InternalGo_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred147_InternalGo() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred147_InternalGo_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred68_InternalGo() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred68_InternalGo_fragment(); // can never throw exception
+            synpred150_InternalGo_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -62717,34 +62740,6 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred130_InternalGo() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred130_InternalGo_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred117_InternalGo() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred117_InternalGo_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
     public final boolean synpred74_InternalGo() {
         state.backtracking++;
         int start = input.mark();
@@ -62759,11 +62754,53 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
         state.failed=false;
         return success;
     }
+    public final boolean synpred163_InternalGo() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred163_InternalGo_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred120_InternalGo() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred120_InternalGo_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
     public final boolean synpred19_InternalGo() {
         state.backtracking++;
         int start = input.mark();
         try {
             synpred19_InternalGo_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred143_InternalGo() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred143_InternalGo_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -62801,11 +62838,319 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred113_InternalGo() {
+    public final boolean synpred133_InternalGo() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred113_InternalGo_fragment(); // can never throw exception
+            synpred133_InternalGo_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred126_InternalGo() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred126_InternalGo_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred47_InternalGo() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred47_InternalGo_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred43_InternalGo() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred43_InternalGo_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred119_InternalGo() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred119_InternalGo_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred149_InternalGo() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred149_InternalGo_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred62_InternalGo() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred62_InternalGo_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred52_InternalGo() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred52_InternalGo_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred102_InternalGo() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred102_InternalGo_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred39_InternalGo() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred39_InternalGo_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred42_InternalGo() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred42_InternalGo_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred70_InternalGo() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred70_InternalGo_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred131_InternalGo() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred131_InternalGo_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred148_InternalGo() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred148_InternalGo_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred118_InternalGo() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred118_InternalGo_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred69_InternalGo() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred69_InternalGo_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred90_InternalGo() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred90_InternalGo_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred104_InternalGo() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred104_InternalGo_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred147_InternalGo() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred147_InternalGo_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred114_InternalGo() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred114_InternalGo_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred68_InternalGo() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred68_InternalGo_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred117_InternalGo() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred117_InternalGo_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred137_InternalGo() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred137_InternalGo_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -62899,48 +63244,6 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred47_InternalGo() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred47_InternalGo_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred136_InternalGo() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred136_InternalGo_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred146_InternalGo() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred146_InternalGo_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
     public final boolean synpred142_InternalGo() {
         state.backtracking++;
         int start = input.mark();
@@ -62955,81 +63258,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred103_InternalGo() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred103_InternalGo_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred132_InternalGo() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred132_InternalGo_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred43_InternalGo() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred43_InternalGo_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
     public final boolean synpred66_InternalGo() {
         state.backtracking++;
         int start = input.mark();
         try {
             synpred66_InternalGo_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred162_InternalGo() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred162_InternalGo_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred119_InternalGo() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred119_InternalGo_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -63081,118 +63314,6 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred149_InternalGo() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred149_InternalGo_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred62_InternalGo() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred62_InternalGo_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred52_InternalGo() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred52_InternalGo_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred39_InternalGo() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred39_InternalGo_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred42_InternalGo() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred42_InternalGo_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred70_InternalGo() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred70_InternalGo_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred141_InternalGo() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred141_InternalGo_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred148_InternalGo() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred148_InternalGo_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
     public final boolean synpred65_InternalGo() {
         state.backtracking++;
         int start = input.mark();
@@ -63207,53 +63328,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred115_InternalGo() {
+    public final boolean synpred3_InternalGo() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred115_InternalGo_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred118_InternalGo() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred118_InternalGo_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred69_InternalGo() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred69_InternalGo_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred125_InternalGo() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred125_InternalGo_fragment(); // can never throw exception
+            synpred3_InternalGo_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -63277,20 +63356,6 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred101_InternalGo() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred101_InternalGo_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
     public final boolean synpred26_InternalGo() {
         state.backtracking++;
         int start = input.mark();
@@ -63305,11 +63370,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred90_InternalGo() {
+    public final boolean synpred105_InternalGo() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred90_InternalGo_fragment(); // can never throw exception
+            synpred105_InternalGo_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -63336,20 +63401,20 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
     protected DFA38 dfa38 = new DFA38(this);
     protected DFA40 dfa40 = new DFA40(this);
     protected DFA46 dfa46 = new DFA46(this);
-    protected DFA59 dfa59 = new DFA59(this);
-    protected DFA69 dfa69 = new DFA69(this);
-    protected DFA72 dfa72 = new DFA72(this);
-    protected DFA75 dfa75 = new DFA75(this);
-    protected DFA81 dfa81 = new DFA81(this);
-    protected DFA86 dfa86 = new DFA86(this);
-    protected DFA88 dfa88 = new DFA88(this);
-    protected DFA92 dfa92 = new DFA92(this);
-    protected DFA97 dfa97 = new DFA97(this);
+    protected DFA60 dfa60 = new DFA60(this);
+    protected DFA70 dfa70 = new DFA70(this);
+    protected DFA73 dfa73 = new DFA73(this);
+    protected DFA76 dfa76 = new DFA76(this);
+    protected DFA82 dfa82 = new DFA82(this);
+    protected DFA87 dfa87 = new DFA87(this);
+    protected DFA89 dfa89 = new DFA89(this);
+    protected DFA93 dfa93 = new DFA93(this);
     protected DFA98 dfa98 = new DFA98(this);
-    protected DFA102 dfa102 = new DFA102(this);
-    protected DFA104 dfa104 = new DFA104(this);
+    protected DFA99 dfa99 = new DFA99(this);
+    protected DFA103 dfa103 = new DFA103(this);
     protected DFA105 dfa105 = new DFA105(this);
-    protected DFA118 dfa118 = new DFA118(this);
+    protected DFA106 dfa106 = new DFA106(this);
+    protected DFA119 dfa119 = new DFA119(this);
     static final String dfa_1s = "\12\uffff";
     static final String dfa_2s = "\1\55\1\4\10\uffff";
     static final String dfa_3s = "\2\77\10\uffff";
@@ -65967,18 +66032,18 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
             throw nvae;
         }
     }
-    static final String dfa_68s = "\1\uffff\1\4\3\uffff\1\4\4\uffff";
-    static final String dfa_69s = "\1\5\1\4\2\5\1\uffff\1\4\1\0\1\5\1\uffff\1\0";
-    static final String dfa_70s = "\1\56\1\122\1\5\1\64\1\uffff\1\122\1\0\1\5\1\uffff\1\0";
-    static final String dfa_71s = "\4\uffff\1\1\3\uffff\1\2\1\uffff";
+    static final String dfa_68s = "\1\uffff\1\3\3\uffff\1\3\4\uffff";
+    static final String dfa_69s = "\1\5\1\4\1\5\1\uffff\1\5\1\4\1\0\1\5\1\uffff\1\0";
+    static final String dfa_70s = "\1\56\1\122\1\5\1\uffff\1\64\1\122\1\0\1\5\1\uffff\1\0";
+    static final String dfa_71s = "\3\uffff\1\1\4\uffff\1\2\1\uffff";
     static final String dfa_72s = "\6\uffff\1\0\2\uffff\1\1}>";
     static final String[] dfa_73s = {
             "\1\1\50\uffff\1\2",
-            "\4\4\4\uffff\6\4\27\uffff\6\4\1\3\1\4\2\uffff\23\4\1\uffff\10\4\1\uffff\3\4",
+            "\4\3\4\uffff\6\3\27\uffff\6\3\1\4\1\3\2\uffff\23\3\1\uffff\10\3\1\uffff\3\3",
             "\1\5",
-            "\1\6\50\uffff\1\7\5\uffff\1\4",
             "",
-            "\4\4\4\uffff\6\4\27\uffff\6\4\1\3\1\4\2\uffff\23\4\1\uffff\10\4\1\uffff\3\4",
+            "\1\6\50\uffff\1\7\5\uffff\1\3",
+            "\4\3\4\uffff\6\3\27\uffff\6\3\1\4\1\3\2\uffff\23\3\1\uffff\10\3\1\uffff\3\3",
             "\1\uffff",
             "\1\11",
             "",
@@ -66018,7 +66083,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                         int index46_6 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred90_InternalGo()) ) {s = 4;}
+                        if ( (synpred90_InternalGo()) ) {s = 3;}
 
                         else if ( (true) ) {s = 8;}
 
@@ -66033,7 +66098,7 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
                         int index46_9 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred90_InternalGo()) ) {s = 4;}
+                        if ( (synpred90_InternalGo()) ) {s = 3;}
 
                         else if ( (true) ) {s = 8;}
 
@@ -66115,11 +66180,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
     static final short[] dfa_79 = DFA.unpackEncodedString(dfa_79s);
     static final short[][] dfa_80 = unpackEncodedStringArray(dfa_80s);
 
-    class DFA59 extends DFA {
+    class DFA60 extends DFA {
 
-        public DFA59(BaseRecognizer recognizer) {
+        public DFA60(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 59;
+            this.decisionNumber = 60;
             this.eot = dfa_74;
             this.eof = dfa_75;
             this.min = dfa_76;
@@ -66136,159 +66201,159 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA59_1 = input.LA(1);
+                        int LA60_1 = input.LA(1);
 
                          
-                        int index59_1 = input.index();
+                        int index60_1 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred103_InternalGo()) ) {s = 48;}
+                        if ( (synpred104_InternalGo()) ) {s = 48;}
 
                         else if ( (true) ) {s = 11;}
 
                          
-                        input.seek(index59_1);
+                        input.seek(index60_1);
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA59_2 = input.LA(1);
+                        int LA60_2 = input.LA(1);
 
                          
-                        int index59_2 = input.index();
+                        int index60_2 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred103_InternalGo()) ) {s = 48;}
+                        if ( (synpred104_InternalGo()) ) {s = 48;}
 
                         else if ( (true) ) {s = 11;}
 
                          
-                        input.seek(index59_2);
+                        input.seek(index60_2);
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA59_3 = input.LA(1);
+                        int LA60_3 = input.LA(1);
 
                          
-                        int index59_3 = input.index();
+                        int index60_3 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred103_InternalGo()) ) {s = 48;}
+                        if ( (synpred104_InternalGo()) ) {s = 48;}
 
                         else if ( (true) ) {s = 11;}
 
                          
-                        input.seek(index59_3);
+                        input.seek(index60_3);
                         if ( s>=0 ) return s;
                         break;
                     case 3 : 
-                        int LA59_4 = input.LA(1);
+                        int LA60_4 = input.LA(1);
 
                          
-                        int index59_4 = input.index();
+                        int index60_4 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred103_InternalGo()) ) {s = 48;}
+                        if ( (synpred104_InternalGo()) ) {s = 48;}
 
                         else if ( (true) ) {s = 11;}
 
                          
-                        input.seek(index59_4);
+                        input.seek(index60_4);
                         if ( s>=0 ) return s;
                         break;
                     case 4 : 
-                        int LA59_5 = input.LA(1);
+                        int LA60_5 = input.LA(1);
 
                          
-                        int index59_5 = input.index();
+                        int index60_5 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred103_InternalGo()) ) {s = 48;}
+                        if ( (synpred104_InternalGo()) ) {s = 48;}
 
                         else if ( (true) ) {s = 11;}
 
                          
-                        input.seek(index59_5);
+                        input.seek(index60_5);
                         if ( s>=0 ) return s;
                         break;
                     case 5 : 
-                        int LA59_6 = input.LA(1);
+                        int LA60_6 = input.LA(1);
 
                          
-                        int index59_6 = input.index();
+                        int index60_6 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred103_InternalGo()) ) {s = 48;}
+                        if ( (synpred104_InternalGo()) ) {s = 48;}
 
                         else if ( (true) ) {s = 11;}
 
                          
-                        input.seek(index59_6);
+                        input.seek(index60_6);
                         if ( s>=0 ) return s;
                         break;
                     case 6 : 
-                        int LA59_7 = input.LA(1);
+                        int LA60_7 = input.LA(1);
 
                          
-                        int index59_7 = input.index();
+                        int index60_7 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred103_InternalGo()) ) {s = 48;}
+                        if ( (synpred104_InternalGo()) ) {s = 48;}
 
                         else if ( (true) ) {s = 11;}
 
                          
-                        input.seek(index59_7);
+                        input.seek(index60_7);
                         if ( s>=0 ) return s;
                         break;
                     case 7 : 
-                        int LA59_8 = input.LA(1);
+                        int LA60_8 = input.LA(1);
 
                          
-                        int index59_8 = input.index();
+                        int index60_8 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred103_InternalGo()) ) {s = 48;}
+                        if ( (synpred104_InternalGo()) ) {s = 48;}
 
                         else if ( (true) ) {s = 11;}
 
                          
-                        input.seek(index59_8);
+                        input.seek(index60_8);
                         if ( s>=0 ) return s;
                         break;
                     case 8 : 
-                        int LA59_9 = input.LA(1);
+                        int LA60_9 = input.LA(1);
 
                          
-                        int index59_9 = input.index();
+                        int index60_9 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred103_InternalGo()) ) {s = 48;}
+                        if ( (synpred104_InternalGo()) ) {s = 48;}
 
                         else if ( (true) ) {s = 11;}
 
                          
-                        input.seek(index59_9);
+                        input.seek(index60_9);
                         if ( s>=0 ) return s;
                         break;
                     case 9 : 
-                        int LA59_10 = input.LA(1);
+                        int LA60_10 = input.LA(1);
 
                          
-                        int index59_10 = input.index();
+                        int index60_10 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred103_InternalGo()) ) {s = 48;}
+                        if ( (synpred104_InternalGo()) ) {s = 48;}
 
                         else if ( (true) ) {s = 11;}
 
                          
-                        input.seek(index59_10);
+                        input.seek(index60_10);
                         if ( s>=0 ) return s;
                         break;
             }
             if (state.backtracking>0) {state.failed=true; return -1;}
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 59, _s, input);
+                new NoViableAltException(getDescription(), 60, _s, input);
             error(nvae);
             throw nvae;
         }
@@ -66323,11 +66388,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
     static final short[] dfa_86 = DFA.unpackEncodedString(dfa_86s);
     static final short[][] dfa_87 = unpackEncodedStringArray(dfa_87s);
 
-    class DFA69 extends DFA {
+    class DFA70 extends DFA {
 
-        public DFA69(BaseRecognizer recognizer) {
+        public DFA70(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 69;
+            this.decisionNumber = 70;
             this.eot = dfa_81;
             this.eof = dfa_82;
             this.min = dfa_83;
@@ -66344,24 +66409,24 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA69_1 = input.LA(1);
+                        int LA70_1 = input.LA(1);
 
                          
-                        int index69_1 = input.index();
+                        int index70_1 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred113_InternalGo()) ) {s = 12;}
+                        if ( (synpred114_InternalGo()) ) {s = 12;}
 
                         else if ( (true) ) {s = 2;}
 
                          
-                        input.seek(index69_1);
+                        input.seek(index70_1);
                         if ( s>=0 ) return s;
                         break;
             }
             if (state.backtracking>0) {state.failed=true; return -1;}
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 69, _s, input);
+                new NoViableAltException(getDescription(), 70, _s, input);
             error(nvae);
             throw nvae;
         }
@@ -66424,11 +66489,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
     static final short[] dfa_93 = DFA.unpackEncodedString(dfa_93s);
     static final short[][] dfa_94 = unpackEncodedStringArray(dfa_94s);
 
-    class DFA72 extends DFA {
+    class DFA73 extends DFA {
 
-        public DFA72(BaseRecognizer recognizer) {
+        public DFA73(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 72;
+            this.decisionNumber = 73;
             this.eot = dfa_88;
             this.eof = dfa_89;
             this.min = dfa_90;
@@ -66445,294 +66510,294 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA72_1 = input.LA(1);
+                        int LA73_1 = input.LA(1);
 
                          
-                        int index72_1 = input.index();
+                        int index73_1 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred116_InternalGo()) ) {s = 40;}
+                        if ( (synpred117_InternalGo()) ) {s = 40;}
 
                         else if ( (true) ) {s = 20;}
 
                          
-                        input.seek(index72_1);
+                        input.seek(index73_1);
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA72_2 = input.LA(1);
+                        int LA73_2 = input.LA(1);
 
                          
-                        int index72_2 = input.index();
+                        int index73_2 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred116_InternalGo()) ) {s = 40;}
+                        if ( (synpred117_InternalGo()) ) {s = 40;}
 
                         else if ( (true) ) {s = 20;}
 
                          
-                        input.seek(index72_2);
+                        input.seek(index73_2);
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA72_3 = input.LA(1);
+                        int LA73_3 = input.LA(1);
 
                          
-                        int index72_3 = input.index();
+                        int index73_3 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred116_InternalGo()) ) {s = 40;}
+                        if ( (synpred117_InternalGo()) ) {s = 40;}
 
                         else if ( (true) ) {s = 20;}
 
                          
-                        input.seek(index72_3);
+                        input.seek(index73_3);
                         if ( s>=0 ) return s;
                         break;
                     case 3 : 
-                        int LA72_4 = input.LA(1);
+                        int LA73_4 = input.LA(1);
 
                          
-                        int index72_4 = input.index();
+                        int index73_4 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred116_InternalGo()) ) {s = 40;}
+                        if ( (synpred117_InternalGo()) ) {s = 40;}
 
                         else if ( (true) ) {s = 20;}
 
                          
-                        input.seek(index72_4);
+                        input.seek(index73_4);
                         if ( s>=0 ) return s;
                         break;
                     case 4 : 
-                        int LA72_5 = input.LA(1);
+                        int LA73_5 = input.LA(1);
 
                          
-                        int index72_5 = input.index();
+                        int index73_5 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred116_InternalGo()) ) {s = 40;}
+                        if ( (synpred117_InternalGo()) ) {s = 40;}
 
                         else if ( (true) ) {s = 20;}
 
                          
-                        input.seek(index72_5);
+                        input.seek(index73_5);
                         if ( s>=0 ) return s;
                         break;
                     case 5 : 
-                        int LA72_6 = input.LA(1);
+                        int LA73_6 = input.LA(1);
 
                          
-                        int index72_6 = input.index();
+                        int index73_6 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred116_InternalGo()) ) {s = 40;}
+                        if ( (synpred117_InternalGo()) ) {s = 40;}
 
                         else if ( (true) ) {s = 20;}
 
                          
-                        input.seek(index72_6);
+                        input.seek(index73_6);
                         if ( s>=0 ) return s;
                         break;
                     case 6 : 
-                        int LA72_7 = input.LA(1);
+                        int LA73_7 = input.LA(1);
 
                          
-                        int index72_7 = input.index();
+                        int index73_7 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred116_InternalGo()) ) {s = 40;}
+                        if ( (synpred117_InternalGo()) ) {s = 40;}
 
                         else if ( (true) ) {s = 20;}
 
                          
-                        input.seek(index72_7);
+                        input.seek(index73_7);
                         if ( s>=0 ) return s;
                         break;
                     case 7 : 
-                        int LA72_8 = input.LA(1);
+                        int LA73_8 = input.LA(1);
 
                          
-                        int index72_8 = input.index();
+                        int index73_8 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred116_InternalGo()) ) {s = 40;}
+                        if ( (synpred117_InternalGo()) ) {s = 40;}
 
                         else if ( (true) ) {s = 20;}
 
                          
-                        input.seek(index72_8);
+                        input.seek(index73_8);
                         if ( s>=0 ) return s;
                         break;
                     case 8 : 
-                        int LA72_9 = input.LA(1);
+                        int LA73_9 = input.LA(1);
 
                          
-                        int index72_9 = input.index();
+                        int index73_9 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred116_InternalGo()) ) {s = 40;}
+                        if ( (synpred117_InternalGo()) ) {s = 40;}
 
                         else if ( (true) ) {s = 20;}
 
                          
-                        input.seek(index72_9);
+                        input.seek(index73_9);
                         if ( s>=0 ) return s;
                         break;
                     case 9 : 
-                        int LA72_10 = input.LA(1);
+                        int LA73_10 = input.LA(1);
 
                          
-                        int index72_10 = input.index();
+                        int index73_10 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred116_InternalGo()) ) {s = 40;}
+                        if ( (synpred117_InternalGo()) ) {s = 40;}
 
                         else if ( (true) ) {s = 20;}
 
                          
-                        input.seek(index72_10);
+                        input.seek(index73_10);
                         if ( s>=0 ) return s;
                         break;
                     case 10 : 
-                        int LA72_11 = input.LA(1);
+                        int LA73_11 = input.LA(1);
 
                          
-                        int index72_11 = input.index();
+                        int index73_11 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred116_InternalGo()) ) {s = 40;}
+                        if ( (synpred117_InternalGo()) ) {s = 40;}
 
                         else if ( (true) ) {s = 20;}
 
                          
-                        input.seek(index72_11);
+                        input.seek(index73_11);
                         if ( s>=0 ) return s;
                         break;
                     case 11 : 
-                        int LA72_12 = input.LA(1);
+                        int LA73_12 = input.LA(1);
 
                          
-                        int index72_12 = input.index();
+                        int index73_12 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred116_InternalGo()) ) {s = 40;}
+                        if ( (synpred117_InternalGo()) ) {s = 40;}
 
                         else if ( (true) ) {s = 20;}
 
                          
-                        input.seek(index72_12);
+                        input.seek(index73_12);
                         if ( s>=0 ) return s;
                         break;
                     case 12 : 
-                        int LA72_13 = input.LA(1);
+                        int LA73_13 = input.LA(1);
 
                          
-                        int index72_13 = input.index();
+                        int index73_13 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred116_InternalGo()) ) {s = 40;}
+                        if ( (synpred117_InternalGo()) ) {s = 40;}
 
                         else if ( (true) ) {s = 20;}
 
                          
-                        input.seek(index72_13);
+                        input.seek(index73_13);
                         if ( s>=0 ) return s;
                         break;
                     case 13 : 
-                        int LA72_14 = input.LA(1);
+                        int LA73_14 = input.LA(1);
 
                          
-                        int index72_14 = input.index();
+                        int index73_14 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred116_InternalGo()) ) {s = 40;}
+                        if ( (synpred117_InternalGo()) ) {s = 40;}
 
                         else if ( (true) ) {s = 20;}
 
                          
-                        input.seek(index72_14);
+                        input.seek(index73_14);
                         if ( s>=0 ) return s;
                         break;
                     case 14 : 
-                        int LA72_15 = input.LA(1);
+                        int LA73_15 = input.LA(1);
 
                          
-                        int index72_15 = input.index();
+                        int index73_15 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred116_InternalGo()) ) {s = 40;}
+                        if ( (synpred117_InternalGo()) ) {s = 40;}
 
                         else if ( (true) ) {s = 20;}
 
                          
-                        input.seek(index72_15);
+                        input.seek(index73_15);
                         if ( s>=0 ) return s;
                         break;
                     case 15 : 
-                        int LA72_16 = input.LA(1);
+                        int LA73_16 = input.LA(1);
 
                          
-                        int index72_16 = input.index();
+                        int index73_16 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred116_InternalGo()) ) {s = 40;}
+                        if ( (synpred117_InternalGo()) ) {s = 40;}
 
                         else if ( (true) ) {s = 20;}
 
                          
-                        input.seek(index72_16);
+                        input.seek(index73_16);
                         if ( s>=0 ) return s;
                         break;
                     case 16 : 
-                        int LA72_17 = input.LA(1);
+                        int LA73_17 = input.LA(1);
 
                          
-                        int index72_17 = input.index();
+                        int index73_17 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred116_InternalGo()) ) {s = 40;}
+                        if ( (synpred117_InternalGo()) ) {s = 40;}
 
                         else if ( (true) ) {s = 20;}
 
                          
-                        input.seek(index72_17);
+                        input.seek(index73_17);
                         if ( s>=0 ) return s;
                         break;
                     case 17 : 
-                        int LA72_18 = input.LA(1);
+                        int LA73_18 = input.LA(1);
 
                          
-                        int index72_18 = input.index();
+                        int index73_18 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred116_InternalGo()) ) {s = 40;}
+                        if ( (synpred117_InternalGo()) ) {s = 40;}
 
                         else if ( (true) ) {s = 20;}
 
                          
-                        input.seek(index72_18);
+                        input.seek(index73_18);
                         if ( s>=0 ) return s;
                         break;
                     case 18 : 
-                        int LA72_19 = input.LA(1);
+                        int LA73_19 = input.LA(1);
 
                          
-                        int index72_19 = input.index();
+                        int index73_19 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred116_InternalGo()) ) {s = 40;}
+                        if ( (synpred117_InternalGo()) ) {s = 40;}
 
                         else if ( (true) ) {s = 20;}
 
                          
-                        input.seek(index72_19);
+                        input.seek(index73_19);
                         if ( s>=0 ) return s;
                         break;
             }
             if (state.backtracking>0) {state.failed=true; return -1;}
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 72, _s, input);
+                new NoViableAltException(getDescription(), 73, _s, input);
             error(nvae);
             throw nvae;
         }
@@ -66763,11 +66828,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
     };
     static final short[][] dfa_95 = unpackEncodedStringArray(dfa_95s);
 
-    class DFA75 extends DFA {
+    class DFA76 extends DFA {
 
-        public DFA75(BaseRecognizer recognizer) {
+        public DFA76(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 75;
+            this.decisionNumber = 76;
             this.eot = dfa_38;
             this.eof = dfa_38;
             this.min = dfa_39;
@@ -66784,294 +66849,294 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA75_1 = input.LA(1);
+                        int LA76_1 = input.LA(1);
 
                          
-                        int index75_1 = input.index();
+                        int index76_1 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred119_InternalGo()) ) {s = 20;}
+                        if ( (synpred120_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index75_1);
+                        input.seek(index76_1);
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA75_2 = input.LA(1);
+                        int LA76_2 = input.LA(1);
 
                          
-                        int index75_2 = input.index();
+                        int index76_2 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred119_InternalGo()) ) {s = 20;}
+                        if ( (synpred120_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index75_2);
+                        input.seek(index76_2);
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA75_3 = input.LA(1);
+                        int LA76_3 = input.LA(1);
 
                          
-                        int index75_3 = input.index();
+                        int index76_3 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred119_InternalGo()) ) {s = 20;}
+                        if ( (synpred120_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index75_3);
+                        input.seek(index76_3);
                         if ( s>=0 ) return s;
                         break;
                     case 3 : 
-                        int LA75_4 = input.LA(1);
+                        int LA76_4 = input.LA(1);
 
                          
-                        int index75_4 = input.index();
+                        int index76_4 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred119_InternalGo()) ) {s = 20;}
+                        if ( (synpred120_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index75_4);
+                        input.seek(index76_4);
                         if ( s>=0 ) return s;
                         break;
                     case 4 : 
-                        int LA75_5 = input.LA(1);
+                        int LA76_5 = input.LA(1);
 
                          
-                        int index75_5 = input.index();
+                        int index76_5 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred119_InternalGo()) ) {s = 20;}
+                        if ( (synpred120_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index75_5);
+                        input.seek(index76_5);
                         if ( s>=0 ) return s;
                         break;
                     case 5 : 
-                        int LA75_6 = input.LA(1);
+                        int LA76_6 = input.LA(1);
 
                          
-                        int index75_6 = input.index();
+                        int index76_6 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred119_InternalGo()) ) {s = 20;}
+                        if ( (synpred120_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index75_6);
+                        input.seek(index76_6);
                         if ( s>=0 ) return s;
                         break;
                     case 6 : 
-                        int LA75_7 = input.LA(1);
+                        int LA76_7 = input.LA(1);
 
                          
-                        int index75_7 = input.index();
+                        int index76_7 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred119_InternalGo()) ) {s = 20;}
+                        if ( (synpred120_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index75_7);
+                        input.seek(index76_7);
                         if ( s>=0 ) return s;
                         break;
                     case 7 : 
-                        int LA75_8 = input.LA(1);
+                        int LA76_8 = input.LA(1);
 
                          
-                        int index75_8 = input.index();
+                        int index76_8 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred119_InternalGo()) ) {s = 20;}
+                        if ( (synpred120_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index75_8);
+                        input.seek(index76_8);
                         if ( s>=0 ) return s;
                         break;
                     case 8 : 
-                        int LA75_9 = input.LA(1);
+                        int LA76_9 = input.LA(1);
 
                          
-                        int index75_9 = input.index();
+                        int index76_9 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred119_InternalGo()) ) {s = 20;}
+                        if ( (synpred120_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index75_9);
+                        input.seek(index76_9);
                         if ( s>=0 ) return s;
                         break;
                     case 9 : 
-                        int LA75_10 = input.LA(1);
+                        int LA76_10 = input.LA(1);
 
                          
-                        int index75_10 = input.index();
+                        int index76_10 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred119_InternalGo()) ) {s = 20;}
+                        if ( (synpred120_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index75_10);
+                        input.seek(index76_10);
                         if ( s>=0 ) return s;
                         break;
                     case 10 : 
-                        int LA75_11 = input.LA(1);
+                        int LA76_11 = input.LA(1);
 
                          
-                        int index75_11 = input.index();
+                        int index76_11 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred119_InternalGo()) ) {s = 20;}
+                        if ( (synpred120_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index75_11);
+                        input.seek(index76_11);
                         if ( s>=0 ) return s;
                         break;
                     case 11 : 
-                        int LA75_12 = input.LA(1);
+                        int LA76_12 = input.LA(1);
 
                          
-                        int index75_12 = input.index();
+                        int index76_12 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred119_InternalGo()) ) {s = 20;}
+                        if ( (synpred120_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index75_12);
+                        input.seek(index76_12);
                         if ( s>=0 ) return s;
                         break;
                     case 12 : 
-                        int LA75_13 = input.LA(1);
+                        int LA76_13 = input.LA(1);
 
                          
-                        int index75_13 = input.index();
+                        int index76_13 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred119_InternalGo()) ) {s = 20;}
+                        if ( (synpred120_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index75_13);
+                        input.seek(index76_13);
                         if ( s>=0 ) return s;
                         break;
                     case 13 : 
-                        int LA75_14 = input.LA(1);
+                        int LA76_14 = input.LA(1);
 
                          
-                        int index75_14 = input.index();
+                        int index76_14 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred119_InternalGo()) ) {s = 20;}
+                        if ( (synpred120_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index75_14);
+                        input.seek(index76_14);
                         if ( s>=0 ) return s;
                         break;
                     case 14 : 
-                        int LA75_15 = input.LA(1);
+                        int LA76_15 = input.LA(1);
 
                          
-                        int index75_15 = input.index();
+                        int index76_15 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred119_InternalGo()) ) {s = 20;}
+                        if ( (synpred120_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index75_15);
+                        input.seek(index76_15);
                         if ( s>=0 ) return s;
                         break;
                     case 15 : 
-                        int LA75_16 = input.LA(1);
+                        int LA76_16 = input.LA(1);
 
                          
-                        int index75_16 = input.index();
+                        int index76_16 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred119_InternalGo()) ) {s = 20;}
+                        if ( (synpred120_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index75_16);
+                        input.seek(index76_16);
                         if ( s>=0 ) return s;
                         break;
                     case 16 : 
-                        int LA75_17 = input.LA(1);
+                        int LA76_17 = input.LA(1);
 
                          
-                        int index75_17 = input.index();
+                        int index76_17 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred119_InternalGo()) ) {s = 20;}
+                        if ( (synpred120_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index75_17);
+                        input.seek(index76_17);
                         if ( s>=0 ) return s;
                         break;
                     case 17 : 
-                        int LA75_18 = input.LA(1);
+                        int LA76_18 = input.LA(1);
 
                          
-                        int index75_18 = input.index();
+                        int index76_18 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred119_InternalGo()) ) {s = 20;}
+                        if ( (synpred120_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index75_18);
+                        input.seek(index76_18);
                         if ( s>=0 ) return s;
                         break;
                     case 18 : 
-                        int LA75_19 = input.LA(1);
+                        int LA76_19 = input.LA(1);
 
                          
-                        int index75_19 = input.index();
+                        int index76_19 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred119_InternalGo()) ) {s = 20;}
+                        if ( (synpred120_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index75_19);
+                        input.seek(index76_19);
                         if ( s>=0 ) return s;
                         break;
             }
             if (state.backtracking>0) {state.failed=true; return -1;}
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 75, _s, input);
+                new NoViableAltException(getDescription(), 76, _s, input);
             error(nvae);
             throw nvae;
         }
@@ -67136,11 +67201,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
     static final short[] dfa_101 = DFA.unpackEncodedString(dfa_101s);
     static final short[][] dfa_102 = unpackEncodedStringArray(dfa_102s);
 
-    class DFA81 extends DFA {
+    class DFA82 extends DFA {
 
-        public DFA81(BaseRecognizer recognizer) {
+        public DFA82(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 81;
+            this.decisionNumber = 82;
             this.eot = dfa_96;
             this.eof = dfa_97;
             this.min = dfa_98;
@@ -67157,169 +67222,169 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA81_1 = input.LA(1);
+                        int LA82_1 = input.LA(1);
 
                          
-                        int index81_1 = input.index();
+                        int index82_1 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred125_InternalGo()) ) {s = 42;}
+                        if ( (synpred126_InternalGo()) ) {s = 42;}
 
                         else if ( (true) ) {s = 11;}
 
                          
-                        input.seek(index81_1);
+                        input.seek(index82_1);
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA81_2 = input.LA(1);
+                        int LA82_2 = input.LA(1);
 
                          
-                        int index81_2 = input.index();
+                        int index82_2 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred125_InternalGo()) ) {s = 42;}
+                        if ( (synpred126_InternalGo()) ) {s = 42;}
 
                         else if ( (true) ) {s = 11;}
 
                          
-                        input.seek(index81_2);
+                        input.seek(index82_2);
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA81_3 = input.LA(1);
+                        int LA82_3 = input.LA(1);
 
                          
-                        int index81_3 = input.index();
+                        int index82_3 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred125_InternalGo()) ) {s = 42;}
+                        if ( (synpred126_InternalGo()) ) {s = 42;}
 
                         else if ( (true) ) {s = 11;}
 
                          
-                        input.seek(index81_3);
+                        input.seek(index82_3);
                         if ( s>=0 ) return s;
                         break;
                     case 3 : 
-                        int LA81_4 = input.LA(1);
+                        int LA82_4 = input.LA(1);
 
                          
-                        int index81_4 = input.index();
+                        int index82_4 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred125_InternalGo()) ) {s = 42;}
+                        if ( (synpred126_InternalGo()) ) {s = 42;}
 
                         else if ( (true) ) {s = 11;}
 
                          
-                        input.seek(index81_4);
+                        input.seek(index82_4);
                         if ( s>=0 ) return s;
                         break;
                     case 4 : 
-                        int LA81_5 = input.LA(1);
+                        int LA82_5 = input.LA(1);
 
                          
-                        int index81_5 = input.index();
+                        int index82_5 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred125_InternalGo()) ) {s = 42;}
+                        if ( (synpred126_InternalGo()) ) {s = 42;}
 
                         else if ( (true) ) {s = 11;}
 
                          
-                        input.seek(index81_5);
+                        input.seek(index82_5);
                         if ( s>=0 ) return s;
                         break;
                     case 5 : 
-                        int LA81_6 = input.LA(1);
+                        int LA82_6 = input.LA(1);
 
                          
-                        int index81_6 = input.index();
+                        int index82_6 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred125_InternalGo()) ) {s = 42;}
+                        if ( (synpred126_InternalGo()) ) {s = 42;}
 
                         else if ( (true) ) {s = 11;}
 
                          
-                        input.seek(index81_6);
+                        input.seek(index82_6);
                         if ( s>=0 ) return s;
                         break;
                     case 6 : 
-                        int LA81_7 = input.LA(1);
+                        int LA82_7 = input.LA(1);
 
                          
-                        int index81_7 = input.index();
+                        int index82_7 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred125_InternalGo()) ) {s = 42;}
+                        if ( (synpred126_InternalGo()) ) {s = 42;}
 
                         else if ( (true) ) {s = 11;}
 
                          
-                        input.seek(index81_7);
+                        input.seek(index82_7);
                         if ( s>=0 ) return s;
                         break;
                     case 7 : 
-                        int LA81_8 = input.LA(1);
+                        int LA82_8 = input.LA(1);
 
                          
-                        int index81_8 = input.index();
+                        int index82_8 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred125_InternalGo()) ) {s = 42;}
+                        if ( (synpred126_InternalGo()) ) {s = 42;}
 
                         else if ( (true) ) {s = 11;}
 
                          
-                        input.seek(index81_8);
+                        input.seek(index82_8);
                         if ( s>=0 ) return s;
                         break;
                     case 8 : 
-                        int LA81_9 = input.LA(1);
+                        int LA82_9 = input.LA(1);
 
                          
-                        int index81_9 = input.index();
+                        int index82_9 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred125_InternalGo()) ) {s = 42;}
+                        if ( (synpred126_InternalGo()) ) {s = 42;}
 
                         else if ( (true) ) {s = 11;}
 
                          
-                        input.seek(index81_9);
+                        input.seek(index82_9);
                         if ( s>=0 ) return s;
                         break;
                     case 9 : 
-                        int LA81_10 = input.LA(1);
+                        int LA82_10 = input.LA(1);
 
                          
-                        int index81_10 = input.index();
+                        int index82_10 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred125_InternalGo()) ) {s = 42;}
+                        if ( (synpred126_InternalGo()) ) {s = 42;}
 
                         else if ( (true) ) {s = 11;}
 
                          
-                        input.seek(index81_10);
+                        input.seek(index82_10);
                         if ( s>=0 ) return s;
                         break;
             }
             if (state.backtracking>0) {state.failed=true; return -1;}
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 81, _s, input);
+                new NoViableAltException(getDescription(), 82, _s, input);
             error(nvae);
             throw nvae;
         }
     }
 
-    class DFA86 extends DFA {
+    class DFA87 extends DFA {
 
-        public DFA86(BaseRecognizer recognizer) {
+        public DFA87(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 86;
+            this.decisionNumber = 87;
             this.eot = dfa_96;
             this.eof = dfa_97;
             this.min = dfa_98;
@@ -67336,159 +67401,159 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA86_1 = input.LA(1);
+                        int LA87_1 = input.LA(1);
 
                          
-                        int index86_1 = input.index();
+                        int index87_1 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred130_InternalGo()) ) {s = 42;}
+                        if ( (synpred131_InternalGo()) ) {s = 42;}
 
                         else if ( (true) ) {s = 11;}
 
                          
-                        input.seek(index86_1);
+                        input.seek(index87_1);
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA86_2 = input.LA(1);
+                        int LA87_2 = input.LA(1);
 
                          
-                        int index86_2 = input.index();
+                        int index87_2 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred130_InternalGo()) ) {s = 42;}
+                        if ( (synpred131_InternalGo()) ) {s = 42;}
 
                         else if ( (true) ) {s = 11;}
 
                          
-                        input.seek(index86_2);
+                        input.seek(index87_2);
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA86_3 = input.LA(1);
+                        int LA87_3 = input.LA(1);
 
                          
-                        int index86_3 = input.index();
+                        int index87_3 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred130_InternalGo()) ) {s = 42;}
+                        if ( (synpred131_InternalGo()) ) {s = 42;}
 
                         else if ( (true) ) {s = 11;}
 
                          
-                        input.seek(index86_3);
+                        input.seek(index87_3);
                         if ( s>=0 ) return s;
                         break;
                     case 3 : 
-                        int LA86_4 = input.LA(1);
+                        int LA87_4 = input.LA(1);
 
                          
-                        int index86_4 = input.index();
+                        int index87_4 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred130_InternalGo()) ) {s = 42;}
+                        if ( (synpred131_InternalGo()) ) {s = 42;}
 
                         else if ( (true) ) {s = 11;}
 
                          
-                        input.seek(index86_4);
+                        input.seek(index87_4);
                         if ( s>=0 ) return s;
                         break;
                     case 4 : 
-                        int LA86_5 = input.LA(1);
+                        int LA87_5 = input.LA(1);
 
                          
-                        int index86_5 = input.index();
+                        int index87_5 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred130_InternalGo()) ) {s = 42;}
+                        if ( (synpred131_InternalGo()) ) {s = 42;}
 
                         else if ( (true) ) {s = 11;}
 
                          
-                        input.seek(index86_5);
+                        input.seek(index87_5);
                         if ( s>=0 ) return s;
                         break;
                     case 5 : 
-                        int LA86_6 = input.LA(1);
+                        int LA87_6 = input.LA(1);
 
                          
-                        int index86_6 = input.index();
+                        int index87_6 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred130_InternalGo()) ) {s = 42;}
+                        if ( (synpred131_InternalGo()) ) {s = 42;}
 
                         else if ( (true) ) {s = 11;}
 
                          
-                        input.seek(index86_6);
+                        input.seek(index87_6);
                         if ( s>=0 ) return s;
                         break;
                     case 6 : 
-                        int LA86_7 = input.LA(1);
+                        int LA87_7 = input.LA(1);
 
                          
-                        int index86_7 = input.index();
+                        int index87_7 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred130_InternalGo()) ) {s = 42;}
+                        if ( (synpred131_InternalGo()) ) {s = 42;}
 
                         else if ( (true) ) {s = 11;}
 
                          
-                        input.seek(index86_7);
+                        input.seek(index87_7);
                         if ( s>=0 ) return s;
                         break;
                     case 7 : 
-                        int LA86_8 = input.LA(1);
+                        int LA87_8 = input.LA(1);
 
                          
-                        int index86_8 = input.index();
+                        int index87_8 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred130_InternalGo()) ) {s = 42;}
+                        if ( (synpred131_InternalGo()) ) {s = 42;}
 
                         else if ( (true) ) {s = 11;}
 
                          
-                        input.seek(index86_8);
+                        input.seek(index87_8);
                         if ( s>=0 ) return s;
                         break;
                     case 8 : 
-                        int LA86_9 = input.LA(1);
+                        int LA87_9 = input.LA(1);
 
                          
-                        int index86_9 = input.index();
+                        int index87_9 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred130_InternalGo()) ) {s = 42;}
+                        if ( (synpred131_InternalGo()) ) {s = 42;}
 
                         else if ( (true) ) {s = 11;}
 
                          
-                        input.seek(index86_9);
+                        input.seek(index87_9);
                         if ( s>=0 ) return s;
                         break;
                     case 9 : 
-                        int LA86_10 = input.LA(1);
+                        int LA87_10 = input.LA(1);
 
                          
-                        int index86_10 = input.index();
+                        int index87_10 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred130_InternalGo()) ) {s = 42;}
+                        if ( (synpred131_InternalGo()) ) {s = 42;}
 
                         else if ( (true) ) {s = 11;}
 
                          
-                        input.seek(index86_10);
+                        input.seek(index87_10);
                         if ( s>=0 ) return s;
                         break;
             }
             if (state.backtracking>0) {state.failed=true; return -1;}
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 86, _s, input);
+                new NoViableAltException(getDescription(), 87, _s, input);
             error(nvae);
             throw nvae;
         }
@@ -67519,11 +67584,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
     };
     static final short[][] dfa_103 = unpackEncodedStringArray(dfa_103s);
 
-    class DFA88 extends DFA {
+    class DFA89 extends DFA {
 
-        public DFA88(BaseRecognizer recognizer) {
+        public DFA89(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 88;
+            this.decisionNumber = 89;
             this.eot = dfa_38;
             this.eof = dfa_38;
             this.min = dfa_39;
@@ -67540,294 +67605,294 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA88_1 = input.LA(1);
+                        int LA89_1 = input.LA(1);
 
                          
-                        int index88_1 = input.index();
+                        int index89_1 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred132_InternalGo()) ) {s = 20;}
+                        if ( (synpred133_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index88_1);
+                        input.seek(index89_1);
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA88_2 = input.LA(1);
+                        int LA89_2 = input.LA(1);
 
                          
-                        int index88_2 = input.index();
+                        int index89_2 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred132_InternalGo()) ) {s = 20;}
+                        if ( (synpred133_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index88_2);
+                        input.seek(index89_2);
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA88_3 = input.LA(1);
+                        int LA89_3 = input.LA(1);
 
                          
-                        int index88_3 = input.index();
+                        int index89_3 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred132_InternalGo()) ) {s = 20;}
+                        if ( (synpred133_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index88_3);
+                        input.seek(index89_3);
                         if ( s>=0 ) return s;
                         break;
                     case 3 : 
-                        int LA88_4 = input.LA(1);
+                        int LA89_4 = input.LA(1);
 
                          
-                        int index88_4 = input.index();
+                        int index89_4 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred132_InternalGo()) ) {s = 20;}
+                        if ( (synpred133_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index88_4);
+                        input.seek(index89_4);
                         if ( s>=0 ) return s;
                         break;
                     case 4 : 
-                        int LA88_5 = input.LA(1);
+                        int LA89_5 = input.LA(1);
 
                          
-                        int index88_5 = input.index();
+                        int index89_5 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred132_InternalGo()) ) {s = 20;}
+                        if ( (synpred133_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index88_5);
+                        input.seek(index89_5);
                         if ( s>=0 ) return s;
                         break;
                     case 5 : 
-                        int LA88_6 = input.LA(1);
+                        int LA89_6 = input.LA(1);
 
                          
-                        int index88_6 = input.index();
+                        int index89_6 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred132_InternalGo()) ) {s = 20;}
+                        if ( (synpred133_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index88_6);
+                        input.seek(index89_6);
                         if ( s>=0 ) return s;
                         break;
                     case 6 : 
-                        int LA88_7 = input.LA(1);
+                        int LA89_7 = input.LA(1);
 
                          
-                        int index88_7 = input.index();
+                        int index89_7 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred132_InternalGo()) ) {s = 20;}
+                        if ( (synpred133_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index88_7);
+                        input.seek(index89_7);
                         if ( s>=0 ) return s;
                         break;
                     case 7 : 
-                        int LA88_8 = input.LA(1);
+                        int LA89_8 = input.LA(1);
 
                          
-                        int index88_8 = input.index();
+                        int index89_8 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred132_InternalGo()) ) {s = 20;}
+                        if ( (synpred133_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index88_8);
+                        input.seek(index89_8);
                         if ( s>=0 ) return s;
                         break;
                     case 8 : 
-                        int LA88_9 = input.LA(1);
+                        int LA89_9 = input.LA(1);
 
                          
-                        int index88_9 = input.index();
+                        int index89_9 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred132_InternalGo()) ) {s = 20;}
+                        if ( (synpred133_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index88_9);
+                        input.seek(index89_9);
                         if ( s>=0 ) return s;
                         break;
                     case 9 : 
-                        int LA88_10 = input.LA(1);
+                        int LA89_10 = input.LA(1);
 
                          
-                        int index88_10 = input.index();
+                        int index89_10 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred132_InternalGo()) ) {s = 20;}
+                        if ( (synpred133_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index88_10);
+                        input.seek(index89_10);
                         if ( s>=0 ) return s;
                         break;
                     case 10 : 
-                        int LA88_11 = input.LA(1);
+                        int LA89_11 = input.LA(1);
 
                          
-                        int index88_11 = input.index();
+                        int index89_11 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred132_InternalGo()) ) {s = 20;}
+                        if ( (synpred133_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index88_11);
+                        input.seek(index89_11);
                         if ( s>=0 ) return s;
                         break;
                     case 11 : 
-                        int LA88_12 = input.LA(1);
+                        int LA89_12 = input.LA(1);
 
                          
-                        int index88_12 = input.index();
+                        int index89_12 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred132_InternalGo()) ) {s = 20;}
+                        if ( (synpred133_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index88_12);
+                        input.seek(index89_12);
                         if ( s>=0 ) return s;
                         break;
                     case 12 : 
-                        int LA88_13 = input.LA(1);
+                        int LA89_13 = input.LA(1);
 
                          
-                        int index88_13 = input.index();
+                        int index89_13 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred132_InternalGo()) ) {s = 20;}
+                        if ( (synpred133_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index88_13);
+                        input.seek(index89_13);
                         if ( s>=0 ) return s;
                         break;
                     case 13 : 
-                        int LA88_14 = input.LA(1);
+                        int LA89_14 = input.LA(1);
 
                          
-                        int index88_14 = input.index();
+                        int index89_14 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred132_InternalGo()) ) {s = 20;}
+                        if ( (synpred133_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index88_14);
+                        input.seek(index89_14);
                         if ( s>=0 ) return s;
                         break;
                     case 14 : 
-                        int LA88_15 = input.LA(1);
+                        int LA89_15 = input.LA(1);
 
                          
-                        int index88_15 = input.index();
+                        int index89_15 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred132_InternalGo()) ) {s = 20;}
+                        if ( (synpred133_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index88_15);
+                        input.seek(index89_15);
                         if ( s>=0 ) return s;
                         break;
                     case 15 : 
-                        int LA88_16 = input.LA(1);
+                        int LA89_16 = input.LA(1);
 
                          
-                        int index88_16 = input.index();
+                        int index89_16 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred132_InternalGo()) ) {s = 20;}
+                        if ( (synpred133_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index88_16);
+                        input.seek(index89_16);
                         if ( s>=0 ) return s;
                         break;
                     case 16 : 
-                        int LA88_17 = input.LA(1);
+                        int LA89_17 = input.LA(1);
 
                          
-                        int index88_17 = input.index();
+                        int index89_17 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred132_InternalGo()) ) {s = 20;}
+                        if ( (synpred133_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index88_17);
+                        input.seek(index89_17);
                         if ( s>=0 ) return s;
                         break;
                     case 17 : 
-                        int LA88_18 = input.LA(1);
+                        int LA89_18 = input.LA(1);
 
                          
-                        int index88_18 = input.index();
+                        int index89_18 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred132_InternalGo()) ) {s = 20;}
+                        if ( (synpred133_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index88_18);
+                        input.seek(index89_18);
                         if ( s>=0 ) return s;
                         break;
                     case 18 : 
-                        int LA88_19 = input.LA(1);
+                        int LA89_19 = input.LA(1);
 
                          
-                        int index88_19 = input.index();
+                        int index89_19 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred132_InternalGo()) ) {s = 20;}
+                        if ( (synpred133_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index88_19);
+                        input.seek(index89_19);
                         if ( s>=0 ) return s;
                         break;
             }
             if (state.backtracking>0) {state.failed=true; return -1;}
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 88, _s, input);
+                new NoViableAltException(getDescription(), 89, _s, input);
             error(nvae);
             throw nvae;
         }
@@ -67866,11 +67931,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
     static final short[] dfa_107 = DFA.unpackEncodedString(dfa_107s);
     static final short[][] dfa_108 = unpackEncodedStringArray(dfa_108s);
 
-    class DFA92 extends DFA {
+    class DFA93 extends DFA {
 
-        public DFA92(BaseRecognizer recognizer) {
+        public DFA93(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 92;
+            this.decisionNumber = 93;
             this.eot = dfa_38;
             this.eof = dfa_38;
             this.min = dfa_104;
@@ -67887,289 +67952,289 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA92_1 = input.LA(1);
+                        int LA93_1 = input.LA(1);
 
                          
-                        int index92_1 = input.index();
+                        int index93_1 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred136_InternalGo()) ) {s = 19;}
+                        if ( (synpred137_InternalGo()) ) {s = 19;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index92_1);
+                        input.seek(index93_1);
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA92_2 = input.LA(1);
+                        int LA93_2 = input.LA(1);
 
                          
-                        int index92_2 = input.index();
+                        int index93_2 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred136_InternalGo()) ) {s = 19;}
+                        if ( (synpred137_InternalGo()) ) {s = 19;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index92_2);
+                        input.seek(index93_2);
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA92_3 = input.LA(1);
+                        int LA93_3 = input.LA(1);
 
                          
-                        int index92_3 = input.index();
+                        int index93_3 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred136_InternalGo()) ) {s = 19;}
+                        if ( (synpred137_InternalGo()) ) {s = 19;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index92_3);
+                        input.seek(index93_3);
                         if ( s>=0 ) return s;
                         break;
                     case 3 : 
-                        int LA92_4 = input.LA(1);
+                        int LA93_4 = input.LA(1);
 
                          
-                        int index92_4 = input.index();
+                        int index93_4 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred136_InternalGo()) ) {s = 19;}
+                        if ( (synpred137_InternalGo()) ) {s = 19;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index92_4);
+                        input.seek(index93_4);
                         if ( s>=0 ) return s;
                         break;
                     case 4 : 
-                        int LA92_5 = input.LA(1);
+                        int LA93_5 = input.LA(1);
 
                          
-                        int index92_5 = input.index();
+                        int index93_5 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred136_InternalGo()) ) {s = 19;}
+                        if ( (synpred137_InternalGo()) ) {s = 19;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index92_5);
+                        input.seek(index93_5);
                         if ( s>=0 ) return s;
                         break;
                     case 5 : 
-                        int LA92_6 = input.LA(1);
+                        int LA93_6 = input.LA(1);
 
                          
-                        int index92_6 = input.index();
+                        int index93_6 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred136_InternalGo()) ) {s = 19;}
+                        if ( (synpred137_InternalGo()) ) {s = 19;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index92_6);
+                        input.seek(index93_6);
                         if ( s>=0 ) return s;
                         break;
                     case 6 : 
-                        int LA92_7 = input.LA(1);
+                        int LA93_7 = input.LA(1);
 
                          
-                        int index92_7 = input.index();
+                        int index93_7 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred136_InternalGo()) ) {s = 19;}
+                        if ( (synpred137_InternalGo()) ) {s = 19;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index92_7);
+                        input.seek(index93_7);
                         if ( s>=0 ) return s;
                         break;
                     case 7 : 
-                        int LA92_8 = input.LA(1);
+                        int LA93_8 = input.LA(1);
 
                          
-                        int index92_8 = input.index();
+                        int index93_8 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred136_InternalGo()) ) {s = 19;}
+                        if ( (synpred137_InternalGo()) ) {s = 19;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index92_8);
+                        input.seek(index93_8);
                         if ( s>=0 ) return s;
                         break;
                     case 8 : 
-                        int LA92_9 = input.LA(1);
+                        int LA93_9 = input.LA(1);
 
                          
-                        int index92_9 = input.index();
+                        int index93_9 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred136_InternalGo()) ) {s = 19;}
+                        if ( (synpred137_InternalGo()) ) {s = 19;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index92_9);
+                        input.seek(index93_9);
                         if ( s>=0 ) return s;
                         break;
                     case 9 : 
-                        int LA92_10 = input.LA(1);
+                        int LA93_10 = input.LA(1);
 
                          
-                        int index92_10 = input.index();
+                        int index93_10 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred136_InternalGo()) ) {s = 19;}
+                        if ( (synpred137_InternalGo()) ) {s = 19;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index92_10);
+                        input.seek(index93_10);
                         if ( s>=0 ) return s;
                         break;
                     case 10 : 
-                        int LA92_11 = input.LA(1);
+                        int LA93_11 = input.LA(1);
 
                          
-                        int index92_11 = input.index();
+                        int index93_11 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred136_InternalGo()) ) {s = 19;}
+                        if ( (synpred137_InternalGo()) ) {s = 19;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index92_11);
+                        input.seek(index93_11);
                         if ( s>=0 ) return s;
                         break;
                     case 11 : 
-                        int LA92_12 = input.LA(1);
+                        int LA93_12 = input.LA(1);
 
                          
-                        int index92_12 = input.index();
+                        int index93_12 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred136_InternalGo()) ) {s = 19;}
+                        if ( (synpred137_InternalGo()) ) {s = 19;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index92_12);
+                        input.seek(index93_12);
                         if ( s>=0 ) return s;
                         break;
                     case 12 : 
-                        int LA92_13 = input.LA(1);
+                        int LA93_13 = input.LA(1);
 
                          
-                        int index92_13 = input.index();
+                        int index93_13 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred136_InternalGo()) ) {s = 19;}
+                        if ( (synpred137_InternalGo()) ) {s = 19;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index92_13);
+                        input.seek(index93_13);
                         if ( s>=0 ) return s;
                         break;
                     case 13 : 
-                        int LA92_14 = input.LA(1);
+                        int LA93_14 = input.LA(1);
 
                          
-                        int index92_14 = input.index();
+                        int index93_14 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred136_InternalGo()) ) {s = 19;}
+                        if ( (synpred137_InternalGo()) ) {s = 19;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index92_14);
+                        input.seek(index93_14);
                         if ( s>=0 ) return s;
                         break;
                     case 14 : 
-                        int LA92_15 = input.LA(1);
+                        int LA93_15 = input.LA(1);
 
                          
-                        int index92_15 = input.index();
+                        int index93_15 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred136_InternalGo()) ) {s = 19;}
+                        if ( (synpred137_InternalGo()) ) {s = 19;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index92_15);
+                        input.seek(index93_15);
                         if ( s>=0 ) return s;
                         break;
                     case 15 : 
-                        int LA92_16 = input.LA(1);
+                        int LA93_16 = input.LA(1);
 
                          
-                        int index92_16 = input.index();
+                        int index93_16 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred136_InternalGo()) ) {s = 19;}
+                        if ( (synpred137_InternalGo()) ) {s = 19;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index92_16);
+                        input.seek(index93_16);
                         if ( s>=0 ) return s;
                         break;
                     case 16 : 
-                        int LA92_17 = input.LA(1);
+                        int LA93_17 = input.LA(1);
 
                          
-                        int index92_17 = input.index();
+                        int index93_17 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred136_InternalGo()) ) {s = 19;}
+                        if ( (synpred137_InternalGo()) ) {s = 19;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index92_17);
+                        input.seek(index93_17);
                         if ( s>=0 ) return s;
                         break;
                     case 17 : 
-                        int LA92_18 = input.LA(1);
+                        int LA93_18 = input.LA(1);
 
                          
-                        int index92_18 = input.index();
+                        int index93_18 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred136_InternalGo()) ) {s = 19;}
+                        if ( (synpred137_InternalGo()) ) {s = 19;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index92_18);
+                        input.seek(index93_18);
                         if ( s>=0 ) return s;
                         break;
             }
             if (state.backtracking>0) {state.failed=true; return -1;}
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 92, _s, input);
+                new NoViableAltException(getDescription(), 93, _s, input);
             error(nvae);
             throw nvae;
         }
     }
 
-    class DFA97 extends DFA {
+    class DFA98 extends DFA {
 
-        public DFA97(BaseRecognizer recognizer) {
+        public DFA98(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 97;
+            this.decisionNumber = 98;
             this.eot = dfa_38;
             this.eof = dfa_38;
             this.min = dfa_39;
@@ -68186,294 +68251,294 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA97_1 = input.LA(1);
+                        int LA98_1 = input.LA(1);
 
                          
-                        int index97_1 = input.index();
+                        int index98_1 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred141_InternalGo()) ) {s = 20;}
+                        if ( (synpred142_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index97_1);
+                        input.seek(index98_1);
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA97_2 = input.LA(1);
+                        int LA98_2 = input.LA(1);
 
                          
-                        int index97_2 = input.index();
+                        int index98_2 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred141_InternalGo()) ) {s = 20;}
+                        if ( (synpred142_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index97_2);
+                        input.seek(index98_2);
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA97_3 = input.LA(1);
+                        int LA98_3 = input.LA(1);
 
                          
-                        int index97_3 = input.index();
+                        int index98_3 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred141_InternalGo()) ) {s = 20;}
+                        if ( (synpred142_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index97_3);
+                        input.seek(index98_3);
                         if ( s>=0 ) return s;
                         break;
                     case 3 : 
-                        int LA97_4 = input.LA(1);
+                        int LA98_4 = input.LA(1);
 
                          
-                        int index97_4 = input.index();
+                        int index98_4 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred141_InternalGo()) ) {s = 20;}
+                        if ( (synpred142_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index97_4);
+                        input.seek(index98_4);
                         if ( s>=0 ) return s;
                         break;
                     case 4 : 
-                        int LA97_5 = input.LA(1);
+                        int LA98_5 = input.LA(1);
 
                          
-                        int index97_5 = input.index();
+                        int index98_5 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred141_InternalGo()) ) {s = 20;}
+                        if ( (synpred142_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index97_5);
+                        input.seek(index98_5);
                         if ( s>=0 ) return s;
                         break;
                     case 5 : 
-                        int LA97_6 = input.LA(1);
+                        int LA98_6 = input.LA(1);
 
                          
-                        int index97_6 = input.index();
+                        int index98_6 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred141_InternalGo()) ) {s = 20;}
+                        if ( (synpred142_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index97_6);
+                        input.seek(index98_6);
                         if ( s>=0 ) return s;
                         break;
                     case 6 : 
-                        int LA97_7 = input.LA(1);
+                        int LA98_7 = input.LA(1);
 
                          
-                        int index97_7 = input.index();
+                        int index98_7 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred141_InternalGo()) ) {s = 20;}
+                        if ( (synpred142_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index97_7);
+                        input.seek(index98_7);
                         if ( s>=0 ) return s;
                         break;
                     case 7 : 
-                        int LA97_8 = input.LA(1);
+                        int LA98_8 = input.LA(1);
 
                          
-                        int index97_8 = input.index();
+                        int index98_8 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred141_InternalGo()) ) {s = 20;}
+                        if ( (synpred142_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index97_8);
+                        input.seek(index98_8);
                         if ( s>=0 ) return s;
                         break;
                     case 8 : 
-                        int LA97_9 = input.LA(1);
+                        int LA98_9 = input.LA(1);
 
                          
-                        int index97_9 = input.index();
+                        int index98_9 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred141_InternalGo()) ) {s = 20;}
+                        if ( (synpred142_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index97_9);
+                        input.seek(index98_9);
                         if ( s>=0 ) return s;
                         break;
                     case 9 : 
-                        int LA97_10 = input.LA(1);
+                        int LA98_10 = input.LA(1);
 
                          
-                        int index97_10 = input.index();
+                        int index98_10 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred141_InternalGo()) ) {s = 20;}
+                        if ( (synpred142_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index97_10);
+                        input.seek(index98_10);
                         if ( s>=0 ) return s;
                         break;
                     case 10 : 
-                        int LA97_11 = input.LA(1);
+                        int LA98_11 = input.LA(1);
 
                          
-                        int index97_11 = input.index();
+                        int index98_11 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred141_InternalGo()) ) {s = 20;}
+                        if ( (synpred142_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index97_11);
+                        input.seek(index98_11);
                         if ( s>=0 ) return s;
                         break;
                     case 11 : 
-                        int LA97_12 = input.LA(1);
+                        int LA98_12 = input.LA(1);
 
                          
-                        int index97_12 = input.index();
+                        int index98_12 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred141_InternalGo()) ) {s = 20;}
+                        if ( (synpred142_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index97_12);
+                        input.seek(index98_12);
                         if ( s>=0 ) return s;
                         break;
                     case 12 : 
-                        int LA97_13 = input.LA(1);
+                        int LA98_13 = input.LA(1);
 
                          
-                        int index97_13 = input.index();
+                        int index98_13 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred141_InternalGo()) ) {s = 20;}
+                        if ( (synpred142_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index97_13);
+                        input.seek(index98_13);
                         if ( s>=0 ) return s;
                         break;
                     case 13 : 
-                        int LA97_14 = input.LA(1);
+                        int LA98_14 = input.LA(1);
 
                          
-                        int index97_14 = input.index();
+                        int index98_14 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred141_InternalGo()) ) {s = 20;}
+                        if ( (synpred142_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index97_14);
+                        input.seek(index98_14);
                         if ( s>=0 ) return s;
                         break;
                     case 14 : 
-                        int LA97_15 = input.LA(1);
+                        int LA98_15 = input.LA(1);
 
                          
-                        int index97_15 = input.index();
+                        int index98_15 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred141_InternalGo()) ) {s = 20;}
+                        if ( (synpred142_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index97_15);
+                        input.seek(index98_15);
                         if ( s>=0 ) return s;
                         break;
                     case 15 : 
-                        int LA97_16 = input.LA(1);
+                        int LA98_16 = input.LA(1);
 
                          
-                        int index97_16 = input.index();
+                        int index98_16 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred141_InternalGo()) ) {s = 20;}
+                        if ( (synpred142_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index97_16);
+                        input.seek(index98_16);
                         if ( s>=0 ) return s;
                         break;
                     case 16 : 
-                        int LA97_17 = input.LA(1);
+                        int LA98_17 = input.LA(1);
 
                          
-                        int index97_17 = input.index();
+                        int index98_17 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred141_InternalGo()) ) {s = 20;}
+                        if ( (synpred142_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index97_17);
+                        input.seek(index98_17);
                         if ( s>=0 ) return s;
                         break;
                     case 17 : 
-                        int LA97_18 = input.LA(1);
+                        int LA98_18 = input.LA(1);
 
                          
-                        int index97_18 = input.index();
+                        int index98_18 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred141_InternalGo()) ) {s = 20;}
+                        if ( (synpred142_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index97_18);
+                        input.seek(index98_18);
                         if ( s>=0 ) return s;
                         break;
                     case 18 : 
-                        int LA97_19 = input.LA(1);
+                        int LA98_19 = input.LA(1);
 
                          
-                        int index97_19 = input.index();
+                        int index98_19 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred141_InternalGo()) ) {s = 20;}
+                        if ( (synpred142_InternalGo()) ) {s = 20;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index97_19);
+                        input.seek(index98_19);
                         if ( s>=0 ) return s;
                         break;
             }
             if (state.backtracking>0) {state.failed=true; return -1;}
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 97, _s, input);
+                new NoViableAltException(getDescription(), 98, _s, input);
             error(nvae);
             throw nvae;
         }
@@ -68512,11 +68577,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
     static final short[] dfa_112 = DFA.unpackEncodedString(dfa_112s);
     static final short[][] dfa_113 = unpackEncodedStringArray(dfa_113s);
 
-    class DFA98 extends DFA {
+    class DFA99 extends DFA {
 
-        public DFA98(BaseRecognizer recognizer) {
+        public DFA99(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 98;
+            this.decisionNumber = 99;
             this.eot = dfa_38;
             this.eof = dfa_38;
             this.min = dfa_109;
@@ -68533,24 +68598,24 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA98_20 = input.LA(1);
+                        int LA99_20 = input.LA(1);
 
                          
-                        int index98_20 = input.index();
+                        int index99_20 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred142_InternalGo()) ) {s = 1;}
+                        if ( (synpred143_InternalGo()) ) {s = 1;}
 
                         else if ( (true) ) {s = 21;}
 
                          
-                        input.seek(index98_20);
+                        input.seek(index99_20);
                         if ( s>=0 ) return s;
                         break;
             }
             if (state.backtracking>0) {state.failed=true; return -1;}
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 98, _s, input);
+                new NoViableAltException(getDescription(), 99, _s, input);
             error(nvae);
             throw nvae;
         }
@@ -68618,11 +68683,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
     static final short[] dfa_119 = DFA.unpackEncodedString(dfa_119s);
     static final short[][] dfa_120 = unpackEncodedStringArray(dfa_120s);
 
-    class DFA102 extends DFA {
+    class DFA103 extends DFA {
 
-        public DFA102(BaseRecognizer recognizer) {
+        public DFA103(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 102;
+            this.decisionNumber = 103;
             this.eot = dfa_114;
             this.eof = dfa_115;
             this.min = dfa_116;
@@ -68639,24 +68704,24 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA102_4 = input.LA(1);
+                        int LA103_4 = input.LA(1);
 
                          
-                        int index102_4 = input.index();
+                        int index103_4 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred146_InternalGo()) ) {s = 45;}
+                        if ( (synpred147_InternalGo()) ) {s = 45;}
 
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index102_4);
+                        input.seek(index103_4);
                         if ( s>=0 ) return s;
                         break;
             }
             if (state.backtracking>0) {state.failed=true; return -1;}
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 102, _s, input);
+                new NoViableAltException(getDescription(), 103, _s, input);
             error(nvae);
             throw nvae;
         }
@@ -68729,11 +68794,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
     static final short[] dfa_126 = DFA.unpackEncodedString(dfa_126s);
     static final short[][] dfa_127 = unpackEncodedStringArray(dfa_127s);
 
-    class DFA104 extends DFA {
+    class DFA105 extends DFA {
 
-        public DFA104(BaseRecognizer recognizer) {
+        public DFA105(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 104;
+            this.decisionNumber = 105;
             this.eot = dfa_121;
             this.eof = dfa_122;
             this.min = dfa_123;
@@ -68750,54 +68815,54 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA104_1 = input.LA(1);
+                        int LA105_1 = input.LA(1);
 
                          
-                        int index104_1 = input.index();
+                        int index105_1 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred148_InternalGo()) ) {s = 50;}
+                        if ( (synpred149_InternalGo()) ) {s = 50;}
 
                         else if ( (true) ) {s = 4;}
 
                          
-                        input.seek(index104_1);
+                        input.seek(index105_1);
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA104_2 = input.LA(1);
+                        int LA105_2 = input.LA(1);
 
                          
-                        int index104_2 = input.index();
+                        int index105_2 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred148_InternalGo()) ) {s = 50;}
+                        if ( (synpred149_InternalGo()) ) {s = 50;}
 
                         else if ( (true) ) {s = 4;}
 
                          
-                        input.seek(index104_2);
+                        input.seek(index105_2);
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA104_3 = input.LA(1);
+                        int LA105_3 = input.LA(1);
 
                          
-                        int index104_3 = input.index();
+                        int index105_3 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred148_InternalGo()) ) {s = 50;}
+                        if ( (synpred149_InternalGo()) ) {s = 50;}
 
                         else if ( (true) ) {s = 4;}
 
                          
-                        input.seek(index104_3);
+                        input.seek(index105_3);
                         if ( s>=0 ) return s;
                         break;
             }
             if (state.backtracking>0) {state.failed=true; return -1;}
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 104, _s, input);
+                new NoViableAltException(getDescription(), 105, _s, input);
             error(nvae);
             throw nvae;
         }
@@ -68867,11 +68932,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
     static final short[] dfa_132 = DFA.unpackEncodedString(dfa_132s);
     static final short[][] dfa_133 = unpackEncodedStringArray(dfa_133s);
 
-    class DFA105 extends DFA {
+    class DFA106 extends DFA {
 
-        public DFA105(BaseRecognizer recognizer) {
+        public DFA106(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 105;
+            this.decisionNumber = 106;
             this.eot = dfa_121;
             this.eof = dfa_128;
             this.min = dfa_129;
@@ -68888,24 +68953,24 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA105_1 = input.LA(1);
+                        int LA106_1 = input.LA(1);
 
                          
-                        int index105_1 = input.index();
+                        int index106_1 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred149_InternalGo()) ) {s = 50;}
+                        if ( (synpred150_InternalGo()) ) {s = 50;}
 
                         else if ( (true) ) {s = 2;}
 
                          
-                        input.seek(index105_1);
+                        input.seek(index106_1);
                         if ( s>=0 ) return s;
                         break;
             }
             if (state.backtracking>0) {state.failed=true; return -1;}
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 105, _s, input);
+                new NoViableAltException(getDescription(), 106, _s, input);
             error(nvae);
             throw nvae;
         }
@@ -68945,11 +69010,11 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
     static final short[] dfa_137 = DFA.unpackEncodedString(dfa_137s);
     static final short[][] dfa_138 = unpackEncodedStringArray(dfa_138s);
 
-    class DFA118 extends DFA {
+    class DFA119 extends DFA {
 
-        public DFA118(BaseRecognizer recognizer) {
+        public DFA119(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 118;
+            this.decisionNumber = 119;
             this.eot = dfa_20;
             this.eof = dfa_20;
             this.min = dfa_134;
@@ -68966,309 +69031,309 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA118_1 = input.LA(1);
+                        int LA119_1 = input.LA(1);
 
                          
-                        int index118_1 = input.index();
+                        int index119_1 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred162_InternalGo()) ) {s = 21;}
+                        if ( (synpred163_InternalGo()) ) {s = 21;}
 
                         else if ( (true) ) {s = 22;}
 
                          
-                        input.seek(index118_1);
+                        input.seek(index119_1);
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA118_2 = input.LA(1);
+                        int LA119_2 = input.LA(1);
 
                          
-                        int index118_2 = input.index();
+                        int index119_2 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred162_InternalGo()) ) {s = 21;}
+                        if ( (synpred163_InternalGo()) ) {s = 21;}
 
                         else if ( (true) ) {s = 22;}
 
                          
-                        input.seek(index118_2);
+                        input.seek(index119_2);
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA118_3 = input.LA(1);
+                        int LA119_3 = input.LA(1);
 
                          
-                        int index118_3 = input.index();
+                        int index119_3 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred162_InternalGo()) ) {s = 21;}
+                        if ( (synpred163_InternalGo()) ) {s = 21;}
 
                         else if ( (true) ) {s = 22;}
 
                          
-                        input.seek(index118_3);
+                        input.seek(index119_3);
                         if ( s>=0 ) return s;
                         break;
                     case 3 : 
-                        int LA118_4 = input.LA(1);
+                        int LA119_4 = input.LA(1);
 
                          
-                        int index118_4 = input.index();
+                        int index119_4 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred162_InternalGo()) ) {s = 21;}
+                        if ( (synpred163_InternalGo()) ) {s = 21;}
 
                         else if ( (true) ) {s = 22;}
 
                          
-                        input.seek(index118_4);
+                        input.seek(index119_4);
                         if ( s>=0 ) return s;
                         break;
                     case 4 : 
-                        int LA118_5 = input.LA(1);
+                        int LA119_5 = input.LA(1);
 
                          
-                        int index118_5 = input.index();
+                        int index119_5 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred162_InternalGo()) ) {s = 21;}
+                        if ( (synpred163_InternalGo()) ) {s = 21;}
 
                         else if ( (true) ) {s = 22;}
 
                          
-                        input.seek(index118_5);
+                        input.seek(index119_5);
                         if ( s>=0 ) return s;
                         break;
                     case 5 : 
-                        int LA118_6 = input.LA(1);
+                        int LA119_6 = input.LA(1);
 
                          
-                        int index118_6 = input.index();
+                        int index119_6 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred162_InternalGo()) ) {s = 21;}
+                        if ( (synpred163_InternalGo()) ) {s = 21;}
 
                         else if ( (true) ) {s = 22;}
 
                          
-                        input.seek(index118_6);
+                        input.seek(index119_6);
                         if ( s>=0 ) return s;
                         break;
                     case 6 : 
-                        int LA118_7 = input.LA(1);
+                        int LA119_7 = input.LA(1);
 
                          
-                        int index118_7 = input.index();
+                        int index119_7 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred162_InternalGo()) ) {s = 21;}
+                        if ( (synpred163_InternalGo()) ) {s = 21;}
 
                         else if ( (true) ) {s = 22;}
 
                          
-                        input.seek(index118_7);
+                        input.seek(index119_7);
                         if ( s>=0 ) return s;
                         break;
                     case 7 : 
-                        int LA118_8 = input.LA(1);
+                        int LA119_8 = input.LA(1);
 
                          
-                        int index118_8 = input.index();
+                        int index119_8 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred162_InternalGo()) ) {s = 21;}
+                        if ( (synpred163_InternalGo()) ) {s = 21;}
 
                         else if ( (true) ) {s = 22;}
 
                          
-                        input.seek(index118_8);
+                        input.seek(index119_8);
                         if ( s>=0 ) return s;
                         break;
                     case 8 : 
-                        int LA118_9 = input.LA(1);
+                        int LA119_9 = input.LA(1);
 
                          
-                        int index118_9 = input.index();
+                        int index119_9 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred162_InternalGo()) ) {s = 21;}
+                        if ( (synpred163_InternalGo()) ) {s = 21;}
 
                         else if ( (true) ) {s = 22;}
 
                          
-                        input.seek(index118_9);
+                        input.seek(index119_9);
                         if ( s>=0 ) return s;
                         break;
                     case 9 : 
-                        int LA118_10 = input.LA(1);
+                        int LA119_10 = input.LA(1);
 
                          
-                        int index118_10 = input.index();
+                        int index119_10 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred162_InternalGo()) ) {s = 21;}
+                        if ( (synpred163_InternalGo()) ) {s = 21;}
 
                         else if ( (true) ) {s = 22;}
 
                          
-                        input.seek(index118_10);
+                        input.seek(index119_10);
                         if ( s>=0 ) return s;
                         break;
                     case 10 : 
-                        int LA118_11 = input.LA(1);
+                        int LA119_11 = input.LA(1);
 
                          
-                        int index118_11 = input.index();
+                        int index119_11 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred162_InternalGo()) ) {s = 21;}
+                        if ( (synpred163_InternalGo()) ) {s = 21;}
 
                         else if ( (true) ) {s = 22;}
 
                          
-                        input.seek(index118_11);
+                        input.seek(index119_11);
                         if ( s>=0 ) return s;
                         break;
                     case 11 : 
-                        int LA118_12 = input.LA(1);
+                        int LA119_12 = input.LA(1);
 
                          
-                        int index118_12 = input.index();
+                        int index119_12 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred162_InternalGo()) ) {s = 21;}
+                        if ( (synpred163_InternalGo()) ) {s = 21;}
 
                         else if ( (true) ) {s = 22;}
 
                          
-                        input.seek(index118_12);
+                        input.seek(index119_12);
                         if ( s>=0 ) return s;
                         break;
                     case 12 : 
-                        int LA118_13 = input.LA(1);
+                        int LA119_13 = input.LA(1);
 
                          
-                        int index118_13 = input.index();
+                        int index119_13 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred162_InternalGo()) ) {s = 21;}
+                        if ( (synpred163_InternalGo()) ) {s = 21;}
 
                         else if ( (true) ) {s = 22;}
 
                          
-                        input.seek(index118_13);
+                        input.seek(index119_13);
                         if ( s>=0 ) return s;
                         break;
                     case 13 : 
-                        int LA118_14 = input.LA(1);
+                        int LA119_14 = input.LA(1);
 
                          
-                        int index118_14 = input.index();
+                        int index119_14 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred162_InternalGo()) ) {s = 21;}
+                        if ( (synpred163_InternalGo()) ) {s = 21;}
 
                         else if ( (true) ) {s = 22;}
 
                          
-                        input.seek(index118_14);
+                        input.seek(index119_14);
                         if ( s>=0 ) return s;
                         break;
                     case 14 : 
-                        int LA118_15 = input.LA(1);
+                        int LA119_15 = input.LA(1);
 
                          
-                        int index118_15 = input.index();
+                        int index119_15 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred162_InternalGo()) ) {s = 21;}
+                        if ( (synpred163_InternalGo()) ) {s = 21;}
 
                         else if ( (true) ) {s = 22;}
 
                          
-                        input.seek(index118_15);
+                        input.seek(index119_15);
                         if ( s>=0 ) return s;
                         break;
                     case 15 : 
-                        int LA118_16 = input.LA(1);
+                        int LA119_16 = input.LA(1);
 
                          
-                        int index118_16 = input.index();
+                        int index119_16 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred162_InternalGo()) ) {s = 21;}
+                        if ( (synpred163_InternalGo()) ) {s = 21;}
 
                         else if ( (true) ) {s = 22;}
 
                          
-                        input.seek(index118_16);
+                        input.seek(index119_16);
                         if ( s>=0 ) return s;
                         break;
                     case 16 : 
-                        int LA118_17 = input.LA(1);
+                        int LA119_17 = input.LA(1);
 
                          
-                        int index118_17 = input.index();
+                        int index119_17 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred162_InternalGo()) ) {s = 21;}
+                        if ( (synpred163_InternalGo()) ) {s = 21;}
 
                         else if ( (true) ) {s = 22;}
 
                          
-                        input.seek(index118_17);
+                        input.seek(index119_17);
                         if ( s>=0 ) return s;
                         break;
                     case 17 : 
-                        int LA118_18 = input.LA(1);
+                        int LA119_18 = input.LA(1);
 
                          
-                        int index118_18 = input.index();
+                        int index119_18 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred162_InternalGo()) ) {s = 21;}
+                        if ( (synpred163_InternalGo()) ) {s = 21;}
 
                         else if ( (true) ) {s = 22;}
 
                          
-                        input.seek(index118_18);
+                        input.seek(index119_18);
                         if ( s>=0 ) return s;
                         break;
                     case 18 : 
-                        int LA118_19 = input.LA(1);
+                        int LA119_19 = input.LA(1);
 
                          
-                        int index118_19 = input.index();
+                        int index119_19 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred162_InternalGo()) ) {s = 21;}
+                        if ( (synpred163_InternalGo()) ) {s = 21;}
 
                         else if ( (true) ) {s = 22;}
 
                          
-                        input.seek(index118_19);
+                        input.seek(index119_19);
                         if ( s>=0 ) return s;
                         break;
                     case 19 : 
-                        int LA118_20 = input.LA(1);
+                        int LA119_20 = input.LA(1);
 
                          
-                        int index118_20 = input.index();
+                        int index119_20 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred162_InternalGo()) ) {s = 21;}
+                        if ( (synpred163_InternalGo()) ) {s = 21;}
 
                         else if ( (true) ) {s = 22;}
 
                          
-                        input.seek(index118_20);
+                        input.seek(index119_20);
                         if ( s>=0 ) return s;
                         break;
             }
             if (state.backtracking>0) {state.failed=true; return -1;}
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 118, _s, input);
+                new NoViableAltException(getDescription(), 119, _s, input);
             error(nvae);
             throw nvae;
         }
@@ -69287,83 +69352,82 @@ public class InternalGoParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000400000000020L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0200000000000000L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000000300L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0008000000000000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0xF151200000008000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0020000000000000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0xF15960000003C0F0L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0080000000000000L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0100000000000000L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x2540600000000020L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x2140600000000022L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000040000000000L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x2140600000000020L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000000000C00L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000080000000002L});
-    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0xF971600000008020L});
-    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0xF951600000008020L});
-    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x1000000000000000L});
-    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x2540400000000020L});
-    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x2140400000000022L});
-    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x2140400000000020L});
-    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0040000000000000L});
-    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x8000000000000000L});
-    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x4000000000000000L});
-    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0xF35966000003C0F0L,0x0000000000011FBEL});
-    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0400000000000000L});
-    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0xF35966000003C0F2L,0x0000000000011FBEL});
-    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x00000C0000000000L});
-    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
-    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0xF15964000003C0F0L});
-    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
-    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0200000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0000000000000000L,0x0000000000010000L});
-    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0400000000000000L,0x0000000000060000L});
-    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0000000000000002L,0x0000000000060000L});
-    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
-    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0xF35964000003C0F0L,0x0000000000080000L});
-    public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000400L});
-    public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x0010400000000020L});
-    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x0020400000000020L});
-    public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x0000400000000022L});
-    public static final BitSet FOLLOW_59 = new BitSet(new long[]{0xF151300000008000L});
-    public static final BitSet FOLLOW_60 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
-    public static final BitSet FOLLOW_61 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_62 = new BitSet(new long[]{0x0000000000000000L,0x0000000000002000L});
-    public static final BitSet FOLLOW_63 = new BitSet(new long[]{0x0000000000000000L,0x0000000000004000L});
-    public static final BitSet FOLLOW_64 = new BitSet(new long[]{0x0000100000001000L});
-    public static final BitSet FOLLOW_65 = new BitSet(new long[]{0x0000000000000000L,0x0000000000008000L});
-    public static final BitSet FOLLOW_66 = new BitSet(new long[]{0xF35964000003C0F0L});
-    public static final BitSet FOLLOW_67 = new BitSet(new long[]{0x0000000000000000L,0x0000000000060000L});
-    public static final BitSet FOLLOW_68 = new BitSet(new long[]{0x0000000000000000L,0x0000000000020000L});
-    public static final BitSet FOLLOW_69 = new BitSet(new long[]{0xF15964000003C0F0L,0x0000000000080000L});
-    public static final BitSet FOLLOW_70 = new BitSet(new long[]{0x0000600000002000L});
-    public static final BitSet FOLLOW_71 = new BitSet(new long[]{0xF1596000000380F0L});
-    public static final BitSet FOLLOW_72 = new BitSet(new long[]{0x21594000000300F0L});
-    public static final BitSet FOLLOW_73 = new BitSet(new long[]{0x0050800000000000L});
-    public static final BitSet FOLLOW_74 = new BitSet(new long[]{0x21494000000300F0L});
-    public static final BitSet FOLLOW_75 = new BitSet(new long[]{0x0020080000000000L});
-    public static final BitSet FOLLOW_76 = new BitSet(new long[]{0xF15960000003C0F0L,0x0000000000000001L});
-    public static final BitSet FOLLOW_77 = new BitSet(new long[]{0xF1D960000003C0F0L});
-    public static final BitSet FOLLOW_78 = new BitSet(new long[]{0xF17960000003C0F0L});
-    public static final BitSet FOLLOW_79 = new BitSet(new long[]{0x0800080000000000L});
-    public static final BitSet FOLLOW_80 = new BitSet(new long[]{0x00080000000300D0L});
-    public static final BitSet FOLLOW_81 = new BitSet(new long[]{0x0800000000000000L});
-    public static final BitSet FOLLOW_82 = new BitSet(new long[]{0xF75960000003C0F0L});
-    public static final BitSet FOLLOW_83 = new BitSet(new long[]{0xF35968000003C0F0L});
-    public static final BitSet FOLLOW_84 = new BitSet(new long[]{0xF35968000003C0F2L});
-    public static final BitSet FOLLOW_85 = new BitSet(new long[]{0xF35960000003C0F0L});
-    public static final BitSet FOLLOW_86 = new BitSet(new long[]{0x0000000000000000L,0x0000000000100000L});
-    public static final BitSet FOLLOW_87 = new BitSet(new long[]{0x0010C00000000030L});
-    public static final BitSet FOLLOW_88 = new BitSet(new long[]{0x0020C00000000030L});
-    public static final BitSet FOLLOW_89 = new BitSet(new long[]{0x0000C00000000032L});
-    public static final BitSet FOLLOW_90 = new BitSet(new long[]{0x0000C00000000030L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000000300L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0008000000000000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0xF151200000008000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0020000000000000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000800000000000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0xF15960000003C0F0L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0080000000000000L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0100000000000000L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x2540600000000020L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x2140600000000022L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x2140600000000020L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000000000C00L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000080000000002L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0xF971600000008020L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0xF951600000008020L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x1000000000000000L});
+    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x2540400000000020L});
+    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x2140400000000022L});
+    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x2140400000000020L});
+    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0040000000000000L});
+    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x8000000000000000L});
+    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x4000000000000000L});
+    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0xF35966000003C0F0L,0x0000000000011FBEL});
+    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0400000000000000L});
+    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0xF35966000003C0F2L,0x0000000000011FBEL});
+    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x00000C0000000000L});
+    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
+    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0xF15964000003C0F0L});
+    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0200000000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0000000000000000L,0x0000000000010000L});
+    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x0400000000000000L,0x0000000000060000L});
+    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0000000000000002L,0x0000000000060000L});
+    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
+    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0xF35964000003C0F0L,0x0000000000080000L});
+    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000400L});
+    public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x0010400000000020L});
+    public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x0020400000000020L});
+    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x0000400000000022L});
+    public static final BitSet FOLLOW_58 = new BitSet(new long[]{0xF151300000008000L});
+    public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_60 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_61 = new BitSet(new long[]{0x0000000000000000L,0x0000000000002000L});
+    public static final BitSet FOLLOW_62 = new BitSet(new long[]{0x0000000000000000L,0x0000000000004000L});
+    public static final BitSet FOLLOW_63 = new BitSet(new long[]{0x0000100000001000L});
+    public static final BitSet FOLLOW_64 = new BitSet(new long[]{0x0000000000000000L,0x0000000000008000L});
+    public static final BitSet FOLLOW_65 = new BitSet(new long[]{0xF35964000003C0F0L});
+    public static final BitSet FOLLOW_66 = new BitSet(new long[]{0x0000000000000000L,0x0000000000060000L});
+    public static final BitSet FOLLOW_67 = new BitSet(new long[]{0x0000000000000000L,0x0000000000020000L});
+    public static final BitSet FOLLOW_68 = new BitSet(new long[]{0xF15964000003C0F0L,0x0000000000080000L});
+    public static final BitSet FOLLOW_69 = new BitSet(new long[]{0x0000600000002000L});
+    public static final BitSet FOLLOW_70 = new BitSet(new long[]{0xF1596000000380F0L});
+    public static final BitSet FOLLOW_71 = new BitSet(new long[]{0x21594000000300F0L});
+    public static final BitSet FOLLOW_72 = new BitSet(new long[]{0x0050800000000000L});
+    public static final BitSet FOLLOW_73 = new BitSet(new long[]{0x21494000000300F0L});
+    public static final BitSet FOLLOW_74 = new BitSet(new long[]{0x0020080000000000L});
+    public static final BitSet FOLLOW_75 = new BitSet(new long[]{0xF15960000003C0F0L,0x0000000000000001L});
+    public static final BitSet FOLLOW_76 = new BitSet(new long[]{0xF1D960000003C0F0L});
+    public static final BitSet FOLLOW_77 = new BitSet(new long[]{0xF17960000003C0F0L});
+    public static final BitSet FOLLOW_78 = new BitSet(new long[]{0x0800080000000000L});
+    public static final BitSet FOLLOW_79 = new BitSet(new long[]{0x00080000000300D0L});
+    public static final BitSet FOLLOW_80 = new BitSet(new long[]{0x0800000000000000L});
+    public static final BitSet FOLLOW_81 = new BitSet(new long[]{0xF75960000003C0F0L});
+    public static final BitSet FOLLOW_82 = new BitSet(new long[]{0xF35968000003C0F0L});
+    public static final BitSet FOLLOW_83 = new BitSet(new long[]{0xF35968000003C0F2L});
+    public static final BitSet FOLLOW_84 = new BitSet(new long[]{0xF35960000003C0F0L});
+    public static final BitSet FOLLOW_85 = new BitSet(new long[]{0x0000000000000000L,0x0000000000100000L});
+    public static final BitSet FOLLOW_86 = new BitSet(new long[]{0x0010C00000000030L});
+    public static final BitSet FOLLOW_87 = new BitSet(new long[]{0x0020C00000000030L});
+    public static final BitSet FOLLOW_88 = new BitSet(new long[]{0x0000C00000000032L});
+    public static final BitSet FOLLOW_89 = new BitSet(new long[]{0x0000C00000000030L});
 
 }

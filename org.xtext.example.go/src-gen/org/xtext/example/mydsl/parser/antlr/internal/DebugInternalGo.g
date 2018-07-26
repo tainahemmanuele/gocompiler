@@ -70,7 +70,7 @@ ruleIDENTIFIER:
 	(
 		RULE_ID
 		    |
-		'-'
+		'-'?
 		RULE_ID
 	)
 ;
