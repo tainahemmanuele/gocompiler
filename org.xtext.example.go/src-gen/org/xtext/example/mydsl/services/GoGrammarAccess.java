@@ -5139,9 +5139,9 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal LITERAL_TYPE:
-	//	'int' | 'int8' 'int32' | 'int64'
+	//	'int' | 'int8' | 'int32' | 'int64'
 	//	| 'float' | 'float32' | 'float64'
-	//	| 'bool' | 'string';
+	//	| 'bool' | 'string' | 'uint';
 	public TerminalRule getLITERAL_TYPERule() {
 		return tLITERAL_TYPE;
 	}
@@ -5219,13 +5219,13 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//terminal FLOAT_LIT:
 	//	DECIMAL_LIT '.' DECIMAL_LIT? EXPOENT? | DECIMALS EXPOENT |
-	//	'.' DECIMALS EXPOENT?;
+	//	'.' DECIMALS EXPOENT? | '-' DECIMAL_LIT '.' DECIMAL_LIT? EXPOENT?;
 	public TerminalRule getFLOAT_LITRule() {
 		return tFLOAT_LIT;
 	}
 	
 	//terminal INT_LIT:
-	//	DECIMAL_LIT | OCTAL_LIT | HEX_LIT;
+	//	DECIMAL_LIT | OCTAL_LIT | HEX_LIT | '-' DECIMAL_LIT;
 	public TerminalRule getINT_LITRule() {
 		return tINT_LIT;
 	}
