@@ -228,10 +228,16 @@ public class GoValidator extends AbstractGoValidator {
           parameterList.put(
             param.getId(), 
             param.getType().getTp());
+          this.ids.put(
+            param.getId(), 
+            param.getType().getTp());
         } else {
           String _id_2 = param.getId();
           NullObj _nullObj_2 = new NullObj();
           parameterList.put(_id_2, _nullObj_2);
+          String _id_3 = param.getId();
+          NullObj _nullObj_3 = new NullObj();
+          this.ids.put(_id_3, _nullObj_3);
         }
       }
       _xblockexpression = this.ids.put(funcName, parameterList.toString());
@@ -588,16 +594,16 @@ public class GoValidator extends AbstractGoValidator {
    * Retorna o tipo de um objeto
    */
   public String getType(final Object obj) {
-    if ((obj instanceof Integer)) {
+    if (((obj instanceof Integer) || Objects.equal(obj, "int"))) {
       return "int";
     } else {
-      if ((obj instanceof Double)) {
+      if (((obj instanceof Double) || Objects.equal(obj, "float"))) {
         return "float";
       } else {
-        if ((obj instanceof Boolean)) {
+        if (((obj instanceof Boolean) || Objects.equal(obj, "bool"))) {
           return "bool";
         } else {
-          if ((obj instanceof String)) {
+          if (((obj instanceof String) || Objects.equal(obj, "string"))) {
             return "string";
           } else {
             if ((obj instanceof NullObj)) {
