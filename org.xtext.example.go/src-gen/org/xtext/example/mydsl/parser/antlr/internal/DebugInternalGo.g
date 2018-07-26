@@ -70,7 +70,7 @@ ruleIDENTIFIER:
 	(
 		RULE_ID
 		    |
-		'-'
+		'-'?
 		RULE_ID
 	)
 ;
@@ -860,6 +860,8 @@ ruleExpression2:
 		(
 			RULE_BINARY_OP
 			    |'*'
+			    |
+			'-'
 		)
 		ruleExpression
 		ruleExpression2
@@ -874,6 +876,8 @@ ruleUnaryExpr:
 		(
 			RULE_UNARY_OP
 			    |'*'
+			    |
+			'-'
 		)
 		ruleUnaryExpr
 	)

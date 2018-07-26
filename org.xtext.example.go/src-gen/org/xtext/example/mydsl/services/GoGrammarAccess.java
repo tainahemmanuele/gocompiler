@@ -417,19 +417,19 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
 		
 		//IDENTIFIER:
-		//	ID | '-' ID;
+		//	ID | '-'? ID;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ID | '-' ID
+		//ID | '-'? ID
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//ID
 		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
 		
-		//'-' ID
+		//'-'? ID
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//'-'
+		//'-'?
 		public Keyword getHyphenMinusKeyword_1_0() { return cHyphenMinusKeyword_1_0; }
 		
 		//ID
@@ -3352,28 +3352,29 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cBopAlternatives_1_0_0 = (Alternatives)cBopAssignment_1_0.eContents().get(0);
 		private final RuleCall cBopBINARY_OPTerminalRuleCall_1_0_0_0 = (RuleCall)cBopAlternatives_1_0_0.eContents().get(0);
 		private final Keyword cBopAsteriskKeyword_1_0_0_1 = (Keyword)cBopAlternatives_1_0_0.eContents().get(1);
+		private final Keyword cBopHyphenMinusKeyword_1_0_0_2 = (Keyword)cBopAlternatives_1_0_0.eContents().get(2);
 		private final Assignment cExpressionAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cExpressionExpressionParserRuleCall_1_1_0 = (RuleCall)cExpressionAssignment_1_1.eContents().get(0);
 		private final Assignment cExpression2Assignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final RuleCall cExpression2Expression2ParserRuleCall_1_2_0 = (RuleCall)cExpression2Assignment_1_2.eContents().get(0);
 		
 		//Expression2:
-		//	{Expression2} (bop=(BINARY_OP | '*') expression=Expression expression2=Expression2)?;
+		//	{Expression2} (bop=(BINARY_OP | '*' | '-') expression=Expression expression2=Expression2)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Expression2} (bop=(BINARY_OP | '*') expression=Expression expression2=Expression2)?
+		//{Expression2} (bop=(BINARY_OP | '*' | '-') expression=Expression expression2=Expression2)?
 		public Group getGroup() { return cGroup; }
 		
 		//{Expression2}
 		public Action getExpression2Action_0() { return cExpression2Action_0; }
 		
-		//(bop=(BINARY_OP | '*') expression=Expression expression2=Expression2)?
+		//(bop=(BINARY_OP | '*' | '-') expression=Expression expression2=Expression2)?
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//bop=(BINARY_OP | '*')
+		//bop=(BINARY_OP | '*' | '-')
 		public Assignment getBopAssignment_1_0() { return cBopAssignment_1_0; }
 		
-		//(BINARY_OP | '*')
+		//(BINARY_OP | '*' | '-')
 		public Alternatives getBopAlternatives_1_0_0() { return cBopAlternatives_1_0_0; }
 		
 		//BINARY_OP
@@ -3381,6 +3382,9 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'*'
 		public Keyword getBopAsteriskKeyword_1_0_0_1() { return cBopAsteriskKeyword_1_0_0_1; }
+		
+		//'-'
+		public Keyword getBopHyphenMinusKeyword_1_0_0_2() { return cBopHyphenMinusKeyword_1_0_0_2; }
 		
 		//expression=Expression
 		public Assignment getExpressionAssignment_1_1() { return cExpressionAssignment_1_1; }
@@ -3406,14 +3410,15 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cUpAlternatives_1_0_0 = (Alternatives)cUpAssignment_1_0.eContents().get(0);
 		private final RuleCall cUpUNARY_OPTerminalRuleCall_1_0_0_0 = (RuleCall)cUpAlternatives_1_0_0.eContents().get(0);
 		private final Keyword cUpAsteriskKeyword_1_0_0_1 = (Keyword)cUpAlternatives_1_0_0.eContents().get(1);
+		private final Keyword cUpHyphenMinusKeyword_1_0_0_2 = (Keyword)cUpAlternatives_1_0_0.eContents().get(2);
 		private final Assignment cUeAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cUeUnaryExprParserRuleCall_1_1_0 = (RuleCall)cUeAssignment_1_1.eContents().get(0);
 		
 		//UnaryExpr:
-		//	{UnaryExpr} pr=PrimaryExpr | up=(UNARY_OP | '*') ue=UnaryExpr;
+		//	{UnaryExpr} pr=PrimaryExpr | up=(UNARY_OP | '*' | '-') ue=UnaryExpr;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{UnaryExpr} pr=PrimaryExpr | up=(UNARY_OP | '*') ue=UnaryExpr
+		//{UnaryExpr} pr=PrimaryExpr | up=(UNARY_OP | '*' | '-') ue=UnaryExpr
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//{UnaryExpr} pr=PrimaryExpr
@@ -3428,13 +3433,13 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		//PrimaryExpr
 		public RuleCall getPrPrimaryExprParserRuleCall_0_1_0() { return cPrPrimaryExprParserRuleCall_0_1_0; }
 		
-		//up=(UNARY_OP | '*') ue=UnaryExpr
+		//up=(UNARY_OP | '*' | '-') ue=UnaryExpr
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//up=(UNARY_OP | '*')
+		//up=(UNARY_OP | '*' | '-')
 		public Assignment getUpAssignment_1_0() { return cUpAssignment_1_0; }
 		
-		//(UNARY_OP | '*')
+		//(UNARY_OP | '*' | '-')
 		public Alternatives getUpAlternatives_1_0_0() { return cUpAlternatives_1_0_0; }
 		
 		//UNARY_OP
@@ -3442,6 +3447,9 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'*'
 		public Keyword getUpAsteriskKeyword_1_0_0_1() { return cUpAsteriskKeyword_1_0_0_1; }
+		
+		//'-'
+		public Keyword getUpHyphenMinusKeyword_1_0_0_2() { return cUpHyphenMinusKeyword_1_0_0_2; }
 		
 		//ue=UnaryExpr
 		public Assignment getUeAssignment_1_1() { return cUeAssignment_1_1; }
@@ -5208,7 +5216,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//IDENTIFIER:
-	//	ID | '-' ID;
+	//	ID | '-'? ID;
 	public IDENTIFIERElements getIDENTIFIERAccess() {
 		return pIDENTIFIER;
 	}
@@ -6165,7 +6173,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Expression2:
-	//	{Expression2} (bop=(BINARY_OP | '*') expression=Expression expression2=Expression2)?;
+	//	{Expression2} (bop=(BINARY_OP | '*' | '-') expression=Expression expression2=Expression2)?;
 	public Expression2Elements getExpression2Access() {
 		return pExpression2;
 	}
@@ -6175,7 +6183,7 @@ public class GoGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//UnaryExpr:
-	//	{UnaryExpr} pr=PrimaryExpr | up=(UNARY_OP | '*') ue=UnaryExpr;
+	//	{UnaryExpr} pr=PrimaryExpr | up=(UNARY_OP | '*' | '-') ue=UnaryExpr;
 	public UnaryExprElements getUnaryExprAccess() {
 		return pUnaryExpr;
 	}

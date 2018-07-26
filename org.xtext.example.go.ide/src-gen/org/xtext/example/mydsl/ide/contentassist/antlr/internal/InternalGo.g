@@ -3950,6 +3950,12 @@ rule__Expression2__BopAlternatives_1_0_0
 		'*'
 		{ after(grammarAccess.getExpression2Access().getBopAsteriskKeyword_1_0_0_1()); }
 	)
+	|
+	(
+		{ before(grammarAccess.getExpression2Access().getBopHyphenMinusKeyword_1_0_0_2()); }
+		'-'
+		{ after(grammarAccess.getExpression2Access().getBopHyphenMinusKeyword_1_0_0_2()); }
+	)
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -3991,6 +3997,12 @@ rule__UnaryExpr__UpAlternatives_1_0_0
 		{ before(grammarAccess.getUnaryExprAccess().getUpAsteriskKeyword_1_0_0_1()); }
 		'*'
 		{ after(grammarAccess.getUnaryExprAccess().getUpAsteriskKeyword_1_0_0_1()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getUnaryExprAccess().getUpHyphenMinusKeyword_1_0_0_2()); }
+		'-'
+		{ after(grammarAccess.getUnaryExprAccess().getUpHyphenMinusKeyword_1_0_0_2()); }
 	)
 ;
 finally {
@@ -4919,7 +4931,7 @@ rule__IDENTIFIER__Group_1__0__Impl
 :
 (
 	{ before(grammarAccess.getIDENTIFIERAccess().getHyphenMinusKeyword_1_0()); }
-	'-'
+	('-')?
 	{ after(grammarAccess.getIDENTIFIERAccess().getHyphenMinusKeyword_1_0()); }
 )
 ;

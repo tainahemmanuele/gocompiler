@@ -3,9 +3,9 @@
 '*'=45
 '++'=77
 ','=43
-'-'=49
+'-'=46
 '--'=78
-'.'=46
+'.'=47
 '...'=59
 ':'=64
 ':='=79
@@ -26,13 +26,13 @@
 'else'=70
 'fallthrough'=41
 'for'=72
-'func'=47
+'func'=48
 'goto'=65
 'if'=69
 'import'=84
 'interface'=60
 'map'=61
-'package'=48
+'package'=49
 'range'=83
 'return'=66
 'select'=71
