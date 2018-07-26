@@ -207,8 +207,18 @@ class GoValidator extends AbstractGoValidator {
 					param.id,
 					param.type.tp
 				)
+				ids.put(
+					param.id,
+					param.type.tp
+				)
+				
 			}else {
 				parameterList.put(
+					param.id,
+					new NullObj()
+				)
+				
+				ids.put(
 					param.id,
 					new NullObj()
 				)
@@ -535,17 +545,18 @@ class GoValidator extends AbstractGoValidator {
 	/*
 	 * Retorna o tipo de um objeto
 	 */
-	def getType(Object obj) {	
-		if(obj instanceof Integer) {
+	def getType(Object obj) {
+		
+		if(obj instanceof Integer || obj == "int") {
 			return "int"
 		}
-		else if(obj instanceof Double) {
+		else if(obj instanceof Double || obj == "float") {
 			return "float"
 		}
-		else if(obj instanceof Boolean) {
+		else if(obj instanceof Boolean || obj  == "bool") {
 			return "bool"
 		}
-		else if(obj instanceof String) {
+		else if(obj instanceof String || obj == "string") {
 			return "string"
 		}
 		else if(obj instanceof NullObj) {
