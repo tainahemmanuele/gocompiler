@@ -22,17 +22,22 @@ import org.xtext.example.mydsl.go.BasicLit
  */
 class GoGenerator extends AbstractGenerator {
 	
+	
+	 
 	Integer variables = 1;
 	Integer address   = 0;
 
+//UNCOMMENT TO GENERATE CODE
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		for(e : resource.allContents.toIterable.filter(TopLevelDecl)) {		
-			fsa.generateFile(
-				e.toString() + ".asm",
-				e.compile
-			)		
-		}
+//		for(e : resource.allContents.toIterable.filter(TopLevelDecl)) {		
+//			fsa.generateFile(
+//				e.toString() + ".asm",
+//				e.compile
+//			)		
+//		}
 	}
+	
+	/* UNCOMMENT TO GENERATE CODE
 	
 	
 	def compile(TopLevelDecl td) '''
@@ -164,4 +169,6 @@ class GoGenerator extends AbstractGenerator {
 	def void nextAddress() {
 		address = address + 8;
 	}
+	
+	*/
 }
