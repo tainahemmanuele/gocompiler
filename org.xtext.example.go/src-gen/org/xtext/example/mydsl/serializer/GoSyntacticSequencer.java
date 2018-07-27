@@ -268,7 +268,6 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (';' | ',')?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     statment+=Statement (ambiguity) '}' (rule end)
 	 *     statment+=Statement (ambiguity) (rule end)
 	 *     statment+=Statement (ambiguity) statment+=Statement
 	 */

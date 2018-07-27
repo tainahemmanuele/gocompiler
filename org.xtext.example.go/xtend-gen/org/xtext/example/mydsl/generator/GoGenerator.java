@@ -15,6 +15,10 @@ import org.eclipse.xtext.generator.IGeneratorContext;
  */
 @SuppressWarnings("all")
 public class GoGenerator extends AbstractGenerator {
+  private Integer variables = Integer.valueOf(1);
+  
+  private Integer address = Integer.valueOf(0);
+  
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
   }

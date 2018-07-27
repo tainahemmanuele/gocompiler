@@ -77,7 +77,7 @@ class GoValidator extends AbstractGoValidator {
 	@Check
 	def checkVarDecl(VarDecl vd) {
 		
-		var varId   = vd.varspec.id.id;	
+		var varId   = vd.varspec.id.id;
 		nullDeclaration(varId);
 		
 		var type    = vd.varspec.tp2;

@@ -3,10 +3,16 @@
  */
 package org.xtext.example.mydsl.go.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.xtext.example.mydsl.go.Block;
 import org.xtext.example.mydsl.go.FunctionBody;
 import org.xtext.example.mydsl.go.GoPackage;
 
@@ -14,11 +20,27 @@ import org.xtext.example.mydsl.go.GoPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Function Body</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.mydsl.go.impl.FunctionBodyImpl#getBc <em>Bc</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class FunctionBodyImpl extends MinimalEObjectImpl.Container implements FunctionBody
 {
+  /**
+   * The cached value of the '{@link #getBc() <em>Bc</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBc()
+   * @generated
+   * @ordered
+   */
+  protected Block bc;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -38,6 +60,136 @@ public class FunctionBodyImpl extends MinimalEObjectImpl.Container implements Fu
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.FUNCTION_BODY;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Block getBc()
+  {
+    return bc;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetBc(Block newBc, NotificationChain msgs)
+  {
+    Block oldBc = bc;
+    bc = newBc;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.FUNCTION_BODY__BC, oldBc, newBc);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBc(Block newBc)
+  {
+    if (newBc != bc)
+    {
+      NotificationChain msgs = null;
+      if (bc != null)
+        msgs = ((InternalEObject)bc).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.FUNCTION_BODY__BC, null, msgs);
+      if (newBc != null)
+        msgs = ((InternalEObject)newBc).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.FUNCTION_BODY__BC, null, msgs);
+      msgs = basicSetBc(newBc, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.FUNCTION_BODY__BC, newBc, newBc));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case GoPackage.FUNCTION_BODY__BC:
+        return basicSetBc(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case GoPackage.FUNCTION_BODY__BC:
+        return getBc();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case GoPackage.FUNCTION_BODY__BC:
+        setBc((Block)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.FUNCTION_BODY__BC:
+        setBc((Block)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.FUNCTION_BODY__BC:
+        return bc != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //FunctionBodyImpl

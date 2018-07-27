@@ -290,7 +290,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         Block block = (Block)theEObject;
         T result = caseBlock(block);
-        if (result == null) result = caseFunctionBody(block);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -298,8 +297,6 @@ public class GoSwitch<T> extends Switch<T>
       {
         StatementList statementList = (StatementList)theEObject;
         T result = caseStatementList(statementList);
-        if (result == null) result = caseBlock(statementList);
-        if (result == null) result = caseFunctionBody(statementList);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
