@@ -81,16 +81,31 @@ class GoValidator extends AbstractGoValidator {
 		nullDeclaration(varId);
 		
 		var type    = vd.varspec.tp2;
-		var varExp  = vd.varspec.expressionlist.exp.up.pr.op.literal.basic;
-	
 		
-		if (type !== null && varExp !== null) {
-			var varType = type.tp; 		
+		var varExp  = vd.varspec.expressionlist.exp.up.pr.op;
+		
+		if (type !== null && varExp.literal !== null) {
+			var varType = type.tp;
+			var exp = varExp.literal.basic; 		
 			if(varType !== null) {
-				var error = checkAndMakeDecl(varId, varType, varExp);
+				var error = checkAndMakeDecl(varId, varType, exp);
 				if(varId.charAt(0) !== varId.toLowerCase().charAt(0) && !error) {
 					warning ("Variables usually starts with Lower Case", null);
 				}
+			}
+		}
+		else if(type !== null && varExp.operandn !== null) {
+			
+			var expType = getIdType(varExp.operandn.id)
+			if(type.tp == expType) {
+				ids.put(
+					varId,
+					expType
+				)
+			}
+			else {
+				error("Semantic Error: mismatched " + type.tp + " and " + expType, null)
+				
 			}
 		}
 		
@@ -119,6 +134,22 @@ class GoValidator extends AbstractGoValidator {
 		else {
 			error('Semantic Error: Wrong number of atributes', null)
 		}
+	}
+	
+	def getIdType(String string) {
+		
+		var key = ids.get(string).toString;
+		
+		if(key.contains("TYPE=")) {
+			return (key.split("TYPE=").get(1).replace("}" , ""))
+		}
+		
+		else if(key !== null) {
+			return getType(key)	
+		}
+		else {
+			return ""
+		}	
 	}
 	
 	/*
@@ -177,6 +208,7 @@ class GoValidator extends AbstractGoValidator {
 		var parameters    = fd.signature.parameters.parameterlist;
 		var parameterList = newLinkedHashMap()
 		
+		
 		if(parameters.parameterDecl1.type !== null) {
 			
 			parameterList.put(
@@ -225,6 +257,13 @@ class GoValidator extends AbstractGoValidator {
 			}
 		}
 		
+		if(fd.signature.result !== null) {
+			parameterList.put(
+				"TYPE",
+				fd.signature.result.type.tp
+			)
+		}
+		
 		ids.put(funcName, parameterList.toString);	
 	}
 	
@@ -241,6 +280,8 @@ class GoValidator extends AbstractGoValidator {
 			
 			var elements   = ids.get(op.operandn.id).toString().split(",");
 			var expList    = op.exp;
+			
+		
 			callMethodCheck(expList, elements, op)
 		}
 		
@@ -316,6 +357,11 @@ class GoValidator extends AbstractGoValidator {
 	 */
 	protected def void callMethodCheck(ExpressionList expList, String[] elements, Operand op) {
 		var termsCount = 0
+		
+		
+		if(elements.get(elements.size - 1).contains("TYPE=")) {
+			termsCount += 1
+		}
 	
 		if(expList.exp.up.pr.op.operandn !== null) {
 			if(expList.exp.up.pr.op.operandn.id !== null) {
