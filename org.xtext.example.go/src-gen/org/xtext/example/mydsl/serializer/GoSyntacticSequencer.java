@@ -69,7 +69,7 @@ public class GoSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * IDENTIFIER:
-	 * 	ID |'-'ID;
+	 * 	ID |('-')? ID ;
 	 */
 	protected String getIDENTIFIERToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)

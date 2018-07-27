@@ -6,9 +6,11 @@ package org.xtext.example.mydsl.validation;
 import com.google.common.base.Objects;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
+import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
+import org.eclipse.xtext.xbase.lib.Conversions;
 import org.xtext.example.mydsl.go.BasicLit;
 import org.xtext.example.mydsl.go.ConstDecl;
 import org.xtext.example.mydsl.go.Expression;
@@ -24,6 +26,7 @@ import org.xtext.example.mydsl.go.Operand;
 import org.xtext.example.mydsl.go.OperandName;
 import org.xtext.example.mydsl.go.ParameterDecl;
 import org.xtext.example.mydsl.go.ParameterList;
+import org.xtext.example.mydsl.go.Result;
 import org.xtext.example.mydsl.go.ShortVarDecl;
 import org.xtext.example.mydsl.go.Type;
 import org.xtext.example.mydsl.go.VarDecl;
@@ -87,13 +90,29 @@ public class GoValidator extends AbstractGoValidator {
     String varId = vd.getVarspec().getId().getId();
     this.nullDeclaration(varId);
     Type type = vd.getVarspec().getTp2();
-    BasicLit varExp = vd.getVarspec().getExpressionlist().getExp().getUp().getPr().getOp().getLiteral().getBasic();
-    if (((type != null) && (varExp != null))) {
+    Operand varExp = vd.getVarspec().getExpressionlist().getExp().getUp().getPr().getOp();
+    if (((type != null) && (varExp.getLiteral() != null))) {
       String varType = type.getTp();
+      BasicLit exp = varExp.getLiteral().getBasic();
       if ((varType != null)) {
-        boolean error = this.checkAndMakeDecl(varId, varType, varExp);
+        boolean error = this.checkAndMakeDecl(varId, varType, exp);
         if (((varId.charAt(0) != varId.toLowerCase().charAt(0)) && (!error))) {
           this.warning("Variables usually starts with Lower Case", null);
+        }
+      }
+    } else {
+      if (((type != null) && (varExp.getOperandn() != null))) {
+        String expType = this.getIdType(varExp.getOperandn().getId());
+        String _tp = type.getTp();
+        boolean _equals = Objects.equal(_tp, expType);
+        if (_equals) {
+          this.ids.put(varId, expType);
+        } else {
+          String _tp_1 = type.getTp();
+          String _plus = ("Semantic Error: mismatched " + _tp_1);
+          String _plus_1 = (_plus + " and ");
+          String _plus_2 = (_plus_1 + expType);
+          this.error(_plus_2, null);
         }
       }
     }
@@ -113,8 +132,8 @@ public class GoValidator extends AbstractGoValidator {
     }
     int _size = varIds.size();
     int _size_1 = exps.size();
-    boolean _equals = (_size == _size_1);
-    if (_equals) {
+    boolean _equals_1 = (_size == _size_1);
+    if (_equals_1) {
       int index = 0;
       for (final String id_1 : varIds) {
         if ((type != null)) {
@@ -125,6 +144,20 @@ public class GoValidator extends AbstractGoValidator {
       }
     } else {
       this.error("Semantic Error: Wrong number of atributes", null);
+    }
+  }
+  
+  public String getIdType(final String string) {
+    String key = this.ids.get(string).toString();
+    boolean _contains = key.contains("TYPE=");
+    if (_contains) {
+      return key.split("TYPE=")[1].replace("}", "");
+    } else {
+      if ((key != null)) {
+        return this.getType(key);
+      } else {
+        return "";
+      }
     }
   }
   
@@ -228,11 +261,24 @@ public class GoValidator extends AbstractGoValidator {
           parameterList.put(
             param.getId(), 
             param.getType().getTp());
+          this.ids.put(
+            param.getId(), 
+            param.getType().getTp());
         } else {
           String _id_2 = param.getId();
           NullObj _nullObj_2 = new NullObj();
           parameterList.put(_id_2, _nullObj_2);
+          String _id_3 = param.getId();
+          NullObj _nullObj_3 = new NullObj();
+          this.ids.put(_id_3, _nullObj_3);
         }
+      }
+      Result _result = fd.getSignature().getResult();
+      boolean _tripleNotEquals_2 = (_result != null);
+      if (_tripleNotEquals_2) {
+        parameterList.put(
+          "TYPE", 
+          fd.getSignature().getResult().getType().getTp());
       }
       _xblockexpression = this.ids.put(funcName, parameterList.toString());
     }
@@ -347,21 +393,28 @@ public class GoValidator extends AbstractGoValidator {
    */
   protected void callMethodCheck(final ExpressionList expList, final String[] elements, final Operand op) {
     int termsCount = 0;
+    int _size = ((List<String>)Conversions.doWrapArray(elements)).size();
+    int _minus = (_size - 1);
+    boolean _contains = elements[_minus].contains("TYPE=");
+    if (_contains) {
+      int _termsCount = termsCount;
+      termsCount = (_termsCount + 1);
+    }
     OperandName _operandn = expList.getExp().getUp().getPr().getOp().getOperandn();
     boolean _tripleNotEquals = (_operandn != null);
     if (_tripleNotEquals) {
       String _id = expList.getExp().getUp().getPr().getOp().getOperandn().getId();
       boolean _tripleNotEquals_1 = (_id != null);
       if (_tripleNotEquals_1) {
-        int _termsCount = termsCount;
-        termsCount = (_termsCount + 1);
+        int _termsCount_1 = termsCount;
+        termsCount = (_termsCount_1 + 1);
       }
     } else {
       BasicLit _basic = expList.getExp().getUp().getPr().getOp().getLiteral().getBasic();
       boolean _tripleNotEquals_2 = (_basic != null);
       if (_tripleNotEquals_2) {
-        int _termsCount_1 = termsCount;
-        termsCount = (_termsCount_1 + 1);
+        int _termsCount_2 = termsCount;
+        termsCount = (_termsCount_2 + 1);
       }
     }
     EList<Expression> _expression2 = expList.getExpression2();
@@ -369,8 +422,8 @@ public class GoValidator extends AbstractGoValidator {
     if (_tripleNotEquals_3) {
       EList<Expression> _expression2_1 = expList.getExpression2();
       for (final Expression exp : _expression2_1) {
-        int _termsCount_2 = termsCount;
-        termsCount = (_termsCount_2 + 1);
+        int _termsCount_3 = termsCount;
+        termsCount = (_termsCount_3 + 1);
       }
     }
     int _length = elements.length;
@@ -588,16 +641,16 @@ public class GoValidator extends AbstractGoValidator {
    * Retorna o tipo de um objeto
    */
   public String getType(final Object obj) {
-    if ((obj instanceof Integer)) {
+    if (((obj instanceof Integer) || Objects.equal(obj, "int"))) {
       return "int";
     } else {
-      if ((obj instanceof Double)) {
+      if (((obj instanceof Double) || Objects.equal(obj, "float"))) {
         return "float";
       } else {
-        if ((obj instanceof Boolean)) {
+        if (((obj instanceof Boolean) || Objects.equal(obj, "bool"))) {
           return "bool";
         } else {
-          if ((obj instanceof String)) {
+          if (((obj instanceof String) || Objects.equal(obj, "string"))) {
             return "string";
           } else {
             if ((obj instanceof NullObj)) {

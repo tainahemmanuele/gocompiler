@@ -333,9 +333,9 @@ KEYWORDS:
 	| BOOLEAN_LIT;
 
 terminal LITERAL_TYPE:
-	'int' | 'int8' 'int32' |'int64' 
+	'int' | 'int8' | 'int32' |'int64' 
 	      |'float' |'float32' |'float64' 
-	      | 'bool' | 'string'
+	      | 'bool' | 'string' |'uint'
 ;
 
 terminal BINARY_OP:
@@ -372,16 +372,16 @@ terminal BOOLEAN_LIT:
 
 
 IDENTIFIER:
-	ID |'-'ID;
+	ID |('-')? ID ;
 
 
 terminal FLOAT_LIT: 
 	DECIMAL_LIT '.' (DECIMAL_LIT)? (EXPOENT)? |
 	DECIMALS EXPOENT |
-	'.' DECIMALS (EXPOENT)?;
+	'.' DECIMALS (EXPOENT)? | '-' DECIMAL_LIT '.' (DECIMAL_LIT)? (EXPOENT)?;
 	
 terminal INT_LIT:
-	DECIMAL_LIT | OCTAL_LIT | HEX_LIT;
+	DECIMAL_LIT | OCTAL_LIT | HEX_LIT | '-'DECIMAL_LIT;
 
 terminal fragment DECIMAL_LIT:
 	('1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9') (DECIMAL_DIGIT)*;
@@ -696,11 +696,11 @@ Expression:{Expression}
 
 Expression2:
 	{Expression2}
-	(bop=(BINARY_OP|'*') expression=Expression expression2=Expression2)?;
+	(bop=(BINARY_OP|'*'| '-') expression=Expression expression2=Expression2)?;
 
 
 UnaryExpr: {UnaryExpr}
-	pr=PrimaryExpr | up=(UNARY_OP|'*') ue=UnaryExpr;
+	pr=PrimaryExpr | up=(UNARY_OP|'*'| '-') ue=UnaryExpr;
 
 PrimaryExpr: {PrimaryExpr}
 	op=Operand pr=PrimaryExpr2 |

@@ -76,17 +76,23 @@ class GoGenerator extends AbstractGenerator {
 	
 	def vardecl(VarDecl vd) '''	 
 		«IF vd !== null»
-			«IF vd.varspec.expressionlist.exp.up.pr.op.literal !== null»
-				«address»: LD «reg», #«getliteral(vd.varspec.expressionlist.exp.up.pr.op.literal.basic)»
+			«IF vd.varspec.expressionlist.exp.exp !== null»
+				«address»: LD «reg», «vd.varspec.expressionlist.exp.exp.toString»
 			«ELSE»
-				«address»: LD «reg», «vd.varspec.expressionlist.exp.up.pr.op.operandn.id» «nextAddress»
-			«ENDIF»
-			«IF vd.varspec.expressionlist.exp.exp !== null »
-				«IF vd.varspec.expressionlist.exp.exp.expression.up.pr.op.literal !== null»
-					«address»: ADD «reg», «reg», #«getliteral(vd.varspec.expressionlist.exp.exp.expression.up.pr.op.literal.basic)» «nextAddress»
+				«IF vd.varspec.expressionlist.exp.up.pr.op.literal !== null»
+					«address»: LD «reg», #«getliteral(vd.varspec.expressionlist.exp.up.pr.op.literal.basic)»
+				«ELSE»
+					«IF vd.varspec.expressionlist.exp.up.pr.op !== null»
+						«address»: LD «reg», «vd.varspec.expressionlist.exp.up.pr.op.operandn.id» «nextAddress»
+					«ENDIF»
 				«ENDIF»
-				«IF vd.varspec.expressionlist.exp.exp.expression.up.pr.op.operandn !== null»
-					«address»: ADD «reg», «reg», «vd.varspec.expressionlist.exp.exp.expression.up.pr.op.operandn.id» «nextAddress»
+				«IF vd.varspec.expressionlist.exp.exp !== null »
+					«IF vd.varspec.expressionlist.exp.exp.expression.up.pr.op.literal !== null»
+						«address»: ADD «reg», «reg», #«getliteral(vd.varspec.expressionlist.exp.exp.expression.up.pr.op.literal.basic)» «nextAddress»
+					«ENDIF»
+					«IF vd.varspec.expressionlist.exp.exp.expression.up.pr.op.operandn !== null»
+						«address»: ADD «reg», «reg», «vd.varspec.expressionlist.exp.exp.expression.up.pr.op.operandn.id» «nextAddress»
+					«ENDIF»
 				«ENDIF»
 			«ENDIF»
 		«ENDIF»

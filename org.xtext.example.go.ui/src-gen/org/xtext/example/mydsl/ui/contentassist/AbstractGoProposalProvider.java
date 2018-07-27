@@ -457,6 +457,7 @@ public abstract class AbstractGoProposalProvider extends TerminalsProposalProvid
 	public void completeExpression2_Bop(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		completeRuleCall(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(0)), context, acceptor);
 		// subclasses may override
+		// subclasses may override
 	}
 	public void completeExpression2_Expression(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
@@ -469,6 +470,7 @@ public abstract class AbstractGoProposalProvider extends TerminalsProposalProvid
 	}
 	public void completeUnaryExpr_Up(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		completeRuleCall(((RuleCall)((Alternatives)assignment.getTerminal()).getElements().get(0)), context, acceptor);
+		// subclasses may override
 		// subclasses may override
 	}
 	public void completeUnaryExpr_Ue(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
