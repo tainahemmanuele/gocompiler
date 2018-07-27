@@ -3,6 +3,7 @@
  */
 package org.xtext.example.mydsl.generator;
 
+import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -14,6 +15,7 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.xtext.example.mydsl.go.BasicLit;
 import org.xtext.example.mydsl.go.Declaration;
+import org.xtext.example.mydsl.go.Expression;
 import org.xtext.example.mydsl.go.Expression2;
 import org.xtext.example.mydsl.go.FunctionBody;
 import org.xtext.example.mydsl.go.FunctionDecl;
@@ -147,39 +149,32 @@ public class GoGenerator extends AbstractGenerator {
     {
       if ((vd != null)) {
         {
-          Expression2 _exp = vd.getVarspec().getExpressionlist().getExp().getExp();
-          boolean _tripleNotEquals = (_exp != null);
-          if (_tripleNotEquals) {
-            _builder.append(this.address);
-            _builder.append(": LD ");
-            String _reg = this.reg();
-            _builder.append(_reg);
-            _builder.append(", ");
-            String _string = vd.getVarspec().getExpressionlist().getExp().getExp().toString();
-            _builder.append(_string);
-            _builder.newLineIfNotEmpty();
-          } else {
+          Expression _expression = vd.getVarspec().getExpressionlist().getExp().getExp().getExpression();
+          boolean _tripleEquals = (_expression == null);
+          if (_tripleEquals) {
             {
               Literal _literal = vd.getVarspec().getExpressionlist().getExp().getUp().getPr().getOp().getLiteral();
-              boolean _tripleNotEquals_1 = (_literal != null);
-              if (_tripleNotEquals_1) {
+              boolean _tripleNotEquals = (_literal != null);
+              if (_tripleNotEquals) {
                 _builder.append(this.address);
                 _builder.append(": LD ");
-                String _reg_1 = this.reg();
-                _builder.append(_reg_1);
+                String _reg = this.reg();
+                _builder.append(_reg);
                 _builder.append(", #");
                 String _literal_1 = this.getliteral(vd.getVarspec().getExpressionlist().getExp().getUp().getPr().getOp().getLiteral().getBasic());
                 _builder.append(_literal_1);
+                _builder.append(" ");
+                this.nextAddress();
                 _builder.newLineIfNotEmpty();
               } else {
                 {
                   Operand _op = vd.getVarspec().getExpressionlist().getExp().getUp().getPr().getOp();
-                  boolean _tripleNotEquals_2 = (_op != null);
-                  if (_tripleNotEquals_2) {
+                  boolean _tripleNotEquals_1 = (_op != null);
+                  if (_tripleNotEquals_1) {
                     _builder.append(this.address);
                     _builder.append(": LD ");
-                    String _reg_2 = this.reg();
-                    _builder.append(_reg_2);
+                    String _reg_1 = this.reg();
+                    _builder.append(_reg_1);
                     _builder.append(", ");
                     String _id = vd.getVarspec().getExpressionlist().getExp().getUp().getPr().getOp().getOperandn().getId();
                     _builder.append(_id);
@@ -190,24 +185,61 @@ public class GoGenerator extends AbstractGenerator {
                 }
               }
             }
+          } else {
             {
-              Expression2 _exp_1 = vd.getVarspec().getExpressionlist().getExp().getExp();
-              boolean _tripleNotEquals_3 = (_exp_1 != null);
-              if (_tripleNotEquals_3) {
+              Literal _literal_2 = vd.getVarspec().getExpressionlist().getExp().getUp().getPr().getOp().getLiteral();
+              boolean _tripleNotEquals_2 = (_literal_2 != null);
+              if (_tripleNotEquals_2) {
+                _builder.append(this.address);
+                _builder.append(": LD ");
+                String _reg_2 = this.reg();
+                _builder.append(_reg_2);
+                _builder.append(", #");
+                String _literal_3 = this.getliteral(vd.getVarspec().getExpressionlist().getExp().getUp().getPr().getOp().getLiteral().getBasic());
+                _builder.append(_literal_3);
+                _builder.append(" ");
+                this.nextAddress();
+                _builder.newLineIfNotEmpty();
+              } else {
                 {
-                  Literal _literal_2 = vd.getVarspec().getExpressionlist().getExp().getExp().getExpression().getUp().getPr().getOp().getLiteral();
-                  boolean _tripleNotEquals_4 = (_literal_2 != null);
-                  if (_tripleNotEquals_4) {
+                  Operand _op_1 = vd.getVarspec().getExpressionlist().getExp().getUp().getPr().getOp();
+                  boolean _tripleNotEquals_3 = (_op_1 != null);
+                  if (_tripleNotEquals_3) {
                     _builder.append(this.address);
-                    _builder.append(": ADD ");
+                    _builder.append(": LD ");
                     String _reg_3 = this.reg();
                     _builder.append(_reg_3);
                     _builder.append(", ");
+                    String _id_1 = vd.getVarspec().getExpressionlist().getExp().getUp().getPr().getOp().getOperandn().getId();
+                    _builder.append(_id_1);
+                    _builder.append(" ");
+                    this.nextAddress();
+                    _builder.newLineIfNotEmpty();
+                  }
+                }
+              }
+            }
+            {
+              Expression2 _exp = vd.getVarspec().getExpressionlist().getExp().getExp();
+              boolean _tripleNotEquals_4 = (_exp != null);
+              if (_tripleNotEquals_4) {
+                {
+                  Literal _literal_4 = vd.getVarspec().getExpressionlist().getExp().getExp().getExpression().getUp().getPr().getOp().getLiteral();
+                  boolean _tripleNotEquals_5 = (_literal_4 != null);
+                  if (_tripleNotEquals_5) {
+                    _builder.append(this.address);
+                    _builder.append(": ");
+                    String _opType = this.getOpType(vd.getVarspec().getExpressionlist().getExp().getExp().getBop());
+                    _builder.append(_opType);
+                    _builder.append(" ");
                     String _reg_4 = this.reg();
                     _builder.append(_reg_4);
+                    _builder.append(", ");
+                    String _reg_5 = this.reg();
+                    _builder.append(_reg_5);
                     _builder.append(", #");
-                    String _literal_3 = this.getliteral(vd.getVarspec().getExpressionlist().getExp().getExp().getExpression().getUp().getPr().getOp().getLiteral().getBasic());
-                    _builder.append(_literal_3);
+                    String _literal_5 = this.getliteral(vd.getVarspec().getExpressionlist().getExp().getExp().getExpression().getUp().getPr().getOp().getLiteral().getBasic());
+                    _builder.append(_literal_5);
                     _builder.append(" ");
                     this.nextAddress();
                     _builder.newLineIfNotEmpty();
@@ -215,18 +247,21 @@ public class GoGenerator extends AbstractGenerator {
                 }
                 {
                   OperandName _operandn = vd.getVarspec().getExpressionlist().getExp().getExp().getExpression().getUp().getPr().getOp().getOperandn();
-                  boolean _tripleNotEquals_5 = (_operandn != null);
-                  if (_tripleNotEquals_5) {
+                  boolean _tripleNotEquals_6 = (_operandn != null);
+                  if (_tripleNotEquals_6) {
                     _builder.append(this.address);
-                    _builder.append(": ADD ");
-                    String _reg_5 = this.reg();
-                    _builder.append(_reg_5);
-                    _builder.append(", ");
+                    _builder.append(": ");
+                    String _opType_1 = this.getOpType(vd.getVarspec().getExpressionlist().getExp().getExp().getBop());
+                    _builder.append(_opType_1);
+                    _builder.append(" ");
                     String _reg_6 = this.reg();
                     _builder.append(_reg_6);
                     _builder.append(", ");
-                    String _id_1 = vd.getVarspec().getExpressionlist().getExp().getExp().getExpression().getUp().getPr().getOp().getOperandn().getId();
-                    _builder.append(_id_1);
+                    String _reg_7 = this.reg();
+                    _builder.append(_reg_7);
+                    _builder.append(", ");
+                    String _id_2 = vd.getVarspec().getExpressionlist().getExp().getExp().getExpression().getUp().getPr().getOp().getOperandn().getId();
+                    _builder.append(_id_2);
                     _builder.append(" ");
                     this.nextAddress();
                     _builder.newLineIfNotEmpty();
@@ -240,11 +275,11 @@ public class GoGenerator extends AbstractGenerator {
     }
     _builder.append(this.address);
     _builder.append(": ST ");
-    String _id_2 = vd.getVarspec().getId().getId();
-    _builder.append(_id_2);
+    String _id_3 = vd.getVarspec().getId().getId();
+    _builder.append(_id_3);
     _builder.append(", ");
-    String _reg_7 = this.reg();
-    _builder.append(_reg_7);
+    String _reg_8 = this.reg();
+    _builder.append(_reg_8);
     _builder.newLineIfNotEmpty();
     this.nextAddress();
     _builder.newLineIfNotEmpty();
@@ -274,6 +309,40 @@ public class GoGenerator extends AbstractGenerator {
       return lit.getBool();
     }
     return null;
+  }
+  
+  public String getOpType(final String bop) {
+    boolean _equals = Objects.equal(bop, "+");
+    if (_equals) {
+      return "ADD";
+    } else {
+      boolean _equals_1 = Objects.equal(bop, "-");
+      if (_equals_1) {
+        return "SUB";
+      } else {
+        boolean _equals_2 = Objects.equal(bop, "/");
+        if (_equals_2) {
+          return "DIV";
+        } else {
+          boolean _equals_3 = Objects.equal(bop, "*");
+          if (_equals_3) {
+            return "MUL";
+          } else {
+            boolean _equals_4 = Objects.equal(bop, "&&");
+            if (_equals_4) {
+              return "AND";
+            } else {
+              boolean _equals_5 = Objects.equal(bop, "||");
+              if (_equals_5) {
+                return "OR";
+              } else {
+                return "ADD";
+              }
+            }
+          }
+        }
+      }
+    }
   }
   
   public String reg() {

@@ -76,11 +76,17 @@ class GoGenerator extends AbstractGenerator {
 	
 	def vardecl(VarDecl vd) '''	 
 		«IF vd !== null»
-			«IF vd.varspec.expressionlist.exp.exp !== null»
-				«address»: LD «reg», «vd.varspec.expressionlist.exp.exp.toString»
+			«IF vd.varspec.expressionlist.exp.exp.expression === null»
+				«IF vd.varspec.expressionlist.exp.up.pr.op.literal !== null»
+					«address»: LD «reg», #«getliteral(vd.varspec.expressionlist.exp.up.pr.op.literal.basic)» «nextAddress»
+				«ELSE»
+					«IF vd.varspec.expressionlist.exp.up.pr.op !== null»
+						«address»: LD «reg», «vd.varspec.expressionlist.exp.up.pr.op.operandn.id» «nextAddress»
+					«ENDIF»
+				«ENDIF»
 			«ELSE»
 				«IF vd.varspec.expressionlist.exp.up.pr.op.literal !== null»
-					«address»: LD «reg», #«getliteral(vd.varspec.expressionlist.exp.up.pr.op.literal.basic)»
+					«address»: LD «reg», #«getliteral(vd.varspec.expressionlist.exp.up.pr.op.literal.basic)» «nextAddress»
 				«ELSE»
 					«IF vd.varspec.expressionlist.exp.up.pr.op !== null»
 						«address»: LD «reg», «vd.varspec.expressionlist.exp.up.pr.op.operandn.id» «nextAddress»
@@ -88,10 +94,10 @@ class GoGenerator extends AbstractGenerator {
 				«ENDIF»
 				«IF vd.varspec.expressionlist.exp.exp !== null »
 					«IF vd.varspec.expressionlist.exp.exp.expression.up.pr.op.literal !== null»
-						«address»: ADD «reg», «reg», #«getliteral(vd.varspec.expressionlist.exp.exp.expression.up.pr.op.literal.basic)» «nextAddress»
+						«address»: «getOpType(vd.varspec.expressionlist.exp.exp.bop)» «reg», «reg», #«getliteral(vd.varspec.expressionlist.exp.exp.expression.up.pr.op.literal.basic)» «nextAddress»
 					«ENDIF»
 					«IF vd.varspec.expressionlist.exp.exp.expression.up.pr.op.operandn !== null»
-						«address»: ADD «reg», «reg», «vd.varspec.expressionlist.exp.exp.expression.up.pr.op.operandn.id» «nextAddress»
+						«address»: «getOpType(vd.varspec.expressionlist.exp.exp.bop)» «reg», «reg», «vd.varspec.expressionlist.exp.exp.expression.up.pr.op.operandn.id» «nextAddress»
 					«ENDIF»
 				«ENDIF»
 			«ENDIF»
@@ -100,6 +106,7 @@ class GoGenerator extends AbstractGenerator {
 		«nextAddress»
 		
 	'''
+	
 	
 	def getliteral(BasicLit lit) {
 		
@@ -119,6 +126,30 @@ class GoGenerator extends AbstractGenerator {
 			return lit.bool
 		}
 		
+	}
+	
+	def getOpType(String bop) {
+		if(bop == "+") {
+			return "ADD"
+		}
+		else if(bop == "-") {
+			return "SUB"
+		}
+		else if(bop == "/") {
+			return "DIV"
+		}
+		else if(bop == "*") {
+			return "MUL"
+		}
+		else if(bop == "&&") {
+			return "AND"
+		}
+		else if(bop == "||") {
+			return "OR"
+		}
+		else {
+			return "ADD"
+		}
 	}
 	
 	def String reg() {
